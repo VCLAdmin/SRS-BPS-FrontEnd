@@ -1,0 +1,12 @@
+.top-grey-border-intro-page {
+    opacity: 1;
+    position: absolute;
+    
+}
+.show{
+    display: block;
+}
+
+.hide{
+    display: none;
+}

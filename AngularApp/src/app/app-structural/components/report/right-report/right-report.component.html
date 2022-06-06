@@ -1,0 +1,205 @@
+<div class="main-page">
+  <div style="display:flex; justify-content: space-between; width: 599px;">
+    <!-- <div style="height:24px;border-radius: 8px;width: 215px;border: solid 1px #00a2d1;">
+      <div style="margin-top:5.5px; margin-left:14.5px;" class="fontUniversforSchueco-530">{{selectedProblemName}}</div> 
+    </div> -->
+    <div style="height:24px;">
+      <bps-configuration-selector style="width:215px;top:4px !important;" [data]="listOfDisplayData"
+        [(currentDisplayedData)]="currentDisplayedData" (currentDisplayedDataChange)="selectTableRow($event)"
+        [propertyName]="'configuration'">
+      </bps-configuration-selector>
+    </div>
+
+    <!---->
+    <div class="cells-group">
+      <div class="three-cells-group">
+        <bps-radio-group [(ngModel)]="radioValue" (ngModelChange)="onPhysicsTypeClicked($event)">
+          <label bps-radio-button bpsValue="Acoustic" [bpsDisabled]="radioValueADisabled" bpsRadioButtonType="variation12">
+            <ng-container *ngIf="radioValue === 'Acoustic' && !radioValueADisabled">
+              <img src="/assets/Images/icons/sps_round_iconreport_acoustic_blue.svg" 
+              bps-tooltip
+              [bpsTooltipType]="'variation_11'"
+              [bpsTooltipTitle]="getStructuralRegularReportTooltip()"
+              bpsTooltipPlacement="top" />
+            </ng-container>
+            <ng-container *ngIf="radioValue !== 'Acoustic' && !radioValueADisabled">
+              <img src="/assets/Images/icons/sps_round_iconreport_acoustic_lightgrey.svg" 
+              bps-tooltip
+              [bpsTooltipType]="'variation_11'"
+              [bpsTooltipTitle]="getStructuralRegularReportTooltip()"
+              bpsTooltipPlacement="top"/>
+            </ng-container>
+            <ng-container *ngIf="radioValueADisabled">
+              <img src="/assets/Images/icons/sps_round_iconreport_acoustic_darkgrey.svg" 
+              bps-tooltip
+              [bpsTooltipType]="'variation_11'"
+              bpsTooltipDisabled
+              [bpsTooltipTitle]="getStructuralRegularReportTooltip()"
+              bpsTooltipPlacement="top"/>
+            </ng-container>
+          </label>
+  
+          <label bps-radio-button bpsValue="SummaryStructural" [bpsDisabled]="radioValueBDisabled" bpsRadioButtonType="variation12">
+            <ng-container *ngIf="radioValue === 'SummaryStructural' && !radioValueBDisabled">
+              <img src="/assets/Images/icons/sps_round_iconreport_structural_blue.svg" 
+              bps-tooltip
+              [bpsTooltipType]="'variation_11'"
+              [bpsTooltipTitle]="getStructuralRegularReportTooltip()"
+              bpsTooltipPlacement="top"/>
+            </ng-container>
+            <ng-container *ngIf="radioValue !== 'SummaryStructural' && !radioValueBDisabled">
+              <img src="/assets/Images/icons/sps_round_iconreport_structural_lightgrey.svg"  
+              bps-tooltip
+              [bpsTooltipType]="'variation_11'"
+              [bpsTooltipTitle]="getStructuralRegularReportTooltip()"
+              bpsTooltipPlacement="top"/>
+            </ng-container>
+            <ng-container *ngIf="radioValueBDisabled">
+              <img src="/assets/Images/icons/sps_round_iconreport_structural_darkgrey.svg" 
+              bps-tooltip
+              [bpsTooltipType]="'variation_11'"
+              bpsTooltipDisabled
+              [bpsTooltipTitle]="getStructuralRegularReportTooltip()"
+              bpsTooltipPlacement="top" />
+            </ng-container>
+          </label>
+  
+          <label bps-radio-button bpsValue="Thermal" [bpsDisabled]="radioValueCDisabled" bpsRadioButtonType="variation12">
+            <ng-container *ngIf="radioValue === 'Thermal' && !radioValueCDisabled">
+              <img src="/assets/Images/icons/sps_round_iconreport_thermal_blue.svg" 
+               bps-tooltip
+              [bpsTooltipType]="'variation_11'"
+              [bpsTooltipTitle]="getStructuralRegularReportTooltip()"
+              bpsTooltipPlacement="top"/>
+            </ng-container>
+            <ng-container *ngIf="radioValue !== 'Thermal' && !radioValueCDisabled">
+              <img src="/assets/Images/icons/sps_round_iconreport_thermal_lightgrey.svg"  
+              bps-tooltip
+              [bpsTooltipType]="'variation_11'"
+              [bpsTooltipTitle]="getStructuralRegularReportTooltip()"
+              bpsTooltipPlacement="top"/>
+            </ng-container>
+            <ng-container *ngIf="radioValueCDisabled">
+              <img src="/assets/Images/icons/sps_round_iconreport_thermal_darkgrey.svg" 
+              bps-tooltip
+              [bpsTooltipType]="'variation_11'"
+              bpsTooltipDisabled
+              [bpsTooltipTitle]="getThermalRegularReportTooltip()"
+              bpsTooltipPlacement="top"/>
+            </ng-container>
+          </label>
+        </bps-radio-group>
+      </div>
+      <div class="full-cell">
+        <bps-radio-group [(ngModel)]="radioValue" (ngModelChange)="onPhysicsTypeClicked($event)">
+          <label bps-radio-button bpsValue="FullStrucural" [bpsDisabled]="radioValueADisabled" bpsRadioButtonType="variation12">
+            <ng-container *ngIf="radioValue === 'FullStrucural' && !radioValueADisabled">
+              <img src="/assets/bps-icons/sps_structural_icon_report_selected.svg" 
+              bps-tooltip
+              [bpsTooltipType]="'variation_11'"
+              [bpsTooltipTitle]="getStructuralFullReportTooltip()"
+              bpsTooltipPlacement="top" />
+            </ng-container>
+            <ng-container *ngIf="radioValue !== 'FullStrucural' && !radioValueADisabled">
+              <img src="/assets/bps-icons/sps_structural_icon_report_enabled.svg" 
+              bps-tooltip
+              [bpsTooltipType]="'variation_11'"
+              [bpsTooltipTitle]="getStructuralFullReportTooltip()"
+              bpsTooltipPlacement="top"/>
+            </ng-container>
+            <ng-container *ngIf="radioValueADisabled">
+              <img src="/assets/bps-icons/sps_structural_icon_report_disable.svg" 
+              bps-tooltip
+              [bpsTooltipType]="'variation_11'"
+              bpsTooltipDisabled
+              [bpsTooltipTitle]="getStructuralFullReportTooltip()"
+              bpsTooltipPlacement="top"/>
+            </ng-container>
+          </label>
+        </bps-radio-group>
+      </div>  
+    </div>
+
+    <!---->
+
+    <!-- <div style="max-height: 25px; overflow: hidden; height: 25px; margin-left:53px;width:100px;">
+      <label bps-checkbox bpsType="variation3" [(ngModel)]="valueA" (ngModelChange)="onPhysicsTypeAClicked($event)"
+        [bpsDisabled]="valueADisabled">
+        <ng-container *ngIf="valueA && !valueADisabled">
+          <img src="/assets/bps-icons/sps_acoustic_icon_report_selected.svg" />
+        </ng-container>
+        <ng-container *ngIf="!valueA && !valueADisabled">
+          <img src="/assets/bps-icons/sps_acoustic_icon_report_enabled.svg" />
+        </ng-container>
+        <ng-container *ngIf="valueADisabled">
+          <img src="/assets/bps-icons/sps_acoustic_icon_report_disable.svg" />
+        </ng-container>
+      </label>
+
+      <label bps-checkbox bpsType="variation3" [(ngModel)]="valueB" (ngModelChange)="onPhysicsTypeBClicked($event)"
+        [bpsDisabled]="valueBDisabled">
+        <ng-container *ngIf="valueB && !valueBDisabled">
+          <img src="/assets/bps-icons/sps_structural_icon_report_selected.svg" />
+        </ng-container>
+        <ng-container *ngIf="!valueB && !valueBDisabled">
+          <img src="/assets/bps-icons/sps_structural_icon_report_enabled.svg" />
+        </ng-container>
+        <ng-container *ngIf="valueBDisabled">
+          <img src="/assets/bps-icons/sps_structural_icon_report_disable.svg" />
+        </ng-container>
+      </label>
+
+      <label bps-checkbox bpsType="variation3" [(ngModel)]="valueC" (ngModelChange)="onPhysicsTypeCClicked($event)"
+        [bpsDisabled]="valueCDisabled">
+        <ng-container *ngIf="valueC && !valueCDisabled">
+          <img src="/assets/bps-icons/sps_thermal_icon_report_selected.svg" />
+        </ng-container>
+        <ng-container *ngIf="!valueC && !valueCDisabled">
+          <img src="/assets/bps-icons/sps_thermal_icon_report_enabled.svg" />
+        </ng-container>
+        <ng-container *ngIf="valueCDisabled">
+          <img src="/assets/bps-icons/sps_thermal_icon_report_disable.svg" />
+        </ng-container>
+      </label>
+    </div> -->
+    <div class="physics-type-name-btn"
+      style=" width: 135px;border-radius: 8px;border: solid 1px #00a2d1; display: flex; align-items: center; justify-content: center; margin-right: 0px">
+      <div class="fontUniversforSchueco-530">{{physicsTypeName}}</div>
+    </div>
+    <!---->
+    <!-- <div style="max-height: 25px; overflow: hidden; height: 25px; margin-left:53px;width:100px;">
+      <bps-radio-group [(ngModel)]="radioValue">
+        <label bps-radio-button bpsValue="A" bpsRadioButtonType="variation2">
+            <img src="/assets/bps-icons/sps_acoustic_icon_report_selected.svg" />
+        </label>
+        <label bps-radio-button bpsValue="B" bpsRadioButtonType="variation2">
+          <img src="/assets/bps-icons/sps_structural_icon_report_selected.svg" />
+        </label>
+        <label bps-radio-button bpsValue="C" bpsRadioButtonType="variation2">
+          <img src="/assets/bps-icons/sps_thermal_icon_report_selected.svg" />
+        </label>
+      </bps-radio-group>
+    </div> -->
+
+    <!---->
+  </div>
+
+  <div style="margin-top:23px;">
+    <!-- <iframe id="sps-report-viewer"
+      src="http://apiweb_test.vcldesign.com//Content/thermal-result/3fb4e6aa-e27a-42c6-b8d4-3541b64f29b8/a211e1bd-1b22-4ea3-add8-ae21e79b781e/9e339ec0-cd7e-4a2b-b07d-efdf9a93f474/ee Thermal_Report.pdf#toolbar=0&navpanes=0"
+      style="width:596.8px; height:595.1px;"></iframe> -->
+    <div class="e2e-iframe-trusted-src" *ngIf="!reportFinishedLoading"
+      style="height: calc(100vh - 150px); width: 614px;">
+      <div class="example">
+        <nz-spin nzSimplen nzTip="Loading..."></nz-spin>
+      </div>
+    </div>
+    <div class="e2e-iframe-trusted-src" *ngIf="reportFinishedLoading && reportUrl === ''" style="height: calc(100vh - 150px); width: 614px;">
+      <div class="example">
+        Report is not generated, please try to recompute to generate the PDF reports.
+      </div>
+    </div>
+    <iframe id="sps-report-viewer" class="e2e-iframe-trusted-src" width="599" height="595.1"
+      *ngIf="reportFinishedLoading && reportUrl !== ''" style="height: calc(100vh - 150px);" [src]="reportUrl"></iframe>
+  </div>
+</div>

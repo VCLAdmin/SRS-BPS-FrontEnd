@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="4" height="4" viewBox="0 0 4 4">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #00a2d1;
+      }
+    </style>
+  </defs>
+  <circle id="sps_round_icon_smalldots_blue" class="cls-1" cx="2" cy="2" r="2"/>
+</svg>

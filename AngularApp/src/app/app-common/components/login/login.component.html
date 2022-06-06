@@ -1,0 +1,74 @@
+<div class="pull-right" style="display:flex;">
+    <div style="position: absolute;left: 25px;">
+        <img style="width:100px;height:30px;padding-top:12px;" src="/assets/Images/sps/sps-schuco-white-logo.svg" />
+    </div>
+    <div class="icondropdown">
+        <!-- <a nz-dropdown nzTrigger="click" [nzDropdownMenu]="menu" [nzPlacement]="bottomCenter">
+            <img [attr.alt]="language === 'en-US' ? 'American Flag':'Deutsche Flag'" 
+            [attr.src]="language === 'en-US' ? '/assets/Images/usaflag.png':'/assets/Images/germanflag.png'">
+        </a> -->
+        <button nz-button nz-dropdown nzTrigger="click" [nzDropdownMenu]="menu" nzPlacement="bottomCenter" 
+            class="languageDropdown">
+            <img [attr.alt]="language === 'en-US' ? 'American Flag':'Deutsche Flag'" 
+            [attr.src]="language === 'en-US' ? '/assets/Images/flags/UK.png':'/assets/Images/flags/DE.png'">
+        </button>
+        <nz-dropdown-menu #menu="nzDropdownMenu">
+            <ul nz-menu class="dropdown-menu" role="menu">
+                <li nz-menu-item id="aChangeLanguageDE" (click)="onChangeLanguage('de-DE')"><img alt="Deutsche Flag" src="/assets/Images/flags/DE.png"></li>
+                <li nz-menu-item id="aChangeLanguageEN" (click)="onChangeLanguage('en-US')"><img alt="American Flag" src="/assets/Images/flags/UK.png"></li>
+            </ul>
+        </nz-dropdown-menu>
+    </div>
+</div>
+<div id="login-container">
+    <div class="loginSection">
+        <h5 class="welcomeText">{{'login.terms-of-use' | translate }}</h5>
+        <!-- To access the Building Physics Test Server, log in and accept the terms of use. -->
+    </div>
+    <div class="loginSection"> 
+        <label class="loginInputLabel"> {{'login.email' | translate }}</label>
+        <!-- Username -->
+        <input id="login-username" style="float: none;" class="loginInput" name="username" type="text" required [(ngModel)]="username">
+    </div>
+    <div class="loginSection">
+        <label class="loginInputLabel">{{'login.password' | translate }} </label>
+        <!-- Password -->
+        <input id="login-password" style="float: none;" class="loginInput" name="password" type="password" required [(ngModel)]="password">
+    </div>
+    <div class="loginSection submit-container-conditions">
+        <p class="forgot-password-text">{{'login.forgot-username-password' | translate }}
+            <!-- Forgot your username or password ?  -->
+            <a class="mail-to-link" href="mailto:vcldev@schuco-usa.com" target="_top">{{'login.contact-support' | translate }}</a>.
+            <!-- Contact support -->
+        </p>
+        <p class="loginCheckbox">
+            <input type="checkbox" id="terms-conditions-checkbox" required [(ngModel)]="checkedTnC" [ngModelOptions]="{standalone: true}">
+            <label for="terms-conditions-checkbox" class="terms-conditions-text">{{'login.terms-conditions-one' | translate }} <a [attr.href]="language === 'en-US' ? '/assets/Documents/TermsAndConditions/terms-and-conditions.pdf' : '/assets/Documents/TermsAndConditions/terms-and-conditions_german.pdf'" target="_blank">{{'login.terms-conditions-two' | translate }}</a> {{'login.terms-conditions-three' | translate }}</label>
+            <!-- I have read and accept the | terms and conditions | of use. -->
+        </p>
+    </div>
+    <div id="submit-container" class="loginSection">
+        <button id="submit" type="submit" (click)="onLogin()" [disabled]="username === '' || password === '' || !checkedTnC">{{'login.login' | translate }}</button>
+        <!-- Login -->
+    </div>
+    <br>
+    <div *ngIf="InvalidUserContainer">
+        <p class="invalid-emailpassword-text">
+           {{'login.invalid-email-password' | translate}}
+        </p>
+    </div>
+    <div id="disclaimerContainer">
+        <p class="disclaimerText">
+            {{'login.disclaimer-text' | translate }}
+            <!-- These programs are used for the approximate determination of technical parameters. The results of these pre-dimensioning do not replace the required detailed planning and do not constitute proof of compliance with building regulations. The exclusive rights of use are owned by Schüco International KG. -->
+        </p>
+    </div>
+</div>
+<div id="loaderContainer" [ngClass]="{'show': showLoader, 'hide': !showLoader}" style="position: absolute; top: 0; z-index: 1000;">
+    <div style="position: relative; width: 100vw; height: 100vh; background-color: black; opacity: .6;"></div>
+    <div style="position: absolute; top: 23vh; width: 100%; text-align: center;">
+        <img style="width:auto !important; height: auto !important;" src="/assets/Images/loaders/loading_2_GIF.gif" />
+    </div>
+</div>
+
+

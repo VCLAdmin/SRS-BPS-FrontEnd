@@ -1,0 +1,975 @@
+input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:active, input:-webkit-autofill:focus {
+  background-color: #262626 !important;
+  color: #555 !important;
+  /* -webkit-box-shadow: 0 0 0 1000px #262626 inset !important; */
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+::ng-deep .vertical-center-modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+::ng-deep .vertical-center-modal .ant-modal {
+  top: 0;
+}
+
+/* width */
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Handle on hover */
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+div {
+  font-size: 12px;
+}
+
+.downloadProposalSmall {
+  width: 30px;
+  height: 30px !important;
+  margin-right: 10px;
+  background-color: #253d47 !important;
+  display: none;
+  padding: 0;
+}
+
+.downloadInvoice {
+  width: 30px;
+  height: 30px !important;
+  background-color: #253d47 !important;
+  padding: 0;
+}
+
+.downloadProposal {
+  width: 150px !important;
+  height: 30px !important;
+  font-size: 10px !important;
+  margin-right: 10px;
+  vertical-align: bottom;
+}
+
+@media screen and (max-width: 960px) {
+  .downloadProposal {
+    display: none !important;
+  }
+
+  .downloadProposalSmall {
+    display: inline !important;
+  }
+}
+
+.orders-footer {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 170px;
+  padding: 0px 10px;
+  grid-gap: 10px;
+  /* background-color: #262626;
+  border: .1px solid rgba(0, 0, 0, 0.57); */
+  position: fixed;
+  width: 100%;
+  z-index: 2;
+  bottom: 36px;
+  box-shadow: 0px -7px 8px 0px rgba(0, 0, 0, 0.20);
+  -webkit-box-shadow: 0px -7px 8px 0px rgba(0, 0, 0, 0.20);
+  -moz-box-shadow: 0px -7px 8px 0px rgba(0, 0, 0, 0.20);
+  background-color: #2c2c2c;
+}
+
+.orders-title {
+  display: grid;
+  grid-template-columns: minmax(400px, 400px) auto;
+  grid-template-rows: 50px;
+  padding: 0px 30px;
+  grid-gap: 10px;
+  /* background-color: #262626;
+  border: .1px solid rgba(0, 0, 0, 0.57); */
+  position: sticky;
+  z-index: 2;
+  top: 0;
+  top: 0;
+  color: #c0c0c0;
+  font-family: UniversForSchueco-530Med;
+  box-shadow: 0px 7px 8px 0px rgba(0, 0, 0, 0.20);
+  -webkit-box-shadow: 0px 7px 8px 0px rgba(0, 0, 0, 0.20);
+  -moz-box-shadow: 0px 7px 8px 0px rgba(0, 0, 0, 0.20);
+  background-color: #262626;
+}
+
+.ordersParent {
+  height: calc(100vh - 294px);
+  overflow: auto;
+}
+
+.orders {
+  display: grid;
+  grid-template-columns: minmax(400px, 400px) auto;
+  grid-template-rows: 200px;
+  padding: 0px 30px;
+  grid-gap: 0px;
+  /* background-color: #262626;
+  border: .1px solid rgba(0, 0, 0, 0.57); */
+}
+
+.orders:nth-child(even) {
+  background-color: #262626;
+}
+
+.orders:nth-child(even) {
+  background-color: #2c2c2c;
+}
+
+.orders:nth-child(even):hover, .orders:nth-child(odd):hover {
+  background-color: #313131;
+}
+
+.orderSelected {
+  background: #B2BEB510;
+  background: -webkit-linear-gradient(to right, #B2BEB510, #B2BEB510);
+  background: linear-gradient(to bottom, #B2BEB510, #B2BEB510);
+}
+
+/* .orders:nth-child(odd) {
+  background-color: #262626;
+} */
+
+.orders>.order-items {
+  /* background-color: #70707000; */
+  height: 200px;
+  border-bottom: 1px solid #363636 !important;
+}
+
+.ordersRows {
+  background-color: #3f3e3e55 !important;
+}
+
+.ordersRows:hover {
+  background-color: #3f3e3e !important;
+}
+
+.four-column-grid {
+  display: grid;
+  grid-template-columns: minmax(100px, 300px) 1fr 1fr 200px;
+  /* background-color: #26262600; */
+  grid-gap: 10px;
+  padding: 5px;
+}
+
+.four-column {
+  display: grid;
+  grid-template-columns: minmax(100px, 400px) minmax(250px, 1fr) minmax(400px, 1fr) 200px;
+  /* background-color: #26262600; */
+  grid-gap: 10px;
+  padding: 5px;
+}
+
+.four-column-grid>.fc-rows-right,
+.four-column>.fc-rows-right {
+  /* background-color: #22cc2200; */
+  margin-top: 5px;
+  text-align: right;
+}
+
+.four-column-grid>.fc-rows .four-column>.fc-rows {
+  /* background-color: #22cc2200; */
+  margin-top: 5px;
+}
+
+.priceText {
+  font-size: 18px;
+  color: #999;
+  font-family: UniversForSchueco-530Med;
+}
+
+.totalPriceText {
+  font-size: 18px;
+  color: #fff;
+  font-family: UniversForSchueco-530Med;
+}
+
+.headerheight {
+  line-height: 2.4;
+}
+
+.fontTotal {
+  color: #1cd728;
+  font-size: 18px;
+}
+
+.double-column {
+  font-family: UniversForSchueco-430Reg;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* background-color: #26262699; */
+  grid-gap: 0px;
+  padding: 5px 20px;
+  line-height: 1.2;
+}
+
+/* .double-column>.dc-row { */
+  /* background-color: #22cc2200; */
+/* } */
+
+.bottomSpace {
+  padding-bottom: 5px;
+}
+
+.bottomMargin11px {
+  margin-bottom: 11px !important;
+}
+
+.right {
+  text-align: right;
+}
+
+.single-column {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: baseline;
+  align-content: center;
+  height: 100%;
+  margin: 0 10%;
+}
+
+.sc-rows {
+  display: block;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  align-self: auto;
+  order: 0;
+  width: 100%;
+}
+
+.single-column-section {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: stretch;
+  align-content: stretch;
+  height: 100%;
+  /* background-color: #26262611; */
+  grid-gap: 10px;
+  padding: 10px;
+}
+
+.scs-rows:nth-child(1) {
+  display: block;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  align-self: auto;
+  order: 0;
+}
+
+.scs-rows:nth-child(2) {
+  display: block;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: auto;
+  align-self: auto;
+  order: 0;
+}
+
+.scs-rows:nth-child(3) {
+  display: block;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  align-self: auto;
+  order: 0;
+}
+
+.single-column-rev {
+  display: flex;
+  flex-direction: column-reverse;
+  flex-wrap: nowrap;
+  justify-content: normal;
+  align-items: flex-end;
+  align-content: flex-end;
+  height: 100%;
+}
+
+.single-column-start {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: normal;
+  align-items: flex-start;
+  align-content: flex-start;
+  height: 100%;
+}
+
+.scr-rows:nth-child(1) {
+  display: block;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  align-self: auto;
+  order: 0;
+}
+
+.prod-info {
+  height: 100%;
+  /* background-color: #26262611; */
+}
+
+.card-ProductDetails {
+  width: 410px;
+  font-size: 13px;
+}
+
+.cardSubHeader {
+  /* width: 93px;
+  height: 15px; */
+  /* margin: 0 0 15px; */
+  /* font-family: UniversForSchueco-530Med; */
+  font-size: 12px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  /* line-height: 0.75; */
+  letter-spacing: normal;
+  text-align: left;
+  color: #ffffff;
+}
+
+.cardSubValue {
+  /* width: 100px; */
+  /* height: 17px;
+  margin: 0 0 13px; */
+  /* font-family: UniversForSchueco-430Reg; */
+  font-size: 12px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  /* line-height: 1.67; */
+  letter-spacing: normal;
+  text-align: left;
+  color: #999999;
+}
+
+.remove-Product {
+  cursor: pointer;
+  /* width: 95px;
+  height: 15px;
+  margin: 18px 85px 7px 120px; */
+  font-family: UniversForSchueco-530Med;
+  font-size: 12px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  /* line-height: 0.75; */
+  letter-spacing: normal;
+  text-align: left;
+  color: #737373;
+}
+
+.viewProductDetails {
+  background-color: #363636 !important;
+  width: 30px !important;
+  height: 30px !important;
+  float: right;
+}
+
+.viewProductDetails:hover {
+  background-color: #3f3e3e !important;
+}
+
+.product-image {
+  object-fit: cover;
+  object-position: center;
+  height: 100px;
+  width: 100px;
+  /* height: 100px; */
+  /* width: 125px;
+    margin: -16px -31px; */
+}
+
+.product-image-dimension {
+  /* width: 250px; */
+  height: 200px;
+  border-radius: 4px;
+  background-color: #313131;
+  margin-bottom: 15px;
+}
+
+.altRow {
+  background-color: #ffffff08;
+}
+
+.show {
+  height: 100px;
+}
+
+.hide {
+  height: 0px;
+}
+
+.showTable {
+  display: block;
+}
+
+.hideTable {
+  display: none;
+}
+
+.footerDetails {
+  padding: 0px;
+  bottom: 35px;
+  position: absolute;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  height: 36px;
+  padding: 8px 30px 0px 30px;
+  border-top: 1px solid #474747;
+}
+
+/* .summary-container { */
+  /* max-width: 401px !important;
+  float: right;
+  min-width: 280px;
+  width: 100%; */
+/* }k */
+
+.SHIPPING-INFORMATION, .CURRENT-BALANCE {
+  height: 15px;
+  margin: 20px 0px 0px 0px;
+  font-family: UniversForSchueco-530Med;
+  font-size: 12px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 0.75;
+  letter-spacing: normal;
+  text-align: left;
+  color: #c0c0c0;
+  text-transform: uppercase;
+}
+
+.product-image {
+  object-fit: cover;
+  object-position: center;
+  height: 100px;
+  width: 100px;
+  /* height: 100px; */
+  /* width: 125px;
+    margin: -16px -31px; */
+}
+
+.AllowedToPlace {
+  /* width: 15px;
+  height: 15px;
+  margin: 12px 0px;
+  border-radius: 10px;
+  padding: 2px; */
+  line-height: 3;
+}
+
+.BALANCE-USD {
+  height: 14px;
+  font-family: UniversForSchueco-330;
+  font-size: 12px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-align: left;
+  color: #c0c0c0;
+}
+
+.SHIPPING-ADDRESS-BUTTON {
+  /* width: 236px; */
+  height: unset !important;
+  margin: 0px 0px 0px 0px;
+  padding: 10px 12px !important;
+  border-radius: 8px;
+  border: solid 2px #445c67;
+  background-color: #363636;
+  white-space: normal;
+  line-height: 1 !important;
+}
+
+.invalidShippingButton {
+  border-color: #e94c0a !important;
+}
+
+.ORDER-SUMMARY {
+  width: 112px;
+  height: 15px;
+  margin: 8px 0px 10px 0px;
+  /* font-family: UniversForSchueco-530Med; */
+  font-size: 12px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 0.75;
+  letter-spacing: normal;
+  text-align: left;
+  color: #c0c0c0;
+}
+
+.Subtotal-Shipping-Total-before-tax {
+  margin: 0 0 3px;
+  /* font-family: UniversForSchueco-530Med; */
+  font-size: 12px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.25;
+  letter-spacing: normal;
+  text-align: left;
+  color: #ffffff;
+}
+
+.Subtotal-Shipping-Total-before-tax-amount {
+  width: 140px;
+  margin: 0 38px 3px 0;
+  /* font-family: UniversForSchueco-530Med; */
+  float: right;
+  font-size: 12px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.25;
+  letter-spacing: normal;
+  text-align: right;
+  color: #ffffff;
+}
+
+.Total {
+  margin: 0 0 3px;
+  /* font-family: UniversForSchueco-530Med; */
+  font-size: 18px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 0.83;
+  letter-spacing: normal;
+  text-align: left;
+  color: #ffffff;
+}
+
+.Total-USD {
+  width: 200.5px;
+  margin: 2px 0 0 5px;
+  /* font-family: UniversForSchueco-530Med; */
+  font-size: 18px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 0.83;
+  letter-spacing: normal;
+  text-align: right;
+  color: #ffffff;
+  float: right;
+}
+
+.Place-Order-button {
+  /* width: 84px; */
+  height: 30px;
+  /* margin: 0px 0px 0px 54.5px; */
+  float: right;
+  /* padding: 9px 10px 9px 10px; */
+}
+
+.PLACE-ORDER {
+  width: 85px;
+  height: 12px;
+  font-family: UniversForSchueco-630;
+  font-size: 10px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: 0.3px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.pdf {
+  font-family: UniversForSchueco-430Reg;
+  font-size: 11px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.27;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
+  width: 530px;
+  margin: 5px;
+  padding: 25px 25px 11px;
+  background-color: #ffffff;
+}
+
+.pdf>strong {
+  font-family: UniversForSchueco-530Med;
+}
+
+.cancelOrderMessage {
+  margin: 13px 0 15px 30px;
+  font-family: UniversForSchueco-430Reg;
+  font-size: 12px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.17;
+  letter-spacing: normal;
+  text-align: left;
+  color: #ffffff;
+}
+
+.fabricatorInfo {
+  font-family: UniversForSchueco-330Light;
+  font-size: inherit;
+  height: calc(100vh - 400px);
+  margin-top: 15px;
+}
+
+.header {
+  font-weight: bold;
+}
+
+.fabdata {
+  max-width: 200px !important;
+}
+
+.fab-container {
+  display: grid;
+  align-content: center;
+  grid-template-columns: 120px auto;
+  grid-gap: 0px;
+  padding: 5px;
+  font-size: 12px;
+  font-family: UniversForSchueco-330Light;
+  opacity: 0.8;
+}
+
+.fab-container>div {
+  text-align: left;
+  padding: 0px 0;
+}
+
+.bps-download-button {
+  width: 14px;
+  height: 14px;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-left: 20px;
+  margin-right: 10px;
+  margin-top: 1px;
+  background-size: contain;
+  cursor: pointer;
+  visibility: visible;
+  background-image: url("/assets/Images/sps/sps_download_icon_transom_white.png");
+}
+
+.product-image-dimension {
+  /* width: 250px; */
+  height: 200px;
+  border-radius: 4px;
+  background-color: #313131;
+  margin-bottom: 15px;
+}
+
+.altRow {
+  background-color: #ffffff08;
+}
+
+.product-field {
+  display: inline-block;
+  width: 45%;
+  font-family: UniversForSchueco-530Med;
+  font-size: 12px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 2.4;
+  letter-spacing: normal;
+  text-align: left;
+  color: #ffffff;
+  vertical-align: top;
+  text-transform: uppercase;
+}
+
+.product-description {
+  display: inline-block;
+  width: 55%;
+  font-family: UniversForSchueco-430Reg;
+  font-size: 12px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 2.4;
+  letter-spacing: normal;
+  text-align: left;
+  color: #999999;
+}
+
+span.imgDiv {
+  display: inline-block;
+  /* the default for span */
+  width: 40%;
+  padding: 5px;
+  vertical-align: top;
+}
+
+span.infoDiv {
+  display: inline-block;
+  width: 60%;
+  padding: 0px 0px 0px 20px;
+  vertical-align: top;
+  height: 295px;
+  overflow: auto;
+}
+
+.divider {
+  width: 100%;
+  height: 0;
+  margin: 0px 11px 0px 0px;
+  border-top: solid 1px #707070;
+}
+
+.headerInfo {
+  width: 100%;
+  margin-top: 10px;
+  color: #00a2d1 !important;
+  display: inline-block;
+}
+
+.viewProductDetails {
+  background-color: #363636 !important;
+  width: 30px !important;
+  height: 30px !important;
+  float: right;
+}
+
+.viewProductDetails:hover {
+  background-color: #3f3e3e !important;
+}
+
+/* Add application styles & imports to this file! */
+
+.clearBoth {
+  clear: both;
+}
+
+.pdf-container {
+  width: calc(100%);
+  height: 270px;
+  border-radius: 4px;
+  background-color: #313131;
+  margin-bottom: 15px;
+  overflow: auto;
+  padding: 10px;
+  border: 1px solid #00a2d1 !important;
+}
+
+.disclaimer-field-pdf {
+  font-size: 12px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-align: left;
+  color: #ffffff;
+  padding-left: 15px;
+  padding-right: 25px;
+}
+
+.disclaimer-description-pdf {
+  font-family: UniversForSchueco-430Reg;
+  font-size: 11px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.27;
+  letter-spacing: normal;
+  text-align: left;
+  color: #ffffff;
+  margin-bottom: 10px;
+  width: 455px;
+}
+
+.grid-container-shipping {
+  display: grid;
+  grid-template-columns: 100px 500px 350px auto;
+  /* grid-template-columns:  100px 585px 386px auto; */
+  padding: 25px 50px 25px 25px;
+  align-content: start;
+}
+
+.grid-container-placeorder {
+  display: grid;
+  grid-template-columns: auto auto 200px;
+  padding: 20px;
+  align-content: start;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto 140px 170px 140px 240px;
+  padding: 0px;
+  background: #262626;
+  align-content: start;
+}
+
+.gridcontainer {
+  /* height: calc(100vh - 125px); */
+  height: calc(100vh - 270px);
+  overflow: auto;
+}
+
+.grid-container-shipping>.grid-item {
+  height: calc(100vh - 340px);
+  border: 0px;
+}
+
+.spaceBottom {
+  margin-bottom: 15px;
+}
+
+.number-rounded {
+  background-color: #707070;
+  color: #ffffff;
+  border-radius: 15px;
+  width: 23px;
+  height: 23px;
+  text-align: center;
+  font-size: 15px;
+}
+
+.grid-item {
+  /* font-size: 13px; */
+  font-family: "SchucoRegularMedium";
+  background-color: #262626;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0 0 0 34px;
+  text-align: start;
+  height: 200px;
+  /* color: #c0c0c0; */
+}
+
+.grid-item-os {
+  /* font-size: 15px; */
+  font-family: "SchucoRegularMedium";
+  background-color: #262626;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 12px;
+  text-align: start;
+  height: 220px;
+  color: #c0c0c0;
+}
+
+.ant-row {
+  padding: 5px;
+}
+
+.sps-break {
+  margin: 2px
+}
+
+.btnActiveShipping {
+  border: 1px solid #00a2d1 !important;
+  color: #00a2d1 !important;
+}
+
+.btnInactiveShipping {
+  border: 1px solid #666666 !important;
+  color: #999999 !important;
+}
+
+.shippingMethodActive {
+  color: #ffffff !important;
+  border: 1px solid #00a2d1 !important;
+  font-weight: 100 !important;
+}
+
+.shippingMethodInactive {
+  border: 1px solid #363636 !important;
+  font-weight: 100 !important;
+}
+
+.shippingMethod {
+  font-family: UniversForSchueco-330;
+  font-size: 11px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.27;
+  letter-spacing: normal;
+  text-align: left;
+  color: #ffffff;
+  width: 220px;
+  height: 40px;
+  margin: 5px 0 0;
+  padding: 13px 18px 15px 15px;
+  background-color: #363636;
+  border-radius: 8px;
+}
+
+.cancelAll {
+  text-transform: uppercase;
+  background-color: #363636 !important;
+  width: 110px;
+  margin-right: 15px;
+}
+
+.cancelAll:hover {
+  background-color: red !important;
+}
+
+.input-disabled:not(.bps-custom-disabled) {
+  color: #999999 !important;
+  cursor: url(/assets/bps-icons/sps_inaccessible_icon_grey.svg), auto !important;
+  border-color:transparent !important
+}
+
+.input-disabled:not(.bps-custom-disabled):hover {
+  border-color:transparent !important
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+    -webkit-box-shadow: 0 0 0 30px #363636 inset !important;
+}
+
+/* ::ng-deep .has-success .ant-input:not(.bps-input-opened) {
+  border-color:transparent !important
+}
+
+::ng-deep input.ant-input.input-disabled.ng-untouched.ng-valid.ng-dirty{
+  border-color:transparent !important
+}
+
+::ng-deep input.ant-input:not(.bps-input-opened):hover {
+  border-color:transparent !important
+} */
+
+.p-template {
+  font-size: 12px;
+  text-align: start;
+}

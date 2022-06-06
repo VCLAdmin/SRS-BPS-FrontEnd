@@ -1,0 +1,587 @@
+<div class="sps-left-popout-container-level" *ngIf="isDisplay && libraryElements">
+    <div class="sps-left-popout-container-level2">
+        <div class="scrolling-container" style="width: 100%; height: 100%; overflow-y: auto;">
+            <div class="sps-left-popout-level2-top-section">
+                <div>
+                    <div class="sps-popout-header sps-fr-outerfr-heading">
+                        <h3 id="outer-popout-panel-heading" class="outer-popout-panel-heading">
+                            {{'configure.structural-library-custom-create-new-glass' | translate}}</h3>
+                        <!-- CUSTOM PROFILE -->
+                        <img src="/assets/Images/sps/sps_delete_icon_x_darkgrey.svg" alt="close-btn"
+                            id="sps-left-popout-container-level2-close-btn" style="cursor: pointer;"
+                            (click)="onCloseButton()">
+                    </div>
+                    <div class="sps-popout-header sps-fr-outerfr-heading">
+                        <button style="width: 50%" bps-button bpsType="variation-2"
+                            [ngClass]="{'selected': libraryElements.selectedType == 'custom-double'}"
+                            (click)="onSelectTypeChange('custom-double')">{{'configure.structural-library-custom-varation-double-option'
+                            | translate}}</button>
+                        <button style="width: 49%" bps-button bpsType="variation-2"
+                            [ngClass]="{'selected': libraryElements.selectedType == 'custom-triple'}"
+                            (click)="onSelectTypeChange('custom-triple')">{{'configure.structural-library-custom-variation-triple-option'
+                            | translate}}</button>
+                    </div>
+                </div>
+            </div>
+            <div class="sps-break" style="width: 90% !important;"></div>
+            <div id="sps-left-popout-custom-section-property" class="sps-left-popout-custom-section-property">
+                <form bps-form [formGroup]="validateForm">
+                    <!-- <bps-form-item class="bps-form-item">
+                        <bps-form-control>
+                            <h3 style="margin-bottom: 4px;">{{'NAME' | uppercase }}</h3>
+                            {{libraryElements.name}}
+                        </bps-form-control>
+                    </bps-form-item> -->
+                    <h3 style="margin-top: -5px;">{{'configure.structural-library-custom-glass-composition' | translate
+                        | uppercase}}</h3>
+                    <!-- Section Properties -->
+                    <table style="width:100%">
+                        <tr>
+                            <th class="table-column-title" style="width:16%; padding-left: 0px;">
+                                {{'configure.structural-library-custom-heat-treatment' | translate}}</th>
+                            <th class="table-column-title" style="width:40%">
+                                {{'configure.structural-library-custom-type' | translate}}</th>
+                            <th class="table-column-title" style="width:22%">
+                                {{'configure.structural-library-custom-size' | translate}}</th>
+                            <th class="table-column-title" style="width:22%">
+                                {{'configure.structural-library-custom-interlayer' | translate}}</th>
+                        </tr>
+                        <tr>
+                            <td style="padding-left: 0px;">
+                                <bps-form-item>
+                                    <bps-form-control>
+                                        <bps-select formControlName="element_xx_1"
+                                            [ngModel]="libraryElements.element_xx_1"
+                                            (ngModelChange)="changeElement_xx_1($event)">
+                                            <bps-option
+                                                bpsLabel="{{'configure.structural-library-custom-element-xx1-hs-option' | translate}}"
+                                                bpsValue="HS"></bps-option>
+                                        </bps-select>
+                                    </bps-form-control>
+                                </bps-form-item>
+                            </td>
+                            <td>
+                                <bps-form-item>
+                                    <bps-form-control>
+                                        <bps-select formControlName="element_type_1"
+                                            [ngModel]="libraryElements.element_type_1"
+                                            (ngModelChange)="changeElement_type_1($event)">
+                                            <bps-option
+                                                bpsLabel="{{'configure.structural-library-custom-element-type1-glass-option' | translate}}"
+                                                bpsValue="Glass"></bps-option>
+                                            <bps-option
+                                                bpsLabel="{{'configure.structural-library-custom-element-type1-laminated-glass-option' | translate}}"
+                                                bpsValue="lamiAcousticPVB">
+                                            </bps-option>
+                                        </bps-select>
+                                    </bps-form-control>
+                                </bps-form-item>
+                                <bps-form-item>
+                                    <bps-form-control>
+                                        <bps-select formControlName="element_ins_type_1"
+                                            [ngModel]="libraryElements.element_ins_type_1"
+                                            (ngModelChange)="changeElement_ins_type_1($event)">
+                                            <bps-option
+                                                bpsLabel="{{'configure.structural-library-custom-element-type1-air-option' | translate}}"
+                                                bpsValue="Air"></bps-option>
+                                            <bps-option
+                                                bpsLabel="{{'configure.structural-library-custom-element-type1-argon-option' | translate}}"
+                                                bpsValue="Argon"></bps-option>
+                                        </bps-select>
+                                    </bps-form-control>
+                                </bps-form-item>
+                            </td>
+                            <td>
+                                <bps-form-item>
+                                    <bps-form-control>
+                                        <bps-select formControlName="element_size_1" [ngModel]="libraryElements.element_size_1"
+                                            (ngModelChange)="changeElement_size_1($event)" *ngIf="applicationType === 'SRS'">
+                                            <bps-option bpsLabel="4" bpsValue="4" *ngIf="libraryElements.element_type_1 === 'Glass'"></bps-option>
+                                            <bps-option bpsLabel="6" bpsValue="6" *ngIf="libraryElements.element_type_1 === 'Glass'"></bps-option>
+                                            <bps-option bpsLabel="8" bpsValue="8" *ngIf="libraryElements.element_type_1 === 'Glass'"></bps-option>
+                                            <bps-option bpsLabel="10" bpsValue="10" *ngIf="libraryElements.element_type_1 === 'Glass'"></bps-option>
+                                            <bps-option bpsLabel="12" bpsValue="12" *ngIf="libraryElements.element_type_1 === 'Glass'"></bps-option>
+                                            <bps-option bpsLabel="4" bpsValue="4" *ngIf="libraryElements.element_type_1 === 'lamiAcousticPVB'">
+                                            </bps-option>
+                                            <bps-option bpsLabel="6" bpsValue="6" *ngIf="libraryElements.element_type_1 === 'lamiAcousticPVB'">
+                                            </bps-option>
+                                            <bps-option bpsLabel="8" bpsValue="8" *ngIf="libraryElements.element_type_1 === 'lamiAcousticPVB'">
+                                            </bps-option>
+                                            <bps-option bpsLabel="10" bpsValue="10" *ngIf="libraryElements.element_type_1 === 'lamiAcousticPVB'">
+                                            </bps-option>
+                                            <bps-option bpsLabel="12" bpsValue="12" *ngIf="libraryElements.element_type_1 === 'lamiAcousticPVB'">
+                                            </bps-option>
+                                            <bps-option bpsLabel="14" bpsValue="14" *ngIf="libraryElements.element_type_1 === 'lamiAcousticPVB'">
+                                            </bps-option>
+                                            <bps-option bpsLabel="16" bpsValue="16" *ngIf="libraryElements.element_type_1 === 'lamiAcousticPVB'">
+                                            </bps-option>
+                                            <bps-option bpsLabel="18" bpsValue="18" *ngIf="libraryElements.element_type_1 === 'lamiAcousticPVB'">
+                                            </bps-option>
+                                            <bps-option bpsLabel="20" bpsValue="20" *ngIf="libraryElements.element_type_1 === 'lamiAcousticPVB'">
+                                            </bps-option>
+                                            <bps-option bpsLabel="24" bpsValue="24" *ngIf="libraryElements.element_type_1 === 'lamiAcousticPVB'">
+                                            </bps-option>
+                                        </bps-select>
+                                        <bps-select formControlName="element_size_1" [ngModel]="libraryElements.element_size_1"
+                                        (ngModelChange)="changeElement_size_1($event)" *ngIf="applicationType==='BPS'">
+                                        <bps-option bpsLabel="2" bpsValue="2" *ngIf="libraryElements.element_type_1 === 'Glass'"></bps-option>
+                                        <bps-option bpsLabel="3" bpsValue="3" *ngIf="libraryElements.element_type_1 === 'Glass'"></bps-option>
+                                        <bps-option bpsLabel="4" bpsValue="4" *ngIf="libraryElements.element_type_1 === 'Glass'"></bps-option>
+                                        <bps-option bpsLabel="5" bpsValue="5" *ngIf="libraryElements.element_type_1 === 'Glass'"></bps-option>
+                                        <bps-option bpsLabel="6" bpsValue="6" *ngIf="libraryElements.element_type_1 === 'Glass'"></bps-option>
+                                        <bps-option bpsLabel="7" bpsValue="7" *ngIf="libraryElements.element_type_1 === 'Glass'"></bps-option>
+                                        <bps-option bpsLabel="8" bpsValue="8" *ngIf="libraryElements.element_type_1 === 'Glass'"></bps-option>
+                                        <bps-option bpsLabel="10" bpsValue="10" *ngIf="libraryElements.element_type_1 === 'Glass'"></bps-option>
+                                        <bps-option bpsLabel="12" bpsValue="12" *ngIf="libraryElements.element_type_1 === 'Glass'"></bps-option>
+                                        <bps-option bpsLabel="15" bpsValue="15" *ngIf="libraryElements.element_type_1 === 'Glass'"></bps-option>
+                                        <bps-option bpsLabel="4" bpsValue="4" *ngIf="libraryElements.element_type_1 === 'lamiAcousticPVB'">
+                                        </bps-option>
+                                        <bps-option bpsLabel="6" bpsValue="6" *ngIf="libraryElements.element_type_1 === 'lamiAcousticPVB'">
+                                        </bps-option>
+                                        <bps-option bpsLabel="8" bpsValue="8" *ngIf="libraryElements.element_type_1 === 'lamiAcousticPVB'">
+                                        </bps-option>
+                                        <bps-option bpsLabel="10" bpsValue="10" *ngIf="libraryElements.element_type_1 === 'lamiAcousticPVB'">
+                                        </bps-option>
+                                        <bps-option bpsLabel="12" bpsValue="12" *ngIf="libraryElements.element_type_1 === 'lamiAcousticPVB'">
+                                        </bps-option>
+                                        <bps-option bpsLabel="14" bpsValue="14" *ngIf="libraryElements.element_type_1 === 'lamiAcousticPVB'">
+                                        </bps-option>
+                                        <bps-option bpsLabel="16" bpsValue="16" *ngIf="libraryElements.element_type_1 === 'lamiAcousticPVB'">
+                                        </bps-option>
+                                        <bps-option bpsLabel="18" bpsValue="18" *ngIf="libraryElements.element_type_1 === 'lamiAcousticPVB'">
+                                        </bps-option>
+                                        <bps-option bpsLabel="20" bpsValue="20" *ngIf="libraryElements.element_type_1 === 'lamiAcousticPVB'">
+                                        </bps-option>
+                                        <bps-option bpsLabel="24" bpsValue="24" *ngIf="libraryElements.element_type_1 === 'lamiAcousticPVB'">
+                                        </bps-option>
+                                    </bps-select>
+                                    </bps-form-control>
+                                </bps-form-item>
+                                <bps-form-item>
+                                    <bps-form-control>
+                                        <bps-select formControlName="element_ins_size_1"
+                                            [ngModel]="libraryElements.element_ins_size_1"
+                                            (ngModelChange)="changeElement_ins_size_1($event)">
+                                            <bps-option bpsLabel="12" bpsValue="12"></bps-option>
+                                            <bps-option bpsLabel="16" bpsValue="16"></bps-option>
+                                            <bps-option bpsLabel="20" bpsValue="20"></bps-option>
+                                            <bps-option bpsLabel="24" bpsValue="24"></bps-option>
+                                        </bps-select>
+                                    </bps-form-control>
+                                </bps-form-item>
+                            </td>
+                            <td>
+                                <bps-form-item>
+                                    <bps-form-control>
+                                        <bps-select formControlName="element_interlayer_1"
+                                            [bpsDisabled]="libraryElements.element_type_1 === 'Glass'"
+                                            [ngModel]="libraryElements.element_interlayer_1"
+                                            bpsPlaceHolder="{{'configure.select' | translate }}"
+                                            (ngModelChange)="changeElement_interlayer_1($event)">
+                                            <bps-option bpsLabel="0.38" bpsValue="0.38"></bps-option>
+                                            <bps-option bpsLabel="0.76" bpsValue="0.76"></bps-option>
+                                            <bps-option bpsLabel="1.52" bpsValue="1.52"></bps-option>
+                                            <bps-option bpsLabel="2.28" bpsValue="2.28"></bps-option>
+                                        </bps-select>
+                                    </bps-form-control>
+                                </bps-form-item>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <bps-form-item>
+                                    <bps-form-control>
+                                        <bps-select formControlName="element_xx_2"
+                                            [ngModel]="libraryElements.element_xx_2"
+                                            (ngModelChange)="changeElement_xx_2($event)">
+                                            <bps-option
+                                                bpsLabel="{{'configure.structural-library-custom-element-xx2-hs-option' | translate}}"
+                                                bpsValue="HS"></bps-option>
+                                        </bps-select>
+                                    </bps-form-control>
+                                </bps-form-item>
+                            </td>
+                            <td>
+                                <bps-form-item>
+                                    <bps-form-control>
+                                        <bps-select formControlName="element_type_2"
+                                            [ngModel]="libraryElements.element_type_2"
+                                            (ngModelChange)="changeElement_type_2($event)">
+                                            <bps-option
+                                                bpsLabel="{{'configure.structural-library-custom-element-type2-glass-option' | translate}}"
+                                                bpsValue="Glass"></bps-option>
+                                            <bps-option
+                                                bpsLabel="{{'configure.structural-library-custom-element-type2-laminated-glass-option' | translate}}"
+                                                bpsValue="lamiAcousticPVB">
+                                            </bps-option>
+                                        </bps-select>
+                                    </bps-form-control>
+                                </bps-form-item>
+                                <bps-form-item>
+                                    <bps-form-control>
+                                        <bps-select formControlName="element_ins_type_2"
+                                            [ngModel]="libraryElements.element_ins_type_2"
+                                            (ngModelChange)="changeElement_ins_type_2($event)"
+                                            *ngIf="libraryElements.selectedType === 'custom-triple'">
+                                            <bps-option
+                                                bpsLabel="{{'configure.structural-library-custom-element-ins-type2-air-option' | translate}}"
+                                                bpsValue="Air"></bps-option>
+                                            <bps-option
+                                                bpsLabel="{{'configure.structural-library-custom-element-ins-type2-argon-option' | translate}}"
+                                                bpsValue="Argon"></bps-option>
+                                        </bps-select>
+                                    </bps-form-control>
+                                </bps-form-item>
+                            </td>
+                            <td>
+                                <bps-form-item>
+                                    <bps-form-control>
+                                        <bps-select *ngIf="applicationType === 'SRS'" formControlName="element_size_2"
+                                            [ngModel]="libraryElements.element_size_2"
+                                            (ngModelChange)="changeElement_size_2($event)">
+                                            <bps-option bpsLabel="4" bpsValue="4"
+                                                *ngIf="libraryElements.element_type_2 === 'Glass'"></bps-option>
+                                            <bps-option bpsLabel="6" bpsValue="6"
+                                                *ngIf="libraryElements.element_type_2 === 'Glass'"></bps-option>
+                                            <bps-option bpsLabel="8" bpsValue="8"
+                                                *ngIf="libraryElements.element_type_2 === 'Glass'"></bps-option>
+                                            <bps-option bpsLabel="10" bpsValue="10"
+                                                *ngIf="libraryElements.element_type_2 === 'Glass'"></bps-option>
+                                            <bps-option bpsLabel="12" bpsValue="12"
+                                                *ngIf="libraryElements.element_type_2 === 'Glass'"></bps-option>
+                                            <bps-option bpsLabel="4" bpsValue="4" *ngIf="libraryElements.element_type_2 === 'lamiAcousticPVB'">
+                                            </bps-option>
+                                            <bps-option bpsLabel="6" bpsValue="6" *ngIf="libraryElements.element_type_2 === 'lamiAcousticPVB'">
+                                            </bps-option>
+                                            <bps-option bpsLabel="8" bpsValue="8" *ngIf="libraryElements.element_type_2 === 'lamiAcousticPVB'">
+                                            </bps-option>
+                                            <bps-option bpsLabel="10" bpsValue="10" *ngIf="libraryElements.element_type_2 === 'lamiAcousticPVB'">
+                                            </bps-option>
+                                            <bps-option bpsLabel="12" bpsValue="12" *ngIf="libraryElements.element_type_2 === 'lamiAcousticPVB'">
+                                            </bps-option>
+                                            <bps-option bpsLabel="14" bpsValue="14" *ngIf="libraryElements.element_type_2 === 'lamiAcousticPVB'">
+                                            </bps-option>
+                                            <bps-option bpsLabel="16" bpsValue="16" *ngIf="libraryElements.element_type_2 === 'lamiAcousticPVB'">
+                                            </bps-option>
+                                            <bps-option bpsLabel="18" bpsValue="18" *ngIf="libraryElements.element_type_2 === 'lamiAcousticPVB'">
+                                            </bps-option>
+                                            <bps-option bpsLabel="20" bpsValue="20" *ngIf="libraryElements.element_type_2 === 'lamiAcousticPVB'">
+                                            </bps-option>
+                                            <bps-option bpsLabel="24" bpsValue="24" *ngIf="libraryElements.element_type_2 === 'lamiAcousticPVB'">
+                                            </bps-option>
+                                        </bps-select>
+                                        <bps-select formControlName="element_size_2" *ngIf="applicationType === 'BPS'"
+                                        [ngModel]="libraryElements.element_size_2"
+                                        (ngModelChange)="changeElement_size_2($event)">
+                                        <bps-option bpsLabel="2" bpsValue="2"
+                                            *ngIf="libraryElements.element_type_2 === 'Glass'"></bps-option>
+                                        <bps-option bpsLabel="3" bpsValue="3"
+                                            *ngIf="libraryElements.element_type_2 === 'Glass'"></bps-option>
+                                        <bps-option bpsLabel="4" bpsValue="4"
+                                            *ngIf="libraryElements.element_type_2 === 'Glass'"></bps-option>
+                                        <bps-option bpsLabel="5" bpsValue="5"
+                                            *ngIf="libraryElements.element_type_2 === 'Glass'"></bps-option>
+                                        <bps-option bpsLabel="6" bpsValue="6"
+                                            *ngIf="libraryElements.element_type_2 === 'Glass'"></bps-option>
+                                            <bps-option bpsLabel="7" bpsValue="7"
+                                            *ngIf="libraryElements.element_type_2 === 'Glass'"></bps-option>
+                                            <bps-option bpsLabel="8" bpsValue="8"
+                                            *ngIf="libraryElements.element_type_2 === 'Glass'"></bps-option>
+                                            <bps-option bpsLabel="10" bpsValue="10"
+                                            *ngIf="libraryElements.element_type_2 === 'Glass'"></bps-option>
+                                            <bps-option bpsLabel="12" bpsValue="12"
+                                            *ngIf="libraryElements.element_type_2 === 'Glass'"></bps-option>
+                                            <bps-option bpsLabel="15" bpsValue="15"
+                                            *ngIf="libraryElements.element_type_2 === 'Glass'"></bps-option>
+                                            <bps-option bpsLabel="19" bpsValue="19"
+                                            *ngIf="libraryElements.element_type_2 === 'Glass'"></bps-option>
+                                        <bps-option bpsLabel="4" bpsValue="4" *ngIf="libraryElements.element_type_2 === 'lamiAcousticPVB'">
+                                        </bps-option>
+                                        <bps-option bpsLabel="6" bpsValue="6" *ngIf="libraryElements.element_type_2 === 'lamiAcousticPVB'">
+                                        </bps-option>
+                                        <bps-option bpsLabel="8" bpsValue="8" *ngIf="libraryElements.element_type_2 === 'lamiAcousticPVB'">
+                                        </bps-option>
+                                        <bps-option bpsLabel="10" bpsValue="10" *ngIf="libraryElements.element_type_2 === 'lamiAcousticPVB'">
+                                        </bps-option>
+                                        <bps-option bpsLabel="12" bpsValue="12" *ngIf="libraryElements.element_type_2 === 'lamiAcousticPVB'">
+                                        </bps-option>
+                                        <bps-option bpsLabel="14" bpsValue="14" *ngIf="libraryElements.element_type_2 === 'lamiAcousticPVB'">
+                                        </bps-option>
+                                        <bps-option bpsLabel="16" bpsValue="16" *ngIf="libraryElements.element_type_2 === 'lamiAcousticPVB'">
+                                        </bps-option>
+                                        <bps-option bpsLabel="18" bpsValue="18" *ngIf="libraryElements.element_type_2 === 'lamiAcousticPVB'">
+                                        </bps-option>
+                                        <bps-option bpsLabel="20" bpsValue="20" *ngIf="libraryElements.element_type_2 === 'lamiAcousticPVB'">
+                                        </bps-option>
+                                        <bps-option bpsLabel="24" bpsValue="24" *ngIf="libraryElements.element_type_2 === 'lamiAcousticPVB'">
+                                        </bps-option>
+                                    </bps-select>
+                                    </bps-form-control>
+                                </bps-form-item>
+                                <bps-form-item>
+                                    <bps-form-control>
+                                        <bps-select formControlName="element_ins_size_2"
+                                            [ngModel]="libraryElements.element_ins_size_2"
+                                            (ngModelChange)="changeElement_ins_size_2($event)"
+                                            *ngIf="libraryElements.selectedType === 'custom-triple'">
+                                            <bps-option bpsLabel="12" bpsValue="12"></bps-option>
+                                            <bps-option bpsLabel="16" bpsValue="16"></bps-option>
+                                            <bps-option bpsLabel="20" bpsValue="20"></bps-option>
+                                            <bps-option bpsLabel="24" bpsValue="24"></bps-option>
+                                        </bps-select>
+                                    </bps-form-control>
+                                </bps-form-item>
+                            </td>
+                            <td>
+                                <bps-form-item>
+                                    <bps-form-control>
+                                        <bps-select formControlName="element_interlayer_2"
+                                            [bpsDisabled]="libraryElements.element_type_2 === 'Glass'"
+                                            [ngModel]="libraryElements.element_interlayer_2"
+                                            bpsPlaceHolder="{{'configure.select' | translate }}"
+                                            (ngModelChange)="changeElement_interlayer_2($event)">
+                                            <bps-option bpsLabel="0.38" bpsValue="0.38"></bps-option>
+                                            <bps-option bpsLabel="0.76" bpsValue="0.76"></bps-option>
+                                            <bps-option bpsLabel="1.52" bpsValue="1.52"></bps-option>
+                                            <bps-option bpsLabel="2.28" bpsValue="2.28"></bps-option>
+                                        </bps-select>
+                                    </bps-form-control>
+                                </bps-form-item>
+                            </td>
+                        </tr>
+                        <tr *ngIf="libraryElements.selectedType === 'custom-triple'">
+                            <td>
+                                <bps-form-item>
+                                    <bps-form-control>
+                                        <bps-select formControlName="element_xx_3"
+                                            [ngModel]="libraryElements.element_xx_3"
+                                            (ngModelChange)="changeElement_xx_3($event)">
+                                            <bps-option
+                                                bpsLabel="{{'configure.structural-library-custom-element-xx3-hs-option' | translate}}"
+                                                bpsValue="HS"></bps-option>
+                                        </bps-select>
+                                    </bps-form-control>
+                                </bps-form-item>
+                            </td>
+                            <td>
+                                <bps-form-item>
+                                    <bps-form-control>
+                                        <bps-select formControlName="element_type_3"
+                                            [ngModel]="libraryElements.element_type_3"
+                                            (ngModelChange)="changeElement_type_3($event)">
+                                            <bps-option
+                                                bpsLabel="{{'configure.structural-library-custom-element-type3-glass-option' | translate}}"
+                                                bpsValue="Glass"></bps-option>
+                                            <bps-option
+                                                bpsLabel="{{'configure.structural-library-custom-element-type3-luminated-glass-option' | translate}}"
+                                                bpsValue="lamiAcousticPVB">
+                                            </bps-option>
+                                        </bps-select>
+                                    </bps-form-control>
+                                </bps-form-item>
+                            </td>
+                            <td>
+                                <bps-form-item>
+                                    <bps-form-control>
+                                        <bps-select formControlName="element_size_3"
+                                            [ngModel]="libraryElements.element_size_3"
+                                            (ngModelChange)="changeElement_size_3($event)" *ngIf="applicationType === 'SRS'">
+                                            <bps-option bpsLabel="4" bpsValue="4"
+                                                *ngIf="libraryElements.element_type_3 === 'Glass'"></bps-option>
+                                            <bps-option bpsLabel="6" bpsValue="6"
+                                                *ngIf="libraryElements.element_type_3 === 'Glass'"></bps-option>
+                                            <bps-option bpsLabel="8" bpsValue="8"
+                                                *ngIf="libraryElements.element_type_3 === 'Glass'"></bps-option>
+                                            <bps-option bpsLabel="10" bpsValue="10"
+                                                *ngIf="libraryElements.element_type_3 === 'Glass'"></bps-option>
+                                            <bps-option bpsLabel="12" bpsValue="12"
+                                                *ngIf="libraryElements.element_type_3 === 'Glass'"></bps-option>
+                                            <bps-option bpsLabel="4" bpsValue="4" *ngIf="libraryElements.element_type_3 === 'lamiAcousticPVB'">
+                                            </bps-option>
+                                            <bps-option bpsLabel="6" bpsValue="6" *ngIf="libraryElements.element_type_3 === 'lamiAcousticPVB'">
+                                            </bps-option>
+                                            <bps-option bpsLabel="8" bpsValue="8" *ngIf="libraryElements.element_type_3 === 'lamiAcousticPVB'">
+                                            </bps-option>
+                                            <bps-option bpsLabel="10" bpsValue="10" *ngIf="libraryElements.element_type_3 === 'lamiAcousticPVB'">
+                                            </bps-option>
+                                            <bps-option bpsLabel="12" bpsValue="12" *ngIf="libraryElements.element_type_3 === 'lamiAcousticPVB'">
+                                            </bps-option>
+                                            <bps-option bpsLabel="14" bpsValue="14" *ngIf="libraryElements.element_type_3 === 'lamiAcousticPVB'">
+                                            </bps-option>
+                                            <bps-option bpsLabel="16" bpsValue="16" *ngIf="libraryElements.element_type_3 === 'lamiAcousticPVB'">
+                                            </bps-option>
+                                            <bps-option bpsLabel="18" bpsValue="18" *ngIf="libraryElements.element_type_3 === 'lamiAcousticPVB'">
+                                            </bps-option>
+                                            <bps-option bpsLabel="20" bpsValue="20" *ngIf="libraryElements.element_type_3 === 'lamiAcousticPVB'">
+                                            </bps-option>
+                                            <bps-option bpsLabel="24" bpsValue="24" *ngIf="libraryElements.element_type_3 === 'lamiAcousticPVB'">
+                                            </bps-option>
+                                        </bps-select>
+                                        <bps-select formControlName="element_size_3"
+                                            [ngModel]="libraryElements.element_size_3"
+                                            (ngModelChange)="changeElement_size_3($event)" *ngIf="this.applicationType === 'BPS'">
+                                            <bps-option bpsLabel="2" bpsValue="2" *ngIf="libraryElements.element_type_3 === 'Glass'"></bps-option>
+                                            <bps-option bpsLabel="3" bpsValue="3" *ngIf="libraryElements.element_type_3 === 'Glass'"></bps-option>
+                                            <bps-option bpsLabel="4" bpsValue="4" *ngIf="libraryElements.element_type_3 === 'Glass'"></bps-option>
+                                            <bps-option bpsLabel="5" bpsValue="5" *ngIf="libraryElements.element_type_3 === 'Glass'"></bps-option>
+                                            <bps-option bpsLabel="6" bpsValue="6" *ngIf="libraryElements.element_type_3 === 'Glass'"></bps-option>
+                                            <bps-option bpsLabel="7" bpsValue="7" *ngIf="libraryElements.element_type_3 === 'Glass'"></bps-option>
+                                            <bps-option bpsLabel="8" bpsValue="8" *ngIf="libraryElements.element_type_3 === 'Glass'"></bps-option>
+                                            <bps-option bpsLabel="10" bpsValue="10" *ngIf="libraryElements.element_type_3 === 'Glass'"></bps-option>
+                                            <bps-option bpsLabel="12" bpsValue="12" *ngIf="libraryElements.element_type_3 === 'Glass'"></bps-option>
+                                            <bps-option bpsLabel="15" bpsValue="15" *ngIf="libraryElements.element_type_3 === 'Glass'"></bps-option>
+                                            <bps-option bpsLabel="19" bpsValue="19" *ngIf="libraryElements.element_type_3 === 'Glass'"></bps-option>
+                                            <bps-option bpsLabel="4" bpsValue="4" *ngIf="libraryElements.element_type_3 === 'lamiAcousticPVB'">
+                                            </bps-option>
+                                            <bps-option bpsLabel="6" bpsValue="6" *ngIf="libraryElements.element_type_3 === 'lamiAcousticPVB'">
+                                            </bps-option>
+                                            <bps-option bpsLabel="8" bpsValue="8" *ngIf="libraryElements.element_type_3 === 'lamiAcousticPVB'">
+                                            </bps-option>
+                                            <bps-option bpsLabel="10" bpsValue="10" *ngIf="libraryElements.element_type_3 === 'lamiAcousticPVB'">
+                                            </bps-option>
+                                            <bps-option bpsLabel="12" bpsValue="12" *ngIf="libraryElements.element_type_3 === 'lamiAcousticPVB'">
+                                            </bps-option>
+                                            <bps-option bpsLabel="14" bpsValue="14" *ngIf="libraryElements.element_type_3 === 'lamiAcousticPVB'">
+                                            </bps-option>
+                                            <bps-option bpsLabel="16" bpsValue="16" *ngIf="libraryElements.element_type_3 === 'lamiAcousticPVB'">
+                                            </bps-option>
+                                            <bps-option bpsLabel="18" bpsValue="18" *ngIf="libraryElements.element_type_3 === 'lamiAcousticPVB'">
+                                            </bps-option>
+                                            <bps-option bpsLabel="20" bpsValue="20" *ngIf="libraryElements.element_type_3 === 'lamiAcousticPVB'">
+                                            </bps-option>
+                                            <bps-option bpsLabel="24" bpsValue="24" *ngIf="libraryElements.element_type_3 === 'lamiAcousticPVB'">
+                                            </bps-option>
+                                        </bps-select>
+                                    </bps-form-control>
+                                </bps-form-item>
+                            </td>
+                            <td>
+                                <bps-form-item>
+                                    <bps-form-control>
+                                        <bps-select formControlName="element_interlayer_3"
+                                            [bpsDisabled]="libraryElements.element_type_3 === 'Glass'"
+                                            [ngModel]="libraryElements.element_interlayer_3"
+                                            bpsPlaceHolder="{{'configure.select' | translate }}"
+                                            (ngModelChange)="changeElement_interlayer_3($event)">
+                                            <bps-option bpsLabel="0.38" bpsValue="0.38"></bps-option>
+                                            <bps-option bpsLabel="0.76" bpsValue="0.76"></bps-option>
+                                            <bps-option bpsLabel="1.52" bpsValue="1.52"></bps-option>
+                                            <bps-option bpsLabel="2.28" bpsValue="2.28"></bps-option>
+                                        </bps-select>
+                                    </bps-form-control>
+                                </bps-form-item>
+                            </td>
+                        </tr>
+                    </table>
+                    <br>
+                    <table style="width:100%">
+                        <tr>
+                            <th colspan="2">
+                                <div class="sps-break"></div>
+                            </th>
+                        </tr>
+                        <tr *ngIf="unified3DModel.ProblemSetting.EnableThermal">
+                            <th style="width:50%">
+                                <h3 style="margin-top: 15px;">
+                                    {{'configure.structural-library-custom-centre-of-glass-u-value' | translate}}</h3>
+                                <bps-form-item class="bps-form-item">
+                                    <bps-form-control>
+                                        <div class="sps-custom-section-property-input-container">
+                                            <input type="text" formControlName="uValue" style="width: 56px" bps-input
+                                                placeholder="" [ngModel]="libraryElements.uValue"
+                                                (ngModelChange)="changeElement_uValue($event)">
+                                            <span class="units" style="font-size: 11px;">(W/m<sup>2</sup>K)</span>
+                                        </div>
+                                    </bps-form-control>
+                                </bps-form-item>
+                            </th>
+                            <th style="vertical-align: initial;">
+                                <div style="padding: 10px; float: right;" bpsType="variation-1" bps-popover
+                                    [bpsPopoverPlacement]="'right'" [bpsPopoverType]="'variation_3'"
+                                    [bpsPopoverContent]="windowUValueZoneContent">
+                                    <img class="iconI" src="/assets/Images/icons/sps_information_icon_blue.svg">
+                                </div>
+                                <ng-template #windowUValueZoneContent>
+                                    <div class="popover-variation3" style="width: 220px;">
+                                        {{'configure.structural-library-custom-window-zone-content-glass' | translate}}
+                                        <a>{{'configure.structural-library-custom-window-zone-content-u-value' |
+                                            translate}}</a>
+                                        {{'configure.structural-library-custom-window-zone-content-thermal-analysis' |
+                                        translate}}
+                                    </div>
+                                </ng-template>
+                            </th>
+                        </tr>
+                        <tr *ngIf="unified3DModel.ProblemSetting.EnableThermal">
+                            <th colspan="2">
+                                <br>
+                                <div class="sps-break"></div>
+                            </th>
+                        </tr>
+                        <tr *ngIf="unified3DModel.ProblemSetting.EnableAcoustic">
+                            <th>
+                                <h3 style="margin-top: 15px;">{{'configure.structural-library-custom-glass-rw' |
+                                    translate}}</h3>
+                                <bps-form-item class="bps-form-item">
+                                    <bps-form-control>
+                                        <div class="sps-custom-section-property-input-container">
+                                            <input type="text" formControlName="glassrw" style="width: 56px" bps-input
+                                                placeholder="" [ngModel]="libraryElements.glassrw"
+                                                (ngModelChange)="changeElement_glassrw($event)">
+                                            <span class="units" style="font-size: 11px;">(dB)</span>
+                                        </div>
+                                    </bps-form-control>
+                                </bps-form-item>
+                            </th>
+                            <th style="vertical-align: initial;">
+                                <div style="padding: 10px; float: right;" bpsType="variation-1" bps-popover
+                                    [bpsPopoverPlacement]="'right'" [bpsPopoverType]="'variation_3'"
+                                    [bpsPopoverContent]="windowZoneContent">
+                                    <img class="iconI" src="/assets/Images/icons/sps_information_icon_blue.svg">
+                                </div>
+                                <ng-template #windowZoneContent>
+                                    <div class="popover-variation3" style="width: 220px;">
+                                        {{'configure.structural-library-custom-glass-window-zone-content-glass' |
+                                        translate}}
+                                        <a>{{'configure.structural-library-custom-window-zone-content-glass-rw' |
+                                            translate}}</a>
+                                        {{'configure.structural-library-custom-window-zone-content-glass-acoustic-analysis'
+                                        | translate}}
+                                    </div>
+                                </ng-template>
+                            </th>
+                        </tr>
+                        <tr *ngIf="unified3DModel.ProblemSetting.EnableAcoustic">
+                            <th colspan="2">
+                                <br>
+                                <div class="sps-break"></div>
+                            </th>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+            <!-- <div class="sps-break" style="margin-top: 12px"></div> -->
+            <div class="sps-left-popout-level2-bottom-section" style="margin-top: -18px;">
+                <button [disabled]="isAddButtonDisplay" [ngClass]="{'activeDeleteBtn': !isAddButtonDisplay}"
+                    id="sps-custom-article-delete-btn" class="sps-custom-article-delete-btn" bps-button
+                    bpsType="variation-4" style="min-width: 80px" (click)="onDelete()">{{'configure.delete' | translate
+                    }}</button>
+                <!-- Delete -->
+                <!-- [ngClass]="{'active': isFormValid()}" -->
+                <button [disabled]="!(isFormValid()) || hasDuplicateGlass" *ngIf="isAddButtonDisplay"
+                    id="sps-custom-article-add-btn" class="sps-custom-article-add-btn" bps-button bpsType="variation-4"
+                    style="min-width: 80px" (click)="onAdd()">{{'configure.add' |
+                    translate }}</button>
+                <!-- Add -->
+                <button [disabled]="(!(isFormValid()) || disableUpdate) || hasDuplicateGlass"
+                    *ngIf="!isAddButtonDisplay" id="sps-custom-article-update-btn" class="sps-custom-article-add-btn"
+                    bps-button bpsType="variation-4" (click)="onUpdate()">{{'configure.update' | translate }}</button>
+                <!-- Update -->
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="isDisplay" id="sps-left-popout-container-level2-overlay-left"
+    class="sps-left-popout-container-level2-overlay-left"></div>
+<div *ngIf="isDisplay" id="sps-left-popout-container-level2-overlay-right"
+    class="sps-left-popout-container-level2-overlay-right"></div>

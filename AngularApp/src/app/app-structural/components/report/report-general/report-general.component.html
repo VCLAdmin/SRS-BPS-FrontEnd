@@ -1,0 +1,35 @@
+<div>
+    <div nz-row class="main-container">
+        <div nz-col class="left-panel">
+            <app-left-report *ngIf="listOfProblems" [currentProblem]="currentProblem"
+                (ngNotificaionShow)="ngNotificaionShow($event)"
+                [projectLocation]="projectLocation" [projectName]="projectName" [projectGuid]="projectGuid"
+                [listOfProblems]="listOfProblems"></app-left-report>
+        </div>
+        <div nz-col class="work-panel"
+            style="background-color: #142227 !important; height: calc(100vh - 70px); overflow-y: hidden;">
+            <app-right-report *ngIf="currentProblem && listOfProblems" [currentProblem]="currentProblem"
+                [listOfProblems]="listOfProblems"></app-right-report>
+        </div>
+    </div>
+    <div nz-row id="poweredByVCL" class="top-grey-border-intro-page" style="bottom: 0px">
+        <div></div>
+        <div style="width: 100%; text-align: center">
+            <p>
+                {{'report.general-powered-by' | translate}}
+                <span>{{'report.general-virtual-text' | translate}}</span>
+            </p>
+        </div>
+        <div style="position: absolute; right: 25px;">
+            <img src="/assets/Images/sps/sps-schuco-white-logo.svg">
+        </div>
+    </div>
+</div>
+<div id="loaderContainer" [ngClass]="{'show': showLoader, 'hide': !showLoader}"
+    style="position: absolute; top: 0; z-index: 1000;">
+    <div style="position: relative; width: 100vw; height: 100vh; background-color: black; opacity: .6;"></div>
+    <div style="position: absolute; top: 23vh; width: 100%; text-align: center;">
+        <img src="assets/Images/loaders/loading_2_GIF.gif" />
+    </div>
+</div>
+<app-notification-custom #notifCustomTemplate></app-notification-custom>

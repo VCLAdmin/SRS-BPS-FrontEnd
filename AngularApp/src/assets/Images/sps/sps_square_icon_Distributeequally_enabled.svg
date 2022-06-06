@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+    <defs>
+        <style>
+            .cls-2{fill:#fff}
+        </style>
+    </defs>
+    <g id="sps_square_icon_Distributeequally_enabled" transform="translate(-852.5 -65)">
+        <rect id="Rectangle_1391" width="30" height="30" fill="#253d47" rx="8" transform="translate(852.5 65)"/>
+        <path id="Rectangle_1393" d="M0 0H20V1H0z" class="cls-2" transform="rotate(90 399.5 468.5)"/>
+        <path id="Rectangle_2399" d="M0 0H20V1H0z" class="cls-2" transform="rotate(90 401.5 471.5)"/>
+        <path id="Rectangle_2402" d="M0 0H19.973V1H0z" class="cls-2" transform="rotate(90 403.5 474.5)"/>
+        <path id="Rectangle_2400" d="M0 0H20V1H0z" class="cls-2" transform="rotate(90 396.5 466.5)"/>
+        <path id="Rectangle_2401" d="M0 0H19.973V1H0z" class="cls-2" transform="rotate(90 393.5 464.5)"/>
+        <path id="Rectangle_2403" d="M0 0H20V1H0z" class="cls-2" transform="translate(857.5 79.5)"/>
+        <path id="Rectangle_2404" d="M0 0H20V1H0z" class="cls-2" transform="translate(857.5 74.5)"/>
+        <path id="Rectangle_2405" d="M0 0H20V1H0z" class="cls-2" transform="translate(857.5 84.5)"/>
+    </g>
+</svg>

@@ -1,0 +1,158 @@
+.sps-solver-button-content {
+  padding: 0em 2.8em 1em 2.8em;
+}
+.sps-physics-type-heading {
+  margin-top: 17.8px;
+}
+.fontUniversForSchueco-530 {
+  font-family: UniversForSchueco-530Med;
+  font-size: 12px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 0.75;
+  letter-spacing: normal;
+  text-align: left;
+  color: #ffffff;
+}
+::ng-deep .example_1 .ant-checkbox:not(.ant-checkbox-disabled):hover svg path,
+::ng-deep
+  .example_1
+  .ant-checkbox.ant-checkbox-checked:not(.ant-checkbox-disabled)
+  svg
+  path,
+::ng-deep .example_3 .ant-checkbox:not(.ant-checkbox-disabled):hover svg path,
+::ng-deep
+  .example_3
+  .ant-checkbox.ant-checkbox-checked:not(.ant-checkbox-disabled)
+  svg
+  path {
+  stroke: #00a2d1 !important;
+}
+
+::ng-deep
+  .example_1
+  .ant-checkbox.ant-checkbox-checked:not(.ant-checkbox-disabled)
+  svg
+  circle,
+::ng-deep .example_1 .ant-checkbox:not(.ant-checkbox-disabled):hover svg circle,
+::ng-deep
+  .example_3
+  .ant-checkbox.ant-checkbox-checked:not(.ant-checkbox-disabled)
+  svg
+  circle,
+::ng-deep .example_3 .ant-checkbox:not(.ant-checkbox-disabled):hover svg circle,
+::ng-deep
+  .example_2
+  .ant-checkbox:not(.ant-checkbox-disabled):hover
+  svg
+  .myClass,
+::ng-deep
+  .example_2
+  .ant-checkbox.ant-checkbox-checked:not(.ant-checkbox-disabled)
+  svg
+  .myClass,
+::ng-deep
+  .example_2
+  .ant-checkbox.ant-checkbox-checked:not(.ant-checkbox-disabled)
+  svg
+  circle,
+::ng-deep
+  .example_2
+  .ant-checkbox:not(.ant-checkbox-disabled):hover
+  svg
+  circle {
+  fill: #00a2d1 !important;
+}
+.sps-result-tab-spacer-grey {
+  width: 1px;
+  height: 60px;
+  background-color: #474747;
+  margin-left: 20px;
+}
+.sps-result-tab-blue-circle {
+  width: 42.2px;
+  height: 42.2px;
+  /* border-radius: 15px 15px 15px 15px;
+    background-color: #00a2d1; */
+  margin-left: 36px;
+}
+
+.sps-solver-configuration-tab-container {
+  margin-left: 20px;
+  width: 355px;
+  border-top: 1px solid #363636;
+}
+.hidden {
+  display: none;
+}
+.show {
+  display: block;
+}
+.product-image-dimension {
+  width: 250px;
+  height: 200px;
+  border-radius: 4px;
+  background-color: #313131;
+  margin-bottom: 15px;
+}
+
+.product-field {
+  display: inline-block;
+  width: 45%;
+  font-size: 12px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 2.35;
+  letter-spacing: normal;
+  text-align: left;
+  color: #ffffff !important;
+  padding-left: 15px;
+}
+
+.product-description {
+  display: inline-block;
+  width: 55%;
+  font-size: 12px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 2.35;
+  letter-spacing: normal;
+  text-align: left;
+  color: #999999;
+}
+
+.product-field-disabled {
+  color: #666666;
+  cursor: not-allowed;
+}
+
+.product-description-disabled {
+  display: none;
+}
+.parent{
+	width: 100%;
+}
+span.imgDiv {
+  display: inline-block; /* the default for span */
+  width: 45%;
+  padding: 5px;
+  vertical-align: top;
+}
+
+span.infoDiv {
+  display: inline-block;
+  width: 55%;
+  padding: 5px;
+  vertical-align: top;
+  height: 295px;
+  overflow: auto;
+}
+.divider {
+  width: 270px;
+  height: 0;
+  margin: 10px 11px 10px 15px;
+  border-top: solid 1px #707070;
+}

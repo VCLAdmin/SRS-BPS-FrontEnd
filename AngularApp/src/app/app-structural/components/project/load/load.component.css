@@ -1,0 +1,21 @@
+
+.boldWhiteFont {
+    font-family: UniversforSchueco-530;
+    font-size: 12px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 0.75;
+    letter-spacing: normal;
+    text-align: left;
+    color: var(--white);
+  }
+
+  .blue-heading {
+    color: #ffffff !important;
+  }
+  
+
+  .boldWhiteFont.disabled{
+   color: #666 !important
+ }

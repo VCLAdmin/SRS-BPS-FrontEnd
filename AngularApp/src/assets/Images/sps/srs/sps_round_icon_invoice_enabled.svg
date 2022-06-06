@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="11.403" height="15.204" viewBox="0 0 11.403 15.204">
+  <defs>
+    <style>
+      .cls-1, .cls-3 {
+        fill: none;
+      }
+
+      .cls-1 {
+        stroke: #fff;
+        stroke-width: 1.5px;
+      }
+
+      .cls-2 {
+        stroke: none;
+      }
+    </style>
+  </defs>
+  <g id="sps_round_icon_invoice_enabled" transform="translate(-821.798 -72.398)">
+    <g id="Group_7100" data-name="Group 7100" transform="translate(1.798 2.398)">
+      <g id="Rectangle_3190" data-name="Rectangle 3190" class="cls-1" transform="translate(820 70)">
+        <rect class="cls-2" width="11.403" height="15.204"/>
+        <rect class="cls-3" x="0.75" y="0.75" width="9.903" height="13.704"/>
+      </g>
+      <path id="Path_2430" data-name="Path 2430" class="cls-1" d="M823.971,75h5.345" transform="translate(-0.942 -1.199)"/>
+      <path id="Path_2431" data-name="Path 2431" class="cls-1" d="M823.971,75h5.345" transform="translate(-0.942 2.602)"/>
+      <path id="Path_2432" data-name="Path 2432" class="cls-1" d="M823.971,75h2.672" transform="translate(-0.942 6.403)"/>
+    </g>
+  </g>
+</svg>

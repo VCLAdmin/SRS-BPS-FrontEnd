@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="20.707" height="11.707" viewBox="0 0 20.707 11.707">
+    <defs>
+        <style>
+            .cls-1,.cls-2,.cls-4{fill:none}.cls-1{stroke:#707070}.cls-2{stroke:#bfbfbf}.cls-2,.cls-4{stroke-width:2px}.cls-3{stroke:#00a2d1;fill:url(#linear-gradient)}.cls-4{stroke:#f18700}
+        </style>
+        <linearGradient id="linear-gradient" x1=".5" x2=".5" y1="1.059" gradientUnits="objectBoundingBox">
+            <stop offset="0" stop-color="#00a2d1"/>
+            <stop offset="1" stop-color="gray" stop-opacity="0"/>
+        </linearGradient>
+    </defs>
+    <g id="sps_solo_icon_deflection_blue" transform="translate(13098.312 8539)">
+        <g id="Group_2102" data-name="Group 2102" transform="translate(-679 102)">
+            <path id="Path_735" d="M-11753-8640l10 10 10-10" class="cls-1" data-name="Path 735" transform="translate(-665.958)"/>
+            <path id="Path_736" d="M-11778-8640h20.689" class="cls-2" data-name="Path 736" transform="translate(-641.303)"/>
+        </g>
+        <g id="Group_2103" data-name="Group 2103" transform="translate(-775 102)">
+            <path id="Path_774" d="M-11753-8640l10 10 10-10" class="cls-3" data-name="Path 774" transform="translate(-569.958)"/>
+            <path id="Path_775" d="M-11778-8640h20.689" class="cls-4" data-name="Path 775" transform="translate(-545.303)"/>
+        </g>
+    </g>
+</svg>

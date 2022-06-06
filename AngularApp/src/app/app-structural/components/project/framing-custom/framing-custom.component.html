@@ -1,0 +1,662 @@
+<div class="sps-left-popout-container-level" *ngIf="isDisplay">
+    <div class="sps-left-popout-container-level2">
+        <div class="scrolling-container" style="width: 100%; height: 100%; overflow-y: auto;">
+            <div class="sps-left-popout-level2-top-section">
+                <div>
+                    <div class="sps-popout-header sps-fr-outerfr-heading">
+                        <h3 id="outer-popout-panel-heading" class="outer-popout-panel-heading">
+                            {{'configure.custom-profile' | translate | uppercase}}</h3>
+                        <!-- CUSTOM PROFILE -->
+                        <img src="/assets/Images/sps/sps_delete_icon_x_darkgrey.svg" alt="close-btn"
+                            id="sps-left-popout-container-level2-close-btn" style="cursor: pointer;"
+                            (click)="onCloseButton()">
+                    </div>
+                    <h3 style="margin-left: 25px;" class="disabled">{{'configure.upload-file' | translate }}</h3>
+                    <!-- upload file -->
+                    <button style="margin-left: 25px;" id="sps-dxf-upload-btn" class="sps-dxf-upload-btn" bps-button
+                        bpsType="variation-8" [disabled]="true" (click)="input.click()">{{'configure.upload-dfx' |
+                        translate }}</button>
+                    <!-- Upload DFX -->
+                    <input type="file" id="sps-dxf-upload-input" accept="application/dxf" #input style="display:none;"
+                        [(ngModel)]="dxf">
+                </div>
+            </div>
+            <div class="sps-break"></div>
+            <div id="sps-left-popout-custom-section-property" class="sps-left-popout-custom-section-property">
+                <form *ngIf="unified3DModel && unified3DModel.ProblemSetting.FacadeType !== 'UDC'" bps-form
+                    [formGroup]="validateForm">
+                    <bps-form-item class="bps-form-item">
+                        <bps-form-control>
+                            <h3 style="margin-bottom: 4px;">{{'configure.profile-name' | translate }}</h3>
+                            <!-- profile name -->
+                            <input formControlName="profileName" style="width: 170px; margin-top: -5px;" opened
+                                bps-input placeholder="{{'configure.profile-id-name' | translate }}"
+                                id="new-custom-article-name" [(ngModel)]="sectionElement.ArticleName">
+                            <!-- Profile ID name -->
+                        </bps-form-control>
+                    </bps-form-item>
+                    <h3 style="margin-top: 23px;">{{'configure.section-properties' | translate }}</h3>
+                    <!-- Section Properties -->
+                    <bps-form-item class="bps-form-item">
+                        <bps-form-control>
+                            <div class="sps-custom-section-property-input-container">
+                                <p>d</p>
+                                <input type="text" formControlName="d" style="width: 56px" required
+                                    id="sps-custom-section-property-d" bps-input placeholder=""
+                                    [(ngModel)]="sectionElementString.d">
+                                <p class="units">(mm)</p>
+                            </div>
+                        </bps-form-control>
+                    </bps-form-item>
+                    <span> </span>
+                    <bps-form-item class="bps-form-item">
+                        <bps-form-control>
+                            <div class="sps-custom-section-property-input-container">
+                                <p>W</p>
+                                <input type="text" formControlName="W" style="width: 56px"
+                                    id="sps-custom-section-property-Weight" bps-input placeholder=""
+                                    [(ngModel)]="sectionElementString.Weight">
+                                <p class="units">(N/m)</p>
+                            </div>
+                        </bps-form-control>
+                    </bps-form-item>
+                    <bps-form-item class="bps-form-item">
+                        <bps-form-control>
+                            <div class="sps-custom-section-property-input-container">
+                                <p>A<sub>o</sub></p>
+                                <input type="text" formControlName="Ao" style="width: 56px"
+                                    id="sps-custom-section-property-Ao" bps-input placeholder=""
+                                    [(ngModel)]="sectionElementString.Ao">
+                                <p class="units">(mm<sup>2</sup>)</p>
+                            </div>
+                        </bps-form-control>
+                    </bps-form-item>
+                    <span> </span>
+                    <bps-form-item class="bps-form-item">
+                        <bps-form-control>
+                            <div class="sps-custom-section-property-input-container">
+                                <p>A<sub>u</sub></p>
+                                <input type="text" formControlName="Au" style="width: 56px"
+                                    id="sps-custom-section-property-Au" bps-input placeholder=""
+                                    [(ngModel)]="sectionElementString.Au">
+                                <p class="units">(mm<sup>2</sup>)</p>
+                            </div>
+                        </bps-form-control>
+                    </bps-form-item>
+                    <bps-form-item class="bps-form-item">
+                        <bps-form-control>
+                            <div class="sps-custom-section-property-input-container">
+                                <p>I<sub>o</sub></p>
+                                <input type="text" formControlName="Io" style="width: 56px"
+                                    id="sps-custom-section-property-Io" bps-input placeholder=""
+                                    [(ngModel)]="sectionElementString.Io">
+                                <p class="units">(mm<sup>4</sup>)</p>
+                            </div>
+                        </bps-form-control>
+                    </bps-form-item>
+                    <bps-form-item class="bps-form-item">
+                        <bps-form-control>
+                            <span> </span>
+                            <div class="sps-custom-section-property-input-container">
+                                <p>I<sub>u</sub></p>
+                                <input type="text" formControlName="Iu" style="width: 56px"
+                                    id="sps-custom-section-property-Iu" bps-input placeholder=""
+                                    [(ngModel)]="sectionElementString.Iu">
+                                <p class="units">(mm<sup>4</sup>)</p>
+                            </div>
+                        </bps-form-control>
+                    </bps-form-item>
+                    <bps-form-item class="bps-form-item">
+                        <bps-form-control>
+                            <div class="sps-custom-section-property-input-container">
+                                <p>I<sub>oy</sub></p>
+                                <input type="text" formControlName="Ioy" style="width: 56px"
+                                    id="sps-custom-section-property-Ioyy" bps-input placeholder=""
+                                    [(ngModel)]="sectionElementString.Ioyy">
+                                <p class="units">(mm<sup>4</sup>)</p>
+                            </div>
+                        </bps-form-control>
+                    </bps-form-item>
+                    <span> </span>
+                    <bps-form-item class="bps-form-item">
+                        <bps-form-control>
+                            <div class="sps-custom-section-property-input-container">
+                                <p>I<sub>uy</sub></p>
+                                <input type="text" formControlName="Iuy" style="width: 56px"
+                                    id="sps-custom-section-property-Iuyy" bps-input placeholder=""
+                                    [(ngModel)]="sectionElementString.Iuyy">
+                                <p class="units">(mm<sup>4</sup>)</p>
+                            </div>
+                        </bps-form-control>
+                    </bps-form-item>
+                    <bps-form-item class="bps-form-item">
+                        <bps-form-control>
+                            <div class="sps-custom-section-property-input-container">
+                                <p>Z<sub>oo</sub></p>
+                                <input type="text" formControlName="Zoo" style="width: 56px"
+                                    id="sps-custom-section-property-Zoo" bps-input placeholder=""
+                                    [(ngModel)]="sectionElementString.Zoo">
+                                <p class="units">(mm)</p>
+                            </div>
+                        </bps-form-control>
+                    </bps-form-item>
+                    <span> </span>
+                    <bps-form-item class="bps-form-item">
+                        <bps-form-control>
+                            <div class="sps-custom-section-property-input-container">
+                                <p>Z<sub>uo</sub></p>
+                                <input type="text" formControlName="Zuo" style="width: 56px"
+                                    id="sps-custom-section-property-Zuo" bps-input placeholder=""
+                                    [(ngModel)]="sectionElementString.Zuo">
+                                <p class="units">(mm)</p>
+                            </div>
+                        </bps-form-control>
+                    </bps-form-item>
+                    <bps-form-item class="bps-form-item">
+                        <bps-form-control>
+                            <div class="sps-custom-section-property-input-container">
+                                <p>Z<sub>ou</sub></p>
+                                <input type="text" formControlName="Zou" style="width: 56px"
+                                    id="sps-custom-section-property-Zou" bps-input placeholder=""
+                                    [(ngModel)]="sectionElementString.Zou">
+                                <p class="units">(mm)</p>
+                            </div>
+                        </bps-form-control>
+                    </bps-form-item>
+                    <span> </span>
+                    <bps-form-item class="bps-form-item">
+                        <bps-form-control>
+                            <div class="sps-custom-section-property-input-container">
+                                <p>Z<sub>uu</sub></p>
+                                <input type="text" formControlName="Zuu" style="width: 56px"
+                                    id="sps-custom-section-property-Zuu" bps-input placeholder=""
+                                    [(ngModel)]="sectionElementString.Zuu">
+                                <p class="units">(mm)</p>
+                            </div>
+                        </bps-form-control>
+                    </bps-form-item>
+
+
+                    <bps-form-item class="bps-form-item">
+                        <bps-form-control>
+                            <div class="sps-custom-section-property-input-container">
+                                <p>Z<sub>ol</sub></p>
+                                <input type="text" formControlName="Zol" style="width: 56px"
+                                    id="sps-custom-section-property-Zol" bps-input placeholder=""
+                                    [(ngModel)]="sectionElementString.Zol">
+                                <p class="units">(mm)</p>
+                            </div>
+                        </bps-form-control>
+                    </bps-form-item>
+                    <span> </span>
+                    <bps-form-item class="bps-form-item">
+                        <bps-form-control>
+                            <div class="sps-custom-section-property-input-container">
+                                <p>Z<sub>ul</sub></p>
+                                <input type="text" formControlName="Zul" style="width: 56px"
+                                    id="sps-custom-section-property-Zul" bps-input placeholder=""
+                                    [(ngModel)]="sectionElementString.Zul">
+                                <p class="units">(mm)</p>
+                            </div>
+                        </bps-form-control>
+                    </bps-form-item>
+                    <bps-form-item class="bps-form-item">
+                        <bps-form-control>
+                            <div class="sps-custom-section-property-input-container">
+                                <p>Z<sub>or</sub></p>
+                                <input type="text" formControlName="Zor" style="width: 56px"
+                                    id="sps-custom-section-property-Zor" bps-input placeholder=""
+                                    [(ngModel)]="sectionElementString.Zor">
+                                <p class="units">(mm)</p>
+                            </div>
+                        </bps-form-control>
+                    </bps-form-item>
+                    <span> </span>
+                    <bps-form-item class="bps-form-item">
+                        <bps-form-control>
+                            <div class="sps-custom-section-property-input-container">
+                                <p>Z<sub>ur</sub></p>
+                                <input type="text" formControlName="Zur" style="width: 56px"
+                                    id="sps-custom-section-property-Zur" bps-input placeholder=""
+                                    [(ngModel)]="sectionElementString.Zur">
+                                <p class="units">(mm)</p>
+                            </div>
+                        </bps-form-control>
+                    </bps-form-item>
+
+                    <div class="sps-break"></div>
+                    <h3 style="margin-top: 18px;">{{'configure.insulating-bar' | translate }}</h3>
+                    <!-- Insulating Bar -->
+                    <bps-form-item class="bps-form-item">
+                        <bps-form-control>
+                            <div class="sps-custom-section-property-input-container">
+                                <p>RS<sub>-20</sub></p>
+                                <input type="text" formControlName="RSminus20" style="width: 56px"
+                                    id="sps-custom-section-property-RSn20" bps-input placeholder=""
+                                    [(ngModel)]="sectionElementString.RSn20">
+                                <p class="units">(N/mm)</p>
+                            </div>
+                        </bps-form-control>
+                    </bps-form-item>
+                    <span> </span>
+                    <bps-form-item class="bps-form-item">
+                        <bps-form-control>
+                            <div class="sps-custom-section-property-input-container">
+                                <p>RS<sub>80</sub></p>
+                                <input type="text" formControlName="RS80" style="width: 56px"
+                                    id="sps-custom-section-property-RSp80" bps-input placeholder=""
+                                    [(ngModel)]="sectionElementString.RSp80">
+                                <p class="units">(N/mm)</p>
+                            </div>
+                        </bps-form-control>
+                    </bps-form-item>
+                    <bps-form-item class="bps-form-item">
+                        <bps-form-control>
+                            <div class="sps-custom-section-property-input-container">
+                                <p>RT<sub>-20</sub></p>
+                                <input type="text" formControlName="RTminus20" style="width: 56px"
+                                    id="sps-custom-section-property-RTn20" bps-input placeholder=""
+                                    [(ngModel)]="sectionElementString.RTn20">
+                                <p class="units">(N/mm)</p>
+                            </div>
+                        </bps-form-control>
+                    </bps-form-item>
+                    <span> </span>
+                    <bps-form-item class="bps-form-item">
+                        <bps-form-control>
+                            <div class="sps-custom-section-property-input-container">
+                                <p>RT<sub>80</sub></p>
+                                <input type="text" formControlName="RT80" style="width: 56px"
+                                    id="sps-custom-section-property-RTp80" bps-input placeholder=""
+                                    [(ngModel)]="sectionElementString.RTp80">
+                                <p class="units">(N/mm)</p>
+                            </div>
+                        </bps-form-control>
+                    </bps-form-item>
+                    <bps-form-item class="bps-form-item">
+                        <bps-form-control>
+                            <div class="sps-custom-section-property-input-container">
+                                <p>C<sub>-20</sub></p>
+                                <input type="text" formControlName="Cminus20" style="width: 56px"
+                                    id="sps-custom-section-property-Cn20" bps-input placeholder=""
+                                    [(ngModel)]="sectionElementString.Cn20">
+                                <p class="units">(N/mm<sup>2</sup>)</p>
+                            </div>
+                        </bps-form-control>
+                    </bps-form-item>
+                    <span> </span>
+                    <bps-form-item class="bps-form-item">
+                        <bps-form-control>
+                            <div class="sps-custom-section-property-input-container">
+                                <p>C<sub>20</sub></p>
+                                <input type="text" formControlName="C20" style="width: 56px"
+                                    id="sps-custom-section-property-Cp20" bps-input placeholder=""
+                                    [(ngModel)]="sectionElementString.Cp20">
+                                <p class="units">(N/mm<sup>2</sup>)</p>
+                            </div>
+                        </bps-form-control>
+                    </bps-form-item>
+                    <bps-form-item class="bps-form-item">
+                        <bps-form-control>
+                            <div class="sps-custom-section-property-input-container">
+                                <p>C<sub>80</sub></p>
+                                <input type="text" formControlName="C80" style="width: 56px"
+                                    id="sps-custom-section-property-Cp80" bps-input placeholder=""
+                                    [(ngModel)]="sectionElementString.Cp80">
+                                <p class="units">(N/mm<sup>2</sup>)</p>
+                            </div>
+                        </bps-form-control>
+                    </bps-form-item>
+                </form>
+                <form *ngIf="unified3DModel && unified3DModel.ProblemSetting.FacadeType === 'UDC'" bps-form
+                    [formGroup]="validateUDCForm">
+                    <bps-form-item class="bps-form-item">
+                        <bps-form-control>
+                            <h3 style="margin-bottom: 4px;">{{'configure.profile-name' | translate }}</h3>
+                            <!-- profile name -->
+                            <input formControlName="profileName" style="width: 170px; margin-top: -5px;" opened
+                                bps-input placeholder="{{'configure.profile-id-name' | translate }}"
+                                id="new-custom-article-name" [(ngModel)]="facadeSectionElement.ArticleName">
+                            <!-- Profile ID name -->
+                        </bps-form-control>
+                    </bps-form-item>
+                    <h3 style="margin-top: 23px;">{{'configure.section-properties' | translate }}</h3>
+                    <!-- Section Properties -->
+                    <bps-form-item class="bps-form-item">
+                        <bps-form-control>
+                            <div class="sps-custom-section-property-input-container">
+                                <p>OutsideW</p>
+                                <input type="text" formControlName="OutsideW" style="width: 56px" required
+                                    id="sps-custom-section-property-OutsideW" bps-input placeholder=""
+                                    [(ngModel)]="facadeSectionElementString.OutsideW">
+                                <p class="units">(mm)</p>
+                            </div>
+                        </bps-form-control>
+                    </bps-form-item>
+                    <span> </span>
+                    <bps-form-item class="bps-form-item">
+                        <bps-form-control>
+                            <div class="sps-custom-section-property-input-container">
+                                <p>Depth</p>
+                                <input type="text" formControlName="Depth" style="width: 56px" required
+                                    id="sps-custom-section-property-Depth" bps-input placeholder=""
+                                    [(ngModel)]="facadeSectionElementString.Depth">
+                                <p class="units">(mm)</p>
+                            </div>
+                        </bps-form-control>
+                    </bps-form-item>
+                    <bps-form-item class="bps-form-item">
+                        <bps-form-control>
+                            <div class="sps-custom-section-property-input-container">
+                                <p>Width</p>
+                                <input type="text" formControlName="Width" style="width: 56px" required
+                                    id="sps-custom-section-property-Width" bps-input placeholder=""
+                                    [(ngModel)]="facadeSectionElementString.Width">
+                                <p class="units">(mm)</p>
+                            </div>
+                        </bps-form-control>
+                    </bps-form-item>
+                    <span> </span>
+                    <bps-form-item class="bps-form-item">
+                        <bps-form-control>
+                            <div class="sps-custom-section-property-input-container">
+                                <p>BTDepth</p>
+                                <input type="text" formControlName="BTDepth" style="width: 56px" required
+                                    id="sps-custom-section-property-BTDepth" bps-input placeholder=""
+                                    [(ngModel)]="facadeSectionElementString.BTDepth">
+                                <p class="units">(mm)</p>
+                            </div>
+                        </bps-form-control>
+                    </bps-form-item>
+                    <bps-form-item class="bps-form-item">
+                        <bps-form-control>
+                            <div class="sps-custom-section-property-input-container">
+                                <p>Weight</p>
+                                <input type="text" formControlName="Weight" style="width: 56px" required
+                                    id="sps-custom-section-property-Weight" bps-input placeholder=""
+                                    [(ngModel)]="facadeSectionElementString.Weight">
+                                <p class="units">(mm)</p>
+                            </div>
+                        </bps-form-control>
+                    </bps-form-item>
+                    <span> </span>
+                    <bps-form-item class="bps-form-item">
+                        <bps-form-control>
+                            <div class="sps-custom-section-property-input-container">
+                                <p>A</p>
+                                <input type="text" formControlName="A" style="width: 56px" required
+                                    id="sps-custom-section-property-A" bps-input placeholder=""
+                                    [(ngModel)]="facadeSectionElementString.A">
+                                <p class="units">(mm)</p>
+                            </div>
+                        </bps-form-control>
+                    </bps-form-item>
+                    <bps-form-item class="bps-form-item">
+                        <bps-form-control>
+                            <div class="sps-custom-section-property-input-container">
+                                <p>Iyy</p>
+                                <input type="text" formControlName="Iyy" style="width: 56px" required
+                                    id="sps-custom-section-property-Iyy" bps-input placeholder=""
+                                    [(ngModel)]="facadeSectionElementString.Iyy">
+                                <p class="units">(mm)</p>
+                            </div>
+                        </bps-form-control>
+                    </bps-form-item>
+                    <span> </span>
+                    <bps-form-item class="bps-form-item">
+                        <bps-form-control>
+                            <div class="sps-custom-section-property-input-container">
+                                <p>Izz</p>
+                                <input type="text" formControlName="Izz" style="width: 56px" required
+                                    id="sps-custom-section-property-Izz" bps-input placeholder=""
+                                    [(ngModel)]="facadeSectionElementString.Izz">
+                                <p class="units">(mm)</p>
+                            </div>
+                        </bps-form-control>
+                    </bps-form-item>
+                    <bps-form-item class="bps-form-item">
+                        <bps-form-control>
+                            <div class="sps-custom-section-property-input-container">
+                                <p>Asy</p>
+                                <input type="text" formControlName="Asy" style="width: 56px" required
+                                    id="sps-custom-section-property-Asy" bps-input placeholder=""
+                                    [(ngModel)]="facadeSectionElementString.Asy">
+                                <p class="units">(mm)</p>
+                            </div>
+                        </bps-form-control>
+                    </bps-form-item>
+                    <span> </span>
+                    <bps-form-item class="bps-form-item">
+                        <bps-form-control>
+                            <div class="sps-custom-section-property-input-container">
+                                <p>Asz</p>
+                                <input type="text" formControlName="Asz" style="width: 56px" required
+                                    id="sps-custom-section-property-Asz" bps-input placeholder=""
+                                    [(ngModel)]="facadeSectionElementString.Asz">
+                                <p class="units">(mm)</p>
+                            </div>
+                        </bps-form-control>
+                    </bps-form-item>
+                    <bps-form-item class="bps-form-item">
+                        <bps-form-control>
+                            <div class="sps-custom-section-property-input-container">
+                                <p>J</p>
+                                <input type="text" formControlName="J" style="width: 56px" required
+                                    id="sps-custom-section-property-J" bps-input placeholder=""
+                                    [(ngModel)]="facadeSectionElementString.J">
+                                <p class="units">(mm)</p>
+                            </div>
+                        </bps-form-control>
+                    </bps-form-item>
+                    <span> </span>
+                    <bps-form-item class="bps-form-item">
+                        <bps-form-control>
+                            <div class="sps-custom-section-property-input-container">
+                                <p>E</p>
+                                <input type="text" formControlName="E" style="width: 56px" required
+                                    id="sps-custom-section-property-E" bps-input placeholder=""
+                                    [(ngModel)]="facadeSectionElementString.E">
+                                <p class="units">(mm)</p>
+                            </div>
+                        </bps-form-control>
+                    </bps-form-item>
+                    <bps-form-item class="bps-form-item">
+                        <bps-form-control>
+                            <div class="sps-custom-section-property-input-container">
+                                <p>G</p>
+                                <input type="text" formControlName="G" style="width: 56px" required
+                                    id="sps-custom-section-property-G" bps-input placeholder=""
+                                    [(ngModel)]="facadeSectionElementString.G">
+                                <p class="units">(mm)</p>
+                            </div>
+                        </bps-form-control>
+                    </bps-form-item>
+                    <span> </span>
+                    <bps-form-item class="bps-form-item">
+                        <bps-form-control>
+                            <div class="sps-custom-section-property-input-container">
+                                <p>EA</p>
+                                <input type="text" formControlName="EA" style="width: 56px" required
+                                    id="sps-custom-section-property-EA" bps-input placeholder=""
+                                    [(ngModel)]="facadeSectionElementString.EA">
+                                <p class="units">(mm)</p>
+                            </div>
+                        </bps-form-control>
+                    </bps-form-item>
+                    <bps-form-item class="bps-form-item">
+                        <bps-form-control>
+                            <div class="sps-custom-section-property-input-container">
+                                <p>GAsy</p>
+                                <input type="text" formControlName="GAsy" style="width: 56px" required
+                                    id="sps-custom-section-property-GAsy" bps-input placeholder=""
+                                    [(ngModel)]="facadeSectionElementString.GAsy">
+                                <p class="units">(mm)</p>
+                            </div>
+                        </bps-form-control>
+                    </bps-form-item>
+                    <span> </span>
+                    <bps-form-item class="bps-form-item">
+                        <bps-form-control>
+                            <div class="sps-custom-section-property-input-container">
+                                <p>GAsz</p>
+                                <input type="text" formControlName="GAsz" style="width: 56px" required
+                                    id="sps-custom-section-property-GAsz" bps-input placeholder=""
+                                    [(ngModel)]="facadeSectionElementString.GAsz">
+                                <p class="units">(mm)</p>
+                            </div>
+                        </bps-form-control>
+                    </bps-form-item>
+                    <bps-form-item class="bps-form-item">
+                        <bps-form-control>
+                            <div class="sps-custom-section-property-input-container">
+                                <p>EIy</p>
+                                <input type="text" formControlName="EIy" style="width: 56px" required
+                                    id="sps-custom-section-property-EIy" bps-input placeholder=""
+                                    [(ngModel)]="facadeSectionElementString.EIy">
+                                <p class="units">(mm)</p>
+                            </div>
+                        </bps-form-control>
+                    </bps-form-item>
+                    <span> </span>
+                    <bps-form-item class="bps-form-item">
+                        <bps-form-control>
+                            <div class="sps-custom-section-property-input-container">
+                                <p>EIz</p>
+                                <input type="text" formControlName="EIz" style="width: 56px" required
+                                    id="sps-custom-section-property-EIz" bps-input placeholder=""
+                                    [(ngModel)]="facadeSectionElementString.EIz">
+                                <p class="units">(mm)</p>
+                            </div>
+                        </bps-form-control>
+                    </bps-form-item>
+                    <bps-form-item class="bps-form-item">
+                        <bps-form-control>
+                            <div class="sps-custom-section-property-input-container">
+                                <p>GJ</p>
+                                <input type="text" formControlName="GJ" style="width: 56px" required
+                                    id="sps-custom-section-property-GJ" bps-input placeholder=""
+                                    [(ngModel)]="facadeSectionElementString.GJ">
+                                <p class="units">(mm)</p>
+                            </div>
+                        </bps-form-control>
+                    </bps-form-item>
+                    <span> </span>
+                    <bps-form-item class="bps-form-item">
+                        <bps-form-control>
+                            <div class="sps-custom-section-property-input-container">
+                                <p>Zo</p>
+                                <input type="text" formControlName="Zo" style="width: 56px" required
+                                    id="sps-custom-section-property-Zo" bps-input placeholder=""
+                                    [(ngModel)]="facadeSectionElementString.Zo">
+                                <p class="units">(mm)</p>
+                            </div>
+                        </bps-form-control>
+                    </bps-form-item>
+                    <bps-form-item class="bps-form-item">
+                        <bps-form-control>
+                            <div class="sps-custom-section-property-input-container">
+                                <p>Zu</p>
+                                <input type="text" formControlName="Zu" style="width: 56px" required
+                                    id="sps-custom-section-property-Zu" bps-input placeholder=""
+                                    [(ngModel)]="facadeSectionElementString.Zu">
+                                <p class="units">(mm)</p>
+                            </div>
+                        </bps-form-control>
+                    </bps-form-item>
+                    <span> </span>
+                    <bps-form-item class="bps-form-item">
+                        <bps-form-control>
+                            <div class="sps-custom-section-property-input-container">
+                                <p>Zl</p>
+                                <input type="text" formControlName="Zl" style="width: 56px" required
+                                    id="sps-custom-section-property-Zl" bps-input placeholder=""
+                                    [(ngModel)]="facadeSectionElementString.Zl">
+                                <p class="units">(mm)</p>
+                            </div>
+                        </bps-form-control>
+                    </bps-form-item>
+                    <bps-form-item class="bps-form-item">
+                        <bps-form-control>
+                            <div class="sps-custom-section-property-input-container">
+                                <p>Zr</p>
+                                <input type="text" formControlName="Zr" style="width: 56px" required
+                                    id="sps-custom-section-property-Zr" bps-input placeholder=""
+                                    [(ngModel)]="facadeSectionElementString.Zr">
+                                <p class="units">(mm)</p>
+                            </div>
+                        </bps-form-control>
+                    </bps-form-item>
+                    <span> </span>
+                    <bps-form-item class="bps-form-item">
+                        <bps-form-control>
+                            <div class="sps-custom-section-property-input-container">
+                                <p>Material</p>
+                                <input type="text" formControlName="Material" style="width: 56px" required
+                                    id="sps-custom-section-property-Material" bps-input placeholder=""
+                                    [(ngModel)]="facadeSectionElementString.Material">
+                                <p class="units">(mm)</p>
+                            </div>
+                        </bps-form-control>
+                    </bps-form-item>
+                    <bps-form-item class="bps-form-item">
+                        <bps-form-control>
+                            <div class="sps-custom-section-property-input-container">
+                                <p>beta</p>
+                                <input type="text" formControlName="beta" style="width: 56px" required
+                                    id="sps-custom-section-property-beta" bps-input placeholder=""
+                                    [(ngModel)]="facadeSectionElementString.beta">
+                                <p class="units">(mm)</p>
+                            </div>
+                        </bps-form-control>
+                    </bps-form-item>
+                    <span> </span>
+                    <bps-form-item class="bps-form-item">
+                        <bps-form-control>
+                            <div class="sps-custom-section-property-input-container">
+                                <p>Wyy</p>
+                                <input type="text" formControlName="Wyy" style="width: 56px" required
+                                    id="sps-custom-section-property-Wyy" bps-input placeholder=""
+                                    [(ngModel)]="facadeSectionElementString.Wyy">
+                                <p class="units">(mm)</p>
+                            </div>
+                        </bps-form-control>
+                    </bps-form-item>
+                    <bps-form-item class="bps-form-item">
+                        <bps-form-control>
+                            <div class="sps-custom-section-property-input-container">
+                                <p>Wzz</p>
+                                <input type="text" formControlName="Wzz" style="width: 56px" required
+                                    id="sps-custom-section-property-Wzz" bps-input placeholder=""
+                                    [(ngModel)]="facadeSectionElementString.Wzz">
+                                <p class="units">(mm)</p>
+                            </div>
+                        </bps-form-control>
+                    </bps-form-item>
+                </form>
+            </div>
+            <div class="sps-break"></div>
+            <div class="sps-left-popout-level2-bottom-section">
+                <button [disabled]="!isFormValid()" [ngClass]="{'activeDeleteBtn': isFormValid()}"
+                    id="sps-custom-article-delete-btn" class="sps-custom-article-delete-btn" bps-button
+                    bpsType="variation-4" style="min-width: 80px" (click)="onDelete()">{{'configure.delete' | translate
+                    }}</button>
+                <!-- Delete -->
+                <button [disabled]="!(isFormValid())" [ngClass]="{'active': isFormValid()}" *ngIf="isAddButtonDisplay"
+                    id="sps-custom-article-add-btn" class="sps-custom-article-add-btn" bps-button bpsType="variation-4"
+                    style="min-width: 80px" (click)="onAdd()">{{'configure.add' | translate }}</button>
+                <!-- Add -->
+                <button [disabled]="!(isFormValid())" *ngIf="!isAddButtonDisplay" id="sps-custom-article-update-btn"
+                    class="sps-custom-article-add-btn" bps-button bpsType="variation-4"
+                    (click)="onUpdate()">{{'configure.update' | translate }}</button>
+                <!-- Update -->
+            </div>
+        </div>
+    </div>
+    <div class="sps-left-popout-container-level2-img">
+        <img src="/assets/Images/sps/sps_rectangle_picture_customsection.svg" style="width: 80%;">
+    </div>
+</div>
+<div *ngIf="isDisplay" id="sps-left-popout-container-level2-overlay-left"
+    class="sps-left-popout-container-level2-overlay-left"></div>
+<div *ngIf="isDisplay" id="sps-left-popout-container-level2-overlay-right"
+    class="sps-left-popout-container-level2-overlay-right"></div>

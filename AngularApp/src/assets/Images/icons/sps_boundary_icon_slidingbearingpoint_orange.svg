@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="15.868" viewBox="0 0 20 15.868">
+    <g id="sps_boundary_icon_slidingbearingpoint_orange" transform="translate(-575 -259.632)">
+        <g id="Polygon_33" fill="#f18700" stroke="none" data-name="Polygon 33">
+            <path d="M13.269 12.5H1.73c-.26 0-.39-.175-.433-.25-.043-.075-.13-.274 0-.5l5.769-9.999c.13-.226.346-.25.433-.25.087 0 .303.024.433.25l5.769 10c.13.225.043.424 0 .5-.044.074-.173.249-.433.249z" transform="translate(577.5 259.632)"/>
+            <path d="M7.5 2.001L1.731 12H13.27L7.5 2.001m0-1c.337 0 .674.167.866.5l5.769 10c.384.666-.097 1.499-.866 1.499H1.73c-.77 0-1.25-.833-.866-1.5l5.769-9.999c.192-.333.53-.5.866-.5z" transform="translate(577.5 259.632)"/>
+        </g>
+        <g id="Group_6347" data-name="Group 6347" transform="translate(5 30)">
+            <path id="Path_2238" fill="none" stroke="#f18700" d="M19497-10459.632h20" data-name="Path 2238" transform="translate(-18927 10704.632)"/>
+        </g>
+    </g>
+</svg>

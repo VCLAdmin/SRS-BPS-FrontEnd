@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="17.021" height="16.068" viewBox="0 0 17.021 16.068">
+  <defs>
+    <style>
+      .cls-1, .cls-3 {
+        fill: none;
+      }
+
+      .cls-1 {
+        stroke: #666;
+        stroke-width: 1.5px;
+      }
+
+      .cls-2 {
+        stroke: none;
+      }
+    </style>
+  </defs>
+  <g id="sps_round_icon_proposal_disabled" transform="translate(-661.49 -212.069)">
+    <g id="Group_7262" data-name="Group 7262">
+      <g id="Group_7100" data-name="Group 7100" transform="translate(669.442 212.068)">
+        <g id="Rectangle_3190" data-name="Rectangle 3190" class="cls-1" transform="translate(0 0)">
+          <rect class="cls-2" width="9.069" height="12.091"/>
+          <rect class="cls-3" x="0.75" y="0.75" width="7.569" height="10.591"/>
+        </g>
+        <path id="Path_2430" data-name="Path 2430" class="cls-1" d="M823.971,75h4.251" transform="translate(-821.562 -70.569)"/>
+        <path id="Path_2431" data-name="Path 2431" class="cls-1" d="M823.971,75h4.251" transform="translate(-821.562 -67.546)"/>
+      </g>
+      <g id="Group_7261" data-name="Group 7261" transform="translate(661.49 216.045)">
+        <g id="Rectangle_3190-2" data-name="Rectangle 3190" class="cls-1" transform="translate(0 0)">
+          <rect class="cls-2" width="9.069" height="12.091"/>
+          <rect class="cls-3" x="0.75" y="0.75" width="7.569" height="10.591"/>
+        </g>
+        <path id="Path_2430-2" data-name="Path 2430" class="cls-1" d="M823.971,75h4.251" transform="translate(-821.562 -70.544)"/>
+        <path id="Path_2431-2" data-name="Path 2431" class="cls-1" d="M823.971,75h4.251" transform="translate(-821.562 -67.522)"/>
+      </g>
+    </g>
+  </g>
+</svg>

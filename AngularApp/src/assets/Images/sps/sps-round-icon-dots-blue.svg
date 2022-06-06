@@ -1,0 +1,26 @@
+<svg id="sps_round_icon_dots_blue" xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10">
+  <defs>
+    <style>
+      .cls-1, .cls-4 {
+        fill: none;
+      }
+
+      .cls-1 {
+        stroke: #00a2d1;
+      }
+
+      .cls-2 {
+        fill: #00a2d1;
+      }
+
+      .cls-3 {
+        stroke: none;
+      }
+    </style>
+  </defs>
+  <g id="Rectangle_239" data-name="Rectangle 239" class="cls-1" transform="translate(0 0)">
+    <rect class="cls-3" width="10" height="10" rx="5"/>
+    <rect class="cls-4" x="0.5" y="0.5" width="9" height="9" rx="4.5"/>
+  </g>
+  <rect id="Rectangle_240" data-name="Rectangle 240" class="cls-2" width="5" height="5" rx="2.5" transform="translate(2.5 2.5)"/>
+</svg>

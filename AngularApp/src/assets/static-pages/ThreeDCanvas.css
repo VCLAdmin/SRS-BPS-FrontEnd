@@ -1,0 +1,192 @@
+body {
+    margin: 0px;
+    overflow: hidden;
+    background: #f7f7f7; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(#f7f7f7, #000000); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#f7f7f7, #000000); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#f7f7f7, #000000); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#f7f7f7, #000000); /* Standard syntax (must be last) */
+}
+
+.hidden {
+    display: none !important;
+}
+
+.dimension-input {
+    color: #ffffff;
+    width: 72px;
+    background-color: #363636;
+    text-align: center;
+    border-style: solid;
+    border-radius: 14px;
+    border-width: 1px;
+    border-color: #363636;
+    outline: none;
+}
+
+.dimension-input:hover {
+    border-color: #00A2D1;
+}
+
+.control-button {
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    margin: 6px;
+    border-radius: 6px;
+    background-color: #253d47;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.control-button:hover {
+    background-color: #445c67
+}
+
+.control-button:active {
+    background-color: #00A2D1
+}
+
+.control-button:focus {
+    box-shadow: 0 0 8px 0 #00a2d1;
+    background-color: #253d47
+}
+
+#model-controls {
+    position: absolute;
+    top: 2%;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    border-radius: 12px;
+    border: solid 2px #00a2d1;
+}
+
+#controls-edit {
+    background-image: url(https://vcl-design-com.s3.amazonaws.com/StaticFiles/scripts/3DGraphics/content/images/sps_square_icon_modelcontrol_edit.svg);
+}
+#controls-add-mullion {
+    background-image: url(https://vcl-design-com.s3.amazonaws.com/StaticFiles/scripts/3DGraphics/content/images/sps_square_icon_modelcontrol_addmullion.svg);
+}
+#controls-add-transom {
+    background-image: url(https://vcl-design-com.s3.amazonaws.com/StaticFiles/scripts/3DGraphics/content/images/sps_square_icon_modelcontrol_addtransom.svg);
+}
+#controls-delete {
+    background-image: url(https://vcl-design-com.s3.amazonaws.com/StaticFiles/scripts/3DGraphics/content/images/sps_square_icon_modelcontrol_delete.svg);
+}
+
+#display-controls {
+    position: absolute;
+    left: 0.5%;
+    bottom: 2%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+}
+
+#controls-axes-helper {
+    background-image: url(https://vcl-design-com.s3.amazonaws.com/StaticFiles/scripts/3DGraphics/content/images/sps_square_icon_axeshelper_white.svg);
+}
+
+#controls-glass-id {
+    background-image: url(https://vcl-design-com.s3.amazonaws.com/StaticFiles/scripts/3DGraphics/content/images/sps_square_icon_infopanel_white.svg);
+}
+
+#controls-grid {
+    background-image: url(https://vcl-design-com.s3.amazonaws.com/StaticFiles/scripts/3DGraphics/content/images/sps_square_icon_grid_white.svg);
+}
+
+.control-button.selected {
+    background-color: #00a2d1;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 50px;
+    background-color: #00a2d1;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+    -webkit-transform: translate(-10px, -125%);
+    transform: translate(-10px, -125%);
+    font-family: UniversForSchueco-530Med;
+    font-size: 12px;
+    transition: opacity 0.3s;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #00a2d1 transparent transparent transparent;
+}
+
+/* for thermal result label */
+.sps-result-thermal-profile-icon {
+	width: 28px;
+	height: 28px;
+	border-radius: 28px 28px 28px 28px;
+	border: 2px solid #ffffff;
+	background-color: #888888;
+	display: flex;
+	margin-right: -50%;
+	transform: translate(-50%, -75%);
+	position: fixed;
+	display: flex;
+	vertical-align: middle;
+	justify-content: center;
+    cursor: pointer;
+}
+.sps-result-thermal-profile-icon-line-hor {
+    border-bottom: 3px solid #f18700;
+    width: 56px;
+    height: 28px;
+    margin-top: -14px;
+}
+.sps-result-thermal-profile-icon-line-ver {
+    border-right: 3px solid #f18700;
+    width: 28px;
+    height: 56px;
+    margin-left: -14px;
+}
+
+.sps-result-thermal-profile-icon-text {
+  width: 32.3px;
+  height: 17.9px;
+  font-family: UniversForSchueco-530Med;
+  font-size: 17px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 0.71;
+  letter-spacing: normal;
+  text-align: center;
+  margin-top: 8px;
+  color: #ffffff;
+  user-select: none;
+}
+
+@font-face {
+    font-family: 'UniversForSchueco-530Med';
+    src: url('../Fonts/UniversForSchueco-530Med.otf');
+}

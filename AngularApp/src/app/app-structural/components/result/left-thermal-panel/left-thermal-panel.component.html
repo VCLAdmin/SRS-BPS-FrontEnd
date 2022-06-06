@@ -1,0 +1,572 @@
+<div id="sps-result-tab-thermal-leftpanel-container"
+  class="left-panel-scrolling-container sps-result-tab-thermal-leftpanel-container fontUniversForSchueco-530Med"
+  *ngIf="bpsThermalResult && bpsThermalResult.ThermalUIResult">
+  <!--Window-->
+  <div>
+    <!--Profile ThermalFrames -->
+    <div *ngIf="bpsThermalResult.ThermalUIResult.ThermalFrames && unified3DModel.ProblemSetting.ProductType=='Window'">
+      <div id="sps-result-tab-thermal-heading-container0" class="sps-result-tab-thermal-heading">
+        <div class="sps-result-tab-thermal-heading1 sps-result-tab-thermal-heading2">Uf</div>
+        <div class="sps-result-tab-thermal-heading1 sps-result-tab-thermal-heading3">{{'result.frame-area' | translate
+          }}
+        </div>
+        <!-- Frame area -->
+      </div>
+      <div id="sps-result-tab-thermal-heading-line-2" class="sps-result-tab-thermal-heading-line-2">
+        <div class="sps-result-tab-thermal-heading1 sps-result-tab-thermal-heading1">{{'result.profiles' | translate }}
+        </div>
+        <!-- Profiles -->
+        <div class="sps-result-tab-thermal-heading1 sps-result-tab-thermal-heading4">(W/m<sup>2</sup>K)</div>
+        <div id="meep" class="sps-result-tab-thermal-heading1 sps-result-tab-thermal-heading5">(m<sup>2</sup>)</div>
+      </div>
+      <div *ngFor="let frame of bpsThermalResult.ThermalUIResult.ThermalFrames">
+        <div class="sps-result-tab-thermal-leftpanel-box1"
+          [ngStyle]="{border: selectedThermalResultLabel==frame.ThermalFrameID? '1px solid rgb(0, 162, 209)':'1px solid rgb(112, 112, 112)'}"
+          id="profile-0">
+          <div class="sps-result-thermal-box-partA"
+            style="background-color: rgb(136, 136, 136); margin-left: -0.1px; margin-top: -0.2px;">
+            {{frame.ThermalFrameID}}
+          </div>
+          <div class="sps-result-thermal-box-partB" style="color: #FFFFFF">{{frame.Uf | number : '1.0-2':
+            language}}
+          </div>
+          <div class="sps-result-thermal-box-partC" style="color: #FFFFFF">{{frame.Area | number : '1.0-2': language}}
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--Glass ThermalUIGlasses -->
+    <div
+      *ngIf="bpsThermalResult.ThermalUIResult.ThermalUIGlasses && unified3DModel.ProblemSetting.ProductType=='Window'">
+      <div id="sps-result-tab-thermal-heading-container1" class="sps-result-tab-thermal-heading">
+        <div class="sps-result-tab-thermal-heading1 sps-result-tab-thermal-heading11">Ug</div>
+        <div class="sps-result-tab-thermal-heading1 sps-result-tab-thermal-heading12">{{'result.total-area' | translate
+          }}
+        </div>
+        <!-- Total area -->
+      </div>
+      <div id="sps-result-tab-thermal-heading-line-2" class="sps-result-tab-thermal-heading-line-2">
+        <div class="sps-result-tab-thermal-heading1">{{'result.glass' | translate }}</div>
+        <!-- Glass -->
+        <div class="sps-result-tab-thermal-heading1 sps-result-tab-thermal-heading7">(W/m<sup>2</sup>K)</div>
+        <div class="sps-result-tab-thermal-heading1 sps-result-tab-thermal-heading5">(m<sup>2</sup>)</div>
+      </div>
+
+      <div *ngFor="let glass of bpsThermalResult.ThermalUIResult.ThermalUIGlasses; let i = index">
+        <div class="sps-result-tab-thermal-leftpanel-box1" style="border: 1px solid rgb(112, 112, 112);">
+          <div class="sps-result-thermal-box-partA" [ngClass]="{'glass1': glassGlazingSystemIds[i]==1,
+            'glass2': glassGlazingSystemIds[i]==2,
+            'glass3': glassGlazingSystemIds[i]==3,
+            'glass4': glassGlazingSystemIds[i]==4,
+            'glass5': glassGlazingSystemIds[i]==5}" style="margin-top: -1px;margin-left: -0.2px;height: 24px;">
+            <!-- Glass -->
+            <div *ngIf="getGroupedGlasses(glass.GlassID).length > 18 else noScroll" class="wrapperScroll"
+              [ngClass]="'wrapperScroll51' + i" (wheel)="onWheel($event, 'wrapperScroll51' + i)">
+              {{getGroupedGlasses(glass.GlassID)}} </div>
+            <ng-template #noScroll> {{getGroupedGlasses(glass.GlassID)}} </ng-template>
+          </div>
+          <div class="sps-result-thermal-box-partB" style="color: rgb(132, 206, 228);">{{glass.Ug | number : '1.0-2':
+            language}}
+          </div>
+          <div class="sps-result-thermal-box-partC" style="color: rgb(132, 206, 228);">{{glass.Area | number : '1.0-2':
+            language}}
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--Glass Edge ThermalUIGlassEdges -->
+    <div
+      *ngIf="bpsThermalResult.ThermalUIResult.ThermalUIGlassEdges && unified3DModel.ProblemSetting.ProductType=='Window'">
+      <div id="sps-result-tab-thermal-heading-container2" class="sps-result-tab-thermal-heading">
+        <div class="sps-result-tab-thermal-heading1 sps-result-tab-thermal-heading8">{{'result.psi-value' | translate }}
+        </div>
+        <!-- Psi-Value -->
+        <div class="sps-result-tab-thermal-heading1 sps-result-tab-thermal-heading12">{{'result.length' | translate }}
+        </div>
+        <!-- length -->
+      </div>
+      <div id="sps-result-tab-thermal-heading-line-2" class="sps-result-tab-thermal-heading-line-2">
+        <div class="sps-result-tab-thermal-heading1">{{'result.glass-edge-seal' | translate }}</div>
+        <!-- Glass edge seal -->
+        <div class="sps-result-tab-thermal-heading1 sps-result-tab-thermal-heading6">(W/mK)</div>
+        <div class="sps-result-tab-thermal-heading1 sps-result-tab-thermal-heading10">(m)</div>
+      </div>
+
+      <div *ngFor="let glassEdge of bpsThermalResult.ThermalUIResult.ThermalUIGlassEdges; let i = index;">
+        <div class="sps-result-tab-thermal-leftpanel-box1" style="border: 1px solid rgb(112, 112, 112);">
+          <div class="sps-result-thermal-box-partA" [ngClass]="{'glass1': glassGlazingSystemIds[i]==1,
+            'glass2': glassGlazingSystemIds[i]==2,
+            'glass3': glassGlazingSystemIds[i]==3,
+            'glass4': glassGlazingSystemIds[i]==4,
+            'glass5': glassGlazingSystemIds[i]==5}" style="height: 24px;margin-left: -0.2px; margin-top: -1px;">
+            <div *ngIf="getGroupedGlasses(glassEdge.GlassID).length > 18 else noScroll" class="wrapperScroll"
+              [ngClass]="'wrapperScroll01' + i" (wheel)="onWheel($event, 'wrapperScroll01' + i)">
+              {{getGroupedGlasses(glassEdge.GlassID)}} </div>
+            <ng-template #noScroll> {{getGroupedGlasses(glassEdge.GlassID)}} </ng-template>
+            <!-- Glass -->
+          </div>
+          <div class="sps-result-thermal-box-partB" style="color: rgb(132, 206, 228);">
+            {{glassEdge.Psi | number : '1.0-2': language}}</div>
+          <div class="sps-result-thermal-box-partC" style="color: rgb(132, 206, 228);">
+            {{glassEdge.Length | number : '1.0-2': language}}</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!--Facade-->
+  <div *ngIf="unified3DModel.ProblemSetting.ProductType=='Facade'">
+    <!--Profile ThermalFacadeMembers -->
+    <div
+      *ngIf="bpsThermalResult.ThermalUIResult.ThermalFacadeMembers && bpsThermalResult.ThermalUIResult.ThermalFacadeMembers.length > 0">
+      <div id="sps-result-tab-thermal-heading-container0" class="sps-result-tab-thermal-heading">
+        <div class="sps-result-tab-thermal-heading1 sps-result-tab-thermal-heading2">Uf</div>
+        <div class="sps-result-tab-thermal-heading1 sps-result-tab-thermal-heading3">{{'result.frame-area' | translate
+          }}
+        </div>
+        <!-- Frame area -->
+      </div>
+      <div id="sps-result-tab-thermal-heading-line-2" class="sps-result-tab-thermal-heading-line-2">
+        <div class="sps-result-tab-thermal-heading1 sps-result-tab-thermal-heading1">{{'result.profiles' | translate }}
+        </div>
+        <!-- Profiles -->
+        <div class="sps-result-tab-thermal-heading1 sps-result-tab-thermal-heading4">(W/m<sup>2</sup>K)</div>
+        <div id="meep" class="sps-result-tab-thermal-heading1 sps-result-tab-thermal-heading5">(m<sup>2</sup>)</div>
+      </div>
+      <div *ngFor="let frame of bpsThermalResult.ThermalUIResult.ThermalFacadeMembers">
+        <div class="sps-result-tab-thermal-leftpanel-box1"
+          [ngStyle]="{border: selectedThermalResultLabel==frame.FacadeFrameID? '1px solid rgb(0, 162, 209)':'1px solid rgb(112, 112, 112)'}"
+          id="profile-0">
+          <div class="sps-result-thermal-box-partA"
+            style="background-color: rgb(136, 136, 136); margin-left: -0.2px; margin-top: -0.2px;">
+            {{frame.FacadeFrameID}}
+          </div>
+          <div class="sps-result-thermal-box-partB" style="color: #FFFFFF">{{frame.Uf | number : '1.0-2':
+            language}}
+          </div>
+          <div class="sps-result-thermal-box-partC" style="color: #FFFFFF">{{frame.Area | number : '1.0-2': language}}
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--Glass-->
+    <div
+      *ngIf="bpsThermalResult.ThermalUIResult.ThermalUIGlasses && bpsThermalResult.ThermalUIResult.ThermalUIGlasses.length>0">
+      <div id="sps-result-tab-thermal-heading-container1" class="sps-result-tab-thermal-heading">
+        <div class="sps-result-tab-thermal-heading1 sps-result-tab-thermal-heading11">Ug</div>
+        <div class="sps-result-tab-thermal-heading1 sps-result-tab-thermal-heading12">{{'result.glass-area' | translate
+          }}
+        </div>
+        <!-- Total area -->
+      </div>
+      <div id="sps-result-tab-thermal-heading-line-2" class="sps-result-tab-thermal-heading-line-2">
+        <div class="sps-result-tab-thermal-heading1">{{'result.glass' | translate }}</div>
+        <!-- Glass -->
+        <div class="sps-result-tab-thermal-heading1 sps-result-tab-thermal-heading7">(W/m<sup>2</sup>K)</div>
+        <div class="sps-result-tab-thermal-heading1 sps-result-tab-thermal-heading5">(m<sup>2</sup>)</div>
+      </div>
+
+      <div *ngFor="let glass of bpsThermalResult.ThermalUIResult.ThermalUIGlasses; let i = index">
+        <div class="sps-result-tab-thermal-leftpanel-box1" style="border: 1px solid rgb(112, 112, 112);">
+          <div class="sps-result-thermal-box-partA" [ngClass]="{'glass1': glassGlazingSystemIds[i]==1,
+          'glass2': glassGlazingSystemIds[i]==2,
+          'glass3': glassGlazingSystemIds[i]==3,
+          'glass4': glassGlazingSystemIds[i]==4,
+          'glass5': glassGlazingSystemIds[i]==5}" style="margin-top: -1px;margin-left: -0.2px;height: 24px;">
+            <!-- Glass -->
+            <div *ngIf="getGroupedGlasses(glass.GlassID).length > 18 else noScroll" class="wrapperScroll"
+              [ngClass]="'wrapperScroll11' + i" (wheel)="onWheel($event, 'wrapperScroll11' + i)">
+              {{getGroupedGlasses(glass.GlassID)}} </div>
+            <ng-template #noScroll> {{getGroupedGlasses(glass.GlassID)}} </ng-template>
+          </div>
+          <div class="sps-result-thermal-box-partB" style="color: rgb(132, 206, 228);">{{glass.Ug | number : '1.0-2':
+            language}}
+          </div>
+          <div class="sps-result-thermal-box-partC" style="color: rgb(132, 206, 228);">{{glass.Area | number : '1.0-2':
+            language}}
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--Glass Edge ThermalUIFacadeGlassEdges -->
+    <div
+      *ngIf="bpsThermalResult.ThermalUIResult.ThermalUIFacadeGlassEdges && bpsThermalResult.ThermalUIResult.ThermalUIFacadeGlassEdges.length > 0">
+      <div id="sps-result-tab-thermal-heading-container2" class="sps-result-tab-thermal-heading">
+        <div class="sps-result-tab-thermal-heading1 sps-result-tab-thermal-heading8">PsiH <span
+            style="color: #ffffff;">/</span> PsiV</div>
+        <!-- Psi-Value -->
+        <div class="sps-result-tab-thermal-heading1 sps-result-tab-thermal-heading12">{{'result.length' | translate }}
+        </div>
+        <!-- length -->
+      </div>
+      <div id="sps-result-tab-thermal-heading-line-2" class="sps-result-tab-thermal-heading-line-2">
+        <div class="sps-result-tab-thermal-heading1">{{'result.glass-edge-seal' | translate }}</div>
+        <!-- Glass edge seal -->
+        <div class="sps-result-tab-thermal-heading1 sps-result-tab-thermal-heading6">(W/mK)</div>
+        <div class="sps-result-tab-thermal-heading1 sps-result-tab-thermal-heading10">(m)</div>
+      </div>
+
+      <div *ngFor="let glassEdge of bpsThermalResult.ThermalUIResult.ThermalUIFacadeGlassEdges; let i = index;">
+        <div class="sps-result-tab-thermal-leftpanel-box1" style="border: 1px solid rgb(112, 112, 112);">
+          <div class="sps-result-thermal-box-partA" [ngClass]="{'glass1': glassGlazingSystemIds[i]==1,
+          'glass2': glassGlazingSystemIds[i]==2,
+          'glass3': glassGlazingSystemIds[i]==3,
+          'glass4': glassGlazingSystemIds[i]==4,
+          'glass5': glassGlazingSystemIds[i]==5}" style="height: 24px;margin-left: -0.2px; margin-top: -1px;">
+            <div *ngIf="getGroupedGlasses(glassEdge.GlassID).length > 18 else noScroll" class="wrapperScroll"
+              [ngClass]="'wrapperScroll21' + i" (wheel)="onWheel($event, 'wrapperScroll21' + i)">
+              {{getGroupedGlasses(glassEdge.GlassID)}} </div>
+            <ng-template #noScroll> {{getGroupedGlasses(glassEdge.GlassID)}} </ng-template>
+            <!-- Glass -->
+          </div>
+          <div class="sps-result-thermal-box-partB" style="color: rgb(132, 206, 228);">
+            {{glassEdge.PsiH | number : '1.0-2': language}} &nbsp; <span style="color: #ffffff;">/</span> &nbsp;
+            {{glassEdge.PsiV |
+            number : '1.0-2': language}}</div>
+          <div class="sps-result-thermal-box-partC" style="color: rgb(132, 206, 228);">
+            {{glassEdge.LengthH | number : '1.0-2': language}} &nbsp; <span style="color: #ffffff;">/</span> &nbsp;
+            {{glassEdge.LengthV |
+            number : '1.0-2': language}}</div>
+        </div>
+      </div>
+    </div>
+
+    <!--Panel data-->
+    <div
+      *ngIf="bpsThermalResult.ThermalUIResult.ThermalUIPanels && bpsThermalResult.ThermalUIResult.ThermalUIPanels.length>0">
+      <div class="sps-break" style="margin-top: 16px; margin-bottom: 0px"></div>
+      <div id="sps-result-tab-thermal-heading-container1" class="sps-result-tab-thermal-heading">
+        <div class="sps-result-tab-thermal-heading1 sps-result-tab-thermal-heading11">Up</div>
+        <div class="sps-result-tab-thermal-heading1 sps-result-tab-thermal-heading12">{{'result.panel-area' | translate
+          }}
+        </div>
+        <!-- Total area -->
+      </div>
+      <div id="sps-result-tab-thermal-heading-line-2" class="sps-result-tab-thermal-heading-line-2">
+        <div class="sps-result-tab-thermal-heading1">{{'result.panel' | translate }}</div>
+        <!-- Panel -->
+        <div class="sps-result-tab-thermal-heading1 sps-result-tab-thermal-heading7">(W/m<sup>2</sup>K)</div>
+        <div class="sps-result-tab-thermal-heading1 sps-result-tab-thermal-heading5">(m<sup>2</sup>)</div>
+      </div>
+
+      <div *ngFor="let glass of bpsThermalResult.ThermalUIResult.ThermalUIPanels; let i = index">
+        <div class="sps-result-tab-thermal-leftpanel-box1" style="border: 1px solid rgb(112, 112, 112);">
+          <div class="sps-result-thermal-box-partA" [ngClass]="{'glass1': glassGlazingSystemIds[i]==1,
+          'glass2': glassGlazingSystemIds[i]==2,
+          'glass3': glassGlazingSystemIds[i]==3,
+          'glass4': glassGlazingSystemIds[i]==4,
+          'glass5': glassGlazingSystemIds[i]==5}" style="margin-top: -1px;margin-left: -0.2px;height: 24px;">
+            <!-- Panel -->
+            <div *ngIf="getGroupedGlasses(glass.GlassID).length > 18 else noScroll" class="wrapperScroll"
+              [ngClass]="'wrapperScroll11' + i" (wheel)="onWheel($event, 'wrapperScroll11' + i)">
+              {{getGroupedGlasses(glass.GlassID)}} </div>
+            <ng-template #noScroll> {{getGroupedGlasses(glass.GlassID)}} </ng-template>
+          </div>
+          <div class="sps-result-thermal-box-partB" style="color: rgb(132, 206, 228);">{{glass.Up | number : '1.0-2':
+            language}}
+          </div>
+          <div class="sps-result-thermal-box-partC" style="color: rgb(132, 206, 228);">{{glass.Area | number : '1.0-2':
+            language}}
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--Panel Edge ThermalUIPanelEdges -->
+    <div
+      *ngIf="bpsThermalResult.ThermalUIResult.ThermalUIPanelEdges && bpsThermalResult.ThermalUIResult.ThermalUIPanelEdges.length > 0">
+      <div id="sps-result-tab-thermal-heading-container2" class="sps-result-tab-thermal-heading"
+        style="padding-left: 0px;">
+        <div class="sps-result-tab-thermal-heading1 sps-result-tab-thermal-heading1"
+          style="text-transform: unset; text-align: left; margin-top: 19.2px;">
+        </div>
+        <div class="sps-result-tab-thermal-heading1 sps-result-tab-thermal-heading8">{{'result.psi-value' | translate }}
+        </div>
+        <!-- Psi-Value -->
+        <div class="sps-result-tab-thermal-heading1 sps-result-tab-thermal-heading12">{{'result.length' | translate }}
+        </div>
+        <!-- length -->
+      </div>
+      <div id="sps-result-tab-thermal-heading-line-2" class="sps-result-tab-thermal-heading-line-2">
+        <div class="sps-result-tab-thermal-heading1">{{'result.left-thermal-panel-edge-seal' | translate }}</div>
+        <!-- Panel edge seal -->
+        <div class="sps-result-tab-thermal-heading1 sps-result-tab-thermal-heading6">(W/mK)</div>
+        <div class="sps-result-tab-thermal-heading1 sps-result-tab-thermal-heading10">(m)</div>
+      </div>
+
+      <div *ngFor="let glassEdge of bpsThermalResult.ThermalUIResult.ThermalUIPanelEdges; let i = index;">
+        <div class="sps-result-tab-thermal-leftpanel-box1" style="border: 1px solid rgb(112, 112, 112);">
+          <div class="sps-result-thermal-box-partA glass2" style="height: 24px;margin-left: -0.2px; margin-top: -1px;">
+            <div *ngIf="getGroupedGlasses(glassEdge.GlassID).length > 18 else noScroll" class="wrapperScroll"
+              [ngClass]="'wrapperScroll31' + i" (wheel)="onWheel($event, 'wrapperScroll31' + i)">
+              {{getGroupedGlasses(glassEdge.GlassID)}} </div>
+            <ng-template #noScroll> {{getGroupedGlasses(glassEdge.GlassID)}} </ng-template>
+            <!-- Panel -->
+          </div>
+          <div class="sps-result-thermal-box-partB" style="color: rgb(132, 206, 228);">
+            {{glassEdge.Psi | number : '1.0-2': language}}</div>
+          <div class="sps-result-thermal-box-partC" style="color: rgb(132, 206, 228);">
+            {{glassEdge.Length | number : '1.0-2': language}}</div>
+        </div>
+      </div>
+    </div>
+    <!--Glass Edge ThermalUIInsertUnitFrameEdges -->
+    <div *ngIf="(bpsThermalResult.ThermalUIResult.ThermalUIInsertUnitFrameEdges && bpsThermalResult.ThermalUIResult.ThermalUIInsertUnitFrameEdges.length > 0)">
+      <div class="sps-break" style="margin-top: 16px; margin-bottom: 0px"></div>
+      <div id="sps-result-tab-thermal-heading-container2" class="sps-result-tab-thermal-heading"
+        style="padding-left: 0px;">
+        <div class="sps-result-tab-thermal-heading1 sps-result-tab-thermal-heading1"
+          style="text-transform: unset; text-align: left; margin-top: 19.2px;">
+          {{'result.edge-seal-insert-unit-part1' | translate }}
+        </div>
+        <div class="sps-result-tab-thermal-heading1 sps-result-tab-thermal-heading8">{{'result.psi-value' | translate }}
+        </div>
+        <!-- Psi-Value -->
+        <div class="sps-result-tab-thermal-heading1 sps-result-tab-thermal-heading12">{{'result.length' | translate }}
+        </div>
+        <!-- length -->
+      </div>
+
+      <div id="sps-result-tab-thermal-heading-line-2" class="sps-result-tab-thermal-heading-line-2">
+        <div class="sps-result-tab-thermal-heading1"> {{'result.edge-seal-insert-unit-part2' | translate }}</div>
+        <!-- Glass edge seal -->
+        <div class="sps-result-tab-thermal-heading1 sps-result-tab-thermal-heading6">(W/mK)</div>
+        <div class="sps-result-tab-thermal-heading1 sps-result-tab-thermal-heading10">(m)</div>
+      </div>
+
+      <div *ngFor="let glassEdge of bpsThermalResult.ThermalUIResult.ThermalUIInsertUnitFrameEdges; let i = index;">
+        <div class="sps-result-tab-thermal-leftpanel-box1" style="border: 1px solid rgb(112, 112, 112);">
+          <div class="sps-result-thermal-box-partA" [ngClass]="{'glass1': glassGlazingSystemIds[i]==1,
+          'glass2': glassGlazingSystemIds[i]==2,
+          'glass3': glassGlazingSystemIds[i]==3,
+          'glass4': glassGlazingSystemIds[i]==4,
+          'glass5': glassGlazingSystemIds[i]==5}" style="height: 24px;margin-left: -0.2px; margin-top: -1px;">
+            <div *ngIf="getGroupedGlasses(glassEdge.GlassID).length > 18 else noScroll" class="wrapperScroll"
+              [ngClass]="'wrapperScroll41' + i" (wheel)="onWheel($event, 'wrapperScroll41' + i)">
+              {{getGroupedGlasses(glassEdge.GlassID)}} </div>
+            <ng-template #noScroll> {{getGroupedGlasses(glassEdge.GlassID)}} </ng-template>
+            <!-- Glass -->
+          </div>
+          <div class="sps-result-thermal-box-partB" style="color: rgb(132, 206, 228);">
+            {{glassEdge.Psi | number : '1.0-2': language}}</div>
+          <div class="sps-result-thermal-box-partC" style="color: rgb(132, 206, 228);">
+            {{glassEdge.Length | number : '1.0-2': language}}</div>
+        </div>
+      </div>
+    </div>
+    <!-- #region  Inserted Unit per System wise-->
+    <!--IU Profile -->
+    <div *ngFor="let unit of insertedUnitsPerSystemList">
+      <div class="sps-break" style="margin-top: 16px; margin-bottom: 0px"></div>
+      <div id="sps-result-tab-thermal-heading-line-2" class="sps-result-tab-thermal-heading-line-2">
+        <div class="sps-result-tab-thermal-heading1 sps-result-tab-thermal-heading1" style="margin-top: 19.2px;">
+          {{'result.inserted-unit' | translate }} {{unit.Counter}} {{unit.SystemType}}
+        </div>
+      </div>
+    
+      <!--IU ThermalUIInsertUnitFrames data-->
+      <div
+      *ngIf="unit.ThermalUIInsertUnitFrames && unit.ThermalUIInsertUnitFrames.length>0">
+      <div id="sps-result-tab-thermal-heading-container0" class="sps-result-tab-thermal-heading">
+        <div class="sps-result-tab-thermal-heading1 sps-result-tab-thermal-heading8">Uf</div>
+        <div class="sps-result-tab-thermal-heading1 sps-result-tab-thermal-heading12">{{'result.frame-area' | translate
+          }}
+        </div>
+        <!-- Frame area -->
+      </div>
+      <div id="sps-result-tab-thermal-heading-line-2" class="sps-result-tab-thermal-heading-line-2">
+        <div class="sps-result-tab-thermal-heading1 sps-result-tab-thermal-heading1">{{'result.profiles' | translate }}
+        </div>
+        <!-- Profiles -->
+        <div class="sps-result-tab-thermal-heading1 sps-result-tab-thermal-heading4">(W/m<sup>2</sup>K)</div>
+        <div id="meep" class="sps-result-tab-thermal-heading1 sps-result-tab-thermal-heading5">(m<sup>2</sup>)</div>
+      </div>
+      <div *ngFor="let frame of unit.ThermalUIInsertUnitFrames">
+        <div class="sps-result-tab-thermal-leftpanel-box1"
+          style="border: '1px solid rgb(112, 112, 112)'"
+          id="profile-0">
+          <div class="sps-result-thermal-box-partA"
+            style="background-color: rgb(136, 136, 136); margin-left: -0.2px; margin-top: -0.2px;">
+            {{unit.Counter}}
+          </div>
+          <div class="sps-result-thermal-box-partB" style="color: #FFFFFF">{{frame.Uf | number : '1.0-2':
+            language}}
+          </div>
+          <div class="sps-result-thermal-box-partC" style="color: #FFFFFF">{{frame.Area | number : '1.0-2': language}}
+          </div>
+        </div>
+      </div>
+      </div>
+
+      <!--IU ThermalUIInsertUnitGlasses data-->
+      <div
+      *ngIf="unit.ThermalUIInsertUnitGlasses && unit.ThermalUIInsertUnitGlasses.length>0">
+      <div id="sps-result-tab-thermal-heading-container0" class="sps-result-tab-thermal-heading">
+        <div class="sps-result-tab-thermal-heading1 sps-result-tab-thermal-heading8">Uf</div>
+        <div class="sps-result-tab-thermal-heading1 sps-result-tab-thermal-heading12">{{'result.glass-area' | translate
+          }}
+        </div>
+        <!-- Frame area -->
+      </div>
+      <div id="sps-result-tab-thermal-heading-line-2" class="sps-result-tab-thermal-heading-line-2">
+        <div class="sps-result-tab-thermal-heading1 sps-result-tab-thermal-heading1">{{'result.glass' | translate }}
+        </div>
+        <!-- Profiles -->
+        <div class="sps-result-tab-thermal-heading1 sps-result-tab-thermal-heading4">(W/m<sup>2</sup>K)</div>
+        <div id="meep" class="sps-result-tab-thermal-heading1 sps-result-tab-thermal-heading5">(m<sup>2</sup>)</div>
+      </div>
+      <div *ngFor="let frame of unit.ThermalUIInsertUnitGlasses">
+        <div class="sps-result-tab-thermal-leftpanel-box1"
+        style="border: '1px solid rgb(112, 112, 112)'"
+          id="profile-0">
+          <div class="sps-result-thermal-box-partA"
+            style="background-color: rgb(136, 136, 136); margin-left: -0.2px; margin-top: -0.2px;">
+            {{frame.GlassID}}
+          </div>
+          <div class="sps-result-thermal-box-partB" style="color: #FFFFFF">{{frame.Ug | number : '1.0-2':
+            language}}
+          </div>
+          <div class="sps-result-thermal-box-partC" style="color: #FFFFFF">{{frame.Area | number : '1.0-2': language}}
+          </div>
+        </div>
+      </div>
+      </div>
+
+      <!--IU ThermalUIInsertUnitGlassEdges data-->
+      <div
+      *ngIf="unit.ThermalUIInsertUnitGlassEdges && unit.ThermalUIInsertUnitGlassEdges.length>0">
+      <div id="sps-result-tab-thermal-heading-container0" class="sps-result-tab-thermal-heading">
+        <div class="sps-result-tab-thermal-heading1 sps-result-tab-thermal-heading8">Psi</div>
+        <div class="sps-result-tab-thermal-heading1 sps-result-tab-thermal-heading12">{{'result.length' | translate
+          }}
+        </div>
+        <!-- Frame area -->
+      </div>
+      <div id="sps-result-tab-thermal-heading-line-2" class="sps-result-tab-thermal-heading-line-2">
+        <div class="sps-result-tab-thermal-heading1 sps-result-tab-thermal-heading1">{{'result.glass-edge-seal' | translate }}
+        </div>
+        <!-- Profiles -->
+        <div class="sps-result-tab-thermal-heading1 sps-result-tab-thermal-heading4">(W/mK)</div>
+        <div id="meep" class="sps-result-tab-thermal-heading1 sps-result-tab-thermal-heading5">(m)</div>
+      </div>
+      <div *ngFor="let frame of unit.ThermalUIInsertUnitGlassEdges">
+        <div class="sps-result-tab-thermal-leftpanel-box1"
+        style="border: '1px solid rgb(112, 112, 112)'"
+          id="profile-0">
+          <div class="sps-result-thermal-box-partA"
+            style="background-color: rgb(136, 136, 136); margin-left: -0.2px; margin-top: -0.2px;">
+            {{frame.GlassID}}
+          </div>
+          <div class="sps-result-thermal-box-partB" style="color: #FFFFFF">{{frame.Psi | number : '1.0-2':
+            language}}
+          </div>
+          <div class="sps-result-thermal-box-partC" style="color: #FFFFFF">{{frame.Length | number : '1.0-2': language}}
+          </div>
+        </div>
+      </div>
+      </div>
+
+      <!--IU ThermalUIInsertUnitPanels data-->
+      <div
+      *ngIf="unit.ThermalUIInsertUnitPanels && unit.ThermalUIInsertUnitPanels.length > 0">
+      <div id="sps-result-tab-thermal-heading-container0" class="sps-result-tab-thermal-heading">
+        <div class="sps-result-tab-thermal-heading1 sps-result-tab-thermal-heading8">Up</div>
+        <div class="sps-result-tab-thermal-heading1 sps-result-tab-thermal-heading12">{{'result.panel-area' | translate
+          }}
+        </div>
+        <!-- Frame area -->
+      </div>
+      <div id="sps-result-tab-thermal-heading-line-2" class="sps-result-tab-thermal-heading-line-2">
+        <div class="sps-result-tab-thermal-heading1 sps-result-tab-thermal-heading1">{{'result.panel' | translate }}
+        </div>
+        <!-- Profiles -->
+        <div class="sps-result-tab-thermal-heading1 sps-result-tab-thermal-heading4">(W/m<sup>2</sup>K)</div>
+        <div id="meep" class="sps-result-tab-thermal-heading1 sps-result-tab-thermal-heading5">(m<sup>2</sup>)</div>
+      </div>
+      <div *ngFor="let frame of unit.ThermalUIInsertUnitPanels">
+        <div class="sps-result-tab-thermal-leftpanel-box1"
+        style="border: '1px solid rgb(112, 112, 112)'"
+          id="profile-0">
+          <div class="sps-result-thermal-box-partA"
+            style="background-color: rgb(136, 136, 136); margin-left: -0.2px; margin-top: -0.2px;">
+            {{frame.GlassID}}
+          </div>
+          <div class="sps-result-thermal-box-partB" style="color: #FFFFFF">{{frame.Up | number : '1.0-2':
+            language}}
+          </div>
+          <div class="sps-result-thermal-box-partC" style="color: #FFFFFF">{{frame.Area | number : '1.0-2': language}}
+          </div>
+        </div>
+      </div>
+      </div>
+
+      <!--IU ThermalUIInsertUnitPanelEdges data-->
+      <div
+      *ngIf="unit.ThermalUIInsertUnitPanelEdges && unit.ThermalUIInsertUnitPanelEdges.length>0">
+      <div id="sps-result-tab-thermal-heading-container0" class="sps-result-tab-thermal-heading">
+        <div class="sps-result-tab-thermal-heading1 sps-result-tab-thermal-heading8">{{'result.psi-value' | translate }}</div>
+        <div class="sps-result-tab-thermal-heading1 sps-result-tab-thermal-heading12">{{'result.length' | translate }}
+        </div>
+        <!-- Frame area -->
+      </div>
+      <div id="sps-result-tab-thermal-heading-line-2" class="sps-result-tab-thermal-heading-line-2">
+        <div class="sps-result-tab-thermal-heading1 sps-result-tab-thermal-heading1">{{'result.panel-edge-seal' | translate }}
+        </div>
+        <!-- Profiles -->
+        <div class="sps-result-tab-thermal-heading1 sps-result-tab-thermal-heading4">(W/mK)</div>
+        <div id="meep" class="sps-result-tab-thermal-heading1 sps-result-tab-thermal-heading5">(m)</div>
+      </div>
+      <div *ngFor="let frame of unit.ThermalUIInsertUnitPanelEdges">
+        <div class="sps-result-tab-thermal-leftpanel-box1"
+        style="border: '1px solid rgb(112, 112, 112)'"
+          id="profile-0">
+          <div class="sps-result-thermal-box-partA"
+            style="background-color: rgb(136, 136, 136); margin-left: -0.2px; margin-top: -0.2px;">
+            {{frame.GlassID}}
+          </div>
+          <div class="sps-result-thermal-box-partB" style="color: #FFFFFF">{{frame.Psi | number : '1.0-2':
+            language}}
+          </div>
+          <div class="sps-result-thermal-box-partC" style="color: #FFFFFF">{{frame.Length | number : '1.0-2': language}}
+          </div>
+        </div>
+      </div>
+      </div>
+
+    </div>
+    <!-- #endregion  Inserted Unit per System wise-->
+  </div>
+  <div class="sps-break" style="margin-top: 16px; margin-bottom: 0px"></div>
+  <!--Overall Window-->
+  <div *ngIf="bpsThermalResult.ThermalUIResult.TotalArea && bpsThermalResult.ThermalUIResult.TotalUw">
+    <div id="sps-result-tab-thermal-heading-container3" class="sps-result-tab-thermal-heading">
+      <div class="sps-result-tab-thermal-heading1 sps-result-tab-thermal-heading14">{{'result.u-value' | translate }}
+      </div>
+      <!-- U-Value -->
+      <div class="sps-result-tab-thermal-heading1 sps-result-tab-thermal-heading13">{{'result.area' | translate }}</div>
+      <!-- Area -->
+    </div>
+    <div id="sps-result-tab-thermal-heading-line-2" class="sps-result-tab-thermal-heading-line-2">
+      <div class="sps-result-tab-thermal-heading1" *ngIf="unified3DModel.ProblemSetting.ProductType=='Window'">
+        {{'result.overall-window' | translate }}</div>
+      <div class="sps-result-tab-thermal-heading1" *ngIf="unified3DModel.ProblemSetting.ProductType=='Facade'">
+        {{'result.overall-facade' | translate }} </div>
+      <!-- Overall Window -->
+      <div class="sps-result-tab-thermal-heading1 sps-result-tab-thermal-heading9">(W/m<sup>2</sup>K)</div>
+      <div class="sps-result-tab-thermal-heading1 sps-result-tab-thermal-heading5">(m<sup>2</sup>)</div>
+    </div>
+    <div id="sps-result-tab-overall-perfrmance-heading" class="hidden"></div>
+
+    <div id="sps-result-tab-thermal-leftpanel-box3" class="sps-result-tab-thermal-leftpanel-box3">
+      <div class="sps-result-thermal-box3-partA" style="height: 24px; margin-left: -0.4px; margin-top: -1px;"
+        *ngIf="unified3DModel.ProblemSetting.ProductType=='Window'">{{'result.window' | translate | lowercase}}</div>
+      <div class="sps-result-thermal-box3-partA" style="height: 24px; margin-left: -0.4px; margin-top: -1px;"
+        *ngIf="unified3DModel.ProblemSetting.ProductType=='Facade'">{{'result.facade' | translate }}</div>
+      <!-- window -->
+      <div class="sps-result-thermal-box3-partB">{{bpsThermalResult.ThermalUIResult.TotalUw | number : '1.0-2':
+        language}}
+      </div>
+      <div class="sps-result-thermal-box3-partC">{{bpsThermalResult.ThermalUIResult.TotalArea | number : '1.0-2':
+        language}}</div>
+    </div>
+  </div>
+</div>

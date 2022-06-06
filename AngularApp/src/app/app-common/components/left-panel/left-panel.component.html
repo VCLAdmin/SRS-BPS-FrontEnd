@@ -1,0 +1,173 @@
+<div id="left-panel">
+    <div class="left-panel-container">
+        <div class="new-project-form">
+            <ng-container></ng-container>
+            <h3 *appCheckPermissions="feature.CreateNewProject" class="glass-thickness-heading">{{'home.new-project' | translate }}
+            </h3>
+            <!-- New Project -->
+            <h3 *appCheckPermissions="feature.CreateNewOrder" class="glass-thickness-heading">NEW ORDER</h3>
+            <!-- TODO: Translate - NEW ORDER -->
+            <form bps-form [formGroup]="newProjectForm" *appCheckPermissions="feature.CreateNewProject">
+                <bps-form-item class="bps-form-item" style="margin-bottom: 32px;">
+                    <bps-form-control class="firstInput">
+                        <bps-input-group [bpsSuffix]="suffixTemplateInfo">
+                            <input type="text" opened bps-input style="font-family: UniversForSchueco-430Reg;"
+                                id="new-project-name" placeholder="{{'home.project-name' | translate}}"
+                                [(ngModel)]="projectName" (ngModelChange)="checkModelValidity()" required
+                                formControlName="projectName">
+                        </bps-input-group>
+                        <ng-template #suffixTemplateInfo style="right:39px;">
+                            <svg *ngIf="isProjectNameValid()" xmlns="http://www.w3.org/2000/svg" width="16.414"
+                                height="12.121" viewBox="0 0 16.414 12.121">
+                                <g id="prefix__sps_done_icon_blue" transform="translate(-1494.293 -103.293)">
+                                    <path id="prefix__Path_1273" d="M-7453-21963l5 5 10-10" data-name="Path 1273"
+                                        transform="translate(8948 22072)"
+                                        style="fill:none;stroke:#00a2d1;stroke-width:2px" />
+                                </g>
+                            </svg>
+                        </ng-template>
+                        <!-- Project Name -->
+                    </bps-form-control>
+                </bps-form-item>
+                <bps-form-item class="bps-form-item secondInput">
+                    <bps-form-control>
+                        <bps-input-group [bpsSuffix]="suffixTemplateInfo2">
+                            <input #addressText type="text" opened bps-input autocomplete="off"
+                                style="font-family: UniversForSchueco-430Reg;" id="new-project-location"
+                                placeholder="{{'home.project-location' | translate}}" [(ngModel)]="projectLocation"
+                                required formControlName="projectLocation">
+                        </bps-input-group>
+                        <ng-template #suffixTemplateInfo2>
+                            <svg *ngIf="isProjectLocationValid()" xmlns="http://www.w3.org/2000/svg" width="16.414"
+                                height="12.121" viewBox="0 0 16.414 12.121">
+                                <g id="prefix__sps_done_icon_blue" transform="translate(-1494.293 -103.293)">
+                                    <path id="prefix__Path_1273" d="M-7453-21963l5 5 10-10" data-name="Path 1273"
+                                        transform="translate(8948 22072)"
+                                        style="fill:none;stroke:#00a2d1;stroke-width:2px" />
+                                </g>
+                            </svg>
+                        </ng-template>
+                    </bps-form-control>
+                </bps-form-item>
+                <button bps-button bpsType="variation-3" class="new-project-submit-button"
+                    style="font-family:UniversForSchueco-430Reg;" (click)="onCreate()"
+                    [disabled]="!newProjectForm.valid">{{'home.create' | translate | uppercase}}</button>
+                <!-- CREATE -->
+            </form>
+            <form bps-form [formGroup]="newProjectForm" *appCheckPermissions="feature.CreateNewOrder">
+                <bps-form-item class="bps-form-item" style="margin-bottom: 32px;">
+                    <bps-form-control class="firstInput">
+                        <bps-input-group [bpsSuffix]="suffixTemplateInfo">
+                            <input type="text" opened bps-input style="font-family: UniversForSchueco-430Reg;"
+                                id="new-project-name" placeholder="Order Name" [(ngModel)]="projectName"
+                                (ngModelChange)="checkModelValidity()" required formControlName="projectName">
+                        </bps-input-group>
+                        <ng-template #suffixTemplateInfo style="right:39px;">
+                            <svg *ngIf="isProjectNameValid()" xmlns="http://www.w3.org/2000/svg" width="16.414"
+                                height="12.121" viewBox="0 0 16.414 12.121">
+                                <g id="prefix__sps_done_icon_blue" transform="translate(-1494.293 -103.293)">
+                                    <path id="prefix__Path_1273" d="M-7453-21963l5 5 10-10" data-name="Path 1273"
+                                        transform="translate(8948 22072)"
+                                        style="fill:none;stroke:#00a2d1;stroke-width:2px" />
+                                </g>
+                            </svg>
+                        </ng-template>
+                        <!-- Project Name -->
+                    </bps-form-control>
+                </bps-form-item>
+                <bps-form-item class="bps-form-item secondInput">
+                    <bps-form-control>
+                        <bps-input-group [bpsSuffix]="suffixTemplateInfo2">
+                            <input #addressText type="text" opened bps-input autocomplete="off"
+                                style="font-family: UniversForSchueco-430Reg;" id="new-project-location"
+                                placeholder="{{'home.project-location' | translate}}" [(ngModel)]="projectLocation"
+                                required formControlName="projectLocation">
+                        </bps-input-group>
+                        <ng-template #suffixTemplateInfo2>
+                            <svg *ngIf="isProjectLocationValid()" xmlns="http://www.w3.org/2000/svg" width="16.414"
+                                height="12.121" viewBox="0 0 16.414 12.121">
+                                <g id="prefix__sps_done_icon_blue" transform="translate(-1494.293 -103.293)">
+                                    <path id="prefix__Path_1273" d="M-7453-21963l5 5 10-10" data-name="Path 1273"
+                                        transform="translate(8948 22072)"
+                                        style="fill:none;stroke:#00a2d1;stroke-width:2px" />
+                                </g>
+                            </svg>
+                        </ng-template>
+                    </bps-form-control>
+                </bps-form-item>
+                <button bps-button bpsType="variation-3" class="new-project-submit-button"
+                    style="font-family:UniversForSchueco-430Reg;" (click)="onCreate()"
+                    [disabled]="!newProjectForm.valid">{{'home.create' | translate | uppercase}}</button>
+                <!-- CREATE -->
+            </form>
+        </div>
+        <div class="information-container">
+            <div *appCheckPermissions="feature.CurrentBalance">
+                <div class="sps-break" style="width:100%"></div>
+                <!-- TODO: Translate - NEW ORDER -->
+                <div class="balanceAmount">
+                    <nz-row [nzGutter]="16">
+                        <nz-col [nzSpan]="24">
+                            <span class="CURRENT-BALANCE">
+                                Available line of credit
+                            </span>
+                        </nz-col>
+                    </nz-row>
+                    <nz-row [nzGutter]="16" style="margin-top: 8px;">
+                        <nz-col [nzSpan]="22">
+                            <span class="BALANCE-USD" *ngIf="dealerInfo && dealerInfo.CreditLine">
+                                $ {{(dealerInfo.CreditUsed.toFixed(2) | number)!}} USD <span style="color: #666666;;">/ 
+                                    $  {{(dealerInfo.CreditLine.toFixed(2) | number:'1.2-2')!}} USD</span>
+                            </span>
+                        </nz-col>
+                    </nz-row>
+                    <nz-row [nzGutter]="16">
+                        <nz-col [nzSpan]="22">
+                            <div class="sc-rows" *ngIf="dealerCreditBalance < 10">
+                                <nz-progress nzStrokeLinecap="round" [nzPercent]="dealerCreditBalance"
+                                    [nzShowInfo]="false" nzWidth="215px" [nzStatus]="'exception'" nzSize="small">
+                                </nz-progress>
+                            </div>
+                            <div class="sc-rows" *ngIf="dealerCreditBalance >= 10">
+                                <nz-progress nzStrokeLinecap="round" [nzPercent]="dealerCreditBalance"
+                                    [nzShowInfo]="false" nzWidth="215px" nzSize="small">
+                                </nz-progress>
+                            </div>
+                        </nz-col>
+                    </nz-row>
+                </div>
+                <div class="sps-break" style="width:100%"></div>
+            </div>
+            <button class="Help-Support btn-contact" (click)="onOpenContacts()"
+                *ngIf="userEmail === 'Administrator@vcldesign.com'">
+                Contacts</button>
+            <button class="Help-Support btn-contact" (click)="onOpenMigration()"
+                *ngIf="userEmail === 'Administrator@vcldesign.com'">
+                Migration</button>
+            <button class="Help-Support btn-contact" (click)="onOpenHelpAndSupport()">
+                {{'home.help-and-support' | translate }}</button>
+            <!-- <a href="mailto:vcldev@schuco-usa.com" target="_top" class="Help-Support">{{'home.help-and-support' |
+                translate }}</a> -->
+            <!-- Help & Support -->
+            <ng-container *appCheckPermissions="feature.VersionBPS">
+                <a href="mailto:bpssupport@schueco.com" class="Contact-Us">{{'home.contact-us' | translate }}</a>
+            </ng-container>
+            <ng-container *appCheckPermissions="feature.VersionSRS">
+                <a href="mailto:residential@schuco-usa.com" class="Contact-Us">{{'home.contact-us' | translate }}</a>
+            </ng-container>
+            <!-- Contact Us -->
+            <a *appCheckPermissions="feature.SchucoUSALink" href="http://www.schuco-usa.com" target="_blank" class="Schuco">Schüco</a>
+            <ng-container *appCheckPermissions="feature.VersionBPS">
+                <a href="#" target="_blank" class="Version"
+                *ngIf="dataVersionInformation">Version:
+                {{dataVersionInformation.VersionNumber}}</a>
+            </ng-container>
+            <ng-container *appCheckPermissions="feature.VersionSRS">
+                <a href="#" target="_blank" class="Version"
+                *ngIf="dataVersionInformation">Version:
+                3.0.0</a>
+            <!-- Version -->
+            </ng-container>
+        </div>
+    </div>
+</div>

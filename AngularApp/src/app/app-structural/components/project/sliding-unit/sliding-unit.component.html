@@ -1,0 +1,1478 @@
+<div *ngIf="unified3DModel" nzType="flex" nzjustify="center" class="accordion-section-container">
+    <div>
+        <div class="accordion-section" style="width: 215px;">
+            <div class="column-container">
+                <div class="sps-break" style="margin-top: 2px;"></div>
+                <div class="operability-fixed-opening-container">
+                    <div class="operability-type-column">
+                        <h3 class="operability-selection-heading"  [ngClass]="{'disabled': orderPlaced }" >
+                            Slide / Lift And Slide
+                            <span style="height:16px; float: right;" bpsType="variation-1" bps-popover
+                                [bpsPopoverPlacement]="'right'" [bpsPopoverType]="'variation_3'"
+                                [bpsPopoverContent]="windowZoneContent1">
+                                <img *ngIf="!orderPlaced else greyImage2" class="iconI"
+                                    src="/assets/Images/icons/sps_information_icon_blue.svg">
+                                <ng-template #greyImage2>
+                                    <img class="iconI" src="/assets/Images/icons/sps_information_icon_grey.svg">
+                                </ng-template>
+                            </span>
+                            <ng-template #windowZoneContent1>
+                                <div class="popover-variation3" style="width: 205px;">
+                                    Lift and Slide is the only option available for Sliding doors. Stay up-to-date on future releases.
+                                </div>
+                            </ng-template>
+                        </h3>
+                        <div class="operability-fixed-opening-boxes" *ngIf="!orderPlaced">
+                            <bps-radio-group [(ngModel)]="slideOption"
+                                style="display: flex;margin-left:-0.1px;"
+                                (ngModelChange)="onSlideOptionChange($event)">
+                                <label style="width: 102.5px" bps-radio-button bpsValue="Lift"
+                                    bpsRadioButtonType="variation3" bpsDisabled>
+                                    Slide
+                                </label>
+                                <label style="width: 102.5px; margin-right: 0px !important;" bps-radio-button
+                                    bpsValue="Lift_And_Slide" bpsRadioButtonType="variation3">
+                                    Lift and Slide
+                                </label>
+                            </bps-radio-group>
+                        </div>
+                        <div class="operability-fixed-opening-boxes" *ngIf="orderPlaced">
+                            <bps-radio-group [(ngModel)]="slideOption"
+                                style="display: flex;margin-left:-0.1px;"
+                                (ngModelChange)="onSlideOptionChange($event)">
+                                <label style="width: 102.5px" bps-radio-button bpsValue="Lift"
+                                    bpsRadioButtonType="variation3" bpsDisabled>
+                                    Slide
+                                </label>
+                                <label style="width: 102.5px;border: 1px solid #666 !important;" bps-radio-button
+                                    bpsValue="Lift_And_Slide" bpsRadioButtonType="variation3" [bpsDisabled]="orderPlaced">
+                                    Lift and Slide
+                                </label>
+                            </bps-radio-group>
+                        </div>
+                    </div>
+                </div>
+                <div class="sps-break"></div>
+                <div class="operable-type-container" style="margin-left:-0.1px;">
+                    <h3  class="operability-fittings-heading"
+                    [ngClass]="{'disabled': orderPlaced }"> 
+                    Opening Type</h3>
+                    <div class="operable-type-column">
+                        <h3 class="operability-selection-heading" style="margin-top: 12px;" [ngClass]="{'disabled': orderPlaced }">
+                            Double Track Type
+                            <span style="height:16px; float: right;" bpsType="variation-1" bps-popover
+                                [bpsPopoverPlacement]="'right'" [bpsPopoverType]="'variation_3'"
+                                [bpsPopoverContent]="windowZoneContent2">
+                                <img *ngIf="!orderPlaced else greyImage2" class="iconI"
+                                    src="/assets/Images/icons/sps_information_icon_blue.svg">
+                                <ng-template #greyImage2>
+                                    <img class="iconI" src="/assets/Images/icons/sps_information_icon_grey.svg">
+                                </ng-template>
+                            </span>
+                            <ng-template #windowZoneContent2>
+                                <div class="popover-variation3" style="width: 205px;">
+                                    By selecting any of the available options the software will load automatically the desired sliding door configuration.
+                                </div>
+                            </ng-template>
+                        </h3>
+                        <div>
+                            <bps-radio-group [(ngModel)]="trackType"
+                                (ngModelChange)="onTrackTypeChange($event)">
+                                <ng-container *appCheckPermissions="feature.Type_2A_Left">
+                                    <ng-container *ngIf="!is2ALeftSelected">
+                                        <label
+                                        style="width: 220px" bps-radio-button bpsValue="SlidingDoor-Type-2A-Left"
+                                        [bpsDisabled]="!(slideOption == 'Lift_And_Slide') || orderPlaced" bpsRadioButtonType="variation5">
+                                        <span>2A Left</span>
+                                        <!-- 2A Left-->
+                                        <div class="labelSVG">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="30" viewBox="0 0 50 30">
+                                                <g data-name="Group 7773">
+                                                    <g data-name="Rectangle 1340" style="stroke:#fff;fill:none">
+                                                        <path style="stroke:none" d="M0 0h25v30H0z" transform="translate(25)"/>
+                                                        <path style="fill:none" d="M.5.5h24v29H.5z" transform="translate(25)"/>
+                                                    </g>
+                                                    <g data-name="Rectangle 1341" style="stroke:#fff;fill:none">
+                                                        <path style="stroke:none" d="M0 0h21v26H0z" transform="translate(27 2)"/>
+                                                        <path style="fill:none" d="M.5.5h20v25H.5z" transform="translate(27 2)"/>
+                                                    </g>
+                                                    <g data-name="Union 84" style="fill:#23dd36">
+                                                        <path d="M-14663.998 15241.5h-1v-6.002h-5.502v1.618l-3.528-2.116 3.528-2.116v1.613h6.502v7.003z" style="stroke:none" transform="translate(14706 -15222)"/>
+                                                        <path d="M-14664.498 15241v-6.003h-6.502v-1.23l-2.056 1.233 2.056 1.233v-1.235h6.502v6.002m1 1h-2v-6.002h-4.502v2.001l-5-2.999 5-2.999v1.996h6.502v8.003z" style="fill:#23dd36;stroke:none" transform="translate(14706 -15222)"/>
+                                                    </g>
+                                                </g>
+                                                <g data-name="Group 7774">
+                                                    <g data-name="Rectangle 1340" style="stroke:#fff;fill:none">
+                                                        <path style="stroke:none" d="M0 0h25v30H0z"/>
+                                                        <path style="fill:none" d="M.5.5h24v29H.5z"/>
+                                                    </g>
+                                                    <g data-name="Rectangle 1341" style="stroke:#fff;fill:none">
+                                                        <path style="stroke:none" d="M0 0h21v26H0z" transform="translate(2 2)"/>
+                                                        <path style="fill:none" d="M.5.5h20v25H.5z" transform="translate(2 2)"/>
+                                                    </g>
+                                                    <g data-name="Union 84" style="fill:#23dd36">
+                                                        <path d="M4.5 9.116.972 7 4.5 4.884v1.618h5.502V.5h1v7.002H4.5v1.614z" style="stroke:none" transform="rotate(180 9.5 10)"/>
+                                                        <path d="M10.502 1v6.002H4V5.767L1.944 7 4 8.233v-1.23h6.502V1m-1-1h2v8.003H5v1.996L0 7l5-2.999v2.001h4.502V0z" style="fill:#23dd36;stroke:none" transform="rotate(180 9.5 10)"/>
+                                                    </g>
+                                                </g>
+                                            </svg>
+                                                                                
+                                        </div>
+                                    </label>
+                                    </ng-container>
+                                    <ng-container *ngIf="is2ALeftSelected">
+                                        <label
+                                        style="width: 220px; border: 1px solid #666 !important" bps-radio-button bpsValue="SlidingDoor-Type-2A-Left"
+                                        [bpsDisabled]="!(slideOption == 'Lift_And_Slide') || orderPlaced" bpsRadioButtonType="variation5">
+                                        <span>2A Left</span>
+                                        <!-- 2A Left-->
+                                        <div class="labelSVG">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="30" viewBox="0 0 50 30">
+                                                <g data-name="Group 7773">
+                                                    <g data-name="Rectangle 1340" style="stroke:#fff;fill:none">
+                                                        <path style="stroke:none" d="M0 0h25v30H0z" transform="translate(25)"/>
+                                                        <path style="fill:none" d="M.5.5h24v29H.5z" transform="translate(25)"/>
+                                                    </g>
+                                                    <g data-name="Rectangle 1341" style="stroke:#fff;fill:none">
+                                                        <path style="stroke:none" d="M0 0h21v26H0z" transform="translate(27 2)"/>
+                                                        <path style="fill:none" d="M.5.5h20v25H.5z" transform="translate(27 2)"/>
+                                                    </g>
+                                                    <g data-name="Union 84" style="fill:#23dd36">
+                                                        <path d="M-14663.998 15241.5h-1v-6.002h-5.502v1.618l-3.528-2.116 3.528-2.116v1.613h6.502v7.003z" style="stroke:none" transform="translate(14706 -15222)"/>
+                                                        <path d="M-14664.498 15241v-6.003h-6.502v-1.23l-2.056 1.233 2.056 1.233v-1.235h6.502v6.002m1 1h-2v-6.002h-4.502v2.001l-5-2.999 5-2.999v1.996h6.502v8.003z" style="fill:#23dd36;stroke:none" transform="translate(14706 -15222)"/>
+                                                    </g>
+                                                </g>
+                                                <g data-name="Group 7774">
+                                                    <g data-name="Rectangle 1340" style="stroke:#fff;fill:none">
+                                                        <path style="stroke:none" d="M0 0h25v30H0z"/>
+                                                        <path style="fill:none" d="M.5.5h24v29H.5z"/>
+                                                    </g>
+                                                    <g data-name="Rectangle 1341" style="stroke:#fff;fill:none">
+                                                        <path style="stroke:none" d="M0 0h21v26H0z" transform="translate(2 2)"/>
+                                                        <path style="fill:none" d="M.5.5h20v25H.5z" transform="translate(2 2)"/>
+                                                    </g>
+                                                    <g data-name="Union 84" style="fill:#23dd36">
+                                                        <path d="M4.5 9.116.972 7 4.5 4.884v1.618h5.502V.5h1v7.002H4.5v1.614z" style="stroke:none" transform="rotate(180 9.5 10)"/>
+                                                        <path d="M10.502 1v6.002H4V5.767L1.944 7 4 8.233v-1.23h6.502V1m-1-1h2v8.003H5v1.996L0 7l5-2.999v2.001h4.502V0z" style="fill:#23dd36;stroke:none" transform="rotate(180 9.5 10)"/>
+                                                    </g>
+                                                </g>
+                                            </svg>
+                                                                                
+                                        </div>
+                                    </label>
+                                    </ng-container>
+                                    
+                                    
+                                </ng-container>
+                                <ng-container *appCheckPermissions="feature.Type_2A_Right">
+                                    <ng-container *ngIf="!is2ARightSelected">
+                                        <label style="width: 220px" bps-radio-button bpsValue="SlidingDoor-Type-2A-Right"
+                                        [bpsDisabled]="!(slideOption == 'Lift_And_Slide') || orderPlaced"
+                                        bpsRadioButtonType="variation5">
+                                        <span>2A Right</span>
+                                        <!-- 2A Right -->
+                                        <div class="labelSVG">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="30" viewBox="0 0 50 30">
+                                                <g data-name="Group 7589">
+                                                    <g data-name="Rectangle 1340" style="stroke:#fff;fill:none">
+                                                        <path style="stroke:none" d="M0 0h25v30H0z" transform="translate(25)"/>
+                                                        <path style="fill:none" d="M.5.5h24v29H.5z" transform="translate(25)"/>
+                                                    </g>
+                                                    <g data-name="Rectangle 1341" style="stroke:#fff;fill:none">
+                                                        <path style="stroke:none" d="M0 0h21v26H0z" transform="translate(27 2)"/>
+                                                        <path style="fill:none" d="M.5.5h20v25H.5z" transform="translate(27 2)"/>
+                                                    </g>
+                                                    <g data-name="Union 84" style="fill:#23dd36">
+                                                        <path d="M-14663.998 15241.5h-1v-6.002h-5.502v1.618l-3.528-2.116 3.528-2.116v1.613h6.502v7.003z" style="stroke:none" transform="translate(14706 -15222)"/>
+                                                        <path d="M-14664.498 15241v-6.003h-6.502v-1.23l-2.056 1.233 2.056 1.233v-1.235h6.502v6.002m1 1h-2v-6.002h-4.502v2.001l-5-2.999 5-2.999v1.996h6.502v8.003z" style="fill:#23dd36;stroke:none" transform="translate(14706 -15222)"/>
+                                                    </g>
+                                                </g>
+                                                <g data-name="Group 7590">
+                                                    <g data-name="Rectangle 1340" style="stroke:#fff;fill:none">
+                                                        <path style="stroke:none" d="M0 0h25v30H0z"/>
+                                                        <path style="fill:none" d="M.5.5h24v29H.5z"/>
+                                                    </g>
+                                                    <g data-name="Rectangle 1341" style="stroke:#fff;fill:none">
+                                                        <path style="stroke:none" d="M0 0h21v26H0z" transform="translate(2 2)"/>
+                                                        <path style="fill:none" d="M.5.5h20v25H.5z" transform="translate(2 2)"/>
+                                                    </g>
+                                                    <g data-name="Union 84" style="fill:#23dd36">
+                                                        <path d="M4.5 9.116.972 7 4.5 4.884v1.618h5.502V.5h1v7.002H4.5v1.614z" style="stroke:none" transform="rotate(180 9.5 10)"/>
+                                                        <path d="M10.502 1v6.002H4V5.767L1.944 7 4 8.233v-1.23h6.502V1m-1-1h2v8.003H5v1.996L0 7l5-2.999v2.001h4.502V0z" style="fill:#23dd36;stroke:none" transform="rotate(180 9.5 10)"/>
+                                                    </g>
+                                                </g>
+                                            </svg>
+                                            
+                                        </div>
+                                        </label>
+                                    </ng-container>
+                                    <ng-container *ngIf="is2ARightSelected">
+                                        <label style="width: 220px; border: 1px solid #666 !important" bps-radio-button bpsValue="SlidingDoor-Type-2A-Right"
+                                        [bpsDisabled]="!(slideOption == 'Lift_And_Slide') || orderPlaced"
+                                        bpsRadioButtonType="variation5">
+                                        <span>2A Right</span>
+                                        <!-- 2A Right -->
+                                        <div class="labelSVG">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="30" viewBox="0 0 50 30">
+                                                <g data-name="Group 7589">
+                                                    <g data-name="Rectangle 1340" style="stroke:#fff;fill:none">
+                                                        <path style="stroke:none" d="M0 0h25v30H0z" transform="translate(25)"/>
+                                                        <path style="fill:none" d="M.5.5h24v29H.5z" transform="translate(25)"/>
+                                                    </g>
+                                                    <g data-name="Rectangle 1341" style="stroke:#fff;fill:none">
+                                                        <path style="stroke:none" d="M0 0h21v26H0z" transform="translate(27 2)"/>
+                                                        <path style="fill:none" d="M.5.5h20v25H.5z" transform="translate(27 2)"/>
+                                                    </g>
+                                                    <g data-name="Union 84" style="fill:#23dd36">
+                                                        <path d="M-14663.998 15241.5h-1v-6.002h-5.502v1.618l-3.528-2.116 3.528-2.116v1.613h6.502v7.003z" style="stroke:none" transform="translate(14706 -15222)"/>
+                                                        <path d="M-14664.498 15241v-6.003h-6.502v-1.23l-2.056 1.233 2.056 1.233v-1.235h6.502v6.002m1 1h-2v-6.002h-4.502v2.001l-5-2.999 5-2.999v1.996h6.502v8.003z" style="fill:#23dd36;stroke:none" transform="translate(14706 -15222)"/>
+                                                    </g>
+                                                </g>
+                                                <g data-name="Group 7590">
+                                                    <g data-name="Rectangle 1340" style="stroke:#fff;fill:none">
+                                                        <path style="stroke:none" d="M0 0h25v30H0z"/>
+                                                        <path style="fill:none" d="M.5.5h24v29H.5z"/>
+                                                    </g>
+                                                    <g data-name="Rectangle 1341" style="stroke:#fff;fill:none">
+                                                        <path style="stroke:none" d="M0 0h21v26H0z" transform="translate(2 2)"/>
+                                                        <path style="fill:none" d="M.5.5h20v25H.5z" transform="translate(2 2)"/>
+                                                    </g>
+                                                    <g data-name="Union 84" style="fill:#23dd36">
+                                                        <path d="M4.5 9.116.972 7 4.5 4.884v1.618h5.502V.5h1v7.002H4.5v1.614z" style="stroke:none" transform="rotate(180 9.5 10)"/>
+                                                        <path d="M10.502 1v6.002H4V5.767L1.944 7 4 8.233v-1.23h6.502V1m-1-1h2v8.003H5v1.996L0 7l5-2.999v2.001h4.502V0z" style="fill:#23dd36;stroke:none" transform="rotate(180 9.5 10)"/>
+                                                    </g>
+                                                </g>
+                                            </svg>
+                                            
+                                        </div>
+                                        </label>
+                                    </ng-container>
+                                   
+                                </ng-container>
+                                <ng-container *appCheckPermissions="feature.Type_2A_1_i_Left">
+                                    <ng-container *ngIf="!is2A1iLeftSelected">
+                                        <label 
+                                        style="width: 220px" bps-radio-button bpsValue="SlidingDoor-Type-2A1.i-Left"
+                                        [bpsDisabled]="!(slideOption == 'Lift_And_Slide')  || orderPlaced"
+                                        bpsRadioButtonType="variation5">
+                                        <span>2A/1 Left</span>
+                                        <!-- 2A/1 Left -->
+                                        <div style="margin-top: 4px;">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="showWhiteHover" width="50" height="30" viewBox="0 0 50 30">
+                                                <g data-name="sps_rectangle_icon_2A/1_L_enabled">
+                                                    <g data-name="Group 7592">
+                                                        <g data-name="Rectangle 1340" style="stroke:#fff;fill:none">
+                                                            <path style="stroke:none" d="M0 0h25v30H0z"/>
+                                                            <path style="fill:none" d="M.5.5h24v29H.5z"/>
+                                                        </g>
+                                                        <g data-name="Rectangle 1341" style="stroke:#fff;fill:none">
+                                                            <path style="stroke:none" d="M0 0h21v26H0z" transform="translate(2 2)"/>
+                                                            <path style="fill:none" d="M.5.5h20v25H.5z" transform="translate(2 2)"/>
+                                                        </g>
+                                                        <g data-name="Union 85" style="fill:none">
+                                                            <path d="M-14671 15242v-4h-4v-2h4v-4h2v4h4v2h-4v4z" style="stroke:none" transform="translate(14682.5 -15222)"/>
+                                                            <path d="m-14669.998 15241-.001-7.999.001 7.999m1 1h-2.001v-4.001h-4.001v-1.997h4.001v-4.001h2.001v4.001h3.997v1.997h-3.997v4.001z" style="fill:red;stroke:none" transform="translate(14682.5 -15222)"/>
+                                                        </g>
+                                                    </g>
+                                                    <g data-name="Group 7594">
+                                                        <g data-name="Rectangle 1340" style="stroke:#fff;fill:none">
+                                                            <path style="stroke:none" d="M0 0h25v30H0z" transform="translate(25)"/>
+                                                            <path style="fill:none" d="M.5.5h24v29H.5z" transform="translate(25)"/>
+                                                        </g>
+                                                        <g data-name="Rectangle 1341" style="stroke:#fff;fill:none">
+                                                            <path style="stroke:none" d="M0 0h21v26H0z" transform="translate(27 2)"/>
+                                                            <path style="fill:none" d="M.5.5h20v25H.5z" transform="translate(27 2)"/>
+                                                        </g>
+                                                        <g data-name="Union 84" style="fill:#23dd36">
+                                                            <path d="M-14663.998 15241.5h-1v-6.002h-5.502v1.618l-3.528-2.116 3.528-2.116v1.613h6.502v7.003z" style="stroke:none" transform="translate(14706 -15222)"/>
+                                                            <path d="M-14664.498 15241v-6.003h-6.502v-1.23l-2.056 1.233 2.056 1.233v-1.235h6.502v6.002m1 1h-2v-6.002h-4.502v2.001l-5-2.999 5-2.999v1.996h6.502v8.003z" style="fill:#23dd36;stroke:none" transform="translate(14706 -15222)"/>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </svg> 
+                                        </div>
+                                        </label>
+                                    </ng-container>
+                                    <ng-container *ngIf="is2A1iLeftSelected">
+                                        <label 
+                                        style="width: 220px; border: 1px solid #666 !important" bps-radio-button bpsValue="SlidingDoor-Type-2A1.i-Left"
+                                        [bpsDisabled]="!(slideOption == 'Lift_And_Slide')|| orderPlaced"
+                                        bpsRadioButtonType="variation5">
+                                        <span>2A/1 Left</span>
+                                        <!-- 2A/1 Left -->
+                                        <div style="margin-top: 4px;">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="showWhiteHover" width="50" height="30" viewBox="0 0 50 30">
+                                                <g data-name="sps_rectangle_icon_2A/1_L_enabled">
+                                                    <g data-name="Group 7592">
+                                                        <g data-name="Rectangle 1340" style="stroke:#fff;fill:none">
+                                                            <path style="stroke:none" d="M0 0h25v30H0z"/>
+                                                            <path style="fill:none" d="M.5.5h24v29H.5z"/>
+                                                        </g>
+                                                        <g data-name="Rectangle 1341" style="stroke:#fff;fill:none">
+                                                            <path style="stroke:none" d="M0 0h21v26H0z" transform="translate(2 2)"/>
+                                                            <path style="fill:none" d="M.5.5h20v25H.5z" transform="translate(2 2)"/>
+                                                        </g>
+                                                        <g data-name="Union 85" style="fill:none">
+                                                            <path d="M-14671 15242v-4h-4v-2h4v-4h2v4h4v2h-4v4z" style="stroke:none" transform="translate(14682.5 -15222)"/>
+                                                            <path d="m-14669.998 15241-.001-7.999.001 7.999m1 1h-2.001v-4.001h-4.001v-1.997h4.001v-4.001h2.001v4.001h3.997v1.997h-3.997v4.001z" style="fill:red;stroke:none" transform="translate(14682.5 -15222)"/>
+                                                        </g>
+                                                    </g>
+                                                    <g data-name="Group 7594">
+                                                        <g data-name="Rectangle 1340" style="stroke:#fff;fill:none">
+                                                            <path style="stroke:none" d="M0 0h25v30H0z" transform="translate(25)"/>
+                                                            <path style="fill:none" d="M.5.5h24v29H.5z" transform="translate(25)"/>
+                                                        </g>
+                                                        <g data-name="Rectangle 1341" style="stroke:#fff;fill:none">
+                                                            <path style="stroke:none" d="M0 0h21v26H0z" transform="translate(27 2)"/>
+                                                            <path style="fill:none" d="M.5.5h20v25H.5z" transform="translate(27 2)"/>
+                                                        </g>
+                                                        <g data-name="Union 84" style="fill:#23dd36">
+                                                            <path d="M-14663.998 15241.5h-1v-6.002h-5.502v1.618l-3.528-2.116 3.528-2.116v1.613h6.502v7.003z" style="stroke:none" transform="translate(14706 -15222)"/>
+                                                            <path d="M-14664.498 15241v-6.003h-6.502v-1.23l-2.056 1.233 2.056 1.233v-1.235h6.502v6.002m1 1h-2v-6.002h-4.502v2.001l-5-2.999 5-2.999v1.996h6.502v8.003z" style="fill:#23dd36;stroke:none" transform="translate(14706 -15222)"/>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </svg> 
+                                        </div>
+                                        </label>
+                                    </ng-container>
+                                   
+                                </ng-container>
+                                <ng-container *appCheckPermissions="feature.Type_2A_1_i_Right">
+                                    <ng-container *ngIf="!is2A1iRightSelected">
+                                        <label
+                                        style="width: 220px" bps-radio-button bpsValue="SlidingDoor-Type-2A1.i-Right"
+                                        [bpsDisabled]="!(slideOption == 'Lift_And_Slide')  || orderPlaced" bpsRadioButtonType="variation5">
+                                        <span>2A/1 Right</span>
+                                        <!-- 2A/1 Right -->
+                                        <div style="margin-top: 4px;">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="showWhiteHover" width="50" height="30" viewBox="0 0 50 30">
+                                                <g data-name="sps_rectangle_icon_2A/1_R_enabled">
+                                                    <g data-name="Group 7584">
+                                                        <g data-name="Rectangle 1340" style="stroke:#fff;fill:none">
+                                                            <path style="stroke:none" d="M0 0h25v30H0z" transform="translate(25)"/>
+                                                            <path style="fill:none" d="M.5.5h24v29H.5z" transform="translate(25)"/>
+                                                        </g>
+                                                        <g data-name="Rectangle 1341" style="stroke:#fff;fill:none">
+                                                            <path style="stroke:none" d="M0 0h21v26H0z" transform="translate(27 2)"/>
+                                                            <path style="fill:none" d="M.5.5h20v25H.5z" transform="translate(27 2)"/>
+                                                        </g>
+                                                        <g data-name="Union 85" style="fill:none">
+                                                            <path d="M-14671 15242v-4h-4v-2h4v-4h2v4h4v2h-4v4z" style="stroke:none" transform="translate(14707.5 -15222)"/>
+                                                            <path d="m-14669.998 15241-.001-7.999.001 7.999m1 1h-2.001v-4.001h-4.001v-1.997h4.001v-4.001h2.001v4.001h3.997v1.997h-3.997v4.001z" style="fill:red;stroke:none" transform="translate(14707.5 -15222)"/>
+                                                        </g>
+                                                    </g>
+                                                    <g data-name="Group 7593">
+                                                        <g data-name="Rectangle 1340" style="stroke:#fff;fill:none">
+                                                            <path style="stroke:none" d="M0 0h25v30H0z"/>
+                                                            <path style="fill:none" d="M.5.5h24v29H.5z"/>
+                                                        </g>
+                                                        <g data-name="Rectangle 1341" style="stroke:#fff;fill:none">
+                                                            <path style="stroke:none" d="M0 0h21v26H0z" transform="translate(2 2)"/>
+                                                            <path style="fill:none" d="M.5.5h20v25H.5z" transform="translate(2 2)"/>
+                                                        </g>
+                                                        <g data-name="Union 84" style="fill:#23dd36">
+                                                            <path d="M4.5 9.116.972 7 4.5 4.884v1.618h5.502V.5h1v7.002H4.5v1.614z" style="stroke:none" transform="rotate(180 9.5 10)"/>
+                                                            <path d="M10.502 1v6.002H4V5.767L1.944 7 4 8.233v-1.23h6.502V1m-1-1h2v8.003H5v1.996L0 7l5-2.999v2.001h4.502V0z" style="fill:#23dd36;stroke:none" transform="rotate(180 9.5 10)"/>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                        </label>
+                                    </ng-container>
+                                   <ng-container *ngIf="is2A1iRightSelected">
+                                    <label
+                                    style="width: 220px; border: 1px solid #666 !important" bps-radio-button bpsValue="SlidingDoor-Type-2A1.i-Right"
+                                    [bpsDisabled]="!(slideOption == 'Lift_And_Slide') || orderPlaced" bpsRadioButtonType="variation5">
+                                    <span>2A/1 Right</span>
+                                    <!-- 2A/1 Right -->
+                                    <div style="margin-top: 4px;">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="showWhiteHover" width="50" height="30" viewBox="0 0 50 30">
+                                            <g data-name="sps_rectangle_icon_2A/1_R_enabled">
+                                                <g data-name="Group 7584">
+                                                    <g data-name="Rectangle 1340" style="stroke:#fff;fill:none">
+                                                        <path style="stroke:none" d="M0 0h25v30H0z" transform="translate(25)"/>
+                                                        <path style="fill:none" d="M.5.5h24v29H.5z" transform="translate(25)"/>
+                                                    </g>
+                                                    <g data-name="Rectangle 1341" style="stroke:#fff;fill:none">
+                                                        <path style="stroke:none" d="M0 0h21v26H0z" transform="translate(27 2)"/>
+                                                        <path style="fill:none" d="M.5.5h20v25H.5z" transform="translate(27 2)"/>
+                                                    </g>
+                                                    <g data-name="Union 85" style="fill:none">
+                                                        <path d="M-14671 15242v-4h-4v-2h4v-4h2v4h4v2h-4v4z" style="stroke:none" transform="translate(14707.5 -15222)"/>
+                                                        <path d="m-14669.998 15241-.001-7.999.001 7.999m1 1h-2.001v-4.001h-4.001v-1.997h4.001v-4.001h2.001v4.001h3.997v1.997h-3.997v4.001z" style="fill:red;stroke:none" transform="translate(14707.5 -15222)"/>
+                                                    </g>
+                                                </g>
+                                                <g data-name="Group 7593">
+                                                    <g data-name="Rectangle 1340" style="stroke:#fff;fill:none">
+                                                        <path style="stroke:none" d="M0 0h25v30H0z"/>
+                                                        <path style="fill:none" d="M.5.5h24v29H.5z"/>
+                                                    </g>
+                                                    <g data-name="Rectangle 1341" style="stroke:#fff;fill:none">
+                                                        <path style="stroke:none" d="M0 0h21v26H0z" transform="translate(2 2)"/>
+                                                        <path style="fill:none" d="M.5.5h20v25H.5z" transform="translate(2 2)"/>
+                                                    </g>
+                                                    <g data-name="Union 84" style="fill:#23dd36">
+                                                        <path d="M4.5 9.116.972 7 4.5 4.884v1.618h5.502V.5h1v7.002H4.5v1.614z" style="stroke:none" transform="rotate(180 9.5 10)"/>
+                                                        <path d="M10.502 1v6.002H4V5.767L1.944 7 4 8.233v-1.23h6.502V1m-1-1h2v8.003H5v1.996L0 7l5-2.999v2.001h4.502V0z" style="fill:#23dd36;stroke:none" transform="rotate(180 9.5 10)"/>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </svg>
+                                    </div>
+                                    </label>
+                                   </ng-container>
+                                </ng-container>
+                                <ng-container *appCheckPermissions="feature.Type_2D_1_i">
+                                    <ng-container *ngIf="!is2D1iSelected">
+                                        <label
+                                        style="width: 220px" bps-radio-button bpsValue="SlidingDoor-Type-2D1.i"
+                                        [bpsDisabled]="!(slideOption == 'Lift_And_Slide')  || orderPlaced" bpsRadioButtonType="variation5">
+                                        <span>2D/1</span>
+                                        <!-- 2D/1 Opening -->
+                                        <div style="margin-top: 4px;">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="showWhiteHover" width="100" height="30" viewBox="0 0 100 30">
+                                                <g data-name="sps_rectangle_icon_2D/1_enabled">
+                                                    <g data-name="Group 7595">
+                                                        <g data-name="Rectangle 1340" style="stroke:#fff;fill:none">
+                                                            <path style="stroke:none" d="M0 0h25v30H0z" transform="translate(75)"/>
+                                                            <path style="fill:none" d="M.5.5h24v29H.5z" transform="translate(75)"/>
+                                                        </g>
+                                                        <g data-name="Rectangle 1341" style="stroke:#fff;fill:none">
+                                                            <path style="stroke:none" d="M0 0h21v26H0z" transform="translate(77 2)"/>
+                                                            <path style="fill:none" d="M.5.5h20v25H.5z" transform="translate(77 2)"/>
+                                                        </g>
+                                                        <g data-name="Union 85" style="fill:none">
+                                                            <path d="M-14671 15242v-4h-4v-2h4v-4h2v4h4v2h-4v4z" style="stroke:none" transform="translate(14757.5 -15222)"/>
+                                                            <path d="m-14669.998 15241-.001-7.999.001 7.999m1 1h-2.001v-4.001h-4.001v-1.997h4.001v-4.001h2.001v4.001h3.997v1.997h-3.997v4.001z" style="fill:red;stroke:none" transform="translate(14757.5 -15222)"/>
+                                                        </g>
+                                                    </g>
+                                                    <g data-name="Group 7597">
+                                                        <g data-name="Rectangle 1340" style="stroke:#fff;fill:none">
+                                                            <path style="stroke:none" d="M0 0h25v30H0z"/>
+                                                            <path style="fill:none" d="M.5.5h24v29H.5z"/>
+                                                        </g>
+                                                        <g data-name="Rectangle 1341" style="stroke:#fff;fill:none">
+                                                            <path style="stroke:none" d="M0 0h21v26H0z" transform="translate(2 2)"/>
+                                                            <path style="fill:none" d="M.5.5h20v25H.5z" transform="translate(2 2)"/>
+                                                        </g>
+                                                        <g data-name="Union 85" style="fill:none">
+                                                            <path d="M-14671 15242v-4h-4v-2h4v-4h2v4h4v2h-4v4z" style="stroke:none" transform="translate(14682.5 -15222)"/>
+                                                            <path d="m-14669.998 15241-.001-7.999.001 7.999m1 1h-2.001v-4.001h-4.001v-1.997h4.001v-4.001h2.001v4.001h3.997v1.997h-3.997v4.001z" style="fill:red;stroke:none" transform="translate(14682.5 -15222)"/>
+                                                        </g>
+                                                    </g>
+                                                    <g data-name="Group 7599">
+                                                        <g data-name="Rectangle 1340" style="stroke:#fff;fill:none">
+                                                            <path style="stroke:none" d="M0 0h25v30H0z" transform="translate(25)"/>
+                                                            <path style="fill:none" d="M.5.5h24v29H.5z" transform="translate(25)"/>
+                                                        </g>
+                                                        <g data-name="Rectangle 1341" style="stroke:#fff;fill:none">
+                                                            <path style="stroke:none" d="M0 0h21v26H0z" transform="translate(27 2)"/>
+                                                            <path style="fill:none" d="M.5.5h20v25H.5z" transform="translate(27 2)"/>
+                                                        </g>
+                                                        <g data-name="Union 84" style="fill:#23dd36">
+                                                            <path d="M-14663.998 15241.5h-1v-6.002h-5.502v1.618l-3.528-2.116 3.528-2.116v1.613h6.502v7.003z" style="stroke:none" transform="translate(14706 -15222)"/>
+                                                            <path d="M-14664.498 15241v-6.003h-6.502v-1.23l-2.056 1.233 2.056 1.233v-1.235h6.502v6.002m1 1h-2v-6.002h-4.502v2.001l-5-2.999 5-2.999v1.996h6.502v8.003z" style="fill:#23dd36;stroke:none" transform="translate(14706 -15222)"/>
+                                                        </g>
+                                                    </g>
+                                                    <g data-name="Group 7596">
+                                                        <g data-name="Rectangle 1340" style="stroke:#fff;fill:none">
+                                                            <path style="stroke:none" d="M0 0h25v30H0z" transform="translate(50)"/>
+                                                            <path style="fill:none" d="M.5.5h24v29H.5z" transform="translate(50)"/>
+                                                        </g>
+                                                        <g data-name="Rectangle 1341" style="stroke:#fff;fill:none">
+                                                            <path style="stroke:none" d="M0 0h21v26H0z" transform="translate(52 2)"/>
+                                                            <path style="fill:none" d="M.5.5h20v25H.5z" transform="translate(52 2)"/>
+                                                        </g>
+                                                        <g data-name="Union 84" style="fill:#23dd36">
+                                                            <path d="M4.5 9.116.972 7 4.5 4.884v1.618h5.502V.5h1v7.002H4.5v1.614z" style="stroke:none" transform="rotate(180 34.5 10)"/>
+                                                            <path d="M10.502 1v6.002H4V5.767L1.944 7 4 8.233v-1.23h6.502V1m-1-1h2v8.003H5v1.996L0 7l5-2.999v2.001h4.502V0z" style="fill:#23dd36;stroke:none" transform="rotate(180 34.5 10)"/>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                        </label> 
+                                    </ng-container>
+                                    <ng-container *ngIf="is2D1iSelected">
+                                        <label
+                                        style="width: 220px; border: 1px solid #666 !important" bps-radio-button bpsValue="SlidingDoor-Type-2D1.i"
+                                        [bpsDisabled]="!(slideOption == 'Lift_And_Slide') || orderPlaced" bpsRadioButtonType="variation5">
+                                        <span>2D/1</span>
+                                        <!-- 2D/1 Opening -->
+                                        <div style="margin-top: 4px;">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="showWhiteHover" width="100" height="30" viewBox="0 0 100 30">
+                                                <g data-name="sps_rectangle_icon_2D/1_enabled">
+                                                    <g data-name="Group 7595">
+                                                        <g data-name="Rectangle 1340" style="stroke:#fff;fill:none">
+                                                            <path style="stroke:none" d="M0 0h25v30H0z" transform="translate(75)"/>
+                                                            <path style="fill:none" d="M.5.5h24v29H.5z" transform="translate(75)"/>
+                                                        </g>
+                                                        <g data-name="Rectangle 1341" style="stroke:#fff;fill:none">
+                                                            <path style="stroke:none" d="M0 0h21v26H0z" transform="translate(77 2)"/>
+                                                            <path style="fill:none" d="M.5.5h20v25H.5z" transform="translate(77 2)"/>
+                                                        </g>
+                                                        <g data-name="Union 85" style="fill:none">
+                                                            <path d="M-14671 15242v-4h-4v-2h4v-4h2v4h4v2h-4v4z" style="stroke:none" transform="translate(14757.5 -15222)"/>
+                                                            <path d="m-14669.998 15241-.001-7.999.001 7.999m1 1h-2.001v-4.001h-4.001v-1.997h4.001v-4.001h2.001v4.001h3.997v1.997h-3.997v4.001z" style="fill:red;stroke:none" transform="translate(14757.5 -15222)"/>
+                                                        </g>
+                                                    </g>
+                                                    <g data-name="Group 7597">
+                                                        <g data-name="Rectangle 1340" style="stroke:#fff;fill:none">
+                                                            <path style="stroke:none" d="M0 0h25v30H0z"/>
+                                                            <path style="fill:none" d="M.5.5h24v29H.5z"/>
+                                                        </g>
+                                                        <g data-name="Rectangle 1341" style="stroke:#fff;fill:none">
+                                                            <path style="stroke:none" d="M0 0h21v26H0z" transform="translate(2 2)"/>
+                                                            <path style="fill:none" d="M.5.5h20v25H.5z" transform="translate(2 2)"/>
+                                                        </g>
+                                                        <g data-name="Union 85" style="fill:none">
+                                                            <path d="M-14671 15242v-4h-4v-2h4v-4h2v4h4v2h-4v4z" style="stroke:none" transform="translate(14682.5 -15222)"/>
+                                                            <path d="m-14669.998 15241-.001-7.999.001 7.999m1 1h-2.001v-4.001h-4.001v-1.997h4.001v-4.001h2.001v4.001h3.997v1.997h-3.997v4.001z" style="fill:red;stroke:none" transform="translate(14682.5 -15222)"/>
+                                                        </g>
+                                                    </g>
+                                                    <g data-name="Group 7599">
+                                                        <g data-name="Rectangle 1340" style="stroke:#fff;fill:none">
+                                                            <path style="stroke:none" d="M0 0h25v30H0z" transform="translate(25)"/>
+                                                            <path style="fill:none" d="M.5.5h24v29H.5z" transform="translate(25)"/>
+                                                        </g>
+                                                        <g data-name="Rectangle 1341" style="stroke:#fff;fill:none">
+                                                            <path style="stroke:none" d="M0 0h21v26H0z" transform="translate(27 2)"/>
+                                                            <path style="fill:none" d="M.5.5h20v25H.5z" transform="translate(27 2)"/>
+                                                        </g>
+                                                        <g data-name="Union 84" style="fill:#23dd36">
+                                                            <path d="M-14663.998 15241.5h-1v-6.002h-5.502v1.618l-3.528-2.116 3.528-2.116v1.613h6.502v7.003z" style="stroke:none" transform="translate(14706 -15222)"/>
+                                                            <path d="M-14664.498 15241v-6.003h-6.502v-1.23l-2.056 1.233 2.056 1.233v-1.235h6.502v6.002m1 1h-2v-6.002h-4.502v2.001l-5-2.999 5-2.999v1.996h6.502v8.003z" style="fill:#23dd36;stroke:none" transform="translate(14706 -15222)"/>
+                                                        </g>
+                                                    </g>
+                                                    <g data-name="Group 7596">
+                                                        <g data-name="Rectangle 1340" style="stroke:#fff;fill:none">
+                                                            <path style="stroke:none" d="M0 0h25v30H0z" transform="translate(50)"/>
+                                                            <path style="fill:none" d="M.5.5h24v29H.5z" transform="translate(50)"/>
+                                                        </g>
+                                                        <g data-name="Rectangle 1341" style="stroke:#fff;fill:none">
+                                                            <path style="stroke:none" d="M0 0h21v26H0z" transform="translate(52 2)"/>
+                                                            <path style="fill:none" d="M.5.5h20v25H.5z" transform="translate(52 2)"/>
+                                                        </g>
+                                                        <g data-name="Union 84" style="fill:#23dd36">
+                                                            <path d="M4.5 9.116.972 7 4.5 4.884v1.618h5.502V.5h1v7.002H4.5v1.614z" style="stroke:none" transform="rotate(180 34.5 10)"/>
+                                                            <path d="M10.502 1v6.002H4V5.767L1.944 7 4 8.233v-1.23h6.502V1m-1-1h2v8.003H5v1.996L0 7l5-2.999v2.001h4.502V0z" style="fill:#23dd36;stroke:none" transform="rotate(180 34.5 10)"/>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                       
+                                        </label> 
+                                    </ng-container>
+                                      
+                                </ng-container>
+                                <h3 class="operability-selection-heading" *appCheckPermissions="feature.TripleTrackType" style="margin-top: 12px;">
+                                Triple Track Type
+                                </h3>
+                                <ng-container *appCheckPermissions="feature.Type_3E_Left">
+                                    <ng-container *ngIf="!is3ELeftSelected">
+                                        <label
+                                        style="width: 220px" bps-radio-button bpsValue="SlidingDoor-Type-3E-Left"
+                                        [bpsDisabled]="!(slideOption == 'Lift_And_Slide')  || orderPlaced"
+                                        bpsRadioButtonType="variation5">
+                                        <span>3E Left</span>
+                                        <!-- 3E Left -->
+                                        <div class="labelSVG">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="showWhiteHover" width="75" height="30" viewBox="0 0 75 30">
+                                                <g data-name="Group 7775">
+                                                    <g data-name="Rectangle 1340" style="stroke:#fff;fill:none">
+                                                        <path style="stroke:none" d="M0 0h25v30H0z" transform="translate(50)"/>
+                                                        <path style="fill:none" d="M.5.5h24v29H.5z" transform="translate(50)"/>
+                                                    </g>
+                                                    <g data-name="Rectangle 1341" style="stroke:#fff;fill:none">
+                                                        <path style="stroke:none" d="M0 0h21v26H0z" transform="translate(52 2)"/>
+                                                        <path style="fill:none" d="M.5.5h20v25H.5z" transform="translate(52 2)"/>
+                                                    </g>
+                                                    <g data-name="Union 84" style="fill:#23dd36">
+                                                        <path d="M-14663.998 15241.5h-1v-6.002h-5.502v1.618l-3.528-2.116 3.528-2.116v1.613h6.502v7.003z" style="stroke:none" transform="translate(14731 -15222)"/>
+                                                        <path d="M-14664.498 15241v-6.003h-6.502v-1.23l-2.056 1.233 2.056 1.233v-1.235h6.502v6.002m1 1h-2v-6.002h-4.502v2.001l-5-2.999 5-2.999v1.996h6.502v8.003z" style="fill:#23dd36;stroke:none" transform="translate(14731 -15222)"/>
+                                                    </g>
+                                                </g>
+                                                <g data-name="Group 7777">
+                                                    <g data-name="Rectangle 1340" style="stroke:#fff;fill:none">
+                                                        <path style="stroke:none" d="M0 0h25v30H0z"/>
+                                                        <path style="fill:none" d="M.5.5h24v29H.5z"/>
+                                                    </g>
+                                                    <g data-name="Rectangle 1341" style="stroke:#fff;fill:none">
+                                                        <path style="stroke:none" d="M0 0h21v26H0z" transform="translate(2 2)"/>
+                                                        <path style="fill:none" d="M.5.5h20v25H.5z" transform="translate(2 2)"/>
+                                                    </g>
+                                                    <g data-name="Union 84" style="fill:#23dd36">
+                                                        <path d="M4.5 9.116.972 7 4.5 4.884v1.618h5.502V.5h1v7.002H4.5v1.614z" style="stroke:none" transform="rotate(180 9.5 10)"/>
+                                                        <path d="M10.502 1v6.002H4V5.767L1.944 7 4 8.233v-1.23h6.502V1m-1-1h2v8.003H5v1.996L0 7l5-2.999v2.001h4.502V0z" style="fill:#23dd36;stroke:none" transform="rotate(180 9.5 10)"/>
+                                                    </g>
+                                                </g>
+                                                <g data-name="Group 7781">
+                                                    <g data-name="Rectangle 1340" style="stroke:#fff;fill:none">
+                                                        <path style="stroke:none" d="M0 0h25v30H0z" transform="translate(25)"/>
+                                                        <path style="fill:none" d="M.5.5h24v29H.5z" transform="translate(25)"/>
+                                                    </g>
+                                                    <g data-name="Rectangle 1341" style="stroke:#fff;fill:none">
+                                                        <path style="stroke:none" d="M0 0h21v26H0z" transform="translate(27 2)"/>
+                                                        <path style="fill:none" d="M.5.5h20v25H.5z" transform="translate(27 2)"/>
+                                                    </g>
+                                                    <g data-name="Union 84" style="fill:#23dd36">
+                                                        <path d="M4.5 9.116.972 7 4.5 4.884v1.618h5.502V.5h1v7.002H4.5v1.614z" style="stroke:none" transform="rotate(180 22 10)"/>
+                                                        <path d="M10.502 1v6.002H4V5.767L1.944 7 4 8.233v-1.23h6.502V1m-1-1h2v8.003H5v1.996L0 7l5-2.999v2.001h4.502V0z" style="fill:#23dd36;stroke:none" transform="rotate(180 22 10)"/>
+                                                    </g>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                    </label>
+                                    </ng-container>
+                                    <ng-container *ngIf="is3ELeftSelected">
+                                        <label
+                                        style="width: 220px; border: 1px solid #666 !important" bps-radio-button bpsValue="SlidingDoor-Type-3E-Left"
+                                        [bpsDisabled]="!(slideOption == 'Lift_And_Slide') || orderPlaced"
+                                        bpsRadioButtonType="variation5">
+                                        <span>3E Left</span>
+                                        <!-- 3E Left -->
+                                        <div class="labelSVG">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="showWhiteHover" width="75" height="30" viewBox="0 0 75 30">
+                                                <g data-name="Group 7775">
+                                                    <g data-name="Rectangle 1340" style="stroke:#fff;fill:none">
+                                                        <path style="stroke:none" d="M0 0h25v30H0z" transform="translate(50)"/>
+                                                        <path style="fill:none" d="M.5.5h24v29H.5z" transform="translate(50)"/>
+                                                    </g>
+                                                    <g data-name="Rectangle 1341" style="stroke:#fff;fill:none">
+                                                        <path style="stroke:none" d="M0 0h21v26H0z" transform="translate(52 2)"/>
+                                                        <path style="fill:none" d="M.5.5h20v25H.5z" transform="translate(52 2)"/>
+                                                    </g>
+                                                    <g data-name="Union 84" style="fill:#23dd36">
+                                                        <path d="M-14663.998 15241.5h-1v-6.002h-5.502v1.618l-3.528-2.116 3.528-2.116v1.613h6.502v7.003z" style="stroke:none" transform="translate(14731 -15222)"/>
+                                                        <path d="M-14664.498 15241v-6.003h-6.502v-1.23l-2.056 1.233 2.056 1.233v-1.235h6.502v6.002m1 1h-2v-6.002h-4.502v2.001l-5-2.999 5-2.999v1.996h6.502v8.003z" style="fill:#23dd36;stroke:none" transform="translate(14731 -15222)"/>
+                                                    </g>
+                                                </g>
+                                                <g data-name="Group 7777">
+                                                    <g data-name="Rectangle 1340" style="stroke:#fff;fill:none">
+                                                        <path style="stroke:none" d="M0 0h25v30H0z"/>
+                                                        <path style="fill:none" d="M.5.5h24v29H.5z"/>
+                                                    </g>
+                                                    <g data-name="Rectangle 1341" style="stroke:#fff;fill:none">
+                                                        <path style="stroke:none" d="M0 0h21v26H0z" transform="translate(2 2)"/>
+                                                        <path style="fill:none" d="M.5.5h20v25H.5z" transform="translate(2 2)"/>
+                                                    </g>
+                                                    <g data-name="Union 84" style="fill:#23dd36">
+                                                        <path d="M4.5 9.116.972 7 4.5 4.884v1.618h5.502V.5h1v7.002H4.5v1.614z" style="stroke:none" transform="rotate(180 9.5 10)"/>
+                                                        <path d="M10.502 1v6.002H4V5.767L1.944 7 4 8.233v-1.23h6.502V1m-1-1h2v8.003H5v1.996L0 7l5-2.999v2.001h4.502V0z" style="fill:#23dd36;stroke:none" transform="rotate(180 9.5 10)"/>
+                                                    </g>
+                                                </g>
+                                                <g data-name="Group 7781">
+                                                    <g data-name="Rectangle 1340" style="stroke:#fff;fill:none">
+                                                        <path style="stroke:none" d="M0 0h25v30H0z" transform="translate(25)"/>
+                                                        <path style="fill:none" d="M.5.5h24v29H.5z" transform="translate(25)"/>
+                                                    </g>
+                                                    <g data-name="Rectangle 1341" style="stroke:#fff;fill:none">
+                                                        <path style="stroke:none" d="M0 0h21v26H0z" transform="translate(27 2)"/>
+                                                        <path style="fill:none" d="M.5.5h20v25H.5z" transform="translate(27 2)"/>
+                                                    </g>
+                                                    <g data-name="Union 84" style="fill:#23dd36">
+                                                        <path d="M4.5 9.116.972 7 4.5 4.884v1.618h5.502V.5h1v7.002H4.5v1.614z" style="stroke:none" transform="rotate(180 22 10)"/>
+                                                        <path d="M10.502 1v6.002H4V5.767L1.944 7 4 8.233v-1.23h6.502V1m-1-1h2v8.003H5v1.996L0 7l5-2.999v2.001h4.502V0z" style="fill:#23dd36;stroke:none" transform="rotate(180 22 10)"/>
+                                                    </g>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                    </label>
+                                    </ng-container>
+                                    
+                                </ng-container>
+                                <ng-container *appCheckPermissions="feature.Type_3E_Right">
+                                    <ng-container *ngIf="!is3ERightSelected">
+                                        <label
+                                        style="width: 220px" bps-radio-button bpsValue="SlidingDoor-Type-3E-Right"
+                                        [bpsDisabled]="!(slideOption == 'Lift_And_Slide') || orderPlaced"
+                                        bpsRadioButtonType="variation5">
+                                        <span>3ERight</span>
+                                        <!-- 3ERight -->
+                                        <div class="labelSVG">
+                                            <svg xmlns="http://www.w3.org/2000/svg"  class="showWhiteHover" width="75" height="30" viewBox="0 0 75 30">
+                                                <g data-name="Group 7610">
+                                                    <g data-name="Rectangle 1340" style="stroke:#fff;fill:none">
+                                                        <path style="stroke:none" d="M0 0h25v30H0z" transform="translate(50)"/>
+                                                        <path style="fill:none" d="M.5.5h24v29H.5z" transform="translate(50)"/>
+                                                    </g>
+                                                    <g data-name="Rectangle 1341" style="stroke:#fff;fill:none">
+                                                        <path style="stroke:none" d="M0 0h21v26H0z" transform="translate(52 2)"/>
+                                                        <path style="fill:none" d="M.5.5h20v25H.5z" transform="translate(52 2)"/>
+                                                    </g>
+                                                    <g data-name="Union 84" style="fill:#23dd36">
+                                                        <path d="M-14663.998 15241.5h-1v-6.002h-5.502v1.618l-3.528-2.116 3.528-2.116v1.613h6.502v7.003z" style="stroke:none" transform="translate(14731 -15222)"/>
+                                                        <path d="M-14664.498 15241v-6.003h-6.502v-1.23l-2.056 1.233 2.056 1.233v-1.235h6.502v6.002m1 1h-2v-6.002h-4.502v2.001l-5-2.999 5-2.999v1.996h6.502v8.003z" style="fill:#23dd36;stroke:none" transform="translate(14731 -15222)"/>
+                                                    </g>
+                                                </g>
+                                                <g data-name="Group 7609">
+                                                    <g data-name="Rectangle 1340" style="stroke:#fff;fill:none">
+                                                        <path style="stroke:none" d="M0 0h25v30H0z" transform="translate(25)"/>
+                                                        <path style="fill:none" d="M.5.5h24v29H.5z" transform="translate(25)"/>
+                                                    </g>
+                                                    <g data-name="Rectangle 1341" style="stroke:#fff;fill:none">
+                                                        <path style="stroke:none" d="M0 0h21v26H0z" transform="translate(27 2)"/>
+                                                        <path style="fill:none" d="M.5.5h20v25H.5z" transform="translate(27 2)"/>
+                                                    </g>
+                                                    <g data-name="Union 84" style="fill:#23dd36">
+                                                        <path d="M-14663.998 15241.5h-1v-6.002h-5.502v1.618l-3.528-2.116 3.528-2.116v1.613h6.502v7.003z" style="stroke:none" transform="translate(14706 -15222)"/>
+                                                        <path d="M-14664.498 15241v-6.003h-6.502v-1.23l-2.056 1.233 2.056 1.233v-1.235h6.502v6.002m1 1h-2v-6.002h-4.502v2.001l-5-2.999 5-2.999v1.996h6.502v8.003z" style="fill:#23dd36;stroke:none" transform="translate(14706 -15222)"/>
+                                                    </g>
+                                                </g>
+                                                <g data-name="Group 7611">
+                                                    <g data-name="Rectangle 1340" style="stroke:#fff;fill:none">
+                                                        <path style="stroke:none" d="M0 0h25v30H0z"/>
+                                                        <path style="fill:none" d="M.5.5h24v29H.5z"/>
+                                                    </g>
+                                                    <g data-name="Rectangle 1341" style="stroke:#fff;fill:none">
+                                                        <path style="stroke:none" d="M0 0h21v26H0z" transform="translate(2 2)"/>
+                                                        <path style="fill:none" d="M.5.5h20v25H.5z" transform="translate(2 2)"/>
+                                                    </g>
+                                                    <g data-name="Union 84" style="fill:#23dd36">
+                                                        <path d="M4.5 9.116.972 7 4.5 4.884v1.618h5.502V.5h1v7.002H4.5v1.614z" style="stroke:none" transform="rotate(180 9.5 10)"/>
+                                                        <path d="M10.502 1v6.002H4V5.767L1.944 7 4 8.233v-1.23h6.502V1m-1-1h2v8.003H5v1.996L0 7l5-2.999v2.001h4.502V0z" style="fill:#23dd36;stroke:none" transform="rotate(180 9.5 10)"/>
+                                                    </g>
+                                                </g>
+                                            </svg>  
+                                        </div>
+                                    </label>
+                                    </ng-container>
+                                    <ng-container *ngIf="is3ERightSelected">
+                                        <label
+                                        style="width: 220px; border: 1px solid #666 !important" bps-radio-button bpsValue="SlidingDoor-Type-3E-Right"
+                                        [bpsDisabled]="!(slideOption == 'Lift_And_Slide') || orderPlaced"
+                                        bpsRadioButtonType="variation5">
+                                        <span>3ERight</span>
+                                        <!-- 3ERight -->
+                                        <div class="labelSVG">
+                                            <svg xmlns="http://www.w3.org/2000/svg"  class="showWhiteHover" width="75" height="30" viewBox="0 0 75 30">
+                                                <g data-name="Group 7610">
+                                                    <g data-name="Rectangle 1340" style="stroke:#fff;fill:none">
+                                                        <path style="stroke:none" d="M0 0h25v30H0z" transform="translate(50)"/>
+                                                        <path style="fill:none" d="M.5.5h24v29H.5z" transform="translate(50)"/>
+                                                    </g>
+                                                    <g data-name="Rectangle 1341" style="stroke:#fff;fill:none">
+                                                        <path style="stroke:none" d="M0 0h21v26H0z" transform="translate(52 2)"/>
+                                                        <path style="fill:none" d="M.5.5h20v25H.5z" transform="translate(52 2)"/>
+                                                    </g>
+                                                    <g data-name="Union 84" style="fill:#23dd36">
+                                                        <path d="M-14663.998 15241.5h-1v-6.002h-5.502v1.618l-3.528-2.116 3.528-2.116v1.613h6.502v7.003z" style="stroke:none" transform="translate(14731 -15222)"/>
+                                                        <path d="M-14664.498 15241v-6.003h-6.502v-1.23l-2.056 1.233 2.056 1.233v-1.235h6.502v6.002m1 1h-2v-6.002h-4.502v2.001l-5-2.999 5-2.999v1.996h6.502v8.003z" style="fill:#23dd36;stroke:none" transform="translate(14731 -15222)"/>
+                                                    </g>
+                                                </g>
+                                                <g data-name="Group 7609">
+                                                    <g data-name="Rectangle 1340" style="stroke:#fff;fill:none">
+                                                        <path style="stroke:none" d="M0 0h25v30H0z" transform="translate(25)"/>
+                                                        <path style="fill:none" d="M.5.5h24v29H.5z" transform="translate(25)"/>
+                                                    </g>
+                                                    <g data-name="Rectangle 1341" style="stroke:#fff;fill:none">
+                                                        <path style="stroke:none" d="M0 0h21v26H0z" transform="translate(27 2)"/>
+                                                        <path style="fill:none" d="M.5.5h20v25H.5z" transform="translate(27 2)"/>
+                                                    </g>
+                                                    <g data-name="Union 84" style="fill:#23dd36">
+                                                        <path d="M-14663.998 15241.5h-1v-6.002h-5.502v1.618l-3.528-2.116 3.528-2.116v1.613h6.502v7.003z" style="stroke:none" transform="translate(14706 -15222)"/>
+                                                        <path d="M-14664.498 15241v-6.003h-6.502v-1.23l-2.056 1.233 2.056 1.233v-1.235h6.502v6.002m1 1h-2v-6.002h-4.502v2.001l-5-2.999 5-2.999v1.996h6.502v8.003z" style="fill:#23dd36;stroke:none" transform="translate(14706 -15222)"/>
+                                                    </g>
+                                                </g>
+                                                <g data-name="Group 7611">
+                                                    <g data-name="Rectangle 1340" style="stroke:#fff;fill:none">
+                                                        <path style="stroke:none" d="M0 0h25v30H0z"/>
+                                                        <path style="fill:none" d="M.5.5h24v29H.5z"/>
+                                                    </g>
+                                                    <g data-name="Rectangle 1341" style="stroke:#fff;fill:none">
+                                                        <path style="stroke:none" d="M0 0h21v26H0z" transform="translate(2 2)"/>
+                                                        <path style="fill:none" d="M.5.5h20v25H.5z" transform="translate(2 2)"/>
+                                                    </g>
+                                                    <g data-name="Union 84" style="fill:#23dd36">
+                                                        <path d="M4.5 9.116.972 7 4.5 4.884v1.618h5.502V.5h1v7.002H4.5v1.614z" style="stroke:none" transform="rotate(180 9.5 10)"/>
+                                                        <path d="M10.502 1v6.002H4V5.767L1.944 7 4 8.233v-1.23h6.502V1m-1-1h2v8.003H5v1.996L0 7l5-2.999v2.001h4.502V0z" style="fill:#23dd36;stroke:none" transform="rotate(180 9.5 10)"/>
+                                                    </g>
+                                                </g>
+                                            </svg>  
+                                        </div>
+                                    </label>
+                                    </ng-container>
+                                    
+                                </ng-container>
+                                <ng-container *appCheckPermissions="feature.Type_3E_1_Left">
+                                    <ng-container *ngIf="!is3E1LeftSelected">
+                                        <label
+                                        style="width: 220px" bps-radio-button bpsValue="SlidingDoor-Type-3E1-Left"
+                                        [bpsDisabled]="!(slideOption == 'Lift_And_Slide') || orderPlaced"
+                                        bpsRadioButtonType="variation5">
+                                        <span>3E/1 Left</span>
+                                        <!-- 3E/1 Left -->
+                                        <div class="labelSVG">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="75" height="30" viewBox="0 0 75 30">
+                                                <g data-name="sps_rectangle_icon_3E/1_L_enabled">
+                                                    <g data-name="Group 7778">
+                                                        <g data-name="Rectangle 1340" style="stroke:#fff;fill:none">
+                                                            <path style="stroke:none" d="M0 0h25v30H0z" transform="translate(50)"/>
+                                                            <path style="fill:none" d="M.5.5h24v29H.5z" transform="translate(50)"/>
+                                                        </g>
+                                                        <g data-name="Rectangle 1341" style="stroke:#fff;fill:none">
+                                                            <path style="stroke:none" d="M0 0h21v26H0z" transform="translate(52 2)"/>
+                                                            <path style="fill:none" d="M.5.5h20v25H.5z" transform="translate(52 2)"/>
+                                                        </g>
+                                                        <g data-name="Union 85" style="fill:none">
+                                                            <path d="M-14671 15242v-4h-4v-2h4v-4h2v4h4v2h-4v4z" style="stroke:none" transform="translate(14732.5 -15222)"/>
+                                                            <path d="m-14669.998 15241-.001-7.999.001 7.999m1 1h-2.001v-4.001h-4.001v-1.997h4.001v-4.001h2.001v4.001h3.997v1.997h-3.997v4.001z" style="fill:red;stroke:none" transform="translate(14732.5 -15222)"/>
+                                                        </g>
+                                                    </g>
+                                                    <g data-name="Group 7783">
+                                                        <g data-name="Rectangle 1340" style="stroke:#fff;fill:none">
+                                                            <path style="stroke:none" d="M0 0h25v30H0z"/>
+                                                            <path style="fill:none" d="M.5.5h24v29H.5z"/>
+                                                        </g>
+                                                        <g data-name="Rectangle 1341" style="stroke:#fff;fill:none">
+                                                            <path style="stroke:none" d="M0 0h21v26H0z" transform="translate(2 2)"/>
+                                                            <path style="fill:none" d="M.5.5h20v25H.5z" transform="translate(2 2)"/>
+                                                        </g>
+                                                        <g data-name="Union 84" style="fill:#23dd36">
+                                                            <path d="M4.5 9.116.972 7 4.5 4.884v1.618h5.502V.5h1v7.002H4.5v1.614z" style="stroke:none" transform="rotate(180 9.5 10)"/>
+                                                            <path d="M10.502 1v6.002H4V5.767L1.944 7 4 8.233v-1.23h6.502V1m-1-1h2v8.003H5v1.996L0 7l5-2.999v2.001h4.502V0z" style="fill:#23dd36;stroke:none" transform="rotate(180 9.5 10)"/>
+                                                        </g>
+                                                    </g>
+                                                    <g data-name="Group 7782">
+                                                        <g data-name="Rectangle 1340" style="stroke:#fff;fill:none">
+                                                            <path style="stroke:none" d="M0 0h25v30H0z" transform="translate(25)"/>
+                                                            <path style="fill:none" d="M.5.5h24v29H.5z" transform="translate(25)"/>
+                                                        </g>
+                                                        <g data-name="Rectangle 1341" style="stroke:#fff;fill:none">
+                                                            <path style="stroke:none" d="M0 0h21v26H0z" transform="translate(27 2)"/>
+                                                            <path style="fill:none" d="M.5.5h20v25H.5z" transform="translate(27 2)"/>
+                                                        </g>
+                                                        <g data-name="Union 84" style="fill:#23dd36">
+                                                            <path d="M4.5 9.116.972 7 4.5 4.884v1.618h5.502V.5h1v7.002H4.5v1.614z" style="stroke:none" transform="rotate(180 22 10)"/>
+                                                            <path d="M10.502 1v6.002H4V5.767L1.944 7 4 8.233v-1.23h6.502V1m-1-1h2v8.003H5v1.996L0 7l5-2.999v2.001h4.502V0z" style="fill:#23dd36;stroke:none" transform="rotate(180 22 10)"/>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                    </label>
+                                    </ng-container>
+                                    <ng-container *ngIf="is3E1LeftSelected">
+                                        <label
+                                        style="width: 220px; border: 1px solid #666 !important" bps-radio-button bpsValue="SlidingDoor-Type-3E1-Left"
+                                        [bpsDisabled]="!(slideOption == 'Lift_And_Slide') || orderPlaced"
+                                        bpsRadioButtonType="variation5">
+                                        <span>3E/1 Left</span>
+                                        <!-- 3E/1 Left -->
+                                        <div class="labelSVG">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="75" height="30" viewBox="0 0 75 30">
+                                                <g data-name="sps_rectangle_icon_3E/1_L_enabled">
+                                                    <g data-name="Group 7778">
+                                                        <g data-name="Rectangle 1340" style="stroke:#fff;fill:none">
+                                                            <path style="stroke:none" d="M0 0h25v30H0z" transform="translate(50)"/>
+                                                            <path style="fill:none" d="M.5.5h24v29H.5z" transform="translate(50)"/>
+                                                        </g>
+                                                        <g data-name="Rectangle 1341" style="stroke:#fff;fill:none">
+                                                            <path style="stroke:none" d="M0 0h21v26H0z" transform="translate(52 2)"/>
+                                                            <path style="fill:none" d="M.5.5h20v25H.5z" transform="translate(52 2)"/>
+                                                        </g>
+                                                        <g data-name="Union 85" style="fill:none">
+                                                            <path d="M-14671 15242v-4h-4v-2h4v-4h2v4h4v2h-4v4z" style="stroke:none" transform="translate(14732.5 -15222)"/>
+                                                            <path d="m-14669.998 15241-.001-7.999.001 7.999m1 1h-2.001v-4.001h-4.001v-1.997h4.001v-4.001h2.001v4.001h3.997v1.997h-3.997v4.001z" style="fill:red;stroke:none" transform="translate(14732.5 -15222)"/>
+                                                        </g>
+                                                    </g>
+                                                    <g data-name="Group 7783">
+                                                        <g data-name="Rectangle 1340" style="stroke:#fff;fill:none">
+                                                            <path style="stroke:none" d="M0 0h25v30H0z"/>
+                                                            <path style="fill:none" d="M.5.5h24v29H.5z"/>
+                                                        </g>
+                                                        <g data-name="Rectangle 1341" style="stroke:#fff;fill:none">
+                                                            <path style="stroke:none" d="M0 0h21v26H0z" transform="translate(2 2)"/>
+                                                            <path style="fill:none" d="M.5.5h20v25H.5z" transform="translate(2 2)"/>
+                                                        </g>
+                                                        <g data-name="Union 84" style="fill:#23dd36">
+                                                            <path d="M4.5 9.116.972 7 4.5 4.884v1.618h5.502V.5h1v7.002H4.5v1.614z" style="stroke:none" transform="rotate(180 9.5 10)"/>
+                                                            <path d="M10.502 1v6.002H4V5.767L1.944 7 4 8.233v-1.23h6.502V1m-1-1h2v8.003H5v1.996L0 7l5-2.999v2.001h4.502V0z" style="fill:#23dd36;stroke:none" transform="rotate(180 9.5 10)"/>
+                                                        </g>
+                                                    </g>
+                                                    <g data-name="Group 7782">
+                                                        <g data-name="Rectangle 1340" style="stroke:#fff;fill:none">
+                                                            <path style="stroke:none" d="M0 0h25v30H0z" transform="translate(25)"/>
+                                                            <path style="fill:none" d="M.5.5h24v29H.5z" transform="translate(25)"/>
+                                                        </g>
+                                                        <g data-name="Rectangle 1341" style="stroke:#fff;fill:none">
+                                                            <path style="stroke:none" d="M0 0h21v26H0z" transform="translate(27 2)"/>
+                                                            <path style="fill:none" d="M.5.5h20v25H.5z" transform="translate(27 2)"/>
+                                                        </g>
+                                                        <g data-name="Union 84" style="fill:#23dd36">
+                                                            <path d="M4.5 9.116.972 7 4.5 4.884v1.618h5.502V.5h1v7.002H4.5v1.614z" style="stroke:none" transform="rotate(180 22 10)"/>
+                                                            <path d="M10.502 1v6.002H4V5.767L1.944 7 4 8.233v-1.23h6.502V1m-1-1h2v8.003H5v1.996L0 7l5-2.999v2.001h4.502V0z" style="fill:#23dd36;stroke:none" transform="rotate(180 22 10)"/>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                    </label>
+                                    </ng-container>
+                                   
+                                </ng-container>
+                                <ng-container *appCheckPermissions="feature.Type_3E_1_Right">
+                                    <ng-container *ngIf="!is3E1RightSelected">
+                                        <label
+                                        style="width: 220px" bps-radio-button bpsValue="SlidingDoor-Type-3E1-Right"
+                                        [bpsDisabled]="!(slideOption == 'Lift_And_Slide') || orderPlaced"
+                                        bpsRadioButtonType="variation5">
+                                        <span>3E/1 Right</span>
+                                        <!-- 3E/1 Right -->
+                                        <div class="labelSVG">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="75" height="30" viewBox="0 0 75 30">
+                                                <g data-name="sps_rectangle_icon_3E/1_R_enabled">
+                                                    <g data-name="Group 7608">
+                                                        <g data-name="Rectangle 1340" style="stroke:#fff;fill:none">
+                                                            <path style="stroke:none" d="M0 0h25v30H0z"/>
+                                                            <path style="fill:none" d="M.5.5h24v29H.5z"/>
+                                                        </g>
+                                                        <g data-name="Rectangle 1341" style="stroke:#fff;fill:none">
+                                                            <path style="stroke:none" d="M0 0h21v26H0z" transform="translate(2 2)"/>
+                                                            <path style="fill:none" d="M.5.5h20v25H.5z" transform="translate(2 2)"/>
+                                                        </g>
+                                                        <g data-name="Union 85" style="fill:none">
+                                                            <path d="M-14671 15242v-4h-4v-2h4v-4h2v4h4v2h-4v4z" style="stroke:none" transform="translate(14682.5 -15222)"/>
+                                                            <path d="m-14669.998 15241-.001-7.999.001 7.999m1 1h-2.001v-4.001h-4.001v-1.997h4.001v-4.001h2.001v4.001h3.997v1.997h-3.997v4.001z" style="fill:red;stroke:none" transform="translate(14682.5 -15222)"/>
+                                                        </g>
+                                                    </g>
+                                                    <g data-name="Group 7606">
+                                                        <g data-name="Rectangle 1340" style="stroke:#fff;fill:none">
+                                                            <path style="stroke:none" d="M0 0h25v30H0z" transform="translate(50)"/>
+                                                            <path style="fill:none" d="M.5.5h24v29H.5z" transform="translate(50)"/>
+                                                        </g>
+                                                        <g data-name="Rectangle 1341" style="stroke:#fff;fill:none">
+                                                            <path style="stroke:none" d="M0 0h21v26H0z" transform="translate(52 2)"/>
+                                                            <path style="fill:none" d="M.5.5h20v25H.5z" transform="translate(52 2)"/>
+                                                        </g>
+                                                        <g data-name="Union 84" style="fill:#23dd36">
+                                                            <path d="M-14663.998 15241.5h-1v-6.002h-5.502v1.618l-3.528-2.116 3.528-2.116v1.613h6.502v7.003z" style="stroke:none" transform="translate(14731 -15222)"/>
+                                                            <path d="M-14664.498 15241v-6.003h-6.502v-1.23l-2.056 1.233 2.056 1.233v-1.235h6.502v6.002m1 1h-2v-6.002h-4.502v2.001l-5-2.999 5-2.999v1.996h6.502v8.003z" style="fill:#23dd36;stroke:none" transform="translate(14731 -15222)"/>
+                                                        </g>
+                                                    </g>
+                                                    <g data-name="Group 7607">
+                                                        <g data-name="Rectangle 1340" style="stroke:#fff;fill:none">
+                                                            <path style="stroke:none" d="M0 0h25v30H0z" transform="translate(25)"/>
+                                                            <path style="fill:none" d="M.5.5h24v29H.5z" transform="translate(25)"/>
+                                                        </g>
+                                                        <g data-name="Rectangle 1341" style="stroke:#fff;fill:none">
+                                                            <path style="stroke:none" d="M0 0h21v26H0z" transform="translate(27 2)"/>
+                                                            <path style="fill:none" d="M.5.5h20v25H.5z" transform="translate(27 2)"/>
+                                                        </g>
+                                                        <g data-name="Union 84" style="fill:#23dd36">
+                                                            <path d="M-14663.998 15241.5h-1v-6.002h-5.502v1.618l-3.528-2.116 3.528-2.116v1.613h6.502v7.003z" style="stroke:none" transform="translate(14706 -15222)"/>
+                                                            <path d="M-14664.498 15241v-6.003h-6.502v-1.23l-2.056 1.233 2.056 1.233v-1.235h6.502v6.002m1 1h-2v-6.002h-4.502v2.001l-5-2.999 5-2.999v1.996h6.502v8.003z" style="fill:#23dd36;stroke:none" transform="translate(14706 -15222)"/>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </svg>
+                                            
+                                        </div>
+                                    </label>
+                                    </ng-container>
+                                    <ng-container *ngIf="is3E1RightSelected">
+                                        <label
+                                        style="width: 220px; border: 1px solid #666 !important" bps-radio-button bpsValue="SlidingDoor-Type-3E1-Right"
+                                        [bpsDisabled]="!(slideOption == 'Lift_And_Slide') || orderPlaced"
+                                        bpsRadioButtonType="variation5">
+                                        <span>3E/1 Right</span>
+                                        <!-- 3E/1 Right -->
+                                        <div class="labelSVG">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="75" height="30" viewBox="0 0 75 30">
+                                                <g data-name="sps_rectangle_icon_3E/1_R_enabled">
+                                                    <g data-name="Group 7608">
+                                                        <g data-name="Rectangle 1340" style="stroke:#fff;fill:none">
+                                                            <path style="stroke:none" d="M0 0h25v30H0z"/>
+                                                            <path style="fill:none" d="M.5.5h24v29H.5z"/>
+                                                        </g>
+                                                        <g data-name="Rectangle 1341" style="stroke:#fff;fill:none">
+                                                            <path style="stroke:none" d="M0 0h21v26H0z" transform="translate(2 2)"/>
+                                                            <path style="fill:none" d="M.5.5h20v25H.5z" transform="translate(2 2)"/>
+                                                        </g>
+                                                        <g data-name="Union 85" style="fill:none">
+                                                            <path d="M-14671 15242v-4h-4v-2h4v-4h2v4h4v2h-4v4z" style="stroke:none" transform="translate(14682.5 -15222)"/>
+                                                            <path d="m-14669.998 15241-.001-7.999.001 7.999m1 1h-2.001v-4.001h-4.001v-1.997h4.001v-4.001h2.001v4.001h3.997v1.997h-3.997v4.001z" style="fill:red;stroke:none" transform="translate(14682.5 -15222)"/>
+                                                        </g>
+                                                    </g>
+                                                    <g data-name="Group 7606">
+                                                        <g data-name="Rectangle 1340" style="stroke:#fff;fill:none">
+                                                            <path style="stroke:none" d="M0 0h25v30H0z" transform="translate(50)"/>
+                                                            <path style="fill:none" d="M.5.5h24v29H.5z" transform="translate(50)"/>
+                                                        </g>
+                                                        <g data-name="Rectangle 1341" style="stroke:#fff;fill:none">
+                                                            <path style="stroke:none" d="M0 0h21v26H0z" transform="translate(52 2)"/>
+                                                            <path style="fill:none" d="M.5.5h20v25H.5z" transform="translate(52 2)"/>
+                                                        </g>
+                                                        <g data-name="Union 84" style="fill:#23dd36">
+                                                            <path d="M-14663.998 15241.5h-1v-6.002h-5.502v1.618l-3.528-2.116 3.528-2.116v1.613h6.502v7.003z" style="stroke:none" transform="translate(14731 -15222)"/>
+                                                            <path d="M-14664.498 15241v-6.003h-6.502v-1.23l-2.056 1.233 2.056 1.233v-1.235h6.502v6.002m1 1h-2v-6.002h-4.502v2.001l-5-2.999 5-2.999v1.996h6.502v8.003z" style="fill:#23dd36;stroke:none" transform="translate(14731 -15222)"/>
+                                                        </g>
+                                                    </g>
+                                                    <g data-name="Group 7607">
+                                                        <g data-name="Rectangle 1340" style="stroke:#fff;fill:none">
+                                                            <path style="stroke:none" d="M0 0h25v30H0z" transform="translate(25)"/>
+                                                            <path style="fill:none" d="M.5.5h24v29H.5z" transform="translate(25)"/>
+                                                        </g>
+                                                        <g data-name="Rectangle 1341" style="stroke:#fff;fill:none">
+                                                            <path style="stroke:none" d="M0 0h21v26H0z" transform="translate(27 2)"/>
+                                                            <path style="fill:none" d="M.5.5h20v25H.5z" transform="translate(27 2)"/>
+                                                        </g>
+                                                        <g data-name="Union 84" style="fill:#23dd36">
+                                                            <path d="M-14663.998 15241.5h-1v-6.002h-5.502v1.618l-3.528-2.116 3.528-2.116v1.613h6.502v7.003z" style="stroke:none" transform="translate(14706 -15222)"/>
+                                                            <path d="M-14664.498 15241v-6.003h-6.502v-1.23l-2.056 1.233 2.056 1.233v-1.235h6.502v6.002m1 1h-2v-6.002h-4.502v2.001l-5-2.999 5-2.999v1.996h6.502v8.003z" style="fill:#23dd36;stroke:none" transform="translate(14706 -15222)"/>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </svg>
+                                            
+                                        </div>
+                                    </label>
+                                    </ng-container>
+                                   
+                                </ng-container>
+                                <ng-container *appCheckPermissions="feature.Type_3F">
+                                    <ng-container *ngIf="!is3FSelected">
+                                        <label
+                                        style="width: 220px" bps-radio-button bpsValue="SlidingDoor-Type-3F"
+                                        [bpsDisabled]="!(slideOption == 'Lift_And_Slide') || orderPlaced"
+                                        bpsRadioButtonType="variation5">
+                                        <span>3F</span>
+                                        <!-- 3F -->
+                                        <div class="labelSVG">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="150" height="30" viewBox="0 0 150 30">
+                                                <g data-name="Group 7600">
+                                                    <g data-name="Rectangle 1340" style="stroke:#fff;fill:none">
+                                                        <path style="stroke:none" d="M0 0h25v30H0z" transform="translate(125)"/>
+                                                        <path style="fill:none" d="M.5.5h24v29H.5z" transform="translate(125)"/>
+                                                    </g>
+                                                    <g data-name="Rectangle 1341" style="stroke:#fff;fill:none">
+                                                        <path style="stroke:none" d="M0 0h21v26H0z" transform="translate(127 2)"/>
+                                                        <path style="fill:none" d="M.5.5h20v25H.5z" transform="translate(127 2)"/>
+                                                    </g>
+                                                    <g data-name="Union 85" style="fill:none">
+                                                        <path d="M-14671 15242v-4h-4v-2h4v-4h2v4h4v2h-4v4z" style="stroke:none" transform="translate(14807.5 -15222)"/>
+                                                        <path d="m-14669.998 15241-.001-7.999.001 7.999m1 1h-2.001v-4.001h-4.001v-1.997h4.001v-4.001h2.001v4.001h3.997v1.997h-3.997v4.001z" style="fill:red;stroke:none" transform="translate(14807.5 -15222)"/>
+                                                    </g>
+                                                </g>
+                                                <g data-name="Group 7603">
+                                                    <g data-name="Rectangle 1340" style="stroke:#fff;fill:none">
+                                                        <path style="stroke:none" d="M0 0h25v30H0z"/>
+                                                        <path style="fill:none" d="M.5.5h24v29H.5z"/>
+                                                    </g>
+                                                    <g data-name="Rectangle 1341" style="stroke:#fff;fill:none">
+                                                        <path style="stroke:none" d="M0 0h21v26H0z" transform="translate(2 2)"/>
+                                                        <path style="fill:none" d="M.5.5h20v25H.5z" transform="translate(2 2)"/>
+                                                    </g>
+                                                    <g data-name="Union 85" style="fill:none">
+                                                        <path d="M-14671 15242v-4h-4v-2h4v-4h2v4h4v2h-4v4z" style="stroke:none" transform="translate(14682.5 -15222)"/>
+                                                        <path d="m-14669.998 15241-.001-7.999.001 7.999m1 1h-2.001v-4.001h-4.001v-1.997h4.001v-4.001h2.001v4.001h3.997v1.997h-3.997v4.001z" style="fill:red;stroke:none" transform="translate(14682.5 -15222)"/>
+                                                    </g>
+                                                </g>
+                                                <g data-name="Group 7602">
+                                                    <g data-name="Rectangle 1340" style="stroke:#fff;fill:none">
+                                                        <path style="stroke:none" d="M0 0h25v30H0z" transform="translate(50)"/>
+                                                        <path style="fill:none" d="M.5.5h24v29H.5z" transform="translate(50)"/>
+                                                    </g>
+                                                    <g data-name="Rectangle 1341" style="stroke:#fff;fill:none">
+                                                        <path style="stroke:none" d="M0 0h21v26H0z" transform="translate(52 2)"/>
+                                                        <path style="fill:none" d="M.5.5h20v25H.5z" transform="translate(52 2)"/>
+                                                    </g>
+                                                    <g data-name="Union 84" style="fill:#23dd36">
+                                                        <path d="M-14663.998 15241.5h-1v-6.002h-5.502v1.618l-3.528-2.116 3.528-2.116v1.613h6.502v7.003z" style="stroke:none" transform="translate(14731 -15222)"/>
+                                                        <path d="M-14664.498 15241v-6.003h-6.502v-1.23l-2.056 1.233 2.056 1.233v-1.235h6.502v6.002m1 1h-2v-6.002h-4.502v2.001l-5-2.999 5-2.999v1.996h6.502v8.003z" style="fill:#23dd36;stroke:none" transform="translate(14731 -15222)"/>
+                                                    </g>
+                                                </g>
+                                                <g data-name="Group 7605">
+                                                    <g data-name="Rectangle 1340" style="stroke:#fff;fill:none">
+                                                        <path style="stroke:none" d="M0 0h25v30H0z" transform="translate(25)"/>
+                                                        <path style="fill:none" d="M.5.5h24v29H.5z" transform="translate(25)"/>
+                                                    </g>
+                                                    <g data-name="Rectangle 1341" style="stroke:#fff;fill:none">
+                                                        <path style="stroke:none" d="M0 0h21v26H0z" transform="translate(27 2)"/>
+                                                        <path style="fill:none" d="M.5.5h20v25H.5z" transform="translate(27 2)"/>
+                                                    </g>
+                                                    <g data-name="Union 84" style="fill:#23dd36">
+                                                        <path d="M-14663.998 15241.5h-1v-6.002h-5.502v1.618l-3.528-2.116 3.528-2.116v1.613h6.502v7.003z" style="stroke:none" transform="translate(14706 -15222)"/>
+                                                        <path d="M-14664.498 15241v-6.003h-6.502v-1.23l-2.056 1.233 2.056 1.233v-1.235h6.502v6.002m1 1h-2v-6.002h-4.502v2.001l-5-2.999 5-2.999v1.996h6.502v8.003z" style="fill:#23dd36;stroke:none" transform="translate(14706 -15222)"/>
+                                                    </g>
+                                                </g>
+                                                <g data-name="Group 7601">
+                                                    <g data-name="Rectangle 1340" style="stroke:#fff;fill:none">
+                                                        <path style="stroke:none" d="M0 0h25v30H0z" transform="translate(75)"/>
+                                                        <path style="fill:none" d="M.5.5h24v29H.5z" transform="translate(75)"/>
+                                                    </g>
+                                                    <g data-name="Rectangle 1341" style="stroke:#fff;fill:none">
+                                                        <path style="stroke:none" d="M0 0h21v26H0z" transform="translate(77 2)"/>
+                                                        <path style="fill:none" d="M.5.5h20v25H.5z" transform="translate(77 2)"/>
+                                                    </g>
+                                                    <g data-name="Union 84" style="fill:#23dd36">
+                                                        <path d="M4.5 9.116.972 7 4.5 4.884v1.618h5.502V.5h1v7.002H4.5v1.614z" style="stroke:none" transform="rotate(180 47 10)"/>
+                                                        <path d="M10.502 1v6.002H4V5.767L1.944 7 4 8.233v-1.23h6.502V1m-1-1h2v8.003H5v1.996L0 7l5-2.999v2.001h4.502V0z" style="fill:#23dd36;stroke:none" transform="rotate(180 47 10)"/>
+                                                    </g>
+                                                </g>
+                                                <g data-name="Group 7604">
+                                                    <g data-name="Rectangle 1340" style="stroke:#fff;fill:none">
+                                                        <path style="stroke:none" d="M0 0h25v30H0z" transform="translate(100)"/>
+                                                        <path style="fill:none" d="M.5.5h24v29H.5z" transform="translate(100)"/>
+                                                    </g>
+                                                    <g data-name="Rectangle 1341" style="stroke:#fff;fill:none">
+                                                        <path style="stroke:none" d="M0 0h21v26H0z" transform="translate(102 2)"/>
+                                                        <path style="fill:none" d="M.5.5h20v25H.5z" transform="translate(102 2)"/>
+                                                    </g>
+                                                    <g data-name="Union 84" style="fill:#23dd36">
+                                                        <path d="M4.5 9.116.972 7 4.5 4.884v1.618h5.502V.5h1v7.002H4.5v1.614z" style="stroke:none" transform="rotate(180 59.5 10)"/>
+                                                        <path d="M10.502 1v6.002H4V5.767L1.944 7 4 8.233v-1.23h6.502V1m-1-1h2v8.003H5v1.996L0 7l5-2.999v2.001h4.502V0z" style="fill:#23dd36;stroke:none" transform="rotate(180 59.5 10)"/>
+                                                    </g>
+                                                </g>
+                                            </svg>
+                                            
+                                        </div>
+                                    </label>
+                                    </ng-container>
+                                    <ng-container *ngIf="is3FSelected">
+                                        <label
+                                        style="width: 220px; border: 1px solid #666 !important" bps-radio-button bpsValue="SlidingDoor-Type-3F"
+                                        [bpsDisabled]="!(slideOption == 'Lift_And_Slide') || orderPlaced"
+                                        bpsRadioButtonType="variation5">
+                                        <span>3F</span>
+                                        <!-- 3F -->
+                                        <div class="labelSVG">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="150" height="30" viewBox="0 0 150 30">
+                                                <g data-name="Group 7600">
+                                                    <g data-name="Rectangle 1340" style="stroke:#fff;fill:none">
+                                                        <path style="stroke:none" d="M0 0h25v30H0z" transform="translate(125)"/>
+                                                        <path style="fill:none" d="M.5.5h24v29H.5z" transform="translate(125)"/>
+                                                    </g>
+                                                    <g data-name="Rectangle 1341" style="stroke:#fff;fill:none">
+                                                        <path style="stroke:none" d="M0 0h21v26H0z" transform="translate(127 2)"/>
+                                                        <path style="fill:none" d="M.5.5h20v25H.5z" transform="translate(127 2)"/>
+                                                    </g>
+                                                    <g data-name="Union 85" style="fill:none">
+                                                        <path d="M-14671 15242v-4h-4v-2h4v-4h2v4h4v2h-4v4z" style="stroke:none" transform="translate(14807.5 -15222)"/>
+                                                        <path d="m-14669.998 15241-.001-7.999.001 7.999m1 1h-2.001v-4.001h-4.001v-1.997h4.001v-4.001h2.001v4.001h3.997v1.997h-3.997v4.001z" style="fill:red;stroke:none" transform="translate(14807.5 -15222)"/>
+                                                    </g>
+                                                </g>
+                                                <g data-name="Group 7603">
+                                                    <g data-name="Rectangle 1340" style="stroke:#fff;fill:none">
+                                                        <path style="stroke:none" d="M0 0h25v30H0z"/>
+                                                        <path style="fill:none" d="M.5.5h24v29H.5z"/>
+                                                    </g>
+                                                    <g data-name="Rectangle 1341" style="stroke:#fff;fill:none">
+                                                        <path style="stroke:none" d="M0 0h21v26H0z" transform="translate(2 2)"/>
+                                                        <path style="fill:none" d="M.5.5h20v25H.5z" transform="translate(2 2)"/>
+                                                    </g>
+                                                    <g data-name="Union 85" style="fill:none">
+                                                        <path d="M-14671 15242v-4h-4v-2h4v-4h2v4h4v2h-4v4z" style="stroke:none" transform="translate(14682.5 -15222)"/>
+                                                        <path d="m-14669.998 15241-.001-7.999.001 7.999m1 1h-2.001v-4.001h-4.001v-1.997h4.001v-4.001h2.001v4.001h3.997v1.997h-3.997v4.001z" style="fill:red;stroke:none" transform="translate(14682.5 -15222)"/>
+                                                    </g>
+                                                </g>
+                                                <g data-name="Group 7602">
+                                                    <g data-name="Rectangle 1340" style="stroke:#fff;fill:none">
+                                                        <path style="stroke:none" d="M0 0h25v30H0z" transform="translate(50)"/>
+                                                        <path style="fill:none" d="M.5.5h24v29H.5z" transform="translate(50)"/>
+                                                    </g>
+                                                    <g data-name="Rectangle 1341" style="stroke:#fff;fill:none">
+                                                        <path style="stroke:none" d="M0 0h21v26H0z" transform="translate(52 2)"/>
+                                                        <path style="fill:none" d="M.5.5h20v25H.5z" transform="translate(52 2)"/>
+                                                    </g>
+                                                    <g data-name="Union 84" style="fill:#23dd36">
+                                                        <path d="M-14663.998 15241.5h-1v-6.002h-5.502v1.618l-3.528-2.116 3.528-2.116v1.613h6.502v7.003z" style="stroke:none" transform="translate(14731 -15222)"/>
+                                                        <path d="M-14664.498 15241v-6.003h-6.502v-1.23l-2.056 1.233 2.056 1.233v-1.235h6.502v6.002m1 1h-2v-6.002h-4.502v2.001l-5-2.999 5-2.999v1.996h6.502v8.003z" style="fill:#23dd36;stroke:none" transform="translate(14731 -15222)"/>
+                                                    </g>
+                                                </g>
+                                                <g data-name="Group 7605">
+                                                    <g data-name="Rectangle 1340" style="stroke:#fff;fill:none">
+                                                        <path style="stroke:none" d="M0 0h25v30H0z" transform="translate(25)"/>
+                                                        <path style="fill:none" d="M.5.5h24v29H.5z" transform="translate(25)"/>
+                                                    </g>
+                                                    <g data-name="Rectangle 1341" style="stroke:#fff;fill:none">
+                                                        <path style="stroke:none" d="M0 0h21v26H0z" transform="translate(27 2)"/>
+                                                        <path style="fill:none" d="M.5.5h20v25H.5z" transform="translate(27 2)"/>
+                                                    </g>
+                                                    <g data-name="Union 84" style="fill:#23dd36">
+                                                        <path d="M-14663.998 15241.5h-1v-6.002h-5.502v1.618l-3.528-2.116 3.528-2.116v1.613h6.502v7.003z" style="stroke:none" transform="translate(14706 -15222)"/>
+                                                        <path d="M-14664.498 15241v-6.003h-6.502v-1.23l-2.056 1.233 2.056 1.233v-1.235h6.502v6.002m1 1h-2v-6.002h-4.502v2.001l-5-2.999 5-2.999v1.996h6.502v8.003z" style="fill:#23dd36;stroke:none" transform="translate(14706 -15222)"/>
+                                                    </g>
+                                                </g>
+                                                <g data-name="Group 7601">
+                                                    <g data-name="Rectangle 1340" style="stroke:#fff;fill:none">
+                                                        <path style="stroke:none" d="M0 0h25v30H0z" transform="translate(75)"/>
+                                                        <path style="fill:none" d="M.5.5h24v29H.5z" transform="translate(75)"/>
+                                                    </g>
+                                                    <g data-name="Rectangle 1341" style="stroke:#fff;fill:none">
+                                                        <path style="stroke:none" d="M0 0h21v26H0z" transform="translate(77 2)"/>
+                                                        <path style="fill:none" d="M.5.5h20v25H.5z" transform="translate(77 2)"/>
+                                                    </g>
+                                                    <g data-name="Union 84" style="fill:#23dd36">
+                                                        <path d="M4.5 9.116.972 7 4.5 4.884v1.618h5.502V.5h1v7.002H4.5v1.614z" style="stroke:none" transform="rotate(180 47 10)"/>
+                                                        <path d="M10.502 1v6.002H4V5.767L1.944 7 4 8.233v-1.23h6.502V1m-1-1h2v8.003H5v1.996L0 7l5-2.999v2.001h4.502V0z" style="fill:#23dd36;stroke:none" transform="rotate(180 47 10)"/>
+                                                    </g>
+                                                </g>
+                                                <g data-name="Group 7604">
+                                                    <g data-name="Rectangle 1340" style="stroke:#fff;fill:none">
+                                                        <path style="stroke:none" d="M0 0h25v30H0z" transform="translate(100)"/>
+                                                        <path style="fill:none" d="M.5.5h24v29H.5z" transform="translate(100)"/>
+                                                    </g>
+                                                    <g data-name="Rectangle 1341" style="stroke:#fff;fill:none">
+                                                        <path style="stroke:none" d="M0 0h21v26H0z" transform="translate(102 2)"/>
+                                                        <path style="fill:none" d="M.5.5h20v25H.5z" transform="translate(102 2)"/>
+                                                    </g>
+                                                    <g data-name="Union 84" style="fill:#23dd36">
+                                                        <path d="M4.5 9.116.972 7 4.5 4.884v1.618h5.502V.5h1v7.002H4.5v1.614z" style="stroke:none" transform="rotate(180 59.5 10)"/>
+                                                        <path d="M10.502 1v6.002H4V5.767L1.944 7 4 8.233v-1.23h6.502V1m-1-1h2v8.003H5v1.996L0 7l5-2.999v2.001h4.502V0z" style="fill:#23dd36;stroke:none" transform="rotate(180 59.5 10)"/>
+                                                    </g>
+                                                </g>
+                                            </svg>
+                                            
+                                        </div>
+                                    </label>
+                                    </ng-container>
+                                  
+                                </ng-container>
+                            </bps-radio-group>
+                        </div>
+                    </div>
+                    
+                </div>
+
+                <div class="operable-type-column">
+                    <h3 class="operability-selection-heading" style="margin-top: 12px;" [ngClass]="{'disabled': orderPlaced}">
+                        Moving vent
+                        <span style="height:16px; float: right;" bpsType="variation-1" bps-popover
+                            [bpsPopoverPlacement]="'right'" [bpsPopoverType]="'variation_3'"
+                            [bpsPopoverContent]="windowZoneContent3">
+                            <img *ngIf="!orderPlaced else greyImage2" class="iconI"
+                                src="/assets/Images/icons/sps_information_icon_blue.svg">
+                            <ng-template #greyImage2>
+                                <img class="iconI" src="/assets/Images/icons/sps_information_icon_grey.svg">
+                            </ng-template>
+                        </span>
+                        <ng-template #windowZoneContent3>
+                            <div class="popover-variation3" style="width: 205px;">
+                                Define whether the Sliding Unit is running internally or externally.
+                            </div>
+                        </ng-template>
+                    </h3>
+                    <div>
+                        <bps-radio-group [(ngModel)]="movingVent"
+                            (ngModelChange)="onMovingVentChange($event)">
+                            <ng-container *ngIf="!isMovingVentInsideSelected" >
+                                <label
+                                    style="width: 220px" bps-radio-button bpsValue="Inside"
+                                    [bpsDisabled]="!(slideOption == 'Lift_And_Slide')  || isMovingVentInsideOptionDisabled || orderPlaced" bpsRadioButtonType="variation5">
+                                    <span>Inside</span>
+                                </label>
+                            </ng-container>
+                            <ng-container *ngIf="isMovingVentInsideSelected" >
+                                <label
+                                style="width: 220px; border: 1px solid #666 !important" bps-radio-button bpsValue="Inside"
+                                    [bpsDisabled]="!(slideOption == 'Lift_And_Slide')  || isMovingVentInsideOptionDisabled || orderPlaced" bpsRadioButtonType="variation5">
+                                    <span>Inside</span>
+                                </label>
+                            </ng-container>
+                            <ng-container *ngIf="!isMovingVentOutsideSelected">
+                                <label style="width: 220px" bps-radio-button bpsValue="Outside"
+                                [bpsDisabled]="!(slideOption == 'Lift_And_Slide') || isMovingVentOutsideOptionDisabled || orderPlaced"
+                                bpsRadioButtonType="variation5">
+                                <span>Outside</span>
+                                </label>
+                            </ng-container>
+                            <ng-container *ngIf="isMovingVentOutsideSelected">
+                                <label style="width: 220px; border: 1px solid #666 !important" bps-radio-button bpsValue="Outside"
+                                [bpsDisabled]="!(slideOption == 'Lift_And_Slide') || isMovingVentOutsideOptionDisabled || orderPlaced"
+                                bpsRadioButtonType="variation5">
+                                <span>Outside</span>
+                                </label>
+                            </ng-container>
+                            <ng-container *ngIf="!isMovingVentInOutSelected">
+                                <label 
+                                style="width: 220px" bps-radio-button bpsValue="InsideAndOutside"
+                                [bpsDisabled]="!(slideOption == 'Lift_And_Slide') || isMovingVentInOutOptionDisabled || orderPlaced"
+                                bpsRadioButtonType="variation5">
+                                <span>Inside and Outside</span>
+                                </label>
+                            </ng-container>
+                            <ng-container *ngIf="isMovingVentInOutSelected">
+                                <label 
+                                style="width: 220px; border: 1px solid #666 !important" bps-radio-button bpsValue="InsideAndOutside"
+                                [bpsDisabled]="!(slideOption == 'Lift_And_Slide') || isMovingVentInOutOptionDisabled || orderPlaced"
+                                bpsRadioButtonType="variation5">
+                                <span>Inside and Outside</span>
+                                </label>
+                            </ng-container>
+                        </bps-radio-group>
+                    </div>
+                </div>
+
+                <div class="sps-break"></div>
+                <div class="operable-type-container" style="margin-left:-0.1px;">
+                    <h3 class="operability-selection-heading"  [ngClass]="{'enabled': !orderPlaced, 'disabled': orderPlaced }">
+                    Operation and Fittings</h3>
+                    <div class="operable-type-column">
+                        <div>
+                            <form bps-form [formGroup]="validateForm">
+                            <bps-form-item style="margin: 0 0 16px !important;">
+                                <bps-form-control>
+                                    <div class="insulating-bar-container">
+                                        <h3 class="vent-frame-heading" style="margin-top: 12px !important;"  [ngClass]="{'disabled': orderPlaced}">
+                                            Operation Type
+                                        </h3>
+                                        <div style="margin-top: 7px;">
+                                            <bps-select style="width: 186px" formControlName="OperationType"
+                                                [(ngModel)]="OperationType" name="OperationType"
+                                                bpsDisabled
+                                                (ngModelChange)="onSelectOperationType($event)"
+                                                bpsPlaceHolder="{{'configure.select' | translate }}">
+                                                <!-- Select -->
+                                                <bps-option bpsValue="Manual" bpsLabel="Manual">
+                                                </bps-option>
+                                            </bps-select>
+                                        </div>
+                                    </div>
+                                </bps-form-control>
+                            </bps-form-item>
+                        </form>
+                        </div>
+                    </div>
+                    <div class="operable-type-column">
+                        <div>
+                            <form bps-form [formGroup]="validateForm">
+                            <bps-form-item style="margin: 0 0 16px !important;">
+                                <bps-form-control>
+                                    <div class="insulating-bar-container">
+                                        <h3 class="vent-frame-heading"  [ngClass]="{'disabled': orderPlaced}">
+                                            Fittings
+                                        </h3>
+                                        <div style="margin-top: 7px;">
+                                            <bps-select style="width: 186px" formControlName="Fittings"
+                                                [(ngModel)]="Fittings" name="Fittings"
+                                                bpsDisabled
+                                                (ngModelChange)="onSelectFittings($event)"
+                                                bpsPlaceHolder="{{'configure.select' | translate }}">
+                                                <!-- Select -->
+                                                <bps-option bpsValue="Manual" bpsLabel="Manual">
+                                                </bps-option>
+                                            </bps-select>
+                                        </div>
+                                    </div>
+                                </bps-form-control>
+                            </bps-form-item>
+                        </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sps-break"></div>
+                <div> 
+                    <ng-container *appCheckPermissions="feature.SlidingUnit">
+                        <div id="sps-sightline-input-container" class="sps-accordion-ui-section-content-container" 
+                        style="margin-top: 0px;" >
+                        <h3 class="operability-fittings-heading"
+                            [ngClass]="{'disabled': !(slideOption == 'Lift_And_Slide')|| orderPlaced }">
+                            Handles</h3>
+                    </div>
+                    <div id="sps-sightline-input-container" class="sps-accordion-ui-section-content-container"
+                            style="margin-top: 22px;" >
+                            <h3 class="outer-frame-heading"
+                                [ngClass]="{'blue-heading': isOutsideHandleOpened,'disabled': orderPlaced }">
+                                OUTSIDE HANDLE</h3>
+                            <!-- Outside Handle -->
+                            <div id="sps-sightline-dropdown-container" class="sps-accordion-ui-section-content"
+                                style="margin: 7px 0px 15px 0px;">
+                                <div class="sps-operability-vent-frame-button-container">
+                                    <div class="size operability-vent-fr-value-10 sps-framing-sightline-input-margin">
+                                        <input [ngClass]="{'disabled': !(slideOption == 'Lift_And_Slide')|| orderPlaced || isMissingHandleRecees()}"
+                                            class="left-selection" centered disabled bpsDisabled bps-input
+                                            [(ngModel)]="outsideHandle">
+                                    </div>
+                                    <button bps-button bpsType="variation-13"
+                                        [disabled]="!(slideOption == 'Lift_And_Slide')|| orderPlaced || isMissingHandleRecees()"
+                                        [ngClass]="{'active': isOutsideHandleOpened}"
+                                        style="background-color: #262626; outline: none; cursor: pointer; border: 0px; margin-left: 22px"
+                                        (click)="onOpenIFramePopout('OutsideHandle')">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="12.967" height="11.956"
+                                            viewBox="0 0 12.967 11.956">
+                                            <defs>
+                                                <style>
+                                                    .cls-1 {
+                                                        fill: none;
+                                                        stroke: #fff;
+                                                        stroke-linecap: round;
+                                                        stroke-width: 2px
+                                                    }
+                                                </style>
+                                            </defs>
+                                            <g id="sps_square_icon_changeprofile_enabled_new"
+                                                transform="translate(-2533.021 -328.325)">
+                                                <g id="sps_round_icon_rightpanelopened_white"
+                                                    transform="translate(2540.011 329.74)">
+                                                    <path id="Path_287" d="M4.564 9.128L0 4.564 4.564 0" class="cls-1"
+                                                        data-name="Path 287" transform="rotate(180 2.282 4.564)" />
+                                                </g>
+                                                <path id="Path_1295" d="M-9323.126-21989.648H-9333" class="cls-1"
+                                                    data-name="Path 1295" transform="translate(11867.02 22323.951)" />
+                                            </g>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                    </div>
+                    <div id="sps-sightline-input-container" class="sps-accordion-ui-section-content-container"
+                            style="margin-top: 22px;">
+                            <h3 class="outer-frame-heading"
+                                [ngClass]="{'blue-heading': isInsideHandleOpened,'disabled': orderPlaced }">
+                                INSIDE HANDLE</h3>
+                            <!-- Inside Handle -->
+                            <div id="sps-sightline-dropdown-container" class="sps-accordion-ui-section-content"
+                                style="margin: 7px 0px 15px 0px;">
+                                <div class="sps-operability-vent-frame-button-container">
+                                    <div class="size operability-vent-fr-value-10 sps-framing-sightline-input-margin">
+                                        <input [ngClass]="{'disabled': !(slideOption == 'Lift_And_Slide')|| orderPlaced }"
+                                            class="left-selection" centered disabled bpsDisabled bps-input
+                                            [(ngModel)]="insideHandle">
+                                    </div>
+                                    <button bps-button bpsType="variation-13"
+                                        [disabled]="!(slideOption == 'Lift_And_Slide')|| orderPlaced"
+                                        [ngClass]="{'active': isInsideHandleOpened}"
+                                        style="background-color: #262626; outline: none; cursor: pointer; border: 0px; margin-left: 22px"
+                                        (click)="onOpenIFramePopout('InsideHandle')">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="12.967" height="11.956"
+                                            viewBox="0 0 12.967 11.956">
+                                            <defs>
+                                                <style>
+                                                    .cls-1 {
+                                                        fill: none;
+                                                        stroke: #fff;
+                                                        stroke-linecap: round;
+                                                        stroke-width: 2px
+                                                    }
+                                                </style>
+                                            </defs>
+                                            <g id="sps_square_icon_changeprofile_enabled_new"
+                                                transform="translate(-2533.021 -328.325)">
+                                                <g id="sps_round_icon_rightpanelopened_white"
+                                                    transform="translate(2540.011 329.74)">
+                                                    <path id="Path_287" d="M4.564 9.128L0 4.564 4.564 0" class="cls-1"
+                                                        data-name="Path 287" transform="rotate(180 2.282 4.564)" />
+                                                </g>
+                                                <path id="Path_1295" d="M-9323.126-21989.648H-9333" class="cls-1"
+                                                    data-name="Path 1295" transform="translate(11867.02 22323.951)" />
+                                            </g>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                </ng-container>
+                </div>
+               
+                <div class="sps-break" style="margin: 0px;margin-left: -15px;"></div>
+
+              
+            </div>
+        </div>
+    </div>
+</div>

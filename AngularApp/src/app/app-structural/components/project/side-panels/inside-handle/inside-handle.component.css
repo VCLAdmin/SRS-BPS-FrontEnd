@@ -1,0 +1,155 @@
+.sps-left-popout {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 355px;
+  height: 100%;
+  background-color: #262626;
+  border-left: 1px solid #474747;
+  z-index: 1;
+}
+
+.lp-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  height: 100%;
+}
+
+.lp-panel-top {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 5px;
+}
+
+.lp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 20px;
+  width: 355px;
+}
+
+.lp-header-text {
+  color: #00a2d1;
+}
+
+.lp-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  border: solid 1px #474747;
+}
+
+.lp-container-custom {
+  /* margin-bottom: 20px;
+  margin-left: 25px;
+  margin-right: 25px; */
+  width: 320px;
+  align-items: center;
+}
+
+.lp-container-displaybox {
+  width: 163px;
+  height: 113px;
+}
+
+.lp-container-displaybox img {
+  height: 113px;
+}
+
+.lp-container-text {
+  margin: auto;
+}
+
+.sps-pill-container {
+  margin-top: -0.5em;
+  display: flex;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  align-content: stretch;
+}
+
+.sps-pill {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px 2.5px 5px 2.5px;
+  flex-grow: 1;
+  padding: 0px 4px;
+  border: 1px #363636 solid;
+  cursor: pointer;
+  width: 86.5px;
+  height: 28px;
+  border-radius: 15px;
+  background-color: #363636;
+}
+
+.sps-pill p {
+  width: 86.4px;
+  height: 16.2px;
+  font-family: UniversForSchueco-430Reg;
+  font-size: 15px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: normal;
+  text-align: center;
+  color: #ffffff;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.selectedBorder {
+  border: 1px solid #00a2d1;
+}
+
+.lp-confirm-btn-container {
+  margin-bottom: 20px;
+  margin-left: 240px;
+  width: -webkit-fill-available;
+}
+
+.lp-confirm-btn {
+  width: 80px;
+}
+
+.fas {
+  cursor: pointer;
+}
+
+.bpsTableContent {
+  width: 325px;
+  margin-top: 15px;
+}
+
+.headerColor {
+  color: #999999;
+}
+
+.bpsArrow {
+  position: relative;
+  float: right;
+  top: -1px;
+  margin-right: 10px;
+}
+
+::ng-deep .bps-table-section>.bps-table-glass_profile>.bps-table-glass-filter {
+  margin-left: 3px !important;
+  width: 319px !important;
+}
+
+/* ::ng-deep .bps-table-section>.bps-table-glass_profile .bps-table .ant-table-thead>tr>th {
+  padding: 0px !important;
+} */

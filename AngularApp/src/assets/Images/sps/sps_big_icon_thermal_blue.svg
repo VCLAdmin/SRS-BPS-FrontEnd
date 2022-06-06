@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="49.667" height="26.25" viewBox="0 0 49.667 26.25">
+    <defs>
+        <style>
+            .cls-1{fill:#00a2d1}.cls-2{fill:none;stroke:#00a2d1;stroke-linecap:round;stroke-width:3px}
+        </style>
+    </defs>
+    <g id="sps_big_icon_thermal_blue" transform="translate(0 -.001)">
+        <g id="Group_360" data-name="Group 360" transform="rotate(90 24.834 24.834)">
+            <path id="Path_194" d="M4.939 0A4.939 4.939 0 1 1 0 4.939 4.939 4.939 0 0 1 4.939 0z" class="cls-1" data-name="Path 194" transform="translate(1.978 39.552)"/>
+            <circle id="Ellipse_62" cx="4.939" cy="4.939" r="4.939" class="cls-1" data-name="Ellipse 62"/>
+            <path id="Path_167" d="M4.344 38.366s-8.771-13.354-1.386-18.914S.663 0 .663 0" class="cls-2" data-name="Path 167" transform="translate(2.573 4.936)"/>
+        </g>
+        <g id="Group_361" data-name="Group 361" transform="rotate(90 17.517 31.912)">
+            <circle id="Ellipse_61" cx="4.939" cy="4.939" r="4.939" class="cls-1" data-name="Ellipse 61" transform="translate(1.978 39.552)"/>
+            <path id="Path_193" d="M4.939 0A4.939 4.939 0 1 1 0 4.939 4.939 4.939 0 0 1 4.939 0z" class="cls-1" data-name="Path 193"/>
+            <path id="Path_167-2" d="M4.344 38.366s-8.771-13.354-1.386-18.914S.663 0 .663 0" class="cls-2" data-name="Path 167" transform="translate(2.573 4.936)"/>
+        </g>
+    </g>
+</svg>

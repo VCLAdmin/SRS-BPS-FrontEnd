@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+
+      .cls-2 {
+        fill: none;
+      }
+
+      .cls-3 {
+        fill: #ffffff;
+      }
+
+      .cls-4, .cls-5 {
+        stroke: none;
+      }
+
+      .cls-5 {
+        fill: #ffffff;
+      }
+    </style>
+  </defs>
+  <g id="sps_round_icon_lock_disabled" transform="translate(-1380.033 -7.033)">
+    <circle id="Ellipse_647" data-name="Ellipse 647" class="cls-1" cx="15" cy="15" r="15" transform="translate(1380.033 7.033)"/>
+    <g id="Group_7293" data-name="Group 7293" transform="translate(1388.769 15.011)">
+      <g id="Union_57" data-name="Union 57" class="cls-2" transform="translate(2.264 -0.729)">
+        <path class="cls-4" d="M4,8H0V4A4,4,0,1,1,8,4V8Z"/>
+        <path class="cls-5" d="M 6.4998779296875 6.5 L 6.4998779296875 4 C 6.4998779296875 2.621500015258789 5.379477977752686 1.5 4.002317905426025 1.5 C 2.622467994689941 1.5 1.4998779296875 2.621500015258789 1.4998779296875 4 L 1.4998779296875 6.5 L 4.002317905426025 6.5 L 6.4998779296875 6.5 M 7.9998779296875 8 L 4.002317905426025 8 L -0.0001220703125 8 L -0.0001220703125 4 C -0.0001220703125 1.792969942092896 1.792357921600342 0 4.002317905426025 0 C 6.212277889251709 0 7.9998779296875 1.792969942092896 7.9998779296875 4 L 7.9998779296875 8 Z"/>
+      </g>
+      <rect id="Rectangle_3248" data-name="Rectangle 3248" class="cls-3" width="12" height="9" rx="1" transform="translate(0.264 5.771)"/>
+    </g>
+  </g>
+</svg>

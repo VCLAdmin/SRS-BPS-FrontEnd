@@ -1,0 +1,130 @@
+<div class='row'>
+  <bps-table-expandable-panel #panelComponent [data]="listOfDisplayDataProblems" [scroll]="{ y: '200px', x: '300px' }"
+    [loading]="isOperatingExpandableTable" [inlineEdit]="!orderPlaced" [menuTemplate]="menuTemplate"
+    [currentPreviewTemplate]="currentPreviewTemplate" (onclickRow)="onClickProblem($event)"
+    (ondblclickRow)="onRunProblem($event)" (onedit)="onSubmitNewProblemName($event)"
+    (selectionChange)="getSelectedItem($event)" class="bps-table-example" [(config)]="configurationCustomGridProblems">
+  </bps-table-expandable-panel>
+  <ng-template #cellTemplate let-id="id">
+    <div *appCheckPermissions="feature.AnalysisStatus">
+      <label bps-checkbox bpsType="variation3" [bpsDisabled]="mapOfDisabledIdAcoustic[id]"
+        [ngModel]="mapOfCheckedIdAcoustic[id]">
+        <ng-container *ngIf="mapOfCheckedIdAcoustic[id] && !mapOfDisabledIdAcoustic[id]">
+          <img src="/assets/bps-icons/sps_acoustic_icon_report_selected.svg" bps-tooltip
+            [bpsTooltipType]="'variation_11'" bpsTooltipTitle="{{'home.computed' | translate }}"
+            bpsTooltipPlacement="top" />
+        </ng-container>
+        <ng-container *ngIf="!mapOfCheckedIdAcoustic[id] && !mapOfDisabledIdAcoustic[id]">
+          <img src="/assets/bps-icons/sps_acoustic_icon_report_enabled.svg" bps-tooltip
+            [bpsTooltipType]="'variation_11'" bpsTooltipTitle="{{'home.not-computed' | translate }}"
+            bpsTooltipPlacement="top" />
+        </ng-container>
+        <ng-container *ngIf="mapOfDisabledIdAcoustic[id]">
+          <img src="/assets/bps-icons/sps_acoustic_icon_report_disable.svg" bps-tooltip
+            [bpsTooltipType]="'variation_11'" bpsTooltipTitle="{{'home.not-selected' | translate }}"
+            bpsTooltipPlacement="top" />
+        </ng-container>
+      </label>
+
+      <label bps-checkbox bpsType="variation3" [bpsDisabled]="mapOfDisabledIdStructural[id]"
+        [ngModel]="mapOfCheckedIdStructural[id]">
+        <ng-container *ngIf="mapOfCheckedIdStructural[id] && !mapOfDisabledIdStructural[id]">
+          <img src="/assets/bps-icons/sps_structural_icon_report_selected.svg" bps-tooltip
+            [bpsTooltipType]="'variation_11'" bpsTooltipTitle="{{'home.computed' | translate }}"
+            bpsTooltipPlacement="top" />
+        </ng-container>
+        <ng-container *ngIf="!mapOfCheckedIdStructural[id] && !mapOfDisabledIdStructural[id]">
+          <img src="/assets/bps-icons/sps_structural_icon_report_enabled.svg" bps-tooltip
+            [bpsTooltipType]="'variation_11'" bpsTooltipTitle="{{'home.not-computed' | translate }}"
+            bpsTooltipPlacement="top" />
+        </ng-container>
+        <ng-container *ngIf="mapOfDisabledIdStructural[id]">
+          <img src="/assets/bps-icons/sps_structural_icon_report_disable.svg" bps-tooltip
+            [bpsTooltipType]="'variation_11'" bpsTooltipTitle="{{'home.not-selected' | translate }}"
+            bpsTooltipPlacement="top" />
+        </ng-container>
+      </label>
+
+      <label bps-checkbox bpsType="variation3" [ngModel]="mapOfCheckedIdThermal[id]"
+        [bpsDisabled]="mapOfDisabledIdThermal[id]">
+        <ng-container *ngIf="mapOfCheckedIdThermal[id] && !mapOfDisabledIdThermal[id]">
+          <img src="/assets/bps-icons/sps_thermal_icon_report_selected.svg" bps-tooltip
+            [bpsTooltipType]="'variation_11'" bpsTooltipTitle="{{'home.computed' | translate }}"
+            bpsTooltipPlacement="top" />
+        </ng-container>
+        <ng-container *ngIf="!mapOfCheckedIdThermal[id] && !mapOfDisabledIdThermal[id]">
+          <img src="/assets/bps-icons/sps_thermal_icon_report_enabled.svg" bps-tooltip [bpsTooltipType]="'variation_11'"
+            bpsTooltipTitle="{{'home.not-computed' | translate }}" bpsTooltipPlacement="top" />
+        </ng-container>
+        <ng-container *ngIf="mapOfDisabledIdThermal[id]">
+          <img src="/assets/bps-icons/sps_thermal_icon_report_disable.svg" bps-tooltip [bpsTooltipType]="'variation_11'"
+            bpsTooltipTitle="{{'home.not-selected' | translate }}" bpsTooltipPlacement="top" />
+        </ng-container>
+      </label>
+    </div>
+    <ng-container *appCheckPermissions="feature.OrderList">
+      <div *ngIf="orderPlaced === true && listOfDisplayDataProblems[id].orderStatus"
+      style="width: 156px; float: left; " class="order-progress-small" (click)="onIndexChange()">
+        <nz-steps [nzCurrent]="listOfDisplayDataProblems[id].orderIndex" nzSize="small" nzProgressDot>
+          <nz-step *ngIf="listOfDisplayDataProblems[id].orderIndex === 0" nzStatus="error"></nz-step>
+          <nz-step *ngIf="listOfDisplayDataProblems[id].orderIndex !== 0"></nz-step>
+          <nz-step></nz-step>
+          <nz-step></nz-step>
+          <nz-step></nz-step>
+          <nz-step></nz-step>
+          <nz-step></nz-step>
+        </nz-steps>
+      </div>
+      <div *ngIf="orderPlaced === true && listOfDisplayDataProblems[id].orderStatus"
+        style="width: 16px; float: left; margin-left: 10px">
+        <ng-container>
+          {{listOfDisplayDataProblems[id].orderIndex + 1}}/6
+        </ng-container>
+      </div>
+    </ng-container>
+  </ng-template>
+
+  <ng-template #menuTemplate>
+    <div *ngIf="!orderPlaced">
+      <img *ngIf=" listOfDisplayDataProblems.length < 50" bps-tooltip [bpsTooltipType]="'variation_10'" bpsTooltipTitle="{{'home.new-configuration' | translate }}"
+        bpsTooltipPlacement="left" (click)="addRow($event)" style="height: 22px;width: 22px;" 
+        src="/assets/Images/icons/sps_round_icon_newconfiguration_white.svg" />
+
+        <img *ngIf=" listOfDisplayDataProblems && (this.listOfDisplayDataProblems.length == 50 || this.listOfDisplayDataProblems.length > 50)" bps-tooltip [bpsTooltipType]="'variation_10'" bpsTooltipTitle="{{'home.new-configuration' | translate }}"
+        bpsTooltipPlacement="left" style="height: 22px;width: 22px; cursor: not-allowed;" disabled
+        src="/assets/Images/icons/sps_round_icon_newconfiguration_grey_add.svg" />
+      <!-- New -->
+      <img bps-tooltip *ngIf="problemToRun_projectGuid" [bpsTooltipType]="'variation_10'"
+        bpsTooltipTitle="&nbsp;&nbsp;&nbsp;&nbsp;{{'home.delete-configuration' | translate }}&nbsp;&nbsp;&nbsp;&nbsp;"
+        bpsTooltipPlacement="left" (click)="deleteRow($event)" style="height: 22px;width: 22px;"
+        src="/assets/Images/icons/sps_round_icon_deleteconfiguration_white.svg" />
+      <img bps-tooltip *ngIf="!problemToRun_projectGuid" [bpsTooltipType]="'variation_10'"
+        bpsTooltipTitle="&nbsp;&nbsp;&nbsp;&nbsp;{{'home.delete-configuration' | translate }}&nbsp;&nbsp;&nbsp;&nbsp;"
+        bpsTooltipPlacement="left" (click)="deleteRow($event)" style="height: 22px;width: 22px; cursor: not-allowed;"
+        src="/assets/Images/icons/sps_round_icon_deleteconfiguration_grey.svg" />
+    </div>
+    <div *ngIf="orderPlaced">
+      <img bps-tooltip [bpsTooltipType]="'variation_10'" bpsTooltipTitle="{{'home.new-configuration' | translate }}"
+        bpsTooltipPlacement="left" style="height: 22px;width: 22px; cursor: not-allowed;" disabled
+        src="/assets/Images/icons/sps_round_icon_newconfiguration_grey_add.svg" />
+      <!-- New hasFullAccess-->
+      <img bps-tooltip [bpsTooltipType]="'variation_10'"
+        bpsTooltipTitle="&nbsp;&nbsp;&nbsp;&nbsp;{{'home.delete-configuration' | translate }}&nbsp;&nbsp;&nbsp;&nbsp;"
+        bpsTooltipPlacement="left" style="height: 22px;width: 22px; cursor: not-allowed; " disabled
+        src="/assets/Images/icons/sps_round_icon_deleteconfiguration_grey.svg" />
+    </div>
+  </ng-template>
+
+  <ng-template #currentPreviewTemplate>
+    <div class="preview-panel" style="display: flex; justify-content: center; align-items: center;">
+      <ng-container *ngIf="!selectedItem">
+        {{'home.no-item-selected' | translate }}
+        <!-- No Item Selected -->
+      </ng-container>
+      <ng-container *ngIf="selectedItem">
+        <img #selectedItemImage (error)="setDefaultImage()" src='{{path}}'
+          style="height: 190px; width: auto; object-fit: cover;" alt="">
+      </ng-container>
+    </div>
+  </ng-template>
+</div>

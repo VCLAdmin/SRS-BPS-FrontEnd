@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="21.011" height="22.414" viewBox="0 0 21.011 22.414">
+    <defs>
+        <style>
+            .cls-1,.cls-2,.cls-5,.cls-6{fill:none}.cls-1{stroke:#707070}.cls-2{stroke:#bfbfbf}.cls-2,.cls-6{stroke-width:2px}.cls-3{fill:url(#linear-gradient)}.cls-4{fill:url(#linear-gradient-2)}.cls-5{stroke:#00a2d1}.cls-6{stroke:#f18700}
+        </style>
+        <linearGradient id="linear-gradient" x1=".5" x2=".5" y1=".14" y2="1" gradientUnits="objectBoundingBox">
+            <stop offset="0" stop-color="#00a2d1"/>
+            <stop offset="1" stop-color="#005169" stop-opacity="0"/>
+        </linearGradient>
+        <linearGradient id="linear-gradient-2" x1="1.095" x2="1.095" y1=".956" gradientUnits="objectBoundingBox">
+            <stop offset="0" stop-color="#00a2d1"/>
+            <stop offset=".383" stop-color="#008fb9" stop-opacity=".769"/>
+            <stop offset="1" stop-color="#005169" stop-opacity="0"/>
+        </linearGradient>
+    </defs>
+    <g id="sps_solo_icon_shearforce_blue" transform="translate(13097.984 8519.207)">
+        <g id="Group_2099" data-name="Group 2099" transform="translate(-436)">
+            <path id="Path_733" d="M-11678-8610v-10l20 20v-10" class="cls-1" data-name="Path 733" transform="translate(-983.475 102)"/>
+            <path id="Path_734" d="M-11708-8610h21" class="cls-2" data-name="Path 734" transform="translate(-953.984 102)"/>
+        </g>
+        <g id="Group_2101" data-name="Group 2101" transform="translate(-488)">
+            <g id="Group_1963" data-name="Group 1963" transform="translate(-13319 -8668)">
+                <path id="Path_758" d="M-11513-8575v-10l10 10" class="cls-3" data-name="Path 758" transform="translate(12223 8735)"/>
+                <path id="Path_759" d="M-11483-8575v10l-10-10" class="cls-4" data-name="Path 759" transform="translate(12213 8735)"/>
+            </g>
+            <path id="Path_772" d="M-11678-8610v-10l20 20v-10" class="cls-5" data-name="Path 772" transform="translate(-931.475 102)"/>
+            <path id="Path_773" d="M-11708-8610h21" class="cls-6" data-name="Path 773" transform="translate(-901.975 102)"/>
+        </g>
+    </g>
+</svg>

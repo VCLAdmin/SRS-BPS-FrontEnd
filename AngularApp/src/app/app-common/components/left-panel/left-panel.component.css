@@ -1,0 +1,229 @@
+input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:active, input:-webkit-autofill:focus {
+    background-color: #262626 !important;
+    color: #555 !important;
+    -webkit-box-shadow: 0 0 0 1000px #262626 inset !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
+
+#left-panel {
+    float: left;
+    width: 295px;
+    border-right: 1px solid #474747;
+    height: calc(100vh - 69px);
+    overflow: hidden;
+}
+
+.left-panel-container {
+    margin-top: 28px;
+    margin-left: 40px;
+    height: 96%;
+    width: 86%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+.glass-thickness-heading {
+    color: #ffffff;
+    font-family: 'SchucoRegularMedium';
+    font-size: 12px;
+    margin: 0px;
+    text-transform: uppercase;
+    font-weight: 100;
+}
+
+.btn-contact {
+    font-family: UniversForSchueco-430Reg;
+    background-color: transparent;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+}
+
+#new-project-name, #new-project-location {
+    width: 215px;
+    height: 20px;
+    border: 1px solid #262626;
+    padding: 0px;
+    font-size: 11px;
+    border-bottom-color: #474747;
+    background-color: #262626;
+    border-radius: 0px 0px 0px 0px;
+    text-align-last: initial;
+    display: flex;
+    color: #ffffff;
+}
+
+#new-project-name::placeholder, #new-project-location::placeholder {
+    color: #ffffff;
+}
+
+.ant-input.bps-input-opened.ng-touched.ng-invalid:focus-within {
+    border-bottom: 1px solid #00a2d1 !important;
+    color: #ffffff !important;
+}
+
+.ant-input.bps-input-opened.ng-touched.ng-invalid {
+    border-bottom: 1px solid #EF8621 !important;
+    color: #ffffff !important;
+}
+
+::ng-deep .ant-input-affix-wrapper .ant-input-suffix {
+    right: 39px !important;
+}
+
+::ng-deep .firstInput .ant-form-item-control {
+    height: 33px !important;
+}
+
+/* ::ng-deep .secondInput .ant-form-item-control {
+    height:22px !important;
+} */
+
+/* #new-project-name
+{
+    margin-top: 24px;
+    margin-bottom: 32px;
+} */
+
+#new-project-name.ng-dirty.ng-invalid {
+    border-bottom-color: #EF8621 !important;
+}
+
+.new-project-submit-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+}
+
+.new-project-submit-button {
+    background-color: #00a2d1;
+    width: 105px;
+    height: 30px;
+    text-transform: uppercase;
+    margin-left: 45px;
+    margin-top: 42px;
+    border-radius: 8px;
+    border: none;
+    padding: 0;
+    font-size: 11px;
+    color: #ffffff;
+}
+
+/* #new-project-submit-button:hover
+{
+    background-color: #445c67;
+    cursor: pointer;
+} */
+
+.information-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+}
+
+.Help-Support {
+    height: 14px;
+    font-family: UniversForSchueco-330;
+    font-size: 12px;
+    font-weight: 300;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    text-align: left;
+    color: #ffffff;
+    margin-bottom: 21px;
+}
+
+.Contact-Us {
+    height: 14px;
+    font-family: UniversForSchueco-330;
+    font-size: 12px;
+    font-weight: 300;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    text-align: left;
+    color: #ffffff;
+    margin-bottom: 21px;
+}
+
+.Schuco {
+    height: 14px;
+    font-family: UniversForSchueco-330;
+    font-size: 12px;
+    font-weight: 300;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    text-align: left;
+    color: #ffffff;
+    margin-bottom: 22px;
+}
+
+.vcl {
+    height: 14px;
+    font-family: UniversForSchueco-330;
+    font-size: 12px;
+    font-weight: 300;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    text-align: left;
+    color: #ffffff;
+    margin-bottom: 22px;
+}
+
+.Version {
+    /* width: 64px; */
+    height: 12px;
+    font-family: UniversForSchueco-330;
+    font-size: 10px;
+    font-weight: 300;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.2;
+    letter-spacing: normal;
+    text-align: left;
+    color: #666666;
+    margin-bottom: 18px;
+}
+
+.balanceAmount {
+    margin: 5px 0px;
+}
+
+.CURRENT-BALANCE {
+    height: 15px;
+    font-family: UniversForSchueco-530Med;
+    font-size: 12px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 0.75;
+    letter-spacing: normal;
+    text-align: left;
+    color: #ffffff !important;
+    text-transform: uppercase;
+}
+
+.BALANCE-USD {
+    height: 14px;
+    font-family: UniversForSchueco-330;
+    font-size: 12px;
+    font-weight: 300;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    text-align: left;
+    color: #c0c0c0;
+}

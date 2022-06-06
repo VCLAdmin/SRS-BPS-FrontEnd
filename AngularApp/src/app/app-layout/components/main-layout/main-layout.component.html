@@ -1,0 +1,49 @@
+<div *ngIf="isEmptyPage" style="height: 100%;">
+    <div
+        style="height:44px !important; position: absolute; z-index: 2; width:100vw; background-color: #262626; border-bottom: 1px solid #474747;">
+        <div nz-col nzSpan="12">
+            <img style="width:100px;padding-top:12.4px;margin-left:25px;"
+                src="/assets/Images/sps/sps-schuco-white-logo.svg" />
+        </div>
+        <div nz-col nzSpan="8" style="color:white; float:right;padding-top: 12px;margin-right:20px;">
+            <a style="color:white !important; float:right;" href="/login">
+                <h1 style="color:white !important;">Click to login!</h1>
+            </a>
+        </div>
+    </div>
+    <img style="width: 100%; object-fit: contain; position: absolute; z-index: 0; top: 50%; transform: translateY(-50%);"
+        src="{{landingImageURL}}"
+        srcset="{{landingSrcSet}}" />
+    <img style="max-height: 25vh; max-width: 40vw; object-fit: scale-down; position: absolute; z-index: 1; top: 50%; transform: translateY(-50%); left: 20vw"
+        src="{{applicationNameImageURL}}"
+        srcset="{{applicationNameSrcSet}}" />
+
+    <div nz-row id="versonInfo" style="position: absolute; z-index: 2;"
+        *ngIf="dataVersionInformation && dataVersionInformation.DeployedDateInfo && applicationType === 'BPS'">
+        Last update: {{dataVersionInformation.DeployedDateInfo}} ({{dataVersionInformation.Date | date:'MMM-d-y - h:mm
+        a'}})<br>
+        Version: {{dataVersionInformation.VersionNumber}}
+    </div>
+    <div nz-row id="versonInfo" style="position: absolute; z-index: 2;"
+        *ngIf="dataVersionInformation && dataVersionInformation.DeployedDateInfo && applicationType === 'SRS'">
+        Last update: {{dataVersionInformation.DeployedDateInfo}} ({{dataVersionInformation.Date | date:'MMM-d-y - h:mm
+        a'}})<br>
+        Version: 3.0.0
+    </div>
+    <div nz-row id="poweredByVCL" class="top-grey-border-intro-page" style="position: absolute; z-index: 2;">
+        <div style="width: 100%; text-align: center">
+            <p>
+                POWERED BY
+                <span>VIRTUAL CONSTRUCTION LAB OF SCHÜCO</span>
+            </p>
+        </div>
+    </div>
+</div>
+
+<app-nav-layout *ngIf="isNavBarVisible"></app-nav-layout>
+<app-content-layout></app-content-layout>
+
+
+<!-- <ng-template #sharedNavTpl>
+    <app-shared-layout></app-shared-layout>
+</ng-template> -->

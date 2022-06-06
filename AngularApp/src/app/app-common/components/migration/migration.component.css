@@ -1,0 +1,101 @@
+.show {
+    display: block;
+}
+
+.hide {
+    display: none;
+}
+
+.container {
+    display: flex;
+    width: 800px;
+    min-width: 500px;
+}
+
+.migration {
+    border: 1px solid #00a2d1;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.buttons {
+    padding: 10px 0px !important;
+}
+
+.successful {
+    color: green;
+}
+
+.failed {
+    color: red;
+}
+
+.container div {
+    font-size: 5vw;
+    padding: .5em;
+    color: white;
+    flex: 1;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    align-content: normal;
+    height: 100vh !important;
+}
+
+.flex-items:nth-child(1) {
+    display: block;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: auto;
+    align-self: auto;
+    order: 0;
+}
+
+.title, p {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.subtitle {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+::ng-deep .ant-table-thead>tr>th, ::ng-deep .ant-table {
+    background: transparent !important;
+    color: #fff !important;
+}
+
+::ng-deep .ant-pagination-item, ::ng-deep .ant-pagination-next .ant-pagination-item-link, ::ng-deep .ant-pagination-prev .ant-pagination-item-link {
+    background-color: transparent !important;
+    border: 1px solid #d9d9d955;
+    color: #474747 !important;
+}
+
+::ng-deep .ant-pagination, ::ng-deep .ant-pagination-item a {
+    color: #474747 !important;
+}
+
+::ng-deep .ant-pagination-item-active a, ::ng-deep .ant-pagination-item:focus a, ::ng-deep .ant-pagination-item:hover a {
+    color: #1890ff !important;
+}
+
+.bps-download-button {
+    /* width: 14px !important; */
+    /* height: 14px !important; */
+    background-repeat: no-repeat;
+    background-position: center;
+    /* margin-left: 20px; */
+    /* margin-right: 10px; */
+    margin-top: 2px;
+    background-size: contain;
+    cursor: pointer;
+    visibility: visible;
+    background-image: url("/assets/Images/sps/sps_download_icon_transom_white.png");
+}

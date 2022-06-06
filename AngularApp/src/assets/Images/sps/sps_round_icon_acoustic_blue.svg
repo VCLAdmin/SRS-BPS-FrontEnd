@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="sps_round_icon_acoustic_blue" width="18.261" height="18.262" viewBox="0 0 18.261 18.262">
+    <defs>
+        <style>
+            .cls-1,.cls-4{fill:none}.cls-1{stroke:#00a2d1}.cls-2{fill:#00a2d1}.cls-3{stroke:none}
+        </style>
+    </defs>
+    <g id="Group_358" data-name="Group 358" transform="translate(3.05 6.467)">
+        <path id="Path_163" d="M-19828.547 13189.277l3.436-3.429 3.32 3.316 3.65-3.616" class="cls-1" data-name="Path 163" transform="translate(19829.479 -13184.769)"/>
+        <ellipse id="Ellipse_52" cx=".95" cy=".95" class="cls-2" data-name="Ellipse 52" rx=".95" ry=".95" transform="translate(0 3.496)"/>
+        <ellipse id="Ellipse_53" cx=".95" cy=".95" class="cls-2" data-name="Ellipse 53" rx=".95" ry=".95" transform="translate(3.421 .19)"/>
+        <ellipse id="Ellipse_54" cx=".95" cy=".95" class="cls-2" data-name="Ellipse 54" rx=".95" ry=".95" transform="translate(6.725 3.23)"/>
+        <ellipse id="Ellipse_55" cx=".95" cy=".95" class="cls-2" data-name="Ellipse 55" rx=".95" ry=".95" transform="translate(10.261)"/>
+    </g>
+    <g id="Ellipse_97" class="cls-1" data-name="Ellipse 97">
+        <ellipse cx="9.131" cy="9.13" class="cls-3" rx="9.131" ry="9.13"/>
+        <ellipse cx="9.131" cy="9.13" class="cls-4" rx="8.631" ry="8.63"/>
+    </g>
+</svg>

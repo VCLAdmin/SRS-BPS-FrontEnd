@@ -1,0 +1,19 @@
+<svg id="sps_rectangle_icon_acoustic_grey" xmlns="http://www.w3.org/2000/svg" width="20.012" height="8.881" viewBox="0 0 20.012 8.881">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #999;
+      }
+
+      .cls-2 {
+        fill: #999;
+      }
+    </style>
+  </defs>
+  <path id="Path_163" data-name="Path 163" class="cls-1" d="M-19828.543,13191.683l5.658-5.644,5.459,5.456,6-5.947" transform="translate(19830.076 -13184.266)"/>
+  <ellipse id="Ellipse_52" data-name="Ellipse 52" class="cls-2" cx="1.563" cy="1.563" rx="1.563" ry="1.563" transform="translate(0 5.754)"/>
+  <ellipse id="Ellipse_53" data-name="Ellipse 53" class="cls-2" cx="1.563" cy="1.563" rx="1.563" ry="1.563" transform="translate(5.63 0.312)"/>
+  <ellipse id="Ellipse_54" data-name="Ellipse 54" class="cls-2" cx="1.563" cy="1.563" rx="1.563" ry="1.563" transform="translate(11.067 5.315)"/>
+  <ellipse id="Ellipse_55" data-name="Ellipse 55" class="cls-2" cx="1.563" cy="1.563" rx="1.563" ry="1.563" transform="translate(16.885)"/>
+</svg>

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="12.061" height="16.333" viewBox="0 0 12.061 16.333">
+    <defs>
+        <style>
+            .cls-1,.cls-3{fill:none}.cls-1{stroke:#fff;stroke-width:1.5px}.cls-2{stroke:none}
+        </style>
+    </defs>
+    <g id="sps_square_icon_deleteproject_white" transform="translate(-1120.939 1.368)">
+        <g id="Group_2699" data-name="Group 2699" transform="translate(52.841 -63.783)">
+            <g id="Rectangle_1411" class="cls-1" data-name="Rectangle 1411" transform="translate(1068.886 65.642)">
+                <rect width="10.485" height="13.106" class="cls-2" rx="1"/>
+                <rect width="8.985" height="11.606" x=".75" y=".75" class="cls-3" rx=".25"/>
+            </g>
+            <path id="Path_989" d="M-9638-11019.622v-11.223" class="cls-1" data-name="Path 989" transform="translate(10712.129 11097.496)"/>
+            <path id="Path_990" d="M-9640.47-11032.232l1.6-1.6h1.75l1.6 1.6" class="cls-1" data-name="Path 990" transform="translate(10712.152 11096.999)"/>
+            <path id="Path_991" d="M-9643-11033h12.061" class="cls-1" data-name="Path 991" transform="translate(10711.099 11097.769)"/>
+        </g>
+    </g>
+</svg>

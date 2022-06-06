@@ -1,0 +1,83 @@
+.fontUniversforSchueco-530 {
+  font-family: UniversforSchueco-530;
+  font-size: 12px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 0.75;
+  letter-spacing: normal;
+  text-align: left;
+  color: #ffffff;
+}
+::ng-deep .bps-table-example .ant-table-header-column {
+  width: 100% !important;
+}
+
+::ng-deep .bps-table-example .bps-centered {
+  text-align: center !important;
+}
+
+::ng-deep .bps-table-example .bps-no-padding {
+  padding: 0 !important;
+}
+
+.main-page {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 28px;
+}
+
+.example {
+  text-align: center;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+  margin-bottom: 20px;
+  padding: 50% 50px;
+  margin: 20px 0;
+  /* height: 100vh; */
+}
+
+.three-cells-group {
+  display: flex;
+  align-items: center;
+  max-height: 47px;
+  overflow: hidden;
+  height: 47px;
+  margin-left: 31px;
+  margin-top: -12px;
+  width:100px;
+  border-right: solid #474747 1px
+}
+
+.full-cell {
+  display: flex;
+  align-items: center;
+  max-height: 47px;
+  overflow: hidden;
+  height: 47px;
+  margin-left: 10px;
+  margin-top: -12px;
+}
+
+.physics-type-name-btn {
+  width: 135px;
+  border-radius: 8px;
+  border: solid 1px #00a2d1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0px;
+  height: 24px;
+}
+
+.cells-group {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.three-cells-group img, .full-cell img {
+  height: 24px;
+}

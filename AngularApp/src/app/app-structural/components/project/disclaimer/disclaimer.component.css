@@ -1,0 +1,184 @@
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:10.0pt;
+	margin-left:0cm;
+	line-height:115%;
+	font-size:10.0pt;
+}
+h2
+	{
+	margin-top:10.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	line-height:115%;
+	page-break-after:avoid;
+	font-size:11.0pt;
+	
+	color:#4F81BD;}
+h3
+	{
+	margin-top:10.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	line-height:115%;
+	page-break-after:avoid;
+	font-size:10.0pt;
+	
+	color:#4F81BD;}
+p.MsoListBullet, li.MsoListBullet, div.MsoListBullet
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:10.0pt;
+	margin-left:18.0pt;
+	text-indent:-18.0pt;
+	line-height:115%;
+	font-size:10.0pt;
+	}
+p.MsoListBulletCxSpFirst, li.MsoListBulletCxSpFirst, div.MsoListBulletCxSpFirst
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:18.0pt;
+	text-indent:-18.0pt;
+	line-height:115%;
+	font-size:10.0pt;
+	}
+p.MsoListBulletCxSpMiddle, li.MsoListBulletCxSpMiddle, div.MsoListBulletCxSpMiddle
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:18.0pt;
+	text-indent:-18.0pt;
+	line-height:115%;
+	font-size:10.0pt;
+	}
+p.MsoListBulletCxSpLast, li.MsoListBulletCxSpLast, div.MsoListBulletCxSpLast
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:10.0pt;
+	margin-left:18.0pt;
+	text-indent:-18.0pt;
+	line-height:115%;
+	font-size:10.0pt;
+	}
+p.MsoTitle, li.MsoTitle, div.MsoTitle
+	{
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom: -5.0pt;
+	margin-left:0cm;
+	border:none;
+	padding:0cm;
+	font-size:16.0pt;
+	
+	color:#17365D;
+	letter-spacing:.25pt;}
+p.MsoTitleCxSpFirst, li.MsoTitleCxSpFirst, div.MsoTitleCxSpFirst
+	{
+	margin:0cm;
+	border:none;
+	padding:0cm;
+	font-size:16.0pt;
+	
+	color:#17365D;
+	letter-spacing:.25pt;}
+p.MsoTitleCxSpMiddle, li.MsoTitleCxSpMiddle, div.MsoTitleCxSpMiddle
+	{
+	margin:0cm;
+	border:none;
+	padding:0cm;
+	font-size:16.0pt;
+	
+	color:#17365D;
+	letter-spacing:.25pt;}
+p.MsoTitleCxSpLast, li.MsoTitleCxSpLast, div.MsoTitleCxSpLast
+	{
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom: -5.0pt;
+	margin-left:0cm;
+	border:none;
+	padding:0cm;
+	font-size:16.0pt;
+	
+	color:#17365D;
+	letter-spacing:.25pt;}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:10.0pt;
+	margin-left:36.0pt;
+	line-height:115%;
+	font-size:10.0pt;
+	}
+p.MsoListParagraphCxSpFirst, li.MsoListParagraphCxSpFirst, div.MsoListParagraphCxSpFirst
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	line-height:115%;
+	font-size:10.0pt;
+	}
+p.MsoListParagraphCxSpMiddle, li.MsoListParagraphCxSpMiddle, div.MsoListParagraphCxSpMiddle
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	line-height:115%;
+	font-size:10.0pt;
+	}
+p.MsoListParagraphCxSpLast, li.MsoListParagraphCxSpLast, div.MsoListParagraphCxSpLast
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:10.0pt;
+	margin-left:36.0pt;
+	line-height:115%;
+	font-size:10.0pt;
+	}
+span.Heading2Char
+	{
+	
+	
+	color:#4F81BD;
+	font-weight:bold;}
+span.Heading3Char
+	{
+	
+	
+	color:#4F81BD;
+	font-weight:bold;}
+span.TitleChar
+	{
+	
+	
+	color:#17365D;
+	letter-spacing:.25pt;}
+    
+.MsoPapDefault
+	{margin-bottom:10.0pt;
+	line-height:115%;}
+ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+
+
+
+	.mainHeadder{
+		margin-top: 10.0pt; border-bottom:solid #4F81BD 1.0pt; font-size: 12.0pt; color: #17365D;
+	}
+	.subHeadder{
+		margin-top: 5.0pt; page-break-after: avoid; color: #4F81BD; text-transform: uppercase;
+	}
+	.contentText{
+		font-size: inherit;
+		text-align: justify;
+		/* margin-left: 10px;
+		margin-right: 10px; */
+	}
+	ul.points {
+	list-style-type: square;
+	}

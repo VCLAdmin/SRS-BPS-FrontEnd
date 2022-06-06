@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="10" height="12" viewBox="0 0 10 12">
+    <defs>
+        <style>
+            .cls-1{fill:#445c67}
+        </style>
+    </defs>
+    <path id="sps_triangle_icon_left_greyblue" d="M6 0l6 10H0z" class="cls-1" transform="rotate(-90 6 6)"/>
+</svg>

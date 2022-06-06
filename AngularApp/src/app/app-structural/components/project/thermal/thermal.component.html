@@ -1,0 +1,52 @@
+<div class="accordion-section-container" *ngIf="unified3DModel">
+    <div>
+        <div class="sps-accordion-section" id="config-thermal">
+            <div id="sps-thermal">
+                <div style="margin-top:5px;">
+                    <div class="wall-perimeter">
+                        <h3 class="boldWhiteFont">{{'configure.dew-point-calculator' | translate }}</h3>
+                        <!-- Dew Point Calculator -->
+                        <div class="chkbox">
+                            <label bps-checkbox [(ngModel)]="dewPointChecked"
+                                (ngModelChange)="onDewPointSelected()"></label>
+                        </div>
+                    </div>
+                </div>
+                <!--line-->
+                <div class="sps-break"></div>
+                <div class="" id="sps-str-buildnglen">
+                    <h3 id="sps-thermal-relative-humidity-heading" [style.color]="dewPointChecked?'#ffffff':'#666666'"
+                        class="boldWhiteFont">{{'configure.relative-humidity' | translate }}</h3>
+                    <!-- Relative humidity -->
+                </div>
+                <form bps-form [formGroup]="validateForm">
+                    <bps-form-item class="bps-form-item" style="margin: 0px">
+                        <bps-form-control>
+                            <div class="sps-height-num-info sps-str-blen">
+                                <div id="thermal-relative-humidity-inputfield">
+                                    <div id="sps-thermal-relative-humidity-input-field">
+                                        <!-- <input type="number" formControlName="realtiveHumidity" style="width: 60px; margin-left: -0.1px" required bps-input autocomplete="off" min="0" max="100" [(ngModel)]="realtiveHumidity" [disabled]="!dewPointChecked" name="realtiveHumidity" id="sps-thermal-relative-humidity-input-box" (ngModelChange)="onRealativeHumidityChange()"> -->
+                                        <input type="text" formControlName="realtiveHumidity"
+                                            style="width: 60px; margin-left: -0.1px" required bps-input
+                                            autocomplete="off" [(ngModel)]="realtiveHumidityString"
+                                            [disabled]="!dewPointChecked" name="realtiveHumidity"
+                                            id="sps-thermal-relative-humidity-input-box"
+                                            (ngModelChange)="onRealativeHumidityChange()">
+                                    </div>
+                                </div>
+                                <div id="sps-thermal-relative-humidity-percentage"
+                                    style="font-size: 11px; margin-left:10px;"
+                                    [ngStyle]="{'color': dewPointChecked ? 'white':'#666666'}"
+                                    class="sps-thermal-enabled-percentage">
+                                    %
+                                </div>
+                            </div>
+                        </bps-form-control>
+                    </bps-form-item>
+                </form>
+                <!--line-->
+                <div class="sps-last-break" style="margin-top: 0;"></div>
+            </div>
+        </div>
+    </div>
+</div>

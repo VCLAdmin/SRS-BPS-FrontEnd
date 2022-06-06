@@ -1,0 +1,30 @@
+<div *ngIf="isPopoutOpened" [ngStyle]="{'display': isPopoutOpened ? 'flex':'none' }" class="sps-left-popout">
+    <div class="lp-panel">
+        <div class="lp-panel-top">
+            <!-- Header Title -->
+            <div class="lp-top-section">
+                <div class="lp-header">
+                    <h3 class="lp-header-text">{{'configure.spacer-library' | translate }}</h3>
+                    <img src="/assets/Images/sps/sps_delete_icon_x_darkgrey.svg" id="fas fa-times fa-inverse"
+                        alt="close icon" (click)="onClose()">
+                </div>
+            </div>
+            <!-- Table Content -->
+            <div class="bpsTableContent">
+                <div class="sps-left-panel-wrapper">
+                    <div class="bps-cmacs-custom-scrollbar sps-left-panel">
+                        <bps-tree #bpsTreeComponent [bpsData]="nodes" bpsBlockNode [bpsExpandedKeys]="defaultExpandedKeys"
+                            [bpsSelectedKeys]="defaultSelectedKeys" (bpsClick)="bpsClick($event)" (bpsDblClick)="onDblClickRow($event)"
+                            (bpsCheckBoxChange)="bpsCheckBoxChange($event)" (bpsExpandChange)="bpsExpandChange($event)">
+                        </bps-tree>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Confirm -->
+        <div class="lp-confirm-btn-container">
+            <button class="lp-confirm-btn" bps-button bpsType="variation-4" (click)="onConfirm()">{{'configure.confirm'
+                | translate }}</button>
+        </div>
+    </div>
+</div>

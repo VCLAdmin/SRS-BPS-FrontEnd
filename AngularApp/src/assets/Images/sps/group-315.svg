@@ -1,0 +1,22 @@
+<svg id="Group_315" data-name="Group 315" xmlns="http://www.w3.org/2000/svg" width="76" height="21" viewBox="0 0 76 21">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: #fff;
+        font-size: 18px;
+      }
+
+      .cls-1 {
+        font-family: UniversForSchueco-630Bold, Univers for Schueco;
+        font-weight: 700;
+      }
+
+      .cls-2 {
+        font-family: UniversForSchueco-330Light, Univers for Schueco;
+        font-weight: 300;
+      }
+    </style>
+  </defs>
+  <text id="SP" class="cls-1" transform="translate(0 17)"><tspan x="0" y="0">SP</tspan></text>
+  <text id="Solver" class="cls-2" transform="translate(25 17)"><tspan x="0" y="0">Solver</tspan></text>
+</svg>

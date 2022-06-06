@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="3" height="18" viewBox="0 0 3 18">
+    <defs>
+        <style>
+            .cls-1{fill:#fff}
+        </style>
+    </defs>
+    <path id="sps_square_icon_mullion_white" d="M0 0h18v3H0z" class="cls-1" transform="rotate(90 1.5 1.5)"/>
+</svg>

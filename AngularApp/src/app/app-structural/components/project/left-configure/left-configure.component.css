@@ -1,0 +1,244 @@
+.solver-button-content {
+  margin-left: 40px;
+  margin-bottom: 19px;
+  overflow: hidden;
+}
+
+.physics-type-heading {
+  font-family: "SchucoRegularMedium";
+  font-size: 12px;
+  margin: 0px;
+  text-transform: uppercase;
+  font-weight: 100;
+  color: #ffffff;
+  margin-top: 17.8px;
+  margin-bottom: 7.3px;
+}
+
+/* .physics-type-selector {
+    width: 61px;
+    height: 36px;
+    border: 1px solid #666666;
+    border-radius: 8px;
+    margin-right: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.physics-type-selector.active,
+.physics-type-selector.normal:hover {
+    border: 2px solid #00a2d1 !important;
+} */
+
+/* .physics-type-selector.disabled {
+    border: 1px solid #363636 !important;
+} */
+
+.product-type-heading {
+  font-family: "SchucoRegularMedium";
+  font-size: 12px;
+  margin-top: 12.9px;
+  margin-bottom: 7.1px;
+  text-transform: uppercase;
+  font-weight: 100;
+  color: #ffffff;
+}
+
+/* .system-type-selector {
+    width: 61px;
+    height: 36px;
+    border: 1px solid #666666;
+    border-radius: 8px;
+    margin-right: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.system-type-selector.active,
+.system-type-selector.normal:hover {
+    border: 2px solid #7bc053 !important;
+}
+
+.system-type-selector.disabled {
+    border: 1px solid #363636;
+} */
+
+.solver-configuration-tab-container {
+  border-top: 1px solid #363636;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  margin-bottom: 11px;
+}
+
+.solver-configuration-tab {
+  background-color: #363636;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 15px;
+  border-radius: 0 0 0.5em 0.5em;
+  cursor: pointer;
+}
+
+:host ::ng-deep .ant-collapse {
+  margin: 0px !important;
+  background-color: rgba(0, 0, 0, 0) !important;
+  border: none !important;
+  border-radius: 0px !important;
+  padding: 0px !important;
+  box-sizing: border-box !important;
+  color: rgb(255, 255, 255) !important;
+  font-size: 12px !important;
+  line-height: 16.5px !important;
+  list-style: none !important;
+  font-family: "SchucoRegularMedium" !important;
+  font-weight: 100 !important;
+}
+
+.left-panel-scrolling-container {
+  margin-right: 5px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.compute-button-container {
+  bottom: -3px;
+  width: 295px;
+  position: absolute;
+  /* background-color: #262626; */
+  height: 59px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid #363636;
+  background-color: #262626;
+  z-index: 9999;
+}
+
+.compute-button {
+  font-family: UniversForSchueco-530Med;
+  font-size: 12px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 0.58;
+  letter-spacing: normal;
+  text-align: center;
+}
+
+.compute-button.disabled {
+  width: 167px !important;
+  height: 42px !important;
+  border: solid 1px #666666 !important;
+  color: #666666 !important;
+  cursor: not-allowed;
+}
+
+::ng-deep
+  .physics-type-selector-acoustic
+  .ant-checkbox:not(.ant-checkbox-disabled):hover
+  svg
+  path,
+::ng-deep
+  .physics-type-selector-acoustic
+  .ant-checkbox.ant-checkbox-checked:not(.ant-checkbox-disabled)
+  svg
+  path,
+::ng-deep
+  .physics-type-selector-thermal
+  .ant-checkbox:not(.ant-checkbox-disabled):hover
+  svg
+  path,
+::ng-deep
+  .physics-type-selector-thermal
+  .ant-checkbox.ant-checkbox-checked:not(.ant-checkbox-disabled)
+  svg
+  path {
+  stroke: #00a2d1 !important;
+}
+
+::ng-deep
+  .physics-type-selector-acoustic
+  .ant-checkbox.ant-checkbox-checked:not(.ant-checkbox-disabled)
+  svg
+  circle,
+::ng-deep
+  .physics-type-selector-acoustic
+  .ant-checkbox:not(.ant-checkbox-disabled):hover
+  svg
+  circle,
+::ng-deep
+  .physics-type-selector-thermal
+  .ant-checkbox.ant-checkbox-checked:not(.ant-checkbox-disabled)
+  svg
+  circle,
+::ng-deep
+  .physics-type-selector-thermal
+  .ant-checkbox:not(.ant-checkbox-disabled):hover
+  svg
+  circle,
+::ng-deep
+  .physics-type-selector-structural
+  .ant-checkbox:not(.ant-checkbox-disabled):hover
+  svg
+  .myClass,
+::ng-deep
+  .physics-type-selector-structural
+  .ant-checkbox.ant-checkbox-checked:not(.ant-checkbox-disabled)
+  svg
+  .myClass,
+::ng-deep
+  .physics-type-selector-structural
+  .ant-checkbox.ant-checkbox-checked:not(.ant-checkbox-disabled)
+  svg
+  circle,
+::ng-deep
+  .physics-type-selector-structural
+  .ant-checkbox:not(.ant-checkbox-disabled):hover
+  svg
+  circle {
+  fill: #00a2d1 !important;
+}
+
+.ant-radio-button-wrapper:not(.ant-radio-button-wrapper-disabled):hover
+  .prefix__cls-1154,
+.ant-radio-button-wrapper:not(.ant-radio-button-wrapper-disabled):hover
+  .prefix__cls-1234,
+.ant-radio-button-wrapper:not(.ant-radio-button-wrapper-disabled):hover
+  .prefix__cls-1,
+.ant-radio-button-wrapper:not(.ant-radio-button-wrapper-disabled):hover
+  .prefix__cls-4,
+.ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled)
+  .prefix__cls-1154,
+.ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled)
+  .prefix__cls-1234,
+.ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled)
+  .prefix__cls-1,
+.ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled)
+  .prefix__cls-4 {
+  stroke: #7bc053 !important;
+}
+
+:host ::ng-deep .ant-collapse-content > .ant-collapse-content-box {
+  padding: 0 15px 15px !important;
+}
+
+.full-line {
+  width: 295px;
+  height: 0;
+  border-top: 1px solid #363636;
+}
+.confirm-btn-container {
+  /* margin-top: 15px; */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}

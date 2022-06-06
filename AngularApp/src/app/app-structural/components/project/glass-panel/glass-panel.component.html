@@ -1,0 +1,390 @@
+<div *ngIf="unified3DModel"  class="accordion-section-container">
+    <div class="accordion-section" id="config-glass-spandrel">
+        <div class="column-container" *appCheckPermissions="feature.GlassPanelFullInfo">
+            <div class="dot-picker-glass-panel-container" id="sps-glass-spandrel-new-item-container">
+                <div class="addGlassAndPanel" id="add-button-glass-and-panel">
+                    <button bps-tooltip [bpsTooltipType]="'variation_10'"
+                        bpsTooltipTitle="&nbsp;&nbsp;&nbsp;&nbsp;{{'configure.add-glass-configuration' | translate }}&nbsp;&nbsp;&nbsp;&nbsp;"
+                        bpsTooltipPlacement="top" [ngStyle]="{'width': language === 'en-US' ? '60px' : '90px'}"
+                        style="padding: 0px;" bps-button bpsType="variation-7" (click)="onAddPicker()">{{'configure.add'
+                        | translate | uppercase}}</button>
+                </div>
+                <!-- ADD -->
+                <div class="dot-picker-container">
+                    <div>
+                        <bps-radio-group [(ngModel)]="selectedPickerString" (ngModelChange)="onSelectPicker()">
+                            <label bps-radio bpsValue="0" [bpsDisabled]="!pickers[0].populated"
+                                bpsRadioButtonType="variation8a"></label>
+                            <label bps-radio bpsValue="1" [bpsDisabled]="!pickers[1].populated"
+                                bpsRadioButtonType="variation8b"></label>
+                            <label bps-radio bpsValue="2" [bpsDisabled]="!pickers[2].populated"
+                                bpsRadioButtonType="variation8c"></label>
+                            <label bps-radio bpsValue="3" [bpsDisabled]="!pickers[3].populated"
+                                bpsRadioButtonType="variation8d"></label>
+                            <label bps-radio bpsValue="4" [bpsDisabled]="!pickers[4].populated"
+                                bpsRadioButtonType="variation8e" style="width: 16px;"></label>
+                            <!-- <label bps-radio bpsValue="0" [bpsDisabled]="!pickers[0].populated" bpsRadioButtonType="variation8b"></label>
+                          <label bps-radio bpsValue="1" [bpsDisabled]="!pickers[1].populated" bpsRadioButtonType="variation8c"></label>
+                          <label bps-radio bpsValue="2" [bpsDisabled]="!pickers[2].populated" bpsRadioButtonType="variation8d" style="width: 16px;"></label> -->
+                        </bps-radio-group>
+                    </div>
+                </div>
+            </div>
+            <div class="sps-break"></div>
+            <div class="glass-selector-container" id="sps-glass-selector-container">
+                <div class="glass-selector-column">
+                    <h3 [ngClass]="{'disabled':selectedPicker === -1 || orderPlaced}" class="glass-thickness-heading">
+                        {{'configure.type-and-thickness' | translate }}</h3>
+                    <button style="width: 215px;margin-left:-0.1px;" bps-button bpsType="variation-2"
+                        [disabled]="selectedPicker === -1" (click)="onOpenCloseGlassPanelTable()" [disabled]="orderPlaced">{{'configure.library'
+                        | translate }}</button>
+                </div>
+            </div>
+            <div class="glass-viewer-container" id="sps-glass-viewer-container">
+                <div class="glass-viewer-column">
+                    <div class="glass-viewer">
+                        <app-viewer-infill [isSidePanel]="isSidePanel" *ngIf="selectedPicker > -1"
+                            [confirmedGlassPanelArticle]="pickers[selectedPicker].article"></app-viewer-infill>
+                    </div>
+                    <div class="glass-viewer-dimensions-of-glass" id="sps-glass-viewer-dimensions-of-glass">
+                        <div class="glass-and-panel-dimensions-container"
+                            *ngIf="selectedPicker > -1 && pickers[selectedPicker].article"
+                            id="glass-and-panel-dimensions-container">
+                            <div class="glass-and-panel-dimensions-row"
+                                *ngFor="let elementSize of elementsSize[selectedPicker]; let i = index">
+                                <h3 *ngIf="this.applicationType=='BPS'" class="glass-and-panel-dimensions-number">{{ elementSize.includes('[')? elementSize.substring(0, elementSize.indexOf('[')) : elementSize | number }}
+                                </h3>
+                                <h3 class="glass-and-panel-dimensions-unit">{{
+                                    this.pickers[this.selectedPicker].article.totalThicknessUnit }}
+                                </h3>
+                                <h3 [ngStyle]="{'width':pvbValueFull[selectedPicker][i]?'25px':'150px'}" class="glass-and-panel-dimensions-type">{{
+                                    elementsType[selectedPicker][i] }}</h3>
+                                <h3 *ngIf="pvbValueFull[selectedPicker][i] && applicationType=='SRS'"  style="width:115px;" class="glass-and-panel-dimensions-unit">({{
+                                    pvbValueFull[selectedPicker][i] }})</h3>
+                                <h3 *ngIf="pvbValueFull[selectedPicker][i] && applicationType == 'BPS'" style="width:115px;"
+                                    class="glass-and-panel-dimensions-unit">{{elementSize.includes('[')? elementSize.substring(0, elementSize.indexOf('['))/2 : elementSize/2 | number}}{{'|'}}{{pvbValueFull[selectedPicker][i].substring(0, pvbValueFull[selectedPicker][i].indexOf('m'))}}{{' PVB|'}}{{elementSize.includes('[')? elementSize.substring(0, elementSize.indexOf('['))/2 : elementSize/2 | number}}</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="glass-measurements-container" id="sps-glass-measurements-container">
+                        <div class="glass-and-panel-measurement-container"
+                            *ngIf="selectedPicker > -1 && pickers[selectedPicker].article">
+                            <div class="glass-and-panel-measurement-row">
+                                <h3 class="glass-and-panel-measurement-unit1" id="glass-and-panel-UValue-heading">
+                                    {{'configure.u-value' | translate }}</h3>
+                                <!-- U-Value -->
+                                <h3 *ngIf="pickers[selectedPicker].article.uvalue && pickers[selectedPicker].article.uvalue!='N/D'; else NoDataUValue"
+                                    class="glass-and-panel-measurement-unit2" id="glass-and-panel-UValue">{{
+                                    pickers[selectedPicker].article.uvalue | number: '':language }}
+                                    (W/m<sup>2</sup>K)</h3>
+                                <ng-template #NoDataUValue>
+                                    <h3 class="glass-and-panel-measurement-unit2" id="glass-and-panel-UValue">N/D</h3>
+                                </ng-template>
+
+                            </div>
+                            <div class="glass-and-panel-measurement-row">
+                                <h3 class="glass-and-panel-measurement-unit1" id="glass-and-panel-rw-value-heading">Rw
+                                </h3>
+                                <h3 *ngIf="pickers[selectedPicker].article.rw && pickers[selectedPicker].article.rw!='N/D'; else NoDataRW"
+                                    class="glass-and-panel-measurement-unit2" id="glass-and-panel-rw-value">{{
+                                    pickers[selectedPicker].article.rw | number: '':language }} (dB)</h3>
+                                <ng-template #NoDataRW>
+                                    <h3 class="glass-and-panel-measurement-unit2" id="glass-and-panel-rw-value">N/D</h3>
+                                </ng-template>
+                            </div>
+                            <div class="glass-and-panel-measurement-row">
+                                <h3 class="glass-and-panel-measurement-unit1" id="glass-and-panel-spacer-value-heading">
+                                    {{'configure.spacer' | translate }}</h3>
+                                <!-- Spacer -->
+                                <h3 class="glass-and-panel-measurement-unit2" id="glass-and-panel-spacer-value">{{
+                                    spacerTypeDisplayInPanel[selectedPicker] }}</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="sps-break"></div>
+            <div class="spacer-type-glass-and-panel-container">
+                <div *ngIf="selectedPicker > -1 && pickers[selectedPicker].article.category !== 'panel'"
+                    class="spacer-type-glass-and-panel-column">
+                    <h3 class="glass-thickness-heading">{{'configure.spacer' | translate }}</h3>
+                    <!-- <bps-select style="width: 190px" [(ngModel)]="spacerTypeModelInputArray[selectedPicker]" bpsPlaceHolder="{{'configure.select' | translate }}" (ngModelChange)="onChangeSpacerType()">
+                        <bps-option bpsValue="1" bpsLabel="{{'configure.general-aluminium' | translate }}"></bps-option>
+                        <bps-option bpsValue="2" bpsLabel="{{'configure.general-non-stainless-steel' | translate }}"></bps-option> 
+                        <bps-option bpsValue="3" bpsLabel="{{'configure.general-thermally-improved' | translate }}"></bps-option>
+                    </bps-select>                 -->
+                    <div class="sps-accordion-ui-section-content">
+                        <div class="sps-operability-vent-frame-button-container">
+                            <div class="size operability-vent-fr-value-10 sps-framing-sightline-input-margin">
+                                <input
+                                    style="width: 170px; color: #ffffff !important; border-color: #00a2d1 !important;"
+                                    centered disabled bps-input [(ngModel)]="spacerTypeDisplayInPanel[selectedPicker]">
+                            </div>
+                            <button bps-button bpsType="variation-13" 
+                                [ngClass]="{'active': isSpacerTypeOpened }"
+                                style="margin-left: 22px" [disabled]="selectedPicker == -1" (click)="onOpenCloseSpacerTypePopout()">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12.967" height="11.956"
+                                    viewBox="0 0 12.967 11.956">
+                                    <defs>
+                                        <style>
+                                            .cls-1 {
+                                                fill: none;
+                                                stroke: #fff;
+                                                stroke-linecap: round;
+                                                stroke-width: 2px
+                                            }
+                                        </style>
+                                    </defs>
+                                    <g id="sps_square_icon_changeprofile_enabled_new"
+                                        transform="translate(-2533.021 -328.325)">
+                                        <g id="sps_round_icon_rightpanelopened_white"
+                                            transform="translate(2540.011 329.74)">
+                                            <path id="Path_287" d="M4.564 9.128L0 4.564 4.564 0" class="cls-1"
+                                                data-name="Path 287" transform="rotate(180 2.282 4.564)" />
+                                        </g>
+                                        <path id="Path_1295" d="M-9323.126-21989.648H-9333" class="cls-1"
+                                            data-name="Path 1295" transform="translate(11867.02 22323.951)" />
+                                    </g>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div *ngIf="selectedPicker > -1 && pickers[selectedPicker].article.category === 'panel'"
+                    class="spacer-type-glass-and-panel-column">
+                    <h3 class="glass-thickness-heading">{{'configure.left-configure-glass-panel-psi-value' | translate}}
+                    </h3>
+                    <div class="sps-accordion-ui-section-content">
+                        <form bps-form [formGroup]="validatePSIForm">
+                            <bps-form-item class="bps-form-item" style="margin: 0px">
+                                <bps-form-control>
+                                    <div class="sps-height-num-info sps-str-blen">
+                                        <div id="psi-value-inputfield">
+                                            <div id="sps-psi-value-input-field">
+                                                <input type="number" formControlName="psiValue"
+                                                    style="width: 60px; margin-left: -0.1px; border-color: #00a2d1 !important;"
+                                                    required bps-input autocomplete="off" [(ngModel)]="psiValueNumber"
+                                                    name="psiValue" id="sps-psi-value-input-box"
+                                                    (ngModelChange)="onPSIValueChange()">
+                                                <span id="sps-psi-value" class="sub-menu">
+                                                    (W/mK)
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </bps-form-control>
+                            </bps-form-item>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="sps-break"></div>
+            <div class="apply-btn-container" id="sps-glass-spandrel-apply-btn-container">
+                <button bps-button bpsType="variation-4"
+                    [ngStyle]="language ==='de-DE' ? {'transform': 'translate(74%, 0%)'} : {'margin-left':'74px'}"
+                    [disabled]="selectedPicker === -1 || selectedGlassId_array.length === 0 || isGlassPanelTableOpened"
+                    [ngClass]="{'active': !(selectedPicker === -1 || selectedGlassId_array.length === 0 || isGlassPanelTableOpened)}"
+                    (click)="onAddGlass()">{{'configure.apply' | translate }}</button>
+                <!-- Apply -->
+
+                <span style="margin-top: 4px; float: right;" bpsType="variation-1" bps-popover
+                    [bpsPopoverPlacement]="'right'" [bpsPopoverType]="'variation_3'"
+                    [bpsPopoverContent]="applyContent9">
+                    <img *ngIf="selectedPicker !== -1 else greyImage2" class="iconI"
+                        src="/assets/Images/icons/sps_information_icon_blue.svg">
+                    <ng-template #greyImage2>
+                        <img class="iconI" src="/assets/Images/icons/sps_information_icon_grey.svg">
+                    </ng-template>
+                </span>
+                <ng-template #applyContent9>
+                    <div class="popover-variation3" style="width: 400px; height: 200px;">
+                        <div style="float: left; width: 45%; margin:10px;border-right: #383838 2px solid;">
+                            <div class="roundCount"> 1 </div> {{'configure.left-configure-glass-panel-select-glass-area'
+                            | translate}}<br>
+                            {{'configure.left-configure-glass-panel-3d-model' | translate}}
+                            <br>
+                            <img src="/assets/Images/tooltips/APPLY_GLASS.png" height="115"
+                                style="margin:10px; align-items: center;" />
+                        </div>
+                        <div style="float: right; width: 45%; margin:10px;" *ngIf="language === 'en-US'">
+                            <div class="roundCount"> 2 </div>{{'configure.left-configure-glass-panel-click-text' |
+                            translate}} "<a>{{'configure.left-configure-glass-panel-apply-text' | translate}}</a>"<br>
+                            {{'configure.left-configure-glass-panel-button-text' | translate}}
+                            <br>
+                            <button bps-button bpsType="variation-4" style="margin: 50px">{{'configure.apply' |
+                                translate }}</button>
+                        </div>
+                        <div style="float: right; width: 45%; margin:10px;" *ngIf="language ==='de-DE'">
+                            <div class="roundCount"> 2 </div>{{'configure.left-configure-framing-click-text' |
+                            translate}}
+                            "<a>{{'configure.lft-configure-framing-apply-text' | translate}}</a>"
+                            <button bps-button bpsType="variation-4" style="margin: 50px">{{'configure.apply' |
+                                translate
+                                }}</button>
+                        </div>
+                    </div>
+                </ng-template>
+            </div>
+            <bps-list bpsBordered bpsListType="{{ bpsListTypeVariation }}" [bpsDisabled]="selectedPicker === -1"
+                style="margin-top: 15px;">
+                <div *ngIf="selectedPicker > -1">
+                    <bps-list-item *ngFor="let glassId of pickers[selectedPicker].glassId_added" bpsDelete
+                        (ondelete)="onDelete(glassId)" (mouseenter)="onFocusGreen(glassId)"
+                        (mouseleave)="onFocusOutItem(glassId)" (ondeletehover)="onFocusRed(glassId, $event)">
+                        <span *ngIf="pickers[selectedPicker].article.category == 'panel' else glass">{{'configure.panel'
+                            | translate | lowercase}}_{{ glassId }} {{'configure.added' | translate |
+                            lowercase}}</span>
+                        <ng-template #glass>
+                            <span>{{'configure.glass' | translate | lowercase}}_{{ glassId }} {{'configure.added' |
+                                translate |
+                                lowercase}}</span>
+                        </ng-template>
+
+                        <!-- glass | added -->
+                    </bps-list-item>
+                </div>
+            </bps-list>
+            <div class="sps-break"></div>
+            <div class="spacer-type-glass-and-panel-container" *ngIf="selectedPicker > -1">
+                <div class="spacer-type-glass-and-panel-column">
+                    <!-- TODO-translate -->
+                    <h3 class="glass-thickness-heading">{{'configure.left-configure-glass-panel-block-distance' |
+                        translate}}
+                        <div *ngIf="unified3DModel.ProblemSetting.ProductType=='Window';"
+                            style="height:16px; float: right;" bpsType="variation-1" bps-popover
+                            [bpsPopoverPlacement]="'right'" [bpsPopoverType]="'variation_3'"
+                            [bpsPopoverContent]="windowZoneContent">
+                            <img class="iconI" src="/assets/Images/icons/sps_information_icon_blue.svg">
+                        </div>
+                        <ng-template #windowZoneContent>
+                            <div class="popover-variation3" style="width: 225px;">
+                                {{'configure.left-configure-glass-panel-window-zone-content' | translate}} </div>
+                        </ng-template>
+                        <div *ngIf="unified3DModel.ProblemSetting.ProductType=='Facade';"
+                            style="height:16px; float: right;" bpsType="variation-1" bps-popover
+                            [bpsPopoverPlacement]="'right'" [bpsPopoverType]="'variation_3'"
+                            [bpsPopoverContent]="facadeZoneContent">
+                            <img class="iconI" src="/assets/Images/icons/sps_information_icon_blue.svg">
+                        </div>
+                        <ng-template #facadeZoneContent>
+                            <div class="popover-variation3" style="width: 225px;">
+                                {{'configure.left-configure-glass-panel-window-zone-content' | translate}} </div>
+                        </ng-template>
+
+                    </h3>
+                    <div class="sps-accordion-ui-section-content">
+                        <form bps-form [formGroup]="validateBlockDistanceForm">
+                            <bps-form-item class="bps-form-item" style="margin-bottom: 0px !important;">
+                                <bps-form-control>
+                                    <div class="sps-height-num-info sps-str-blen">
+                                        <div id="psi-value-inputfield">
+                                            <div id="sps-psi-value-input-field">
+                                                <input type="number" formControlName="blockDistance"
+                                                    style="width: 60px; margin-left: -0.1px" required bps-input
+                                                    autocomplete="off" (onblur)="blockDistanceNumberEvent($event)"
+                                                    [(ngModel)]="blockDistanceNumber" name="blockDistance"
+                                                    id="sps-psi-value-input-box"
+                                                    (ngModelChange)="onBlockDistanceNumberChange()">
+                                                <span id="sps-psi-value" class="sub-menu">
+                                                    (mm)
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </bps-form-control>
+                            </bps-form-item>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="sps-last-break"></div>
+        </div>
+        <div class="column-container" *appCheckPermissions="feature.GlassPanelShortInfo">
+            <div class="glass-selector-container" id="sps-glass-selector-container">
+                <div class="glass-selector-column">
+                    <h3 [ngClass]="{'disabled':selectedPicker === -1 || orderPlaced}" class="glass-thickness-heading">
+                        {{'configure.type-and-thickness' | translate }}</h3>
+                    <button style="width: 215px;margin-left:-0.1px;" bps-button bpsType="variation-2"
+                        [disabled]="selectedPicker === -1" (click)="onOpenCloseGlassPanelTable()" [disabled]="orderPlaced">{{'configure.library'
+                        | translate }}</button>
+                </div>
+            </div>
+            <div class="glass-viewer-container" id="sps-glass-viewer-container">
+                <div class="glass-viewer-column">
+                    <div class="glass-viewer">
+                        <app-viewer-infill [isSidePanel]="isSidePanel" *ngIf="selectedPicker > -1"
+                            [confirmedGlassPanelArticle]="pickers[selectedPicker].article"></app-viewer-infill>
+                    </div>
+                    <div class="glass-viewer-dimensions-of-glass" id="sps-glass-viewer-dimensions-of-glass">
+                        <div class="glass-and-panel-dimensions-container"
+                            *ngIf="selectedPicker > -1 && pickers[selectedPicker].article"
+                            id="glass-and-panel-dimensions-container">
+                            <div class="glass-and-panel-dimensions-row"
+                                *ngFor="let elementSize of elementsSize[selectedPicker]; let i = index">
+                                <h3 class="glass-and-panel-dimensions-number">{{ elementSize  }}
+                                </h3>
+                                <h3 class="glass-and-panel-dimensions-unit">{{
+                                    pickers[selectedPicker].article.totalThicknessUnit }}</h3>
+                                <h3 [ngStyle]="{'width':pvbValueFull[selectedPicker][i]?'25px':'150px'}"
+                                    class="glass-and-panel-dimensions-type">{{ elementsType[selectedPicker][i] }}</h3>
+                                <h3 *ngIf="pvbValueFull[selectedPicker][i]" style="width:115px;"
+                                    class="glass-and-panel-dimensions-unit">({{ pvbValueFull[selectedPicker][i] }})</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="glass-measurements-container" id="sps-glass-measurements-container">
+                        <div class="glass-and-panel-measurement-container"
+                            *ngIf="selectedPicker > -1 && pickers[selectedPicker].article">
+                                <div class="glass-and-panel-measurement-row">
+                                    <h3 class="glass-and-panel-measurement-unit1" id="glass-and-panel-UValue-heading">
+                                        {{'configure.u-value' | translate }}</h3>
+                                    <!-- U-Value -->
+                                    <h3 *ngIf="pickers[selectedPicker].article.uvalue && pickers[selectedPicker].article.uvalue!='N/D'; else NoDataUValue"
+                                        class="glass-and-panel-measurement-unit2" id="glass-and-panel-UValue">{{
+                                        pickers[selectedPicker].article.uvalueBTU | number: '':language }}
+                                        (Btu/h-ft<sup>2</sup>-F)</h3>
+                                    <ng-template #NoDataUValue>
+                                        <h3 class="glass-and-panel-measurement-unit2" id="glass-and-panel-UValue">N/D</h3>
+                                    </ng-template>
+    
+                                </div>
+                            <div class="glass-and-panel-measurement-row">
+                                <h3 class="glass-and-panel-measurement-unit1" id="glass-and-panel-rw-value-heading">SHGC
+                                </h3>
+                                <h3 *ngIf="pickers[selectedPicker].article.rw && pickers[selectedPicker].article.rw!='N/D'; else NoDataRW"
+                                    class="glass-and-panel-measurement-unit2" id="glass-and-panel-rw-value">{{
+                                    pickers[selectedPicker].shgc  }} </h3>
+                                <ng-template #NoDataRW>
+                                    <h3 class="glass-and-panel-measurement-unit2" id="glass-and-panel-rw-value">N/D</h3>
+                                </ng-template>
+                            </div>
+                            <div class="glass-and-panel-measurement-row">
+                                <h3 class="glass-and-panel-measurement-unit1" id="glass-and-panel-rw-value-heading">VT
+                                </h3>
+                                <h3 *ngIf="pickers[selectedPicker].article.rw && pickers[selectedPicker].article.rw!='N/D'; else NoDataRW"
+                                    class="glass-and-panel-measurement-unit2" id="glass-and-panel-rw-value">{{
+                                    pickers[selectedPicker].vt | number: '':language }} </h3>
+                                <ng-template #NoDataRW>
+                                    <h3 class="glass-and-panel-measurement-unit2" id="glass-and-panel-rw-value">N/D</h3>
+                                </ng-template>
+                            </div>
+                            <div class="glass-and-panel-measurement-row">
+                                <h3 class="glass-and-panel-measurement-unit1" id="glass-and-panel-rw-value-heading">STC | OITC
+                                </h3>
+                                <h3 *ngIf="pickers[selectedPicker].article.rw && pickers[selectedPicker].article.rw!='N/D'; else NoDataRW"
+                                    class="glass-and-panel-measurement-unit2" id="glass-and-panel-rw-value">{{
+                                    pickers[selectedPicker].stc | number: '':language }} | 
+                                    {{ pickers[selectedPicker].oitc | number: '':language }} (dB)</h3>
+                                <ng-template #NoDataRW>
+                                    <h3 class="glass-and-panel-measurement-unit2" id="glass-and-panel-rw-value">N/D</h3>
+                                </ng-template>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="sps-last-break"></div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="42.248" height="42.248" viewBox="0 0 42.248 42.248">
+    <defs>
+        <style>
+            .prefix__cls-4{stroke:none}
+        </style>
+    </defs>
+    <g id="prefix__sps_round_icon_productinfo_blue" transform="translate(5872 9797)">
+        <g id="prefix__Group_2033" data-name="Group 2033" transform="translate(-1454 -724)">
+            <g id="prefix__Ellipse_283" data-name="Ellipse 283" transform="translate(-4418 -9073)" style="stroke:#00a2d1;stroke-width:2px;fill:none">
+                <circle cx="21.124" cy="21.124" r="21.124" class="prefix__cls-4"/>
+                <circle cx="21.124" cy="21.124" r="20.124" style="fill:none"/>
+            </g>
+        </g>
+        <g id="prefix__Subtraction_66" data-name="Subtraction 66" style="fill:none">
+            <path d="M15.017 21.5H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h13.017a2 2 0 0 1 2 2v17.5a2 2 0 0 1-2 2zM2.655 1.672a1 1 0 0 0-1 1v16.151a1 1 0 0 0 1 1h11.708a1 1 0 0 0 1-1V2.672a1 1 0 0 0-1-1z" class="prefix__cls-4" transform="translate(-5859.009 -9786.748)"/>
+            <path d="M15.017 21.496H2c-1.103 0-2-.898-2-2V2C0 .897.897 0 2 0h13.017c1.104 0 2.001.897 2.001 2v17.496c0 1.102-.897 2-2 2zM2.655 1.672c-.551 0-1 .449-1 1v16.151c0 .552.449 1 1 1h11.708c.551 0 1-.448 1-1V2.673c0-.552-.449-1-1-1H2.655z" style="stroke:none;fill:#00a2d1" transform="translate(-5859.009 -9786.748)"/>
+        </g>
+        <path id="prefix__Subtraction_67" d="M11.644 16.122H0V0h11.644v16.121zM5.322 6.047l-2 6.863h2.094l2-6.863h-2.1zm.832-2.985L5.8 4.246h2.231l.352-1.184H6.154z" data-name="Subtraction 67" transform="translate(-5856.322 -9784.062)" style="fill:#00a2d1"/>
+    </g>
+</svg>

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="prefix__Group_3812" width="16.345" height="17.088"
+	data-name="Group 3812" viewBox="0 0 16.345 17.088">
+	<defs>
+	  <style>
+		.prefix__cls-1154,
+		.prefix__cls-3154 {
+		  fill: none;
+		}
+
+		.prefix__cls-1154 {
+		  stroke: #999;
+		}
+
+		.prefix__cls-2154 {
+		  stroke: none;
+		}
+	  </style>
+	</defs>
+	<g id="prefix__Rectangle_304" class="prefix__cls-1154" data-name="Rectangle 304">
+	  <rect width="8.916" height="17.088" class="prefix__cls-2154" rx="2" />
+	  <rect width="7.916" height="16.088" x=".5" y=".5" class="prefix__cls-3154" rx="1.5" />
+	</g>
+	<g id="prefix__Rectangle_305" class="prefix__cls-1154" data-name="Rectangle 305"
+	  transform="translate(7.43)">
+	  <rect width="8.916" height="17.088" class="prefix__cls-2154" rx="2" />
+	  <rect width="7.916" height="16.088" x=".5" y=".5" class="prefix__cls-3154" rx="1.5" />
+	</g>
+  </svg>

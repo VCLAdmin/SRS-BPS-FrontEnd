@@ -1,0 +1,341 @@
+<div id="sps-result-tab-acoustics-background-panel" class="sps-result-tab-acoustics-background-panel">
+  <div id="sps-result-tab-acoustics">
+    <nz-tabset [(nzSelectedIndex)]="selectedIndex" nzType="editable-card" style="height: 100%;">
+      <nz-tab nzTitle="Rw,res" [nzTitle]="titleTemplate">
+        <ng-template #titleTemplate>
+          <span class="acousticTabs">Rw, res</span>
+          <b *ngIf="selectedIndex !== 0" style="color: #445c67; font-weight: 600;">dB</b>
+          <b *ngIf="selectedIndex === 0" style="color: #00a2d1; font-weight: 600;">dB</b>
+        </ng-template>
+        <div class="sps-result-tab-work-space-container">
+          <div id="sps-result-tab-sound-transmission-heading" class="sps-result-tab-sound-transmission-heading">
+            {{'result.overall-window-performance' | translate}} (dB)
+          </div>
+          <!-- Overall window performance -->
+
+          <div id="sps-result-tab-overall-result-display-container" class="sps-result-tab-overall-result-display-container">
+            <div class="sps-result-tab-overall-result-display-container-text">Rw,res = {{ getTotalRw() }} dB</div>
+          </div>
+          <div id="sps-result-tab-frf-display-container" class="sps-result-tab-frf-display-container hidden">
+            <canvas id="sps-acoustic-result-tab-frf-display-canvas"></canvas>
+          </div>
+
+          <div id="sps-result-tab-details-display-container" class="sps-result-tab-details-display-container">
+            <div class="sps-result-tab-details-icon">
+              <img id="sps-round-icon-infoacoustic-blue" src="/assets/Images/sps/sps_round_icon_infoacoustic_blue.svg">
+            </div>
+
+            <div class="sps-result-tab-details-display-container-text">{{'result.acoustics-info-text' | translate }}</div>
+            <!-- In accordance with DIN 4109-2:2018 "Sound insulation in buildings - Part 2: Verification of compliance with the requirements by calculation", an area-based energy calculation of the “weighted sound reduction index of building components” Rw,res has been carried out for the user-defined window unit. -->
+          </div>
+
+        </div>
+      </nz-tab>
+      <nz-tab nzTitle="Chart" [nzTitle]="titleTemplate2">
+        <ng-template #titleTemplate2>
+          <span  class="acousticTabs">{{'result.chart' | translate}}</span>
+          <img src="../../../../../assets/Images/icons/sps_special_icon_chart_off.svg" *ngIf="selectedIndex !== 1" style="padding-bottom: 2px;">
+          <img src="../../../../../assets/Images/icons/sps_special_icon_chart_on.svg" *ngIf="selectedIndex === 1" style="padding-bottom: 2px;">
+        </ng-template>
+        <div class="sps-result-tab-work-space-container">
+          <div class="sps-result-tab-sound-transmission-heading">
+            {{'result.overall-window-performance' | translate }}
+          </div>
+          <div class="areachart-wrapper dark" style="padding-bottom: -55px;" *ngIf="selectedIndex === 1">
+            <app-acoustic-chart [ChartDataList]="chartDataBasic" [unified3DModel]="unified3DModel"></app-acoustic-chart>
+          </div>
+        </div>
+      </nz-tab>
+      <nz-tab nzTitle="Table" [nzTitle]="titleTemplate3" *ngIf="showTable">
+        <ng-template #titleTemplate3>
+          <span class="acousticTabs">{{'result.table' | translate}}</span>
+          <img src="../../../../../assets/Images/icons/sps_special_icon_table_off.svg" *ngIf="selectedIndex !== 2" style="padding-bottom: 2px;">
+          <img src="../../../../../assets/Images/icons/sps_special_icon_table_on.svg" *ngIf="selectedIndex === 2" style="padding-bottom: 2px;">
+        </ng-template>
+        <div class="sps-result-tab-work-space-container">
+          <div class="sps-result-tab-sound-transmission-heading">{{'result.overall-window-performance' | translate }} (dB)</div>
+          <div style="overflow: auto;height: calc(100% - 66px);">
+            <table class="table">
+              <tr>
+                <td class="noBorder" colspan="22">{{'result.frequency' | translate }} (Hz)</td> 
+              </tr>
+              <tr>
+                <td class="noBorder"> </td>
+                <td class="noBorder" *ngFor="let ser of chartData[0].series"> {{ ser.name }} </td> 
+              </tr>
+              <tr *ngFor="let element of chartData;let i = index" [ngStyle]="{'color':colorScheme.domain[i]}">
+                <td class="noBorder"> {{element.name}}</td>
+                <td *ngFor="let ser of element.series"> {{ ser.value | number : '1.0-0' }} </td> 
+              </tr>
+            </table>
+          </div>
+        </div>
+      </nz-tab>
+    </nz-tabset>
+    <div id="sps-result-tab-environment-settings-container" class="sps-result-tab-environment-settings-container">
+      <div id="sps-result-tab-environment-settings-icons-container"
+           class="sps-result-tab-environment-settings-icons-container">
+        <div id="sps-result-tab-environment-settings-icons-text" class="sps-result-tab-environment-settings-icons-text">
+          {{'result.environmental-audio' | translate | uppercase}}
+        </div>
+        <!-- ENVIRONMENTAL AUDIO -->
+        <div class="sps-result-icon-list-sound-type">
+          <bps-radio-group [(ngModel)]="selectedAudio" (ngModelChange)="onClickChangeAudioSelection()"
+                           style="display: flex; flex-wrap: nowrap;">
+            <label bps-radio-button bpsValue="plane" (mouseenter)="radioValueA_hovered = true;"
+                   (mouseleave)="radioValueA_hovered = false;" bpsRadioButtonType="variation10">
+              <svg *ngIf="selectedAudio !== 'plane' && !radioValueA_hovered" xmlns="http://www.w3.org/2000/svg"
+                   width="39.999" height="39.999" viewBox="0 0 39.999 39.999" bps-tooltip [bpsTooltipType]="'variation_10'"
+                   bpsTooltipTitle="{{'result.airport' | translate }}" bpsTooltipPlacement="bottom">
+                <g id="prefix__sps_round_icon_airport_enabled" transform="translate(4975 10528)">
+                  <g id="prefix__Group_1976" data-name="Group 1976" transform="translate(-4966.447 -10518.441)">
+                    <path id="prefix__Path_777"
+                          d="M259.244-3643.425c-.467.277-.655.283-.925.039-.363-.328-.375-.458-.09-1.056l-.512-.213-3.542-1.449c-.176-.072-.322-.164-.345-.375a.467.467 0 0 1 .264-.455 4.016 4.016 0 0 1 2.79-.644c.594.06 1.191.091 1.786.136.475.036.95.078 1.425.108a.24.24 0 0 0 .176-.076c.554-.668 1.08-1.361 1.658-2.007.7-.787 1.465-1.523 2.173-2.306a4.673 4.673 0 0 0 .489-.837l-1.436-.61-9.241-3.919c-.044-.019-.088-.039-.131-.06a.419.419 0 0 1-.148-.7 2.431 2.431 0 0 1 2.232-.847c1.117.149 2.236.283 3.353.424a.743.743 0 0 1 .107.017.291.291 0 0 0 .35-.134 5.128 5.128 0 0 1 1.158-1.112l.09-.061c.453-.287.481-.284.85.091.157.159.321.312.467.481a.25.25 0 0 1 .048.215c-.124.265-.27.52-.414.791l1.047.141c.354.047.706.086 1.058.137a.291.291 0 0 0 .31-.114 5.079 5.079 0 0 1 1.143-1.075l.06-.04c.457-.292.478-.29.855.088.154.154.3.315.462.46a.192.192 0 0 1 .052.266l-.37.7c.2.023.4.054.6.07.576.047 1.153.118 1.729.122a1.422 1.422 0 0 0 1.074-.469c.619-.652 1.262-1.282 1.919-1.9a5.818 5.818 0 0 1 2.3-1.246c.218-.068.442-.118.665-.166a.713.713 0 0 1 .863.824 6.416 6.416 0 0 1-1.421 3.024c-.594.666-1.217 1.308-1.855 1.932a1.493 1.493 0 0 0-.477 1.111c0 .577.074 1.154.117 1.731.006.083.019.166.029.249.184-.079.361-.166.546-.229a.235.235 0 0 1 .2.047c.246.232.476.48.722.713a.156.156 0 0 1 .039.219c-.212.334-.417.674-.65.992a3.73 3.73 0 0 1-.483.489.281.281 0 0 0-.1.278c.1.765.182 1.532.272 2.3a.186.186 0 0 0 .021.043c.175-.1.344-.216.523-.309.263-.137.266-.131.47.075s.413.407.608.621a.24.24 0 0 1 .043.214 6.53 6.53 0 0 1-.539.87 7.439 7.439 0 0 1-.735.747.281.281 0 0 0-.1.265c.159 1.249.294 2.5.478 3.748a2.464 2.464 0 0 1-.741 2.219c-.308.31-.618.241-.786-.164l-3.7-8.9-.75-1.8c-.018-.044-.039-.087-.062-.137a3.667 3.667 0 0 0-1.045.663c-1.047 1.027-2.12 2.028-3.194 3.026-.264.245-.575.438-.858.663a.26.26 0 0 0-.094.185c.085 1.186.178 2.37.268 3.555a3.947 3.947 0 0 1-.7 2.565.421.421 0 0 1-.413.209.426.426 0 0 1-.345-.307q-.8-1.993-1.606-3.984c-.034-.049-.055-.099-.081-.162z"
+                          data-name="Path 777" transform="translate(-253.503 3661.025)" style="fill:#666" />
+                  </g>
+                  <g id="prefix__Group_520" data-name="Group 520" transform="translate(-4975 -10528)">
+                    <g id="prefix__Ellipse_97" data-name="Ellipse 97" style="stroke:#666;stroke-width:2px;fill:none">
+                      <circle cx="20" cy="20" r="20" style="stroke:none" />
+                      <circle cx="20" cy="20" r="19" style="fill:none" />
+                    </g>
+                  </g>
+                </g>
+              </svg>
+              <svg *ngIf="selectedAudio === 'plane'" xmlns="http://www.w3.org/2000/svg" width="39.999" height="39.999"
+                   viewBox="0 0 39.999 39.999" bps-tooltip [bpsTooltipType]="'variation_10'"
+                   bpsTooltipTitle="{{'result.airport' | translate }}" bpsTooltipPlacement="bottom">
+                <g id="prefix__sps_round_icon_airport_active" transform="translate(4975 10528)">
+                  <g id="prefix__Group_1976" data-name="Group 1976" transform="translate(-4966.447 -10518.441)">
+                    <path id="prefix__Path_777"
+                          d="M259.244-3643.425c-.467.277-.655.283-.925.039-.363-.328-.375-.458-.09-1.056l-.512-.213-3.542-1.449c-.176-.072-.322-.164-.345-.375a.467.467 0 0 1 .264-.455 4.016 4.016 0 0 1 2.79-.644c.594.06 1.191.091 1.786.136.475.036.95.078 1.425.108a.24.24 0 0 0 .176-.076c.554-.668 1.08-1.361 1.658-2.007.7-.787 1.465-1.523 2.173-2.306a4.673 4.673 0 0 0 .489-.837l-1.436-.61-9.241-3.919c-.044-.019-.088-.039-.131-.06a.419.419 0 0 1-.148-.7 2.431 2.431 0 0 1 2.232-.847c1.117.149 2.236.283 3.353.424a.743.743 0 0 1 .107.017.291.291 0 0 0 .35-.134 5.128 5.128 0 0 1 1.158-1.112l.09-.061c.453-.287.481-.284.85.091.157.159.321.312.467.481a.25.25 0 0 1 .048.215c-.124.265-.27.52-.414.791l1.047.141c.354.047.706.086 1.058.137a.291.291 0 0 0 .31-.114 5.079 5.079 0 0 1 1.143-1.075l.06-.04c.457-.292.478-.29.855.088.154.154.3.315.462.46a.192.192 0 0 1 .052.266l-.37.7c.2.023.4.054.6.07.576.047 1.153.118 1.729.122a1.422 1.422 0 0 0 1.074-.469c.619-.652 1.262-1.282 1.919-1.9a5.818 5.818 0 0 1 2.3-1.246c.218-.068.442-.118.665-.166a.713.713 0 0 1 .863.824 6.416 6.416 0 0 1-1.421 3.024c-.594.666-1.217 1.308-1.855 1.932a1.493 1.493 0 0 0-.477 1.111c0 .577.074 1.154.117 1.731.006.083.019.166.029.249.184-.079.361-.166.546-.229a.235.235 0 0 1 .2.047c.246.232.476.48.722.713a.156.156 0 0 1 .039.219c-.212.334-.417.674-.65.992a3.73 3.73 0 0 1-.483.489.281.281 0 0 0-.1.278c.1.765.182 1.532.272 2.3a.186.186 0 0 0 .021.043c.175-.1.344-.216.523-.309.263-.137.266-.131.47.075s.413.407.608.621a.24.24 0 0 1 .043.214 6.53 6.53 0 0 1-.539.87 7.439 7.439 0 0 1-.735.747.281.281 0 0 0-.1.265c.159 1.249.294 2.5.478 3.748a2.464 2.464 0 0 1-.741 2.219c-.308.31-.618.241-.786-.164l-3.7-8.9-.75-1.8c-.018-.044-.039-.087-.062-.137a3.667 3.667 0 0 0-1.045.663c-1.047 1.027-2.12 2.028-3.194 3.026-.264.245-.575.438-.858.663a.26.26 0 0 0-.094.185c.085 1.186.178 2.37.268 3.555a3.947 3.947 0 0 1-.7 2.565.421.421 0 0 1-.413.209.426.426 0 0 1-.345-.307q-.8-1.993-1.606-3.984c-.034-.049-.055-.099-.081-.162z"
+                          data-name="Path 777" transform="translate(-253.503 3661.025)" style="fill:#00a2d1" />
+                  </g>
+                  <g id="prefix__Group_520" data-name="Group 520" transform="translate(-4975 -10528)">
+                    <g id="prefix__Ellipse_97" data-name="Ellipse 97" style="stroke:#00a2d1;stroke-width:2px;fill:none">
+                      <circle cx="20" cy="20" r="20" style="stroke:none" />
+                      <circle cx="20" cy="20" r="19" style="fill:none" />
+                    </g>
+                  </g>
+                </g>
+              </svg>
+              <svg *ngIf="radioValueA_hovered && selectedAudio !== 'plane'" xmlns="http://www.w3.org/2000/svg"
+                   width="39.999" height="39.999" viewBox="0 0 39.999 39.999" bps-tooltip [bpsTooltipType]="'variation_10'"
+                   bpsTooltipTitle="{{'result.airport' | translate }}" bpsTooltipPlacement="bottom">
+                <g id="prefix__sps_round_icon_airport_hover" transform="translate(4975 10528)">
+                  <g id="prefix__Group_1976" data-name="Group 1976" transform="translate(-4966.447 -10518.441)">
+                    <path id="prefix__Path_777"
+                          d="M259.244-3643.425c-.467.277-.655.283-.925.039-.363-.328-.375-.458-.09-1.056l-.512-.213-3.542-1.449c-.176-.072-.322-.164-.345-.375a.467.467 0 0 1 .264-.455 4.016 4.016 0 0 1 2.79-.644c.594.06 1.191.091 1.786.136.475.036.95.078 1.425.108a.24.24 0 0 0 .176-.076c.554-.668 1.08-1.361 1.658-2.007.7-.787 1.465-1.523 2.173-2.306a4.673 4.673 0 0 0 .489-.837l-1.436-.61-9.241-3.919c-.044-.019-.088-.039-.131-.06a.419.419 0 0 1-.148-.7 2.431 2.431 0 0 1 2.232-.847c1.117.149 2.236.283 3.353.424a.743.743 0 0 1 .107.017.291.291 0 0 0 .35-.134 5.128 5.128 0 0 1 1.158-1.112l.09-.061c.453-.287.481-.284.85.091.157.159.321.312.467.481a.25.25 0 0 1 .048.215c-.124.265-.27.52-.414.791l1.047.141c.354.047.706.086 1.058.137a.291.291 0 0 0 .31-.114 5.079 5.079 0 0 1 1.143-1.075l.06-.04c.457-.292.478-.29.855.088.154.154.3.315.462.46a.192.192 0 0 1 .052.266l-.37.7c.2.023.4.054.6.07.576.047 1.153.118 1.729.122a1.422 1.422 0 0 0 1.074-.469c.619-.652 1.262-1.282 1.919-1.9a5.818 5.818 0 0 1 2.3-1.246c.218-.068.442-.118.665-.166a.713.713 0 0 1 .863.824 6.416 6.416 0 0 1-1.421 3.024c-.594.666-1.217 1.308-1.855 1.932a1.493 1.493 0 0 0-.477 1.111c0 .577.074 1.154.117 1.731.006.083.019.166.029.249.184-.079.361-.166.546-.229a.235.235 0 0 1 .2.047c.246.232.476.48.722.713a.156.156 0 0 1 .039.219c-.212.334-.417.674-.65.992a3.73 3.73 0 0 1-.483.489.281.281 0 0 0-.1.278c.1.765.182 1.532.272 2.3a.186.186 0 0 0 .021.043c.175-.1.344-.216.523-.309.263-.137.266-.131.47.075s.413.407.608.621a.24.24 0 0 1 .043.214 6.53 6.53 0 0 1-.539.87 7.439 7.439 0 0 1-.735.747.281.281 0 0 0-.1.265c.159 1.249.294 2.5.478 3.748a2.464 2.464 0 0 1-.741 2.219c-.308.31-.618.241-.786-.164l-3.7-8.9-.75-1.8c-.018-.044-.039-.087-.062-.137a3.667 3.667 0 0 0-1.045.663c-1.047 1.027-2.12 2.028-3.194 3.026-.264.245-.575.438-.858.663a.26.26 0 0 0-.094.185c.085 1.186.178 2.37.268 3.555a3.947 3.947 0 0 1-.7 2.565.421.421 0 0 1-.413.209.426.426 0 0 1-.345-.307q-.8-1.993-1.606-3.984c-.034-.049-.055-.099-.081-.162z"
+                          data-name="Path 777" transform="translate(-253.503 3661.025)" style="fill:#445c67" />
+                  </g>
+                  <g id="prefix__Group_520" data-name="Group 520" transform="translate(-4975 -10528)">
+                    <g id="prefix__Ellipse_97" data-name="Ellipse 97" style="stroke:#445c67;stroke-width:2px;fill:none">
+                      <circle cx="20" cy="20" r="20" style="stroke:none" />
+                      <circle cx="20" cy="20" r="19" style="fill:none" />
+                    </g>
+                  </g>
+                </g>
+              </svg>
+            </label>
+            <label bps-radio-button bpsValue="road" (mouseenter)="radioValueB_hovered = true;"
+                   (mouseleave)="radioValueB_hovered = false;" bpsRadioButtonType="variation10">
+              <svg *ngIf="selectedAudio !== 'road' && !radioValueB_hovered" xmlns="http://www.w3.org/2000/svg"
+                   width="39.999" height="39.999" viewBox="0 0 39.999 39.999" bps-tooltip [bpsTooltipType]="'variation_10'"
+                   bpsTooltipTitle="{{'result.highway' | translate }}" bpsTooltipPlacement="bottom">
+                <defs>
+                  <style>
+                    .cls-2 {
+                      fill: #666
+                    }
+                  </style>
+                </defs>
+                <g id="sps_round_icon_highway_enabled" transform="translate(-3770.001 -85.001)">
+                  <g id="Group_1984" data-name="Group 1984" transform="translate(3770.001 85.001)">
+                    <g id="Ellipse_97" fill="none" stroke="#666" stroke-width="2px" data-name="Ellipse 97">
+                      <circle cx="20" cy="20" r="20" stroke="none" />
+                      <circle cx="20" cy="20" r="19" />
+                    </g>
+                  </g>
+                  <g id="Group_6040" data-name="Group 6040" transform="translate(5)">
+                    <path id="Subtraction_80"
+                          d="M-9115 2127h-7l-.453-9.5h4.722l2.731 9.5zm-4.024-14h-3.643l-.334-7h1.965l2.012 7z" class="cls-2"
+                          data-name="Subtraction 80" transform="translate(12909 -2012)" />
+                    <path id="Subtraction_81"
+                          d="M-9117 2127h-7l2.731-9.5h4.722l-.453 9.5zm.667-14h-3.643l2.012-7h1.964l-.334 7z" class="cls-2"
+                          data-name="Subtraction 81" transform="translate(12900 -2012)" />
+                    <path id="Union_93" d="M-9100 2109v-2h2v2zm-20 0v-2h-3v-2h28v2h-23v2z" class="cls-2"
+                          data-name="Union 93" transform="translate(12894 -2003)" />
+                  </g>
+                </g>
+              </svg>
+              <svg *ngIf="selectedAudio === 'road'" xmlns="http://www.w3.org/2000/svg" width="39.999" height="39.999"
+                   viewBox="0 0 39.999 39.999" bps-tooltip [bpsTooltipType]="'variation_10'"
+                   bpsTooltipTitle="{{'result.highway' | translate }}" bpsTooltipPlacement="bottom">
+                <defs>
+                  <style>
+                    .cls-2 {
+                      fill: #00a2d1
+                    }
+                  </style>
+                </defs>
+                <g id="sps_round_icon_highway_active" transform="translate(-3770.001 -85.001)">
+                  <g id="Group_1984" data-name="Group 1984" transform="translate(3770.001 85.001)">
+                    <g id="Ellipse_97" fill="none" stroke="#00a2d1" stroke-width="2px" data-name="Ellipse 97">
+                      <circle cx="20" cy="20" r="20" stroke="none" />
+                      <circle cx="20" cy="20" r="19" />
+                    </g>
+                  </g>
+                  <g id="Group_6040" data-name="Group 6040" transform="translate(5)">
+                    <path id="Subtraction_80"
+                          d="M-9115 2127h-7l-.453-9.5h4.722l2.731 9.5zm-4.024-14h-3.643l-.334-7h1.965l2.012 7z" class="cls-2"
+                          data-name="Subtraction 80" transform="translate(12909 -2012)" />
+                    <path id="Subtraction_81"
+                          d="M-9117 2127h-7l2.731-9.5h4.722l-.453 9.5zm.667-14h-3.643l2.012-7h1.964l-.334 7z" class="cls-2"
+                          data-name="Subtraction 81" transform="translate(12900 -2012)" />
+                    <path id="Union_93" d="M-9100 2109v-2h2v2zm-20 0v-2h-3v-2h28v2h-23v2z" class="cls-2"
+                          data-name="Union 93" transform="translate(12894 -2003)" />
+                  </g>
+                </g>
+              </svg>
+              <svg *ngIf="radioValueB_hovered && selectedAudio !== 'road'" xmlns="http://www.w3.org/2000/svg"
+                   width="39.999" height="39.999" viewBox="0 0 39.999 39.999" bps-tooltip [bpsTooltipType]="'variation_10'"
+                   bpsTooltipTitle="{{'result.highway' | translate }}" bpsTooltipPlacement="bottom">
+                <defs>
+                  <style>
+                    .cls-2 {
+                      fill: #445c67
+                    }
+                  </style>
+                </defs>
+                <g id="sps_round_icon_highway_hover" transform="translate(-3770.001 -85.001)">
+                  <g id="Group_1984" data-name="Group 1984" transform="translate(3770.001 85.001)">
+                    <g id="Ellipse_97" fill="none" stroke="#445c67" stroke-width="2px" data-name="Ellipse 97">
+                      <circle cx="20" cy="20" r="20" stroke="none" />
+                      <circle cx="20" cy="20" r="19" />
+                    </g>
+                  </g>
+                  <g id="Group_6040" data-name="Group 6040" transform="translate(5)">
+                    <path id="Subtraction_80"
+                          d="M-9115 2127h-7l-.453-9.5h4.722l2.731 9.5zm-4.024-14h-3.643l-.334-7h1.965l2.012 7z" class="cls-2"
+                          data-name="Subtraction 80" transform="translate(12909 -2012)" />
+                    <path id="Subtraction_81"
+                          d="M-9117 2127h-7l2.731-9.5h4.722l-.453 9.5zm.667-14h-3.643l2.012-7h1.964l-.334 7z" class="cls-2"
+                          data-name="Subtraction 81" transform="translate(12900 -2012)" />
+                    <path id="Union_93" d="M-9100 2109v-2h2v2zm-20 0v-2h-3v-2h28v2h-23v2z" class="cls-2"
+                          data-name="Union 93" transform="translate(12894 -2003)" />
+                  </g>
+                </g>
+              </svg>
+            </label>
+            <label bps-radio-button bpsValue="train" (mouseenter)="radioValueC_hovered = true;"
+                   (mouseleave)="radioValueC_hovered = false;" bpsRadioButtonType="variation10">
+              <svg *ngIf="selectedAudio !== 'train' && !radioValueC_hovered" xmlns="http://www.w3.org/2000/svg"
+                   width="39.999" height="39.999" viewBox="0 0 39.999 39.999" bps-tooltip [bpsTooltipType]="'variation_10'"
+                   bpsTooltipTitle="{{'result.railway' | translate }}" bpsTooltipPlacement="bottom">
+                <g id="prefix__sps_round_icon_train_enabled" transform="translate(4838 10528)">
+                  <g id="prefix__Group_1974" data-name="Group 1974" transform="translate(-4826.932 -10518.944)">
+                    <g id="prefix__Group_1970" data-name="Group 1970">
+                      <g id="prefix__Group_1969" data-name="Group 1969">
+                        <g id="prefix__Group_1968" data-name="Group 1968">
+                          <path id="prefix__Path_776"
+                                d="M326.257 269.144v1.673h-1.813l.728 1.177-1.387-.062-.686-1.115H312.35l-.7 1.115-1.311.062.728-1.177H309.1v-1.673h3.007l.865-1.395h-1.64v-1.395h2.5l.533-.856a3.014 3.014 0 0 1-2.678-2.993v-10.013a3.014 3.014 0 0 1 3.013-3.012h6.109a3.012 3.012 0 0 1 3.012 3.012v10.014a3.012 3.012 0 0 1-2.675 2.993l.533.856h2.346v1.395h-1.484l.865 1.395zm-3.829-12.928v-2.036a1 1 0 0 0-1-1h-7.336a1 1 0 0 0-1 1v2.036a1 1 0 0 0 1 1h7.336a1 1 0 0 0 .999-1zm0 6.6a1.116 1.116 0 1 0-1.115 1.115 1.116 1.116 0 0 0 1.114-1.118zm-.354 6.332l-.856-1.395h-6.948l-.873 1.395zm-1.713-2.79l-.513-.837h-4.184l-.525.837zm-.931-14.267v-1.31a.18.18 0 0 0-.179-.182h-2.987a.181.181 0 0 0-.182.182v1.31a.181.181 0 0 0 .182.182h2.987a.18.18 0 0 0 .178-.186zm-4.114 10.725a1.116 1.116 0 1 0-1.116 1.115 1.116 1.116 0 0 0 1.115-1.118z"
+                                data-name="Path 776" transform="translate(-309.1 -249.48)" style="fill:#666" />
+                        </g>
+                      </g>
+                    </g>
+                  </g>
+                  <g id="prefix__Group_1985" data-name="Group 1985" transform="translate(-4838 -10528)">
+                    <g id="prefix__Ellipse_97" data-name="Ellipse 97" style="stroke:#666;stroke-width:2px;fill:none">
+                      <circle cx="20" cy="20" r="20" style="stroke:none" />
+                      <circle cx="20" cy="20" r="19" style="fill:none" />
+                    </g>
+                  </g>
+                </g>
+              </svg>
+              <svg *ngIf="selectedAudio === 'train'" xmlns="http://www.w3.org/2000/svg" width="39.999" height="39.999"
+                   viewBox="0 0 39.999 39.999" bps-tooltip [bpsTooltipType]="'variation_10'"
+                   bpsTooltipTitle="{{'result.railway' | translate }}" bpsTooltipPlacement="bottom">
+                <g id="prefix__sps_round_icon_train_active" transform="translate(4838 10528)">
+                  <g id="prefix__Group_1974" data-name="Group 1974" transform="translate(-4826.932 -10518.944)">
+                    <g id="prefix__Group_1970" data-name="Group 1970">
+                      <g id="prefix__Group_1969" data-name="Group 1969">
+                        <g id="prefix__Group_1968" data-name="Group 1968">
+                          <path id="prefix__Path_776"
+                                d="M326.257 269.144v1.673h-1.813l.728 1.177-1.387-.062-.686-1.115H312.35l-.7 1.115-1.311.062.728-1.177H309.1v-1.673h3.007l.865-1.395h-1.64v-1.395h2.5l.533-.856a3.014 3.014 0 0 1-2.678-2.993v-10.013a3.014 3.014 0 0 1 3.013-3.012h6.109a3.012 3.012 0 0 1 3.012 3.012v10.014a3.012 3.012 0 0 1-2.675 2.993l.533.856h2.346v1.395h-1.484l.865 1.395zm-3.829-12.928v-2.036a1 1 0 0 0-1-1h-7.336a1 1 0 0 0-1 1v2.036a1 1 0 0 0 1 1h7.336a1 1 0 0 0 .999-1zm0 6.6a1.116 1.116 0 1 0-1.115 1.115 1.116 1.116 0 0 0 1.114-1.118zm-.354 6.332l-.856-1.395h-6.948l-.873 1.395zm-1.713-2.79l-.513-.837h-4.184l-.525.837zm-.931-14.267v-1.31a.18.18 0 0 0-.179-.182h-2.987a.181.181 0 0 0-.182.182v1.31a.181.181 0 0 0 .182.182h2.987a.18.18 0 0 0 .178-.186zm-4.114 10.725a1.116 1.116 0 1 0-1.116 1.115 1.116 1.116 0 0 0 1.115-1.118z"
+                                data-name="Path 776" transform="translate(-309.1 -249.48)" style="fill:#00a2d1" />
+                        </g>
+                      </g>
+                    </g>
+                  </g>
+                  <g id="prefix__Group_1985" data-name="Group 1985" transform="translate(-4838 -10528)">
+                    <g id="prefix__Ellipse_97" data-name="Ellipse 97" style="stroke:#00a2d1;stroke-width:2px;fill:none">
+                      <circle cx="20" cy="20" r="20" style="stroke:none" />
+                      <circle cx="20" cy="20" r="19" style="fill:none" />
+                    </g>
+                  </g>
+                </g>
+              </svg>
+              <svg *ngIf="selectedAudio !== 'train' && radioValueC_hovered" xmlns="http://www.w3.org/2000/svg"
+                   width="39.999" height="39.999" viewBox="0 0 39.999 39.999" bps-tooltip [bpsTooltipType]="'variation_10'"
+                   bpsTooltipTitle="{{'result.railway' | translate }}" bpsTooltipPlacement="bottom">
+                <g id="prefix__sps_round_icon_train_hover" transform="translate(4838 10528)">
+                  <g id="prefix__Group_1974" data-name="Group 1974" transform="translate(-4826.932 -10518.944)">
+                    <g id="prefix__Group_1970" data-name="Group 1970">
+                      <g id="prefix__Group_1969" data-name="Group 1969">
+                        <g id="prefix__Group_1968" data-name="Group 1968">
+                          <path id="prefix__Path_776"
+                                d="M326.257 269.144v1.673h-1.813l.728 1.177-1.387-.062-.686-1.115H312.35l-.7 1.115-1.311.062.728-1.177H309.1v-1.673h3.007l.865-1.395h-1.64v-1.395h2.5l.533-.856a3.014 3.014 0 0 1-2.678-2.993v-10.013a3.014 3.014 0 0 1 3.013-3.012h6.109a3.012 3.012 0 0 1 3.012 3.012v10.014a3.012 3.012 0 0 1-2.675 2.993l.533.856h2.346v1.395h-1.484l.865 1.395zm-3.829-12.928v-2.036a1 1 0 0 0-1-1h-7.336a1 1 0 0 0-1 1v2.036a1 1 0 0 0 1 1h7.336a1 1 0 0 0 .999-1zm0 6.6a1.116 1.116 0 1 0-1.115 1.115 1.116 1.116 0 0 0 1.114-1.118zm-.354 6.332l-.856-1.395h-6.948l-.873 1.395zm-1.713-2.79l-.513-.837h-4.184l-.525.837zm-.931-14.267v-1.31a.18.18 0 0 0-.179-.182h-2.987a.181.181 0 0 0-.182.182v1.31a.181.181 0 0 0 .182.182h2.987a.18.18 0 0 0 .178-.186zm-4.114 10.725a1.116 1.116 0 1 0-1.116 1.115 1.116 1.116 0 0 0 1.115-1.118z"
+                                data-name="Path 776" transform="translate(-309.1 -249.48)" style="fill:#445c67" />
+                        </g>
+                      </g>
+                    </g>
+                  </g>
+                  <g id="prefix__Group_1985" data-name="Group 1985" transform="translate(-4838 -10528)">
+                    <g id="prefix__Ellipse_97" data-name="Ellipse 97" style="stroke:#445c67;stroke-width:2px;fill:none">
+                      <circle cx="20" cy="20" r="20" style="stroke:none" />
+                      <circle cx="20" cy="20" r="19" style="fill:none" />
+                    </g>
+                  </g>
+                </g>
+              </svg>
+            </label>
+          </bps-radio-group>
+        </div>
+      </div>
+      <div id="sps-result-tab-music-player-container" class="sps-result-tab-music-player-container">
+
+        <div bps-tooltip [bpsTooltipType]="'variation_10'" attr.bpsTooltipTitle="playing ? {{'result.acoustic-performance-stop-text' | translate}}:{{'result.acoustic-performance-playtext' | translate}}"
+             bpsTooltipPlacement="top" class="sps-result-icon-list">
+          <img bps-tooltip [bpsTooltipType]="'variation_10'" attr.bpsTooltipTitle="playing ? {{'result.acoustic-performance-stop-text' | translate}}:{{'result.acoustic-performance-playtext' | translate}}"
+               bpsTooltipPlacement="top" id="sps-play-icon"
+               [attr.src]="playing ? '../../assets/Images/sps/sps_round_icon_stop_blue.svg':'../../assets/Images/sps/sps_round_icon_play_grey.svg'"
+               (click)="onClickPlayAudio()">
+        </div>
+        <div id="sps-result-tab-music-player-wave-container" class="sps-result-tab-music-player-wave-container">
+          <canvas #audioVisualizer class="sps-result-tab-audio-visualizer"></canvas>
+        </div>
+      </div>
+
+      <div id="sps-result-tab-environment-settings-slider-container"
+           class="sps-result-tab-environment-settings-slider-container">
+        <div id="sps-result-tab-environment-settings-slider-text" class="sps-result-tab-environment-settings-slider-text">
+          {{'result.opening-percentage' | translate | uppercase}}
+        </div>
+        <!-- OPENING PERCENTAGE -->
+        <div class="sps-result-tab-environment-settings-slider-holder">
+          <div class="rangeslider" id="rangeslider">
+            <input type="range" min=0 max=100 step=25 class="myslider" id="sliderRange" [(ngModel)]="audioPercentage"
+                   (ngModelChange)="updateSelectedWindowOpening()">
+          </div>
+          <div id="sps-result-tab-environment-settings-slider-valuebox"
+               class="sps-result-tab-environment-settings-slider-valuebox">
+            <div id="sps-result-tab-environment-settings-slider-valuebox-text"
+                 class="sps-result-tab-environment-settings-slider-valuebox-text">
+              {{'result.open' | translate }}
+              {{selectedWindowOpening}}%
+            </div>
+            <!-- Open -->
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

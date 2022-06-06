@@ -1,0 +1,131 @@
+.identifier-flag-sighline {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 355px;
+  height: 100%;
+  background-color: #262626;
+  border-left: 1px solid #474747;
+  z-index: 1;
+}
+
+.sps-left-popout-mullion {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  height: 100%;
+}
+
+.sps-left-popout-mullion-top {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.sps-popout-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 27.6px 21px 17.4px 25px;
+  width: 355px;
+}
+
+.popout-panel-heading {
+  color: #00a2d1;
+}
+
+.sps-article-detail-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  border: solid 1px #474747;
+}
+
+.sps-fr-outerfr-container {
+  margin-bottom: 20px;
+  margin-left: 25px;
+  margin-right: 25px;
+  width: 305px;
+  align-items: center;
+}
+
+.sps-fr-outerfr-container-displaybox {
+  width: 163px;
+  height: 113px;
+}
+
+.sps-fr-outerfr-container-displaybox img {
+  height: 113px;
+}
+
+.sps-popout-article-detail-right {
+  margin: auto;
+}
+
+.sps-pill {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px 2.5px 5px 2.5px;
+  flex-grow: 1;
+  padding: 0px 4px;
+  border: 1px #363636 solid;
+  cursor: pointer;
+  width: 86.5px;
+  height: 28px;
+  border-radius: 15px;
+  background-color: #363636;
+}
+
+.sps-pill p {
+  width: 86.4px;
+  height: 16.2px;
+  font-family: UniversForSchueco-430Reg;
+  font-size: 15px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: normal;
+  text-align: center;
+  color: #ffffff;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.selectedBorder {
+  border: 1px solid #00a2d1;
+}
+
+.sps-article-tools-container {
+  display: flex;
+  justify-content: space-between;
+  width: 355px;
+  height: 22px;
+}
+
+.sps-left-popout-custom-btn {
+  margin-right: 25px !important;
+}
+
+.left-popout-confirm-btn-container {
+  margin-bottom: 20px;
+  margin-left: 245px;
+}
+
+::ng-deep
+  .bps-table-example-glass
+  > .bps-table-glass_profile
+  > .bps-table-glass-filter {
+  margin-left: 6px !important;
+  width: 310px !important;
+}

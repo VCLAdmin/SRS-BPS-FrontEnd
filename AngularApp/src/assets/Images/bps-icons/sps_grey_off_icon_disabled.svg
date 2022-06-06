@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+    <defs>
+        <style>
+            .prefix__cls-1{fill:none;stroke:#666}
+        </style>
+    </defs>
+    <g id="prefix__sps_grey_off_icon_disabled" transform="translate(-1637 -540)">
+        <g id="prefix__Group_5525" data-name="Group 5525" transform="translate(-40)">
+            <path id="prefix__Path_1850" d="M2997 266v8" class="prefix__cls-1" data-name="Path 1850" transform="translate(-1312 278)"/>
+            <g id="prefix__Ellipse_626" class="prefix__cls-1" data-name="Ellipse 626" transform="translate(1677 540)">
+                <circle cx="8" cy="8" r="8"/>
+                <circle cx="8" cy="8" r="7.5" fill="none"/>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,30 @@
+<div class="right-panel">
+    <div class="input-container">
+        <div class="scrolling-container">
+            <div *ngFor="let problem of problemList, let i = index, last as isLast" bps-tooltip
+                [bpsTooltipType]="'variation_10'"
+                [bpsTooltipTitle]="!bpsAnalysisResult[i]? '&nbsp;&nbsp;&nbsp;&nbsp;'+notComputedText+'&nbsp;&nbsp;&nbsp;&nbsp;': null"
+                bpsTooltipPlacement="left">
+                <button class="input-element" [ngStyle]="{'cursor':bpsAnalysisResult[i]?'pointer':'default'}" bps-button
+                    [bpsComputed]="bpsAnalysisResult[i]" [disabled]="!bpsAnalysisResult[i]" bpsType="editable"
+                    [ngClass]="{'border1px': currentProblemGuid==problem.ProblemGuid, 'last' : isLast}"
+                    [(bpsValue)]="problem.ProblemName" (bpsValueChange)="onClick(i)" (click)="onClick(i)"></button>
+            </div>
+            <!-- <button class="input-element" *ngFor="let problem of problemList, let i = index, last as isLast"
+                    bps-button [bpsComputed]="bpsAnalysisResult[i]" [disabled]="!bpsAnalysisResult[i]" bpsType="editable"
+                    [ngClass]="{'border1px': currentProblemGuid==problem.ProblemGuid, 'last' : isLast}"
+                    [(bpsValue)]="problem.ProblemName" (bpsValueChange)="onClick(i)" (click)="onClick(i)"
+                    bps-popover
+                    [bpsPopoverPlacement]="'right'"
+                    [bpsPopoverType]="'variation_4'"
+                    [bpsPopoverContent]="bpsAnalysisResult[i] ? tooltipComputed:tooltipNotCompouted"
+                ></button> -->
+        </div>
+    </div>
+
+</div>
+
+<!-- bps-popover
+            [bpsPopoverPlacement]="'right'"
+            [bpsPopoverType]="'variation_4'"
+            [bpsPopoverContent]="bpsAnalysisResult[i] ? tooltipComputed:tooltipNotCompouted"-->

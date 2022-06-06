@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+    <defs>
+        <style>
+            .cls-1,.cls-4{fill:none}.cls-1{stroke:#666;stroke-linejoin:round;stroke-width:1.5px}.cls-2{fill:#666}.cls-3{stroke:none}
+        </style>
+    </defs>
+    <g id="sps_square_icon_addoperability_grey" transform="translate(-360 -180)">
+        <g id="Rectangle_1473" class="cls-1" data-name="Rectangle 1473" transform="translate(360 180)">
+            <rect width="20" height="20" class="cls-3" rx="2"/>
+            <rect width="18.5" height="18.5" x=".75" y=".75" class="cls-4" rx="1.25"/>
+        </g>
+        <g id="Group_2700" data-name="Group 2700" transform="translate(-217.651 107.312)">
+            <rect id="Rectangle_411" width="1.408" height="8.146" class="cls-2" data-name="Rectangle 411" rx=".704" transform="rotate(-90 333.498 -250.102)"/>
+            <rect id="Rectangle_1471" width="1.408" height="8.146" class="cls-2" data-name="Rectangle 1471" rx=".704" transform="rotate(180 294.189 43.383)"/>
+        </g>
+    </g>
+</svg>

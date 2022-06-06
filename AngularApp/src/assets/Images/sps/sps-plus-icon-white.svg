@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <g id="sps_plus_icon_white" transform="translate(-955 -253)">
+    <rect id="Rectangle_411" data-name="Rectangle 411" class="cls-1" width="2.25" height="12" rx="1.125" transform="translate(959.875 253)"/>
+    <rect id="Rectangle_412" data-name="Rectangle 412" class="cls-1" width="2.25" height="12" rx="1.125" transform="translate(967 257.875) rotate(90)"/>
+  </g>
+</svg>

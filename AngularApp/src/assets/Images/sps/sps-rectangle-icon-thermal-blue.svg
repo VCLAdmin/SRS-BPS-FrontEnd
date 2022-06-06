@@ -1,0 +1,25 @@
+<svg id="sps_rectangle_icon_thermal_blue" xmlns="http://www.w3.org/2000/svg" width="15.723" height="8.311" viewBox="0 0 15.723 8.311">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #00a2d1;
+      }
+
+      .cls-2 {
+        fill: none;
+        stroke: #00a2d1;
+        stroke-linecap: round;
+      }
+    </style>
+  </defs>
+  <g id="Group_360" data-name="Group 360" transform="translate(15.723 0) rotate(90)">
+    <ellipse id="Ellipse_61" data-name="Ellipse 61" class="cls-1" cx="1.563" cy="1.563" rx="1.563" ry="1.563" transform="translate(0.626 12.521)"/>
+    <ellipse id="Ellipse_62" data-name="Ellipse 62" class="cls-1" cx="1.563" cy="1.563" rx="1.563" ry="1.563"/>
+    <path id="Path_167" data-name="Path 167" class="cls-2" d="M1.375,12.146S-1.4,7.918.936,6.158.21,0,.21,0" transform="translate(0.815 1.563)"/>
+  </g>
+  <g id="Group_361" data-name="Group 361" transform="translate(15.648 4.557) rotate(90)">
+    <ellipse id="Ellipse_61-2" data-name="Ellipse 61" class="cls-1" cx="1.563" cy="1.563" rx="1.563" ry="1.563" transform="translate(0.626 12.521)"/>
+    <ellipse id="Ellipse_62-2" data-name="Ellipse 62" class="cls-1" cx="1.563" cy="1.563" rx="1.563" ry="1.563"/>
+    <path id="Path_167-2" data-name="Path 167" class="cls-2" d="M1.375,12.146S-1.4,7.918.936,6.158.21,0,.21,0" transform="translate(0.815 1.563)"/>
+  </g>
+</svg>

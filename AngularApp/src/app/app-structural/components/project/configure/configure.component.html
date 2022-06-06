@@ -1,0 +1,119 @@
+<div>
+    <div nz-row id="main-container">
+        <div nz-col class="left-panel" style="height: 100%;">
+            <app-left-configure *ngIf="unified3DModel" #LeftConfigure
+                (unified3DModelEvent)="onGetUnified3DModelFromChildren($event)"
+                [unified3DModel]="unified3DModel"
+                (ActivePanelEvent)="getActivePanelValue($event)" 
+                (ngNotificaionShow)="ngNotificaionShow($event)"
+
+                (clearStructuralTableEvent)="clearStructuralTable()"
+                (getSpacerTypeByKeyEvent)="getSpacerTypeByKey($event)"
+                (onChangeProductTypeEvent)="onChangeProductType()" 
+                (onCloseFramingPopoutsEvent)="onCloseFramingPopouts()" 
+                (onClosePopoutsEvent)="onClosePopouts()"
+                (openCloseGlassPanelTableEvent)="onOpenCloseGlassPanelTableFromLeftPanel($event)"
+                (openLeftStructuralTableTableEvent)="onOpenLeftStructuralTable()"
+                (profileColorEvent)="onProfileColorChangeFromChildren($event)"
+                (sendDinWindLoadToTableEvent)="sendDinWindLoadToTable($event)"
+                (sendParentEvent)="onComputeClicked($event)"
+                (sendParentStatusEvent)="changePhysicsNProductStatus($event)"
+                (systemFacadeSelectedEvent)="onSystemFacadeSelected($event)"
+                (systemFacadeSelectedFromFramingEvent)="onSystemFacadeSelectedFromFraming($event)"
+                (systemSelectedEvent)="onSystemSelected($event)"
+                (windPressureEvent)="onwindPressureChangeFromChildren($event)"
+
+                [event3D]="event3D" 
+                [canBeDrawnBool]="canBeDrawnBool"
+                [problemGuid]="problemGuid"
+                [orderPlaced]="isOrderPlaced"
+                [iframeEvent]="iframeEvent"
+                
+                [pressureValues]="pressureValues" 
+                [spacerTypeArticle]="spacerTypeArticle" 
+                [structuralTableFormData]="structuralTableFormData"
+                ></app-left-configure>
+        </div>
+        <div nz-col class="work-panel">
+            <app-iframe-wrapper #iframeWrapper *ngIf="showViewer" height="2000px;" width="1000px;"
+                [unified3DModel]="unified3DModel"
+                (Loaded)="onLoaded($event)" 
+                (ngNotificaionShow)="ngNotificaionShow($event)"
+                (ChildEvents)="onChildEvents($event)"
+                (isCheckoutClicked)="onCheckoutClicked($event)"
+                (subTotalEvent)="setSubTotalFromChild($event)"
+
+                (changeLibraryInputValueEvent)="changeLibraryInputValue($event)"
+                (closeNdisableRightPanelEvent)="closeNdisableRightPanel($event)" 
+                (confirmSpacerTypeEvent)="confirmSpacerType($event)" 
+                (sendFormDataEvent)="sendFormData($event)"
+                (sendPressureValueEvent)="sendPressureValue($event)"
+
+                [URL]="URL" 
+                [event3D]="event3D"
+                [canBeDrawnBool]="canBeDrawnBool" 
+
+                [activePanel]="activePanel"
+                [disableCheckout]="disableCheckout" 
+
+                [problem]="problem" 
+                [orderPlaced]="isOrderPlaced"
+                [iframeEvent]="iframeEvent"
+                [ParentEvents]="iframeEvent.asObservable()" 
+                [dinWindLoad]="dinWindLoad"
+                [isGlassPanelActive]="isGlassPanelActive" 
+                [systemFacadeSelected]="systemFacadeSelected"
+                [systemFacadeSelectedFromFraming]="systemFacadeSelectedFromFraming" 
+                [systemSelected]="systemSelected"
+                >
+            </app-iframe-wrapper>
+        </div>
+        <div nz-col class="right-panel" [ngStyle]="style" mwlResizable [validateResize]="validate"
+            [enableGhostResize]="true" [resizeEdges]="{ bottom: false, right: false, top: false, left: true }"
+            [resizeSnapGrid]="{ left: 1, right: 1 }" (resizeStart)="onResizeStart($event)"
+            (resizeEnd)="onResizeEnd($event)" [ngClass]="{'hidden': !rightPanelOpened }">
+            <app-right-configure 
+                [unified3DModel]="unified3DModel"
+                (Loaded)="onLoaded($event)"
+                (problemListEvent)="onProblemListUpdateFromRight($event)"
+                (isCheckoutClicked)="onCheckoutClicked($event)"
+
+                (closeAllTablesEvent)="closeAllTables()" 
+                (closeSolverButtonEvent)="closeSolverButton()"
+                (eventEmitter)="listenForRightPanel($event)" 
+                (invalidProjectEvent)="isOrderValid($event)"
+
+                [orderPlaced]="isOrderPlaced"
+            ></app-right-configure>
+            <div *ngIf="rightPanelOpened" bps-tooltip [bpsTooltipType]="'variation_10'"
+                bpsTooltipTitle="{{'configure.close-panel' | translate }}"
+                bpsTooltipPlacement="left" class="close-right-panel-icon" (click)=onOpenCloseRightPanel()></div>
+        </div>
+        <div *ngIf="!rightPanelOpened" [ngClass]="{'zIndex-1':closeNdisableRightPanelBool}" bps-tooltip
+            [bpsTooltipType]="'variation_10'"
+            bpsTooltipTitle="{{'configure.configuration-panel' | translate }}"
+            bpsTooltipPlacement="left" class="open-right-panel-icon" (click)=onOpenCloseRightPanel()></div>
+    </div>
+    <div nz-row id="poweredByVCL" class="top-grey-border-intro-page" style="z-index:100;">
+        <div></div>
+        <div style="width: 100%; text-align: center">
+            <p>
+                {{'configure.powered-by' | translate}}
+                <span>{{'configure.virtual-construction-label' | translate}}</span>
+            </p>
+        </div>
+        <div style="position: absolute; right: 25px;">
+            <img src="/assets/Images/sps/sps-schuco-white-logo.svg" alt="">
+        </div>
+    </div>
+</div>
+<div id="loaderContainer" [ngClass]="{'show': showLoader, 'hide': !showLoader}"
+    style="position: absolute; top: 0; z-index: 1000;">
+    <div style="position: relative; width: 100vw; height: 100vh; background-color: black; opacity: .6;"></div>
+    <div style="position: absolute; top: 23vh; width: 100%; text-align: center;">
+        <img src="assets/Images/loaders/loading_2_GIF.gif" alt="" />
+    </div>
+</div>
+<div *ngIf="isResizingRightPanel" class="overlay"></div>
+<app-notification-custom #notifCustomTemplate></app-notification-custom>
+<app-model-custom #modelCustomTemplate></app-model-custom>

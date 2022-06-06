@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="25.031" height="13.516" viewBox="0 0 25.031 13.516">
+    <defs>
+        <style>
+            .cls-1,.cls-2{fill:none;stroke:#fff}.cls-1{stroke-linejoin:round;stroke-width:2px}
+        </style>
+    </defs>
+    <g id="sps_square_icon_grid_white" transform="translate(-392.5 -617.484)">
+        <path id="Path_1013" d="M-11828-11315.484h23.031l-5.758-11.516h-11.516z" class="cls-1" data-name="Path 1013" transform="translate(12221.499 11945.484)"/>
+        <path id="Path_1018" d="M-11823-11315.484l3.551-11.486" class="cls-2" data-name="Path 1018" transform="translate(12222.257 11945.484)"/>
+        <path id="Path_1019" d="M-11819.448-11315.484l-3.551-11.486" class="cls-2" data-name="Path 1019" transform="translate(12230.257 11945.484)"/>
+        <path id="Path_1017" d="M-11818-11315.484V-11327" class="cls-2" data-name="Path 1017" transform="translate(12223.016 11945.484)"/>
+        <path id="Path_1014" d="M-11826.03-11320.9h18.428" class="cls-2" data-name="Path 1014" transform="translate(12221.798 11946.409)"/>
+        <path id="Path_1015" d="M-11826.03-11320.9h15.267" class="cls-2" data-name="Path 1015" transform="translate(12223.402 11942.954)"/>
+    </g>
+</svg>

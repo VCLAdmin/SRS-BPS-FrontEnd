@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="39.753" height="39.754" viewBox="0 0 39.753 39.754">
+    <defs>
+        <style>
+            .cls-1{fill:#00a2d1;stroke:#fff;stroke-width:2px}.cls-2{fill:#fff}.cls-3{stroke:none}.cls-4{fill:none}
+        </style>
+    </defs>
+    <g id="sps_round_icon_stop_blue" transform="translate(-962 -206)">
+        <g id="Group_1990" data-name="Group 1990" transform="translate(5800 10734)">
+            <g id="Group_1985" data-name="Group 1985" transform="translate(-5550 -10624)">
+                <g id="Ellipse_97" class="cls-1" data-name="Ellipse 97" transform="translate(712 96)">
+                    <circle cx="19.876" cy="19.876" r="19.876" class="cls-3"/>
+                    <circle cx="19.876" cy="19.876" r="18.876" class="cls-4"/>
+                </g>
+            </g>
+        </g>
+        <g id="Group_2030" data-name="Group 2030" transform="translate(0 -.5)">
+            <path id="Rectangle_1144" d="M0 0h4v13H0z" class="cls-2" data-name="Rectangle 1144" transform="translate(977 220)"/>
+            <path id="Rectangle_1145" d="M0 0h4v13H0z" class="cls-2" data-name="Rectangle 1145" transform="translate(983 220)"/>
+        </g>
+    </g>
+</svg>

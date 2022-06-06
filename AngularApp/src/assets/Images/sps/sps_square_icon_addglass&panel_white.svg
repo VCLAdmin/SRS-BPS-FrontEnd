@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+    <defs>
+        <style>
+            .cls-1,.cls-4{fill:none}.cls-1{stroke:#fff;stroke-linejoin:round;stroke-width:1.5px}.cls-2{fill:#fff}.cls-3{stroke:none}
+        </style>
+    </defs>
+    <g id="sps_square_icon_addglass_panel_white" data-name="sps_square_icon_addglass&amp;panel_white" transform="translate(-890.002 -120)">
+        <g id="Rectangle_1473" class="cls-1" data-name="Rectangle 1473" transform="translate(890.002 120)">
+            <rect width="20" height="20" class="cls-3" rx="2"/>
+            <rect width="18.5" height="18.5" x=".75" y=".75" class="cls-4" rx="1.25"/>
+        </g>
+        <path id="Subtraction_70" d="M-2816 15361h-12v-12h12v12zm-9.345-6.7a.7.7 0 0 0-.706.7.706.706 0 0 0 .706.705h2.664v2.664a.7.7 0 0 0 .7.705.7.7 0 0 0 .7-.705v-2.664h2.668a.706.706 0 0 0 .705-.705.7.7 0 0 0-.705-.7h-2.668v-2.664a.7.7 0 0 0-.7-.705.7.7 0 0 0-.7.705v2.664z" class="cls-2" data-name="Subtraction 70" transform="translate(3722.002 -15225)"/>
+    </g>
+</svg>

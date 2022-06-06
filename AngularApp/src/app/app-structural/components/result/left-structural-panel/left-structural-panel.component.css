@@ -1,0 +1,146 @@
+.titleMargin {
+  margin-left: 25px;
+  margin-right: 25px;
+  margin-top: 31.5px;
+}
+
+.fontUniversforSchueco-530 {
+  font-family: UniversforSchueco-530;
+  font-size: 12px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 0.75;
+  letter-spacing: normal;
+  text-align: left;
+  color: #ffffff;
+}
+
+.sps-info-btn {
+  width: 16px;
+  height: 16px;
+  border-radius: 11px 11px 11px 11px;
+  border: 1px solid #00a2d1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sps-info-text {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  line-height: 12px;
+  align-items: center;
+  font-family: UniversforSchueco-431;
+  font-size: 12px;
+  font-weight: normal;
+  font-style: italic;
+  font-stretch: normal;
+  line-height: 0.75;
+  letter-spacing: normal;
+  color: #00a2d1;
+  margin-top: 12px;
+}
+
+.article {
+  width: 345px;
+  height: 115px;
+  border: solid 1px #474747;
+}
+
+.fontUniversforSchueco-430 {
+  font-family: UniversforSchueco-430;
+  font-size: 15px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.33;
+  letter-spacing: normal;
+  text-align: center;
+  color: #ffffff;
+}
+
+.articleRectangle {
+  width: 86.5px;
+  height: 28px;
+  border-radius: 15px;
+  background-color: #363636;
+  margin: 43.5px 47.5px 43.5px 47px;
+}
+.roundBox {
+  display: flex;
+  border-radius: 10px;
+  border: 1px solid #707070;
+  width: 345px;
+  height: 24px;
+  outline-offset: -1px;
+  backface-visibility: hidden;
+}
+.roundBox-partA {
+  width: 268px;
+  /* height: 21.8px; */
+  border-radius: 8.8px 0px 0px 8.8px;
+  /* border: 1px solid #707070; */
+  background-color: #84cee4;
+  color: #ffffff;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+
+  text-transform: uppercase;
+}
+.roundBox-partC {
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  border-left: 1px solid #707070;
+  color: #7bc053;
+}
+.sps-result-tab-thermal-heading1 {
+  font-size: 12px;
+  color: #ffffff;
+  font-family: UniversForSchueco-530Med;
+  font-size: 12px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 0.75;
+  letter-spacing: normal;
+  text-align: left;
+}
+.sps-result-tab-thermal-heading1::after {
+  content: "";
+  position: absolute;
+  right: 100%;
+  top: 50%;
+  margin-top: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent #00a2d1 transparent transparent;
+}
+.fontUniversforSchueco-530 {
+  font-family: UniversforSchueco-530;
+  font-size: 12px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-align: left;
+  color: #ffffff;
+}
+.colorRed {
+  color: #d52323 !important;
+}
+.blankData {
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  border-left: 1px solid #707070;
+  color: #ffffff;
+}

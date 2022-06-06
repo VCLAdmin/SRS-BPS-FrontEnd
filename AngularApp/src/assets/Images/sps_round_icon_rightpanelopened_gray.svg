@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="12.967" height="11.956" viewBox="0 0 12.967 11.956">
+    <defs>
+    <style>
+        .cls-1 {
+        fill: none;
+        stroke: #504e4e;
+        stroke-linecap: round;
+        stroke-width: 2px
+        }
+    </style>
+    </defs>
+    <g id="sps_square_icon_changeprofile_enabled_new" transform="translate(-2533.021 -328.325)">
+    <g id="sps_round_icon_rightpanelopened_gray" transform="translate(2540.011 329.74)">
+        <path id="Path_287" d="M4.564 9.128L0 4.564 4.564 0" class="cls-1" data-name="Path 287"
+        transform="rotate(180 2.282 4.564)" />
+    </g>
+    <path id="Path_1295" d="M-9323.126-21989.648H-9333" class="cls-1" data-name="Path 1295"
+        transform="translate(11867.02 22323.951)" />
+    </g>
+</svg>

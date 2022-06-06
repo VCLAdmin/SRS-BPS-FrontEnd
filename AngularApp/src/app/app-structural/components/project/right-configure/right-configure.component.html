@@ -1,0 +1,320 @@
+<div class="right-panel">
+  <div class="button-container">
+    <div class="copy-create-btn">
+      <button *ngIf="enableAllButtons && enableCreateButton(50) && !configureService.areRightPanelButtonsDisabled; else disabledCreate" bps-button bpsType="variation-14" bps-tooltip
+        [bpsTooltipType]="'variation_10'"
+        bpsTooltipTitle= "&nbsp;&nbsp;&nbsp;&nbsp;{{addToolTip}}&nbsp;&nbsp;&nbsp;&nbsp;"
+        bpsTooltipPlacement="top" id="create-button" (click)="onClickOnCreateBtn()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14.527" height="14.527" viewBox="0 0 14.527 14.527">
+          <defs>
+            <style>
+              .prefix__cls-dd1 {
+                fill: #fff
+              }
+            </style>
+          </defs>
+          <g id="prefix__sps_round_icon_addconfiguration_white" transform="translate(-654 -476.098)">
+            <g id="prefix__Group_2863" data-name="Group 2863">
+              <path id="prefix__Path_1058" d="M368.925 389.6v-3.32H363.2V392h3.318a4.9 4.9 0 0 1 2.407-2.4z"
+                class="prefix__cls-dd1" data-name="Path 1058" transform="translate(294.065 93.087)" />
+              <g id="prefix__Group_2862" data-name="Group 2862" transform="translate(294.065 93.087)">
+                <path id="prefix__Path_1059"
+                  d="M370.193 384.511h-8.258a.5.5 0 0 0-.5.5v8.259a.5.5 0 0 0 .5.5h4.165a4.875 4.875 0 0 1 4.589-4.6v-4.158a.5.5 0 0 0-.496-.501z"
+                  data-name="Path 1059" style="fill:none" />
+                <path id="prefix__Path_1060"
+                  d="M366.1 393.77h-4.169a.5.5 0 0 1-.5-.5v-8.259a.5.5 0 0 1 .5-.5h8.258a.5.5 0 0 1 .5.5v4.158c.1-.005.186-.028.283-.028a4.837 4.837 0 0 1 1.217.171v-4.3a2 2 0 0 0-2-2h-8.258a2 2 0 0 0-2 2v8.259a2 2 0 0 0 2 2h4.316a4.844 4.844 0 0 1-.175-1.229c.004-.094.028-.18.028-.272z"
+                  class="prefix__cls-dd1" data-name="Path 1060" />
+              </g>
+              <path id="prefix__Path_1061"
+                d="M373.878 393.572h-2.213v-2.213a.584.584 0 0 0-.584-.584.583.583 0 0 0-.584.584v2.213h-2.213a.583.583 0 0 0-.584.584.583.583 0 0 0 .584.584h2.216v2.213a.583.583 0 0 0 .584.584.584.584 0 0 0 .584-.584v-2.213h2.213a.584.584 0 0 0 .584-.584.584.584 0 0 0-.587-.584z"
+                class="prefix__cls-dd1" data-name="Path 1061" transform="translate(294.065 93.087)" />
+            </g>
+          </g>
+        </svg>
+      </button>
+      <ng-template #disabledCreate>
+        <div  bps-tooltip bpsTooltipDisabled
+      [bpsTooltipType]="'variation_10'" bpsTooltipTitle="&nbsp;&nbsp;&nbsp;&nbsp;{{addToolTip}}&nbsp;&nbsp;&nbsp;&nbsp;" bpsTooltipPlacement="top">
+        <button bps-button bpsType="variation-14" [disabled]="true" style="cursor:default;" >
+          <svg xmlns="http://www.w3.org/2000/svg" width="14.527" height="14.527" viewBox="0 0 14.527 14.527">
+            <defs>
+              <style>
+                .prefix__cls-dd1 {
+                  fill: #fff
+                }
+              </style>
+            </defs>
+            <g id="prefix__sps_round_icon_addconfiguration_white" transform="translate(-654 -476.098)">
+              <g id="prefix__Group_2863" data-name="Group 2863">
+                <path id="prefix__Path_1058" d="M368.925 389.6v-3.32H363.2V392h3.318a4.9 4.9 0 0 1 2.407-2.4z"
+                  class="prefix__cls-dd1" data-name="Path 1058" transform="translate(294.065 93.087)" />
+                <g id="prefix__Group_2862" data-name="Group 2862" transform="translate(294.065 93.087)">
+                  <path id="prefix__Path_1059"
+                    d="M370.193 384.511h-8.258a.5.5 0 0 0-.5.5v8.259a.5.5 0 0 0 .5.5h4.165a4.875 4.875 0 0 1 4.589-4.6v-4.158a.5.5 0 0 0-.496-.501z"
+                    data-name="Path 1059" style="fill:none" />
+                  <path id="prefix__Path_1060"
+                    d="M366.1 393.77h-4.169a.5.5 0 0 1-.5-.5v-8.259a.5.5 0 0 1 .5-.5h8.258a.5.5 0 0 1 .5.5v4.158c.1-.005.186-.028.283-.028a4.837 4.837 0 0 1 1.217.171v-4.3a2 2 0 0 0-2-2h-8.258a2 2 0 0 0-2 2v8.259a2 2 0 0 0 2 2h4.316a4.844 4.844 0 0 1-.175-1.229c.004-.094.028-.18.028-.272z"
+                    class="prefix__cls-dd1" data-name="Path 1060" />
+                </g>
+                <path id="prefix__Path_1061"
+                  d="M373.878 393.572h-2.213v-2.213a.584.584 0 0 0-.584-.584.583.583 0 0 0-.584.584v2.213h-2.213a.583.583 0 0 0-.584.584.583.583 0 0 0 .584.584h2.216v2.213a.583.583 0 0 0 .584.584.584.584 0 0 0 .584-.584v-2.213h2.213a.584.584 0 0 0 .584-.584.584.584 0 0 0-.587-.584z"
+                  class="prefix__cls-dd1" data-name="Path 1061" transform="translate(294.065 93.087)" />
+              </g>
+            </g>
+          </svg>
+        </button>
+      </div>
+      </ng-template>
+      <button *ngIf="enableAllButtons && enableCreateButton(40) && !configureService.areRightPanelButtonsDisabled; else disabledCopy" bps-button bpsType="variation-14" bps-tooltip
+        [bpsTooltipType]="'variation_10'" bpsTooltipTitle="&nbsp;&nbsp;&nbsp;&nbsp;{{copyToolTip}}&nbsp;&nbsp;&nbsp;&nbsp;" bpsTooltipPlacement="top"
+        id="copy-button" (click)="onClickOnCopyBtn()" (dblclick)="onClickOnCopyBtn()">
+        <!-- Copy -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="15.461" height="15.489" viewBox="0 0 15.461 15.489">
+          <defs>
+            <style>
+              .cls-1,
+              .cls-4 {
+                fill: none;
+              }
+
+              .cls-1 {
+                stroke: #fff;
+                stroke-linejoin: round;
+                stroke-width: 1.5px;
+              }
+
+              .cls-2 {
+                fill: #fff;
+              }
+
+              .cls-3 {
+                stroke: none;
+              }
+            </style>
+          </defs>
+          <g id="sps_round_icon_copyconfiguration_white" transform="translate(-1277.673 -67.25)">
+            <g id="Group_2697" data-name="Group 2697" transform="translate(1277.673 70.48)">
+              <g id="Rectangle_1432" data-name="Rectangle 1432" class="cls-1" transform="translate(0 0)">
+                <rect class="cls-3" width="12.259" height="12.259" rx="2" />
+                <rect class="cls-4" x="0.75" y="0.75" width="10.759" height="10.759" rx="1.25" />
+              </g>
+              <rect id="Rectangle_1433" data-name="Rectangle 1433" class="cls-2" width="5.721" height="5.721"
+                transform="translate(3.269 3.269)" />
+            </g>
+            <path id="Path_1024" data-name="Path 1024" class="cls-1" d="M-9788.521-13540.9h1.647v-10.634h-10.614v1.676"
+              transform="translate(11079.257 13619.534)" />
+          </g>
+        </svg>
+      </button>
+      <ng-template #disabledCopy>
+        <div  bps-tooltip bpsTooltipDisabled
+        [bpsTooltipType]="'variation_10'" bpsTooltipTitle="&nbsp;&nbsp;&nbsp;&nbsp;{{copyToolTip}}&nbsp;&nbsp;&nbsp;&nbsp;" bpsTooltipPlacement="top">
+        <button bps-button bpsType="variation-14" [disabled]="true" style="cursor:default;">
+          <!-- Copy -->
+          <svg xmlns="http://www.w3.org/2000/svg" width="15.461" height="15.489" viewBox="0 0 15.461 15.489">
+            <defs>
+              <style>
+                .cls-1,
+                .cls-4 {
+                  fill: none;
+                }
+
+                .cls-1 {
+                  stroke: #fff;
+                  stroke-linejoin: round;
+                  stroke-width: 1.5px;
+                }
+
+                .cls-2 {
+                  fill: #fff;
+                }
+
+                .cls-3 {
+                  stroke: none;
+                }
+              </style>
+            </defs>
+            <g id="sps_round_icon_copyconfiguration_white" transform="translate(-1277.673 -67.25)">
+              <g id="Group_2697" data-name="Group 2697" transform="translate(1277.673 70.48)">
+                <g id="Rectangle_1432" data-name="Rectangle 1432" class="cls-1" transform="translate(0 0)">
+                  <rect class="cls-3" width="12.259" height="12.259" rx="2" />
+                  <rect class="cls-4" x="0.75" y="0.75" width="10.759" height="10.759" rx="1.25" />
+                </g>
+                <rect id="Rectangle_1433" data-name="Rectangle 1433" class="cls-2" width="5.721" height="5.721"
+                  transform="translate(3.269 3.269)" />
+              </g>
+              <path id="Path_1024" data-name="Path 1024" class="cls-1"
+                d="M-9788.521-13540.9h1.647v-10.634h-10.614v1.676" transform="translate(11079.257 13619.534)" />
+            </g>
+          </svg>
+        </button>
+      </div>
+      </ng-template>
+    </div>
+    <button bps-button bpsType="variation-15" bps-tooltip [bpsTooltipType]="'variation_10'"
+      bpsTooltipTitle="{{'configure.delete' | translate }}" bpsTooltipPlacement="top" id="delete-button"
+      (click)="onClickOnDeleteBtn()" *ngIf="problemList && this.problemList.length > 1 && enableAllButtons" [disabled]="orderPlaced || configureService.areRightPanelButtonsDisabled">
+    <!-- <button bps-button bpsType="variation-15" bps-tooltip [bpsTooltipType]="'variation_10'"
+      nz-popconfirm nzPopconfirmTitle="Are you sure delete this configuration?" (nzOnConfirm)="confirm()" (nzOnCancel)="cancel()"
+      bpsTooltipTitle="{{'configure.delete' | translate }}" bpsTooltipPlacement="top" id="delete-button"
+      *ngIf="problemList && this.problemList.length > 1 && enableAllButtons"> -->
+      <!-- Delete -->
+      <svg xmlns="http://www.w3.org/2000/svg" width="12.061" height="16.333" viewBox="0 0 12.061 16.333">
+        <defs>
+          <style>
+            .prefix__cls-c1 {
+              fill: none;
+              stroke: #fff;
+              stroke-width: 1.5px
+            }
+          </style>
+        </defs>
+        <g id="prefix__sps_round_icon_deleteconfiguration_white" transform="translate(-1319 -66.541)">
+          <g id="prefix__Group_2699" data-name="Group 2699" transform="translate(250.901 4.126)">
+            <g id="prefix__Rectangle_1411" class="prefix__cls-c1" data-name="Rectangle 1411"
+              transform="translate(1068.886 65.642)">
+              <rect width="10.485" height="13.106" rx="1" style="stroke:none" />
+              <rect width="8.985" height="11.606" x=".75" y=".75" rx=".25" style="fill:none" />
+            </g>
+            <path id="prefix__Path_989" d="M-9638-11019.622v-11.223" class="prefix__cls-c1" data-name="Path 989"
+              transform="translate(10712.129 11097.496)" />
+            <path id="prefix__Path_990" d="M-9640.47-11032.232l1.6-1.6h1.75l1.6 1.6" class="prefix__cls-c1"
+              data-name="Path 990" transform="translate(10712.152 11096.999)" />
+            <path id="prefix__Path_991" d="M-9643-11033h12.061" class="prefix__cls-c1" data-name="Path 991"
+              transform="translate(10711.099 11097.769)" />
+          </g>
+        </g>
+      </svg>
+    </button>
+    <div *ngIf="(this.problemList && this.problemList.length == 1) || !enableAllButtons" bps-tooltip bpsTooltipDisabled
+      [bpsTooltipType]="'variation_10'" bpsTooltipTitle="{{'configure.delete' | translate }}" bpsTooltipPlacement="top">
+      <button bps-button bpsType="variation-15" style="cursor:default !important" id="delete-button"
+        (click)="onClickOnDeleteBtn()" [disabled]="true">
+        <!-- Delete -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="12.061" height="16.333" viewBox="0 0 12.061 16.333">
+          <defs>
+            <style>
+              .prefix__cls-c1 {
+                fill: none;
+                stroke: #fff;
+                stroke-width: 1.5px
+              }
+            </style>
+          </defs>
+          <g id="prefix__sps_round_icon_deleteconfiguration_white" transform="translate(-1319 -66.541)">
+            <g id="prefix__Group_2699" data-name="Group 2699" transform="translate(250.901 4.126)">
+              <g id="prefix__Rectangle_1411" class="prefix__cls-c1" data-name="Rectangle 1411"
+                transform="translate(1068.886 65.642)">
+                <rect width="10.485" height="13.106" rx="1" style="stroke:none" />
+                <rect width="8.985" height="11.606" x=".75" y=".75" rx=".25" style="fill:none" />
+              </g>
+              <path id="prefix__Path_989" d="M-9638-11019.622v-11.223" class="prefix__cls-c1" data-name="Path 989"
+                transform="translate(10712.129 11097.496)" />
+              <path id="prefix__Path_990" d="M-9640.47-11032.232l1.6-1.6h1.75l1.6 1.6" class="prefix__cls-c1"
+                data-name="Path 990" transform="translate(10712.152 11096.999)" />
+              <path id="prefix__Path_991" d="M-9643-11033h12.061" class="prefix__cls-c1" data-name="Path 991"
+                transform="translate(10711.099 11097.769)" />
+            </g>
+          </g>
+        </svg>
+      </button>
+    </div>
+  </div>
+  <div class="input-container">
+    <ng-container *appCheckPermissions="feature.Checkout">
+      <div class="scrolling-container" style="height:calc(100vh - 355px);" *ngIf="!orderPlaced">
+        <button class="input-element bps-button-editable-selected" [disabled]="rightPanelDisable"
+          *ngFor="let problem of problemList, let i = index, last as isLast" bps-button
+          [bpsComputed]="bpsAnalysisResult[i]" bpsType="editable" [ngClass]="getCurrentProblemClass(problem, isLast)"
+          [(bpsValue)]="problem.ProblemName" (click)="onClick(i)"
+          [bpsEditTooltipType]="'variation_10'"                        
+          [bpsComputedTooltipTitle]="bpsAnalysisResult[i] == true ? 'Ready': 'Not Ready'" (isSelectedChange)="log($event)"
+          (bpsValueChange)="onRename(i)"></button>
+        <!-- </div> -->
+      </div>
+      <div class="scrolling-container" style="height:calc(100vh - 355px);" *ngIf="orderPlaced">
+        <button class="input-element bps-button-editable-selected"
+          *ngFor="let problem of problemList, let i = index, last as isLast" bps-button
+          [bpsComputed]="bpsAnalysisResult[i]" bpsType="editable" [disabled]='getCurrentProblemDisabled(problem)' [ngClass]="getCurrentProblemClass(problem, isLast)"
+          [(bpsValue)]="problem.ProblemName"  (click)="onClick(i)"
+          [bpsEditTooltipType]="'variation_10'" 
+          [bpsComputedTooltipTitle]="bpsAnalysisResult[i] == true ? 'Ready': 'Not Ready'" (isSelectedChange)="log($event)"></button>
+      </div>
+    </ng-container>
+    <ng-container *appCheckPermissions="feature.Compute">
+      <div class="scrolling-container" style="height:calc(100vh - 165px);" *ngIf="!orderPlaced">
+        <button class="input-element bps-button-editable-selected" [disabled]="rightPanelDisable"
+          *ngFor="let problem of problemList, let i = index, last as isLast" bps-button
+          [bpsComputed]="bpsAnalysisResult[i]" bpsType="editable" [ngClass]="getCurrentProblemClass(problem, isLast)"
+          [(bpsValue)]="problem.ProblemName" (click)="onClick(i)"
+          [title]="bpsAnalysisResult[i] == true ? computeToolTip: notComputeTooltip" (isSelectedChange)="log($event)"
+          (bpsValueChange)="onRename(i)"></button>
+        <!-- </div> -->
+      </div>
+      <div class="scrolling-container" style="height:calc(100vh - 165px);" *ngIf="orderPlaced">
+        <button class="input-element bps-button-editable-selected"
+          *ngFor="let problem of problemList, let i = index, last as isLast" bps-button
+          [bpsComputed]="bpsAnalysisResult[i]" bpsType="editable" [ngClass]="getCurrentProblemClass(problem, isLast)"
+          [(bpsValue)]="problem.ProblemName"  (click)="onClick(i)"
+          [title]="bpsAnalysisResult[i] == true ? computeToolTip: notComputeTooltip" (isSelectedChange)="log($event)"></button>
+      </div>
+    </ng-container>
+  </div>
+  <div 
+    class="button-container" id="checkout" style="box-shadow: 0px 0px 4px 3px rgba(0, 0, 0, 1) !important;"
+    *appCheckPermissions="feature.Checkout">
+      <div *ngIf="showCheckout && !orderPlaced; else disabledCheckout">
+        <div class="display-subtotal">
+          <div class="bottomRectangle" style="margin: 20 21 22 20;">
+              <div>
+                  <h3 class="subtotalText">Subtotal (1 item)</h3>
+              </div>
+              <div style="margin-top:5px;">
+                  <h3 class="subtotalText" *ngIf="calculatedSubTotal">$ {{calculatedSubTotal.toFixed(2) | number:'1.2-2' }}</h3>
+              </div>
+              <div style="margin-top:4px;">
+                  <h4 class="tax">+ Taxes and Shipment</h4>
+              </div>
+          </div>
+      </div>
+      <div class="display-subtotal checkout-button-container" style="margin-top:32px;bottom:30px;">
+          <button class="checkout-button" (click)="onCheckout()" bps-button bpsType="variation-1" [disabled]="isInvalidProduct || isCheckoutDisableInvalLargeDim || isCheckoutDisableInvalSmallDim">Go to Checkout</button>
+      </div>  
+      </div>
+      <ng-template #disabledCheckout>
+        <div class="display-subtotal" *ngIf="calculatedSubTotal && orderPlaced; else displayZeroCost">
+          <div class="bottomRectangle">
+              <div>
+                  <h3 class="subtotalText" style="color: #474747 !important;">Subtotal (1 item)</h3>
+              </div>
+              <div style="margin-top:5px;">
+                  <h3 class="subtotalText" style="color: #474747 !important;">$ {{calculatedSubTotal.toFixed(2) | number:'1.2-2' }}</h3>
+              </div>
+              <div style="margin-top:4px;">
+                  <h4 class="tax" style="color: #474747 !important;">+ Taxes and Shipment</h4>
+              </div>
+          </div>
+      </div>
+      <ng-template #displayZeroCost>
+        <div class="display-subtotal">
+          <div class="bottomRectangle">
+              <div>
+                  <h3 class="subtotalText" style="color: #474747 !important;">Subtotal (1 item)</h3>
+              </div>
+              <div style="margin-top:5px;">
+                  <h3 class="subtotalText" style="color: #474747 !important;">$ 0.00</h3>
+              </div>
+              <div style="margin-top:4px;">
+                  <h4 class="tax" style="color: #474747 !important;">+ Taxes and Shipment</h4>
+              </div>
+          </div>
+        </div>
+      </ng-template>
+      <div class="display-subtotal checkout-button-container" style="margin-top:32px;bottom:30px;">
+          <button class="checkout-button" (click)="onCheckout()" bps-button bpsType="variation-1"
+              [disabled]="true">Go to Checkout</button>
+      </div>  
+      </ng-template>     
+    </div>
+</div>
+<app-notification-custom #notifCustomTemplate></app-notification-custom>

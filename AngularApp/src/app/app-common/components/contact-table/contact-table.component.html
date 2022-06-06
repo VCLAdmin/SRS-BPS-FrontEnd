@@ -1,0 +1,227 @@
+<div class="leftContent">
+    <bps-table [data]="listOfDisplayData" [showPagination]="false" [scroll]="{ y: 'calc(100vh - 150px)'}"
+        [frontPagination]="false" (onclickRow)="editRow($event)" (selectionChange)="editRow($event)"
+        [tableType]="'glass_profile'" class="bps-table-example-glass" [filterPlaceholder]="'Search by user name'"
+        (searchValueChange)="filter($event)" (sortChange)="sort($event)" [(config)]="configurationCustomGrid">
+    </bps-table>
+</div>
+<div class="rightContent">
+    <div class="dataDiv" nz-row *ngIf="contact && !showEmpty else selectContactTemp">
+        <div nz-row>
+            <button bps-button bpsType="variation-3" (click)="addContact()" *ngIf="!isAddContact"
+                style="margin-right: 25px; float: right;">Add
+                Contact</button>
+            <button bps-button bpsType="variation-3" (click)="deleteContact()" *ngIf="!isAddContact"
+                [disabled]="!allowedToChange(contact.Email)"
+                style="margin-right: 5px; float: right;">Delete
+                </button>
+        </div>
+        <div nz-row><br>
+            <h2 *ngIf="isAddContact">Create New User</h2>
+            <h2 *ngIf="!isAddContact">Update User Info</h2>
+        </div>
+        <div class="sps-break"></div><br>
+        <div nz-row>
+            <form bps-form [formGroup]="validateForm" (ngSubmit)="submitForm(validateForm.value)">
+                <div class="nz-col" nz-col [nzLg]="{ span: 24 ,offset: 0 }" [nzXl]="{ span: 10 ,offset: 2 }">
+                    <bps-form-item>
+                        <bps-form-label nz-col [nzSpan]="10" bpsRequired>User Name</bps-form-label>
+                        <bps-form-control nz-col [nzSpan]="12" [bpsErrorTip]="projectErrorTpl1">
+                            <input bps-input formControlName="UserName" placeholder="UserName" type="text"
+                                [(ngModel)]="contact.UserName" (ngModelChange)="checkModelValidity()" />
+                            <ng-template #projectErrorTpl1 let-control>
+                                <ng-container *ngIf="control.hasError('required')">
+                                    Please input your User Name!
+                                </ng-container>
+                            </ng-template>
+                        </bps-form-control>
+                    </bps-form-item>
+                    <bps-form-item>
+                        <bps-form-label nz-col [nzSpan]="10" bpsRequired>First Name</bps-form-label>
+                        <bps-form-control nz-col [nzSpan]="12" [bpsErrorTip]="projectErrorTpl2">
+                            <input bps-input formControlName="FirstName" placeholder="FirstName" type="text"
+                                [(ngModel)]="contact.FirstName" (ngModelChange)="checkModelValidity()" />
+                            <ng-template #projectErrorTpl2 let-control>
+                                <ng-container *ngIf="control.hasError('required')">
+                                    Please input your First Name!
+                                </ng-container>
+                            </ng-template>
+                        </bps-form-control>
+                    </bps-form-item>
+                    <bps-form-item>
+                        <bps-form-label nz-col [nzSpan]="10" bpsRequired>Last Name</bps-form-label>
+                        <bps-form-control nz-col [nzSpan]="12" [bpsErrorTip]="projectErrorTpl3">
+                            <input bps-input formControlName="LastName" placeholder="LastName" type="text"
+                                [(ngModel)]="contact.LastName" (ngModelChange)="checkModelValidity()" />
+                            <ng-template #projectErrorTpl3 let-control>
+                                <ng-container *ngIf="control.hasError('required')">
+                                    Please input your Last Name!
+                                </ng-container>
+                            </ng-template>
+                        </bps-form-control>
+                    </bps-form-item>
+                    <bps-form-item>
+                        <bps-form-label nz-col [nzSpan]="10" bpsRequired>Language</bps-form-label>
+                        <bps-form-control nz-col [nzSpan]="12" [bpsErrorTip]="addressErrorTpl">
+                            <!-- <input bps-input formControlName="Language" placeholder="Language" type="text"
+                        [(ngModel)]="contact.Language" /> -->
+                            <bps-select formControlName="Language" bpsPlaceHolder="Choose"
+                                [(ngModel)]="contact.Language" (ngModelChange)="checkModelValidity()">
+                                <bps-option bpsValue="en-US" bpsLabel="English"></bps-option>
+                                <bps-option bpsValue="de-DE" bpsLabel="German"></bps-option>
+                            </bps-select>
+                            <ng-template #addressErrorTpl let-control>
+                                <ng-container *ngIf="control.hasError('required')">
+                                    Please input your Language!
+                                </ng-container>
+                            </ng-template>
+                        </bps-form-control>
+                    </bps-form-item>
+                    <bps-form-item>
+                        <bps-form-label nz-col [nzSpan]="10" bpsRequired>Company</bps-form-label>
+                        <bps-form-control nz-col [nzSpan]="12" [bpsErrorTip]="addressErrorTpl2">
+                            <input bps-input formControlName="Company" placeholder="Company" type="text"
+                                [(ngModel)]="contact.Company" (ngModelChange)="checkModelValidity()" />
+                            <ng-template #addressErrorTpl2 let-control>
+                                <ng-container *ngIf="control.hasError('required')">
+                                    Please input your Company!
+                                </ng-container>
+                            </ng-template>
+                        </bps-form-control>
+                    </bps-form-item>
+                </div>
+                <div class="nz-col" nz-col [nzLg]="{ span: 24 ,offset: 0 }" [nzXl]="{ span: 10 ,offset: 2 }">
+                    <bps-form-item>
+                        <bps-form-label nz-col [nzSpan]="10" bpsRequired>Email</bps-form-label>
+                        <bps-form-control nz-col [nzSpan]="12" [bpsErrorTip]="addressErrorTpl">
+                            <input bps-input formControlName="Email" placeholder="Email" [(ngModel)]="contact.Email"
+                                [disabled]="!isAddContact" type="email" email="true"
+                                (ngModelChange)="checkModelValidity()" />
+                            <ng-template #addressErrorTpl let-control>
+                                <ng-container *ngIf="control.hasError('required')">
+                                    Please input your Email!
+                                </ng-container>
+                                <ng-container *ngIf="control.hasError('maxlength')">
+                                    Email address can not exceed 150 characters.
+                                </ng-container>
+                                <ng-container *ngIf="control.hasError('emailExist')">
+                                    Email address already exist.
+                                </ng-container>
+                                <ng-container
+                                    *ngIf="!control.hasError('emailExist') && !control.hasError('maxlength') && !control.hasError('required')">
+                                    Please Enter a valid Email.
+                                </ng-container>
+                            </ng-template>
+                        </bps-form-control>
+                    </bps-form-item>
+                    <bps-form-item>
+                        <bps-form-label nz-col [nzSpan]="10" bpsRequired>Active</bps-form-label>
+                        <bps-form-control nz-col [nzSpan]="12" [bpsErrorTip]="addressErrorTpl5">
+                            <input bps-input formControlName="Active" placeholder="Active" type="text"
+                                [(ngModel)]="contact.Active" disabled (ngModelChange)="checkModelValidity()" />
+                            <ng-template #addressErrorTpl5 let-control>
+                                <ng-container *ngIf="control.hasError('required')">
+                                    Please input your Active!
+                                </ng-container>
+                            </ng-template>
+                        </bps-form-control>
+                    </bps-form-item>
+                    <bps-form-item>
+                        <bps-form-label nz-col [nzSpan]="10" bpsRequired>Role</bps-form-label>
+                        <bps-form-control nz-col [nzSpan]="12" [bpsErrorTip]="addressErrorTpl6">
+                            <input bps-input formControlName="Role" placeholder="Role" type="text"
+                                [(ngModel)]="contact.Role" disabled (ngModelChange)="checkModelValidity()" />
+                            <ng-template #addressErrorTpl6 let-control>
+                                <ng-container *ngIf="control.hasError('required')">
+                                    Please input your Role!
+                                </ng-container>
+                            </ng-template>
+                        </bps-form-control>
+                    </bps-form-item>
+                </div>
+                <div class="nz-col" nz-col [nzLg]="{ span: 24 ,offset: 0 }" [nzXl]="{ span: 24 ,offset: 0 }">
+                    <bps-form-item>
+                        <bps-form-control nz-col [nzSpan]="24">
+                            <button bps-button bpsType="variation-3" [disabled]="!validateForm.valid"
+                                style="margin-right: 25px; float: right;">Submit</button>
+                            <button bps-button bpsType="variation-3" (click)="resetForm($event)"
+                                style="margin-right: 5px; float: right;">Reset</button>
+                        </bps-form-control>
+                    </bps-form-item>
+                </div>
+            </form>
+        </div>
+        <div *ngIf="!isAddContact" nz-row><br>
+            <h2>Change Password</h2>
+        </div>
+        <div *ngIf="!isAddContact" class="sps-break"></div><br>
+        <div *ngIf="!isAddContact" nz-row>
+            <form bps-form [formGroup]="validatePasswordForm"
+                (ngSubmit)="submitPasswordForm(validatePasswordForm.value)">
+                <div class="nz-col" nz-col [nzLg]="{ span: 24 ,offset: 0 }" [nzXl]="{ span: 24 ,offset: 0 }">
+                    <bps-form-item>
+                        <bps-form-label nz-col [nzSpan]="6" bpsRequired>Password</bps-form-label>
+                        <bps-form-control nz-col [nzSpan]="17" [bpsErrorTip]="addressErrorTpl3">
+                            <input bps-input formControlName="Password" placeholder="Password" type="password"
+                                [(ngModel)]="contact.Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" />
+                            <ng-template #addressErrorTpl3 let-control>
+                                <ng-container *ngIf="control.hasError('minlength')">
+                                    Must be at least 8 characters!.<br>
+                                </ng-container>
+                                <ng-container *ngIf="control.hasError('required')">
+                                    Please input your Password!
+                                </ng-container>
+                                <ng-container *ngIf="control.hasError('pattern')">
+                                    Passwords must have at least one non letter or digit character.<br>
+                                    Passwords must have at least one lowercase ('a'-'z').<br>
+                                    Passwords must have at least one uppercase ('A'-'Z').
+                                </ng-container>
+                            </ng-template>
+                        </bps-form-control>
+                    </bps-form-item>
+                </div>
+                <div class="nz-col" nz-col [nzLg]="{ span: 24 ,offset: 0 }" [nzXl]="{ span: 24 ,offset: 0 }">
+                    <bps-form-item>
+                        <bps-form-label nz-col [nzSpan]="6" bpsRequired>Confirm</bps-form-label>
+                        <bps-form-control nz-col [nzSpan]="17" [bpsErrorTip]="addressErrorTpl4">
+                            <input bps-input formControlName="ConfirmPassword" placeholder="ConfirmPassword"
+                                type="password" [(ngModel)]="contact.ConfirmPassword" />
+                            <ng-template #addressErrorTpl4 let-control>
+                                <ng-container *ngIf="control.hasError('minlength')">
+                                    Must be at least 8 characters!
+                                </ng-container>
+                                <ng-container *ngIf="control.hasError('required')">
+                                    Please input your Password!
+                                </ng-container>
+                                <ng-container *ngIf="control.hasError('confirmedValidator')">
+                                    Password and Confirm Password must be match!
+                                </ng-container>
+                            </ng-template>
+                        </bps-form-control>
+                    </bps-form-item>
+                </div>
+                <div class="nz-col" nz-col [nzLg]="{ span: 24 ,offset: 0 }" [nzLg]="{ span: 24 ,offset: 0 }">
+                    <bps-form-item>
+                        <bps-form-control nz-col [nzSpan]="24">
+                            <button bps-button bpsType="variation-3"
+                                [disabled]="!validatePasswordForm.valid || contact.Password === '' || contact.ConfirmPassword === ''"
+                                style="margin-right: 25px; float: right;">Change Password</button>
+                        </bps-form-control>
+                    </bps-form-item>
+                </div>
+
+            </form>
+        </div>
+    </div>
+    <ng-template #selectContactTemp>
+        <div class="emptyDiv">
+            Please select a contact to edit
+            <br><br><br>
+            <div class="sps-break" style="position: absolute; width: 35%;"></div>
+            <br><br><br>
+            <button bps-button bpsType="variation-3" (click)="addContact()"
+                style="position: absolute; margin-top: 95px;">Add
+                Contact</button>
+        </div>
+    </ng-template>
+</div>

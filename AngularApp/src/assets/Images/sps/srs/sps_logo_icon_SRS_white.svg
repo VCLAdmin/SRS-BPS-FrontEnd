@@ -1,0 +1,22 @@
+<svg id="sps_logo_icon_SRS_white" xmlns="http://www.w3.org/2000/svg" width="101" height="21" viewBox="0 0 101 21">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: #fff;
+        font-size: 18px;
+      }
+
+      .cls-1 {
+        font-family: UniversForSchueco-630Bold, Univers for Schueco;
+        font-weight: 700;
+      }
+
+      .cls-2 {
+        font-family: UniversForSchueco-330Light, Univers for Schueco;
+        font-weight: 300;
+      }
+    </style>
+  </defs>
+  <text id="SR" class="cls-1" transform="translate(0 17)"><tspan x="0" y="0">SR</tspan></text>
+  <text id="Solutions" class="cls-2" transform="translate(25 17)"><tspan x="0" y="0">Solutions</tspan></text>
+</svg>

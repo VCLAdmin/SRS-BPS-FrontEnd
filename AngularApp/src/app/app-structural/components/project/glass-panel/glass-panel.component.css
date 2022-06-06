@@ -1,0 +1,276 @@
+.column-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.dot-picker-glass-panel-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  width: 215px;
+  margin-top: 5px;
+}
+
+.dot-picker-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.dot-picker-dot {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.dot {
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+}
+
+.glass-selector-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.glass-selector-column {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.glass-thickness-heading {
+  width: 215px;
+  margin-bottom: 12px;
+  /* margin-top: 12px; */
+  font-family: "SchucoRegularMedium";
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 100;
+  color: #ffffff;
+}
+
+.glass-thickness-heading.disabled {
+  color: #666666;
+}
+
+.glass-layer-selector-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 7px;
+  width: 215px;
+}
+
+.glass-selector-btn-container {
+  width: 48.7px;
+  height: 48.7px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 4px;
+  border: 1px solid #363636;
+}
+
+.glass-selector-btn-container.selected {
+  border: 2px solid #00a2d1 !important;
+  width: 46.7px !important;
+  height: 46.7px !important;
+}
+
+.glass-selector-btn {
+  width: 100%;
+  height: 100%;
+  border-style: none;
+  background-color: #666666;
+}
+
+.glass-viewer-container {
+  margin-top: 10px;
+  width: 213px;
+  height: 292px;
+  border: 1px solid #474747;
+  background-color: #363636;
+  border-radius: 4px;
+}
+
+.glass-viewer-column {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.glass-viewer {
+  width: 213px;
+  height: 124px;
+  border-bottom: 1px solid #474747;
+}
+
+.glass-viewer-dimensions-of-glass {
+  height: 89px;
+  width: 213px;
+  border-bottom: 1px solid #474747;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.glass-and-panel-dimensions-container {
+  height: 65px;
+  width: 195px;
+  align-items: center;
+}
+
+.glass-and-panel-dimensions-row {
+  display: flex;
+  justify-content: space-between;
+  width: 195px;
+  height: 14px;
+}
+
+.glass-and-panel-dimensions-number {
+  width: 15px;
+  text-align: right !important;
+}
+
+.glass-and-panel-dimensions-unit {
+  width: 15px;
+}
+
+.glass-and-panel-dimensions-type {
+  width: 150px;
+}
+
+.glass-and-panel-dimensions-number,
+.glass-and-panel-dimensions-unit,
+.glass-and-panel-dimensions-type {
+  font-family: "UniversForSchueco-330";
+  font-size: 10px;
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.2;
+  letter-spacing: normal;
+  text-align: left;
+  color: #ffffff;
+  text-transform: unset;
+}
+
+.glass-measurements-container {
+  width: 213px;
+}
+
+.glass-and-panel-measurement-container {
+  margin-top: 5px;
+  margin-left: 10px;
+  /* margin-bottom: 12px; */
+  height: 60px;
+  display: grid;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.glass-and-panel-measurement-row {
+  height: 13px;
+  display: flex;
+}
+
+.glass-and-panel-measurement-unit1 {
+  font-family: "UniversForSchueco-330";
+  font-size: 10px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.2;
+  letter-spacing: normal;
+  text-align: left;
+  color: #ffffff;
+  width: 65px;
+  text-transform: none;
+}
+
+.glass-and-panel-measurement-unit2 {
+  max-width: 130px;
+  margin-left: 5px;
+  font-family: "UniversForSchueco-330";
+  font-size: 10px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.2;
+  letter-spacing: normal;
+  text-align: left;
+  color: #ffffff;
+  text-transform: none;
+}
+
+.glass-thickness-heading.disabled {
+  color: #666666 !important;
+}
+
+.apply-btn-container {
+  /* margin-top: 15px;
+    display: flex; */
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 220px;
+}
+
+.roundCount {
+  float: left;
+  border-radius: 16px;
+  border: #ffffff solid 1px;
+  background: #00a2d1;
+  width: 18px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  margin-right: 10px;
+}
+.sps-accordion-ui-section-content {
+  display: flex;
+  align-items: center;
+  width: 215px;
+}
+
+.sps-operability-vent-frame-button-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.active {
+  background-color: #00a2d1 !important;
+}
+
+.sub-menu {
+  color: rgb(102, 102, 102) !important;
+  margin-left: 10px;
+  width: 68px;
+  height: 12px;
+  font-family: UniversForSchueco-430Reg;
+  font-size: 11px !important;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.27;
+  letter-spacing: normal;
+  text-align: left;
+  color: #bfbfbf;
+}

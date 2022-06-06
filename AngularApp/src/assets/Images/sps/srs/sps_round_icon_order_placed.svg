@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 15 15">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #363636
+      }
+
+      .cls-2 {
+        fill: none;
+        stroke: #999;
+        stroke-width: 1px;
+      }
+    </style>
+  </defs>
+  <g id="sps_round_icon_lock_active" transform="translate(-752.5 -632.5)">
+    <path id="Path_2426" data-name="Path 2426" class="cls-1" d="M7.5,0A7.5,7.5,0,1,1,0,7.5,7.5,7.5,0,0,1,7.5,0Z" transform="translate(752.5 632.5)"/>
+    <path id="Path_2425" data-name="Path 2425" class="cls-2" d="M-2981,13944.617l3.341,3.113,4.852-4.852" transform="translate(3736.904 -13305.305)"/>
+  </g>
+</svg>

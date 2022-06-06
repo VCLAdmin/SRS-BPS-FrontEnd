@@ -1,0 +1,330 @@
+<div style="margin-left:15px; margin-right: 15px; margin-top:23px;">
+  <div style="margin-left:20px;display:flex;">
+    <div class="fontUniversforSchueco-530" style="text-transform: uppercase;margin-top:auto; margin-bottom:auto;">
+      {{'report.download-reports' | translate }}
+      <!-- Project Name -->
+    </div>
+  </div>
+
+  <div class="lineSeparator" style="margin-top: 23px;"></div>
+
+  <!--#region new code-->
+    <div class='report-table-demo-v2'>
+      <bps-table #bpsExampleTable
+                [data]="listOfDisplayData"
+                 [scroll]="{y: 'calc(100vh - 265px)', x: '455px' }"
+                 [showPagination]="false"
+                 [frontPagination]="false"
+                 [loading]="isOperating"
+                 [inlineEdit]="true"
+                 (onclickRow)="log($event)"
+                 (onedit)="onProblemNameEdit($event)"
+                 (selectionChange)="onRowSelected($event)"
+                 class="bps-table-example"
+                 [(config)]="configurationCustomGrid">
+      </bps-table>
+    
+      <ng-template #configColTemplate>
+        <div class="bps-custom-header-with-divider bps-custom-header-with-divider-config">{{'report.configurations' | translate }}</div>
+      </ng-template>
+    
+      <ng-template #noteColTemplate>
+        <div class="bps-custom-header-with-divider bps-custom-header-with-divider-note">{{'report.note' | translate }}</div>
+      </ng-template>
+    
+      <!-- regular report cells header -->
+      <ng-template #regReportColTemplate>
+        <div class="bps-custom-header-with-divider bps-custom-header-with-divider-regReport"><div>{{'report.regular-report' | translate }}</div></div>
+        <div class="bps-custom-header-radio-button-label" style="text-align: center">
+          <label bps-checkbox
+                 style="margin-right: 5px"
+                 bpsType="variation3"
+                 [bpsDisabled]="isAllDisplayDataDisabledAcoustic"
+                 (ngModelChange)="checkAllAcoustic($event)"
+                 [(ngModel)]="isAllDisplayDataCheckedAcoustic"
+                 bps-tooltip
+                [bpsTooltipType]="'variation_10'"
+                bpsTooltipTitle="{{'report.select-all-acoustic' | translate }}"
+                bpsTooltipPlacement="top">
+            <ng-container *ngIf="!isAllDisplayDataDisabledAcoustic && isAllDisplayDataCheckedAcoustic">
+              <img src="/assets/bps-icons/sps_acoustic_icon_report_selected.svg" />
+            </ng-container>
+            <ng-container *ngIf="!isAllDisplayDataDisabledAcoustic && !isAllDisplayDataCheckedAcoustic">
+              <img src="/assets/bps-icons/sps_acoustic_icon_report_enabled.svg" />
+            </ng-container>
+            <ng-container *ngIf="isAllDisplayDataDisabledAcoustic">
+              <img src="/assets/bps-icons/sps_acoustic_icon_report_disable.svg" />
+            </ng-container>
+          </label>
+    
+          <label bps-checkbox
+                 style="margin-right: 5px"
+                 bpsType="variation3"
+                 [bpsDisabled]="isAllDisplayDataDisabledStructural"
+                 (ngModelChange)="checkAllStructural($event)"
+                 [(ngModel)]="isAllDisplayDataCheckedStructural"
+                 bps-tooltip
+                [bpsTooltipType]="'variation_10'"
+                bpsTooltipTitle="{{'report.select-all-structural' | translate }}"
+                bpsTooltipPlacement="top">
+            <ng-container *ngIf="!isAllDisplayDataDisabledStructural && isAllDisplayDataCheckedStructural">
+              <img src="/assets/bps-icons/sps_structural_icon_report_selected.svg" />
+            </ng-container>
+            <ng-container *ngIf="!isAllDisplayDataDisabledStructural && !isAllDisplayDataCheckedStructural">
+              <img src="/assets/bps-icons/sps_structural_icon_report_enabled.svg" />
+            </ng-container>
+            <ng-container *ngIf="isAllDisplayDataDisabledStructural">
+              <img src="/assets/bps-icons/sps_structural_icon_report_disable.svg" />
+            </ng-container>
+          </label>
+
+          <label bps-checkbox
+                 style="margin-right: 5px"
+                 bpsType="variation3"
+                 [bpsDisabled]="isAllDisplayDataDisabledThermal"
+                 (ngModelChange)="checkAllThermal($event)"
+                 [(ngModel)]="isAllDisplayDataCheckedThermal"
+                 bps-tooltip
+                [bpsTooltipType]="'variation_10'"
+                bpsTooltipTitle="{{'report.select-all-thermal' | translate }}"
+                bpsTooltipPlacement="top">
+            <ng-container *ngIf="!isAllDisplayDataDisabledThermal && isAllDisplayDataCheckedThermal">
+              <img src="/assets/bps-icons/sps_thermal_icon_report_selected.svg" />
+            </ng-container>
+            <ng-container *ngIf="!isAllDisplayDataDisabledThermal && !isAllDisplayDataCheckedThermal">
+              <img src="/assets/bps-icons/sps_thermal_icon_report_enabled.svg" />
+            </ng-container>
+            <ng-container *ngIf="isAllDisplayDataDisabledThermal">
+              <img src="/assets/bps-icons/sps_thermal_icon_report_disable.svg" />
+            </ng-container>
+          </label>    
+        </div>
+      </ng-template>
+    
+      <!-- full report cell header -->
+      <ng-template #fullReportColTemplate>
+        <div class="bps-custom-header-with-divider bps-custom-header-with-divider-fullReport">{{'report.full-report' | translate }}</div>
+        <div class="bps-custom-header-radio-button-label" style="text-align: center">
+    
+          <label bps-checkbox
+                 style="margin-right: 10px"
+                 bpsType="variation3"
+                 (ngModelChange)="checkAllFullReport($event)"
+                 [bpsDisabled]="isAllDisplayDataDisabledStructural"
+                 [(ngModel)]="isAllDisplayDataCheckedFullReport"
+                 bps-tooltip
+                [bpsTooltipType]="'variation_10'"
+                bpsTooltipTitle="{{'report.select-all-structural' | translate }}"
+                bpsTooltipPlacement="top">
+            <ng-container *ngIf="!isAllDisplayDataDisabledStructural && isAllDisplayDataCheckedFullReport">
+              <img src="/assets/bps-icons/sps_structural_icon_report_selected.svg" />
+            </ng-container>
+            <ng-container *ngIf="!isAllDisplayDataDisabledStructural && !isAllDisplayDataCheckedFullReport">
+              <img src="/assets/bps-icons/sps_structural_icon_report_enabled.svg" />
+            </ng-container>
+            <ng-container *ngIf="isAllDisplayDataDisabledStructural">
+              <img src="/assets/bps-icons/sps_structural_icon_report_disable.svg" />
+            </ng-container>
+          </label>
+    
+        </div>
+      </ng-template>
+    
+      <!-- note lines -->
+      <ng-template #noteTemplate let-index="index" let-disabled="disabled" let-disabledNote="disabledNote" let-id="id">
+        <div style="text-align: center" (click)="showNotesModal($event,id)">
+          <ng-container *ngIf="!disabled && !disabledNote">
+            <div bps-tooltip [bpsTooltipType]="'variation_10'"
+            [bpsTooltipTitle]="!disabled && !disabledNote? noteAdded: null"
+            bpsTooltipPlacement="left">
+              <img src="/assets/bps-icons/sps_note_icon_report_activated.svg" />
+            </div>
+          </ng-container>
+          <ng-container *ngIf="!disabled && disabledNote">
+            <div bps-tooltip [bpsTooltipType]="'variation_10'"
+            [bpsTooltipTitle]="!disabled && disabledNote? addNotes: null"
+            bpsTooltipPlacement="left">
+              <img src="/assets/bps-icons/sps_note_icon_report_enabled.svg" />
+            </div>
+          </ng-container>
+          
+          <ng-container *ngIf="disabled && disabledNote">
+            <img src="/assets/bps-icons/sps_note_icon_report_disabled.svg" />
+          </ng-container>
+        </div>
+      </ng-template>
+    
+      <!-- regular report cell lines -->
+      <ng-template #cellTemplate let-id="id" let-disabled="disabled" let-disabledAcoustic="disabledAcoustic" let-disabledStructural="disabledStructural" let-disabledThermal="disabledThermal">
+        <div style="text-align: center">
+          <label bps-checkbox
+                 bpsType="variation3"
+                 style="margin-right: 5px"
+                 [bpsDisabled]="disabled || disabledAcoustic"
+                 (ngModelChange)="refreshStatusAcoustic($event, id)"
+                 [ngModel]="mapOfCheckedIdAcoustic[id]"
+                 bps-tooltip
+                [bpsTooltipType]="'variation_10'"
+                [bpsTooltipDisabled]="disabledAcoustic"
+                [bpsTooltipTitle]="getAcousticTooltip(disabledAcoustic)"
+                bpsTooltipPlacement="top">
+            <ng-container *ngIf="mapOfCheckedIdAcoustic[id] && !disabledAcoustic">
+              <img src="/assets/bps-icons/sps_acoustic_icon_report_selected.svg" />
+            </ng-container>
+            <ng-container *ngIf="!mapOfCheckedIdAcoustic[id] && !disabledAcoustic">
+              <img src="/assets/bps-icons/sps_acoustic_icon_report_enabled.svg" />
+            </ng-container>
+            <ng-container *ngIf="disabledAcoustic">
+              <img src="/assets/bps-icons/sps_acoustic_icon_report_disable.svg" />
+            </ng-container>
+          </label>
+    
+          <label bps-checkbox
+                 bpsType="variation3"
+                 style="margin-right: 5px"
+                 (ngModelChange)="refreshStatusStructural($event, id)"
+                 [bpsDisabled]="disabled || disabledStructural"
+                 [ngModel]="mapOfCheckedIdStructural[id]"
+                 bps-tooltip
+                [bpsTooltipType]="'variation_10'"
+                [bpsTooltipDisabled]="disabledStructural"
+                [bpsTooltipTitle]="getStructuralTooltip(disabledStructural)"
+                bpsTooltipPlacement="top">
+            <ng-container *ngIf="mapOfCheckedIdStructural[id] && !disabledStructural">
+              <img src="/assets/bps-icons/sps_structural_icon_report_selected.svg" />
+            </ng-container>
+            <ng-container *ngIf="!mapOfCheckedIdStructural[id] && !disabledStructural">
+              <img src="/assets/bps-icons/sps_structural_icon_report_enabled.svg" />
+            </ng-container>
+            <ng-container *ngIf="disabledStructural">
+              <img src="/assets/bps-icons/sps_structural_icon_report_disable.svg" />
+            </ng-container>
+          </label>
+
+          <label bps-checkbox
+                 bpsType="variation3"
+                 style="margin-right: 5px"
+                 (ngModelChange)="refreshStatusThermal($event, id)"
+                 [bpsDisabled]="disabled || disabledThermal"
+                 [ngModel]="mapOfCheckedIdThermal[id]"
+                 bps-tooltip
+                [bpsTooltipType]="'variation_10'"
+                [bpsTooltipDisabled]="disabledThermal"
+                [bpsTooltipTitle]="getThermalTooltip(disabledThermal)"
+                bpsTooltipPlacement="top">
+            <ng-container *ngIf="mapOfCheckedIdThermal[id] && !disabledThermal">
+              <img src="/assets/bps-icons/sps_thermal_icon_report_selected.svg" />
+            </ng-container>
+            <ng-container *ngIf="!mapOfCheckedIdThermal[id] && !disabledThermal">
+              <img src="/assets/bps-icons/sps_thermal_icon_report_enabled.svg" />
+            </ng-container>
+            <ng-container *ngIf="disabledThermal">
+              <img src="/assets/bps-icons/sps_thermal_icon_report_disable.svg" />
+            </ng-container>
+          </label>
+        
+        </div>
+      </ng-template>
+
+
+      <!-- Full report cell lines -->    
+      <ng-template #fullReportCellTemplate let-id="id" let-disabled="disabled">
+        <div style="text-align: center">    
+          <label bps-checkbox
+                 bpsType="variation3"
+                 style="margin-right: 10px"
+                 (ngModelChange)="refreshFullStatusReport($event, id)"
+                 [bpsDisabled]="disabled"
+                 [ngModel]="mapOfCheckedIdFullStructural[id]"
+                 bps-tooltip
+                [bpsTooltipType]="'variation_10'"
+                [bpsTooltipDisabled]="disabled"
+                [bpsTooltipTitle]="getStructuralTooltip(disabled)"
+                bpsTooltipPlacement="top">
+            <ng-container *ngIf="mapOfCheckedIdFullStructural[id] && !disabled">
+              <img src="/assets/bps-icons/sps_structural_icon_report_selected.svg" />
+            </ng-container>
+            <ng-container *ngIf="!mapOfCheckedIdFullStructural[id] && !disabled">
+              <img src="/assets/bps-icons/sps_structural_icon_report_enabled.svg" />
+            </ng-container>
+            <ng-container *ngIf="disabled">
+              <img src="/assets/bps-icons/sps_structural_icon_report_disable.svg" />
+            </ng-container>
+          </label>
+    
+        </div>
+      </ng-template>
+    </div>
+
+    <!-- Note Popout -->
+    <bps-modal [(bpsVisible)]="isNotesModalVisible" [bpsFooter]="null" [bpsWidth]="400" (bpsOnCancel)="handleCancel()"
+      bpsTitle="{{'report.project-notes' | translate }}">
+      <div><span class="product-field">{{'report.comments' | translate | uppercase }}</span></div>
+      <!-- COMMENTS -->
+      <form bps-form [formGroup]="validateForm" (ngSubmit)="submitForm(validateForm.value)">
+        <bps-form-item>
+          <bps-form-control>
+            <textarea class="bps-cmacs-custom-scrollbar" rows="12" bps-input [(ngModel)]="comment"
+              formControlName="comment"></textarea>
+          </bps-form-control>
+        </bps-form-item>
+
+        <div style="text-align: center; margin-top: 25px">
+          <button style="width: 165px" bps-button bpsType="variation-1" [disabled]="!isValid()">{{'report.add-notes' |
+            translate }}</button>
+          <!-- Add notes -->
+        </div>
+      </form>
+    </bps-modal>
+
+  <!--#endregion new code-->
+
+
+  <!-- <div style="width: 100%; margin-top:25px;margin-bottom:25px;">
+    <div> 
+      <button style="display: table; margin: 0 auto; width: 165px;" [disabled]="!enableDownload" bps-button bpsType="variation-1" (click)="onDownloadClick()">{{'report.download' | translate }}</button>
+    </div>
+  </div> -->
+  <div style="width: 100%; margin-top:25px;margin-bottom:25px;display:flex;">
+    <div>
+      <button style="display: table; margin: 0 auto; width: 165px;margin-left:155px;" [disabled]="!enableDownload"
+        bps-button bpsType="variation-1" (click)="onDownloadClick()">{{'report.download' | translate }}</button>
+    </div>
+    <!-- Download -->
+    <div class="iconI" value="terrain-category" style="height:16px;" bps-popover [bpsPopoverPlacement]="'right'"
+      [bpsPopoverType]="'variation_4'" [bpsPopoverContent]="tooltip1">
+      <img src="/assets/Images/icons/sps_information_icon_blue.svg">
+    </div>
+    <ng-template #tooltip1>
+      <div class="popover-variation4" style="display:flex;">
+        <div>
+          {{'report.select-one-or-multiple-of-the-following' | translate }} &nbsp;
+          <!-- Select one or multiple of the following &nbsp; -->
+          <!-- Guidance -->
+        </div>
+        <div>
+          <img src="/assets/bps-icons/sps_acoustic_icon_report_enabled.svg" />
+        </div>
+        <div style="margin-left: 7px;">
+          <img src="/assets/bps-icons/sps_structural_icon_report_enabled.svg" />
+        </div>
+        <div style="margin-left: 7px;">
+          <img src="/assets/bps-icons/sps_thermal_icon_report_enabled.svg" />
+        </div>
+        <div>
+          &nbsp; {{'report.to-download-reports' | translate }}.
+          <!--&nbsp; to download reports.-->
+        </div>
+
+      </div>
+
+
+    </ng-template>
+  </div>
+</div>
+
+<nz-modal [(nzVisible)]="reportNotReadyModal_isVisible" [nzTitle]="reportNotReadyModal_title" (nzOnCancel)="reportNotReadyModal_handleCancel()" (nzOnOk)="reportNotReadyModal_handleOk()">
+  <ng-container>
+    <p>Report is not ready</p>
+  </ng-container>
+</nz-modal>

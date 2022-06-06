@@ -1,0 +1,197 @@
+.sps-left-popout-container-level {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  position: absolute;
+  top: 0;
+  left: 355px;
+  height: 100%;
+  background-color: #262626;
+  border-left: 1px solid #474747;
+  z-index: 1;
+}
+
+.sps-left-popout-container-level2 {
+  width: 500px;
+  height: calc(100vh - 71px);
+  /* overflow-y: auto; */
+  margin-right: 5px;
+  padding: 27.6px 0 23px;
+}
+.sps-custom-section-property-input-container{
+  margin-left: 0px !important;
+}
+.sps-popout-header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  margin: 0 21px 17.4px 25px;
+}
+
+.outer-popout-panel-heading {
+  color: #ffffff;
+}
+
+bps-select {
+  padding: 5px 5px 5px 0px !important;
+}
+.disabled {
+  color: #666666;
+}
+
+.sps-dxf-upload-btn {
+  margin-top: 14px !important;
+  margin-bottom: 20px !important;
+}
+
+.table-column-title {
+  padding-left: 13px;
+  margin: 30.6px 97px 0 14px;
+  font-family: UniversForSchueco-430Reg;
+  font-size: 11px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.82;
+  letter-spacing: normal;
+  text-align: left;
+  color: #666666;
+}
+.ant-select-disabled .ant-select-selection,
+.ant-select-selection.disabled {
+  border: 1px solid #474747 !important;
+}
+.sps-break {
+  width: 100% !important;
+  margin: auto;
+}
+
+.sps-left-popout-custom-section-property {
+  margin: 18px 25px 20px 25px;
+}
+
+.sps-left-popout-custom-section-property h3 {
+  display: block;
+  margin-bottom: 18px;
+  color: #ffffff;
+}
+
+.sps-custom-section-property-input-container {
+  display: inline-block;
+  width: 130px;
+  margin-left: 6px;
+}
+
+.sps-custom-section-property-input-container p {
+  font-size: 12px;
+  display: inline-block;
+  width: 30px;
+}
+
+.sps-custom-section-property-input-container .units {
+  margin-left: 16px;
+  font-weight: 100;
+  color: #bfbfbf;
+}
+
+.sps-left-popout-custom-section-property span {
+  display: inline-block;
+  width: 36px;
+}
+
+.sps-left-popout-level2-bottom-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.selected {
+  border-color: #00a2d1 !important;
+  color: #fff !important;
+}
+.sps-custom-article-delete-btn {
+  margin: 20px 0px 0 25px !important;
+}
+
+.sps-custom-article-add-btn {
+  margin: 20px 25px 0 0px !important;
+}
+
+.bps-form-item {
+  margin: 0px;
+  display: inline-block;
+}
+
+h3,
+p {
+  color: #ffffff;
+  line-height: 16.5px;
+}
+
+.sps-left-popout-container-level2-overlay-left {
+  position: fixed;
+  width: 650px;
+  height: calc(100vh - 69px);
+  top: 38px;
+  left: 0;
+  background-color: #262626;
+  opacity: 0.65;
+  z-index: 9;
+}
+
+.sps-left-popout-container-level2-overlay-right {
+  position: fixed;
+  width: calc(100vw - 1156px);
+  height: calc(100vh - 69px);
+  top: 38px;
+  right: 0;
+  background-color: #262626;
+  opacity: 0.65;
+  z-index: 9;
+}
+
+.ant-input.bps-input-opened.ng-touched.ng-invalid:focus-within {
+  border-bottom: 1px solid #00a2d1 !important;
+  color: #ffffff !important;
+}
+
+.ant-input.bps-input-opened.ng-touched.ng-invalid {
+  border-bottom: 1px solid #ef8621 !important;
+  color: #ffffff !important;
+}
+
+.active {
+  background-color: #00a2d1 !important;
+}
+
+.activeDeleteBtn {
+  color: #ffffff !important;
+  background-color: #363636 !important;
+}
+
+.activeDeleteBtn:hover {
+  background-color: #bc0000 !important;
+}
+i {
+  width: 16px;
+  height: 16px;
+  font-family: UniversForSchueco-431RgIt;
+  font-size: 12px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 0.75;
+  letter-spacing: normal;
+  text-align: center;
+  color: #00a2d1;
+}
+td {
+  vertical-align: top;
+}
+.ant-form-item {
+  box-sizing: border-box;
+  margin: 0 0 0px !important;
+}

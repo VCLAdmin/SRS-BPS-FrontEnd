@@ -1,0 +1,279 @@
+.column-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    justify-content: center;
+  }
+  
+  .dot-picker-operability-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    width: 215px;
+  }
+  
+  .addGlassAndPanel {
+    cursor: pointer;
+  }
+  
+  .dot-picker-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+  
+  .dot-picker-dot {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .operability-fixed-opening-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+  
+  .operability-fixed-opening-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  
+  .left-selection {
+    width: 186px;
+    color: #ffffff !important;
+    border-color: #00a2d1 !important;
+  }
+  .ant-select-selection.disabled,
+  .left-selection.disabled {
+    color: #666 !important;
+    border-color: #666666 !important;
+  }
+  img.disabled {
+    opacity: 0.5;
+  }
+  
+  .labelSVG {
+    padding: 4px 0px;
+  }
+  .showBlueHover {
+    display: none !important;
+  }
+  .labelSVG:hover .showBlueHover {
+    display: block !important;
+  }
+  .labelSVG:hover .showWhiteHover {
+    display: none !important;
+  }
+  .operability-selection-heading {
+    margin-bottom: 7px;
+    /* margin-top: 12px; */
+    font-family: "SchucoRegularMedium";
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 100;
+    color: #ffffff;
+  }
+
+  .operability-selection-heading.enabled {
+    color: #00a2d1;
+    font-family: "UniversforSchueco-530";
+  }
+
+  .operability-fittings-heading.disabled {
+    /* color: #363636 !important; */
+    color: #666 !important;
+  }
+
+  
+  
+  .operability-fittings-heading {
+    /* margin-bottom: 7px; */
+    /* margin-top: 12px; */
+    font-family: "SchucoRegularMedium";
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 100;
+    color: #00a2d1;
+  }
+  
+  .outer-frame-heading,
+  .vent-frame-heading,
+  .mullion-frame-heading {
+    color: #ffffff;
+  }
+  .operability-selection-heading.disabled {
+    /* color: #363636 !important; */
+    color: #666 !important;
+  }
+  
+ 
+  
+  .outer-frame-heading.disabled,
+  .vent-frame-heading.disabled,
+  .mullion-frame-heading.disabled {
+    color: #666 !important;
+  }
+  .operability-fixed-opening-boxes {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    width: 215px;
+  }
+  
+  .apply-btn-container {
+    /* margin-top: 15px; */
+    /* display: flex; */
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 220px;
+  }
+  .roundCount {
+    float: left;
+    border-radius: 16px;
+    border: #ffffff solid 1px;
+    background: #00a2d1;
+    width: 18px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin-right: 10px;
+  }
+  .active {
+    background-color: #00a2d1 !important;
+  }
+  
+  .column-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  
+  .sps-accordion-ui-section-content-container {
+    margin-top: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .sps-accordion-ui-section-content img {
+    width: 214px;
+    height: 145px;
+  }
+  
+  #config-framing .column-container .sps-accordion-ui-section-content {
+    justify-content: initial;
+    margin-bottom: 22px;
+  }
+  
+  .sps-accordion-ui-section-content {
+    display: flex;
+    align-items: center;
+    width: 215px;
+  }
+  
+  .sps-pill-container {
+    margin-top: -0.5em;
+    display: flex;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    align-content: stretch;
+  }
+  
+  .sps-pill-disable {
+    color: #666 !important;
+  }
+  .sps-pill {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    margin: 0px 2.5px 5px 2.5px;
+    height: 20px;
+    flex-grow: 1;
+    padding: 0px 4px;
+    background-color: #363636;
+    border: 1px #363636 solid;
+    cursor: pointer;
+  }
+  
+  .sps-pill p {
+    margin: 0;
+    font-family: UniversForSchueco-430Reg;
+    font-size: 11px;
+    text-transform: uppercase;
+    line-height: 1.27;
+  }
+  
+  .sps-pill.selected {
+    border: 1px solid #00a2d1 !important;
+    transition: 0s;
+  }
+  
+  .blue-heading {
+    color: #00a2d1 !important;
+  }
+  
+  .sps-operability-vent-frame-button-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .sps-framing-sightline-input-width {
+    width: 170px;
+    color: #ffffff;
+    height: 20px;
+    border: 1px solid #363636;
+    padding: 0;
+    font-size: 11px;
+    background-color: #363636;
+    border-radius: 14px;
+    text-align-last: center;
+    outline: none;
+  }
+  
+  .sps-framing-sightline-input-width:focus {
+    outline: none;
+  }
+  
+  .sps-framing-sightline-input-width.success {
+    border-color: #00a2d1;
+    margin-right: 22px;
+  }
+  
+  .bps-radio-button-variation5 {
+    border: 1px solid #363636 !important;
+  }
+  
+  .bps-radio-button-variation3 {
+    border: 1px solid #363636 !important;
+  }
+  
+  .sub-menu {
+    color: rgb(102, 102, 102) !important;
+    margin-left: 10px;
+    width: 68px;
+    height: 12px;
+    font-family: UniversForSchueco-430Reg;
+    font-size: 11px !important;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.27;
+    letter-spacing: normal;
+    text-align: left;
+    color: #bfbfbf;
+  }

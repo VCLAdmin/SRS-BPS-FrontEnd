@@ -1,0 +1,131 @@
+body {
+  background-color: #262626;
+  color: #ffffff;
+}
+
+#main-container {
+  width: 100vw;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  height: calc(100vh - 72px);
+  /* border-bottom: 1px solid #363636; */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+}
+
+.left-panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  width: 295px;
+  height: 100%;
+}
+
+.work-panel {
+  position: fixed;
+  top: 38px;
+  left: 295px;
+  z-index: 0;
+  /* flex-grow: 1; */
+  height: calc(100% - 75px);
+  width: calc(100vw - 295px);
+}
+
+.right-panel {
+  background-color: #262626;
+  color: #ffffff;
+  position: fixed;
+  top: 38px;
+  right: 0;
+  z-index: 1;
+  outline: none;
+  width: 235px;
+  height: calc(100% - 75px);
+}
+
+mwlResizable {
+  box-sizing: border-box;
+  padding-left: 10px;
+}
+
+/* .resize-handle-left{
+  position: absolute;
+  z-index: 10;
+  height: 100%;
+  cursor: col-resize;
+  width: 5px;
+  left: 0;
+} */
+
+.open-right-panel-icon {
+  position: absolute;
+  z-index: 2;
+  top: 18px;
+  right: 26px;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #363636;
+  background-color: #363636;
+  border-radius: 30px 30px 30px 30px;
+  font-size: 30px;
+  color: #ffffff;
+  background-image: url(/assets/Images/sps/sps_round_icon_rightpanelclosed_white.svg);
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-position: center;
+  cursor: pointer;
+}
+
+.close-right-panel-icon {
+  position: absolute;
+  z-index: 2;
+  top: 18px;
+  left: -30px;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #363636;
+  background-color: #363636;
+  border-radius: 15px 0px 0px 15px;
+  font-size: 30px;
+  color: #ffffff;
+  background-image: url(/assets/Images/sps/sps_round_icon_rightpanelopened_white.svg);
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-position: center;
+  cursor: pointer;
+}
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
+
+.overlay {
+  position: fixed;
+  width: 100%;
+  height: calc(100vh - 69px);
+  top: 38px;
+  left: 0;
+  background-color: #262626;
+  opacity: 0.65;
+  z-index: 0;
+}
+.zIndex-1 {
+  z-index: -1;
+}
+::ng-deep .ant-select {
+  font-family: UniversforSchueco-430;
+}
+::ng-deep .ant-input {
+  font-family: UniversforSchueco-430;
+}

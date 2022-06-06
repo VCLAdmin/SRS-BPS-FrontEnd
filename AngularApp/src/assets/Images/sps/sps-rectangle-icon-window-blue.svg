@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="14.859" height="17.088" viewBox="0 0 14.859 17.088">
+  <defs>
+    <style>
+      .cls-1, .cls-3 {
+        fill: none;
+      }
+
+      .cls-1 {
+        stroke: #7bc053;
+      }
+
+      .cls-2 {
+        stroke: none;
+      }
+    </style>
+  </defs>
+  <g id="sps_rectangle_icon_window_blue" class="cls-1">
+    <rect class="cls-2" width="14.86" height="17.088" rx="2"/>
+    <rect class="cls-3" x="0.5" y="0.5" width="13.86" height="16.088" rx="1.5"/>
+  </g>
+</svg>

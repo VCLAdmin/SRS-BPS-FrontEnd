@@ -1,0 +1,35 @@
+<ng-template #notificationTemplate let-notifData="data">
+  <div class="ant-notification-notice-content">
+    <div class="ant-notification-notice-with-icon">
+      <span class="ant-notification-notice-icon">
+        <span *ngIf="notifData.logoToShow === 'Acoustic'">
+          <img src="../../../../../../assets/bps-icons/sps_rectangle_icon_acoustic_active.svg" />
+        </span>
+        <span *ngIf="notifData.logoToShow === 'Structural'">
+          <img src="../../../../../../assets/bps-icons/sps_rectangle_icon_structural_active.svg" />
+        </span>
+        <span *ngIf="notifData.logoToShow === 'Thermal'">
+          <img src="../../../../../../assets/bps-icons/sps_rectangle_icon_thermal_active.svg" />
+        </span>
+        <span *ngIf="notifData.logoToShow === 'Trash'">
+          <img width="17" src="../../../../../../assets/Images/trash.svg" />
+        </span>
+        <span *ngIf="notifData.logoToShow === 'Warning'">
+          <img width="17" src="../../../../../../assets/Images/sps_notificationexclamation_icon.svg" />
+        </span>
+        <span *ngIf="(notifData.logoToShow === 'WarningOrder') || (notifData.logoToShow === 'WarningOrderLeft')">
+          <img width="17" src="../../../../../../assets/Images/sps_notificationexclamation_icon.svg" />
+        </span>
+        <span *ngIf="notifData.logoToShow === 'WarningReport'">
+          <img width="17" src="../../../../../../assets/Images/warningSmall.svg" />
+        </span>
+        <span *ngIf="notifData.iconCustom !== ''">
+          <i nz-icon [nzType]="notifData.iconCustom" style="color: rgb(16, 142, 233);"></i>
+        </span>
+      </span>
+      <div class="ant-notification-notice-message">{{notifData.title}}</div>
+      <div class="ant-notification-notice-description">{{notifData.message}}</div>
+    </div>
+  </div>
+</ng-template>
+<!-- <button nz-button (click)="createBasicNotification(createTemplate)">*</button> -->

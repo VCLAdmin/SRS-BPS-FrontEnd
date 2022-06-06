@@ -1,0 +1,240 @@
+<div>
+  <div id="sps-solver-button-container">
+
+    <div id="sps-solver-button-content" class="sps-solver-button-content sps-result-tab-physics-type-spacing">
+      <!-- <h3 id="sps-physics-type-heading" class="sps-physics-type-heading fontUniversForSchueco-530">{{'result.physics-type' | translate }}</h3> -->
+      <h3 id="sps-physics-type-heading" class="sps-physics-type-heading fontUniversForSchueco-530">{{ physicsType == 'A'
+        ? acousticResultText: physicsType == 'B' ? structuralResultText: physicsType == 'C' ? thermalResultText:'' }}
+      </h3>
+      <!-- Physics Type -->
+      <div style="display:flex;">
+        <div id="sps-solver-configuration-row-1" style="margin-top: 7.3px;"
+          class="sps-solver-configuration-row sps-result-tab-display-center sps-result-tab-display-text-align">
+          <div>
+            <!-- <bps-radio-group [(ngModel)]="physicsType" (ngModelChange)="sendPhysicsTypeToParent()">
+              <label style="width: 65px" bps-radio-button bpsValue="A" [bpsDisabled]="isAcousticDisabled">
+                <svg xmlns="http://www.w3.org/2000/svg" id="prefix__sps_rectangle_icon_acoustic_enabled" width="20.012"
+                  height="8.88" viewBox="0 0 20.012 8.88">
+                  <defs>
+                    <style>
+                      .prefix__cls-2 {
+                        fill: #999
+                      }
+
+                    </style>
+                  </defs>
+                  <path id="prefix__Path_163" d="M-19828.543 13191.683l5.658-5.644 5.459 5.456 6-5.947"
+                    data-name="Path 163" transform="translate(19830.076 -13184.266)" style="fill:none;stroke:#999" />
+                  <circle id="prefix__Ellipse_52" cx="1.563" cy="1.563" r="1.563" class="prefix__cls-2"
+                    data-name="Ellipse 52" transform="translate(0 5.754)" />
+                  <circle id="prefix__Ellipse_53" cx="1.563" cy="1.563" r="1.563" class="prefix__cls-2"
+                    data-name="Ellipse 53" transform="translate(5.63 .312)" />
+                  <circle id="prefix__Ellipse_54" cx="1.563" cy="1.563" r="1.563" class="prefix__cls-2"
+                    data-name="Ellipse 54" transform="translate(11.067 5.315)" />
+                  <circle id="prefix__Ellipse_55" cx="1.563" cy="1.563" r="1.563" class="prefix__cls-2"
+                    data-name="Ellipse 55" transform="translate(16.885)" />
+                </svg>
+              </label>
+
+              <label style="width: 65px" bps-radio-button bpsValue="B" [bpsDisabled]="isStructuralDisabled">
+                <svg xmlns="http://www.w3.org/2000/svg" id="prefix__sps_rectangle_icon_structural_enabled" width="9.186"
+                  height="20.844" viewBox="0 0 9.186 20.844">
+                  <defs>
+                    <style>
+                      .prefix__cls-1 {
+                        fill: #999
+                      }
+
+                    </style>
+                  </defs>
+                  <circle id="prefix__Ellipse_52" cx="1.563" cy="1.563" r="1.563" class="prefix__cls-1"
+                    data-name="Ellipse 52" transform="translate(0 15.025)" />
+                  <circle id="prefix__Ellipse_58" cx="1.563" cy="1.563" r="1.563" class="prefix__cls-1"
+                    data-name="Ellipse 58" />
+                  <circle id="prefix__Ellipse_54" cx="1.563" cy="1.563" r="1.563" class="prefix__cls-1"
+                    data-name="Ellipse 54" transform="translate(6.059 17.717)" />
+                  <circle id="prefix__Ellipse_59" cx="1.563" cy="1.563" r="1.563" class="prefix__cls-1"
+                    data-name="Ellipse 59" transform="translate(6.059 3.318)" />
+                  <g id="prefix__Path_166" data-name="Path 166" style="fill:none">
+                    <path d="M0 0l6.581 3.169V18.82L0 15.651z" style="stroke:none" transform="translate(1.241 1.441)" />
+                    <path class="myClass" d="M1 1.591v13.432l4.58 2.206V3.797L1 1.591M0 0l6.58 3.169V18.82L0 15.651V0z"
+                      style="stroke:none;fill:#999" transform="translate(1.241 1.441)" />
+                  </g>
+                </svg>
+              </label>
+
+              <label style="width: 65px" bps-radio-button bpsValue="C" [bpsDisabled]="isThermalDisabled">
+                <svg xmlns="http://www.w3.org/2000/svg" width="15.723" height="8.31" viewBox="0 0 15.723 8.31">
+                  <defs>
+                    <style>
+                      .prefix__cls-3 {
+                        fill: #999
+                      }
+
+                      .prefix__cls-4 {
+                        fill: none;
+                        stroke: #999;
+                        stroke-linecap: round
+                      }
+
+                    </style>
+                  </defs>
+                  <g id="prefix__sps_rectangle_icon_thermal_enabled">
+                    <g id="prefix__Group_360" data-name="Group 360" transform="rotate(90 7.862 7.862)">
+                      <circle id="prefix__Ellipse_61" cx="1.563" cy="1.563" r="1.563" class="prefix__cls-3"
+                        data-name="Ellipse 61" transform="translate(.626 12.521)" />
+                      <circle id="prefix__Ellipse_62" cx="1.563" cy="1.563" r="1.563" class="prefix__cls-3"
+                        data-name="Ellipse 62" />
+                      <path id="prefix__Path_167" d="M1.375 12.146S-1.4 7.918.936 6.158.21 0 .21 0"
+                        class="prefix__cls-4" data-name="Path 167" transform="translate(.815 1.563)" />
+                    </g>
+                    <g id="prefix__Group_361" data-name="Group 361" transform="rotate(90 5.545 10.103)">
+                      <circle id="prefix__Ellipse_61-2" cx="1.563" cy="1.563" r="1.563" class="prefix__cls-3"
+                        data-name="Ellipse 61" transform="translate(.626 12.521)" />
+                      <circle id="prefix__Ellipse_62-2" cx="1.563" cy="1.563" r="1.563" class="prefix__cls-3"
+                        data-name="Ellipse 62" />
+                      <path id="prefix__Path_167-2" d="M1.375 12.146S-1.4 7.918.936 6.158.21 0 .21 0"
+                        class="prefix__cls-4" data-name="Path 167" transform="translate(.815 1.563)" />
+                    </g>
+                  </g>
+                </svg>
+              </label>
+            </bps-radio-group> -->
+            <bps-radio-group [(ngModel)]="physicsType" (ngModelChange)="sendPhysicsTypeToParent()">
+              <label bps-radio-button bpsValue="A" [bpsDisabled]="isAcousticDisabled" style="width: 65px"
+                (mouseenter)="!isAcousticDisabled? isAcousticSelected = true: isAcousticSelected = false;"
+                (mouseleave)="isAcousticSelected = false;" bpsRadioButtonType="variation11">
+                <ng-container *ngIf="(physicsType === 'A' || isAcousticSelected) && !isAcousticDisabled">
+                  <img src="/assets/bps-icons/sps_rectangle_icon_acoustic_active.svg" />
+                </ng-container>
+                <ng-container *ngIf="physicsType !== 'A' && !isAcousticSelected && !isAcousticDisabled">
+                  <img src="/assets/bps-icons/sps_rectangle_icon_acoustic_enabled.svg" />
+                </ng-container>
+                <ng-container *ngIf="isAcousticDisabled">
+                  <img src="/assets/bps-icons/sps_rectangle_icon_acoustic_disabled.svg" />
+                </ng-container>
+              </label>
+
+              <label bps-radio-button bpsValue="B" [bpsDisabled]="isStructuralDisabled"
+                (mouseenter)="!isStructuralDisabled? isStructuralSelected = true:isStructuralSelected = false;"
+                (mouseleave)="isStructuralSelected = false;" style="width: 65px" bpsRadioButtonType="variation11">
+                <ng-container *ngIf="(physicsType === 'B' || isStructuralSelected) && !isStructuralDisabled">
+                  <img src="/assets/bps-icons/sps_rectangle_icon_structural_active.svg" />
+                </ng-container>
+                <ng-container *ngIf="physicsType !== 'B' && !isStructuralSelected && !isStructuralDisabled">
+                  <img src="/assets/bps-icons/sps_rectangle_icon_structural_enabled.svg" />
+                </ng-container>
+                <ng-container *ngIf="isStructuralDisabled">
+                  <img src="/assets/bps-icons/sps_rectangle_icon_structural_disabled.svg" />
+                </ng-container>
+              </label>
+
+              <label bps-radio-button bpsValue="C" [bpsDisabled]="isThermalDisabled" style="width: 65px"
+                (mouseenter)="!isThermalDisabled? isThermalSelected = true: isThermalSelected = false;"
+                (mouseleave)="isThermalSelected = false;" bpsRadioButtonType="variation11">
+                <ng-container *ngIf="(physicsType === 'C' || isThermalSelected) && !isThermalDisabled">
+                  <img src="/assets/bps-icons/sps_rectangle_icon_thermal_active.svg" />
+                </ng-container>
+                <ng-container *ngIf="physicsType !== 'C' && !isThermalSelected && !isThermalDisabled">
+                  <img src="/assets/bps-icons/sps_rectangle_icon_thermal_enabled.svg" />
+                </ng-container>
+                <ng-container *ngIf="isThermalDisabled">
+                  <img src="/assets/bps-icons/sps_rectangle_icon_thermal_disabled.svg" />
+                </ng-container>
+              </label>
+            </bps-radio-group>
+          </div>
+        </div>
+        <div id="sps-result-tab-grey-spacer" class="sps-result-tab-spacer-grey"></div>
+        <div id="sps-result-tab-blue-circle" style="margin-top: 7.3px;" class="sps-result-tab-blue-circle">
+          <div *ngIf="!isProductInfoVisible; else blueIcon" bps-tooltip [bpsTooltipType]="'variation_10'"
+            bpsTooltipTitle="&nbsp;&nbsp;&nbsp;&nbsp;{{'result.product-info' | translate }}&nbsp;&nbsp;&nbsp;&nbsp;"
+            bpsTooltipPlacement="top">
+            <img style="cursor:pointer;" id="sps-result-product-info-icon"
+              src="assets/Images/icons/sps_round_icon_productinfo_grey.svg" (click)="showProductInfoModal()">
+          </div>
+          <ng-template #blueIcon>
+            <div>
+              <img style="cursor:pointer;" id="sps-result-product-info-icon"
+                src="assets/Images/icons/sps_round_icon_productinfo_blue.svg">
+            </div>
+          </ng-template>
+          <bps-modal [(bpsVisible)]="isProductInfoVisible" [bpsFooter]="null" [bpsWidth]="610"
+            (bpsOnCancel)="handleCancel()" bpsTitle="{{'result.product-info' | translate }}">
+            <div class="parent">
+              <span class="imgDiv">
+                <!-- Product Info -->
+                <div class="product-image-dimension"
+                  style="display: flex; justify-content: center; align-items: center;height:295px">
+                  <img #selectedItemImage (error)="setDefaultImage()" src='{{path}}'
+                    style="height: 190px; width: auto; object-fit: cover;" alt="">
+                </div>
+              </span>
+              <span class="infoDiv">
+                <div>
+                  <span class="product-field">{{'result.product-type' | translate | uppercase }}</span>
+                  <!-- PRODUCT TYPE -->
+                  <span class="product-description">{{productType}}</span>
+
+                  <span class="product-field">{{'result.system-name' | translate | uppercase }}</span>
+                  <!-- SYSTEM NAME -->
+                  <span class="product-description">{{systemType}}</span>
+
+                  <span class="product-field">{{'result.dimension' | translate | uppercase }}</span>
+                  <!-- DIMENSION -->
+                  <span class="product-description">{{dimensions}}</span>
+                </div>
+
+                <div *ngFor="let glass of GeometryGlassList; let i = index">
+                  <div class="divider"></div>
+                  <span class="product-field" style="color:#00a2d1 !important">{{'result.leftresult-insertunit' |
+                    translate}} {{i+1}}</span>
+                  <!-- PRODUCT TYPE -->
+                  <span class="product-description">{{glass.VentOperableType}}</span>
+
+                  <span class="product-field">{{'configure.window-systems' | translate | uppercase }}</span>
+                  <!-- SYSTEM NAME -->
+                  <span class="product-description">{{glass.InsertedWindowType}}</span>
+
+                  <span class="product-field">DIRECTION</span>
+                  <!-- DIMENSION -->
+                  <span class="product-description">{{glass.VentOpeningDirection}}</span>
+                </div>
+
+              </span>
+            </div>
+          </bps-modal>
+        </div>
+      </div>
+
+    </div>
+    <div class="sps-solver-configuration-tab-container">
+      <!-- <div id="sps-solver-configuration-tab" class="hoverPointer hidden">
+              
+          </div> -->
+    </div>
+  </div>
+  <div *ngIf="unified3DModel" style="height: calc(100vh - 168px); overflow-y: auto;">
+    <app-left-acoustic-panel [ngClass]="{'hidden':physicsType!='A'}" [unified3DModel]="unified3DModel">
+    </app-left-acoustic-panel>
+    <app-left-structural-panel [ngClass]="{'hidden':physicsType!='B'}"
+      (sendSelectedIntermediate)="onReceiveSelectedIntermediateGeneral($event)"
+      (sendIntermediateRedColor)="onReceiveIntermediateRedColor($event)" [unified3DModel]="unified3DModel"
+      [selectedStructuralIntermediate]="selectedStructuralIntermediate"
+      [selectedStructuralIntermediateFacade]="selectedStructuralIntermediateFacade"></app-left-structural-panel>
+    <app-left-thermal-panel [ngClass]="{'hidden':physicsType!='C'}" [unified3DModel]="unified3DModel"
+      [selectedThermalResultLabel]="selectedThermalResultLabel"></app-left-thermal-panel>
+  </div>
+
+</div>
+
+
+
+
+<!---->
+<!-- <div>
+  <app-left-physics-type></app-left-physics-type>
+  <app-left-acoustic-panel></app-left-acoustic-panel>
+  <app-left-structural-panel></app-left-structural-panel>
+  <app-left-thermal-panel></app-left-thermal-panel>
+</div> -->

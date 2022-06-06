@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="15.962" height="15.964" viewBox="0 0 15.962 15.964">
+	<defs>
+		<style>
+			.cls-1,
+			.cls-4 {
+				fill: none
+			}
+
+			.cls-1 {
+				stroke: #fff
+			}
+
+			.cls-2,
+			.cls-5 {
+				fill: #fff
+			}
+
+			.cls-3,
+			.cls-5 {
+				stroke: none
+			}
+		</style>
+	</defs>
+	<g id="sps_square_icon_deleteparts_white" transform="translate(6806.983 11218.155)">
+		<g id="Group_2286" data-name="Group 2286">
+			<g id="Rectangle_1200" class="cls-1" data-name="Rectangle 1200">
+				<path d="M0 0h8.727v7.194H0z" class="cls-3" transform="rotate(135 -1076.535 -7011.622)" />
+				<path d="M.5.5h7.727v6.194H.5z" class="cls-4" transform="rotate(135 -1076.535 -7011.622)" />
+			</g>
+			<g id="Path_854" class="cls-2" data-name="Path 854">
+				<path d="M9.979 6.694H.5V.5h9.479v6.194z" class="cls-3"
+					transform="rotate(135 -1073.208 -7013)" />
+				<path d="M1 1v5.194h8.479V1H1M0 0h10.479v7.194H0V0z" class="cls-5"
+					transform="rotate(135 -1073.208 -7013)" />
+			</g>
+		</g>
+	</g>
+</svg>

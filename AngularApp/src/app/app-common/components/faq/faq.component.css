@@ -1,0 +1,52 @@
+.faq-container {
+    background-color: #262626;
+}
+
+.leftContent {
+    width: 5%; float: left; padding: 20px; height: 95vh;
+  }
+  .rightContent {
+    width: 95%; float: right; padding: 50px 20px 20px 0px; height: 95vh;
+  }
+
+  .faq-heading {
+    color: #ffffff;
+    font-family: 'SchucoRegularMedium';
+    font-size: 12px;
+    margin: 0px;
+    margin-left: 370px;
+    text-transform: uppercase;
+    font-weight: 100;
+}
+
+.page-heading {
+  color: #999999 !important;
+  font-family: 'UniversForSchueco-430Reg';
+    /* font-size: 24px; */
+    margin: 0px;
+    text-transform: uppercase;
+    font-weight: 100;
+}
+
+.faq-content {
+    align-content: center;
+    padding-top: 228px;
+    padding-left: 370px;
+    margin-left: 155px;
+}
+
+
+
+
+.cross-button {
+    position: absolute;
+    top: 86px;
+    right: 40px;
+    z-index: 2;
+    background-color: #262626;
+    /* background-image: none;
+    border-color: rgba(0,0,0,0.65);
+    border-radius: 100px; */
+    /* border-width: 0px; */
+    cursor: pointer;
+  }

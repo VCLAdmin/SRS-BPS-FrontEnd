@@ -1,0 +1,643 @@
+<div *ngIf="unified3DModel">
+  <div>
+    <!--Physics Type-->
+    <div nz-row [ngClass]="{'hidden': !showSolverButtonContent}" class="solver-button-content">
+      <div nz-column>
+        <div nz-row nzType="flex" nzjustify="start" *appCheckPermissions="feature.PhysicsTypes">
+          <h3 nz-col class="physics-type-heading">{{'configure.physics-types' | translate }}</h3>
+          <!-- Physics Types -->
+        </div>
+        <ng-container *appCheckPermissions="feature.PhysicsTypes">
+          <div nz-row nzType="flex" nzjustify="space-between" *ngIf="unified3DModel && unified3DModel.ProblemSetting">
+            <label bps-checkbox bpsType="variation1" [(ngModel)]="unified3DModel.ProblemSetting.EnableAcoustic"
+              (ngModelChange)="onChangeStatus(); afterChangeStatus('EnableAcoustic')" bps-tooltip
+              [bpsTooltipType]="'variation_8a'" bpsTooltipTitle="{{'configure.acoustic' | translate }}"
+              bpsTooltipPlacement="top"
+              [bpsTooltipDisabled]="unified3DModel.ProblemSetting.FacadeType === 'UDC' && unified3DModel.ProblemSetting.ProductType === 'Facade'"
+              [bpsDisabled]="unified3DModel.ProblemSetting.FacadeType === 'UDC' && unified3DModel.ProblemSetting.ProductType === 'Facade'">
+              <!-- Acoustic -->
+              <img alt=""
+                *ngIf="unified3DModel.ProblemSetting.EnableAcoustic && !(unified3DModel.ProblemSetting.FacadeType === 'UDC' && unified3DModel.ProblemSetting.ProductType === 'Facade')"
+                [src]="'assets/bps-icons/sps_rectangle_icon_acoustic_active.svg'" />
+              <img alt=""
+                *ngIf="!unified3DModel.ProblemSetting.EnableAcoustic && !(unified3DModel.ProblemSetting.FacadeType === 'UDC' && unified3DModel.ProblemSetting.ProductType === 'Facade')"
+                [src]="'assets/bps-icons/sps_rectangle_icon_acoustic_enabled.svg'" />
+              <img alt=""
+                *ngIf="unified3DModel.ProblemSetting.FacadeType === 'UDC' && unified3DModel.ProblemSetting.ProductType === 'Facade'"
+                [src]="'assets/bps-icons/sps_rectangle_icon_acoustic_disabled.svg'" />
+            </label>
+            <label bps-checkbox bpsType="variation1" [(ngModel)]="unified3DModel.ProblemSetting.EnableStructural"
+              (ngModelChange)="onChangeStatus()" bps-tooltip [bpsTooltipType]="'variation_8a'"
+              bpsTooltipTitle="{{'configure.structural' | translate }}" bpsTooltipPlacement="top">
+              <!-- Structural -->
+              <img alt="" *ngIf="unified3DModel.ProblemSetting.EnableStructural"
+                [src]="'assets/bps-icons/sps_rectangle_icon_structural_active.svg'" />
+              <img alt="" *ngIf="!unified3DModel.ProblemSetting.EnableStructural"
+                [src]="'assets/bps-icons/sps_rectangle_icon_structural_enabled.svg'" />
+            </label>
+            <label bps-checkbox bpsType="variation1" [(ngModel)]="unified3DModel.ProblemSetting.EnableThermal"
+              (ngModelChange)="onChangeStatus(); afterChangeStatus('EnableThermal')" bps-tooltip
+              [bpsTooltipType]="'variation_8a'" bpsTooltipTitle="{{'configure.thermal' | translate }}"
+              bpsTooltipPlacement="top">
+              <!-- Thermal -->
+              <img alt="" *ngIf="unified3DModel.ProblemSetting.EnableThermal"
+                [src]="'assets/bps-icons/sps_rectangle_icon_thermal_active.svg'" />
+              <img alt="" *ngIf="!unified3DModel.ProblemSetting.EnableThermal"
+                [src]="'assets/bps-icons/sps_rectangle_icon_thermal_enabled.svg'" />
+            </label>
+          </div>
+        </ng-container>
+        <div nz-row nzType="flex" nzjustify="start">
+          <h3 nz-col class="product-type-heading">{{'configure.product-type' | translate }}</h3>
+          <!-- Product Type -->
+        </div>
+        <div nz-row nzType="flex" nzjustify="center" *ngIf="unified3DModel">
+          <div>
+            <bps-radio-group [(ngModel)]="unified3DModel.ProblemSetting.ProductType"
+              (ngModelChange)="onChangeProductType($event);">
+              <label *ngIf="unified3DModel.ProblemSetting.ProductType!='Facade'&&unified3DModel.ProblemSetting.ProductType!='SlidingDoor'"style="width: 65px" bps-radio-button bpsValue="Window" bps-tooltip
+                [bpsTooltipType]="'variation_8b'" [bpsTooltipTitle]="productTypeToolTip" bpsTooltipPlacement="top">
+                <!-- Window -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="14.859" height="17.088" viewBox="0 0 14.859 17.088">
+                  <defs>
+                    <style>
+                      .prefix__cls-4 {
+                        stroke: #999 !important;
+                        fill: none
+                      }
+                    </style>
+                  </defs>
+                  <g id="prefix__Rectangle_1822" data-name="Rectangle 1822" class="prefix__cls-4">
+                    <rect width="14.86" height="17.088" rx="2" style="stroke:none" />
+                    <rect width="13.86" height="16.088" x=".5" y=".5" rx="1.5" style="fill:none" />
+                  </g>
+                </svg>
+              </label>
+              <label *ngIf="unified3DModel.ProblemSetting.ProductType=='Facade'||unified3DModel.ProblemSetting.ProductType=='SlidingDoor'" style="width: 65px" bps-radio-button bpsValue="Window" bps-tooltip
+                [bpsTooltipType]="'variation_8b'" [bpsTooltipTitle]="productTypeToolTip" bpsTooltipPlacement="top"
+                bpsTooltipDisabled bpsDisabled>
+                <!-- Window -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="14.859" height="17.088" viewBox="0 0 14.859 17.088">
+                  <defs>
+                    <style>
+                      .prefix__cls-4 {
+                        stroke: #999 !important;
+                        fill: none
+                      }
+                    </style>
+                  </defs>
+                  <g id="prefix__Rectangle_1822" data-name="Rectangle 1822" class="prefix__cls-4">
+                    <rect width="14.86" height="17.088" rx="2" style="stroke:none" />
+                    <rect width="13.86" height="16.088" x=".5" y=".5" rx="1.5" style="fill:none" />
+                  </g>
+                </svg>
+              </label>
+              <label *ngIf="!(unified3DModel.ProblemSetting.ProductType=='Window'||unified3DModel.ProblemSetting.ProductType=='Facade' || !isSlidingDoorFeatureAllowed())" style="width: 65px;" bps-radio-button bpsValue="SlidingDoor" bps-tooltip
+                [bpsTooltipType]="'variation_8b'" bpsTooltipTitle="{{'configure.slidingdoor' | translate }}" bpsTooltipPlacement="top">
+                <!-- Sliding Door-->
+                <svg xmlns="http://www.w3.org/2000/svg" id="prefix__Group_3812" width="16.345" height="17.088"
+                  data-name="Group 3812" viewBox="0 0 16.345 17.088">
+                  <defs>
+                    <style>
+                      .prefix__cls-1154,
+                      .prefix__cls-3154 {
+                        fill: none
+                      }
+
+                      .prefix__cls-1154 {
+                        stroke: #999
+                      }
+
+                      .prefix__cls-2154 {
+                        stroke: none
+                      }
+                    </style>
+                  </defs>
+                  <g id="prefix__Rectangle_304" class="prefix__cls-1154" data-name="Rectangle 304">
+                    <rect width="8.916" height="17.088" class="prefix__cls-2154" rx="2" />
+                    <rect width="7.916" height="16.088" x=".5" y=".5" class="prefix__cls-3154" rx="1.5" />
+                  </g>
+                  <g id="prefix__Rectangle_305" class="prefix__cls-1154" data-name="Rectangle 305"
+                    transform="translate(7.43)">
+                    <rect width="8.916" height="17.088" class="prefix__cls-2154" rx="2" />
+                    <rect width="7.916" height="16.088" x=".5" y=".5" class="prefix__cls-3154" rx="1.5" />
+                  </g>
+                </svg>
+              </label>
+              <label *ngIf="unified3DModel.ProblemSetting.ProductType=='Window'||unified3DModel.ProblemSetting.ProductType=='Facade' || !isSlidingDoorFeatureAllowed()" style="width: 65px;" bps-radio-button bpsValue="SlidingDoor" bps-tooltip
+                [bpsTooltipType]="'variation_8b'" bpsTooltipDisabled bpsTooltipTitle="{{'configure.slidingdoor' | translate }}" bpsTooltipPlacement="top" bpsDisabled>
+                <!-- Sliding Door-->
+                <svg xmlns="http://www.w3.org/2000/svg" id="prefix__Group_3812" width="16.345" height="17.088"
+                  data-name="Group 3812" viewBox="0 0 16.345 17.088">
+                  <defs>
+                    <style>
+                      .prefix__cls-1154,
+                      .prefix__cls-3154 {
+                        fill: none
+                      }
+
+                      .prefix__cls-1154 {
+                        stroke: #999
+                      }
+
+                      .prefix__cls-2154 {
+                        stroke: none
+                      }
+                    </style>
+                  </defs>
+                  <g id="prefix__Rectangle_304" class="prefix__cls-1154" data-name="Rectangle 304">
+                    <rect width="8.916" height="17.088" class="prefix__cls-2154" rx="2" />
+                    <rect width="7.916" height="16.088" x=".5" y=".5" class="prefix__cls-3154" rx="1.5" />
+                  </g>
+                  <g id="prefix__Rectangle_305" class="prefix__cls-1154" data-name="Rectangle 305"
+                    transform="translate(7.43)">
+                    <rect width="8.916" height="17.088" class="prefix__cls-2154" rx="2" />
+                    <rect width="7.916" height="16.088" x=".5" y=".5" class="prefix__cls-3154" rx="1.5" />
+                  </g>
+                </svg>
+              </label>
+              <label *ngIf="!(unified3DModel.ProblemSetting.ProductType=='Window'||unified3DModel.ProblemSetting.ProductType=='SlidingDoor' || !isFacadeFeatureAllowed())" style="width: 65px" bps-radio-button bpsValue="Facade" bps-tooltip
+                [bpsTooltipType]="'variation_8b'" bpsTooltipTitle="{{'configure.facade' | translate }}" bpsTooltipPlacement="top">
+                <!-- Facade -->
+                <svg xmlns="http://www.w3.org/2000/svg" id="prefix__Group_3811" width="21.546" height="18.559"
+                  data-name="Group 3811" viewBox="0 0 21.546 18.559">
+                  <defs>
+                    <style>
+                      .prefix__cls-1234,
+                      .prefix__cls-3234 {
+                        fill: none
+                      }
+
+                      .prefix__cls-1234 {
+                        stroke: #999
+                      }
+
+                      .prefix__cls-2234 {
+                        stroke: none
+                      }
+                    </style>
+                  </defs>
+                  <g id="prefix__Rectangle_26" class="prefix__cls-1234" data-name="Rectangle 26"
+                    transform="translate(0 4.947)">
+                    <rect width="8.173" height="13.612" class="prefix__cls-2234" rx="2" />
+                    <rect width="7.173" height="12.612" x=".5" y=".5" class="prefix__cls-3234" rx="1.5" />
+                  </g>
+                  <g id="prefix__Rectangle_298" class="prefix__cls-1234" data-name="Rectangle 298">
+                    <rect width="8.173" height="6.671" class="prefix__cls-2234" rx="2" />
+                    <rect width="7.173" height="5.671" x=".5" y=".5" class="prefix__cls-3234" rx="1.5" />
+                  </g>
+                  <g id="prefix__Rectangle_295" class="prefix__cls-1234" data-name="Rectangle 295"
+                    transform="translate(13.374 4.947)">
+                    <rect width="8.173" height="13.612" class="prefix__cls-2234" rx="2" />
+                    <rect width="7.173" height="12.612" x=".5" y=".5" class="prefix__cls-3234" rx="1.5" />
+                  </g>
+                  <g id="prefix__Rectangle_296" class="prefix__cls-1234" data-name="Rectangle 296"
+                    transform="translate(13.374)">
+                    <rect width="8.173" height="6.671" class="prefix__cls-2234" rx="2" />
+                    <rect width="7.173" height="5.671" x=".5" y=".5" class="prefix__cls-3234" rx="1.5" />
+                  </g>
+                  <g id="prefix__Rectangle_293" class="prefix__cls-1234" data-name="Rectangle 293"
+                    transform="translate(6.687 4.947)">
+                    <rect width="8.173" height="13.612" class="prefix__cls-2234" rx="2" />
+                    <rect width="7.173" height="12.612" x=".5" y=".5" class="prefix__cls-3234" rx="1.5" />
+                  </g>
+                  <g id="prefix__Rectangle_297" class="prefix__cls-1234" data-name="Rectangle 297"
+                    transform="translate(6.687)">
+                    <rect width="8.173" height="6.671" class="prefix__cls-2234" rx="2" />
+                    <rect width="7.173" height="5.671" x=".5" y=".5" class="prefix__cls-3234" rx="1.5" />
+                  </g>
+                </svg>
+              </label>
+              <label *ngIf="unified3DModel.ProblemSetting.ProductType=='Window'||unified3DModel.ProblemSetting.ProductType=='SlidingDoor' || !isFacadeFeatureAllowed()" style="width: 65px" bps-radio-button bpsValue="Facade" bps-tooltip
+                [bpsTooltipType]="'variation_8b'" bpsTooltipTitle="{{'configure.facade' | translate }}"
+                bpsTooltipPlacement="top" bpsTooltipDisabled bpsDisabled>
+                <!-- Facade -->
+                <svg xmlns="http://www.w3.org/2000/svg" id="prefix__Group_3811" width="21.546" height="18.559"
+                  data-name="Group 3811" viewBox="0 0 21.546 18.559">
+                  <defs>
+                    <style>
+                      .prefix__cls-1234,
+                      .prefix__cls-3234 {
+                        fill: none
+                      }
+
+                      .prefix__cls-1234 {
+                        stroke: #999
+                      }
+
+                      .prefix__cls-2234 {
+                        stroke: none
+                      }
+                    </style>
+                  </defs>
+                  <g id="prefix__Rectangle_26" class="prefix__cls-1234" data-name="Rectangle 26"
+                    transform="translate(0 4.947)">
+                    <rect width="8.173" height="13.612" class="prefix__cls-2234" rx="2" />
+                    <rect width="7.173" height="12.612" x=".5" y=".5" class="prefix__cls-3234" rx="1.5" />
+                  </g>
+                  <g id="prefix__Rectangle_298" class="prefix__cls-1234" data-name="Rectangle 298">
+                    <rect width="8.173" height="6.671" class="prefix__cls-2234" rx="2" />
+                    <rect width="7.173" height="5.671" x=".5" y=".5" class="prefix__cls-3234" rx="1.5" />
+                  </g>
+                  <g id="prefix__Rectangle_295" class="prefix__cls-1234" data-name="Rectangle 295"
+                    transform="translate(13.374 4.947)">
+                    <rect width="8.173" height="13.612" class="prefix__cls-2234" rx="2" />
+                    <rect width="7.173" height="12.612" x=".5" y=".5" class="prefix__cls-3234" rx="1.5" />
+                  </g>
+                  <g id="prefix__Rectangle_296" class="prefix__cls-1234" data-name="Rectangle 296"
+                    transform="translate(13.374)">
+                    <rect width="8.173" height="6.671" class="prefix__cls-2234" rx="2" />
+                    <rect width="7.173" height="5.671" x=".5" y=".5" class="prefix__cls-3234" rx="1.5" />
+                  </g>
+                  <g id="prefix__Rectangle_293" class="prefix__cls-1234" data-name="Rectangle 293"
+                    transform="translate(6.687 4.947)">
+                    <rect width="8.173" height="13.612" class="prefix__cls-2234" rx="2" />
+                    <rect width="7.173" height="12.612" x=".5" y=".5" class="prefix__cls-3234" rx="1.5" />
+                  </g>
+                  <g id="prefix__Rectangle_297" class="prefix__cls-1234" data-name="Rectangle 297"
+                    transform="translate(6.687)">
+                    <rect width="8.173" height="6.671" class="prefix__cls-2234" rx="2" />
+                    <rect width="7.173" height="5.671" x=".5" y=".5" class="prefix__cls-3234" rx="1.5" />
+                  </g>
+                </svg>
+              </label>
+            </bps-radio-group>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 1.1 Section - If Product Type is Facade -->
+    <!-- --------------------------------------- -->
+    <!--Facade Type-->
+    <div [ngClass]="{'hidden': !showSolverButtonContent}" *ngIf="unified3DModel.ProblemSetting.ProductType=='Facade'">
+      <div nz-column>
+        <div nz-row class="full-line"></div>
+        <div nz-row class="solver-button-content">
+          <div nz-column>
+            <div nz-row nzType="flex" nzjustify="start">
+              <h3 class="product-type-heading">{{'configure.left-configure-facade-type' | translate}}</h3>
+              <!-- Facade Type -->
+            </div>
+            <div>
+              <bps-radio-group [(ngModel)]="unified3DModel.ProblemSetting.FacadeType"
+                (ngModelChange)="onFacadeTypeChange();">
+                <label style="width: 102.5px" bps-radio-button bpsValue="mullion-transom"
+                  bpsRadioButtonType="variation2" [bpsDisabled]="unified3DModel.ProblemSetting.FacadeType=='UDC'">
+                  {{'configure.left-configure-mullion-transom-label' | translate}}
+                </label>
+                <label style="width: 102.5px" bps-radio-button bpsValue="UDC" bpsRadioButtonType="variation2"
+                  [bpsDisabled]="unified3DModel.ProblemSetting.FacadeType=='mullion-transom'">
+                  {{'configure.left-configure-unitized-label' | translate}}
+                </label>
+              </bps-radio-group>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--Mullion/Transom Facade Type-->
+    <div
+      *ngIf="unified3DModel.ProblemSetting.ProductType=='Facade' && unified3DModel.ProblemSetting.FacadeType=='mullion-transom'">
+      <div [ngClass]="{'hidden': !showSolverButtonContent}">
+        <div nz-column>
+          <div nz-row class="full-line"></div>
+          <div nz-row class="solver-button-content">
+            <div nz-column>
+              <div nz-row nzType="flex" nzjustify="start">
+                <h3 class="product-type-heading">{{'configure.left-configure-number-of-panels' | translate}}</h3>
+
+                <bps-grid (selectionChange)="onNumberOfPanelsChange($event)"
+                  [selection]="[yNumberOfPanels, xNumberOfPanels]" [rows]="5" [columns]="5"></bps-grid>
+              </div>
+            </div>
+          </div>
+          <div nz-row style="margin-bottom: 19px;">
+            <div>
+
+            </div>
+            <div class="confirm-btn-container">
+              <button bps-button bpsType="variation-4"
+                [disabled]="disableGridConfirm || (this.yNumberOfPanels < 0 &&  this.xNumberOfPanels < 0)" [ngClass]=""
+                (click)="onCloseSolverContent()">{{'configure.confirm' | translate }}</button>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--Sliding Door Type-->
+    <div *ngIf="unified3DModel.ProblemSetting.ProductType=='SlidingDoor'">
+      <div [ngClass]="{'hidden': !showSolverButtonContent}">
+        <div nz-column>
+          <div nz-row class="full-line"></div>
+          <div nz-row class="solver-button-content">
+            <div nz-column>
+              <div nz-row nzType="flex" nzjustify="start">
+                <h3 class="product-type-heading">SLIDING DOOR TYPE</h3>
+                <div>
+                  <bps-radio-group [(ngModel)]="unified3DModel.ProblemSetting.SlidingDoorType" (ngModelChange)="onChangeProductType($event);">
+                    <label style="width: 65px" bps-radio-button bpsValue="Classic" bpsRadioButtonType="variation2">
+                      Classic
+                    </label>
+                    <label style="width: 65px" bps-radio-button bpsValue="Panorama" bpsDisabled bpsRadioButtonType="variation2">
+                      Panorama
+                    </label>
+                    <label style="width: 65px" bps-radio-button bpsValue="Bi-fold" bpsDisabled bpsRadioButtonType="variation2">
+                      Bi-fold
+                    </label>
+                  </bps-radio-group>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Show/Hide Solver Content Dot -->
+  <div nz-row nzType="flex" nzjustify="center" class="solver-configuration-tab-container">
+    <div nz-column class="solver-configuration-tab" (click)="onChangeSolverButtonContentDisplay()">
+      <img src="/assets/Images/sps/sps-round-icon-smalldots-blue.svg" alt="blue-dot">
+    </div>
+  </div>
+  <!-- Window/SRS -->
+  <div nz-row class="left-panel-scrolling-container"
+    *ngIf="!isProductTypeChangeInProgress && unified3DModel.ProblemSetting.ProductType === 'Window'"
+    [ngStyle]="{'height': (applicationType=='SRS'? (showSolverButtonContent ? 'calc(100vh - 200px)':'calc(100vh - 101px)') :(showSolverButtonContent ? 'calc(100vh - 335px)':'calc(100vh - 157px)'))}">
+    <div nz-column class="scrollTop">
+      <bps-collapse bpsAccordion style="width: 245px; margin-left: 25px;" (click)="sendActivePanel()">
+        <ng-container *appCheckPermissions="feature.Operability">
+          <bps-collapse-panel [bpsHeader]="operabilityHeader" [(bpsActive)]="isOperabilityActive"
+            [bpsDisabled]="isAccordianDisabled" [bpsValid]="panelOperabilityValid"
+            (bpsActiveChange)="validatePanel($event, 'Operability')">
+            <!-- 'OPERABILITY'  -->
+            <app-operability #operabilityComponent [unified3DModel]="unified3DModel"
+              [unified3DModelEvent]="unified3DModelEvent"
+              (unified3DModelFromOperabilityEvent)="onGetUnified3DModelFromChildren($event)"
+              (ngNotificaionShow)="ngNotificaionShowEvent($event)" [canBeDrawnBool]="canBeDrawnBool" [event3D]="event3D"
+              [iframeEvent]="iframeEvent" [handleColorEvent]="handleColorEvent"
+              [onCloseFramingPopoutsEvent]="onCloseFramingPopoutsEvent"
+              [systemFacadeSelectedEvent]="systemFacadeSelectedEvent" [orderPlaced]="orderPlaceCheck"
+              ></app-operability>
+          </bps-collapse-panel>
+        </ng-container>
+        <ng-container *appCheckPermissions="feature.Framing">
+          <bps-collapse-panel [bpsHeader]="framingText" [(bpsActive)]="isFramingActive"
+            [bpsDisabled]="isAccordianDisabled" [bpsValid]="panelFramingValid"
+            (bpsActiveChange)="validatePanel($event, 'Framing')">
+            <!-- 'FRAMING' -->
+            <app-framing #framing [unified3DModel]="unified3DModel" [unified3DModelEvent]="unified3DModelEvent"
+              (ngNotificaionShow)="ngNotificaionShowEvent($event)" [canBeDrawnBool]="canBeDrawnBool" [event3D]="event3D"
+              [iframeEvent]="iframeEvent" [onCloseFramingPopoutsEvent]="onCloseFramingPopoutsEvent"
+              [systemSelectedEvent]="systemSelectedEvent" [profileColorEvent]="profileColorEvent"
+              [orderPlaced]="orderPlaceCheck" [problemGuid]="problemGuid"></app-framing>
+          </bps-collapse-panel>
+        </ng-container>
+        <ng-container *appCheckPermissions="feature.GlassPanel">
+          <bps-collapse-panel [bpsHeader]="glassHeader" [(bpsActive)]="isGlassPanelActive"
+            [bpsDisabled]="isAccordianDisabled" [bpsValid]="panelGlassPanelValid"
+            (bpsActiveChange)="validatePanel($event, 'GlassPanel')">
+            <!-- 'GLASS & PANEL' -->
+            <app-glass-panel #glassPanelComponent [unified3DModel]="unified3DModel"
+              (unified3DModelFromGlassPanelEvent)="onGetUnified3DModelFromChildren($event)"
+              (ngNotificaionShow)="ngNotificaionShowEvent($event)"
+              (sendValidationBoolToParentEvent)="validatePanel($event, 'GlassPanel')" [canBeDrawnBool]="canBeDrawnBool"
+              [event3D]="event3D" [openCloseGlassPanelTableEvent]="openCloseGlassPanelTableEvent"
+              [getSpacerTypeByKeyEvent]="getSpacerTypeByKeyEvent" [iframeEvent]="iframeEvent"
+              [orderPlaced]="orderPlaceCheck" [spacerTypeArticle]="spacerTypeArticle">
+            </app-glass-panel>
+          </bps-collapse-panel>
+        </ng-container>
+        <ng-container *appCheckPermissions="feature.Acoustic">
+          <bps-collapse-panel *ngIf="unified3DModel.ProblemSetting.EnableAcoustic" [bpsHeader]="acousticText"
+            [(bpsActive)]="isAcousticActive" [bpsDisabled]="isAccordianDisabled" [bpsValid]="panelAcousticValid"
+            (bpsActiveChange)="validatePanel($event, 'Acoustic')">
+            <!-- 'ACOUSTIC' -->
+            <app-acoustic #acousticComponent [unified3DModel]="unified3DModel"
+              (unified3DModelFromAcousticEvent)="onGetUnified3DModelFromAcoustic($event)"
+              [canBeDrawnBool]="canBeDrawnBool" [iframeEvent]="iframeEvent">
+            </app-acoustic>
+          </bps-collapse-panel>
+        </ng-container>
+        <ng-container *appCheckPermissions="feature.Structural">
+          <bps-collapse-panel *ngIf="unified3DModel.ProblemSetting.EnableStructural" [bpsHeader]="structuralText"
+            [(bpsActive)]="isStructuralActive" [bpsDisabled]="isAccordianDisabled" [bpsValid]="isValidStructural"
+            (bpsActiveChange)="validatePanel($event, 'Structural')">
+            <!-- 'STRUCTURAL' -->
+            <app-structural #structural [unified3DModel]="unified3DModel" [unified3DModelEvent]="unified3DModelEvent"
+              (loadDisplaySettingEvent)="loadDisplaySetting_ActivePanel()"
+              (validStructuralEvent)="structuralPaneValid($event)" [canBeDrawnBool]="canBeDrawnBool"
+              [clearStructuralTableEvent]="clearStructuralTableEvent" [iframeEvent]="iframeEvent"
+              [openLeftStructuralTableTableEvent]="openLeftStructuralTableTableEvent" [pressureValues]="pressureValues"
+              [problemGuid]="problemGuid" [sendDinWindLoadToTableEvent]="sendDinWindLoadToTableEvent"
+              [structuralTableFormData]="structuralTableFormData"></app-structural>
+          </bps-collapse-panel>
+        </ng-container>
+        <ng-container *appCheckPermissions="feature.Thermal">
+          <bps-collapse-panel *ngIf="unified3DModel.ProblemSetting.EnableThermal" [bpsHeader]="thermalText"
+            [(bpsActive)]="isThermalActive" [bpsDisabled]="isAccordianDisabled" [bpsValid]="isValidThermal"
+            (bpsActiveChange)="validatePanel($event, 'Thermal')">
+            <!-- 'THERMAL' -->
+            <app-thermal #thermal [unified3DModel]="unified3DModel" (thermalChildEvent)="thermalPaneValid($event)">
+            </app-thermal>
+          </bps-collapse-panel>
+        </ng-container>
+        <ng-container *appCheckPermissions="feature.Load">
+          <bps-collapse-panel [bpsHeader]="loadText" [(bpsActive)]="isLoadActive" [bpsDisabled]="isAccordianDisabled"
+            [bpsValid]="panelLoadPanelValid" (bpsActiveChange)="validatePanel($event, 'Load')">
+            <!-- 'Load' -->
+            <app-load #load [orderPlaced]="orderPlaceCheck" [unified3DModel]="unified3DModel"
+              [windPressureEvent]="windPressureEvent">
+            </app-load>
+          </bps-collapse-panel>
+        </ng-container>
+      </bps-collapse>
+    </div>
+  </div>
+  <!-- Facade -->
+  <div nz-row class="left-panel-scrolling-container"
+    *ngIf="!isProductTypeChangeInProgress && unified3DModel.ProblemSetting.ProductType === 'Facade'"
+    [ngStyle]="{'height': showSolverButtonContent ? (unified3DModel.ProblemSetting.FacadeType=='mullion-transom' ? 'calc(100vh - 611px)':'calc(100vh - 434px)'):'calc(100vh - 157px)'}">
+    <div class="scrollTop">
+      <bps-collapse bpsAccordion style="width: 245px; margin-left: 25px;" (click)="sendActivePanel()">
+        <ng-container *appCheckPermissions="feature.GlassPanel">
+          <bps-collapse-panel [bpsHeader]="glassHeader" [(bpsActive)]="isGlassPanelActive"
+            [bpsDisabled]="isAccordianDisabled" [bpsValid]="panelGlassPanelValid"
+            (bpsActiveChange)="validatePanel($event, 'GlassPanel')">
+            <!-- 'GLASS & PANEL' -->
+            <app-glass-panel #glassPanelComponent [unified3DModel]="unified3DModel"
+              (unified3DModelFromGlassPanelEvent)="onGetUnified3DModelFromChildren($event)"
+              (ngNotificaionShow)="ngNotificaionShowEvent($event)"
+              (sendValidationBoolToParentEvent)="validatePanel($event, 'GlassPanel')" [canBeDrawnBool]="canBeDrawnBool"
+              [event3D]="event3D" [getSpacerTypeByKeyEvent]="getSpacerTypeByKeyEvent" [iframeEvent]="iframeEvent"
+              [spacerTypeArticle]="spacerTypeArticle" [openCloseGlassPanelTableEvent]="openCloseGlassPanelTableEvent">
+            </app-glass-panel>
+          </bps-collapse-panel>
+        </ng-container>
+        <ng-container *appCheckPermissions="feature.Framing">
+          <bps-collapse-panel [bpsHeader]="framingText" [(bpsActive)]="isFramingActive"
+            [bpsDisabled]="isAccordianDisabled" [bpsValid]="panelFramingValid"
+            (bpsActiveChange)="validatePanel($event, 'Framing')">
+            <!-- 'FRAMING' -->
+            <app-framing #framing [unified3DModel]="unified3DModel" [unified3DModelEvent]="unified3DModelEvent"
+              (ngNotificaionShow)="ngNotificaionShowEvent($event)" [canBeDrawnBool]="canBeDrawnBool" [event3D]="event3D"
+              [iframeEvent]="iframeEvent" [onCloseFramingPopoutsEvent]="onCloseFramingPopoutsEvent"
+              [problemGuid]="problemGuid" [profileColorEvent]="profileColorEvent"
+              [systemFacadeSelectedFromFramingEvent]="systemFacadeSelectedFromFramingEvent"
+              [systemSelectedEvent]="systemSelectedEvent"></app-framing>
+          </bps-collapse-panel>
+        </ng-container>
+        <ng-container *appCheckPermissions="feature.Operability">
+          <bps-collapse-panel [bpsHeader]="operabilityHeader" [(bpsActive)]="isOperabilityActive"
+            [bpsDisabled]="isAccordianDisabled" [bpsValid]="panelOperabilityValid"
+            (bpsActiveChange)="validatePanel($event, 'Operability')">
+            <!-- 'OPERABILITY' -->
+            <app-operability #operabilityComponent [unified3DModel]="unified3DModel"
+              [unified3DModelEvent]="unified3DModelEvent"
+              (unified3DModelFromOperabilityEvent)="onGetUnified3DModelFromChildren($event)"
+              (ngNotificaionShow)="ngNotificaionShowEvent($event)" [canBeDrawnBool]="canBeDrawnBool" [event3D]="event3D"
+              [handleColorEvent]="handleColorEvent" [iframeEvent]="iframeEvent"
+              [onCloseFramingPopoutsEvent]="onCloseFramingPopoutsEvent"
+              [systemFacadeSelectedEvent]="systemFacadeSelectedEvent">
+            </app-operability>
+          </bps-collapse-panel>
+        </ng-container>
+        <ng-container *appCheckPermissions="feature.Acoustic">
+          <bps-collapse-panel
+            *ngIf="unified3DModel.ProblemSetting.EnableAcoustic || (unified3DModel.ProblemSetting.ProductType === 'Facade' && unified3DModel.ProblemSetting.FacadeType==='UDC')"
+            [bpsHeader]="acousticText" [(bpsActive)]="isAcousticActive"
+            [bpsDisabled]="isAccordianDisabled || (this.unified3DModel.ProblemSetting.ProductType === 'Facade' && this.unified3DModel.ProblemSetting.FacadeType === 'UDC')"
+            [bpsValid]="panelAcousticValid" (bpsActiveChange)="validatePanel($event, 'Acoustic')">
+            <!-- 'ACOUSTIC' -->
+            <app-acoustic #acousticComponent [unified3DModel]="unified3DModel"
+              (unified3DModelFromAcousticEvent)="onGetUnified3DModelFromAcoustic($event)"
+              [canBeDrawnBool]="canBeDrawnBool" [iframeEvent]="iframeEvent">
+            </app-acoustic>
+          </bps-collapse-panel>
+        </ng-container>
+        <ng-container *appCheckPermissions="feature.Structural">
+          <bps-collapse-panel *ngIf="unified3DModel.ProblemSetting.EnableStructural" [bpsHeader]="structuralText"
+            [(bpsActive)]="isStructuralActive" [bpsDisabled]="isAccordianDisabled" [bpsValid]="isValidStructural"
+            (bpsActiveChange)="validatePanel($event, 'Structural')">
+            <!-- 'STRUCTURAL' -->
+            <app-structural #structural [unified3DModel]="unified3DModel" [unified3DModelEvent]="unified3DModelEvent"
+              (validStructuralEvent)="structuralPaneValid($event)" [canBeDrawnBool]="canBeDrawnBool"
+              [clearStructuralTableEvent]="clearStructuralTableEvent"
+              [openLeftStructuralTableTableEvent]="openLeftStructuralTableTableEvent"
+              [sendDinWindLoadToTableEvent]="sendDinWindLoadToTableEvent" [iframeEvent]="iframeEvent"
+              [event3D]="event3D" [pressureValues]="pressureValues" [problemGuid]="problemGuid"
+              [structuralTableFormData]="structuralTableFormData"></app-structural>
+          </bps-collapse-panel>
+        </ng-container>
+        <ng-container *appCheckPermissions="feature.Thermal">
+          <bps-collapse-panel *ngIf="unified3DModel.ProblemSetting.EnableThermal" [bpsHeader]="thermalText"
+            [(bpsActive)]="isThermalActive" [bpsDisabled]="isAccordianDisabled" [bpsValid]="isValidThermal"
+            (bpsActiveChange)="validatePanel($event, 'Thermal')">
+            <!-- 'THERMAL' -->
+            <app-thermal #thermal [unified3DModel]="unified3DModel" (thermalChildEvent)="thermalPaneValid($event)">
+            </app-thermal>
+          </bps-collapse-panel>
+        </ng-container>
+      </bps-collapse>
+    </div>
+  </div>
+  <!--Sliding Door-->
+  <div nz-row class="left-panel-scrolling-container"
+    *ngIf="!isProductTypeChangeInProgress && unified3DModel.ProblemSetting.ProductType === 'SlidingDoor' && unified3DModel.ProblemSetting.SlidingDoorType === 'Classic'"
+    [ngStyle]="{'height': (applicationType=='SRS'? (showSolverButtonContent ? 'calc(100vh - 200px)':'calc(100vh - 101px)') :(showSolverButtonContent ? 'calc(100vh - 335px)':'calc(100vh - 157px)'))}">
+    <div nz-column class="scrollTop">
+      <bps-collapse bpsAccordion style="width: 245px; margin-left: 25px;" (click)="sendActivePanel()">
+        <ng-container *appCheckPermissions="feature.SlidingUnit">
+          <bps-collapse-panel [bpsHeader]="slidingUnitText" [(bpsActive)]="isSlidingUnitActive"
+            [bpsDisabled]="isAccordianDisabled" [bpsValid]="panelOperabilityValid"
+            (bpsActiveChange)="validatePanel($event, 'SlidingUnit')">
+            <!-- 'SLIDING UNIT'  -->
+            <app-sliding-unit #slidingUnitComponent [unified3DModel]="unified3DModel"
+              [unified3DModelEvent]="unified3DModelEvent"
+              (unified3DModelFromOperabilityEvent)="onGetUnified3DModelFromChildren($event)"
+              (ngNotificaionShow)="ngNotificaionShowEvent($event)" [canBeDrawnBool]="canBeDrawnBool" [event3D]="event3D"
+              [iframeEvent]="iframeEvent" [handleColorEvent]="handleColorEvent"
+              [onCloseFramingPopoutsEvent]="onCloseFramingPopoutsEvent"
+              [systemFacadeSelectedEvent]="systemFacadeSelectedEvent" [orderPlaced]="orderPlaceCheck"
+            ></app-sliding-unit>
+          </bps-collapse-panel>
+        </ng-container>
+        <ng-container *appCheckPermissions="feature.Framing">
+          <bps-collapse-panel [bpsHeader]="framingText" [(bpsActive)]="isFramingActive"
+            [bpsDisabled]="isAccordianDisabled" [bpsValid]="panelFramingValid"
+            (bpsActiveChange)="validatePanel($event, 'Framing')">
+            <!-- 'FRAMING' -->
+            <app-framing #framing [unified3DModel]="unified3DModel" [unified3DModelEvent]="unified3DModelEvent"
+              (ngNotificaionShow)="ngNotificaionShowEvent($event)" [canBeDrawnBool]="canBeDrawnBool" [event3D]="event3D"
+              [iframeEvent]="iframeEvent" [onCloseFramingPopoutsEvent]="onCloseFramingPopoutsEvent"
+              [systemSelectedEvent]="systemSelectedEvent" [profileColorEvent]="profileColorEvent"
+              [orderPlaced]="orderPlaceCheck" [problemGuid]="problemGuid"></app-framing>
+          </bps-collapse-panel>
+        </ng-container>
+        <ng-container *appCheckPermissions="feature.GlassPanel">
+          <bps-collapse-panel [bpsHeader]="glassHeader" [(bpsActive)]="isGlassPanelActive"
+            [bpsDisabled]="isAccordianDisabled" [bpsValid]="panelGlassPanelValid"
+            (bpsActiveChange)="validatePanel($event, 'GlassPanel')">
+            <!-- 'GLASS & PANEL' -->
+            <app-glass-panel #glassPanelComponent [unified3DModel]="unified3DModel"
+              (unified3DModelFromGlassPanelEvent)="onGetUnified3DModelFromChildren($event)"
+              (ngNotificaionShow)="ngNotificaionShowEvent($event)"
+              (sendValidationBoolToParentEvent)="validatePanel($event, 'GlassPanel')" [canBeDrawnBool]="canBeDrawnBool"
+              [event3D]="event3D" [openCloseGlassPanelTableEvent]="openCloseGlassPanelTableEvent"
+              [getSpacerTypeByKeyEvent]="getSpacerTypeByKeyEvent" [iframeEvent]="iframeEvent"
+              [orderPlaced]="orderPlaceCheck" [spacerTypeArticle]="spacerTypeArticle">
+            </app-glass-panel>
+          </bps-collapse-panel>
+        </ng-container>
+        <ng-container *appCheckPermissions="feature.Acoustic">
+          <bps-collapse-panel *ngIf="unified3DModel.ProblemSetting.EnableAcoustic" [bpsHeader]="acousticText"
+            [(bpsActive)]="isAcousticActive" [bpsDisabled]="isAccordianDisabled" [bpsValid]="panelAcousticValid"
+            (bpsActiveChange)="validatePanel($event, 'Acoustic')">
+            <!-- 'ACOUSTIC' -->
+            <app-acoustic #acousticComponent [unified3DModel]="unified3DModel"
+              (unified3DModelFromAcousticEvent)="onGetUnified3DModelFromAcoustic($event)"
+              [canBeDrawnBool]="canBeDrawnBool" [iframeEvent]="iframeEvent">
+            </app-acoustic>
+          </bps-collapse-panel>
+        </ng-container>
+        <ng-container *appCheckPermissions="feature.Structural">
+          <bps-collapse-panel *ngIf="unified3DModel.ProblemSetting.EnableStructural" [bpsHeader]="structuralText"
+            [(bpsActive)]="isStructuralActive" [bpsDisabled]="isAccordianDisabled" [bpsValid]="isValidStructural"
+            (bpsActiveChange)="validatePanel($event, 'Structural')">
+            <!-- 'STRUCTURAL' -->
+            <app-structural #structural [unified3DModel]="unified3DModel" [unified3DModelEvent]="unified3DModelEvent"
+              (loadDisplaySettingEvent)="loadDisplaySetting_ActivePanel()"
+              (validStructuralEvent)="structuralPaneValid($event)" [canBeDrawnBool]="canBeDrawnBool"
+              [clearStructuralTableEvent]="clearStructuralTableEvent" [iframeEvent]="iframeEvent"
+              [openLeftStructuralTableTableEvent]="openLeftStructuralTableTableEvent" [pressureValues]="pressureValues"
+              [problemGuid]="problemGuid" [sendDinWindLoadToTableEvent]="sendDinWindLoadToTableEvent"
+              [structuralTableFormData]="structuralTableFormData"></app-structural>
+          </bps-collapse-panel>
+        </ng-container>
+        <ng-container *appCheckPermissions="feature.Thermal">
+          <bps-collapse-panel *ngIf="unified3DModel.ProblemSetting.EnableThermal" [bpsHeader]="thermalText"
+            [(bpsActive)]="isThermalActive" [bpsDisabled]="isAccordianDisabled" [bpsValid]="isValidThermal"
+            (bpsActiveChange)="validatePanel($event, 'Thermal')">
+            <!-- 'THERMAL' -->
+            <app-thermal #thermal [unified3DModel]="unified3DModel" (thermalChildEvent)="thermalPaneValid($event)">
+            </app-thermal>
+          </bps-collapse-panel>
+        </ng-container>
+        <ng-container *appCheckPermissions="feature.Load">
+          <bps-collapse-panel [bpsHeader]="loadText" [(bpsActive)]="isLoadActive" [bpsDisabled]="isAccordianDisabled"
+            [bpsValid]="panelLoadPanelValid" (bpsActiveChange)="validatePanel($event, 'Load')">
+            <!-- 'Load' -->
+            <app-load #load [orderPlaced]="orderPlaceCheck" [unified3DModel]="unified3DModel"
+              [windPressureEvent]="windPressureEvent">
+            </app-load>
+          </bps-collapse-panel>
+        </ng-container>
+      </bps-collapse>
+    </div>
+  </div>
+  <!-- Compute -->
+  <div class="compute-button-container" *appCheckPermissions="feature.Compute">
+    <button class="compute-button" (click)="onCompute()" style="width: 165px" bps-button bpsType="variation-1"
+      [disabled]="!computeBool || isAccordianDisabled">{{'configure.compute' | translate }}</button>
+  </div>
+</div>

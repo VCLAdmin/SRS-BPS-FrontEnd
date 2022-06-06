@@ -1,0 +1,199 @@
+<div style="height: calc(100vh - 69px);">
+  <ng-container *appCheckPermissions="feature.PhysicsTypesIntro">
+    <div class="intro-work-space-top-container">
+      <div id="intro-page-top-container-box" class="intro-page-top-container-box">
+        <div class="intro-page-top-container-big-icon-box">
+          <img src="/assets/Images/sps/sps_big_icon_acoustic_blue.svg" alt="">
+        </div>
+        <div class="line-spacing-display-box"></div>
+        <div class="intro-page-bottom-container-big-icon-box">
+          <div nz-row>
+            <div nz-col nzSpan="24">
+              <div nz-row>
+                <h3 class="physics-type-heading-big-box">{{'home.acoustics' | translate }}</h3>
+                <!-- Acoustics -->
+              </div>
+              <div nz-row class="physics-type-content-big-box">
+                <p> {{'home.acoustics-info' | translate }}</p>
+                <!-- Calculate Rw(C, Ctr)/STC/OITC values and sound transmission loss in 100-5000Hz for complex windows and
+                  façades. -->
+              </div>
+            </div>
+          </div>
+          <!--@ViewResources.Resource.Acoustics-->
+          <!--@ViewResources.Resource.AcousticsInfo-->
+        </div>
+      </div>
+      <div style="width:20px;"></div>
+      <div class="intro-page-top-container-box">
+        <div class="intro-page-top-container-big-icon-box">
+          <img src="/assets/Images/sps/sps_big_icon_structural_blue.svg" alt="">
+        </div>
+        <div class="line-spacing-display-box"></div>
+        <div class="intro-page-bottom-container-big-icon-box">
+          <div nz-row>
+            <div nz-col nzSpan="24">
+              <div nz-row>
+                <h3 class="physics-type-heading-big-box">{{'home.structural' | translate }}</h3>
+                <!-- Structural -->
+              </div>
+              <div nz-row class="physics-type-content-big-box">
+                <p> {{'home.structural-info' | translate }}</p>
+                <!-- Efficient and reliable structural analysis of windows, doors and façades, supporting both European and US
+                codes. -->
+              </div>
+            </div>
+          </div>
+
+          <!--@ViewResources.Resource.Structural-->
+
+          <!--@ViewResources.Resource.StructuralInfo-->
+        </div>
+      </div>
+      <div style="width:20px;"></div>
+      <div class="intro-page-top-container-box">
+        <div class="intro-page-top-container-big-icon-box">
+          <img src="/assets/Images/sps/sps_big_icon_thermal_blue.svg" alt="">
+        </div>
+        <div class="line-spacing-display-box"></div>
+        <div class="intro-page-bottom-container-big-icon-box">
+          <div nz-row>
+            <div nz-col nzSpan="24">
+              <div nz-row>
+                <h3 class="physics-type-heading-big-box">{{'home.thermal' | translate }}</h3>
+                <!-- Thermal -->
+              </div>
+              <div nz-row class="physics-type-content-big-box">
+                <p> {{'home.thermal-info' | translate }}</p>
+                <!-- U-values for aluminum windows and façades, supporting both European and US codes. -->
+              </div>
+            </div>
+          </div>
+          <!--@ViewResources.Resource.Thermal-->
+          <!--@ViewResources.Resource.ThermalInfo-->
+        </div>
+      </div>
+    </div>
+  </ng-container>
+  <ng-container *appCheckPermissions="feature.OrderChart">
+    <div style="height: 238px;" class="intro-work-space-top-container">
+      <div class="intro-page-top-container-box-srs">
+        <div id="chartdiv" style="width: 100%; height: 240px"></div>
+      </div>
+      <div style="width:20px;"></div>
+      <div class="intro-page-top-container-box-srs">
+        <div id="chartdiv2" style="width: 100%; height: 240px"></div>
+      </div>
+    </div>
+  </ng-container>
+  <i id="into-page-close-button" class="far fa-times-circle fa-2x hidden"></i>
+  <div class="intro-work-space-top-container filter-container" *appCheckPermissions="feature.OrderChart">
+    <div class="intro-page-top-container-box-srs data-filter">
+      Status: <bps-select class="filter-container-controls" [(ngModel)]="selectedStatusValue" bpsAllowClear
+        (ngModelChange)="onFilterChanged($event, 'Status')" bpsPlaceHolder="Select">
+        <bps-option bpsValue="Completed" bpsLabel="Completed"></bps-option>
+        <bps-option bpsValue="In Process" bpsLabel="In Process"></bps-option>
+      </bps-select>
+    </div>
+    <div style="width:20px;"></div>
+    <div class="intro-page-top-container-box-srs data-filter">
+      Date: <bps-select class="filter-container-controls" [(ngModel)]="selectedDateValue" bpsAllowClear
+        (ngModelChange)="onFilterChanged($event, 'Date')" bpsPlaceHolder="Select">
+        <bps-option bpsValue="Today" bpsLabel="Today"></bps-option>
+        <bps-option bpsValue="Week" bpsLabel="This Week"></bps-option>
+        <bps-option bpsValue="Month" bpsLabel="This Month"></bps-option>
+        <bps-option bpsValue="Year" bpsLabel="This Year"></bps-option>
+        <bps-option bpsValue="2021" bpsLabel="2021"></bps-option>
+        <bps-option bpsValue="2019" bpsLabel="2019"></bps-option>
+        <bps-option bpsValue="2018" bpsLabel="2018"></bps-option>
+      </bps-select>
+    </div>
+  </div>
+  <div id="intro-work-space-bottom-container" class="intro-work-space-bottom-container">
+    <div class='row' style="height: 100%; max-width: 950px;">
+      <bps-table #tableComponent [data]="listOfDisplayDataProjects"
+        [scroll]="{ y: 'calc(100vh - 425px)', x: 'min(950px, calc(100vw - 310px))' }" [showPagination]="false"
+        (expandChange)="onExpandableArrowClicked($event, 'expandChange')" expandable [moreMenu]="moreTemplate"
+        [deleteMenu]="deleteTemplate" (searchValueChange)="filter($event)" (sortChange)="sort($event)"
+        [frontPagination]="false" [tableType]="'home'" [loading]="isOperating"
+        (onclickRow)="isrowClicked = true; onRowClicked($event)" (onedit)="onProjectEdit($event)"
+        (selectionChange)="log($event, 'selectionchange')" class="bps-table-example-home"
+        (deleteBtnClicked)="onRegisterProjectGuidToDelete($event)" (moreBtnClicked)="setActiveRow($event)"
+        [rowExpandTemplate]="rowExpandedTemplate"
+        [(config)]="configurationCustomGridProjects" (ondblclickRow)="onDblClickProject($event)">
+      </bps-table>
+    </div>
+
+    <bps-dropdown-menu #moreTemplate="bpsDropdownMenu">
+      <ul nz-menu class="home-more-overflow-menu" [ngClass]="{'german-dropdown': language!='en-US'}">
+        <ng-container *appCheckPermissions="feature.GetSRSProjects">
+          <li nz-menu-item class="bps-menu-item" (click)="editRow('projects')" [nzDisabled]="currentProductOrderPlaced">
+            <span class="home-edit-project-name"></span><span>Edit Order Name
+            </span>
+          </li>
+        </ng-container>
+        <ng-container *appCheckPermissions="feature.GetProjects">
+          <li nz-menu-item class="bps-menu-item" (click)="editRow('projects')" [nzDisabled]="currentProductOrderPlaced">
+            <span class="home-edit-project-name"></span><span>{{'home.edit-project-name' | translate }}
+            </span>
+          </li>
+        </ng-container>
+        <!-- Edit Project Name -->
+        <li nz-menu-item class="bps-menu-item" (click)="editRow('location')" [nzDisabled]="currentProductOrderPlaced">
+          <span class="home-edit-location"></span><span class="li-title">{{'home.edit-location' | translate }}</span>
+        </li>
+        <!-- Edit Location -->
+      </ul>
+    </bps-dropdown-menu>
+
+    <bps-dropdown-menu #deleteTemplate="bpsDropdownMenu">
+      <ul nz-menu class="home-delete-overflow-menu">
+        <ng-container *appCheckPermissions="feature.GetProjects">
+          <li nz-menu-item class="bps-menu-item" (click)="onDeleteProject()"
+            *ngIf="currentProductOrderPlaced; else deleteProject">
+            <span class="home-delete-disabled"></span><span class="home-delete-span"
+              style="color: #666 !important;">{{'home.delete-project' | translate }}</span>
+          </li>
+          <ng-template #deleteProject>
+            <li nz-menu-item class="bps-menu-item" (click)="onDeleteProject()">
+              <span class="home-delete"></span><span class="home-delete-span">{{'home.delete-project' | translate }}</span>
+            </li>
+          </ng-template>
+        </ng-container>
+        <ng-container *appCheckPermissions="feature.GetSRSProjects">
+          <li nz-menu-item class="bps-menu-item" (click)="onDeleteProject()"
+            *ngIf="hasFullAccess; else noAccess">
+            <span class="home-delete"></span><span class="home-delete-span">Delete Order</span>
+          </li>
+          <ng-template #noAccess>
+            <li nz-menu-item class="bps-menu-item" nzDisabled>
+              <span class="home-delete"></span><span class="home-delete-span">Delete Order</span>
+            </li>
+          </ng-template>
+        </ng-container>
+        <!-- Delete Project -->
+        <!-- <li nz-menu-item class="bps-menu-item" nzDisabled><span class="home-share-project"></span><span
+            class="li-title">{{'home.share-project' | translate }}</span></li> -->
+        <!-- Share Project -->
+      </ul>
+    </bps-dropdown-menu>
+
+    <ng-template #rowExpandedTemplate let-data="data" let-index="index">
+      <app-home-expandable-panel
+        *ngIf="problemsOfSelectedProject && problemsOfSelectedProject[0].ProjectId == data.ProjectId"
+        [projectClicked_projectGuid]="projectClicked_projectGuid"
+        [projectToDelete_projectGuid]="projectToDelete_projectGuid"
+        [problemsOfSelectedProject]="problemsOfSelectedProject"
+        [isOperatingExpandableTable]="isOperatingExpandableTable">
+      </app-home-expandable-panel>
+    </ng-template>
+    <ng-template #orderPlacedTemplate let-value="value" let-index="index">
+      <div>
+        <span *ngIf="value"
+          style="position: relative; float: right; top: -1px; margin-right: 10px">
+           <img src="/assets/Images/sps/srs/sps_round_icon_order_placed.svg" alt="" />          
+        </span>
+      </div>
+    </ng-template>
+  </div>
+</div>

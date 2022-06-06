@@ -1,0 +1,996 @@
+<div *ngIf="orderModel.show_ShippingAddressPanel === false && !loading">
+    <div class="orders-title animate__animated animate__fadeInDown">
+        <div class="order-items" style="padding: 16px 0px;">PRODUCTS</div>
+        <div class="order-items">
+            <div class="single-column-section">
+                <div class="scs-rows">
+                    <div class="four-column-grid">
+                        <div class="fc-rows-right">
+                            <span *ngIf="orderModel.allow_ToPlaceOrder === false">QUANTITY</span>
+                        </div>
+                        <div class="fc-rows-right">
+                            <span *ngIf="orderModel.allow_ToPlaceOrder === false">PRICE (1 Item)</span>
+                        </div>
+                        <div class="fc-rows-right">
+                            <span *ngIf="orderModel.allow_ToPlaceOrder === false">TOTAL</span>
+                        </div>
+                        <div class="fc-rows-right" style="margin-top: 0px;">
+                            <div class="single-column-rev">
+                                <div class="scr-rows">
+                                        <button bps-button bpsType="variation-9" class="downloadProposal"
+                                            (click)="downloadProposal()" [disabled]="disableDownloadProposal()" >
+                                            <i *ngIf="isLoadingOne" style="margin-right: 10px;" nz-icon nzType="loading" nzTheme="outline"></i>
+                                            <ng-container *ngIf="isLoadingOne">Downloading...</ng-container>
+                                            <ng-container *ngIf="!isLoadingOne">DOWNLOAD PROPOSAL</ng-container>
+                                        </button>
+                                        <button bps-button bpsType="variation-9" class="downloadProposalSmall"
+                                            (click)="downloadProposal()" [disabled]="disableDownloadProposal()">
+                                            <img alt="" src="/assets/Images/sps/srs/sps_round_icon_proposal_enabled.svg"
+                                                width="10" />
+                                        </button>
+                                        <button bps-button bpsType="variation-9" class="downloadInvoice" bps-tooltip
+                                            [bpsTooltipType]="'variation_10'" bpsTooltipTitle="Download Invoice" disabled bpsDisabled
+                                            bpsTooltipPlacement="bottom">
+                                            <img alt="" src="/assets/Images/sps/srs/sps_round_icon_invoice_disabled.svg"
+                                                width="11" />
+                                        </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ordersParent animate__animated animate__fadeInDown">
+        <div class="orders" *ngFor="let data of orderModel.data_AllOrders"
+            [ngClass]="{'orderSelected': currentOrderNumber === data.projectId + '' + data.productId}">
+            <div class="order-items card-ProductDetails" [id]="'id' + data.projectId + '' + data.productId">
+                <nz-card [nzBordered]="true" [nzTitle]="data.PRODUCT" [nzExtra]="extraTemplate"
+                    style="height: 180px; width: 400px; margin-top: 10px;">
+                    <div>
+                        <nz-skeleton [nzActive]="true" [nzLoading]="loading" [nzAvatar]="{ size: 'large' }">
+                            <div>
+                                <div nz-col [nzSpan]="6" style="padding: 0px;">
+                                    <img (error)="setDefaultImage(data.ImagePath)" class="product-image"
+                                        src='{{data.ImagePath}}' alt="">
+                                </div>
+                                <div nz-col [nzSpan]="18"
+                                    style="color: #fff; font-family: 'UniversForSchueco-330Light';">
+                                    <div nz-row>
+                                        <div nz-col [nzSpan]="10" class="cardSubHeader">
+                                            PRODUCT TYPE
+                                        </div>
+                                        <div nz-col [nzSpan]="14" class="cardSubValue" *ngIf="data.unifiedModel.ModelInput.FrameSystem.SystemType === 'ADS 75'; else systemASE">
+                                            Door
+                                        </div>
+                                        <ng-template #systemASE>
+                                            <div nz-col [nzSpan]="14" class="cardSubValue" *ngIf="data.unifiedModel.ModelInput.FrameSystem.SystemType.includes('ASE'); else defaultSystem">
+                                               Sliding Door
+                                            </div>
+                                        </ng-template>
+                                        <ng-template #defaultSystem>
+                                            <div nz-col [nzSpan]="14" class="cardSubValue">
+                                                {{data.unifiedModel.ProblemSetting.ProductType}}
+                                            </div>
+                                        </ng-template>
+                                        
+                                    </div>
+                                    <div nz-row>
+                                        <div nz-col [nzSpan]="10" class="cardSubHeader">
+                                            DIMENSION
+                                        </div>
+                                        <div nz-col [nzSpan]="14" class="cardSubValue">
+                                            {{data.DIMENSION}}
+                                        </div>
+                                    </div>
+                                    <div nz-row>
+                                        <div nz-col [nzSpan]="10" class="cardSubHeader">
+                                            SYSTEM
+                                        </div>
+                                        <div nz-col [nzSpan]="14" class="cardSubValue">
+                                            {{data.unifiedModel.ModelInput.FrameSystem.SystemType}}
+                                        </div>
+                                    </div>
+                                    <div nz-row style="padding-top: 15px;">
+                                        <div nz-col [nzSpan]="12">
+                                            <span (click)="removeProduct(data.problemGuid)" class="remove-Product"
+                                                *ngIf="!orderModel.orderPlaced">
+                                                Remove Product</span>
+                                        </div>
+                                        <div nz-col [nzSpan]="12" style="color: #999999;">
+                                            <button bps-button bpsType="variation-14"
+                                                (click)="open_ProductInfoModel(data)" class="viewProductDetails"
+                                                bps-tooltip [bpsTooltipType]="'variation_10'"
+                                                bpsTooltipTitle="Product Info" bpsTooltipPlacement="bottom">
+                                                <img alt="" src="/assets/Images/sps/srs/sps_round_icon_info_enabled.svg">
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </nz-skeleton>
+                    </div>
+                </nz-card>
+                <ng-template #extraTemplate>
+                    {{data.ORDERNUMBER}}
+                </ng-template>
+            </div>
+            <div class="order-items">
+                <div class="single-column-section">
+                    <div *ngIf="orderModel.allow_ToPlaceOrder === false"
+                        class="scs-rows animate__animated animate__fadeIn">
+                        <div class="four-column-grid">
+                            <div class="fc-rows-right">
+                                <bps-select style="width: 60px" [(ngModel)]="data.Quantity"
+                                    (ngModelChange)="onChangeQuantity(data)">
+                                    <bps-option bpsValue="1" bpsLabel="1"></bps-option>
+                                    <bps-option bpsValue="2" bpsLabel="2"></bps-option>
+                                    <bps-option bpsValue="3" bpsLabel="3"></bps-option>
+                                    <bps-option bpsValue="4" bpsLabel="4"></bps-option>
+                                    <bps-option bpsValue="5" bpsLabel="5"></bps-option>
+                                    <bps-option bpsValue="6" bpsLabel="6"></bps-option>
+                                    <bps-option bpsValue="7" bpsLabel="7"></bps-option>
+                                    <bps-option bpsValue="8" bpsLabel="8"></bps-option>
+                                    <bps-option bpsValue="9" bpsLabel="9"></bps-option>
+                                    <bps-option bpsValue="10" bpsLabel="10"></bps-option>
+                                </bps-select>
+                            </div>
+                            <div class="fc-rows-right priceText">$ {{data.Price.toFixed(2) | number:'1.2-2'}}
+                            </div>
+                            <div class="fc-rows-right totalPriceText">$ {{data.Total.toFixed(2) | number:'1.2-2'}}
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf="orderModel.allow_ToPlaceOrder !== false"
+                        class="scs-rows  animate__animated animate__fadeIn">
+                        <div class="four-column">
+                            <div class="fc-rows" style="grid-column: 1 / 4;">
+                                <app-order-progress [shippingMethod]="orderModel.type_ShippingMethod" [order]="data" [dealerInfo]="dealerInfo"></app-order-progress>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="orders-footer animate__animated animate__fadeInUp">
+    <div class="order-items">
+        <div class="single-column-section" style="padding: 5px 13px;">
+            <div class="scs-rows">
+                <div class="four-column">
+                    <div class="fc-rows" style="border-right: 2px solid #474747;">
+                        <div class="single-column">
+                            <div class="sc-rows bottomMargin11px">
+                                <span class="CURRENT-BALANCE">
+                                    Available line of credit
+                                </span>
+                            </div>
+                            <div class="sc-rows">
+                                <span class="BALANCE-USD" *ngIf="dealerInfo && dealerInfo.CreditLine">
+                                    $ {{(dealerInfo.CreditUsed.toFixed(2) | number:'1.2-2')!}} USD <span style="color: #666666;;">/ $
+                                        {{(dealerInfo.CreditLine.toFixed(2) | number:'1.2-2')!}} USD</span>
+                                </span>
+                            </div>
+                            <div class="sc-rows" *ngIf="dealerCreditBalance < 10">
+                                <nz-progress nzStrokeLinecap="round" [nzPercent]="dealerCreditBalance"
+                                    [nzShowInfo]="false" nzWidth="215px" [nzStatus]="'exception'" nzSize="small">
+                                </nz-progress>
+                            </div>
+                            <div class="sc-rows" *ngIf="dealerCreditBalance >= 10">
+                                <nz-progress nzStrokeLinecap="round" [nzPercent]="dealerCreditBalance"
+                                    [nzShowInfo]="false" nzWidth="215px" nzSize="small">
+                                </nz-progress>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fc-rows" style="border-right: 2px solid #474747;">
+                        <div class="single-column">
+                            <div class="sc-rows bottomMargin11px">
+                                <span class="SHIPPING-INFORMATION">
+                                    SHIPPING INFORMATION
+                                </span>
+                            </div>
+                            <div class="sc-rows">
+                                <button bps-button bpsType="variation-2" class="SHIPPING-ADDRESS-BUTTON" [ngClass]="{'invalidShippingButton': isShippingButtonInvalid && !orderModel.orderPlaced && !orderModel.show_ShippingAddressPanel}"
+                                    [disabled]="!didCheckout" (click)="opencloseShippingAddress('OPEN')">
+                                    Shipping Address & Shipping Method
+                                </button>
+                                <span style="float:right">
+                                    <span *ngIf="orderModel.valid_ShipToAddress === true || orderModel.orderPlaced"
+                                        class="AllowedToPlace animate__animated animate__fadeIn">
+                                        <img alt="" src="/assets/Images/sps/srs/sps_round_icon_lock_shipping_active.svg"
+                                            width="15" />
+                                    </span>
+                                    <span *ngIf="orderModel.valid_ShipToAddress === false && !orderModel.orderPlaced"
+                                        class="AllowedToPlace animate__animated animate__fadeIn">
+                                        <img alt="" src="/assets/Images/sps/srs/sps_round_icon_lock_shipping_disabled.svg"
+                                            width="15" />
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fc-rows" style="overflow: auto; height: 153px;">
+                        <div class="double-column">
+                            <div class="dc-row bottomSpace ORDER-SUMMARY" style="grid-column: 1 / 3;color: #c0c0c0;">
+                                ORDER SUMMARY
+                            </div>
+                            <div class="dc-row">Subtotal</div>
+                            <div class="dc-row right" *ngIf="orderModel.amount_Subtotal !== 0">$ {{ orderModel.amount_Subtotal.toFixed(2) | number:'1.2-2' }} USD</div>
+                            <div class="dc-row right" *ngIf="orderModel.amount_Subtotal === 0">$ {{ '-' }} USD</div>
+                            <div class="dc-row">Shipping</div>
+                            <div class="dc-row right" *ngIf = "orderModel.amount_Shipping !== 0">$ {{ orderModel.amount_Shipping.toFixed(2) | number:'1.2-2' }} USD </div>
+                            <div class="dc-row right" *ngIf = "orderModel.amount_Shipping === 0">$ {{ '-' }} USD </div>
+                            <!-- <div class="dc-row right">$ {{ orderModel.amount_Shipping1.toFixed(2) | number:'1.2-2' }} USD - $ {{orderModel.amount_Shipping2.toFixed(2) | number:'1.2-2' }} USD</div> -->
+                            <div class="dc-row bottomSpace">Total Before Tax</div>
+                            <div class="dc-row right bottomSpace" *ngIf="orderModel.amount_TotalBeforeTax !== 0">$ {{ orderModel.amount_TotalBeforeTax.toFixed(2) | number:'1.2-2'
+                                }} USD</div>
+                            <div class="dc-row right bottomSpace" *ngIf="orderModel.amount_TotalBeforeTax === 0">$ {{ '-'
+                                }} USD</div>
+                            <!-- <div class="dc-row right bottomSpace">$ {{ orderModel.amount_TotalBeforeTax1.toFixed(2)  | number:'1.2-2'
+                                }} USD - $ {{ orderModel.amount_TotalBeforeTax2.toFixed(2) | number:'1.2-2' }} USD</div> -->
+                            <div class="dc-row bottomSpace">Tax</div>
+                            <div class="dc-row right bottomSpace" *ngIf="orderModel.amount_EstimatedTax !== 0">$ {{ orderModel.amount_EstimatedTax.toFixed(2) | number:'1.2-2' }} USD</div>
+                            <div class="dc-row right bottomSpace" *ngIf="orderModel.amount_EstimatedTax === 0">$ {{ '-' }} USD</div>
+                            <!-- <div class="dc-row right bottomSpace" *ngIf="orderModel.amount_EstimatedTax1 !== orderModel.amount_EstimatedTax2">$ {{ orderModel.amount_EstimatedTax1.toFixed(2) | number:'1.2-2' 
+                                }} USD - $ {{ orderModel.amount_EstimatedTax2.toFixed(2) | number:'1.2-2' }} USD</div> -->
+                                <!-- <div class="dc-row right bottomSpace" *ngIf="orderModel.amount_EstimatedTax1 === orderModel.amount_EstimatedTax2">$ {{ orderModel.amount_EstimatedTax1.toFixed(2) | number:'1.2-2' 
+                                }} USD</div> -->
+                            <!-- <div class="dc-row bottomSpace">Schüco Partner Discount:</div>
+                                <div class="dc-row right bottomSpace">- $200 USD</div> -->
+                            <div class="dc-row fontTotal" *ngIf="orderModel.minAmount_PerOrder > orderModel.amount_Total" style="color: red;"> Estimated Total</div>
+                            <div class="dc-row right fontTotal" *ngIf="orderModel.minAmount_PerOrder > orderModel.amount_Total && orderModel.amount_Total !== 0" style="color: red;">$ {{orderModel.amount_Total.toFixed(2) | number:'1.2-2' }} USD</div>
+                            <div class="dc-row right fontTotal" *ngIf="orderModel.minAmount_PerOrder > orderModel.amount_Total && orderModel.amount_Total === 0" style="color: red;">$ {{'-' }} USD</div>
+
+                            <div class="dc-row fontTotal" *ngIf="orderModel.minAmount_PerOrder <= orderModel.amount_Total"> Estimated Total:</div>
+                            <div class="dc-row right fontTotal" *ngIf="orderModel.minAmount_PerOrder <= orderModel.amount_Total && orderModel.amount_Total !== 0">$ {{orderModel.amount_Total.toFixed(2) | number:'1.2-2' }} USD</div>
+                            <div class="dc-row right fontTotal" *ngIf="orderModel.minAmount_PerOrder <= orderModel.amount_Total && orderModel.amount_Total === 0">$ {{'-' }} USD</div>
+                            <!-- <div class="dc-row right fontTotal">$ {{orderModel.amount_Total1.toFixed(2) | number:'1.2-2' }} USD - $ {{orderModel.amount_Total2.toFixed(2) | number:'1.2-2' }} USD</div> -->
+                        </div>
+                        <!-- <div class="single-column-start">
+                            <p style="color:#666 !important;">Estimated Shipping cost will range from $6,000 to $10,000 USD</p>
+                        </div> -->
+
+                    </div>
+                    <div class="fc-rows">
+                        <div class="single-column-rev">
+                            <div class="scr-rows">
+                                <div class="Place-Order-button"
+                                    *ngIf="dealerInfo && dealerInfo.CreditUsed < orderModel.amount_Total">
+                                    <button *ngIf="!orderModel.orderPlaced" bps-button bpsType="variation-3"
+                                        [disabled]="!orderModel.hasFullAccess || !orderModel.valid_ShipToAddress || orderModel.minAmount_PerOrder > orderModel.amount_Total"
+                                        style="margin-right: 23px; text-transform: uppercase; width: 110px;"
+                                        (click)="lowBalance()">
+                                        Place Order
+                                    </button>
+                                    <img *ngIf="!orderModel.hasFullAccess" style="margin-bottom: 4px;margin-left: 5px;"
+                                        src="/assets/Images/sps/srs/sps_round_icon_lock_disabled.svg" alt="" />
+                                </div>
+                                <div class="Place-Order-button"
+                                    *ngIf="dealerInfo && dealerInfo.CreditUsed >= orderModel.amount_Total">
+                                    <button bps-button bpsType="variation-3"
+                                        style="text-transform: uppercase; width: 110px;margin-right: 23px;"
+                                        *ngIf="!orderModel.orderPlaced"
+                                        [disabled]="!orderModel.hasFullAccess || !orderModel.valid_ShipToAddress || orderModel.minAmount_PerOrder > orderModel.amount_Total || orderModel.show_ShippingAddressPanel"
+                                        (click)="placeOrder()">
+                                        Place Order
+                                    </button>
+                                    <img *ngIf="orderModel.data_AllOrders.length > 0 && !orderModel.hasFullAccess"
+                                        style="margin-bottom: 4px;margin-left: 5px;"
+                                        src="/assets/Images/sps/srs/sps_round_icon_lock_disabled.svg" alt="" />
+                                </div>
+                                <div class="Place-Order-button">
+                                    <button bps-button bpsType="variation-3" class="cancelAll"
+                                        style="margin-right: 23px;"
+                                        *ngIf="orderModel.hasFullAccess && orderModel.orderPlaced"
+                                        (click)="cancelAllOrders()">
+                                        CANCEL ORDER
+                                    </button>
+                                    <button bps-button bpsType="variation-3" style="margin-right: 23px;"
+                                        *ngIf="!orderModel.hasFullAccess && orderModel.orderPlaced" disabled>
+                                        CANCEL ORDER
+                                    </button>
+                                    <!-- <img *ngIf="!orderModel.hasFullAccess && orderModel.orderPlaced" style="margin-bottom: 4px;"
+                                                    src="/assets/Images/sps/srs/sps_round_icon_lock_disabled.svg" alt="" /> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="fc-rows">
+                        <div class="single-column-start">
+<p>Estimated shipping cost ranges from $6000 to $10000 USD.</p>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="orderModel.show_ShippingAddressPanel === true"
+    class="grid-container-shipping gridcontainer animate__animated animate__fadeInUpBig">
+    <div class="grid-item" style="border-right: 1px solid #474747;">
+    </div>
+    <div class="grid-item" style="border-right: 1px solid #474747;">
+        <nz-row [nzGutter]="16">
+            <nz-col [nzSpan]="2">
+                <div class="number-rounded">1</div>
+            </nz-col>
+            <nz-col [nzSpan]="20" style="height: 23px; line-height: 23px;">
+                <span style="padding-left: 8px !important; ">
+                    SELECT A SHIPPING ADDRESS</span>
+            </nz-col>
+            <nz-col [nzSpan]="2">
+
+            </nz-col>
+        </nz-row>
+
+        <nz-row [nzGutter]="16" style="margin-top: 0; padding-top: 0;">
+            <nz-col [nzSpan]="2">
+
+            </nz-col>
+            <nz-col [nzSpan]="20">
+                <nz-row [nzGutter]="16" *ngIf="!orderModel.orderPlaced">
+                    <nz-col [nzSpan]="12">
+                        <button bps-button bpsType="variation-2" (click)="orderModel.show_ShipToAddress = 'ADDRESS'"
+                            [ngClass]="{'btnActiveShipping': orderModel.show_ShipToAddress === 'ADDRESS', 'btnInactiveShipping': orderModel.show_ShipToAddress === 'STORE'}"
+                            style="margin-left: 4px; width: 100%; min-width: 125px; height: 40px !important; margin-right: 10px; background-color: transparent !important;">
+                            Ship to Address</button>
+                    </nz-col>
+                    <nz-col [nzSpan]="12">
+                        <button bps-button bpsType="variation-2" (click)="orderModel.show_ShipToAddress = 'STORE'"
+                            [ngClass]="{'btnActiveShipping': orderModel.show_ShipToAddress === 'STORE', 'btnInactiveShipping': orderModel.show_ShipToAddress === 'ADDRESS'}"
+                            style="width: 100%; min-width: 100px; height: 40px !important; margin-right: 10px; background-color: transparent !important;">
+                            Ship to Store</button>
+                    </nz-col>
+                </nz-row>
+                <nz-row [nzGutter]="16" *ngIf="orderModel.orderPlaced">
+                    <nz-col [nzSpan]="12">
+                        <button bps-button bpsType="variation-2" bpsDisabled
+                            [ngClass]="{'btnActiveShipping': orderModel.show_ShipToAddress === 'ADDRESS', 'btnInactiveShipping': orderModel.show_ShipToAddress === 'STORE'}"
+                            style="width: 100%; min-width: 125px; height: 40px !important; margin-right: 10px; background-color: transparent !important; cursor: not-allowed;">
+                            Ship to Address</button>
+                    </nz-col>
+                    <nz-col [nzSpan]="12">
+                        <button bps-button bpsType="variation-2" bpsDisabled
+                            [ngClass]="{'btnActiveShipping': orderModel.show_ShipToAddress === 'STORE', 'btnInactiveShipping': orderModel.show_ShipToAddress === 'ADDRESS'}"
+                            style="width: 100%; min-width: 100px; height: 40px !important; margin-right: 10px; background-color: transparent !important; cursor: not-allowed;">
+                            Ship to Store</button>
+                    </nz-col>
+                </nz-row>
+            </nz-col>
+            <nz-col [nzSpan]="2">
+
+            </nz-col>
+        </nz-row>
+
+        <nz-row [nzGutter]="16" style="margin-top: 10px; margin-bottom: -4px;">
+            <nz-col [nzSpan]="2">
+                <div class="number-rounded">2</div>
+            </nz-col>
+            <nz-col [nzSpan]="20" *ngIf="orderModel.show_ShipToAddress === 'ADDRESS'"
+                style="height: 23px; line-height: 23px;">
+                <span style="padding-left: 8px !important; ">SHIPPING ADDRESS
+                </span>
+            </nz-col>
+            <nz-col [nzSpan]="20" *ngIf="orderModel.show_ShipToAddress === 'STORE'"
+                style="height: 23px; line-height: 23px;">
+                <span style="padding-left: 8px !important; ">YOUR STORE ADDRESS
+                </span>
+            </nz-col>
+            <nz-col [nzSpan]="2">
+
+            </nz-col>
+        </nz-row>
+        <nz-row [nzGutter]="16" style="margin-top: 0; padding-top: 0;">
+            <nz-col [nzSpan]="2">
+
+            </nz-col>
+            <nz-col [nzSpan]="20" *ngIf="orderModel.show_ShipToAddress === 'ADDRESS'" class="shippingAddressForm">
+                <form bps-form [formGroup]="shippingAddressForm">
+                    <nz-row [nzGutter]="16">
+                        <nz-col [nzSpan]="24">
+                            <bps-form-item style="margin: 0px !important;">
+                                <bps-form-control>
+                                    <input style="width: 100%" bps-input placeholder="Email" formControlName="Email"
+                                        pattern="(\w\.?)+@[\w\.-]+\.\w{2,4}" [ngClass]="{'input-disabled':orderModel.orderPlaced}"
+                                        [(ngModel)]="orderModel.shipping_Address.Email" type="email" email="true"
+                                        [attr.disabled]="orderModel.orderPlaced ? true:null">
+                                </bps-form-control>
+                            </bps-form-item>
+                        </nz-col>
+                    </nz-row>
+                    <nz-row [nzGutter]="16">
+                        <nz-col [nzSpan]="12">
+                            <bps-form-item style="margin: 0px !important;">
+                                <bps-form-control>
+                                    <input style="width: 100%" bps-input placeholder="First Name" [ngClass]="{'input-disabled':orderModel.orderPlaced}"
+                                        formControlName="FirstName" [(ngModel)]="orderModel.shipping_Address.FirstName"
+                                        [attr.disabled]="orderModel.orderPlaced ? true:null">
+                                </bps-form-control>
+                            </bps-form-item>
+                        </nz-col>
+                        <nz-col [nzSpan]="12">
+                            <bps-form-item style="margin: 0px !important;">
+                                <bps-form-control>
+                                    <input style="width: 100%" bps-input placeholder="Last Name" [ngClass]="{'input-disabled':orderModel.orderPlaced}"
+                                        formControlName="LastName" [(ngModel)]="orderModel.shipping_Address.LastName"
+                                        [attr.disabled]="orderModel.orderPlaced ? true:null">
+                                </bps-form-control>
+                            </bps-form-item>
+                        </nz-col>
+                    </nz-row>
+                    <nz-row [nzGutter]="16">
+                        <nz-col [nzSpan]="12">
+                            <bps-form-item style="margin: 0px !important;">
+                                <bps-form-control>
+                                    <input style="width: 100%" bps-input placeholder="Phone Number" type="tel" [ngClass]="{'input-disabled':orderModel.orderPlaced}"
+                                        pattern="^\s*(?:\+?(\d{1,3}))?([-. (]*(\d{3})[-. )]*)?((\d{3})[-. ]*(\d{2,4})(?:[-.x ]*(\d+))?)\s*$"
+                                        formControlName="PhoneNumber" prefix="+1" mask="(000) 000-0000"
+                                        [clearIfNotMatch]="true" [showMaskTyped]="true"
+                                        [(ngModel)]="orderModel.shipping_Address.PhoneNumber"
+                                        [attr.disabled]="orderModel.orderPlaced ? true:null">
+                                </bps-form-control>
+                            </bps-form-item>
+                        </nz-col>
+                        <nz-col [nzSpan]="12">
+                            <bps-form-item style="margin: 0px !important;">
+                                <bps-form-control>
+                                    <input style="width: 100%" bps-input placeholder="2nd Email (Optional)"
+                                        pattern="(\w\.?)+@[\w\.-]+\.\w{2,4}" [ngClass]="{'input-disabled':orderModel.orderPlaced}"
+                                        formControlName="Email2" [(ngModel)]="orderModel.shipping_Address.Email2"
+                                        type="email" email="true" [attr.disabled]="orderModel.orderPlaced ? true:null">
+                                </bps-form-control>
+                            </bps-form-item>
+                        </nz-col>
+                    </nz-row>
+                    <nz-row [nzGutter]="16">
+                        <nz-col [nzSpan]="24">
+                            <bps-form-item style="margin: 0px !important;">
+                                <bps-form-control>
+                                    <input style="width: 100%" bps-input placeholder="Address" formControlName="Address" [ngClass]="{'input-disabled':orderModel.orderPlaced}"
+                                        [(ngModel)]="orderModel.shipping_Address.Address" #addressText
+                                        autocomplete="off" [attr.disabled]="orderModel.orderPlaced ? true:null">
+                                    <!-- <div *ngIf="!orderModel.orderPlaced" #gmap style="width:100%; border-radius: 10px;"
+                                        id="map" [ngClass]="{'show': showGoogleMap, 'hide': !showGoogleMap}">
+                                    </div> -->
+                                </bps-form-control>
+                            </bps-form-item>
+                        </nz-col>
+                    </nz-row>
+                    <nz-row [nzGutter]="16">
+                        <nz-col [nzSpan]="24">
+                            <bps-form-item style="margin: 0px !important;">
+                                <bps-form-control>
+                                    <input style="width: 100%" bps-input placeholder="Apartment, suite, etc." [ngClass]="{'input-disabled':orderModel.orderPlaced}"
+                                        formControlName="Apartment" [(ngModel)]="orderModel.shipping_Address.Apartment"
+                                        [attr.disabled]="orderModel.orderPlaced ? true:null">
+                                </bps-form-control>
+                            </bps-form-item>
+                        </nz-col>
+                    </nz-row>
+                    <nz-row [nzGutter]="16">
+                        <nz-col [nzSpan]="12">
+                            <bps-form-item style="margin: 0px !important;">
+                                <bps-form-control>
+                                    <input style="width: 100%" bps-input placeholder="Postal Code" [ngClass]="{'input-disabled':orderModel.orderPlaced}"
+                                        [(ngModel)]="orderModel.shipping_Address.PostalCode" formControlName="PostalCode"
+                                        [attr.disabled]="orderModel.orderPlaced ? true:null">
+                                        <ng-template #addressErrorTpl let-control>
+                                            <ng-container *ngIf="control.hasError('inValidPinCode')">
+                                            </ng-container>
+                                        </ng-template>
+                                </bps-form-control>
+                            </bps-form-item>
+                        </nz-col>
+                        <nz-col [nzSpan]="12">
+                            <bps-form-item style="margin: 0px !important;">
+                                <bps-form-control>
+                                    <input style="width: 100%" bps-input placeholder="City" formControlName="City"
+                                        [(ngModel)]="orderModel.shipping_Address.City" [ngClass]="{'input-disabled':orderModel.orderPlaced}"
+                                        [attr.disabled]="orderModel.orderPlaced ? true:null">
+                                </bps-form-control>
+                            </bps-form-item>
+                        </nz-col>
+                    </nz-row>
+                    <nz-row [nzGutter]="16">
+                        <nz-col [nzSpan]="24">
+                            <bps-form-item style="margin: 0px !important;">
+                                <bps-form-control>
+                                    <input style="width: 100%" bps-input placeholder="State" formControlName="State"
+                                        [(ngModel)]="orderModel.shipping_Address.State" [ngClass]="{'input-disabled':orderModel.orderPlaced}"
+                                        [attr.disabled]="orderModel.orderPlaced ? true:null">
+                                </bps-form-control>
+                            </bps-form-item>
+                        </nz-col>
+                    </nz-row>
+                </form>
+            </nz-col>
+            <nz-col [nzSpan]="20" *ngIf="orderModel.show_ShipToAddress === 'STORE'">
+                <nz-row [nzGutter]="16" class="spaceBottom">
+                    <nz-col [nzSpan]="12">
+                        Address
+                    </nz-col>
+                    <nz-col [nzSpan]="12" style="color: #999999">
+                        {{orderModel.store_Address.Address}}
+                    </nz-col>
+                </nz-row>
+                <nz-row [nzGutter]="16" class="spaceBottom">
+                    <nz-col [nzSpan]="12">
+                        E-mail
+                    </nz-col>
+                    <nz-col [nzSpan]="12" style="color: #999999">
+                        {{orderModel.store_Address.Email}}
+                    </nz-col>
+                </nz-row>
+                <nz-row [nzGutter]="16" class="spaceBottom">
+                    <nz-col [nzSpan]="12">
+                        Phone
+                    </nz-col>
+                    <nz-col [nzSpan]="12" style="color: #999999">
+                        {{orderModel.store_Address.PhoneNumber}}
+                    </nz-col>
+                </nz-row>
+            </nz-col>
+            <nz-col [nzSpan]="2">
+
+            </nz-col>
+        </nz-row>
+    </div>
+    <div class="grid-item" style="border-right: 1px solid #474747;">
+        <nz-row [nzGutter]="16">
+            <nz-col [nzSpan]="3">
+                <div class="number-rounded">3</div>
+            </nz-col>
+            <nz-col [nzSpan]="20" style="height: 23px; line-height: 23px;">
+                <span style="padding-left: 8px !important; ">SELECT A SHIPPING METHOD
+                </span>
+            </nz-col>
+            <nz-col [nzSpan]="1">
+
+            </nz-col>
+        </nz-row>
+
+        <nz-row [nzGutter]="16" style="margin-top: -1px; padding-top: 0;">
+            <nz-col [nzSpan]="2">
+
+            </nz-col>
+            <nz-col [nzSpan]="20">
+                <nz-row [nzGutter]="16" *ngIf="!orderModel.orderPlaced">
+                    <!-- <nz-col [nzSpan]="24">
+                        <div class="shippingMethod" (click)="orderModel.type_ShippingMethod = 'STL'"
+                            [ngClass]="{'shippingMethodActive': orderModel.type_ShippingMethod === 'STL', 'shippingMethodInactive': orderModel.type_ShippingMethod === 'TL' }"
+                            style="width: 220px; height: 40px !important; cursor: pointer; margin: 0px; margin-left: 15px;">
+                            STL - Shared Truckload</div>
+                    </nz-col> -->
+                    <nz-col [nzSpan]="24">
+                        <div class="shippingMethod shippingMethodInactive"
+                            style="width: 220px; height: 40px !important; cursor: pointer; margin: 0px; margin-left: 15px; 
+                            color: #666 !important;">
+                            STL - Shared Truckload</div>
+                    </nz-col>
+                    <nz-col [nzSpan]="24">
+                        <div class="shippingMethod" (click)="orderModel.type_ShippingMethod = 'TL'"
+                            [ngClass]="{'shippingMethodActive': orderModel.type_ShippingMethod === 'TL'}"
+                            style="width: 220px; height: 40px !important; margin-top: 10px; cursor: pointer; margin-left: 15px;">
+                            TL - Truckload</div>
+                    </nz-col>
+                </nz-row>
+                <nz-row [nzGutter]="16" *ngIf="orderModel.orderPlaced">
+                    <nz-col [nzSpan]="24">
+                        <div class="shippingMethod"
+                            [ngClass]="{'shippingMethodActive': orderModel.type_ShippingMethod === 'STL', 'shippingMethodInactive': orderModel.type_ShippingMethod === 'TL' }"
+                            style="width: 220px; height: 40px !important; cursor: pointer; margin: 0px; color: #666 !important;">
+                            STL - Shared Truckload</div>
+                    </nz-col>
+                    <nz-col [nzSpan]="24">
+                        <div class="shippingMethod"
+                            [ngClass]="{'shippingMethodActive': orderModel.type_ShippingMethod === 'TL'}"
+                            style="width: 220px; height: 40px !important; margin-top: 10px; cursor: pointer;">
+                            TL - Truckload</div>
+                    </nz-col>
+                </nz-row>
+            </nz-col>
+            <nz-col [nzSpan]="2">
+
+            </nz-col>
+        </nz-row>
+
+        <nz-row [nzGutter]="16">
+            <nz-col [nzSpan]="2">
+
+            </nz-col>
+            <nz-col [nzSpan]="20">
+                <nz-row [nzGutter]="16">
+                    <nz-col [nzSpan]="24" style="text-align-last: center;">
+                        <br><br><br>
+                        <img alt="" src="/assets/Images/sps/srs/sps_static_icon_sharedtruckload_color.svg" style="width: 240px"
+                            *ngIf="orderModel.type_ShippingMethod === 'STL'" />
+                        <img alt="" src="/assets/Images/sps/srs/sps_static_icon_Truckload_color.svg" style="width: 240px"
+                            *ngIf="orderModel.type_ShippingMethod === 'TL'" />
+                    </nz-col>
+                </nz-row>
+            </nz-col>
+            <nz-col [nzSpan]="2">
+
+            </nz-col>
+        </nz-row>
+
+    </div>
+    <div class="grid-item">
+        <span style="float: right; cursor: pointer;" (click)="opencloseShippingAddress('CLOSE')">
+            <img alt="" src="/assets/Images/sps/srs/close.svg" />
+        </span>
+        <div class="fabricatorInfo" *ngIf="dealerInfo">
+            <div style="height: 300px"></div>
+            <div>
+                <br>
+                <button bps-button bpsType="variation-3" style="font-family: UniversForSchueco-630; 
+                            text-transform: uppercase; float: right; opacity: 1;"
+                    *ngIf="!orderModel.valid_ShipToAddress || !orderModel.orderPlaced"
+                    (click)="continueShippingAddress()">Continue</button>
+                <button bps-button bpsType="variation-3" style="font-family: UniversForSchueco-630; 
+                            text-transform: uppercase; float: right; opacity: 1; cursor: not-allowed !important;"
+                    disabled *ngIf="orderModel.orderPlaced" (click)="continueShippingAddress()">Continue</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="disclaimer">
+    <bps-modal [(bpsVisible)]="orderModel.show_Disclaimer" [bpsFooter]="null" [bpsWidth]="600"
+        (bpsOnCancel)="handleCancel()" bpsTitle="Disclaimer" id="bpsmodalDisclaimer">
+        <div class="pdf-container">
+            <div class="pdf">
+                <app-disclaimer></app-disclaimer>
+            </div>
+        </div>
+        <div style="display: flex;">
+            <span class="disclaimer-field-pdf"><label bps-checkbox style="cursor: pointer;"
+                    [(ngModel)]="orderModel.check_OneDisclaimer"></label></span>
+            <span class="disclaimer-description-pdf">
+                <p>Click here to indicate that you have read to the terms presented in the Terms and Conditions
+                    agreement.</p>
+            </span>
+        </div>
+        <div style="display: flex;">
+            <span class="disclaimer-field-pdf"><label bps-checkbox
+                    [(ngModel)]="orderModel.check_TwoDisclaimer"></label></span>
+            <span class="disclaimer-description-pdf">
+                <p>I accept these terms and conditions with no exception.</p>
+            </span>
+        </div>
+        <div style="text-align: center; margin-top: 25px">
+            <button style="width: 165px" bps-button bpsType="variation-1" (click)="orderNow()"
+                [disabled]="!orderModel.check_OneDisclaimer || !orderModel.check_TwoDisclaimer">ORDER
+                NOW</button>
+        </div>
+    </bps-modal>
+</div>
+<div class="productInfo">
+    <bps-modal [(bpsVisible)]="orderModel.show_ProductInfo" [bpsFooter]="null" [bpsWidth]="710"
+        (bpsOnCancel)="cancel_ProductInfoModel()" bpsTitle="{{'result.product-info' | translate }}"
+        id="bpsmodalProductInfo">
+        <div class="parent">
+            <span class="imgDiv">
+                <!-- Product Info -->
+                <div class="product-image-dimension"
+                    style="display: flex; justify-content: center; align-items: center;height:295px">
+                    <img *ngIf="!loading" #selectedItemImage (error)="setDefaultImage(productInfoImage)"
+                        src='{{productInfoImage}}' style="height: auto; width: 225px; object-fit: cover;" alt="">
+                </div>
+            </span>
+            <span class="infoDiv" *ngIf="selectedProduct">
+                <!-- GENERAL INFO: -->
+                <div>
+                    <div class="headerInfo header" style="margin-top: 0px;">GENERAL INFO:</div>
+                    <span class="product-field">{{'result.product-type' | translate | uppercase }}</span>
+                    <!-- PRODUCT TYPE -->
+                    <span class="product-description" *ngIf="selectedProduct.FrameSystem.SystemType === 'AWS 75.SI+'">{{productType}}</span>
+                    <span class="product-description" *ngIf="selectedProduct.FrameSystem.SystemType === 'ADS 75'">{{'Door'}}</span>
+                    <span class="product-description" *ngIf="selectedProduct.FrameSystem.SystemType.includes('ASE')">{{'Sliding Door'}}</span>
+                    <span class="product-field">{{'result.system-name' | translate | uppercase }}</span>
+                    <!-- SYSTEM NAME -->
+                    <span class="product-description">{{selectedProduct.FrameSystem.SystemType}}</span>
+                    <!-- <span class="product-field">DIMENSIONS ALLOYS</span> -->
+                    <!-- ALLOYS -->
+                    <!-- <span class="product-description">{{selectedProduct.FrameSystem.Alloys}}</span>-->
+                    <span class="product-field">{{'result.dimension' | translate | uppercase }}</span>
+                    <!-- DIMENSION -->
+                    <span class="product-description">{{productDimension}}</span>
+                    <!-- <span class="product-field">MATERIAL</span><span
+                            class="product-description">{{selectedProduct.FrameSystem.AluminumFinish}}</span>
+                        <span class="product-field">INSULATION TYPE</span><span
+                            class="product-description">{{selectedProduct.FrameSystem.InsulationType}}</span> -->
+                </div>
+                <!-- OPERABILITY INFO: -->
+                <div *ngIf="selectedProduct.Geometry.OperabilitySystems && (selectedProduct.FrameSystem.SystemType === 'AWS 75.SI+' || selectedProduct.FrameSystem.SystemType === 'ADS 75')">
+                    <div class="divider"></div>
+                    <div class="headerInfo header">OPERABILITY INFO:</div>
+                    <!--  style="width: 42%;" <div class="headerInfo header" style="width: 58%;">
+                            <bps-radio-group [(ngModel)]="osPicker" style="float: right; margin-bottom: -5px;"
+                                (ngModelChange)="operabilitySystemsPickerChange($event)">
+                                <label bps-radio bpsValue="0" bpsRadioButtonType="variation9" *ngIf="osLength > 0"></label>
+                                <label bps-radio bpsValue="1" bpsRadioButtonType="variation9" *ngIf="osLength > 1"></label>
+                                <label bps-radio bpsValue="2" bpsRadioButtonType="variation9" *ngIf="osLength > 2"></label>
+                                <label bps-radio bpsValue="3" bpsRadioButtonType="variation9" *ngIf="osLength > 3"></label>
+                                <label bps-radio bpsValue="4" bpsRadioButtonType="variation9" *ngIf="osLength > 4"></label>
+                            </bps-radio-group>
+                        </div> -->
+                    <div *ngFor="let item of selectedProduct.Geometry.Infills; let i = index">
+                        <ng-container *ngFor="let operability of selectedProduct.Geometry.OperabilitySystems">
+                            <ng-container *ngIf="item.OperabilitySystemID == operability.OperabilitySystemID && operability.DoorSystemID === -1">
+                                <div>
+                                    <span class="product-field">WINDOW ID</span>
+                                    <span class="product-description"># {{item.InfillID}}</span>
+                                    <span class="product-field">WINDOW TYPE</span>
+                                    <span class="product-description">{{operability.VentOpeningDirection}}</span>
+                                    <span class="product-field">Operable Type</span>
+                                    <span class="product-description">{{operability.VentOperableType}}</span>
+                                    <span class="product-field">Inside Handle</span>
+                                    <span class="product-description">{{operability.InsideHandleColor}}</span>
+                                    <span class="product-field">HANDLE POSITIONING</span>
+                                    <span class="product-description" *ngIf="item.HandlePosition !== 0">
+                                        {{item.HandlePosition}} mm
+                                    </span>
+                                </div>
+                                <div class="divider"></div>
+                            </ng-container>
+                            <ng-container *ngFor="let door of selectedProduct.Geometry.DoorSystems">
+                                <ng-container *ngIf="item.OperabilitySystemID == operability.OperabilitySystemID && door.DoorSystemID == operability.DoorSystemID">
+                                <div>
+                                    <span class="product-field">DOOR ID</span>
+                                    <span class="product-description"># {{item.InfillID}}</span>
+                                    <span class="product-field">DOOR TYPE</span>
+                                    <span class="product-description">{{operability.VentOpeningDirection}}</span>
+                                    <span class="product-field">Operable Type</span>
+                                    <span class="product-description">{{operability.VentOperableType}}</span>
+                                    <span class="product-field">Outside Handle</span>
+                                    <span class="product-description">{{door.OutsideHandleColor}}</span>
+                                    <span class="product-field">Inside Handle</span>
+                                    <span class="product-description">{{door.InsideHandleColor}}</span>
+                                    <span class="product-field">HANDLE POSITIONING</span>
+                                    <span class="product-description" *ngIf="item.HandlePosition !== 0">
+                                        {{item.HandlePosition}} mm
+                                    </span>
+                                    <span class="product-field">Hinge Type</span>
+                                    <span class="product-description">{{door.HingeColor}}</span>
+                                </div>
+                                <div class="divider"></div></ng-container>
+                            </ng-container>
+                        </ng-container>
+                    </div>
+                    <!-- <div *ngFor="let operability of selectedProduct.Geometry.OperabilitySystems">
+                            <div *ngIf="operability.Infills.length > 0">
+                                <span class="product-field">WINDOW ID</span>
+                                <span class="product-description">
+                                    <ng-container *ngFor="let item of operability.Infills; let i = index, last as isLast">
+                                        #{{item.InfillID}}<ng-container *ngIf="!isLast">, </ng-container>
+                                    </ng-container>
+                                </span>
+                                <span class="product-field">WINDOW TYPE</span>
+                                <span class="product-description">{{operability.VentOpeningDirection}}</span>
+                                <span class="product-field">VENT OPERABLE TYPE</span>
+                                <span class="product-description">{{operability.VentOperableType}}</span>
+                                <span class="product-field">HANDLE POSITIONING</span>
+                                <span class="product-description">{{operability.Infills[0].HandlePosition}}</span>
+                                <span class="product-field">HANDLE COLOR</span>
+                                <span class="product-description">{{operability.HandleColor}}</span>
+                                <div class="divider"></div>
+                            </div>
+                        </div> -->
+                </div>
+                <!-- Sliding Unit INFO: -->
+                <div *ngIf="selectedProduct.FrameSystem.SystemType.includes('ASE') 
+                && selectedProduct.Geometry.OperabilitySystems && selectedProduct.Geometry.OperabilitySystems.length > 0
+                 && selectedProduct.Geometry.SlidingDoorSystems && selectedProduct.Geometry.SlidingDoorSystems.length > 0">
+                    <div class="divider"></div>
+                    <div class="headerInfo header">SLIDING UNIT INFO:</div>
+                    <div>
+                        <ng-container *ngFor="let slidingDoorSystem of selectedProduct.Geometry.SlidingDoorSystems">
+                            <div>
+                                <span class="product-field">Slide / Lift And Slide</span>
+                                <span class="product-description">{{slidingDoorSystem.SlidingOperabilityType}}</span>
+                                <div *ngIf="this.trackType">
+                                    <span class="product-field">Double Track Type</span>
+                                    <span class="product-description">{{this.trackType}}</span>
+                                </div>
+                                <span class="product-field">MOVING VENT</span>
+                                <span class="product-description">{{slidingDoorSystem.MovingVent}}</span>
+                                <span class="product-field">OPERATION TYPE</span>
+                                <span class="product-description">{{'Manual'}}</span>
+                                <span class="product-field">FITTINGS</span>
+                                <span class="product-description">{{'Manual'}}</span>
+                                <span class="product-field">OUTSIDE HANDLE</span>
+                                <span class="product-description">{{slidingDoorSystem.OutsideHandleColor}}</span>
+                                <span class="product-field">INSIDE HANDLE</span>
+                                <span class="product-description">{{slidingDoorSystem.InsideHandleColor}}</span>
+                            </div>
+                            <div class="divider"></div>
+                        </ng-container>
+                    </div>
+                </div>
+                <!-- FRAMING INFO: -->
+                <div>
+                    <div *ngIf="!selectedProduct.Geometry.OperabilitySystems" class="divider"></div>
+                    <div class="headerInfo header">FRAMING INFO:</div>
+                    <span class="product-field">OUTER FRAME</span><span class="product-description">
+                        <ng-container *ngIf="selectedProduct.Geometry.Sections">
+                            {{selectedProduct.Geometry.Sections[0].ArticleName}}
+                        </ng-container>
+                    </span>
+                    <ng-container *ngIf="productType == 'SlidingDoor'; else otherSystemVents">
+                        <div *ngIf="bottomOuterFrame">
+                            <span class="product-field">BOTTOM OUTER FRAME</span>
+                            <span class="product-description">
+                                {{this.bottomOuterFrame}}
+                            </span>
+                        </div>
+                        <div *ngIf="this.ventInfo">
+                            <span class="product-field">VENT FRAME</span>
+                            <span class="product-description">
+                                {{this.ventInfo}}
+                            </span>
+                        </div>
+                        <div *ngIf="this.interLockProfile">
+                            <span class="product-field">InterLock Profile</span>
+                            <span class="product-description">
+                                {{this.interLockProfile}}
+                            </span>
+                        </div>
+                        <div *ngIf="this.structuralProfile">
+                            <span class="product-field">STRUCTURAL PROFILE</span>
+                            <span class="product-description">
+                                {{this.structuralProfile}}
+                            </span>
+                        </div>
+                        <div *ngIf="this.reinforcementProfile">
+                            <span class="product-field">REINFORCEMENT PROFILE</span>
+                            <span class="product-description">
+                                {{this.reinforcementProfile}}
+                            </span>
+                        </div>
+                    </ng-container>
+                    <ng-template #otherSystemVents>
+                        <div *ngIf="selectedProduct.Geometry.OperabilitySystems && selectedProduct.Geometry.OperabilitySystems[0].VentArticleName !== '-1'">
+                            <span class="product-field">VENT FRAME</span>
+                            <span class="product-description">
+                                {{selectedProduct.Geometry.OperabilitySystems[0].VentArticleName}}
+                            </span>
+                        </div>
+                        <ng-container *ngIf="this.showMullion">
+                            <span class="product-field">MULLION</span>
+                            <span class="product-description">
+                                <ng-container *ngIf="selectedProduct.Geometry.Sections">
+                                    {{selectedProduct.Geometry.Sections[1].ArticleName}}
+                                </ng-container>
+                            </span>
+                        </ng-container>
+                        <ng-container *ngIf="this.showTransom">
+                            <span class="product-field">TRANSOM</span><span class="product-description">
+                                <ng-container *ngIf="selectedProduct.Geometry.Sections">
+                                    {{selectedProduct.Geometry.Sections[2].ArticleName}}
+                                </ng-container>
+                            </span>
+                        </ng-container>
+                        
+                        <ng-container *ngIf="selectedProduct.FrameSystem.SystemType === 'ADS 75'">
+                            <ng-container *ngIf="selectedProduct.Geometry.DoorSystems && selectedProduct.Geometry.DoorSystems[0]">
+                                <span class="product-field">Sill Profile <br/>
+                                    <span style="text-transform: lowercase;">(Fixed panel)</span>
+                                </span>
+                                <span class="product-description">
+                                    {{selectedProduct.Geometry.DoorSystems[0].DoorSidelightSillArticleName}}
+                                </span>
+                                <span class="product-field">Sill Profile <br/>
+                                    <span style="text-transform: lowercase;">(Bottom)</span>
+                                </span>
+                                <span class="product-description">
+                                    {{selectedProduct.Geometry.DoorSystems[0].DoorSillArticleName}}
+                                </span>
+                                <span class="product-field">Door Leaf<br/>
+                                    <span style="text-transform: lowercase;">(Active Vent)</span>
+                                </span>
+                                <span class="product-description">
+                                        {{selectedProduct.Geometry.DoorSystems[0].DoorLeafArticleName}}
+                                </span>
+                                <ng-container *ngIf="selectedProduct.Geometry.DoorSystems[0].DoorSystemType.includes('Double-Door')">
+                                    <span class="product-field">Door Leaf<br/>
+                                        <span style="text-transform: lowercase;">(Passive Vent Jamb)
+                                        </span>
+                                    </span>
+                                    <span class="product-description">
+                                            {{selectedProduct.Geometry.DoorSystems[0].DoorPassiveJambArticleName}}
+                                    </span>
+                                </ng-container>
+                            </ng-container>
+                        </ng-container>
+                    </ng-template>
+                    <span class="product-field">PROFILE COLOR</span><span
+                        class="product-description">{{selectedProduct.FrameSystem.AluminumColor}}</span>
+                </div>
+                <!-- GLASS INFO: -->
+                <div>
+                    <div class="divider"></div>
+                    <div class="headerInfo header">GLASS INFO:</div>
+                    <ng-container *ngIf="this.glassInfo">
+                        <span class="product-field">GLASS</span>
+                        <span class="product-description">
+                            <ng-container *ngFor="let glessDesc of this.glassInfo">
+                                {{glessDesc}}<br/>
+                            </ng-container>
+                        </span>
+                    </ng-container>
+                    <span class="product-field">{{'configure.u-value' | translate }}</span>
+                    <span class="product-description">
+                        <ng-container *ngIf="selectedProduct.Geometry.GlazingSystems && selectedProduct.Geometry.GlazingSystems[0].UValue">
+                            <div *appCheckPermissions="feature.GlassPanelFullInfo">
+                                {{selectedProduct.Geometry.GlazingSystems[0].UValue | number: '':language}}
+                                (Btu/h-ft<sup>2</sup>-F)
+                            </div>
+                            <div *appCheckPermissions="feature.GlassPanelShortInfo">
+                                {{(selectedProduct.Geometry.GlazingSystems[0].UValue/5.68).toFixed(3) | number: '':language}}
+                                (Btu/h-ft<sup>2</sup>-F)
+                            </div>
+                        </ng-container>
+                    </span>
+                    <span class="product-field">SHGC</span>
+                    <span class="product-description">
+                        <ng-container *ngIf="selectedProduct.Geometry.GlazingSystems">
+                            {{selectedProduct.Geometry.GlazingSystems[0].SHGC}}
+                        </ng-container>
+                    </span>
+                    <span class="product-field">VT</span>
+                    <span class="product-description">
+                        <ng-container *ngIf="selectedProduct.Geometry.GlazingSystems">
+                            {{selectedProduct.Geometry.GlazingSystems[0].VT| number: '':language}}
+                        </ng-container>
+                    </span>
+                    <span class="product-field">STC | OITC</span>
+                    <span class="product-description">
+                        <ng-container *ngIf="selectedProduct.Geometry.GlazingSystems">
+                            {{selectedProduct.Geometry.GlazingSystems[0].STC| number: '':language }}
+                            | {{selectedProduct.Geometry.GlazingSystems[0].OITC| number: '':language }} (dB)
+                        </ng-container>
+                    </span>
+                </div>
+                <!-- LOAD INFO: -->
+                <div>
+                    <div class="divider"></div>
+                    <div class="headerInfo header">LOAD INFO:</div>
+                    <span class="product-field">WIND PRESSURE</span><span
+                        class="product-description">{{windPressure}}</span>
+                </div>
+            </span>
+        </div>
+    </bps-modal>
+</div>
+
+<div nz-row class="footer top-grey-border-intro-page"
+    style="position: fixed; z-index: 2; bottom: 0px;background-color: #262626;padding: 9px;">
+    <div style="text-align: center">
+        Powered by THE VIRTUAL CONSTRUCTION LAB OF SCHUCO
+        <img alt="" src="/assets/Images/sps/sps-schuco-white-logo.svg"
+            style="float: right; padding: 12px ​20px;position: absolute; right: 10px;">
+    </div>
+</div>
+<app-notification-custom #notifCustomTemplate></app-notification-custom>
+
+<div id="loaderContainer" [ngClass]="{'showTable': loading, 'hideTable': !loading}"
+    style="position: absolute; top: 0; z-index: 1000;">
+    <div style="position: relative; width: 100vw; height: 100vh; background-color: black; opacity: .6;"></div>
+    <div style="position: absolute; top: 23vh; width: 100%; text-align: center;">
+        <img alt="" src="assets/Images/loaders/loading_2_GIF.gif" />
+    </div>
+</div>
+
+<ng-template #tplLowBalance>
+<p class="p-template">You can't place order as your current balance is too low. Please contact your Schüco Representative at <a href="mailto:dealers@schuco-usa.com">dealers@schuco-usa.com</a>.</p>
+</ng-template>
+<ng-template #tplCancelAll>
+<p class="p-template">Order submitted! You can't delete the Order at this time.</p><p class="p-template">If you have any questions, please contact our Schüco representative at this email: <a href="mailto:residential@schuco-usa.com">residential@schuco-usa.com</a>.</p>
+</ng-template>
+<ng-template #tplCancel>
+<p class="p-template">Order submitted! You can't delete the order at this time.</p><p class="p-template">If you have any questions, please contact our Schüco representative at this email: <a href="mailto:dealers@schuco-usa.com">dealers@schuco-usa.com</a>.</p>
+</ng-template>

@@ -1,0 +1,476 @@
+<div *ngIf="isStructuralTableOpened" class="table">
+    <div style="width: 100%; padding-left: 35px; padding-right: 35px; overflow-y: auto;">
+        <form bps-form [formGroup]="validateForm" class="form">
+            <bps-form-item class="bps-form-item">
+                <bps-form-control>
+                    <div class="sps-str-windload-heading">
+                        <div class="heading">
+                            <h3 class="white-heading">{{'configure.code-selection' | translate }}</h3>
+                            <!-- Code Selection  -->
+                            <img src="/assets/Images/sps/sps_delete_icon_x_darkgrey.svg" class="cross-box"
+                                (click)="onCloseTable()">
+                        </div>
+                        <div>
+                            <bps-select formControlName="codeSelection" style="width: 235px;"
+                                bpsPlaceHolder="{{'configure.select' | translate }}"
+                                (ngModelChange)="onWindLoadCalculationTypeSelected($event); getDisableBtnBool()">
+                                <!-- Select -->
+                                <bps-option bpsValue="DIN EN 1991-1-4" bpsLabel="DIN EN 1991-1-4"></bps-option>
+                                <bps-option bpsValue="User Defined"
+                                    bpsLabel="{{'configure.user-defined' | translate }}">
+                                </bps-option>
+                            </bps-select>
+                        </div>
+                    </div>
+                </bps-form-control>
+            </bps-form-item>
+            <div class="sps-break"></div>
+            <div *ngIf="validateForm.controls.codeSelection.value === 'DIN EN 1991-1-4'">
+                <h3 class="blue-heading">{{'configure.site-information' | translate }}</h3>
+                <!-- Site Information -->
+                <div>
+                    <div style="margin-bottom: 17px;">
+                        <bps-switch [bpsDual]="true" [bpsDualValues]="dualValues"
+                            (bpsDualValuesChange)="onChangeSiteInformation($event)"></bps-switch>
+                    </div>
+                </div>
+                <div *ngIf="siteInformation === 'zipeCode'" style="margin-top: 16px;">
+                    <bps-form-item style="margin-bottom: 19px;">
+                        <bps-form-control>
+                            <div style="display:flex; justify-content: space-between;">
+                                <h3 class="white-heading">{{'configure.postcode' | translate }}</h3>
+                                <div style="height:22px" bps-popover [bpsPopoverPlacement]="'right'"
+                                    [bpsPopoverType]="'variation_2'" [bpsPopoverContent]="postcodeContent">
+                                    <img class="iconI" src="/assets/Images/icons/sps_information_icon_blue.svg">
+                                </div>
+                                <ng-template #postcodeContent>
+                                    <div style="width: 195px;" [innerHTML]="">
+                                        {{'configure.postCodeInfo' | translate}} <br> {{'configure.postCodeInfoFormat' |
+                                        translate}}
+                                    </div>
+                                </ng-template>
+                            </div>
+                            <!-- Postcode -->
+                            <input style="width: 100px" type="text" min=0 max=99 bps-input formControlName="postCode"
+                                maxlength="5" [(ngModel)]="postcodeValue"
+                                (keypress)="($event.charCode >= 48 && $event.charCode < 58)"
+                                (ngModelChange)="onChangePostCode(); getDisableBtnBool()">
+                        </bps-form-control>
+                    </bps-form-item>
+                    <div class="grey-rectangle"
+                        [ngStyle]="{'height': language === 'en-US' || !(speedMperS) ? '178px':'192px'}">
+                        <div class="row-1">
+                            <div class="grey-text-rectangle">{{'configure.location' | translate }}:</div>
+                            <!-- Location -->
+                            <div class="location-rectangle">{{ locationDescription }}</div>
+                        </div>
+                        <div class="row-2">
+                            <div class="grey-text-rectangle wind-zone">{{'configure.wind-zone' | translate }}: </div>
+                            <!-- Wind Zone -->
+                            <div class="white-text-rectangle">{{ windZoneValue }}</div>
+                        </div>
+                        <div class="row-3">
+                            <div class="grey-text-rectangle" style="white-space: normal;">{{'configure.basic-wind-speed'
+                                | translate }}: </div>
+                            <!-- Basic Wind Speed -->
+                            <div *ngIf="speedMperS"
+                                style="display: flex; flex-wrap: nowrap; justify-content: flex-start;"
+                                [ngStyle]="{'padding-top': language === 'en-US' ? '0px':'14px'}">
+                                <h3 class="white-text-rectangle">{{ speedMperS }}</h3>
+                                <h3 class="grey-text-rectangle">m/s ( </h3>
+                                <h3 class="white-text-rectangle">{{ speedMperH }} </h3>
+                                <h3 class="grey-text-rectangle">mph )</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="siteInformation === 'windZone'" style="margin-top: 16px;">
+                    <bps-form-item style="margin-bottom: 19px;">
+                        <bps-form-control>
+                            <div style="display:flex; justify-content: space-between;">
+                                <h3 class="white-heading">{{'configure.wind-zone' | translate }}</h3>
+                                <!-- Wind zone -->
+                                <div style="height:22px" bps-popover [bpsPopoverPlacement]="'right'"
+                                    [bpsPopoverType]="'variation_2'" [bpsPopoverContent]="windZoneContent">
+                                    <img class="iconI" src="/assets/Images/icons/sps_information_icon_blue.svg">
+                                </div>
+                                <ng-template #windZoneContent>
+                                    <img
+                                        src="https://cdn.zeplin.io/5c9e5adf57fbe3581e7083b2/assets/7d9c12e1-4e3a-4217-a77a-b977df41bdaf.png" />
+                                </ng-template>
+                            </div>
+                            <bps-select style="width: 80px" [(ngModel)]="windZone" formControlName="windZone"
+                                (ngModelChange)="onWindZoneChange($event); getDisableBtnBool()"
+                                bpsPlaceHolder="{{'configure.select' | translate }}">
+                                <!-- Select -->
+                                <bps-option bpsValue="1" bpsLabel="WZ 1"></bps-option>
+                                <bps-option bpsValue="2" bpsLabel="WZ 2"></bps-option>
+                                <bps-option bpsValue="3" bpsLabel="WZ 3"></bps-option>
+                                <bps-option bpsValue="4" bpsLabel="WZ 4"></bps-option>
+                            </bps-select>
+                        </bps-form-control>
+                    </bps-form-item>
+                    <div class="grey-rectangle-2">
+                        <div class="row-3">
+                            <div class="grey-text-rectangle" style="white-space: normal;">{{'configure.basic-wind-speed'
+                                | translate }}: </div>
+                            <!-- Basic Wind Speed -->
+
+                            <div style="display: flex; flex-wrap: nowrap; justify-content: flex-start;"
+                                [ngStyle]="{'padding-top': language === 'en-US' ? '0px':'14px'}">
+                                <h3 class="white-text-rectangle">{{windZoneBWSMperS | number: '':language}}</h3>
+                                <h3 class="grey-text-rectangle" *ngIf="windZoneBWSMperS && windZoneBWSMpH">m/s ( </h3>
+                                <h3 class="white-text-rectangle">{{windZoneBWSMpH | number: '':language}} </h3>
+                                <h3 class="grey-text-rectangle" *ngIf="windZoneBWSMperS && windZoneBWSMpH">mph )</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="terrain-category-container" style="justify-content: space-between;">
+                    <h3 class="white-heading">
+                        {{'configure.terrain-category' | translate | lowercase}}
+                        <!-- terrain category -->
+                    </h3>
+                    <div style="height:16px;" bpsType="variation-1" bps-popover [bpsPopoverPlacement]="'right'"
+                        [bpsPopoverType]="'variation_1'" [bpsPopoverContent]="terrainCategoryContent">
+                        <img class="iconI" src="/assets/Images/icons/sps_information_icon_blue.svg">
+                    </div>
+                    <ng-template #terrainCategoryContent>
+                        <div style="width: 295px;">
+                            <div class="bps-popover-content-title">{{'configure.terrain-category' | translate }} I</div>
+                            <!-- Terrain category -->
+                            <div class="bps-popover-content-subtitle">{{'configure.terrain-category-I-info' | translate
+                                }}</div>
+                            <!-- Open sea; lakes with a free surface of at least 5 km in wind direction; level, flat country without obstacles. -->
+                            <div class="bps-popover-content-title">{{'configure.terrain-category' | translate }} II
+                            </div>
+                            <div class="bps-popover-content-subtitle">{{'configure.terrain-category-II-info' | translate
+                                }}</div>
+                            <!-- Terrain with hedges, isolated farm steads, houses or trees, e. g. agricultural areas. -->
+                            <div class="bps-popover-content-title">{{'configure.terrain-category' | translate }} III
+                            </div>
+                            <div class="bps-popover-content-subtitle">{{'configure.terrain-category-III-info' |
+                                translate }}</div>
+                            <!-- Suburbs, industrial or commercial areas; forests/woods -->
+                            <div class="bps-popover-content-title" style="color: #666666">{{'configure.terrain-category'
+                                | translate }} IV</div>
+                            <div class="bps-popover-content-subtitle" style="color: #666666">
+                                {{'configure.terrain-category-IV-info' | translate }}</div>
+                            <!-- Urban areas in which at least 15% of the surface is covered with buildings of a mean height of more than 15 m. -->
+                            <div class="bps-popover-content-title">
+                                {{'configure.structure-table-urban-areas-popover-content' | translate}}</div>
+                            <div class="bps-popover-content-subtitle">
+                                {{'configure.structural-table-urban-areas-popover-content-subtitle' | translate}}</div>
+                            <!-- Inland regions, mixed profile of type II and Type III. -->
+                            <div class="bps-popover-content-title">
+                                {{'configure.structural-table-inland-regions-popover-content-title' | translate}}</div>
+                            <div class="bps-popover-content-subtitle">
+                                {{'configure.structural-table-inland-regions-popover-content-subtitle' | translate}}
+                            </div>
+                            <!-- Costal areas, mixed profile of type I and Type II. -->
+                        </div>
+                    </ng-template>
+                </div>
+                <bps-form-item class="bps-form-item" style="margin-bottom: 15px;">
+                    <bps-form-control>
+                        <bps-select style="width: 235px" [(ngModel)]="terrainCategory" formControlName="terrainCategory"
+                            (ngModelChange)="calculateWindLoad(); getDisableBtnBool()"
+                            bpsPlaceHolder="{{'configure.select' | translate }}">
+                            <!-- Select -->
+                            <bps-option bpsValue="1" bpsLabel="{{'configure.terrain-category' | translate }} I">
+                            </bps-option>
+                            <!-- Terrain category -->
+                            <bps-option bpsValue="2" bpsLabel="{{'configure.terrain-category' | translate }} II">
+                            </bps-option>
+                            <bps-option bpsValue="3" bpsLabel="{{'configure.terrain-category' | translate }} III">
+                            </bps-option>
+                            <bps-option bpsDisabled bpsValue="4"
+                                bpsLabel="{{'configure.terrain-category' | translate }} IV">
+                            </bps-option>
+                            <bps-option bpsValue="5" bpsLabel="{{'configure.terrain-category-II-III' | translate }}">
+                            </bps-option>
+                            <bps-option bpsValue="6" bpsLabel="{{'configure.terrain-category-I-II' | translate }}">
+                            </bps-option>
+                        </bps-select>
+                    </bps-form-control>
+                </bps-form-item>
+                <div class="sps-break"></div>
+                <h3 class="blue-heading" style="margin-bottom: 20px;">
+                    {{'configure.building-information' | translate }}
+                    <!-- Building Information -->
+                </h3>
+                <bps-form-item>
+                    <bps-form-control>
+                        <h3 class="white-heading">
+                            {{'configure.building-width' | translate }}<span style="text-transform: lowercase;"> (b)</span>
+                            <!-- Building Width -->
+                        </h3>
+                        <div class="input-container">
+                            <input style="width: 60px" bps-input type="text" formControlName="buildingWidth"
+                                [(ngModel)]="buildingWidthString"
+                                (ngModelChange)="onBuildingWidthChange(); getDisableBtnBool()">
+                            <div>(m)</div>
+                        </div>
+                    </bps-form-control>
+                </bps-form-item>
+                <bps-form-item>
+                    <bps-form-control>
+                        <h3 class="white-heading">
+                            {{'configure.building-depth' | translate }}<span style="text-transform: lowercase;"> (d)</span>
+                            <!-- Building Depth -->
+                            <div style="height:16px; float: right;" bpsType="variation-1" bps-popover
+                                [bpsPopoverPlacement]="'right'" [bpsPopoverType]="'variation_3'"
+                                [bpsPopoverContent]="buildingwidthContent">
+                                <img class="iconI" src="/assets/Images/icons/sps_information_icon_blue.svg">
+                            </div>
+                            <ng-template #buildingwidthContent>
+                                <div style="width: 195px;">
+                                    {{'configure.structural-table-building-width-content' | translate}}
+                                </div>
+                            </ng-template>
+                        </h3>
+                        <div class="input-container">
+                            <input style="width: 60px" bps-input type="text" formControlName="buildingDepth"
+                                [(ngModel)]="buildingDepthString"
+                                (ngModelChange)="onBuildingDepthChange(); getDisableBtnBool()">
+                            <div>(m)</div>
+                        </div>
+                    </bps-form-control>
+                </bps-form-item>
+                <bps-form-item>
+                    <bps-form-control>
+                        <h3 class="white-heading">
+                            {{'configure.building-height' | translate }}<span style="text-transform: lowercase;"> (h)</span>
+                            <!-- Building Height -->
+                        </h3>
+                        <div class="input-container">
+                            <input style="width: 60px" bps-input type="text" formControlName="buildingHeight"
+                                [(ngModel)]="buildingHeightString"
+                                (ngModelChange)="onBuildingHeightChange(); getDisableBtnBool()">
+                            <div>(m)</div>
+                        </div>
+                    </bps-form-control>
+                </bps-form-item>
+                <div class="sps-break"></div>
+                <h3 class="blue-heading" style="margin-bottom: 20px;"
+                    *ngIf="unified3DModel.ProblemSetting.ProductType === 'Facade'">
+                    {{'configure.facade-information' | translate }}
+                    <!-- facade Information -->
+                </h3>
+                <h3 class="blue-heading" style="margin-bottom: 20px;"
+                    *ngIf="unified3DModel.ProblemSetting.ProductType === 'Window'">
+                    {{'configure.window-information' | translate }}
+                    <!-- Window Information -->
+                </h3>
+                <bps-form-item style="margin-bottom: 24px" *ngIf="unified3DModel.ProblemSetting.ProductType === 'Window'">
+                    <bps-form-control>
+                        <!-- <h3 class="white-heading" *ngIf="unified3DModel.ProblemSetting.ProductType === 'Facade'">
+                            {{'configure.facade-elevation' | translate }}
+                            
+                        </h3> -->
+                        <h3 class="white-heading">
+                            {{'configure.window-elevation' | translate }}
+                            <!-- Window Elevation -->
+                        </h3>
+                        <div class="input-container">
+                            <input style="width: 60px" bps-input type="text" formControlName="windowElevation"
+                                [(ngModel)]="windowElevationString"
+                                (ngModelChange)="onWindowElevationChange(); getDisableBtnBool()">
+                            <div>(m)</div>
+                        </div>
+                    </bps-form-control>
+                </bps-form-item>
+
+                <div style="margin-bottom: 10px">
+                    <div class="window-zone-container">
+                        <h3 class="white-heading">
+                            {{'configure.edge-zone-length' | translate }}
+                            <!--Edge Zone Length-->
+                        </h3>
+                    </div>
+                    <div class="grey-rectangle" style="height:50px;">
+                        <div class="row-3">
+                            <div class="grey-text-rectangle" style="white-space: normal;">
+                                a = {{edgeZoneLength}}<span *ngIf="edgeZoneLength">m</span> </div>
+                            <!-- Basic Wind Speed -->
+                            <!-- <div *ngIf="speedMperS"
+                                style="display: flex; flex-wrap: nowrap; justify-content: flex-start;"
+                                [ngStyle]="{'padding-top': language === 'en-US' ? '0px':'14px'}">
+                                <h3 class="white-text-rectangle">{{ speedMperS }}</h3>
+                                <h3 class="grey-text-rectangle">m/s ( </h3>
+                                <h3 class="white-text-rectangle">{{ speedMperH }} </h3>
+                                <h3 class="grey-text-rectangle">mph )</h3>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+
+                <bps-form-item>
+                    <bps-form-control>
+                        <div class="window-zone-container" style="justify-content: space-between;">
+                            <h3 class="white-heading" *ngIf="unified3DModel.ProblemSetting.ProductType === 'Facade'">
+                                {{'configure.facade-zone' | translate }}
+                                <!-- facade Zone -->
+                            </h3>
+                            <h3 class="white-heading" *ngIf="unified3DModel.ProblemSetting.ProductType === 'Window'">
+                                {{'configure.window-zone' | translate }}
+                                <!-- Window Zone -->
+                            </h3>
+                            <div style="height:16px;" bpsType="variation-1" bps-popover [bpsPopoverPlacement]="'right'"
+                                [bpsPopoverType]="'variation_3'" [bpsPopoverContent]="windowZoneContent">
+                                <img class="iconI" src="/assets/Images/icons/sps_information_icon_blue.svg">
+                            </div>
+                            <ng-template #windowZoneContent>
+                                <div style="width: 250px;">
+                                    <img src="/assets/Images/tooltips/Group_6630.png" height="190"
+                                        style="margin:10px; align-items: center;" />
+                                    <!-- <div class="bps-popover-content-subtitle">
+                                        {{'configure.structural-table-window-zone-content-subtitle' | translate}}
+                                    </div> -->
+                                    <div class="bps-popover-content-title" style="margin-top: 10px">
+                                        {{'configure.description' | translate }}</div>
+                                    <div class="bps-popover-content-subtitle" *ngIf="unified3DModel.ProblemSetting.ProductType === 'Window'">
+                                        {{'configure.window-description' | translate }}
+                                    </div>
+                                    <div class="bps-popover-content-subtitle" *ngIf="unified3DModel.ProblemSetting.ProductType === 'Facade'">
+                                        {{'configure.facade-description' | translate }}
+                                    </div>
+                                </div>
+                            </ng-template>
+                        </div>
+                        <bps-select style="width: 235px" formControlName="windowZone" [(ngModel)]="windowZone"
+                            (ngModelChange)="calculateWindLoad(); getDisableBtnBool()"
+                            bpsPlaceHolder="{{'configure.select' | translate }}">
+                            <!-- Select -->
+                            <bps-option bpsValue="1" bpsLabel="{{'configure.edge-zone-1' | translate }}">
+                            </bps-option>
+                            <!-- Edge zone -->
+                            <bps-option bpsValue="2" bpsLabel="{{'configure.middle-zone-2' | translate }}">
+                            </bps-option>
+                            <!-- Middle Zone -->
+                        </bps-select>
+                        <div style="margin-bottom: 24px;">
+                            <div class="sps-break"></div>
+                            <div style="display:flex;justify-content: space-between;" class="switch-heading">                
+                                <h3 [ngStyle]="{'color':internalPressure?'#00a2d1':'#ffffff'}">
+                                {{'configure.internal-pressure' | translate | uppercase}}</h3>
+                              <!-- HORIZONTAL LIVE LOAD -->
+                              <bps-switch [(ngModel)]="internalPressure" formControlName="internalPressure" (ngModelChange)="onInternalPressureChange()"></bps-switch>
+                            </div>
+                            <div *ngIf="internalPressure" style="margin-top:20px;">
+                              <bps-form-item>
+                                <bps-form-control>
+                                    <div class="window-zone-container" style="justify-content: space-between;margin-top:0px;">
+                            
+                                        <h3 class="white-heading">
+                                        {{'configure.positive' | translate | uppercase}}
+                                        </h3>
+                                        <div style="height:16px" bps-popover [bpsPopoverPlacement]="'right'"  bpsType="variation-1"
+                                        [bpsPopoverType]="'variation_3'" [bpsPopoverContent]="positiveInfo">
+                                        <img class="iconI" src="/assets/Images/icons/sps_information_icon_blue.svg">
+                                        </div>
+                                        <ng-template #positiveInfo>
+                                            <div style="width: 212px;" [innerHTML]="">
+                                                {{'configure.positive-info' | translate}}
+                                            </div>
+                                        </ng-template>
+                                    </div> 
+                                  <div class="input-container">
+                                    <input style="width: 60px" bps-input type="number" min="0" formControlName="positiveInternalPressure"
+                                           [(ngModel)]="positiveInternalPressure"
+                                           (ngModelChange)="onPositiveInternalPressureChange();getDisableBtnBool()">
+                                  </div>
+                                </bps-form-control>
+                              </bps-form-item>
+                              <bps-form-item>
+                                <bps-form-control>
+                                  <h3 class="white-heading">
+                                    {{'configure.negative' | translate | uppercase}}
+                                  </h3>
+                                  <div class="input-container">
+                                    <input style="width: 60px" bps-input type="number"  max="0" formControlName="negativeInternalPressure"
+                                           [(ngModel)]="negativeInternalPressure"
+                                           (ngModelChange)="onNegativeInternalPressureChange();getDisableBtnBool()">
+                                  </div>
+                                </bps-form-control>
+                              </bps-form-item>
+                            </div>
+                        </div>
+                    </bps-form-control>
+                </bps-form-item>
+            </div>
+            <div *ngIf="validateForm.controls.codeSelection.value === 'User Defined'">
+                <bps-form-item>
+                    <bps-form-control>
+                        <h3 class="white-heading">
+                            {{'configure.structural-table-peak-velocity-pressure' | translate | uppercase}} <span
+                                style="text-transform: lowercase;">q<sub>p</sub></span>(z)
+                            <!-- Building Width -->
+                        </h3>
+                        <div class="input-container">
+                            <input style="width: 60px" bps-input type="text" formControlName="packVelocityPressure"
+                                [(ngModel)]="packVelocityPressureString"
+                                (ngModelChange)="onVelocityPressureChange(); getDisableBtnBool()">
+                            <div>(kN/m2)</div>
+                        </div>
+                    </bps-form-control>
+                </bps-form-item>
+                <h3 class="blue-heading">{{'configure.structural-table-pressure-coefficient' | translate}} (<span
+                        style="text-transform: lowercase;">c<sub>p</sub></span>)
+                    <div style="height:16px; float: right;" bpsType="variation-1" bps-popover
+                        [bpsPopoverPlacement]="'right'" [bpsPopoverType]="'variation_3'"
+                        [bpsPopoverContent]="pressureContent">
+                        <img class="iconI" src="/assets/Images/icons/sps_information_icon_blue.svg">
+                    </div>
+                    <ng-template #pressureContent>
+                        <div style="width: 220px;">
+                            {{'configure.wind-pressure' | translate}}: W<sub>e</sub> = q<sub>p</sub>(Z) x c<sub>p</sub>
+                            <br>
+                            {{'configure.structural-table-pressure-content-pressure-coefficient' |
+                            translate}}<sub>p</sub> {{'configure.structural-table-pressure-content-tributary-area' |
+                            translate}}
+                        </div>
+                    </ng-template>
+                </h3>
+                <bps-form-item>
+                  <bps-form-control>
+                    <h3 class="white-heading">
+                      {{'configure.structural-table-pressure-content-pressure' | translate}}
+                      <!-- Building Width -->
+                    </h3>
+                    <div class="input-container">
+                      <input style="width: 60px" bps-input type="text" formControlName="pressure"
+                             [(ngModel)]="pressureString" (ngModelChange)="onPressureChange(); getDisableBtnBool()">
+                    </div>
+                  </bps-form-control>
+                </bps-form-item>
+                <bps-form-item>
+                    <bps-form-control>
+                        <h3 class="white-heading">
+                            {{'configure.structural-table-pressure-content-suction' | translate}}
+                            <!-- Building Width -->
+                        </h3>
+                        <div class="input-container">
+                            <input style="width: 60px" bps-input type="text" formControlName="suction"
+                                [(ngModel)]="suctionString" (ngModelChange)="onSuctionChange(); getDisableBtnBool()">
+                        </div>
+                    </bps-form-control>
+                </bps-form-item>
+
+            </div>
+        </form>
+    </div>
+    <div class="bottom-container" *ngIf="windLoadSelectedText">
+        <div class="sps-break" style="margin-top: 0px; margin-bottom: 0px;"></div>
+        <div class="confirm-btn-container">
+            <div></div>
+            <button style="/*width: 70px;*/ margin: 21.5px 8px 21.5px 0px;" bps-button bpsType="variation-4"
+                [disabled]="disableBtnBool" (click)="onConfirm()">
+                {{'configure.confirm' | translate }}
+                <!-- Confirm -->
+            </button>
+        </div>
+    </div>
+    <div class="overlay-panel-left"></div>
+    <div class="overlay-panel-right"></div>
+</div>

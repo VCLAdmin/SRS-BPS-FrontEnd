@@ -1,0 +1,515 @@
+<iframe style="border: none; position: relative;" class="fullsize" [id]="ExchangeId" *ngIf="IFrameURL != undefined"
+    (load)="onIframeLoad(ExchangeId)" [src]="IFrameURL">
+</iframe>
+<div *ngIf="unified3DModel">
+    <div id="model-controls" *ngIf="displayControlsBool"
+        [ngClass]="{'model-active': !displayControlEditBool && !orderPlaced && isMullionButtonBarDisplay, 'model-deactive': displayControlEditBool && !orderPlaced , 'model-disable': !displayControlEditBool && orderPlaced && isMullionButtonBarDisplay }">
+        <button bps-button bpsType="variation-12" id="controls-edit" *ngIf="displayControlEditBool || !isMullionButtonBarDisplay"
+            (click)="onCrontrolEdit()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16.609" height="16.611" viewBox="0 0 16.609 16.611">
+                <g id="prefix__sps_square_icon_edit_white" transform="translate(-412.011 -77.585)">
+                    <g id="prefix__Group_2832" data-name="Group 2832" transform="translate(412.611 78.185)">
+                        <g id="prefix__Group_2830" data-name="Group 2830">
+                            <path id="prefix__Path_1047" d="M-10323-11381.725v2.568h2.569l10.273-10.273-2.568-2.57z"
+                                data-name="Path 1047" transform="translate(10323 11394.568)"
+                                style="stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.2px;fill:none" />
+                            <path id="prefix__Path_1049" d="M-10303-11394.432l2.568-2.568 2.567 2.568-2.567 2.568z"
+                                data-name="Path 1049" transform="translate(10313.272 11397)"
+                                style="fill:#fff;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.2px" />
+                        </g>
+                    </g>
+                </g>
+            </svg>
+        </button>
+        <button bps-button bpsType="variation-11" id="controls-add-transom"
+            *ngIf="!displayControlEditBool && !orderPlaced && !disableMullionAndTransom && isMullionButtonBarDisplay" (click)="onAddTransom()"
+            bps-tooltip [bpsTooltipType]="'variation_10'" bpsTooltipTitle="{{'configure.transom' | translate }}"
+            bpsTooltipPlacement="bottom">
+            <!-- Transom -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="3" viewBox="0 0 18 3">
+                <path id="prefix__sps_square_icon_transom_white" d="M0 0H18V3H0z" style="fill:#fff" />
+            </svg>
+        </button>
+        <div *ngIf="!displayControlEditBool && (orderPlaced || disableMullionAndTransom) && isMullionButtonBarDisplay"
+            bpsTooltipTitle="{{'configure.transom' | translate }}" bpsTooltipPlacement="bottom" bps-tooltip
+            [bpsTooltipType]="'variation_10'" bpsTooltipDisabled>
+            <button bps-button bpsType="variation-11" id="controls-add-transom" (click)="onAddTransom()"
+                bpsTooltipDisabled [disabled]="orderPlaced || disableMullionAndTransom">
+                <!-- Transom -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="3" viewBox="0 0 18 3">
+                    <path id="prefix__sps_square_icon_transom_white" d="M0 0H18V3H0z" style="fill:#fff" />
+                </svg>
+            </button>
+        </div>
+
+        <button bps-button bpsType="variation-11" id="controls-add-mullion" style="margin: 0 15px 0;"
+            *ngIf="!displayControlEditBool && !orderPlaced && !disableMullionAndTransom && isMullionButtonBarDisplay" (click)="onAddMullion()"
+            bps-tooltip [bpsTooltipType]="'variation_10'" bpsTooltipTitle="{{'configure.mullion' | translate }}"
+            bpsTooltipPlacement="bottom">
+            <!-- Mullion -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="3" height="18" viewBox="0 0 3 18">
+                <path id="prefix__sps_square_icon_mullion_white" d="M0 0H18V3H0z" transform="rotate(90 1.5 1.5)"
+                    style="fill:#fff" />
+            </svg>
+        </button>
+        <div *ngIf="!displayControlEditBool && (orderPlaced || disableMullionAndTransom) && isMullionButtonBarDisplay" bpsTooltipDisabled
+            bpsTooltipPlacement="bottom" bps-tooltip [bpsTooltipType]="'variation_10'"
+            bpsTooltipTitle="{{'configure.mullion' | translate }}">
+            <button bps-button bpsType="variation-11" id="controls-add-mullion" style="margin: 0 15px 0;"
+                (click)="onAddMullion()" [disabled]="orderPlaced || disableMullionAndTransom">
+                <!-- Mullion -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="3" height="18" viewBox="0 0 3 18">
+                    <path id="prefix__sps_square_icon_mullion_white" d="M0 0H18V3H0z" transform="rotate(90 1.5 1.5)"
+                        style="fill:#fff" />
+                </svg>
+            </button>
+        </div>
+        <button bps-button bpsType="variation-11" id="controls-show-copy" style="margin: 0 15px 0 0;"
+            *ngIf="unified3DModel.ProblemSetting.ProductType === 'Facade' && unified3DModel.ProblemSetting.FacadeType==='mullion-transom' && !displayControlEditBool && !displayCopyControlsBool"
+            (click)="onShowCopy()" bps-tooltip [bpsTooltipType]="'variation_10'"
+            bpsTooltipTitle="{{'configure.frame-wrapper-add-and-subtract' | translate}}" bpsTooltipPlacement="bottom">
+            <!-- Copy -->
+            <img src="/assets/Images/sps_square_icon_copyactivated_white.svg" height="20" style="padding-bottom: 2px;">
+        </button>
+        <button bps-button bpsType="variation-11" id="controls-show-copy"
+            style="margin: 0 15px 0 0;background-color: #e94c0a !important"
+            *ngIf="unified3DModel.ProblemSetting.ProductType === 'Facade' && unified3DModel.ProblemSetting.FacadeType==='mullion-transom' && !displayControlEditBool && displayCopyControlsBool"
+            (click)="onShowCopy()" bps-tooltip [bpsTooltipType]="'variation_10'"
+            bpsTooltipTitle="{{'configure.frame-wrapper-add- and-subtract-disable' | translate}}"
+            bpsTooltipPlacement="bottom">
+            <!-- Copy -->
+            <img src="/assets/Images/sps_square_icon_copyactivated_white.svg" height="20" style="padding-bottom: 2px;">
+        </button>
+        <button bps-button bpsType="variation-11" id="controls-show-copy" style="margin: 0 15px 0 0;" a
+            *ngIf="unified3DModel.ProblemSetting.ProductType === 'Facade' && unified3DModel.ProblemSetting.FacadeType==='mullion-transom' && !displayControlEditBool"
+            (click)="onClickDistributeEqually()" bps-tooltip [bpsTooltipType]="'variation_10'"
+            bpsTooltipTitle="{{'configure.frame-wrapper-distribute-equally' | translate}}" bpsTooltipPlacement="bottom">
+            <!-- Copy -->
+            <img src="/assets/Images/sps/sps_square_icon_Distributeequally_enabled.svg" height="24">
+        </button>
+        <button bps-button bpsType="variation-11" id="controls-delete" *ngIf="!displayControlEditBool && !orderPlaced && isMullionButtonBarDisplay"
+            (click)="onDelete()" bps-tooltip [disabled]="disableControlDeleteBool" [bpsTooltipType]="'variation_10'"
+            bpsTooltipTitle="{{'configure.delete' | translate }}" bpsTooltipPlacement="bottom">
+            <!-- Delete -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="15.962" height="15.964" viewBox="0 0 15.962 15.964">
+                <defs>
+                    <style>
+                        .cls-1,
+                        .cls-4 {
+                            fill: none
+                        }
+
+                        .cls-1 {
+                            stroke: #fff
+                        }
+
+                        .cls-2,
+                        .cls-5 {
+                            fill: #fff
+                        }
+
+                        .cls-3,
+                        .cls-5 {
+                            stroke: none
+                        }
+                    </style>
+                </defs>
+                <g id="sps_square_icon_deleteparts_white" transform="translate(6806.983 11218.155)">
+                    <g id="Group_2286" data-name="Group 2286">
+                        <g id="Rectangle_1200" class="cls-1" data-name="Rectangle 1200">
+                            <path d="M0 0h8.727v7.194H0z" class="cls-3" transform="rotate(135 -1076.535 -7011.622)" />
+                            <path d="M.5.5h7.727v6.194H.5z" class="cls-4" transform="rotate(135 -1076.535 -7011.622)" />
+                        </g>
+                        <g id="Path_854" class="cls-2" data-name="Path 854">
+                            <path d="M9.979 6.694H.5V.5h9.479v6.194z" class="cls-3"
+                                transform="rotate(135 -1073.208 -7013)" />
+                            <path d="M1 1v5.194h8.479V1H1M0 0h10.479v7.194H0V0z" class="cls-5"
+                                transform="rotate(135 -1073.208 -7013)" />
+                        </g>
+                    </g>
+                </g>
+            </svg>
+        </button>
+        <div *ngIf="!displayControlEditBool && orderPlaced && isMullionButtonBarDisplay" bps-tooltip [bpsTooltipType]="'variation_10'"
+            bpsTooltipTitle="{{'configure.delete' | translate }}" bpsTooltipPlacement="bottom" bpsTooltipDisabled>
+            <button bps-button bpsType="variation-11" id="controls-delete" (click)="onDelete()"
+                [disabled]="disableControlDeleteBool" [disabled]="orderPlaced">
+                <!-- Delete -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="15.962" height="15.964" viewBox="0 0 15.962 15.964">
+                    <defs>
+                        <style>
+                            .cls-1,
+                            .cls-4 {
+                                fill: none
+                            }
+
+                            .cls-1 {
+                                stroke: #fff
+                            }
+
+                            .cls-2,
+                            .cls-5 {
+                                fill: #fff
+                            }
+
+                            .cls-3,
+                            .cls-5 {
+                                stroke: none
+                            }
+                        </style>
+                    </defs>
+                    <g id="sps_square_icon_deleteparts_white" transform="translate(6806.983 11218.155)">
+                        <g id="Group_2286" data-name="Group 2286">
+                            <g id="Rectangle_1200" class="cls-1" data-name="Rectangle 1200">
+                                <path d="M0 0h8.727v7.194H0z" class="cls-3"
+                                    transform="rotate(135 -1076.535 -7011.622)" />
+                                <path d="M.5.5h7.727v6.194H.5z" class="cls-4"
+                                    transform="rotate(135 -1076.535 -7011.622)" />
+                            </g>
+                            <g id="Path_854" class="cls-2" data-name="Path 854">
+                                <path d="M9.979 6.694H.5V.5h9.479v6.194z" class="cls-3"
+                                    transform="rotate(135 -1073.208 -7013)" />
+                                <path d="M1 1v5.194h8.479V1H1M0 0h10.479v7.194H0V0z" class="cls-5"
+                                    transform="rotate(135 -1073.208 -7013)" />
+                            </g>
+                        </g>
+                    </g>
+                </svg>
+            </button>
+        </div>
+    </div>
+    <div class="display-top-controls" *ngIf="!displayControlEditBool && displayCopyControlsBool">
+        <button bps-button bpsType="variation-11" id="controls-top-copy" style="margin: 0px 5px;"
+            [disabled]="unified3DModel.ModelInput.FrameSystem.yNumberOfPanels < 3"
+            *ngIf="!loadingCopyDelete else loadingButtons" (click)="onClickCopyToTop(false)" bps-tooltip
+            [bpsTooltipType]="'variation_10'"
+            bpsTooltipTitle="{{'configure.frame-wrapper-subtract-vertically' | translate}}"
+            bpsTooltipPlacement="bottom">
+            <!-- Delete Top - -->
+            <img src="/assets/Images/sps/sps_square_icon_subtracthorizontally_enabled.svg" height="25"
+                *ngIf="unified3DModel.ModelInput.FrameSystem.yNumberOfPanels >= 3">
+            <img src="/assets/Images/sps/sps_square_icon_subtracthorizontally_disabled.svg" height="25"
+                *ngIf="unified3DModel.ModelInput.FrameSystem.yNumberOfPanels < 3">
+        </button>
+        <button bps-button bpsType="variation-11" id="controls-top-copy" style="margin: 0px 5px;"
+            [disabled]="unified3DModel.ModelInput.FrameSystem.yNumberOfPanels > 5"
+            *ngIf="!loadingCopyDelete else loadingButtons" (click)="onClickCopyToTop(true)" bps-tooltip
+            [bpsTooltipType]="'variation_10'" bpsTooltipTitle="{{'configure.frame-wrapper-add-vertically' | translate}}"
+            bpsTooltipPlacement="bottom">
+            <!-- Copy Top + -->
+            <img src="/assets/Images/sps/sps_square_icon_addthorizontally_enabled.svg" height="25"
+                *ngIf="unified3DModel.ModelInput.FrameSystem.yNumberOfPanels <= 5">
+            <img src="/assets/Images/sps/sps_square_icon_addthorizontally_disabled.svg" height="25"
+                *ngIf="unified3DModel.ModelInput.FrameSystem.yNumberOfPanels > 5">
+        </button>
+    </div>
+    <div class="display-bottom-controls" *ngIf="!displayControlEditBool">
+        <button bps-button bpsType="variation-11" id="controls-bottom-copy" style="margin: 0px;"
+            *ngIf="displayCopyControlsBool" (click)="onClickCopyToBottom()" bps-tooltip [disabled]="true" hidden
+            [bpsTooltipType]="'variation_10'" bpsTooltipTitle="{{'configure.frame-wrapper-bottom-copy' | translate}}"
+            bpsTooltipPlacement="bottom">
+            <!-- Copy Bottom -->
+            <img src="/assets/Images/sps_square_icon_copydown_white.svg" height="20">
+        </button>
+    </div>
+    <div class="display-right-controls" *ngIf="!displayControlEditBool && displayCopyControlsBool">
+        <button bps-button bpsType="variation-11" id="controls-right-copy" style="margin: 0px 5px;"
+            [disabled]="unified3DModel.ModelInput.FrameSystem.xNumberOfPanels < 4"
+            *ngIf="!loadingCopyDelete else loadingButtons" (click)="onClickCopyToRight(false)" bps-tooltip
+            [bpsTooltipType]="'variation_10'"
+            bpsTooltipTitle="{{'configure.frame-wrapper-subtract-horizontally' | translate}}"
+            bpsTooltipPlacement="bottom">
+            <!-- Delete Right - -->
+            <img src="/assets/Images/sps/sps_square_icon_subtractvertically_enabled.svg" height="25"
+                *ngIf="unified3DModel.ModelInput.FrameSystem.xNumberOfPanels >= 4">
+            <img src="/assets/Images/sps/sps_square_icon_subtractvertically_disabled.svg" height="25"
+                *ngIf="unified3DModel.ModelInput.FrameSystem.xNumberOfPanels < 4">
+        </button>
+        <button bps-button bpsType="variation-11" id="controls-right-copy" style="margin: 0px 5px;"
+            [disabled]="unified3DModel.ModelInput.FrameSystem.xNumberOfPanels > 9"
+            *ngIf="!loadingCopyDelete else loadingButtons" (click)="onClickCopyToRight(true)" bps-tooltip
+            [bpsTooltipType]="'variation_10'"
+            bpsTooltipTitle="{{'configure.frame-wrapper-add-horizontally' | translate}}" bpsTooltipPlacement="bottom">
+            <!-- Copy Right + -->
+            <img src="/assets/Images/sps/sps_square_icon_addvertically_enabled.svg" height="25"
+                *ngIf="unified3DModel.ModelInput.FrameSystem.xNumberOfPanels <= 9">
+            <img src="/assets/Images/sps/sps_square_icon_addvertically_disabled.svg" height="25"
+                *ngIf="unified3DModel.ModelInput.FrameSystem.xNumberOfPanels > 9">
+        </button>
+    </div>
+    <div class="display-left-controls" *ngIf="!displayControlEditBool">
+        <button bps-button bpsType="variation-11" id="controls-left-copy" style="margin: 0px;"
+            *ngIf="displayCopyControlsBool" (click)="onClickCopyToLeft()" bps-tooltip [disabled]="true" hidden
+            [bpsTooltipType]="'variation_10'"
+            bpsTooltipTitle="{{'configure.frame-wrapper-copy-last-section' | translate}}" bpsTooltipPlacement="bottom">
+            <!-- Copy Left -->
+            <img src="/assets/Images/sps_square_icon_copyleft_white.svg" height="20">
+        </button>
+    </div>
+    <div id="display-controls" *ngIf="displayControlsBool">
+        <button bps-button bpsType="variation-10" bps-tooltip [bpsTooltipType]="'variation_10'" bpsTooltipTitle="Inside"
+            bpsTooltipPlacement="top" [ngClass]="{'focus': selectInsideBool}" (focus)="onFocus()"
+            (click)="onClickInside()">
+            <!-- <i nz-icon nzType="fullscreen-exit" nzTheme="outline"></i> -->
+            <img src="/assets/Images/sps_rectangle_icon_inside_enabled.svg">
+        </button>
+        <button bps-button bpsType="variation-10" bps-tooltip [bpsTooltipType]="'variation_10'"
+            bpsTooltipTitle="Outside" bpsTooltipPlacement="top" style="margin: 15px 0 15px;"
+            [ngClass]="{'focus': selectOutsideBool}" (focus)="onFocus()" (click)="onClickOutside()">
+            <!-- <i nz-icon nzType="fullscreen" nzTheme="outline"></i> -->
+            <img src="/assets/Images/sps_rectangle_icon_outside_enabled.svg">
+        </button>
+        <button bps-button #axesHelper bpsType="variation-10" id="controls-axes-helper" (click)="onClickAxes()"
+            bps-tooltip [bpsTooltipType]="'variation_10'" bpsTooltipTitle="{{'configure.axes' | translate }}"
+            bpsTooltipPlacement="top" [ngClass]="{'focus': selectAxesBool}" (focus)="onFocus()">
+            <!-- Axes -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="20" height="20">
+                <style>
+                    tspan {
+                        white-space: pre
+                    }
+
+                    .shp0 {
+                        fill: #ffffff
+                    }
+                </style>
+                <g id="Layer">
+                    <g id="Layer">
+                        <g id="Layer">
+                            <path id="Layer" class="shp0"
+                                d="M15.19 13.79L10.42 11.4L10.42 5.84C10.42 5.63 10.27 5.44 10.06 5.42C9.81 5.38 9.58 5.58 9.58 5.83L9.58 11.4L4.81 13.79C4.61 13.89 4.53 14.14 4.63 14.34C4.73 14.55 4.98 14.63 5.18 14.53L10 12.12L14.81 14.53C15.02 14.64 15.27 14.55 15.37 14.34C15.48 14.14 15.39 13.89 15.19 13.79Z" />
+                            <path id="Layer" class="shp0"
+                                d="M9.58 2.21L9.58 3.74C9.58 3.95 9.73 4.14 9.94 4.17C10.2 4.2 10.42 4 10.42 3.75L10.42 2.21L11.96 0.72C12.13 0.56 12.13 0.29 11.97 0.13C11.81 -0.04 11.54 -0.04 11.38 0.12L10 1.45L8.63 0.12C8.46 -0.04 8.2 -0.04 8.03 0.13C7.87 0.29 7.88 0.56 8.04 0.72L9.58 2.21Z" />
+                            <path id="Layer" class="shp0"
+                                d="M3.33 18.75L1.33 18.75L3.65 16.11C3.8 15.94 3.78 15.67 3.61 15.52C3.53 15.46 3.44 15.42 3.34 15.42L0.43 15.42C0.22 15.42 0.03 15.57 0.01 15.77C-0.03 16.03 0.17 16.25 0.42 16.25L2.42 16.25L0.11 18.89C-0.04 19.07 -0.03 19.33 0.15 19.48C0.22 19.55 0.32 19.59 0.42 19.59L3.32 19.59C3.53 19.59 3.72 19.44 3.75 19.23C3.78 18.97 3.58 18.75 3.33 18.75Z" />
+                            <path id="Layer" class="shp0"
+                                d="M19.88 19.29L18.66 17.9L19.88 16.51C20.04 16.34 20.04 16.08 19.88 15.92C19.71 15.76 19.45 15.76 19.29 15.92C19.28 15.93 19.26 15.95 19.25 15.96L18.11 17.27L16.96 15.96C16.82 15.78 16.56 15.74 16.38 15.88C16.2 16.02 16.16 16.28 16.3 16.47C16.31 16.48 16.33 16.49 16.34 16.51L17.56 17.9L16.34 19.29C16.18 19.45 16.18 19.72 16.34 19.88C16.5 20.04 16.76 20.04 16.93 19.88C16.94 19.87 16.95 19.85 16.96 19.84L18.11 18.53L19.25 19.84C19.39 20.02 19.65 20.05 19.83 19.92C20.02 19.77 20.05 19.52 19.91 19.33C19.9 19.32 19.89 19.3 19.88 19.29Z" />
+                        </g>
+                    </g>
+                </g>
+                <g id="Layer">
+                </g>
+                <g id="Layer">
+                </g>
+                <g id="Layer">
+                </g>
+                <g id="Layer">
+                </g>
+                <g id="Layer">
+                </g>
+                <g id="Layer">
+                </g>
+                <g id="Layer">
+                </g>
+                <g id="Layer">
+                </g>
+                <g id="Layer">
+                </g>
+                <g id="Layer">
+                </g>
+                <g id="Layer">
+                </g>
+                <g id="Layer">
+                </g>
+                <g id="Layer">
+                </g>
+                <g id="Layer">
+                </g>
+                <g id="Layer">
+                </g>
+            </svg>
+        </button>
+        <!-- <div id="controls-axes-helper" class="tooltip control-button" [ngClass]="{'selected': selectAxesBool}" (click)="onClickAxes()">
+            <span class="tooltiptext">{{'configure.axes' | translate }}</span>       
+        </div> -->
+        <button bps-button #glassId bpsType="variation-10" id="controls-glass-id" style="margin: 15px 0 15px;"
+            (click)="onClickGlassInfo()" bps-tooltip [bpsTooltipType]="'variation_10'"
+            bpsTooltipTitle="{{'configure.info' | translate }}" bpsTooltipPlacement="top"
+            [ngClass]="{'focus': selectGridIdBool}" (focus)="onFocus()">
+            <!-- Info -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="19.979" height="19.979" viewBox="0 0 19.979 19.979">
+                <g id="prefix__sps_square_icon_infopanel_white" transform="translate(6777.988 12148.988)">
+                    <text id="prefix__i" fill="#fff" font-family="UniversForSchueco-630Bold, Univers for Schueco"
+                        font-size="12px" font-weight="700" transform="translate(-6776 -12145.699)">
+                        <tspan x="6.272" y="11">i</tspan>
+                    </text>
+                    <g id="prefix__Group_2690" data-name="Group 2690" transform="translate(-20182.988 -28554.988)">
+                        <g id="prefix__Ellipse_148" fill="none" stroke="#fff" stroke-width="1.5px"
+                            data-name="Ellipse 148" transform="translate(13405 16406)">
+                            <circle cx="9.989" cy="9.989" r="9.989" stroke="none" />
+                            <circle cx="9.989" cy="9.989" r="9.239" />
+                        </g>
+                    </g>
+                </g>
+            </svg>
+        </button>
+        <!-- <div id="controls-glass-id" class="tooltip control-button" [ngClass]="{'selected': selectGridIdBool}" (click)="onClickGlassInfo()">
+        <span class="tooltiptext">{{'configure.info' | translate }}</span>
+        </div> -->
+            <!-- <div id="controls-grid" class="tooltip control-button" [ngClass]="{'selected': selectGridBool}" (click)="onClickGrid()">
+            <span class="tooltiptext">Grid</span>
+        </div> -->
+        <button bps-button bpsType="variation-10" #controlsGrid id="controls-grid" (click)="onClickGrid()" bps-tooltip
+            [bpsTooltipType]="'variation_10'" bpsTooltipTitle="{{'configure.grid' | translate }}"
+            bpsTooltipPlacement="top" [ngClass]="{'focus': selectGridBool}" (focus)="onFocus()">
+            <!-- Grid -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="25.031" height="13.516" viewBox="0 0 25.031 13.516">
+                <defs>
+                    <style>
+                        .cls-1,
+                        .cls-2 {
+                            fill: none;
+                            stroke: #fff;
+                        }
+
+                        .cls-1 {
+                            stroke-linejoin: round;
+                            stroke-width: 2px;
+                        }
+                    </style>
+                </defs>
+                <g id="sps_square_icon_grid_white" transform="translate(-392.5 -617.484)">
+                    <path id="Path_1013" data-name="Path 1013" class="cls-1"
+                        d="M-11828-11315.484h23.031l-5.758-11.516h-11.516Z"
+                        transform="translate(12221.499 11945.484)" />
+                    <path id="Path_1018" data-name="Path 1018" class="cls-2" d="M-11823-11315.484l3.551-11.486"
+                        transform="translate(12222.257 11945.484)" />
+                    <path id="Path_1019" data-name="Path 1019" class="cls-2" d="M-11819.448-11315.484l-3.551-11.486"
+                        transform="translate(12230.257 11945.484)" />
+                    <path id="Path_1017" data-name="Path 1017" class="cls-2" d="M-11818-11315.484V-11327"
+                        transform="translate(12223.016 11945.484)" />
+                    <path id="Path_1014" data-name="Path 1014" class="cls-2" d="M-11826.03-11320.9h18.428"
+                        transform="translate(12221.798 11946.409)" />
+                    <path id="Path_1015" data-name="Path 1015" class="cls-2" d="M-11826.03-11320.9h15.267"
+                        transform="translate(12223.402 11942.954)" />
+                </g>
+            </svg>
+        </button>
+    </div>
+    <div *appCheckPermissions="feature.Checkout">
+        <div *ngIf="unified3DModel.ProblemSetting.ProductType && !orderPlaced; else disabledCheckout;">
+            <div class="display-subtotal" style="bottom: 110px;">
+                <div class="bottomRectangle" style="margin: 20 21 22 20;">
+                    <div>
+                        <h3 class="subtotalText">Subtotal (1 item)</h3>
+                    </div>
+                    <div style="margin-top:5px;">
+                        <h3 class="subtotalText">$ {{ calculatedSubTotal.toFixed(2) | number:'1.2-2'}}</h3>
+                    </div>
+                    <div style="margin-top:4px;">
+                        <h4 class="tax">+ Taxes and Shipment</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="display-subtotal checkout-button-container" style="bottom: 60px;">
+                <button class="checkout-button" [disabled]="disableCheckout || isCheckoutDisableInvalLargeDim || isCheckoutDisableInvalSmallDim" (click)="onCheckout()" bps-button
+                    bpsType="variation-1">Go to
+                    Checkout</button>
+            </div>
+        </div>
+        <ng-template #disabledCheckout>
+            <div *ngIf="calculatedSubTotal && orderPlaced; else displayZeroCost" class="display-subtotal" style="bottom: 110px;">
+                <div class="bottomRectangle" style="margin: 20 21 22 20; border: solid 1px #666666;">
+                    <div>
+                        <h3 class="subtotalText" style="color: #474747 !important;">Subtotal (1 item)</h3>
+                    </div>
+                    <div style="margin-top:5px;">
+                        <h3 class="subtotalText" style="color: #474747 !important;">$ {{ calculatedSubTotal.toFixed(2) | number:'1.2-2'}}</h3>
+                    </div>
+                    <div style="margin-top:4px;">
+                        <h4 class="tax" style="color: #474747 !important;">+ Taxes and Shipment</h4>
+                    </div>
+                </div>
+            </div>
+            <ng-template #displayZeroCost>
+                <div class="display-subtotal" style="bottom: 110px;">
+                    <div class="bottomRectangle" style="margin: 20 21 22 20; border: solid 1px #666666;">
+                        <div>
+                            <h3 class="subtotalText" style="color: #474747 !important;">Subtotal (1 item)</h3>
+                        </div>
+                        <div style="margin-top:5px;">
+                            <h3 class="subtotalText" style="color: #474747 !important;">$ 0.00</h3>
+                        </div>
+                        <div style="margin-top:4px;">
+                            <h4 class="tax" style="color: #474747 !important;">+ Taxes and Shipment</h4>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+            <div class="display-subtotal checkout-button-container" style="bottom: 60px;">
+                <button class="checkout-button" (click)="onCheckout()" bps-button bpsType="variation-1"
+                    [disabled]="true">Go to Checkout</button>
+            </div>
+        </ng-template>
+    </div>
+    <div style="position: absolute; width: auto; height: auto; top: 30px; left: 45px; z-index: 1;"
+        *ngIf="inConfigureBool">
+        <h3 class="last-modified">
+            {{'configure.last-modified' | translate }}: {{ dateLastModified }}
+        </h3>
+    </div>
+    <!-- <div style="position: absolute; width: auto; height: auto; top: 0px; left: 45px; z-index: 1;">
+    <nz-tabset [(nzSelectedIndex)]="selectedIndex" (nzSelectedIndexChange)="onTabChange($event)">
+        <nz-tab nzTitle="OUTSIDE">
+        </nz-tab>
+        <nz-tab nzTitle="INSIDE">
+        </nz-tab>
+      </nz-tabset>
+</div> -->
+    <div style="position: absolute; width: auto; height: 100%; top: 0; left: 0; z-index: 2;" class="overlay-container"
+        *ngIf="showChildViews">
+        <!-- ToDo ------------------------------------------------------------------------------------ -->
+        <app-mullion-depth-table #MullionDepthTable [unified3DModel]="unified3DModel"
+            (editCustomArticleEvent)="editCustomArticle($event)" (openNewCustomEvent)="openNewCustom()"
+            [systemFacadeSelectedFromFraming]="systemFacadeSelectedFromFraming" [event3D]="event3D">
+        </app-mullion-depth-table>
+        <app-framing-custom #custom [unified3DModel]="unified3DModel"
+            (addMullionTransomArticleEvent)="addMullionTransomArticle($event)"
+            (deleteMullionTransomArticleEvent)="deleteMullionTransomArticle($event)"
+            (updateMullionTransomArticleEvent)="updateMullionTransomArticle($event)"
+            [closeNdisableRightPanelEvent]="closeNdisableRightPanelEvent"></app-framing-custom>
+        <app-spacer-type #spacerType [confirmSpacerTypeEvent]="confirmSpacerTypeEvent"></app-spacer-type>
+        <app-library-custom #customlibrary 
+            (updateLibraryCustomArticleEvent)="updateLibraryCustomArticle($event)"
+            (addLibraryCustomArticleEvent)="addLibraryCustomArticle($event)"
+            (deleteLibraryCustomArticleEvent)="deleteLibraryCustomArticle($event)"
+            [closeNdisableRightPanelEvent]="closeNdisableRightPanelEvent"></app-library-custom>
+        <!-- Deepthi ------------------------------------------------------------------------------------ -->
+        <!-- Done ------------------------------------------------------------------------------------ -->
+        <app-frame-combination-table #FrameCombinationTable [unified3DModel]="unified3DModel"
+            [systemFacadeSelected]="systemFacadeSelected"></app-frame-combination-table>
+        <app-mullion-table #MullionTable [unified3DModel]="unified3DModel" 
+            (editCustomArticleEvent)="editCustomArticle($event)"
+            (openNewCustomEvent)="openNewCustom()">
+        </app-mullion-table>
+        <app-glass-panel-table #glassPanel
+            (editCustomLibraryArticleEvent)="editCustomLibraryArticle($event)"
+            (openNewCustomEvent)="openNewLibraryCustom($event)" 
+            (ngNotificaionShow)="ngNotificaionShowEvent($event)">
+        </app-glass-panel-table>
+        <app-structural-table #structuralTable [unified3DModel]="unified3DModel"
+            (sendPressureValueEvent)="sendPressureValue($event)" [dinWindLoad]="dinWindLoad"
+            [sendFormDataEvent]="sendFormDataEvent"></app-structural-table>
+        <app-outer-table #OuterTable></app-outer-table>
+        <app-vent-table #VentTable></app-vent-table>
+        <app-double-vent-table #DoubleVentTable></app-double-vent-table>
+        <app-structural-profile-table #StructuralProfileTable></app-structural-profile-table>
+        <app-interlock-profile #InterlockTable></app-interlock-profile>
+        <app-reinforcement-profile #ReinforcementTable></app-reinforcement-profile>
+        <app-handle-color #HandleColorTable *appCheckPermissions="feature.HandleColor"></app-handle-color>
+        <app-hinge-type #HingeTypeTable *appCheckPermissions="feature.ADS_75"></app-hinge-type>
+        <app-inside-handle #InsideHandleTable *appCheckPermissions="feature.InsideHandle"></app-inside-handle>
+        <app-outside-handle #OutsideHandleTable *appCheckPermissions="feature.ADS_75"></app-outside-handle>
+        <app-profile-color #profileColorTable *appCheckPermissions="feature.ProfileColor"></app-profile-color>
+        <app-door-leaf-active #DoorLeafActiveTable *appCheckPermissions="feature.ADS_75"></app-door-leaf-active>
+        <app-door-leaf-passive #DoorLeafPassiveTable *appCheckPermissions="feature.ADS_75"></app-door-leaf-passive>
+        <app-sill-profile-fixed #SillProfileFixedTable *appCheckPermissions="feature.ADS_75"></app-sill-profile-fixed>
+        <app-sill-profile-bottom #SillProfileBottomTable *appCheckPermissions="feature.ADS_75"></app-sill-profile-bottom>
+        <!-- Done ------------------------------------------------------------------------------------ -->
+    </div>
+    <ng-template #loadingButtons>
+        <button bps-button bpsType="variation-11" style="margin: 0px 5px; cursor: wait;">
+            <i nz-icon nzType="loading"></i>
+        </button>
+    </ng-template>
+</div>

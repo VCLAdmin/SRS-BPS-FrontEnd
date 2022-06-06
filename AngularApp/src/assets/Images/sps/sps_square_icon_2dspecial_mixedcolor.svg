@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+    <defs>
+        <style>
+            .cls-1,.cls-5{fill:none}.cls-1{stroke:#00a2d1;stroke-width:2px}.cls-2{fill:#253d47}.cls-3{fill:#fff;font-size:16px;font-family:UniversForSchueco-530Med,Univers for Schueco}.cls-4{stroke:none}
+        </style>
+    </defs>
+    <g id="sps_square_icon_2dspecial_mixedcolor" transform="translate(-900 -60)">
+        <g id="Group_2761" data-name="Group 2761" transform="translate(-180)">
+            <g id="Rectangle_1484" class="cls-1" data-name="Rectangle 1484" transform="translate(1080 60)">
+                <rect width="40" height="40" class="cls-4" rx="12"/>
+                <rect width="38" height="38" x="1" y="1" class="cls-5" rx="11"/>
+            </g>
+            <rect id="Rectangle_1487" width="28" height="28" class="cls-2" data-name="Rectangle 1487" rx="6" transform="translate(1086 66)"/>
+            <text id="_2D" class="cls-3" data-name="2D" transform="translate(1086 69.5)">
+                <tspan x="3.104" y="16">2D</tspan>
+            </text>
+        </g>
+    </g>
+</svg>

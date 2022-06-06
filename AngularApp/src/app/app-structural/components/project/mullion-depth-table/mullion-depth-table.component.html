@@ -1,0 +1,107 @@
+<div [ngStyle]="{'display': isMullionPopoutOpened || isTransomPopoutOpened || isIntermediateMullionPopoutOpened || isIntermediateTransomPopoutOpened || isUDCFramingPopoutOpened || isReinforcementPopoutOpened ? 'flex':'none' }"
+    id="sps-left-popout-container-mullion" class="identifier-flag-sighline">
+    <div id="sps-left-popout-mullion" class="sps-left-popout-mullion">
+        <div class="sps-left-popout-mullion-top">
+            <div class="sps-left-popout-top-section">
+                <div class="sps-popout-header">
+                    <h3 class="popout-panel-heading" *ngIf="isMullionPopoutOpened">
+                        {{'configure.structural-mullion-depth-table-mullion-title' | translate}}</h3>
+                    <h3 class="popout-panel-heading" *ngIf="isTransomPopoutOpened">
+                        {{'configure.transom-library' | translate }}</h3>
+                    <h3 class="popout-panel-heading"
+                        *ngIf="isIntermediateMullionPopoutOpened">
+                        {{'configure.structural-mullion-depth-table-intermediate-mullion' | translate}}</h3>
+                    <h3 class="popout-panel-heading"
+                        *ngIf="isIntermediateTransomPopoutOpened">
+                        Intermediate Transom Depth</h3>
+                    <!-- [TRANS_TODO] Intermediate Transom Depth-->
+                    <h3 class="popout-panel-heading" *ngIf="isUDCFramingPopoutOpened">
+                        {{'configure.framing' | translate}}</h3>
+                    <!-- Framing-->
+                    <h3 class="popout-panel-heading" *ngIf="isReinforcementPopoutOpened">
+                        {{'configure.structural-mullion-depth-reinforcement-library' | translate}}</h3>
+                    <img src="/assets/Images/sps/sps_delete_icon_x_darkgrey.svg" id="fas fa-times fa-inverse"
+                        alt="delete icon" style="cursor: pointer;" (click)="onCloseLeftPopout()">
+                </div>
+            </div>
+            <div class="sps-article-detail-container sps-fr-outerfr-container">
+                <div id="sps-popout-article-detail-left"
+                    class="sps-popout-article-detail-left sps-fr-outerfr-container-displaybox">
+                    <img *ngIf="articleTitle && isMullionPopoutOpened"
+                        [src]="selectedMullionArticle < initialLengthMullion ? 'https://vcl-design-com.s3.amazonaws.com/StaticFiles/Images/article-jpeg/' + articleTitle + '.jpg':'https://vcl-design-com.s3.amazonaws.com/StaticFiles/Images/article-jpeg/customArticle.svg'"
+                        alt="article">
+                    <img *ngIf="articleTitle && isTransomPopoutOpened"
+                        [src]="selectedTransomArticle < initialLengthTransom ? 'https://vcl-design-com.s3.amazonaws.com/StaticFiles/Images/article-jpeg/' + articleTitle + '.jpg':'https://vcl-design-com.s3.amazonaws.com/StaticFiles/Images/article-jpeg/customArticle.svg'"
+                        alt="article">
+                    <img *ngIf="articleTitle && isReinforcementPopoutOpened"
+                        [src]="reinforcementData.length > 0 ? 'https://vcl-design-com.s3.amazonaws.com/StaticFiles/Images/article-jpeg/' + articleTitle + '.jpg':'https://vcl-design-com.s3.amazonaws.com/StaticFiles/Images/article-jpeg/customArticle.svg'"
+                        alt="article">
+                    <img *ngIf="articleTitle && isIntermediateMullionPopoutOpened"
+                        [src]="selectedIntermediateMullionArticle < initialLengthIntermediateMullion ? 'https://vcl-design-com.s3.amazonaws.com/StaticFiles/Images/article-jpeg/' + articleTitle + '.jpg':'https://vcl-design-com.s3.amazonaws.com/StaticFiles/Images/article-jpeg/customArticle.svg'"
+                        alt="article">
+                    <img *ngIf="articleTitle && isIntermediateTransomPopoutOpened"
+                        [src]="selectedIntermediateTransomArticle < initialLengthIntermediateTransom ? 'https://vcl-design-com.s3.amazonaws.com/StaticFiles/Images/article-jpeg/' + articleTitle + '.jpg':'https://vcl-design-com.s3.amazonaws.com/StaticFiles/Images/article-jpeg/customArticle.svg'"
+                        alt="article">
+                    <img *ngIf="articleTitle && isUDCFramingPopoutOpened"
+                        [src]="selectedUDCFramingArticle < initialLengthUDCFraming ? 'https://vcl-design-com.s3.amazonaws.com/StaticFiles/Images/article-jpeg/' + articleTitle + '.jpg':'https://vcl-design-com.s3.amazonaws.com/StaticFiles/Images/article-jpeg/customArticle.svg'"
+                        alt="article">
+                </div>
+                <div class="sps-popout-article-detail-right">
+                    <div class="sps-pill">
+                        <p style="text-transform: none;">{{ articleTitle }}</p>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="sps-article-tools-container" *ngIf="(isMullionPopoutOpened || isTransomPopoutOpened) && unified3DModel && unified3DModel.ProblemSetting && unified3DModel.ProblemSetting.EnableStructural">
+                <div></div>
+                <button [ngStyle]="{'width': language === 'en-US' ? '100px' : '120px'}" style="padding: 0px; text-transform: uppercase;" class="sps-left-popout-custom-btn" bps-button bpsType="variation-9" (click)="onOpenCustom()">{{'configure.custom' | translate }}</button>
+            </div> -->
+            <!-- <div class="sps-article-tools-container"
+                style="padding-left: 25px; padding-right: 16px; margin-top: -10px; margin-bottom: 37px;"
+                *ngIf="unified3DModel.ProblemSetting.FacadeType === 'UDC' && (isIntermediateMullionPopoutOpened || isIntermediateTransomPopoutOpened || isUDCFramingPopoutOpened) && unified3DModel && unified3DModel.ProblemSetting && unified3DModel.ProblemSetting.EnableStructural">
+                <button style="width: 98%; background-color: #253d47!important;" bps-button bpsType="variation-2"
+                    (click)="onOpenCustom()">{{'configure.custom-profile' | translate }}</button>
+            </div> -->
+            <div style="width: 333px; margin-left: 10px" #divtable>
+                <bps-table #bpsMullionTransomTable [data]="listOfDisplayDataInTable"
+                    [scroll]="{ y: 'calc(100vh - 413px)'}" [showPagination]="false" [frontPagination]="false"
+                    (onclickRow)="onSelectArticle($event)" [tableType]="'glass_profile'" class="bps-table-example-glass"
+                    [filterPlaceholder]="searchByDimensionText" (searchValueChange)="filter($event)"
+                    (sortChange)="sort($event)" (ondblclickRow)="onDblClickRow($event)"
+                    [(config)]="configurationCustomGrid">
+                </bps-table>
+                <ng-template #uValueTemplate>
+                    <div>{{'configure.width' | translate}}</div>
+                    <div style="color: #999999">(mm)</div>
+                </ng-template>
+                <ng-template #column2Template>
+                    <div *ngIf="!isReinforcementPopoutOpened">
+                        <div>{{'configure.mullion-depth-depth-column' | translate}}</div>
+                        <div style="color: #999999">(mm)</div>
+                    </div>
+                    <div *ngIf="isReinforcementPopoutOpened">{{'configure.mullion-depth-reinforcement-material-column' |
+                        translate}}</div>
+                </ng-template>
+                <ng-template #column2ArrowTemplate let-value="value" let-disabled="disabled"
+                    let-arrowHovered="arrowHovered" let-index="index">
+                    <div>
+                        <span>{{value}}</span>
+                        <span (mouseenter)="onHover(index, true)" *ngIf="value == '- -'"
+                            style="position: relative; float: right; top: -1px; margin-right: 10px"
+                            (mouseleave)="onHover(index, false)" (click)="preventDefault($event, index)">
+                            <img alt="" *ngIf="!arrowHovered || disabled"
+                                src="/assets/bps-icons/sps_icon_arrowright_grey.svg" />
+                            <img alt="" *ngIf="arrowHovered && !disabled"
+                                src="/assets/bps-icons/sps_icon_arrowright_blue.svg" />
+                        </span>
+                    </div>
+                </ng-template>
+            </div>
+        </div>
+        <div class="left-popout-confirm-btn-container">
+            <button class="left-popout-confirm-btn" bps-button bpsType="variation-4" id="sps-left-popout-confirm-btn"
+                style="min-width: 80px" (click)="onConfirmMullionArticle()">{{'configure.confirm' | translate
+                }}</button>
+        </div>
+    </div>
+</div>

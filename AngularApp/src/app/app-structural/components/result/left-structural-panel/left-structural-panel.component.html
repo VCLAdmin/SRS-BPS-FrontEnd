@@ -1,0 +1,174 @@
+<!-- <p style="padding:0em 2.8em 1em 2.8em;">left-structural-panel works!</p> -->
+<div class="titleMargin">
+  <div style="display:flex; justify-content: space-between;">
+    <div class="fontUniversforSchueco-530" *ngIf="memberName else blankMemberName"
+      style="text-transform: uppercase;margin-top:3px;">{{memberName}}</div>
+    <ng-template #blankMemberName>
+      <div class="fontUniversforSchueco-530" style="text-transform: uppercase;margin-top:3px;margin-right:49px;">--
+      </div>
+    </ng-template>
+    <div class="sps-info-btn" bps-popover [bpsPopoverPlacement]="'right'" [bpsPopoverType]="'variation_6'"
+      [bpsPopoverContent]="tt1">
+      <p class="sps-info-text">i</p>
+    </div>
+    <ng-template #tt1>
+      {{'result.mullion-or-transom-select-text' | translate }}
+      <!-- Select an intermediate mullion or transom to visualize results. -->
+    </ng-template>
+  </div>
+  <div style="margin-top:16px; display: flex;" class="article">
+    <div style="width:163px;">
+      <img id="system-cross-section-img" style="width:163px;" *ngIf="articleId else blankImage"
+        [attr.src]="articleImgUrl" alt="aws_picture">
+      <ng-template #blankImage>
+        <div>
+          <img style="width:163px; margin-left: -0.1px;" src="https://vcl-design-com.s3.amazonaws.com/StaticFiles/Images/article-jpeg/blankArticle.png"
+            alt="aws_picture">
+        </div>
+      </ng-template>
+    </div>
+    <div class="fontUniversforSchueco-430 articleRectangle">
+      <div style="margin-top:4px;" *ngIf="articleId else elseArticleId">{{articleId}}</div>
+      <ng-template #elseArticleId>
+        <div style="margin-top:4px;color:#ffffff">--</div>
+      </ng-template>
+    </div>
+  </div>
+
+  <div id="sps-result-tab-thermal-heading-container1" style="display:flex; margin-top:30px;">
+    <div *ngIf="unified3DModel.ProblemSetting.ProductType === 'Window'" class="sps-result-tab-thermal-heading1"
+      style="text-transform: uppercase; width: 220px">{{'result.stress' | translate }}</div>
+    <div *ngIf="unified3DModel.ProblemSetting.ProductType !== 'Window'" class="sps-result-tab-thermal-heading1"
+      style="text-transform: uppercase; width: 220px">Bending</div>
+    <!-- Stress /  -->
+    <div class="sps-result-tab-thermal-heading1" style="margin-left: auto; margin-right: auto;">
+      {{'result.capacity-ratio' | translate }}</div>
+    <!-- Capacity ratio -->
+  </div>
+  <div *ngIf="unified3DModel.ProblemSetting.ProductType === 'Window'" class="roundBox fontUniversforSchueco-530"
+    style="margin-top:16px;">
+    <div class="roundBox-partA" style="background-color: #545454; margin-top:-0.3px;margin-left:-0.05px">
+      <span style="margin-left:10px;">{{'result.aluminium-stress' | translate }}</span>
+      <!-- Aluminium Stress -->
+    </div>
+    <div class="roundBox-partC" *ngIf="stressRation else elseStressRation" style="line-height: 0.58;"
+      [ngClass]="{'colorRed':stressRation > 100}">{{stressRation | number : '1.0-1':language}}%</div>
+    <ng-template #elseStressRation>
+      <div class="blankData" style="line-height: 0.58; margin-top: -0.9px;">--</div>
+    </ng-template>
+  </div>
+  <div *ngIf="unified3DModel.ProblemSetting.ProductType === 'Window'" class="roundBox fontUniversforSchueco-530"
+    style="margin-top:16px;">
+    <div class="roundBox-partA" style="background-color: #545454; margin-top:-0.3px;margin-left:-0.05px">
+      <div style="margin-left:10px;">{{'result.thermal-break-shear-stress' | translate }}</div>
+      <!-- Thermal Break Shear Stress -->
+    </div>
+    <div class="roundBox-partC" *ngIf="shearRatio else elseShearRatio" style="line-height: 0.58;"
+      [ngClass]="{'colorRed':shearRatio > 100}">{{shearRatio | number : '1.0-1':language}}%</div>
+    <ng-template #elseShearRatio>
+      <div class="blankData" style="line-height: 0.58; margin-top: -0.9px;">--</div>
+    </ng-template>
+  </div>
+  <div *ngIf="unified3DModel.ProblemSetting.ProductType !== 'Window'" class="roundBox fontUniversforSchueco-530"
+    style="margin-top:16px;">
+    <div class="roundBox-partA"
+      style="background-color: #545454; margin-top:-0.3px;margin-left:-0.05px; margin-bottom: -0.5px;">
+      <span style="margin-left:10px;">{{'result.out-of-plane' | translate }}</span>
+    </div>
+    <div class="roundBox-partC" *ngIf="outofplaneBendingCapacityRatio else elseVerticalDeflectionRatio"
+      style="line-height: 0.58;" [ngClass]="{'colorRed':outofplaneBendingCapacityRatio > 100}">
+      {{outofplaneBendingCapacityRatio | number : '1.0-1':language}}%</div>
+    <ng-template #elseVerticalDeflectionRatio>
+      <div class="blankData" style="line-height: 0.58; margin-top: -1px; margin-bottom: -1px;">--</div>
+    </ng-template>
+  </div>
+  <div
+    *ngIf="unified3DModel.ProblemSetting.ProductType === 'Facade' && unified3DModel.ProblemSetting.FacadeType==='mullion-transom'"
+    class="roundBox fontUniversforSchueco-530" style="margin-top:16px;">
+    <div class="roundBox-partA"
+      style="background-color: #545454; margin-top:-0.3px;margin-left:-0.05px; margin-bottom: -0.5px;">
+      <span style="margin-left:10px;">{{'result.out-of-plane-reinf' | translate }}</span>
+    </div>
+    <div class="roundBox-partC" *ngIf="outofplaneReinfBendingCapacityRatio else elseVerticalDeflectionRatio"
+      style="line-height: 0.58;" [ngClass]="{'colorRed':outofplaneReinfBendingCapacityRatio > 100}">
+      {{outofplaneReinfBendingCapacityRatio | number : '1.0-1':language}}%</div>
+    <ng-template #elseVerticalDeflectionRatio>
+      <div class="blankData" style="line-height: 0.58; margin-top: -1px; margin-bottom: -1px;">--</div>
+    </ng-template>
+  </div>
+  <div *ngIf="unified3DModel.ProblemSetting.ProductType !== 'Window'" class="roundBox fontUniversforSchueco-530"
+    style="margin-top:16px;">
+    <div class="roundBox-partA"
+      style="background-color: #545454; margin-top:-0.3px;margin-left:-0.05px; margin-bottom: -0.5px;">
+      <span style="margin-left:10px;">{{'result.in-plane' | translate }}</span>
+    </div>
+    <div class="roundBox-partC" *ngIf="inplaneBendingCapacityRatio else elseVerticalDeflectionRatio"
+      style="line-height: 0.58;" [ngClass]="{'colorRed':inplaneBendingCapacityRatio > 100}">
+      {{inplaneBendingCapacityRatio | number : '1.0-1':language}}%</div>
+    <ng-template #elseVerticalDeflectionRatio>
+      <div class="blankData" style="line-height: 0.58; margin-top: -1px; margin-bottom: -1px;">--</div>
+    </ng-template>
+  </div>
+
+  <div id="sps-result-tab-thermal-heading-container1" style="display:flex; margin-top:27px;">
+    <div class="sps-result-tab-thermal-heading1" style="text-transform: uppercase; width: 220px">{{'result.deflection' |
+      translate }}</div>
+    <!-- Deflection -->
+    <div class="sps-result-tab-thermal-heading1" style="margin-left: auto; margin-right: auto;">
+      {{'result.capacity-ratio' | translate }}</div>
+    <!-- Capacity ratio -->
+  </div>
+  <div *ngIf="unified3DModel.ProblemSetting.ProductType === 'Window'" class="roundBox fontUniversforSchueco-530"
+    style="margin-top:16px;">
+    <div class="roundBox-partA"
+      style="background-color: #545454; margin-top:-0.3px; margin-left:-0.05px; margin-bottom: -0.5px;">
+      <span style="margin-left:10px;">{{'result.lateral-deflection' | translate }}</span>
+      <!-- Lateral Deflection -->
+    </div>
+    <div class="roundBox-partC" *ngIf="deflectionRatio else elseDeflectionRatio" style="line-height: 0.58;"
+      [ngClass]="{'colorRed':deflectionRatio > 100}">{{deflectionRatio | number : '1.0-1':language}}%</div>
+    <ng-template #elseDeflectionRatio>
+      <div class="blankData" style="line-height: 0.58; margin-top: -1px; margin-bottom: -1px;">--</div>
+    </ng-template>
+  </div>
+  <div *ngIf="unified3DModel.ProblemSetting.ProductType === 'Window'" class="roundBox fontUniversforSchueco-530"
+    style="margin-top:16px;">
+    <div class="roundBox-partA"
+      style="background-color: #545454; margin-top:-0.3px;margin-left:-0.05px; margin-bottom: -0.5px;">
+      <span style="margin-left:10px;">{{'result.vertical-deflection' | translate }}</span>
+      <!-- Vertical Deflection -->
+    </div>
+    <div class="roundBox-partC" *ngIf="verticalDeflectionRatio && isTransom else elseVerticalDeflectionRatio"
+      style="line-height: 0.58;" [ngClass]="{'colorRed':verticalDeflectionRatio > 100}">{{verticalDeflectionRatio |
+      number : '1.0-1':language}}%</div>
+    <ng-template #elseVerticalDeflectionRatio>
+      <div class="blankData" style="line-height: 0.58; margin-top: -1px; margin-bottom: -1px;">--</div>
+    </ng-template>
+  </div>
+  <div *ngIf="unified3DModel.ProblemSetting.ProductType !== 'Window'" class="roundBox fontUniversforSchueco-530"
+    style="margin-top:16px;">
+    <div class="roundBox-partA"
+      style="background-color: #545454; margin-top:-0.3px;margin-left:-0.05px; margin-bottom: -0.5px;">
+      <span style="margin-left:10px;">{{'result.out-of-plane' | translate }}</span>
+    </div>
+    <div class="roundBox-partC" *ngIf="outofplaneDeflectionCapacityRatio else elseVerticalDeflectionRatio"
+      style="line-height: 0.58;" [ngClass]="{'colorRed':outofplaneDeflectionCapacityRatio > 100}">
+      {{outofplaneDeflectionCapacityRatio | number : '1.0-1':language}}%</div>
+    <ng-template #elseVerticalDeflectionRatio>
+      <div class="blankData" style="line-height: 0.58; margin-top: -1px; margin-bottom: -1px;">--</div>
+    </ng-template>
+  </div>
+  <div *ngIf="unified3DModel.ProblemSetting.ProductType !== 'Window'" class="roundBox fontUniversforSchueco-530"
+    style="margin-top:16px;">
+    <div class="roundBox-partA"
+      style="background-color: #545454; margin-top:-0.3px;margin-left:-0.05px; margin-bottom: -0.5px;">
+      <span style="margin-left:10px;">{{'result.in-plane' | translate }}</span>
+    </div>
+    <div class="roundBox-partC" *ngIf="inplaneDeflectionCapacityRatio else elseVerticalDeflectionRatio"
+      style="line-height: 0.58;" [ngClass]="{'colorRed':inplaneDeflectionCapacityRatio > 100}">
+      {{inplaneDeflectionCapacityRatio | number : '1.0-1':language}}%</div>
+    <ng-template #elseVerticalDeflectionRatio>
+      <div class="blankData" style="line-height: 0.58; margin-top: -1px; margin-bottom: -1px;">--</div>
+    </ng-template>
+  </div>
+</div>

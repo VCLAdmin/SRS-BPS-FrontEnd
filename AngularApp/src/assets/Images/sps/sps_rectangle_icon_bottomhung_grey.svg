@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="25" height="30" viewBox="0 0 25 30">
+    <defs>
+        <style>
+            .cls-1,.cls-2,.cls-4{fill:none}.cls-1,.cls-2{stroke:#666}.cls-2{stroke-width:1.5px}.cls-3{stroke:none}
+        </style>
+    </defs>
+    <g id="sps_rectangle_icon_bottomhung_grey" transform="translate(-765 -545)">
+        <g id="Rectangle_1336" class="cls-1" data-name="Rectangle 1336">
+            <path d="M0 0h25v30H0z" class="cls-3" transform="translate(765 545)"/>
+            <path d="M.5.5h24v29H.5z" class="cls-4" transform="translate(765 545)"/>
+        </g>
+        <g id="Rectangle_1337" class="cls-1" data-name="Rectangle 1337">
+            <path d="M0 0h21v26H0z" class="cls-3" transform="translate(767 547)"/>
+            <path d="M.5.5h20v25H.5z" class="cls-4" transform="translate(767 547)"/>
+        </g>
+        <path id="Path_932" d="M1751.787-19537.582l9.182-23.031 9.193 23.031" class="cls-2" data-name="Path 932" transform="translate(-983.477 20109.744)"/>
+    </g>
+</svg>

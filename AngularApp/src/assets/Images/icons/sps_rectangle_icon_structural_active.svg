@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="prefix__sps_rectangle_icon_structural_active" width="9.186" height="20.844" viewBox="0 0 9.186 20.844">
+    <defs>
+        <style>
+            .prefix__cls-1{fill:#00a2d1}
+        </style>
+    </defs>
+    <circle id="prefix__Ellipse_52" cx="1.563" cy="1.563" r="1.563" class="prefix__cls-1" data-name="Ellipse 52" transform="translate(0 15.025)"/>
+    <circle id="prefix__Ellipse_58" cx="1.563" cy="1.563" r="1.563" class="prefix__cls-1" data-name="Ellipse 58"/>
+    <circle id="prefix__Ellipse_54" cx="1.563" cy="1.563" r="1.563" class="prefix__cls-1" data-name="Ellipse 54" transform="translate(6.059 17.717)"/>
+    <circle id="prefix__Ellipse_59" cx="1.563" cy="1.563" r="1.563" class="prefix__cls-1" data-name="Ellipse 59" transform="translate(6.059 3.318)"/>
+    <g id="prefix__Path_166" data-name="Path 166" style="fill:none">
+        <path d="M0 0l6.581 3.169V18.82L0 15.651z" style="stroke:none" transform="translate(1.241 1.441)"/>
+        <path d="M1 1.591v13.432l4.58 2.206V3.797L1 1.591M0 0l6.58 3.169V18.82L0 15.651V0z" style="stroke:none;fill:#00a2d1" transform="translate(1.241 1.441)"/>
+    </g>
+</svg>

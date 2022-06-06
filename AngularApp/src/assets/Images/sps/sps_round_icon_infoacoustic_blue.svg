@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35">
+    <defs>
+        <style>
+            .cls-1{fill:#00a2d1;font-size:25px;font-family:UniversForSchueco-530Med,Univers for Schueco;letter-spacing:.03em}.cls-2,.cls-4{fill:none}.cls-2{stroke:#00a2d1;stroke-width:2px}.cls-3{stroke:none}
+        </style>
+    </defs>
+    <g id="sps_round_icon_infoacoustic_blue" transform="translate(-667.5 -415)">
+        <text id="i" class="cls-1" transform="translate(685 441.5)">
+            <tspan x="-3.375" y="0">i</tspan>
+        </text>
+        <g id="Ellipse_419" class="cls-2" data-name="Ellipse 419" transform="translate(667.5 415)">
+            <circle cx="17.5" cy="17.5" r="17.5" class="cls-3"/>
+            <circle cx="17.5" cy="17.5" r="16.5" class="cls-4"/>
+        </g>
+    </g>
+</svg>

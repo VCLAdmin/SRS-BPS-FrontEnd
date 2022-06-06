@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="20.865" viewBox="0 0 21 20.865">
+    <defs>
+        <style>
+            .cls-1,.cls-2,.cls-5,.cls-6{fill:none}.cls-1{stroke:#707070}.cls-2{stroke:#bfbfbf}.cls-2,.cls-6{stroke-width:2px}.cls-3{fill:url(#linear-gradient)}.cls-4{fill:url(#linear-gradient-3)}.cls-5{stroke:#00a2d1}.cls-6{stroke:#f18700}
+        </style>
+        <linearGradient id="linear-gradient" x1=".5" x2=".5" y1=".338" y2="1" gradientUnits="objectBoundingBox">
+            <stop offset="0" stop-color="#00a2d1"/>
+            <stop offset="1" stop-color="#005169" stop-opacity="0"/>
+        </linearGradient>
+        <linearGradient id="linear-gradient-3" y1=".85" xlink:href="#linear-gradient"/>
+    </defs>
+    <g id="sps_solo_icon_moment_blue" transform="translate(13098.458 8488.158)">
+        <g id="Group_2094" data-name="Group 2094" transform="translate(-679 102)">
+            <path id="Path_731" d="M-11738-8575v-15l-5 15-5 5-5-5-5-15v15" class="cls-1" data-name="Path 731" transform="translate(-660.958)"/>
+            <path id="Path_732" d="M-11778-8575h20.967" class="cls-2" data-name="Path 732" transform="translate(-641.441)"/>
+        </g>
+        <g id="Group_2100" data-name="Group 2100" transform="translate(-775 102)">
+            <g id="Group_1962" data-name="Group 1962" transform="translate(-12968 -8735)">
+                <path id="Path_755" d="M-11553-8575v-15l5 15" class="cls-3" data-name="Path 755" transform="translate(12198 8735)"/>
+                <path id="Path_756" d="M-11538-8575v-15l-5 15" class="cls-3" data-name="Path 756" transform="translate(12203 8735)"/>
+                <path id="Path_757" d="M-11533-8575l5 5 5-5" class="cls-4" data-name="Path 757" transform="translate(12183 8735)"/>
+            </g>
+            <path id="Path_770" d="M-11738-8575v-15l-5 15-5 5-5-5-5-15v15" class="cls-5" data-name="Path 770" transform="translate(-564.958)"/>
+            <path id="Path_771" d="M-11778-8575h20.967" class="cls-6" data-name="Path 771" transform="translate(-545.441)"/>
+        </g>
+    </g>
+</svg>

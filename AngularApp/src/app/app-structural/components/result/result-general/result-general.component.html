@@ -1,0 +1,59 @@
+<div>
+    <div nz-row class="main-container">
+        <div nz-col class="left-panel" style="height: 100%;">
+            <app-left-result *ngIf="unified3DModel" [unified3DModel]="unified3DModel"
+                [selectedStructuralIntermediate]="selectedStructuralIntermediate"
+                [selectedStructuralIntermediateFacade]="selectedStructuralIntermediateFacade"
+                [selectedThermalResultLabel]="selectedThermalResultLabel" [physicsType]="physicsType"
+                (sendPhysicsTypeEvent)="onReceivePhysicsType($event)"
+                (sendSelectedIntermediateGeneral)="onReceiveSelectedIntermediate($event)"
+                (sendIntermediateRedColorGeneral)="onReceiveIntermediateRedColorGeneral($event)"
+                (sendParentUnifiedModel)="onReceiveUnifiedModel($event)">
+            </app-left-result>
+        </div>
+        <div nz-col class="work-panel">
+            <app-iframe-wrapper [ngClass]="{'zIndex0':physicsType === 'A'}" *ngIf="unified3DModel" height="2000px;"
+                width="1000px;" [URL]="URL" [ParentEvents]="iframeEvent.asObservable()" (Loaded)="onLoaded($event)"
+                (ChildEvents)="onChildEvents($event)">
+            </app-iframe-wrapper>
+            <app-acoustic-performance #acousticPerforamnce
+                [ngClass]="{'hidden':physicsType !== 'A', 'zIndex100':physicsType === 'A'}" *ngIf="unified3DModel"
+                [unified3DModel]="unified3DModel"></app-acoustic-performance>
+        </div>
+        <div nz-col class="right-panel" style="height: 100%" [ngStyle]="style" mwlResizable [validateResize]="validate"
+            [enableGhostResize]="true" [resizeEdges]="{ bottom: false, right: false, top: false, left: true }"
+            (resizeStart)="onResizeStart($event)" (resizeEnd)="onResizeEnd($event)"
+            [ngClass]="{'hidden': !rightPanelOpened }">
+            <app-right-result [physicsType]="physicsType" (eventEmitter)="listenForRightPanel($event)"
+                (changeProblemSettingEvent)="changeProblemSetting($event)"></app-right-result>
+            <div *ngIf="rightPanelOpened" bps-tooltip [bpsTooltipType]="'variation_10'"
+                bpsTooltipTitle="&nbsp;&nbsp;&nbsp;&nbsp;{{'result.close-panel' | translate }}&nbsp;&nbsp;&nbsp;&nbsp;"
+                bpsTooltipPlacement="left" class="close-right-panel-icon" (click)=onOpenCloseRightPanel()></div>
+        </div>
+        <div *ngIf="!rightPanelOpened" bps-tooltip [bpsTooltipType]="'variation_10'"
+            bpsTooltipTitle="&nbsp;&nbsp;&nbsp;&nbsp;{{'result.configuration-panel' | translate }}&nbsp;&nbsp;&nbsp;&nbsp;"
+            bpsTooltipPlacement="left" class="open-right-panel-icon" (click)=onOpenCloseRightPanel()></div>
+
+
+    </div>
+    <div nz-row id="poweredByVCL" class="top-grey-border-intro-page">
+        <div></div>
+        <div style="width: 100%; text-align: center">
+            <p>
+                {{'result.general-powered-by' | translate}}
+                <span>{{'result.general-virtual-by' | translate}}</span>
+            </p>
+        </div>
+        <div style="position: absolute; right: 25px;">
+            <img src="/assets/Images/sps/sps-schuco-white-logo.svg">
+        </div>
+    </div>
+</div>
+<div id="loaderContainer" [ngClass]="{'show': showLoader, 'hide': !showLoader}"
+    style="position: absolute; top: 0; z-index: 1000;">
+    <div style="position: relative; width: 100vw; height: 100vh; background-color: black; opacity: .6;"></div>
+    <div style="position: absolute; top: 23vh; width: 100%; text-align: center;">
+        <img src="assets/Images/loaders/loading_2_GIF.gif" />
+    </div>
+</div>
+<div *ngIf="isResizingRightPanel" class="overlay"></div>

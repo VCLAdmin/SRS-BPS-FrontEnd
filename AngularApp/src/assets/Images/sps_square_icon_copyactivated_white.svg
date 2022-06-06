@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="19" viewBox="0 0 20 19">
+    <defs>
+        <style>
+            .cls-1{fill:#fff}
+        </style>
+    </defs>
+    <g id="sps_square_icon_copyactivated_white" transform="translate(-1060 -460.5)">
+        <g id="Group_5738" data-name="Group 5738" transform="translate(20 395)">
+            <path id="Rectangle_1393" d="M0 0H18V1H0z" class="cls-1" data-name="Rectangle 1393" transform="rotate(90 487.5 553.5)"/>
+            <path id="Rectangle_2406" d="M0 0H18V1H0z" class="cls-1" data-name="Rectangle 2406" transform="rotate(90 491 557)"/>
+            <path id="Rectangle_2407" d="M0 0H8V7H0z" class="cls-1" data-name="Rectangle 2407" transform="translate(1040 65.5)"/>
+            <path id="Rectangle_2409" d="M0 0H8V1H0z" class="cls-1" data-name="Rectangle 2409" transform="translate(1040 83.5)"/>
+            <path id="Rectangle_2408" d="M0 0H8V1H0z" class="cls-1" data-name="Rectangle 2408" transform="translate(1040 65.5)"/>
+        </g>
+        <g id="Group_5739" data-name="Group 5739" transform="translate(32 395)">
+            <path id="Rectangle_1393-2" d="M0 0H18V1H0z" class="cls-1" data-name="Rectangle 1393" transform="rotate(90 487.5 553.5)"/>
+            <path id="Rectangle_2406-2" d="M0 0H18V1H0z" class="cls-1" data-name="Rectangle 2406" transform="rotate(90 491 557)"/>
+            <path id="Rectangle_2407-2" d="M0 0H8V7H0z" class="cls-1" data-name="Rectangle 2407" transform="translate(1040 65.5)"/>
+            <path id="Rectangle_2409-2" d="M0 0H8V1H0z" class="cls-1" data-name="Rectangle 2409" transform="translate(1040 83.5)"/>
+            <path id="Rectangle_2408-2" d="M0 0H8V1H0z" class="cls-1" data-name="Rectangle 2408" transform="translate(1040 65.5)"/>
+        </g>
+    </g>
+</svg>

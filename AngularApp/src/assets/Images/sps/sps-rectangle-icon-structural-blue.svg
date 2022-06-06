@@ -1,0 +1,25 @@
+<svg id="sps_rectangle_icon_structural_blue" xmlns="http://www.w3.org/2000/svg" width="9.186" height="20.844" viewBox="0 0 9.186 20.844">
+  <defs>
+    <style>
+      .cls-1, .cls-4 {
+        fill: #00a2d1;
+      }
+
+      .cls-2 {
+        fill: none;
+      }
+
+      .cls-3, .cls-4 {
+        stroke: none;
+      }
+    </style>
+  </defs>
+  <ellipse id="Ellipse_52" data-name="Ellipse 52" class="cls-1" cx="1.563" cy="1.563" rx="1.563" ry="1.563" transform="translate(0 15.025)"/>
+  <ellipse id="Ellipse_58" data-name="Ellipse 58" class="cls-1" cx="1.563" cy="1.563" rx="1.563" ry="1.563"/>
+  <ellipse id="Ellipse_54" data-name="Ellipse 54" class="cls-1" cx="1.563" cy="1.563" rx="1.563" ry="1.563" transform="translate(6.059 17.717)"/>
+  <ellipse id="Ellipse_59" data-name="Ellipse 59" class="cls-1" cx="1.563" cy="1.563" rx="1.563" ry="1.563" transform="translate(6.059 3.318)"/>
+  <g id="Path_166" data-name="Path 166" class="cls-2" transform="translate(1.241 1.441)">
+    <path class="cls-3" d="M0,0,6.581,3.169V18.82L0,15.651Z"/>
+    <path class="cls-4" d="M 0.9999971389770508 1.591405868530273 L 0.9999971389770508 15.02289772033691 L 5.58087682723999 17.2286434173584 L 5.58087682723999 3.797151565551758 L 0.9999971389770508 1.591405868530273 M -2.86102294921875e-06 3.814697265625e-06 L 6.58087682723999 3.168774604797363 L 6.58087682723999 18.82004547119141 L -2.86102294921875e-06 15.65127468109131 L -2.86102294921875e-06 3.814697265625e-06 Z"/>
+  </g>
+</svg>

@@ -1,0 +1,11 @@
+.iconspan{
+    display: initial;
+}
+
+.iconspan i.iconArrowLarge-Arrow-Right {
+    font-size: 16px;
+    position: relative;
+    height: 16px;
+    width: 16px;
+    display: inline-block;
+}

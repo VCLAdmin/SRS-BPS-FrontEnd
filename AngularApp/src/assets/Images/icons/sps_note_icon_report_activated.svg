@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="12.378" height="11.619" viewBox="0 0 12.378 11.619">
+    <defs>
+        <style>
+            .prefix__cls-1,.prefix__cls-2{fill:none;stroke:#fff;stroke-linecap:round}.prefix__cls-1{stroke-linejoin:round}
+        </style>
+    </defs>
+    <g id="prefix__sps_note_icon_report_activated" transform="translate(.5 .5)">
+        <g id="prefix__Group_2830" data-name="Group 2830" transform="translate(4.551)">
+            <path id="prefix__Path_1047" d="M-10323-11387.449v1.138h1.139l4.55-4.551-1.138-1.138z" class="prefix__cls-1" data-name="Path 1047" transform="translate(10323 11393.138)"/>
+            <path id="prefix__Path_1049" d="M-10303-11395.863l1.137-1.137 1.139 1.137-1.139 1.139z" class="prefix__cls-1" data-name="Path 1049" transform="translate(10307.551 11397)"/>
+        </g>
+        <path id="prefix__Path_1048" d="M-10336.174-11383.75v1.99h-6.826v-10.24h6.826v.453" class="prefix__cls-1" data-name="Path 1048" transform="translate(10343 11392.379)"/>
+        <path id="prefix__Path_1050" d="M-10266.6-11352h1.262" class="prefix__cls-2" data-name="Path 1050" transform="translate(10268.358 11359.585)"/>
+        <path id="prefix__Path_1051" d="M-10266.6-11352h3.1" class="prefix__cls-2" data-name="Path 1051" transform="translate(10268.358 11355.034)"/>
+        <path id="prefix__Path_1052" d="M-10266.6-11352h1.262" class="prefix__cls-2" data-name="Path 1052" transform="translate(10268.358 11357.31)"/>
+    </g>
+</svg>

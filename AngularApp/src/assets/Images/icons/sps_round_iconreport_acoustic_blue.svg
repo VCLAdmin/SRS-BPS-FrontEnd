@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="prefix__sps_round_iconreport_acoustic_blue" width="25.006" height="25.006" viewBox="0 0 25.006 25.006">
+    <defs>
+        <style>
+            .prefix__cls-1{fill:none;stroke:#00a2d1}.prefix__cls-2{fill:#00a2d1}
+        </style>
+    </defs>
+    <g id="prefix__Group_358" data-name="Group 358" transform="translate(4.177 8.856)">
+        <path id="prefix__Path_163" d="M-19828.545 13190.653l4.705-4.7 4.545 4.542 5-4.951" class="prefix__cls-1" data-name="Path 163" transform="translate(19829.82 -13184.48)"/>
+        <circle id="prefix__Ellipse_52" cx="1.301" cy="1.301" r="1.301" class="prefix__cls-2" data-name="Ellipse 52" transform="translate(0 4.788)"/>
+        <circle id="prefix__Ellipse_53" cx="1.301" cy="1.301" r="1.301" class="prefix__cls-2" data-name="Ellipse 53" transform="translate(4.685 .26)"/>
+        <circle id="prefix__Ellipse_54" cx="1.301" cy="1.301" r="1.301" class="prefix__cls-2" data-name="Ellipse 54" transform="translate(9.21 4.423)"/>
+        <circle id="prefix__Ellipse_55" cx="1.301" cy="1.301" r="1.301" class="prefix__cls-2" data-name="Ellipse 55" transform="translate(14.051)"/>
+    </g>
+    <g id="prefix__Ellipse_97" class="prefix__cls-1" data-name="Ellipse 97">
+        <circle cx="12.503" cy="12.503" r="12.503" style="stroke:none"/>
+        <circle cx="12.503" cy="12.503" r="12.003" style="fill:none"/>
+    </g>
+</svg>

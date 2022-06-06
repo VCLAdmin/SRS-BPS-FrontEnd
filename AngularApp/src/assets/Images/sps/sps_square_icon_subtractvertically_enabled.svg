@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+    <defs>
+        <style>
+            .cls-2{fill:#fff}
+        </style>
+    </defs>
+    <g id="sps_square_icon_subtractvertically_enabled" transform="translate(-812.5 -65)">
+        <rect id="Rectangle_1394" width="30" height="30"  fill-opacity="0.0" rx="8" transform="translate(812.5 65)"/>
+        <path id="Union_102" d="M-11269.5 110h-4V94h6v16zm0-2v-5h-2v5zm0-7v-5h-2v5z" class="cls-2" transform="translate(12104 -22)"/>
+        <rect id="Rectangle_2833" width="10" height="2" class="cls-2" rx="1" transform="translate(817.5 79)"/>
+    </g>
+</svg>

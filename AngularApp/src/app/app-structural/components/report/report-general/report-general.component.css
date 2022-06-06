@@ -1,0 +1,38 @@
+body {
+  background-color: #262626;
+  color: #ffffff;
+}
+.main-container {
+  width: 100vw;
+  height: calc(100vh - 70px);
+  border-bottom: 1px solid #363636;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+}
+.left-panel {
+  width: 495px;
+  height: 100%;
+}
+
+.work-panel {
+  /* position: absolute;
+    top: 0;
+    left: 295px;
+    z-index: 0;
+    flex-grow: 1;
+    height: 100%;
+    width: calc(100vw - 295px); */
+  flex-grow: 1;
+  /* width: 60%; */
+}
+
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}

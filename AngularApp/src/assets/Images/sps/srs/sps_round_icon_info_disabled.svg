@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="14.26" height="16.244" viewBox="0 0 14.26 16.244">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: #666;
+      }
+
+      .cls-1 {
+        stroke: rgba(0,0,0,0);
+        stroke-miterlimit: 10;
+      }
+    </style>
+  </defs>
+  <g id="sps_round_icon_info_disabled" transform="translate(-403 -639.5)">
+    <g id="Group_7233" data-name="Group 7233" transform="translate(0 96.438)">
+      <path id="Subtraction_78" data-name="Subtraction 78" class="cls-1" d="M1002.843-15376.741H998.5a2.5,2.5,0,0,1-2.5-2.5v-8.258a2.5,2.5,0,0,1,2.5-2.5h8.262a2.5,2.5,0,0,1,2.5,2.5v4.255a4.976,4.976,0,0,0-1.761-.319c-.08,0-.161,0-.24.006v-3.941a.5.5,0,0,0-.5-.5H998.5a.5.5,0,0,0-.5.5v8.258a.5.5,0,0,0,.5.5h4c0,.059,0,.116,0,.178a4.986,4.986,0,0,0,.342,1.822Zm.221-4.129h-2.935v-5h5v2.906a5,5,0,0,0-2.066,2.095Z" transform="translate(-592.5 15933.563)"/>
+      <g id="Group_7232" data-name="Group 7232" transform="translate(386.713 538.132)">
+        <path id="Path_2485" data-name="Path 2485" class="cls-2" d="M29.309,14.563h-.9l-.238.8h1.651l.238-.8Z"/>
+        <path id="Path_2486" data-name="Path 2486" class="cls-2" d="M28.609,16.566h-.754L26.51,21.174H28.07l1.344-4.608h-.8Z"/>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,34 @@
+<div class="accordion-section-container">
+  <div>
+    <div style="margin-top:5px;">
+      <div class="wall-perimeter">
+          <div>
+            <h3 class="boldWhiteFont"[ngClass]="{'blue-heading': !orderPlaced,'disabled': orderPlaced }">{{'configure.wind-pressure' | translate }}</h3>
+            <!-- Wind Pressure -->
+          </div>   
+        <div style="margin-top: 7px;">
+          <form bps-form [formGroup]="validateForm">
+            <bps-form-item>
+              <bps-form-control>
+                <bps-select style="width: 170px" formControlName="windPressure" [(ngModel)]="windPressure" [bpsDisabled]="orderPlaced"
+                  name="windPressure" bpsPlaceHolder="{{'configure.select' | translate }}" (ngModelChange)="onWindLoadChange()">
+                  <!-- Select -->
+                  <bps-option *ngIf="this.unified3DModel.ProblemSetting.ProductType != 'Window'" bpsValue="1.20" bpsLabel="25 psf (1.20 kN/m^2)">
+                  </bps-option>
+                  <bps-option bpsValue="1.68" bpsLabel="35 psf (1.68 kN/m^2)">
+                  </bps-option>
+                  <bps-option bpsValue="2.16" bpsLabel="45 psf (2.16 kN/m^2)">
+                  </bps-option>
+                  <bps-option bpsValue="2.63" bpsLabel="55 psf (2.63 kN/m^2)">
+                  </bps-option>
+                </bps-select>
+              </bps-form-control>
+            </bps-form-item>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!--line-->
+    <div class="sps-break"></div>
+  </div>
+</div>

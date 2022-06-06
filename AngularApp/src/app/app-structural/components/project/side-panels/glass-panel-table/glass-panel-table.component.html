@@ -1,0 +1,194 @@
+<div *appCheckPermissions="feature.GlassPanelSideTableFull" [ngStyle]="{'display': isPopoutOpened ? 'flex':'none' }"
+    class="sps-left-popout">
+    <div class="lp-panel">
+        <div class="lp-panel-top">
+            <!-- Header Title -->
+            <div class="lp-top-section">
+                <div class="lp-header">
+                    <h3 class="lp-header-text">{{'configure.glass' | translate | uppercase}} {{'configure.library' |
+                        translate | uppercase}}</h3>
+                    <img src="/assets/Images/sps/sps_delete_icon_x_darkgrey.svg" id="fas fa-times fa-inverse"
+                        alt="close icon" (click)="onClose()">
+                </div>
+            </div>
+            <div class="canvas-rectangle">
+                <app-viewer-infill [isSidePanel]="isSidePanel" *ngIf="isPopoutOpened"
+                    [confirmedGlassPanelArticle]="selectedArticle"></app-viewer-infill>
+            </div>
+            <div class="buttons-container">
+                <button [ngStyle]="{'padding-left': language === 'de-DE' ? '1px' : ''}" style="width: 76px;" bps-button
+                    bpsType="variation-2" [ngClass]="{'selected': selectedType == 'double'}"
+                    [disabled]="isDoubleBtnDisabled" (click)="onNewTypeSelection('double')">
+                    {{'configure.double' | translate }}
+                    <!-- Double -->
+                </button>
+                <button [ngStyle]="{'padding-left': language === 'de-DE' ? '1.5px' : ''}"
+                    style="margin-right: 0px !important; width: 76px;" bps-button bpsType="variation-2"
+                    [ngClass]="{'selected': selectedType == 'triple'}" [disabled]="isTripleBtnDisabled"
+                    (click)="onNewTypeSelection('triple')">
+                    {{'configure.triple' | translate }}
+                    <!-- Triple -->
+                </button>
+                <button style="width: 76px; " bps-button bpsType="variation-2"
+                    [ngClass]="{'selected': selectedType == 'panel'}" [disabled]="isPanelBtnDisabled"
+                    (click)="onNewTypeSelection('panel')">
+                    {{'configure.panel' | translate }}
+                    <!-- Panel -->
+                </button>
+                <button style="background-color: #253d47!important; width: 76px; margin-right: 0px !important;"
+                    bps-button bpsType="variation-2" [ngClass]="{'selected': selectedType == 'new'}"
+                    [disabled]="isNewBtnDisabled" (click)="onNewTypeSelection('new')">
+                    {{'configure.new' | translate }}
+                    <!-- New -->
+                </button>
+            </div>
+            <div class="buttons-container" *ngIf="selectedType === 'new'">
+                <button style="width: 100%; background-color: #253d47!important;" bps-button bpsType="variation-2"
+                    (click)="onOpenCustom()">{{'configure.structural-glass-panel-add-custom-glass' | translate}}</button>
+                <!-- <button style="width: 49%" bps-button bpsType="variation-2" [disabled]="isEditCustomDisabled" (click)="onOpenEditCustom()">Edit</button> -->
+            </div>
+            <!-- Table Content -->
+            <div class="bpsTableContent">
+                <bps-table #bpsTable [data]="listOfDisplayData" [scroll]="{ y: 'calc(100vh - 413px)' }"
+                    [showPagination]="false" [frontPagination]="false" (onclickRow)="onclickRow($event)"
+                    (ondblclickRow)="ondblclickRow($event)" (selectionChange)="selectionChange($event)"
+                    [tableType]="'glass_profile'" class="bps-table-section" [filterPlaceholder]="searchByDimensionText"
+                    (searchValueChange)="filter($event)" (sortChange)="sort($event)"
+                    [(config)]="configurationCustomGrid">
+                </bps-table>
+            </div>
+        </div>
+        <!-- Confirm -->
+        <div class="lp-confirm-btn-container">
+            <button class="lp-confirm-btn" bps-button bpsType="variation-4" (click)="onConfirm()">{{'configure.confirm'
+                | translate }}</button>
+        </div>
+    </div>
+</div>
+<ng-template #idTemplate>
+    <div>#</div>
+</ng-template>
+<ng-template #outsideTemplate let-value="value" let-validData="validData" let-disabled="disabled"
+    let-arrowHovered="arrowHovered" let-index="index">
+    <div>
+        <span>{{value}}</span>
+        <span (mouseenter)="onHover(index, true)" *ngIf="selectedType === 'new'"
+            style="position: relative; float: right; top: -1px; margin-right: 10px" (mouseleave)="onHover(index, false)"
+            (click)="preventDefault($event, index)">
+            <img *ngIf="!validData" src="/assets/Images/bps-icons/sps_icon_arrowright_orange.svg" />
+            <img *ngIf="validData && (!arrowHovered || disabled)"
+                src="/assets/bps-icons/sps_icon_arrowright_grey.svg" />
+            <img *ngIf="validData && arrowHovered && !disabled" src="/assets/bps-icons/sps_icon_arrowright_blue.svg" />
+        </span>
+    </div>
+</ng-template>
+<ng-template #uValueTemplate>
+    <div>{{'configure.u-value' | translate }}</div>
+    <!-- U-Value -->
+    <div style="color: #999999">(W/m<sup>2</sup>K)</div>
+</ng-template>
+<ng-template #rwTemplate>
+    <div>Rw</div>
+    <div class="subtitle-disabled">(dB)</div>
+</ng-template>
+<div *appCheckPermissions="feature.GlassPanelSideTableShort" [ngStyle]="{'display': isPopoutOpened ? 'flex':'none' }"
+    class="sps-left-popout">
+    <div class="lp-panel">
+        <div class="lp-panel-top">
+            <!-- Header Title -->
+            <div class="lp-top-section">
+                <div class="lp-header">
+                    <h3 class="lp-header-text">{{'configure.glass' | translate | uppercase}} {{'configure.library' |
+                        translate | uppercase}}</h3>
+                    <img src="/assets/Images/sps/sps_delete_icon_x_darkgrey.svg" id="fas fa-times fa-inverse"
+                        alt="close icon" (click)="onClose()">
+                </div>
+            </div>
+            <div class="canvas-rectangle">
+                <app-viewer-infill [isSidePanel]="isSidePanel" *ngIf="isPopoutOpened"
+                    [confirmedGlassPanelArticle]="selectedArticle"></app-viewer-infill>
+            </div>
+            <div class="buttons-container">
+                <button [ngStyle]="{'padding-left': language === 'de-DE' ? '1px' : ''}" style="width : 160px;"
+                    bps-button bpsType="variation-2" [ngClass]="{'selected': selectedType == 'double'}"
+                    [disabled]="isDoubleBtnDisabled" (click)="onNewTypeSelection('double')">
+                    {{'configure.double' | translate }}
+                    <!-- Double -->
+                </button>
+                <button [ngStyle]="{'padding-left': language === 'de-DE' ? '1.5px' : ''}"
+                    style="margin-right: 0px !important;width:160px;" bps-button bpsType="variation-2"
+                    [ngClass]="{'selected': selectedType == 'triple'}" [disabled]="isTripleBtnDisabled"
+                    (click)="onNewTypeSelection('triple')">
+                    {{'configure.triple' | translate }}
+                    <!-- Triple -->
+                </button>
+            </div>
+            <!-- Table Content -->
+            <div class="bpsTableContent">
+                <div class="custom-panel-wrapper">
+                    <div class="bps-cmacs-custom-scrollbar custom-panel" id="custom-panel">
+                        <nz-collapse nzGhost style="border: none;" [nzShowArrow]="false">
+                            <nz-collapse-panel *ngFor="let node of nodes" [nzHeader]="contentTemplate" [nzActive]="true"
+                                [nzDisabled]="false" (nzActiveChange)="activeChange($event)">
+                                <div nz-row class="child" *ngFor="let childnode of node.children"
+                                    [ngClass]="{'selected': childnode.key === selectedChildNodeKey && !headerSelected}"
+                                    (dblclick)="onDblClickSRS(childnode,1)" (click)="Click(childnode)">
+                                    <div class="sub-child" nz-col nzSpan="23" [innerHTML]="childnode.title"
+                                        (dblclick)="onDblClickSRS(childnode,1)" (click)="Click(childnode)">
+                                    </div>
+                                    <div class="sub-child" nz-col nzSpan="1"
+                                        *ngIf="(selectedType === 'double' && (childnode.key === 3 || childnode.key === 4 || childnode.key === 5)) || (selectedType === 'triple' && childnode.key === 1)">
+                                        <img *ngIf="selectedType === 'double' && childnode && childnode.key === 3" class="iconI" src="/assets/Images/icons/sps_information_icon_blue.svg"
+                                            bps-popover [bpsPopoverPlacement]="'right'" [bpsPopoverType]="'variation_5'"
+                                            [bpsPopoverContent]="tooltipTemplate1">
+                                        <img *ngIf="selectedType === 'double' && childnode && childnode.key === 4" class="iconI" src="/assets/Images/icons/sps_information_icon_blue.svg"
+                                            bps-popover [bpsPopoverPlacement]="'right'" [bpsPopoverType]="'variation_5'"
+                                            [bpsPopoverContent]="tooltipTemplate2">
+                                        <img *ngIf="selectedType === 'double' && childnode && childnode.key === 5" class="iconI" src="/assets/Images/icons/sps_information_icon_blue.svg"
+                                            bps-popover [bpsPopoverPlacement]="'right'" [bpsPopoverType]="'variation_5'"
+                                            [bpsPopoverContent]="tooltipTemplate3">
+                                        <img *ngIf="selectedType === 'triple' && childnode && childnode.key === 1" class="iconI" src="/assets/Images/icons/sps_information_icon_blue.svg"
+                                            bps-popover [bpsPopoverPlacement]="'right'" [bpsPopoverType]="'variation_5'"
+                                            [bpsPopoverContent]="tooltipTemplate4">
+                                    </div>
+                                </div>
+                            </nz-collapse-panel>
+                        </nz-collapse>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Confirm -->
+        <div class="lp-confirm-btn-container">
+            <button class="lp-confirm-btn" bps-button bpsType="variation-4" (click)="onConfirm()">{{'configure.confirm'
+                | translate }}</button>
+        </div>
+    </div>
+</div>
+<ng-template #tooltipTemplate1>
+    <div [innerHTML]="'1/4 Clear (Solarban 70 #2) + 1/2 AIR + 1/4 Clear'">
+    </div>
+</ng-template>
+<ng-template #tooltipTemplate2>
+    <div [innerHTML]="'1/4 Grey (Solarban 70 #2) + 1/2 AIR + 1/4 Clear'">
+    </div>
+</ng-template>
+<ng-template #tooltipTemplate3>
+    <div [innerHTML]="'1/4 Bronze (Solarban 70 #2) + 1/2 AIR + 1/4 Clear'">
+    </div>
+</ng-template>
+<ng-template #tooltipTemplate4>
+    <div [innerHTML]="'-Ext lite: 1/4&quot; Optigray Glass (SB70 coating face #2).<br>\
+                    -1/2&quot; Argon Space <br>\
+                    -Mid. Lite: 1/4&quot; Starphire Glass (SB70 coating face #4). <br>\
+                    -1/2&quot; Argon Space <br>\
+                    -Int. Lite: 1/4&quot; Clear Glass (Energy Advantage face #4).'">
+    </div>
+</ng-template>
+
+<ng-template #contentTemplate>
+    <div style="width:100%">
+        <img src="/assets/Images/spacer-type/vitroarchitecturalglass_enabled.svg">
+    </div>
+</ng-template>

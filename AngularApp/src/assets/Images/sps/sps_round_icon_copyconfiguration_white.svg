@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="15.461" height="15.488" viewBox="0 0 15.461 15.488">
+    <defs>
+        <style>
+            .cls-1,.cls-4{fill:none}.cls-1{stroke:#fff;stroke-linejoin:round;stroke-width:1.5px}.cls-2{fill:#fff}.cls-3{stroke:none}
+        </style>
+    </defs>
+    <g id="sps_round_icon_copyconfiguration_white" transform="translate(-1277.673 -67.25)">
+        <g id="Group_2697" data-name="Group 2697" transform="translate(1277.673 70.48)">
+            <g id="Rectangle_1432" class="cls-1" data-name="Rectangle 1432">
+                <rect width="12.259" height="12.259" class="cls-3" rx="2"/>
+                <rect width="10.759" height="10.759" x=".75" y=".75" class="cls-4" rx="1.25"/>
+            </g>
+            <path id="Rectangle_1433" d="M0 0h5.721v5.721H0z" class="cls-2" data-name="Rectangle 1433" transform="translate(3.269 3.269)"/>
+        </g>
+        <path id="Path_1024" d="M-9788.521-13540.9h1.647v-10.634h-10.614v1.676" class="cls-1" data-name="Path 1024" transform="translate(11079.257 13619.534)"/>
+    </g>
+</svg>

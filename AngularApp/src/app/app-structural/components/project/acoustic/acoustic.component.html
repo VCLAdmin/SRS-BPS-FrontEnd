@@ -1,0 +1,226 @@
+<div *ngIf="unified3DModel" nzType="flex" nzjustify="center" class="sps-accordion-section-container" id="config-acoustics-accordion-section">
+    <div id="config-acoustic" class="sps-accordion-section">
+        <div id="sps-acoustics">
+            <div style="margin-top: 10px;">
+                <div class="wall-perimeter">
+                    <h3 [ngClass]="{'disabled': unified3DModel.ProblemSetting.ProductType === 'Facade'}"
+                        class="sps-glass-thickness-heading">{{'configure.wall-perimeter-effect' | translate }}</h3>
+                    <!-- Wall perimeter effect -->
+                    <div class="chkbox">
+                        <label style="width: 15px; height: 15px;"
+                            [bpsDisabled]="unified3DModel.ProblemSetting.ProductType === 'Facade'" bps-checkbox
+                            [(ngModel)]="wallPerimeterEffectChecked" name="wallPerimeterEffectChecked"
+                            (ngModelChange)="onWallPerimeterChecked()"></label>
+                    </div>
+                </div>
+                <div class="sps-break"></div>
+                <div id="sps-acoustics-input-container" class="sps-accordion-ui-section-content-container">
+                    <h3 class="sps-glass-thickness-heading wall-type-text"
+                        [ngClass]="{'disabled': !wallPerimeterEffectChecked}">{{'configure.wall-type' | translate }}
+                    </h3>
+                    <!-- Wall Type -->
+                    <form bps-form [formGroup]="validateForm">
+                        <bps-form-item class="bps-form-item">
+                            <bps-form-control>
+                                <div class="sps-accordion-ui-section-content">
+                                    <div>
+                                        <bps-select formControlName="wallType" style="width: 170px"
+                                            [(ngModel)]="wallType" name="wallType" (ngModelChange)="onWallTypeChange()"
+                                            bpsPlaceHolder="{{'configure.select' | translate }}">
+                                            <!-- Select -->
+                                            <bps-option bpsValue='1'
+                                                bpsLabel="101.6 mm {{'configure.solid-concrete-panel' | translate}}">
+                                            </bps-option>
+                                            <!-- Solid Concrete Panel -->
+                                            <bps-option bpsValue='2'
+                                                bpsLabel="152.4 mm {{'configure.solid-concrete-panel' | translate}}">
+                                            </bps-option>
+                                            <bps-option bpsValue='3'
+                                                bpsLabel="203.2 mm {{'configure.solid-concrete-panel' | translate}}">
+                                            </bps-option>
+
+                                        </bps-select>
+                                    </div>
+                                    <div class="iconI">
+                                        <!-- <p class="sps-info-text">i</p> -->
+                                        <!-- <img *ngIf="wallPerimeterEffectChecked else greyImage1" class="iconI" style="margin-bottom: 2px;"  src="/assets/Images/icons/sps_information_icon_blue.svg"> -->
+                                        <img *ngIf="wallPerimeterEffectChecked else greyImage1"
+                                            style="margin-bottom: 5px;"
+                                            src="/assets/Images/icons/sps_information_icon_grey.svg">
+                                        <ng-template #greyImage1>
+                                            <img style="margin-bottom: 5px;"
+                                                src="/assets/Images/icons/sps_information_icon_grey.svg">
+                                        </ng-template>
+                                    </div>
+                                </div>
+                            </bps-form-control>
+                        </bps-form-item>
+                        <bps-form-item class="bps-form-item">
+                            <bps-form-control>
+                                <div class="acoustics-height-container">
+                                    <div id="sps-acoustics-height-title-container"
+                                        class="sps-accordion-ui-section-content-container acoustics-height-spacing">
+                                        <h3 [ngClass]="{'disabled': !wallPerimeterEffectChecked}">{{'configure.height' |
+                                            translate | uppercase}} </h3>
+                                        <!-- HEIGHT -->
+                                    </div>
+                                    <div id="sps-height-num-info" class="sps-height-num-info">
+                                        <div id="sps-acoustics-height-input-container">
+                                            <div class="sps-structural-input-field input-container"
+                                                id="sps-acoustics-height-input">
+                                                <input formControlName="height" type="text"
+                                                    style="width: 62px; margin-left: -0.1px" bps-input
+                                                    [(ngModel)]="heightString" [disabled]="!wallPerimeterEffectChecked"
+                                                    name="height" (ngModelChange)="writeNsendUnified3DModel()"
+                                                    autocomplete="off" id="sps-acoustics-height-input-box">
+                                                <div
+                                                    [ngStyle]="{'color':wallPerimeterEffectChecked?'#bfbfbf':'#666666'}">
+                                                    (m)</div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <img *ngIf="wallPerimeterEffectChecked else greyImage2" class="iconI"
+                                                src="/assets/Images/icons/sps_information_icon_blue.svg" bps-popover
+                                                [bpsPopoverPlacement]="'right'" [bpsPopoverType]="'variation_5'"
+                                                [bpsPopoverContent]="contentTemplate">
+                                            <ng-template #greyImage2>
+                                                <img class="iconI"
+                                                    src="/assets/Images/icons/sps_information_icon_grey.svg">
+                                            </ng-template>
+                                        </div>
+
+                                    </div>
+                                    <ng-template #contentTemplate>
+                                        <div style="text-align: left; padding-left: 15px;" class="popover-variation5">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="151.4" height="129"
+                                                viewBox="0 0 151.4 129" class="">
+                                                <g id="prefix__sps_rectangular_img_hwacoustic_black"
+                                                    transform="translate(-515.691 -815.001)">
+                                                    <g id="prefix__Group_3959" data-name="Group 3959"
+                                                        transform="translate(184.691 537.001)">
+                                                        <path id="prefix__Path_532" d="M15040 15248l105 25v-85l-105-20z"
+                                                            class="prefix__cls-1" data-name="Path 532"
+                                                            transform="translate(-14675 -14885.804)" />
+                                                        <path id="prefix__Path_533"
+                                                            d="M15145 15273l11.78-2.2v-85l-11.78 2.2"
+                                                            class="prefix__cls-1" data-name="Path 533"
+                                                            transform="translate(-14675 -14885.804)" />
+                                                        <path id="prefix__Path_534"
+                                                            d="M15157.309 15185.349l-105.13-19.545L15040 15168"
+                                                            class="prefix__cls-1" data-name="Path 534"
+                                                            transform="translate(-14675 -14885.804)" />
+                                                        <path id="prefix__Path_535" d="M15040 15258l105 25"
+                                                            class="prefix__cls-2" data-name="Path 535"
+                                                            transform="translate(-14675 -14883)" />
+                                                        <path id="prefix__Path_536" d="M15030 15237v-79"
+                                                            class="prefix__cls-2" data-name="Path 536"
+                                                            transform="translate(-14677 -14878)" />
+                                                        <circle id="prefix__Ellipse_185" cx="2" cy="2" r="2"
+                                                            class="prefix__cls-3" data-name="Ellipse 185"
+                                                            transform="translate(351 278)" />
+                                                        <circle id="prefix__Ellipse_186" cx="2" cy="2" r="2"
+                                                            class="prefix__cls-3" data-name="Ellipse 186"
+                                                            transform="translate(351 357)" />
+                                                        <circle id="prefix__Ellipse_187" cx="2" cy="2" r="2"
+                                                            class="prefix__cls-3" data-name="Ellipse 187"
+                                                            transform="translate(363 373)" />
+                                                        <circle id="prefix__Ellipse_188" cx="2" cy="2" r="2"
+                                                            class="prefix__cls-3" data-name="Ellipse 188"
+                                                            transform="translate(468 398)" />
+                                                        <text id="prefix__h" class="prefix__cls-4"
+                                                            transform="translate(331 314)">
+                                                            <tspan x="6.539" y="15">h</tspan>
+                                                        </text>
+                                                        <text id="prefix__w" class="prefix__cls-4"
+                                                            transform="translate(398 388)">
+                                                            <tspan x="5.441" y="15">w</tspan>
+                                                        </text>
+                                                        <path id="prefix__Path_537"
+                                                            d="M15040 15196.76l37.746 8.986v-41.379l-37.746-7.19z"
+                                                            class="prefix__cls-1" data-name="Path 537"
+                                                            transform="translate(-14641.373 -14850.746)" />
+                                                        <path id="prefix__Path_538"
+                                                            d="M15040 15189.862l31.169 7.42v-34.169l-31.169-5.937z"
+                                                            class="prefix__cls-1" data-name="Path 538"
+                                                            transform="translate(-14638.085 -14846.515)" />
+                                                        <path id="prefix__Path_539"
+                                                            d="M15040 15182.68l24.319 5.789v-26.659l-24.319-4.633z"
+                                                            class="prefix__cls-1" data-name="Path 539"
+                                                            transform="translate(-14634.66 -14842.107)" />
+                                                    </g>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                    </ng-template>
+                                </div>
+                            </bps-form-control>
+                        </bps-form-item>
+                        <bps-form-item class="bps-form-item">
+                            <bps-form-control>
+                                <div class="acoustics-height-container">
+                                    <div id="sps-acoustics-width-title-container"
+                                        class="sps-accordion-ui-section-content-container acoustics-height-spacing">
+                                        <h3 [ngClass]="{'disabled': !wallPerimeterEffectChecked}">{{'configure.width' |
+                                            translate | uppercase}} </h3>
+                                        <!-- WIDTH -->
+                                    </div>
+                                    <div id="sps-acoustics-width-input-container">
+                                        <div class="sps-structural-input-field input-container"
+                                            id="sps-acoustics-width-input">
+                                            <input type="text" formControlName="width"
+                                                style="width: 62px; margin-left: -0.1px" bps-input
+                                                [(ngModel)]="widthString" [disabled]="!wallPerimeterEffectChecked"
+                                                name="width" (ngModelChange)="writeNsendUnified3DModel()"
+                                                autocomplete="off" id="sps-acoustics-width-input-box">
+                                            <div [ngStyle]="{'color':wallPerimeterEffectChecked?'#bfbfbf':'#666666'}">
+                                                (m)</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </bps-form-control>
+                        </bps-form-item>
+                        <bps-form-item class="bps-form-item">
+                            <bps-form-control>
+                                <div class="acoustics-height-container">
+                                    <div id="sps-acoustics-room-area-title-container"
+                                        class="sps-accordion-ui-section-content-container acoustics-height-spacing">
+                                        <h3 [ngClass]="{'disabled': !wallPerimeterEffectChecked}">
+                                            {{'configure.room-area' | translate | uppercase}} </h3>
+                                        <!-- ROOM AREA -->
+                                    </div>
+                                    <div class="sps-height-num-info">
+                                        <div id="sps-acoustics-room-area-input-container">
+                                            <div class="sps-structural-input-field input-container"
+                                                id="sps-acoustics-room-area-input">
+                                                <input type="text" formControlName="roomArea"
+                                                    style="width: 62px; margin-left: -0.1px" bps-input
+                                                    [(ngModel)]="roomAreaString"
+                                                    [disabled]="!wallPerimeterEffectChecked" name="roomArea"
+                                                    (ngModelChange)="writeNsendUnified3DModel()" autocomplete="off"
+                                                    id="sps-acoustics-room-area-input-box">
+                                                <div id="powerOf2" class="lowercase"
+                                                    [ngStyle]="{'color':wallPerimeterEffectChecked?'#bfbfbf':'#666666'}">
+                                                    (m<sup>2</sup>)</div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <!-- <p class="sps-info-text">i</p> -->
+                                            <!-- <img *ngIf="wallPerimeterEffectChecked else greyImage3" class="iconI"  src="/assets/Images/icons/sps_information_icon_blue.svg"> -->
+                                            <img *ngIf="wallPerimeterEffectChecked else greyImage3" class="iconI"
+                                                src="/assets/Images/icons/sps_information_icon_grey.svg">
+                                            <ng-template #greyImage3>
+                                                <img class="iconI"
+                                                    src="/assets/Images/icons/sps_information_icon_grey.svg">
+                                            </ng-template>
+                                        </div>
+                                    </div>
+                                </div>
+                            </bps-form-control>
+                        </bps-form-item>
+                    </form>
+                    <div class="sps-last-break"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

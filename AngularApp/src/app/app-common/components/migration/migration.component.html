@@ -1,0 +1,76 @@
+<div class="flex-container">
+    <div class="flex-items">
+        <div class="container">
+            <div class="migration">
+                <span class="title" style="border-bottom: solid 1px #474747 !important;">
+                    <div class="buttons" style="padding: 1px !important;">
+                        <button style="float: right;" bps-button bpsType="variation-3" (click)="goBackHome()">
+                            Back Home</button>
+                    </div>
+                    DB Migration
+                </span>
+                <ng-container *ngIf="labelNotification == ''">
+                    <span class="title">Are you want to start migrating? </span>
+                    <span class="subtitle" style="font-weight: 100;">
+                        Depending on data, this might take time to complete.
+                    </span>
+                    <div class="buttons">
+                        <button style="float: right;" bps-button bpsType="variation-3"
+                            (click)="migrate(true)">Yes</button>
+                        <!-- <button style="float: left;" bps-button bpsType="variation-3" (click)="goBackHome()">No</button> -->
+                    </div>
+                </ng-container>
+                <ng-container *ngIf="labelNotification != ''">
+                    <span class="subtitle">
+                        <span class="successful">{{labelNotification}}</span>
+                        <span style="float: right;">
+                            <span (click)="show('All')" style="cursor: pointer;">Total: {{successRecords +
+                                failedRecords}} </span> |
+                            <span class="successful" (click)="show('Success')" style="cursor: pointer;">Updated:
+                                {{successRecords}}</span> |
+                            <span class="failed" (click)="show('Failed')" style="cursor: pointer;">Failed:
+                                {{failedRecords}}</span>
+                        </span>
+                    </span>
+
+                </ng-container>
+                <ng-container *ngIf="labelNotification != ''">
+                    <span class="subtitle">Migration Result</span>
+                    <nz-table #basicTable [nzData]="migrationResult" nzSize="small" [nzScroll]="{ y: '400px' }">
+                        <thead>
+                            <tr>
+                                <th style="width: 50px;">#</th>
+                                <th>Message</th>
+                                <th style="width: 70px;">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let data of basicTable.data">
+                                <td style="width: 50px;">{{data.Data.ProblemId}}</td>
+                                <td>{{data.Message}}</td>
+                                <td style="width: 70px;">
+                                    <img *ngIf="data.Success" src="/assets/Images/check_black_24dp.svg" width="20"
+                                        style="margin-top: -5px;" />
+                                    <img *ngIf="!data.Success" src="/assets/Images/close_black_24dp.svg" width="20"
+                                        style="margin-top: -5px;" />
+                                    <div id="bps-download-button" class="bps-download-button"
+                                        style="font-size: 17px; float: right; cursor: pointer;"
+                                        (click)="onDownloadButtonClick(data.Data.JsonString, data.Data.ProblemId)">
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </nz-table>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="loaderContainer" [ngClass]="{'show': showLoader, 'hide': !showLoader}"
+    style="position: absolute; top: 0; z-index: 1000;">
+    <div style="position: relative; width: 100vw; height: 100vh; background-color: black; opacity: .6;"></div>
+    <div style="position: absolute; top: 23vh; width: 100%; text-align: center;">
+        <img src="assets/Images/loaders/loading_2_GIF.gif" />
+    </div>
+</div>

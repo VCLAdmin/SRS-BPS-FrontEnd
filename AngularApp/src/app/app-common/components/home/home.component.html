@@ -1,0 +1,30 @@
+<div>
+    <div nz-row nzType="flex" nzJustify="start" nzAlign="left">
+        <div nz-col>
+            <app-left-panel (updateListEvent)="refreshHome()"></app-left-panel>
+        </div>
+        <div nz-col nzSpan="19" style="float:right; flex-grow:1;width:65%;">
+            <app-middle-panel *ngIf="projects" [projects]="projects" [isReload]="updateProjectList"></app-middle-panel>
+        </div>
+
+    </div>
+    <div nz-row id="poweredByVCL" class="top-grey-border-intro-page">
+        <div></div>
+        <div style="width: 100%; text-align: center">
+            <p>
+                {{'home.powered-by' | translate}}
+                <span>{{'home.virtual-construction-label' | translate}}</span>
+            </p>
+        </div>
+        <div style="position: absolute; right: 25px;">
+            <img src="/assets/Images/sps/sps-schuco-white-logo.svg">
+        </div>
+    </div>
+</div>
+<div id="loaderContainer" [ngClass]="{'show': !isOperating, 'hide': isOperating}"
+    style="position: absolute; top: 0; z-index: 1000;">
+    <div style="position: relative; width: 100vw; height: 100vh; background-color: black; opacity: .6;"></div>
+    <div style="position: absolute; top: 23vh; width: 100%; text-align: center;">
+        <img style="width:auto !important; height: auto !important;" src="/assets/Images/loaders/loading_2_GIF.gif" />
+    </div>
+</div>

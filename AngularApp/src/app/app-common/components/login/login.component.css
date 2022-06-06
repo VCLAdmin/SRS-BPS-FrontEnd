@@ -1,0 +1,345 @@
+.pull-right
+{
+    /* float: right; */
+    width: 45px;
+    height: 37px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 88px;
+}
+
+.icondropdown
+{
+    padding: 15px 10px 2px 10px;
+}
+
+img{
+    height: 15px;
+    width: 25px;
+}
+
+.show{
+    display: block;
+}
+
+.hide{
+    display: none;
+}
+
+#submit-container > button.disabled, #submit-container > button[disabled] {
+    color: #666666 !important;
+    border: 1px solid #363636;
+    cursor: default;
+    pointer-events: none;
+}
+
+#login-container
+{
+    width: 700px;
+    font-family: SchucoRegularLight;
+    font-size: 15px;
+    padding: 25px;
+    margin: auto;
+    line-height: 1.428571429;
+    border: 1px solid #00a2d1;
+    border-radius: 10px;
+}
+
+#login-container .loginSection
+{
+    margin-bottom:20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#login-container .welcomeText
+{
+    margin-bottom:10px;
+    margin-top:10px;
+    font-family: SchucoRegularBold;
+    font-size: 17px;
+    text-transform: uppercase;
+    color: #ffffff;
+    line-height: 1.25;
+    text-align: justify;
+}
+
+#login-container .loginInput
+{
+    width: 410px;
+    background-position: 380px 15px;
+    float: right;
+    border-radius: 8px;
+}
+
+#login-container .loginInputLabel
+{
+    display: inline-block;
+    font-family: SchucoRegularLight;
+    font-size: 21px;
+    margin-top: auto;
+    margin-bottom: auto;
+    font-weight: bold;
+    line-height: 1.428571429;
+}
+
+#login-username
+{
+    /* margin-left: 91px; */
+    font-size: 21px;
+}
+
+#login-password
+{
+    /* margin-left: 97px; */
+    font-size: 21px;
+}
+
+#login-container .submit-container-conditions
+{
+    margin-left: 237px;
+    display: flex;
+    align-items: flex-start;
+
+}
+
+#login-container #submit-container
+{
+    /* margin-left: 350px; */
+    display: flex;
+    /* align-items: center; */
+}
+
+#submit-container #submit
+{
+    /* float: right;
+    margin: 0px 42px 0px 42px; */
+    margin-right: 0;
+}
+
+button, input[type=submit] {
+    width: 175px;
+    height: 45px;
+    font-size: 12px;
+    background-color: #474747;
+    border: 1px solid white;
+    border-radius: 8px;
+    font-family: 'SchucoRegularBold';
+    outline: none;
+    text-transform: uppercase;
+    margin: auto;
+}
+
+
+input[type=text],
+input[type=password]
+{
+    color: #ffffff;
+    padding: 5px;
+    box-shadow: none !important;
+    outline: none !important;
+    border-width: 1px;
+    border-style: solid;
+    width: 100px;
+    height: 45px;
+}
+
+
+input[type=text]:focus,
+input[type=password]:focus
+{
+    border-color: #00A1D0 !important;
+    background: none !important;
+}
+
+input[type=text].ng-untouched,
+input[type=password].ng-untouched
+{
+    background: #474747;
+    border-color: #ffffff;
+    background-repeat: no-repeat;
+    background-position: 95% 15px;
+}
+
+input[type=text].ng-touched,
+input[type=password].ng-touched
+{
+    background: none;
+    border-color: #EF8621;
+    background-repeat: no-repeat;
+    background-position: 95% 15px;
+}
+
+
+input[type=text].ng-valid,
+input[type=password].ng-valid
+{
+    border-color: #78B928;
+    background: url("/assets/Images/green-check.png");
+    background-repeat: no-repeat;
+    background-position: 95% 15px;
+}
+
+input[type=text].ng-invalid.ng-touched,
+input[type=password].ng-invalid.ng-touched
+{
+    border-color: #EF8621;
+    background: url("/assets/Images/orange-x.png");
+    background-repeat: no-repeat;
+    background-position: 95% 15px;
+}
+
+input[type=checkbox] + label
+{
+    display: block;
+    cursor: pointer;
+}
+
+input[type=checkbox] + label:before
+{
+    content: "\2713";
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    padding-left: 3px;
+    padding-bottom: 5px;
+    margin-right: 6px;
+    vertical-align: text-top;
+    color: transparent;
+    transition: 0.2s;
+}
+
+input[type=checkbox].ng-pristine + label:before
+{
+    border: 1px solid #ffffff;
+}
+
+input[type=checkbox].ng-dirty.ng-invalid + label:before
+{
+    border: 1px solid #EF8621;
+}
+
+label:active:before
+{
+    transform: scale(0);
+}
+
+input[type=checkbox]:checked + label:before
+{
+    border: 1px solid #78B928;
+    color: #78b928;
+}
+
+input[type=checkbox]:disabled + label:before
+{
+    transform: scale(1);
+    border-color: #aaa;
+}
+
+input[type=checkbox]:checked:disabled + label:before
+{
+    transform: scale(1);
+    background-color: #bfb;
+    border-color: #bfb;
+}
+
+.submit-container-conditions
+{
+    display: flex;
+    flex-direction: column;
+}
+#login-container .invalid-emailpassword-text,
+#login-container .forgot-password-text,
+#login-container .loginCheckbox
+{
+    display: inline-block;
+    font-family: SchucoRegularLight;
+    font-size: 14px;
+    font-weight: initial;
+    letter-spacing: 0px;
+    line-height: 20px;
+    /* margin-right: auto; */
+}
+
+#login-container .invalid-emailpassword-text
+{
+    margin-bottom: 10px;
+    color:red;
+}
+#login-container .forgot-password-text
+{
+    margin-bottom: 10px;
+}
+
+#login-container .loginCheckbox
+{
+    margin-bottom: 5px;
+}
+
+#submit
+{
+    color: #ffffff;
+    cursor: pointer;
+}
+
+input[type="checkbox"]
+{
+    display: none;
+}
+
+
+.disclaimerText
+{
+    /* width: 640px; */
+    text-align: justify;
+    font-family: SchucoRegularLight;
+    font-size: 17px;
+    margin: 0px auto;
+}
+
+@media (max-width: 655px)
+{
+    body {
+        padding: 10px;
+    }
+    
+    #login-container
+    {
+        width: 100vw;
+    }
+    
+    #login-container .loginInput
+    {
+        width: 50%;
+        background-position: 90% 15px;
+    }
+    
+    #login-username
+    {
+        margin-left: initial;
+    }
+
+    #login-password
+    {
+        margin-left: 6px;
+    }
+
+    #login-container #submit-container
+    {
+         margin-left: initial; 
+    }
+}
+/* 
+::ng-deep .cdk-overlay-connected-position-bounding-box{
+    left: 0 !important;
+    width: 100% !important;
+    align-items: center !important;
+} */
+
+.languageDropdown {
+    width: 40px; 
+    line-height: 0.5; 
+    padding: 0 7px; 
+    background-color: transparent; 
+    border: 0px solid white;
+}

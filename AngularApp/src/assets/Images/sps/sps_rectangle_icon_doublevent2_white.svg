@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="50" height="30" viewBox="0 0 50 30">
+    <defs>
+        <style>
+            .cls-1,.cls-2,.cls-4{fill:none}.cls-1,.cls-2{stroke:#fff}.cls-2{stroke-width:1.5px}.cls-3{stroke:none}
+        </style>
+    </defs>
+    <g id="sps_rectangle_icon_doublevent2_white" transform="translate(-740 -635)">
+        <g id="Rectangle_1340" class="cls-1" data-name="Rectangle 1340">
+            <path d="M0 0h25v30H0z" class="cls-3" transform="translate(765 635)"/>
+            <path d="M.5.5h24v29H.5z" class="cls-4" transform="translate(765 635)"/>
+        </g>
+        <g id="Rectangle_1342" class="cls-1" data-name="Rectangle 1342">
+            <path d="M0 0h25v30H0z" class="cls-3" transform="translate(740 635)"/>
+            <path d="M.5.5h24v29H.5z" class="cls-4" transform="translate(740 635)"/>
+        </g>
+        <g id="Rectangle_1341" class="cls-1" data-name="Rectangle 1341">
+            <path d="M0 0h21v26H0z" class="cls-3" transform="translate(767 637)"/>
+            <path d="M.5.5h20v25H.5z" class="cls-4" transform="translate(767 637)"/>
+        </g>
+        <g id="Rectangle_1343" class="cls-1" data-name="Rectangle 1343">
+            <path d="M0 0h21v26H0z" class="cls-3" transform="translate(742 637)"/>
+            <path d="M.5.5h20v25H.5z" class="cls-4" transform="translate(742 637)"/>
+        </g>
+        <path id="Path_935" d="M831.175-19628.764L812.621-19641l18.555-12.312" class="cls-2" data-name="Path 935" transform="translate(-44 20291)"/>
+        <path id="Path_937" d="M831.175-19628.764L812.621-19641l18.555-12.312" class="cls-2" data-name="Path 937" transform="rotate(180 786.898 -9495.538)"/>
+        <path id="Path_936" d="M1751.787-19537.582l9.182-23.031 9.193 23.031" class="cls-2" data-name="Path 936" transform="translate(-983.477 20199.744)"/>
+    </g>
+</svg>

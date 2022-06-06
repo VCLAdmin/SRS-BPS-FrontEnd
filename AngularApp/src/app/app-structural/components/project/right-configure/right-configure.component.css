@@ -1,0 +1,140 @@
+.right-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden;
+}
+
+.button-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 20px 25px 15px;
+  box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 1) !important;
+}
+
+.input-element.selected {
+  border-color: #00a2d1 !important;
+}
+
+.copy-create-btn {
+  width: 70px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.input-container {
+  padding: 15px 0 15px;
+  /* border-top: 1px solid #363636; */
+  width: 100%;
+}
+
+.scrolling-container {
+  min-width: 235px;
+  width: 100%;
+  height: calc(100vh - 340px);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.input-element {
+  min-width: 185px;
+  width: calc(100% - 50px);
+  margin: 0 25px 8px;
+}
+
+.input-element.last {
+  margin: 0 25px 0;
+}
+
+/* .input-element.last-clicked
+{
+    border-color: #00a2d1 !important;
+} */
+
+/* .panel-body {
+    width: 99%;
+    padding: 5px 16px 10px 25px;
+    height: 200px;
+    overflow: scroll;
+} */
+
+.border1px {
+  border: 1px solid #00a2d1 !important;
+}
+
+.display-subtotal {
+  position: absolute;
+  left: 25px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+}
+
+.checkout-button-container {
+  position: absolute;
+  /* background-color: #262626; */
+  height: 59px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: #262626; */
+  z-index: 9999;
+}
+
+.checkout-button {
+  width: 185px;
+  height: 40px;
+  /* margin: 0px 25px 30px 25px; */
+  padding: 13px 47.5px 12px;
+  border-radius: 8px;
+  border: solid 2px #00a2d1;
+}
+
+.checkout-button.disabled {
+  border: solid 1px #666666 !important;
+  color: #666666 !important;
+  cursor: not-allowed;
+}
+
+.subtotalText {
+  width: 145px;
+  height: 22px;
+  margin: 0 0 5px;
+  font-family: UniversForSchueco-530Med;
+  font-size: 18px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 0.5;
+  letter-spacing: normal;
+  text-align: left;
+  color: #ffffff;
+  text-transform: none;
+}
+
+.tax {
+  width: 132px;
+  height: 15px;
+  margin: 4px 12px 0 0;
+  font-family: UniversForSchueco-530Med;
+  font-size: 12px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 0.75;
+  letter-spacing: normal;
+  text-align: left;
+  color: #ffffff;
+  text-transform: none;
+}
+
+/* ::ng-deep .vertical-center-modal .ant-modal {
+  top: -240px;
+} */

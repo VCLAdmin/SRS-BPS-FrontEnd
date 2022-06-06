@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="prefix__Group_3811" width="21.546" height="18.559"
+	data-name="Group 3811" viewBox="0 0 21.546 18.559">
+	<defs>
+	  <style>
+		.prefix__cls-1234,
+		.prefix__cls-3234 {
+		  fill: none;
+		}
+
+		.prefix__cls-1234 {
+		  stroke: #999;
+		}
+
+		.prefix__cls-2234 {
+		  stroke: none;
+		}
+	  </style>
+	</defs>
+	<g id="prefix__Rectangle_26" class="prefix__cls-1234" data-name="Rectangle 26"
+	  transform="translate(0 4.947)">
+	  <rect width="8.173" height="13.612" class="prefix__cls-2234" rx="2" />
+	  <rect width="7.173" height="12.612" x=".5" y=".5" class="prefix__cls-3234" rx="1.5" />
+	</g>
+	<g id="prefix__Rectangle_298" class="prefix__cls-1234" data-name="Rectangle 298">
+	  <rect width="8.173" height="6.671" class="prefix__cls-2234" rx="2" />
+	  <rect width="7.173" height="5.671" x=".5" y=".5" class="prefix__cls-3234" rx="1.5" />
+	</g>
+	<g id="prefix__Rectangle_295" class="prefix__cls-1234" data-name="Rectangle 295"
+	  transform="translate(13.374 4.947)">
+	  <rect width="8.173" height="13.612" class="prefix__cls-2234" rx="2" />
+	  <rect width="7.173" height="12.612" x=".5" y=".5" class="prefix__cls-3234" rx="1.5" />
+	</g>
+	<g id="prefix__Rectangle_296" class="prefix__cls-1234" data-name="Rectangle 296"
+	  transform="translate(13.374)">
+	  <rect width="8.173" height="6.671" class="prefix__cls-2234" rx="2" />
+	  <rect width="7.173" height="5.671" x=".5" y=".5" class="prefix__cls-3234" rx="1.5" />
+	</g>
+	<g id="prefix__Rectangle_293" class="prefix__cls-1234" data-name="Rectangle 293"
+	  transform="translate(6.687 4.947)">
+	  <rect width="8.173" height="13.612" class="prefix__cls-2234" rx="2" />
+	  <rect width="7.173" height="12.612" x=".5" y=".5" class="prefix__cls-3234" rx="1.5" />
+	</g>
+	<g id="prefix__Rectangle_297" class="prefix__cls-1234" data-name="Rectangle 297"
+	  transform="translate(6.687)">
+	  <rect width="8.173" height="6.671" class="prefix__cls-2234" rx="2" />
+	  <rect width="7.173" height="5.671" x=".5" y=".5" class="prefix__cls-3234" rx="1.5" />
+	</g>
+  </svg>

@@ -1,0 +1,303 @@
+<div id="left-panel-scrolling-container" class="left-panel-scrolling-container">
+    <div class="sps-result-tab-left-panel-headings" id="sps-result-tab-left-panel-headings">
+        <div class="sps-result-tab-panels-heading1">{{'result.glass' | translate }}</div>
+        <!-- Panels -->
+    </div>
+    <div *ngIf="hasGlazingSystem(1)" class="sps-result-tab-left-panel-container"
+        id="sps-result-tab-left-panel-container-1">
+        <div class="sps-result-tab-left-panel-partA">
+            <div class="sps-result-tab-left-panel-partA-top">
+              <div *ngIf="getGlassList(1).length > 18 else noScroll"  class="wrapperScroll" 
+              [ngClass]="'wrapperScroll0'" (wheel)="onWheel($event, 'wrapperScroll0')"> {{getGlassList(1)}} </div>
+              <ng-template #noScroll> {{getGlassList(1)}} </ng-template></div>
+            <!-- Glass -->
+            <div class="sps-result-tab-left-panel-partA-bottom-short"
+                id="sps-result-tab-left-panel-container-1-divider"></div>
+        </div>
+        <div class="sps-result-tab-left-panel-partB">
+            <div class="sps-result-tab-left-panel-partB-top">
+                <div class="sps-result-tab-left-panel-partB-top-val">Rw</div>
+                <div class="sps-result-tab-left-panel-partB-top-val sps-result-tab-left-panel-partB-top-val2">{{
+                    getGlassRw(1) }}</div>
+                <div class="sps-result-tab-left-panel-partB-top-val sps-result-tab-left-panel-partB-top-val3">dB</div>
+            </div>
+            <div class="sps-result-tab-left-panel-partB-bottom">
+                <div class="sps-result-tab-left-panel-partB-bottom-column1">
+                    <div class="sps-result-tab-left-panel-partB-bottom-column-val" *ngIf="(getPlatesValue(1,0))">{{
+                        getPlatesValue(1,0) }}</div>
+                    <div class="sps-result-tab-left-panel-partB-bottom-column-val" *ngIf="(getCavitiesValue(1,0))">{{
+                        getCavitiesValue(1,0) }}</div>
+                    <div class="sps-result-tab-left-panel-partB-bottom-column-val" *ngIf="(getPlatesValue(1,1))">{{
+                        getPlatesValue(1,1) }}</div>
+                    <div class="sps-result-tab-left-panel-partB-bottom-column-val" *ngIf="(getCavitiesValue(1,1))">{{
+                        getCavitiesValue(1,1) }}</div>
+                    <div class="sps-result-tab-left-panel-partB-bottom-column-val" *ngIf="(getPlatesValue(1,2))">{{
+                        getPlatesValue(1,2) }}</div>
+                </div>
+                <div class="sps-result-tab-left-panel-partB-bottom-column2">
+                    <div class="sps-result-tab-left-panel-partB-bottom-column-val" *ngIf="(getPlatesValue(1,0))">mm
+                    </div>
+                    <div class="sps-result-tab-left-panel-partB-bottom-column-val" *ngIf="(getCavitiesValue(1,0))">mm
+                    </div>
+                    <div class="sps-result-tab-left-panel-partB-bottom-column-val" *ngIf="(getPlatesValue(1,1))">mm
+                    </div>
+                    <div class="sps-result-tab-left-panel-partB-bottom-column-val" *ngIf="(getCavitiesValue(1,1))">mm
+                    </div>
+                    <div class="sps-result-tab-left-panel-partB-bottom-column-val" *ngIf="(getPlatesValue(1,2))">mm
+                    </div>
+                </div>
+                <div class="sps-result-tab-left-panel-partB-bottom-column3">
+                    <div class="sps-result-tab-left-panel-partB-bottom-column-val" *ngIf="(getPlatesDescription(1,0))">
+                        {{ getPlatesDescription(1,0) }}</div>
+                    <div class="sps-result-tab-left-panel-partB-bottom-column-val"
+                        *ngIf="(getCavitiesDescription(1,0))">{{ getCavitiesDescription(1,0) }}</div>
+                    <div class="sps-result-tab-left-panel-partB-bottom-column-val" *ngIf="(getPlatesDescription(1,1))">
+                        {{ getPlatesDescription(1,1) }}</div>
+                    <div class="sps-result-tab-left-panel-partB-bottom-column-val"
+                        *ngIf="(getCavitiesDescription(1,1))">{{ getCavitiesDescription(1,1) }}</div>
+                    <div class="sps-result-tab-left-panel-partB-bottom-column-val" *ngIf="(getPlatesDescription(1,2))">
+                        {{ getPlatesDescription(1,2) }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="hasGlazingSystem(2)" id="sps-result-tab-left-panel-container-2"
+        class="sps-result-tab-left-panel-container">
+        <div class="sps-result-tab-left-panel-partA">
+            <div class="sps-result-tab-left-panel-partA-top sps-result-tab-color-for-container2"
+                id="sps-result-tab-left-panel-container-2-glass-text"> 
+                <div *ngIf="getGlassList(2).length > 18 else noScroll"  class="wrapperScroll" 
+                    [ngClass]="'wrapperScroll1'" (wheel)="onWheel($event, 'wrapperScroll1')"> {{getGlassList(2)}} </div>
+                    <ng-template #noScroll> {{getGlassList(2)}} </ng-template></div>
+            <!-- Glass -->
+            <div class="sps-result-tab-left-panel-partA-bottom-short"
+                id="sps-result-tab-left-panel-container-2-divider"></div>
+        </div>
+        <div class="sps-result-tab-left-panel-partB">
+            <div class="sps-result-tab-left-panel-partB-top">
+                <div class="sps-result-tab-left-panel-partB-top-val">Rw</div>
+                <div class="sps-result-tab-left-panel-partB-top-val sps-result-tab-left-panel-partB-top-val2">{{
+                    getGlassRw(2) }}</div>
+                <div class="sps-result-tab-left-panel-partB-top-val sps-result-tab-left-panel-partB-top-val3">dB</div>
+            </div>
+            <div class="sps-result-tab-left-panel-partB-bottom">
+                <div class="sps-result-tab-left-panel-partB-bottom-column1">
+                    <div class="sps-result-tab-left-panel-partB-bottom-column-val" *ngIf="(getPlatesValue(2,0))">{{
+                        getPlatesValue(2,0) }}</div>
+                    <div class="sps-result-tab-left-panel-partB-bottom-column-val" *ngIf="(getCavitiesValue(2,0))">{{
+                        getCavitiesValue(2,0) }}</div>
+                    <div class="sps-result-tab-left-panel-partB-bottom-column-val" *ngIf="(getPlatesValue(2,1))">{{
+                        getPlatesValue(2,1) }}</div>
+                    <div class="sps-result-tab-left-panel-partB-bottom-column-val" *ngIf="(getCavitiesValue(2,1))">{{
+                        getCavitiesValue(2,1) }}</div>
+                    <div class="sps-result-tab-left-panel-partB-bottom-column-val" *ngIf="(getPlatesValue(2,2))">{{
+                        getPlatesValue(2,2) }}</div>
+                </div>
+                <div class="sps-result-tab-left-panel-partB-bottom-column2">
+                    <div class="sps-result-tab-left-panel-partB-bottom-column-val" *ngIf="(getPlatesValue(2,0))">mm
+                    </div>
+                    <div class="sps-result-tab-left-panel-partB-bottom-column-val" *ngIf="(getCavitiesValue(2,0))">mm
+                    </div>
+                    <div class="sps-result-tab-left-panel-partB-bottom-column-val" *ngIf="(getPlatesValue(2,1))">mm
+                    </div>
+                    <div class="sps-result-tab-left-panel-partB-bottom-column-val" *ngIf="(getCavitiesValue(2,1))">mm
+                    </div>
+                    <div class="sps-result-tab-left-panel-partB-bottom-column-val" *ngIf="(getPlatesValue(2,2))">mm
+                    </div>
+                </div>
+                <div class="sps-result-tab-left-panel-partB-bottom-column3">
+                    <div class="sps-result-tab-left-panel-partB-bottom-column-val" *ngIf="(getPlatesDescription(2,0))">
+                        {{ getPlatesDescription(2,0) }}</div>
+                    <div class="sps-result-tab-left-panel-partB-bottom-column-val"
+                        *ngIf="(getCavitiesDescription(2,0))">{{ getCavitiesDescription(2,0) }}</div>
+                    <div class="sps-result-tab-left-panel-partB-bottom-column-val" *ngIf="(getPlatesDescription(2,1))">
+                        {{ getPlatesDescription(2,1) }}</div>
+                    <div class="sps-result-tab-left-panel-partB-bottom-column-val"
+                        *ngIf="(getCavitiesDescription(2,1))">{{ getCavitiesDescription(2,1) }}</div>
+                    <div class="sps-result-tab-left-panel-partB-bottom-column-val" *ngIf="(getPlatesDescription(2,2))">
+                        {{ getPlatesDescription(2,2) }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="hasGlazingSystem(3)" id="sps-result-tab-left-panel-container-3"
+        class="sps-result-tab-left-panel-container">
+        <div class="sps-result-tab-left-panel-partA">
+            <div class="sps-result-tab-left-panel-partA-top sps-result-tab-color-for-container3"
+                id="sps-result-tab-left-panel-container-3-glass-text"> 
+                <div *ngIf="getGlassList(3).length > 18 else noScroll"  class="wrapperScroll" 
+                    [ngClass]="'wrapperScroll2'" (wheel)="onWheel($event, 'wrapperScroll2')"> {{getGlassList(3)}} </div>
+                    <ng-template #noScroll> {{getGlassList(3)}} </ng-template></div>
+            <!-- Glass -->
+            <div class="sps-result-tab-left-panel-partA-bottom-short"
+                id="sps-result-tab-left-panel-container-3-divider"></div>
+        </div>
+        <div class="sps-result-tab-left-panel-partB">
+            <div class="sps-result-tab-left-panel-partB-top">
+                <div class="sps-result-tab-left-panel-partB-top-val">Rw</div>
+                <div class="sps-result-tab-left-panel-partB-top-val sps-result-tab-left-panel-partB-top-val2">{{
+                    getGlassRw(3) }}</div>
+                <div class="sps-result-tab-left-panel-partB-top-val sps-result-tab-left-panel-partB-top-val3">dB</div>
+            </div>
+            <div class="sps-result-tab-left-panel-partB-bottom">
+                <div class="sps-result-tab-left-panel-partB-bottom-column1">
+                    <div class="sps-result-tab-left-panel-partB-bottom-column-val" *ngIf="(getPlatesValue(3,0))">{{
+                        getPlatesValue(3,0) }}</div>
+                    <div class="sps-result-tab-left-panel-partB-bottom-column-val" *ngIf="(getCavitiesValue(3,0))">{{
+                        getCavitiesValue(3,0) }}</div>
+                    <div class="sps-result-tab-left-panel-partB-bottom-column-val" *ngIf="(getPlatesValue(3,1))">{{
+                        getPlatesValue(3,1) }}</div>
+                    <div class="sps-result-tab-left-panel-partB-bottom-column-val" *ngIf="(getCavitiesValue(3,1))">{{
+                        getCavitiesValue(3,1) }}</div>
+                    <div class="sps-result-tab-left-panel-partB-bottom-column-val" *ngIf="(getPlatesValue(3,2))">{{
+                        getPlatesValue(3,2) }}</div>
+                </div>
+                <div class="sps-result-tab-left-panel-partB-bottom-column2">
+                    <div class="sps-result-tab-left-panel-partB-bottom-column-val" *ngIf="(getPlatesValue(3,0))">mm
+                    </div>
+                    <div class="sps-result-tab-left-panel-partB-bottom-column-val" *ngIf="(getCavitiesValue(3,0))">mm
+                    </div>
+                    <div class="sps-result-tab-left-panel-partB-bottom-column-val" *ngIf="(getPlatesValue(3,1))">mm
+                    </div>
+                    <div class="sps-result-tab-left-panel-partB-bottom-column-val" *ngIf="(getCavitiesValue(3,1))">mm
+                    </div>
+                    <div class="sps-result-tab-left-panel-partB-bottom-column-val" *ngIf="(getPlatesValue(3,2))">mm
+                    </div>
+                </div>
+                <div class="sps-result-tab-left-panel-partB-bottom-column3">
+                    <div class="sps-result-tab-left-panel-partB-bottom-column-val" *ngIf="(getPlatesDescription(3,0))">
+                        {{ getPlatesDescription(3,0) }}</div>
+                    <div class="sps-result-tab-left-panel-partB-bottom-column-val"
+                        *ngIf="(getCavitiesDescription(3,0))">{{ getCavitiesDescription(3,0) }}</div>
+                    <div class="sps-result-tab-left-panel-partB-bottom-column-val" *ngIf="(getPlatesDescription(3,1))">
+                        {{ getPlatesDescription(3,1) }}</div>
+                    <div class="sps-result-tab-left-panel-partB-bottom-column-val"
+                        *ngIf="(getCavitiesDescription(3,1))">{{ getCavitiesDescription(3,1) }}</div>
+                    <div class="sps-result-tab-left-panel-partB-bottom-column-val" *ngIf="(getPlatesDescription(3,2))">
+                        {{ getPlatesDescription(3,2) }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="hasGlazingSystem(4)" id="sps-result-tab-left-panel-container-4"
+        class="sps-result-tab-left-panel-container">
+        <div class="sps-result-tab-left-panel-partA">
+            <div class="sps-result-tab-left-panel-partA-top sps-result-tab-color-for-container4"
+                id="sps-result-tab-left-panel-container-4-glass-text">
+                <div *ngIf="getGlassList(4).length > 18 else noScroll"  class="wrapperScroll" 
+                    [ngClass]="'wrapperScroll3'" (wheel)="onWheel($event, 'wrapperScroll3')"> {{getGlassList(4)}} </div>
+                    <ng-template #noScroll> {{getGlassList(4)}} </ng-template></div>
+            <!-- Glass -->
+            <div class="sps-result-tab-left-panel-partA-bottom-short"
+                id="sps-result-tab-left-panel-container-4-divider"></div>
+        </div>
+        <div class="sps-result-tab-left-panel-partB">
+            <div class="sps-result-tab-left-panel-partB-top">
+                <div class="sps-result-tab-left-panel-partB-top-val">Rw</div>
+                <div class="sps-result-tab-left-panel-partB-top-val sps-result-tab-left-panel-partB-top-val2">{{
+                    getGlassRw(4) }}</div>
+                <div class="sps-result-tab-left-panel-partB-top-val sps-result-tab-left-panel-partB-top-val3">dB</div>
+            </div>
+            <div class="sps-result-tab-left-panel-partB-bottom">
+                <div class="sps-result-tab-left-panel-partB-bottom-column1">
+                    <div class="sps-result-tab-left-panel-partB-bottom-column-val" *ngIf="(getPlatesValue(4,0))">{{
+                        getPlatesValue(4,0) }}</div>
+                    <div class="sps-result-tab-left-panel-partB-bottom-column-val" *ngIf="(getCavitiesValue(4,0))">{{
+                        getCavitiesValue(4,0) }}</div>
+                    <div class="sps-result-tab-left-panel-partB-bottom-column-val" *ngIf="(getPlatesValue(4,1))">{{
+                        getPlatesValue(4,1) }}</div>
+                    <div class="sps-result-tab-left-panel-partB-bottom-column-val" *ngIf="(getCavitiesValue(4,1))">{{
+                        getCavitiesValue(4,1) }}</div>
+                    <div class="sps-result-tab-left-panel-partB-bottom-column-val" *ngIf="(getPlatesValue(4,2))">{{
+                        getPlatesValue(4,2) }}</div>
+                </div>
+                <div class="sps-result-tab-left-panel-partB-bottom-column2">
+                    <div class="sps-result-tab-left-panel-partB-bottom-column-val" *ngIf="(getPlatesValue(4,0))">mm
+                    </div>
+                    <div class="sps-result-tab-left-panel-partB-bottom-column-val" *ngIf="(getCavitiesValue(4,0))">mm
+                    </div>
+                    <div class="sps-result-tab-left-panel-partB-bottom-column-val" *ngIf="(getPlatesValue(4,1))">mm
+                    </div>
+                    <div class="sps-result-tab-left-panel-partB-bottom-column-val" *ngIf="(getCavitiesValue(4,1))">mm
+                    </div>
+                    <div class="sps-result-tab-left-panel-partB-bottom-column-val" *ngIf="(getPlatesValue(4,2))">mm
+                    </div>
+                </div>
+                <div class="sps-result-tab-left-panel-partB-bottom-column3">
+                    <div class="sps-result-tab-left-panel-partB-bottom-column-val" *ngIf="(getPlatesDescription(4,0))">
+                        {{ getPlatesDescription(4,0) }}</div>
+                    <div class="sps-result-tab-left-panel-partB-bottom-column-val"
+                        *ngIf="(getCavitiesDescription(4,0))">{{ getCavitiesDescription(4,0) }}</div>
+                    <div class="sps-result-tab-left-panel-partB-bottom-column-val" *ngIf="(getPlatesDescription(4,1))">
+                        {{ getPlatesDescription(4,1) }}</div>
+                    <div class="sps-result-tab-left-panel-partB-bottom-column-val"
+                        *ngIf="(getCavitiesDescription(4,1))">{{ getCavitiesDescription(4,1) }}</div>
+                    <div class="sps-result-tab-left-panel-partB-bottom-column-val" *ngIf="(getPlatesDescription(4,2))">
+                        {{ getPlatesDescription(4,2) }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="hasGlazingSystem(5)" id="sps-result-tab-left-panel-container-5"
+        class="sps-result-tab-left-panel-container">
+        <div class="sps-result-tab-left-panel-partA">
+            <div class="sps-result-tab-left-panel-partA-top sps-result-tab-color-for-container5"
+                id="sps-result-tab-left-panel-container-5-glass-text"> 
+                <div *ngIf="getGlassList(5).length > 18 else noScroll"  class="wrapperScroll" 
+                    [ngClass]="'wrapperScroll4'" (wheel)="onWheel($event, 'wrapperScroll4')"> {{getGlassList(5)}} </div>
+                    <ng-template #noScroll> {{getGlassList(5)}} </ng-template></div>
+            <!-- Glass -->
+            <div class="sps-result-tab-left-panel-partA-bottom-short"
+                id="sps-result-tab-left-panel-container-5-divider"></div>
+        </div>
+        <div class="sps-result-tab-left-panel-partB">
+            <div class="sps-result-tab-left-panel-partB-top">
+                <div class="sps-result-tab-left-panel-partB-top-val">Rw</div>
+                <div class="sps-result-tab-left-panel-partB-top-val sps-result-tab-left-panel-partB-top-val2">{{
+                    getGlassRw(5) }}</div>
+                <div class="sps-result-tab-left-panel-partB-top-val sps-result-tab-left-panel-partB-top-val3">dB</div>
+            </div>
+            <div class="sps-result-tab-left-panel-partB-bottom">
+                <div class="sps-result-tab-left-panel-partB-bottom-column1">
+                    <div class="sps-result-tab-left-panel-partB-bottom-column-val" *ngIf="(getPlatesValue(5,0))">{{
+                        getPlatesValue(5,0) }}</div>
+                    <div class="sps-result-tab-left-panel-partB-bottom-column-val" *ngIf="(getCavitiesValue(5,0))">{{
+                        getCavitiesValue(5,0) }}</div>
+                    <div class="sps-result-tab-left-panel-partB-bottom-column-val" *ngIf="(getPlatesValue(5,1))">{{
+                        getPlatesValue(5,1) }}</div>
+                    <div class="sps-result-tab-left-panel-partB-bottom-column-val" *ngIf="(getCavitiesValue(5,1))">{{
+                        getCavitiesValue(5,1) }}</div>
+                    <div class="sps-result-tab-left-panel-partB-bottom-column-val" *ngIf="(getPlatesValue(5,2))">{{
+                        getPlatesValue(5,2) }}</div>
+                </div>
+                <div class="sps-result-tab-left-panel-partB-bottom-column2">
+                    <div class="sps-result-tab-left-panel-partB-bottom-column-val" *ngIf="(getPlatesValue(5,0))">mm
+                    </div>
+                    <div class="sps-result-tab-left-panel-partB-bottom-column-val" *ngIf="(getCavitiesValue(5,0))">mm
+                    </div>
+                    <div class="sps-result-tab-left-panel-partB-bottom-column-val" *ngIf="(getPlatesValue(5,1))">mm
+                    </div>
+                    <div class="sps-result-tab-left-panel-partB-bottom-column-val" *ngIf="(getCavitiesValue(5,1))">mm
+                    </div>
+                    <div class="sps-result-tab-left-panel-partB-bottom-column-val" *ngIf="(getPlatesValue(5,2))">mm
+                    </div>
+                </div>
+                <div class="sps-result-tab-left-panel-partB-bottom-column3">
+                    <div class="sps-result-tab-left-panel-partB-bottom-column-val" *ngIf="(getPlatesDescription(5,0))">
+                        {{ getPlatesDescription(5,0) }}</div>
+                    <div class="sps-result-tab-left-panel-partB-bottom-column-val"
+                        *ngIf="(getCavitiesDescription(5,0))">{{ getCavitiesDescription(5,0) }}</div>
+                    <div class="sps-result-tab-left-panel-partB-bottom-column-val" *ngIf="(getPlatesDescription(5,1))">
+                        {{ getPlatesDescription(5,1) }}</div>
+                    <div class="sps-result-tab-left-panel-partB-bottom-column-val"
+                        *ngIf="(getCavitiesDescription(5,1))">{{ getCavitiesDescription(5,1) }}</div>
+                    <div class="sps-result-tab-left-panel-partB-bottom-column-val" *ngIf="(getPlatesDescription(5,2))">
+                        {{ getPlatesDescription(5,2) }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

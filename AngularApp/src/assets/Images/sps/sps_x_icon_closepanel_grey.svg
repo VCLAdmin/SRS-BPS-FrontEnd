@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16.973" height="16.973" viewBox="0 0 16.973 16.973">
+    <defs>
+        <style>
+            .cls-1{fill:#666}
+        </style>
+    </defs>
+    <path id="sps_x_icon_closepanel_grey" d="M4.873 10.874v-3.75H1.126a1.124 1.124 0 1 1 0-2.248h3.747v-3.75a1.125 1.125 0 1 1 2.251 0v3.75h3.75a1.124 1.124 0 0 1 0 2.248h-3.75v3.75a1.125 1.125 0 1 1-2.251 0z" class="cls-1" transform="rotate(-45 10.243 4.24)"/>
+</svg>

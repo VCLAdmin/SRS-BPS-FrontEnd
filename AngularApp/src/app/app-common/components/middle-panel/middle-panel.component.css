@@ -1,0 +1,586 @@
+.intro-work-space-top-container {
+  width: 100%;
+  height: 295px;
+  padding-top: 30px;
+  padding-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #202020;
+}
+
+.intro-page-top-container-box {
+  width: 33%;
+  max-width: 268px;
+  height: 235px;
+  border-radius: 16px;
+  border: solid 1px #474747;
+  background-color: #262626;
+}
+
+.intro-page-top-container-box-srs {
+  width: 40%;
+  /* height: 229px; */
+  border-radius: 16px;
+  border: solid 1px #474747;
+  background-color: #262626;
+  max-width: 413px;
+}
+
+.filter-container {
+  height: 60px;
+  border-bottom: 1.2px solid #363636 !important;
+  background-color: #202020;
+  padding: 10px 5px 0px 0px !important;
+}
+
+.filter-container-controls {
+  width: 150px !important;
+}
+
+.data-filter {
+  height: 20px;
+  font-size: 12px;
+  border: solid 0px transparent;
+  background-color: transparent;
+  /* font-family: 'UniversForSchueco-330'; */
+  font-weight: 400 !important;
+}
+
+.intro-page-bottom-container-big-icon-box {
+  display: unset;
+}
+
+.intro-page-top-container-big-icon-box, .intro-page-bottom-container-big-icon-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 107.5px;
+}
+
+.line-spacing-display-box {
+  width: 100%;
+  margin-left: 0px;
+  border-bottom: 1px solid #363636;
+}
+
+.physics-type-heading-big-box {
+  width: 100%;
+  height: 18px;
+  font-family: "UniversForSchueco-630";
+  font-size: 14px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.79;
+  letter-spacing: normal;
+  text-align: center;
+  color: #ffffff;
+  margin-top: 14.5px;
+  text-transform: unset;
+}
+
+.physics-type-content-big-box {
+  width: 100%;
+  height: 68px;
+  font-family: "UniversForSchueco-330";
+  font-size: 11px;
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.64;
+  letter-spacing: normal;
+  text-align: center;
+  color: #999999;
+  /* margin-top: 7px; */
+  padding: 5px 10px 1px 10px;
+}
+
+.intro-work-space-bottom-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: calc(100vh - 367px);
+  /* height: auto; */
+  background-color: #262626;
+  margin-bottom: 3px;
+}
+
+.bottom-container-centering-div {
+  height: 100%;
+  width: 908px;
+}
+
+.intro-page-project-list-line1 {
+  height: 41px;
+}
+
+.intro-page-project-list-heading {
+  display: flex;
+  height: 15px;
+  padding-top: 13px;
+  padding-bottom: 12px;
+}
+
+.intro-page-heading-spacing-1 {
+  margin-left: 10px;
+  font-size: 12px;
+  margin-right: 10.7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.intro-page-heading-spacing-2 {
+  margin-left: 35px;
+  width: 372px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+}
+
+.intro-page-heading-spacing-3 {
+  width: 109px;
+  text-transform: none;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+}
+
+.intro-page-heading-spacing-4 {
+  width: 105px;
+  text-transform: none;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+}
+
+.intro-page-heading-spacing-5 {
+  width: 115px;
+  text-transform: none;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+}
+
+.intro-page-heading-spacing-6 {
+  width: 372px;
+  text-transform: none;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+}
+
+.intro-page-heading-spacing {
+  width: 372px;
+  margin-top: 13.5px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+}
+
+.spacing-betweenProjectList1 {
+  width: 165.5px;
+}
+
+.intro-page-close-button-spacing {
+  margin-left: 2.5px;
+  width: 24px;
+  height: 24px;
+  text-transform: none;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border-radius: 4px;
+}
+
+.intro-page-break-spacing {
+  width: 880px;
+  margin-left: 28px;
+}
+
+.intro-page-project-list-content-with-info {
+  display: flex;
+  height: 24px !important;
+  margin-top: 1px;
+  margin-bottom: 1px;
+  padding-top: 14px;
+  padding-bottom: 11px;
+}
+
+.intro-page-project-list-content-with-info, .name-of-problem:hover, .edit-name-of-problem, .sps-right-panel-version-box:hover {
+  cursor: pointer;
+  -webkit-user-select: none;
+  /* Safari */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* IE10+/Edge */
+  user-select: none;
+  /* Standard */
+}
+
+.grey-text-color {
+  color: #999999;
+  font-weight: 900;
+}
+
+.intro-page-close-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* .float-btn.hidden {
+    opacity: 0;
+} */
+
+/* .float-btn {
+    height: 24px;
+    width: 24px;
+    outline: none;
+    border: none;
+    border-radius: 4px;
+    background-image: url(/assets/Images/sps/sps_square_icon_deleteproject_white.svg);
+    margin-left: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #363636;
+    background-position: center;
+    background-repeat: no-repeat;
+    user-select: none;
+}
+
+.float-btn:hover {
+    border: 1px solid #00A2D1;
+    cursor: pointer;
+} */
+
+#project-list-container-div-to-scroll {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 0.5em;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #363636;
+  border-radius: 10px;
+}
+
+.problem-list-container {
+  height: 200px;
+  background-color: #313131;
+  margin-left: 28px;
+  margin-top: 11.5px;
+}
+
+.problem-container {
+  height: 200px;
+  width: 50%;
+  display: flex;
+}
+
+/* 
+.problem-right-container {
+    height: 200px;
+    width: 50%;
+    display: flex;
+} */
+
+.problem-left-scrollable-container {
+  width: 406.5px;
+  height: 188px;
+  overflow-y: scroll;
+  margin-left: 6.5px;
+  margin-right: 3.5px;
+  margin-top: 6px;
+  margin-bottom: 6px;
+  flex-grow: 1;
+}
+
+.problem-container-spacer {
+  height: 188px;
+  width: 2px;
+  background-color: #474747;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 6px;
+}
+
+.problem-right-panel-container {
+  flex-grow: 1;
+}
+
+.each-problem-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 20px;
+  margin-bottom: 4px;
+  margin-right: 0px;
+}
+
+.rename-problem-container {
+  flex-grow: 1;
+}
+
+.problem-highlight {
+  background-color: #445c67 !important;
+}
+
+.input-name-of-problem {
+  width: 250px;
+  height: 15px;
+  border: 1px solid #262626;
+  padding: 0px;
+  font-size: 14px;
+  font-family: "UniversForSchueco-330";
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 2.08;
+  letter-spacing: normal;
+  text-align: left;
+  color: #999999;
+  border-bottom-color: #474747;
+  background-color: #262626;
+  text-align-last: initial;
+  display: flex;
+  border-radius: 6px;
+  margin-left: 5px;
+}
+
+.input-name-of-problem:focus {
+  outline: none;
+}
+
+/* .each-problem-container:hover
+{
+    background-color: ;
+} */
+
+.intro-page-structural-icon {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.name-of-problem {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 325px;
+  height: 15px;
+  font-family: "UniversForSchueco-330";
+  font-size: 14px;
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 2.08;
+  letter-spacing: normal;
+  text-align: left;
+  color: #999999;
+  margin-left: 5px;
+}
+
+.edit-name-of-problem {
+  margin-right: 15px;
+}
+
+.edit-name-of-problem img:hover {
+  background-color: #00a2d1;
+}
+
+.physics-type-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 5px;
+}
+
+.color-change-intro-page-highlight {
+  color: #bfbfbf !important;
+}
+
+.close-button-background-intro-page {
+  border-radius: 4px;
+  background-color: #363636;
+  cursor: pointer;
+}
+
+.list-title {
+  width: 372px;
+  height: 15px;
+  font-family: UniversForSchueco-530Med;
+  font-size: 12px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 0.75;
+  letter-spacing: normal;
+  text-align: left;
+  color: #ffffff;
+}
+
+.bps-menu-item {
+  width: 145px;
+}
+
+.home-delete, .home-delete-disabled {
+  margin-right: 10px;
+  position: relative;
+  top: -2px;
+}
+
+.home-delete-span {
+  position: relative;
+  top: -5px;
+}
+
+.home-delete-disabled::after {
+  content: url("/assets/bps-icons/sps_grey_deleteproject_icon_disabled.svg");
+}
+
+.bps-menu-item.ant-dropdown-menu-item-disabled .home-delete::after {
+  content: url("/assets/bps-icons/sps_grey_deleteproject_icon_disabled.svg");
+}
+
+.bps-menu-item:not(.ant-dropdown-menu-item-disabled) .home-delete::after {
+  content: url("/assets/bps-icons/sps_white_deleteproject_icon_enabled.svg");
+}
+
+.bps-menu-item:not(.ant-dropdown-menu-item-disabled):hover .home-delete::after {
+  content: url("/assets/bps-icons/sps_blue_deleteproject_icon_hover.svg");
+}
+
+::ng-deep .bps-dropdown.ant-dropdown-placement-rightTop:not(.bps-forced-updated-position) ul.ant-dropdown-menu.home-delete-overflow-menu {
+  top: -16px !important;
+}
+
+::ng-deep .bps-dropdown.ant-dropdown-placement-rightTop:not(.bps-forced-updated-position) ul.ant-dropdown-menu.home-more-overflow-menu {
+  top: -16px !important;
+}
+
+::ng-deep .bps-dropdown.ant-dropdown-placement-rightTop:not(.bps-forced-updated-position) ul.ant-dropdown-menu.home-more-overflow-menu.german-dropdown {
+  width: 175px !important;
+}
+
+.home-edit-location, .home-share-project {
+  margin-right: 10px;
+  position: relative;
+  top: -2px;
+}
+
+.home-edit-project-name {
+  margin-right: 10px;
+}
+
+.li-title {
+  position: relative;
+  top: -5px;
+}
+
+.bps-menu-item:not(.ant-dropdown-menu-item-disabled) .home-edit-project-name::after {
+  content: url("/assets/bps-icons/sps_white_editname_icon_enabled.svg");
+}
+
+.bps-menu-item:not(.ant-dropdown-menu-item-disabled):hover .home-edit-project-name::after {
+  content: url("/assets/bps-icons/sps_blue_editname_icon_hover.svg");
+}
+
+.bps-menu-item:not(.ant-dropdown-menu-item-disabled) .home-edit-location::after {
+  content: url("/assets/bps-icons/sps_white_editlocation_icon_enabled.svg");
+}
+
+.bps-menu-item:not(.ant-dropdown-menu-item-disabled):hover .home-edit-location::after {
+  content: url("/assets/bps-icons/sps_blue_editlocation_icon_hover.svg");
+}
+
+.bps-menu-item:not(.ant-dropdown-menu-item-disabled) .home-share-project::after {
+  content: url("/assets/bps-icons/sps_white_share_icon_enabled.svg");
+}
+
+.bps-menu-item:not(.ant-dropdown-menu-item-disabled):hover .home-share-project::after {
+  content: url("/assets/bps-icons/sps_blue_share_icon_hover.svg");
+}
+
+.bps-menu-item.ant-dropdown-menu-item-disabled .home-edit-project-name::after {
+  content: url("/assets/bps-icons/sps_grey_editname_icon_disabled.svg");
+}
+
+.bps-menu-item.ant-dropdown-menu-item-disabled .home-edit-location::after {
+  content: url("/assets/bps-icons/sps_grey_editlocation_icon_disabled.svg");
+}
+
+.bps-menu-item.ant-dropdown-menu-item-disabled .home-share-project::after {
+  content: url("/assets/bps-icons/sps_grey_share_icon_disabled.svg");
+}
+
+::ng-deep .bps-table-expandable-panel-menu-pencil::after {
+  /* top: 9px !important; */
+  right: 37px !important;
+}
+
+::ng-deep .bps-table-expandable-panel-menu-pencil:hover::after {
+  /* top: 9px !important; */
+  right: 37px !important;
+}
+
+::ng-deep .bps-table-example .bps-centered {
+  text-align: center !important;
+}
+
+::ng-deep .bps-table-example .bps-no-padding {
+  padding: 0 !important;
+}
+
+.preview-panel {
+  padding: 20px;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: calc(100% - 12px);
+  color: #ffffff;
+}
+
+::ng-deep .ant-table-fixed-header>.ant-table-content>.ant-table-scroll>.ant-table-body {
+  overflow-x: hidden;
+}
+
+::ng-deep .bps-table-filter-icon {
+  right: 28px !important;
+  width: 141px !important;
+  top: 12px !important;
+}
+
+/* ::ng-deep .bps-table-home-more-icon::after {
+    content: url(/assets/bps-icons/sps_dots_icon_home_disabled.svg) !important;
+  }
+
+  ::ng-deep .bps-table-home-more-icon {
+    cursor: not-allowed !important;
+    pointer-events: none !important;
+  } */
+
+/* ::ng-deep .more-option-home-table ul.ant-dropdown-menu {
+    top: -15px !important;
+    width: 175px !important;
+  } */

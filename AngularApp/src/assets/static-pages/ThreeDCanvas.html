@@ -1,0 +1,417 @@
+﻿<!DOCTYPE html>
+<html lang="en" style="height:100%; width:100%;">
+
+<head>
+  <meta charset="utf-8">
+  <title>iframe 3D viewer</title>
+  <meta name="3D viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+  <link href="ThreeDCanvas.css" rel="stylesheet" />
+</head>
+
+<body style="height:100%; width:100%;">
+  <div id="sps-designer-viewer" style="height:100%; width:100%;">
+    <div id="thermal-result-labels"></div>
+  </div>
+  <input id="dimension-label-y" autocomplete="off" class="dimension-input hidden" type="tel" value="1480">
+  <input id="dimension-label-x" autocomplete="off" class="dimension-input hidden" type="tel" value="1230">
+  <!-- <div id="model-controls">
+      <div id="controls-edit" class="control-button hidden"></div>
+      <div id="controls-add-transom" class="control-button "></div>
+      <div id="controls-add-mullion" class="control-button"></div>
+      <div id="controls-delete" class="control-button"></div>
+  </div> -->
+  <!-- <div id="display-controls">
+      <div id="controls-axes-helper" class="tooltip control-button">
+          <span class="tooltiptext">Axes</span>
+      </div>
+      <div id="controls-glass-id" class="tooltip control-button selected">
+          <span class="tooltiptext">Glass Info</span>
+      </div>
+      <div id="controls-grid" class="tooltip control-button selected">
+          <span class="tooltiptext">Grid</span>
+      </div>
+  </div> -->
+  <script src="https://vcl-design-com.s3.amazonaws.com/StaticFiles/scripts/common/iframeExchange.js"></script>
+  <script src="https://vcl-design-com.s3.amazonaws.com/StaticFiles/scripts/common/jquery-1.10.2.min.js"></script>
+
+  <!-- ThreeJS -->
+  <script src="https://vcl-design-com.s3.amazonaws.com/StaticFiles/scripts/ThreeJS/csg.js"></script>
+  <script src="https://vcl-design-com.s3.amazonaws.com/StaticFiles/scripts/ThreeJS/Three-r124.js"></script>
+  <script src="https://vcl-design-com.s3.amazonaws.com/StaticFiles/scripts/ThreeJS/ThreeBSP.js"></script>
+  <script src="https://vcl-design-com.s3.amazonaws.com/StaticFiles/scripts/ThreeJS/ThreeCSG.js"></script>
+  <script src="https://vcl-design-com.s3.amazonaws.com/StaticFiles/scripts/ThreeJS/Cameras/CombinedCamera.js"></script>
+  <script src="https://vcl-design-com.s3.amazonaws.com/StaticFiles/scripts/ThreeJS/gui/dat.gui.min.js"></script>
+
+  <script src="https://vcl-design-com.s3.amazonaws.com/StaticFiles/scripts/ThreeJS/Controls/FirstPersonControls.js"></script>
+  <script src="https://vcl-design-com.s3.amazonaws.com/StaticFiles/scripts/ThreeJS/Controls/OrbitControls.js"></script>
+  <script src="https://vcl-design-com.s3.amazonaws.com/StaticFiles/scripts/ThreeJS/Controls/PointerLockControls.js"></script>
+  <script src="https://vcl-design-com.s3.amazonaws.com/StaticFiles/scripts/ThreeJS/Controls/TransformControls.js"></script>
+
+  <script src="https://vcl-design-com.s3.amazonaws.com/StaticFiles/scripts/ThreeJS/Exporters/ColladaExporter.js"></script>
+  <script src="https://vcl-design-com.s3.amazonaws.com/StaticFiles/scripts/ThreeJS/Exporters/GLTFExporter.js"></script>
+  <script src="https://vcl-design-com.s3.amazonaws.com/StaticFiles/scripts/ThreeJS/Geometries/ProfiledContourGeometry.js"></script>
+  <!-- <script src="https://vcl-design-com.s3.amazonaws.com/StaticFiles/scripts/ThreeJS/Geometries/ProfiledContourUVGeometry.js"></script> -->
+  <!-- <script src="https://vcl-design-com.s3.amazonaws.com/StaticFiles/scripts/ThreeJS/Utils/BufferGeometryUtils.js"></script> -->
+
+  <script src="https://vcl-design-com.s3.amazonaws.com/StaticFiles/scripts/ThreeJS/Loaders/ColladaLoader.js"></script>
+  <script src="https://vcl-design-com.s3.amazonaws.com/StaticFiles/scripts/ThreeJS/Loaders/ColladaLoader2.js"></script>
+  <script src="https://vcl-design-com.s3.amazonaws.com/StaticFiles/scripts/ThreeJS/Loaders/GLTFLoader.js"></script>
+  <script src="https://vcl-design-com.s3.amazonaws.com/StaticFiles/scripts/ThreeJS/Loaders/MTLLoader.js"></script>
+  <script src="https://vcl-design-com.s3.amazonaws.com/StaticFiles/scripts/ThreeJS/Loaders/OBJLoader.js"></script>
+  <script src="https://vcl-design-com.s3.amazonaws.com/StaticFiles/scripts/ThreeJS/Loaders/SVGLoader.js"></script>
+  <script src="https://vcl-design-com.s3.amazonaws.com/StaticFiles/scripts/ThreeJS/Loaders/EXRLoader.js"></script>
+
+  <script src="https://vcl-design-com.s3.amazonaws.com/StaticFiles/scripts/ThreeJS/PostProcessing/EffectComposer.js"></script>
+  <script src="https://vcl-design-com.s3.amazonaws.com/StaticFiles/scripts/ThreeJS/PostProcessing/OutlinePass.js"></script>
+  <script src="https://vcl-design-com.s3.amazonaws.com/StaticFiles/scripts/ThreeJS/PostProcessing/RenderPass.js"></script>
+  <script src="https://vcl-design-com.s3.amazonaws.com/StaticFiles/scripts/ThreeJS/PostProcessing/ShaderPass.js"></script>
+
+  <script src="https://vcl-design-com.s3.amazonaws.com/StaticFiles/scripts/ThreeJS/Renderers/CSS2DRenderer.js"></script>
+
+  <script src="https://vcl-design-com.s3.amazonaws.com/StaticFiles/scripts/ThreeJS/Shaders/CopyShader.js"></script>
+  <script src="https://vcl-design-com.s3.amazonaws.com/StaticFiles/scripts/ThreeJS/Shaders/FXAAShader.js"></script>
+
+  <!-- 3DGraphics -->
+  <script src="https://vcl-design-com.s3.amazonaws.com/StaticFiles/scripts/3DGraphics/threejs/extensions/Object3D.js"></script>
+  <script src="https://vcl-design-com.s3.amazonaws.com/StaticFiles/scripts/3DGraphics/threejs/extensions/ObjectLoader.js"></script>
+  <script src="https://vcl-design-com.s3.amazonaws.com/StaticFiles/scripts/3DGraphics/threejs/extensions/OBJLoader.js"></script>
+  <script src="https://vcl-design-com.s3.amazonaws.com/StaticFiles/scripts/3DGraphics/threejs/renderers/Projector.js"></script>
+
+  <script src="https://vcl-design-com.s3.amazonaws.com/StaticFiles/scripts/3DGraphics/viewer/AxesHelper.js"></script>
+  <script src="../scripts/3DGraphics/viewer/DimensionLines.js"></script>
+  <script src="../scripts/3DGraphics/viewer/Camera.js"></script>
+  <script src="https://vcl-design-com.s3.amazonaws.com/StaticFiles/scripts/3DGraphics/viewer/Controls.js"></script>
+  <script src="../scripts/3DGraphics/viewer/EventListener.js"></script>
+
+  <script src="https://vcl-design-com.s3.amazonaws.com/StaticFiles/scripts/3DGraphics/systems/AWS__75__BS_HI_Plus.js"></script>
+  <script src="https://vcl-design-com.s3.amazonaws.com/StaticFiles/scripts/3DGraphics/systems/AWS__75__BS_SI_Plus.js"></script>
+  <script src="https://vcl-design-com.s3.amazonaws.com/StaticFiles/scripts/3DGraphics/systems/AWS__75_SI_Plus.js"></script>
+  <script src="https://vcl-design-com.s3.amazonaws.com/StaticFiles/scripts/3DGraphics/systems/AWS__90__BS_SI_Plus.js"></script>
+  <script src="https://vcl-design-com.s3.amazonaws.com/StaticFiles/scripts/3DGraphics/systems/AWS__90_SI_Plus.js"></script>
+  <script src="../scripts/3DGraphics/systems/ADS__75.js"></script>
+  <script src="../scripts/3DGraphics/systems/ASE__60.js"></script>
+
+  <script src="../scripts/3DGraphics/viewer/Materials.js"></script>
+  <script src="../scripts/3DGraphics/viewer/Renderer.js"></script>
+  <script src="../scripts/3DGraphics/viewer/Scene.js"></script>
+  <script src="https://vcl-design-com.s3.amazonaws.com/StaticFiles/scripts/3DGraphics/viewer/Settings.js"></script>
+  <script src="https://vcl-design-com.s3.amazonaws.com/StaticFiles/scripts/3DGraphics/viewer/Sprite.js"></script>
+  <script src="../scripts/3DGraphics/viewer/Utils.js"></script>
+  <script src="../scripts/3DGraphics/viewer/DisplaySettings.js"></script>
+
+  <!-- Mock Model -->
+  <script src="../scripts/3DGraphics/viewer/MockModel.js"></script>
+
+  <!-- unified model -->
+  <script src="../scripts/3DGraphics/constants/SubType.js"></script>
+  <script src="https://vcl-design-com.s3.amazonaws.com/StaticFiles/scripts/3DGraphics/constants/Side.js"></script>
+  <script src="https://vcl-design-com.s3.amazonaws.com/StaticFiles/scripts/3DGraphics/constants/OperabilityTypes.js"></script>
+  <script src="../scripts/3DGraphics/constants/ArticleTypes.js"></script>
+  <script src="https://vcl-design-com.s3.amazonaws.com/StaticFiles/scripts/3DGraphics/constants/FrameNames.js"></script>
+
+  <script src="../scripts/3DGraphics/viewer/Intermediate.js"></script>
+  <script src="../scripts/3DGraphics/viewer/Glass.js"></script>
+  <script src="https://vcl-design-com.s3.amazonaws.com/StaticFiles/scripts/3DGraphics/viewer/GlazingBead.js"></script>
+  <script src="../scripts/3DGraphics/viewer/VentFrame.js"></script>
+  <script src="../scripts/3DGraphics/viewer/DoorFrame.js"></script>
+  <script src="../scripts/3DGraphics/viewer/SlidingDoorFrame.js"></script>
+  <script src="../scripts/3DGraphics/viewer/OuterFrame.js"></script>
+  <script src="../scripts/3DGraphics/viewer/UnifiedModel.js"></script>
+  <script src="../scripts/3DGraphics/viewer/UnifiedModelOperator.js"></script>
+  <script src="../scripts/3DGraphics/viewer/QuickCheck.js"></script>
+
+  <!-- Facade Model -->
+  <script src="https://vcl-design-com.s3.amazonaws.com/StaticFiles/scripts/3DGraphics/viewer/FacadeIntermediate.js"></script>
+  <script src="https://vcl-design-com.s3.amazonaws.com/StaticFiles/scripts/3DGraphics/viewer/FacadeMajorMullion.js"></script>
+  <script src="https://vcl-design-com.s3.amazonaws.com/StaticFiles/scripts/3DGraphics/viewer/FacadeReinforcement.js"></script>
+  <script src="https://vcl-design-com.s3.amazonaws.com/StaticFiles/scripts/3DGraphics/viewer/FacadeSlabAnchor.js"></script>
+  <script src="https://vcl-design-com.s3.amazonaws.com/StaticFiles/scripts/3DGraphics/viewer/InsertOuterFrame.js"></script>
+  <script src="https://vcl-design-com.s3.amazonaws.com/StaticFiles/scripts/3DGraphics/viewer/FacadeSpliceJoint.js"></script>
+
+  <!-- UDC Model -->
+  <script src="https://vcl-design-com.s3.amazonaws.com/StaticFiles/scripts/3DGraphics/viewer/UDCFrame.js"></script>
+  <script src="https://vcl-design-com.s3.amazonaws.com/StaticFiles/scripts/3DGraphics/viewer/UDCGlazingBar.js"></script>
+
+  <script src="https://vcl-design-com.s3.amazonaws.com/StaticFiles/scripts/3DGraphics/viewer/CSSRenderer.js"></script>
+  <script src="https://vcl-design-com.s3.amazonaws.com/StaticFiles/scripts/3DGraphics/viewer/ThermalResultLabels.js"></script>
+
+  <!-- init -->
+  <script src="https://vcl-design-com.s3.amazonaws.com/StaticFiles/scripts/3DGraphics/_init.js"></script>
+
+  <!--Articles-->
+  <script src="https://vcl-design-com.s3.amazonaws.com/StaticFiles/scripts/3DGraphics/content/articles/article__CustomArticle.js"></script>
+  <script src="https://vcl-design-com.s3.amazonaws.com/StaticFiles/scripts/3DGraphics/content/articles/article_All.js"></script>
+  <script src="https://vcl-design-com.s3.amazonaws.com/StaticFiles/scripts/3DGraphics/content/articles/article__382750.js"></script>
+  <script src="https://vcl-design-com.s3.amazonaws.com/StaticFiles/scripts/3DGraphics/content/articles/article__397350.js"></script>
+  <script src="https://vcl-design-com.s3.amazonaws.com/StaticFiles/scripts/3DGraphics/content/articles/article__476230.js"></script>
+  <!--<script src="../scripts/3DGraphics/content/articles/article__489980.js"></script>
+  <script src="../scripts/3DGraphics/content/articles/article__487880.js"></script>
+  <script src="../scripts/3DGraphics/content/articles/article__487890.js"></script>
+  <script src="../scripts/3DGraphics/content/articles/article__490080.js"></script>-->
+  <script src="../scripts/3DGraphics/content/articles/article__487000.js"></script>
+  <script src="../scripts/3DGraphics/content/articles/article__487850.js"></script>
+  <script src="../scripts/3DGraphics/content/articles/article__487860.js"></script>
+  <script src="../scripts/3DGraphics/content/articles/article__487880.js"></script>
+  <script src="../scripts/3DGraphics/content/articles/article__487890.js"></script>
+  <script src="../scripts/3DGraphics/content/articles/article__487910.js"></script>
+  <script src="../scripts/3DGraphics/content/articles/article__487920.js"></script>
+  <script src="../scripts/3DGraphics/content/articles/article__487930.js"></script>
+  <script src="../scripts/3DGraphics/content/articles/article__487940.js"></script>
+  <script src="../scripts/3DGraphics/content/articles/article__487950.js"></script>
+  <script src="../scripts/3DGraphics/content/articles/article__487970.js"></script>
+  <script src="../scripts/3DGraphics/content/articles/article__489970.js"></script>
+  <script src="../scripts/3DGraphics/content/articles/article__489980.js"></script>
+  <script src="../scripts/3DGraphics/content/articles/article__490080.js"></script>
+  <script src="../scripts/3DGraphics/content/articles/article__490090.js"></script>
+  <script src="../scripts/3DGraphics/content/articles/article__490120.js"></script>
+  <script src="../scripts/3DGraphics/content/articles/article__490130.js"></script>
+  <script src="../scripts/3DGraphics/content/articles/article__490160.js"></script>
+  <script src="../scripts/3DGraphics/content/articles/article__490170.js"></script>
+  <script src="../scripts/3DGraphics/content/articles/article__490200.js"></script>
+  <script src="../scripts/3DGraphics/content/articles/article__490210.js"></script>
+  <script src="../scripts/3DGraphics/content/articles/article__490240.js"></script>
+  <script src="../scripts/3DGraphics/content/articles/article__490250.js"></script>
+  <script src="../scripts/3DGraphics/content/articles/article__504010.js"></script>
+  <script src="../scripts/3DGraphics/content/articles/article__504020.js"></script>
+  <script src="../scripts/3DGraphics/content/articles/article__504030.js"></script>
+  <script src="../scripts/3DGraphics/content/articles/article__504040.js"></script>
+  <script src="../scripts/3DGraphics/content/articles/article__504050.js"></script>
+  <script src="../scripts/3DGraphics/content/articles/article__504060.js"></script>
+  <script src="../scripts/3DGraphics/content/articles/article__504070.js"></script>
+  <script src="../scripts/3DGraphics/content/articles/article__504080.js"></script>
+  <script src="../scripts/3DGraphics/content/articles/article__513000.js"></script>
+  <script src="../scripts/3DGraphics/content/articles/article__513010.js"></script>
+  <script src="../scripts/3DGraphics/content/articles/article__460620.js"></script>
+  <script src="../scripts/3DGraphics/content/articles/article__460640.js"></script>
+  <script src="../scripts/3DGraphics/content/articles/article__460670.js"></script>
+  <script src="../scripts/3DGraphics/content/articles/article__460690.js"></script>
+  <script src="../scripts/3DGraphics/content/articles/article__460940.js"></script>
+  <script src="../scripts/3DGraphics/content/articles/article__359700.js"></script>
+  <script src="../scripts/3DGraphics/content/articles/article__201056.js"></script>
+  <script src="../scripts/3DGraphics/content/articles/article__201316.js"></script>
+  <script src="../scripts/3DGraphics/content/articles/article__203203.js"></script>
+  <script src="../scripts/3DGraphics/content/articles/article__203204.js"></script>
+  <script src="../scripts/3DGraphics/content/articles/article__203205.js"></script>
+  <script src="../scripts/3DGraphics/content/articles/article__278380.js"></script>
+  <script src="../scripts/3DGraphics/content/articles/article__278381.js"></script>
+  <script src="../scripts/3DGraphics/content/articles/article__278382.js"></script>
+  <script src="../scripts/3DGraphics/content/articles/article__174300.js"></script>
+  <script src="https://vcl-design-com.s3.amazonaws.com/StaticFiles/scripts/3DGraphics/content/articles/article__476240.js"></script>
+  <script src="https://vcl-design-com.s3.amazonaws.com/StaticFiles/scripts/3DGraphics/content/articles/article__536750_insert.js"></script>
+  <script src="https://vcl-design-com.s3.amazonaws.com/StaticFiles/scripts/3DGraphics/content/articles/article__536810_insert.js"></script>
+  <script src="https://vcl-design-com.s3.amazonaws.com/StaticFiles/scripts/3DGraphics/content/articles/article__536810_insert.js"></script>
+  <script>
+    document.onreadystatechange = function () {
+      if (document.readyState === 'complete') {
+        // Designer.UnifiedModelOperator.loadJSON(MockData);
+        //  Designer.DisplaySettings.setDefaultDispaly();
+
+        // dataExchange, handle Angular function calls
+
+        dataExchange.sendParentMessage('readyState', true);
+        dataExchange.handlers.loadJSON = function (inputObject) {  //update 3dmodel
+          var willIGetNewPhone = new Promise(
+            function (resolve, reject) {
+              loadJSONFile(inputObject);
+              resolve(jsonLoaded());
+            }
+          );
+        }
+        loadJSONFile = function (inputObject) {
+          let UnifiedModelJSON = inputObject.Unified3DModel;
+          //UnifiedModelJSON = MockData;  //Mock Data, comment this line to use input data from Angular.
+          let drawBool = inputObject.canBeDrawn;
+          // inputObject.resetCamera = false;   // test resetCamera = false
+          let resetCamera = (typeof inputObject.resetCamera === 'undefined') ? true : inputObject.resetCamera;
+          if (drawBool) {
+            Designer.UnifiedModelOperator.loadJSON(UnifiedModelJSON, resetCamera);
+            if (resetCamera) Designer.DisplaySettings.setDefaultDispaly();
+          }
+        }
+
+        jsonLoaded = function () {
+          dataExchange.sendParentMessage('loadJSONFinished', true);
+        }
+
+        // dataExchange, handle Angular function calls
+        dataExchange.handlers.removeModel = function () {
+          Designer.UnifiedModel.removeModel();
+        }
+
+        // dataExchange, handle Angular function calls
+        dataExchange.handlers.loadDisplaySetting = function (input) {
+          // input.settings.showThreeDView = null;  // test showThreeDView = null to prevent threeDview update
+          let DisplaySetting = input.settings;
+          Designer.DisplaySettings.updateDisplaySetting(DisplaySetting);
+        }
+
+        // dataExchange, handle Angular function calls
+        dataExchange.handlers.selectIntermediateById = function (obj) {
+          Designer.EventListener.selectIntermediateById(obj.id);
+        }
+
+        // dataExchange, handle Angular function calls
+        dataExchange.handlers.selectSlabAnchorById = function (obj) {
+          Designer.EventListener.selectSlabAnchorById(obj.id);
+        }
+
+        // dataExchange, handle Angular function calls
+        dataExchange.handlers.selectReinforcementById = function (obj) {
+          Designer.EventListener.selectReinforcementById(obj.id);
+        }
+
+        // dataExchange, handle Angular function calls
+        dataExchange.handlers.selectSpliceJointById = function (obj) {
+          Designer.EventListener.selectSpliceJointById(obj.id);
+        }
+
+        // dataExchange, handle Angular function calls: colorCode red - 0xbc0000; original highlight - null or 0xA2D892
+        dataExchange.handlers.highlightGlassById = function (obj) {
+          Designer.EventListener.highlightGlassById(obj.id, obj.colorCode);
+        }
+
+        // dataExchange, handle Angular function calls
+        dataExchange.handlers.clearHighlightedMeshes = function (obj) {
+          Designer.EventListener.clearHighlightedMeshes();
+        }
+
+        // dataExchange, handle Angular function calls
+        dataExchange.handlers.clickControlEdit = function () {
+          Designer.DisplaySettings.updateDisplaySetting({ showThreeDView: false });
+          Designer.EventListener.clearSelectedMeshes();
+          Designer.DimensionLines.generate();   // show dimension lines when clicking edit button
+        }
+
+        // dataExchange, handle Angular function calls
+        dataExchange.handlers.clickAddTransom = function () {
+          Designer.EventListener.clickAddTransom();
+        }
+
+        // dataExchange, handle Angular function calls
+        dataExchange.handlers.clickAddMullion = function () {
+          Designer.EventListener.clickAddMullion();
+        }
+
+        // dataExchange, handle Angular function calls
+        dataExchange.handlers.clickDelete = function () {
+          Designer.EventListener.clickDelete();
+        }
+
+        // dataExchange, handle Angular function calls
+        dataExchange.handlers.clickCopyToRight = function () {
+          Designer.EventListener.clickCopyToRight()
+        }
+
+        // dataExchange, handle Angular function calls
+        dataExchange.handlers.clickDeleteFacadeRightMostColumn = function () {
+          Designer.EventListener.clickDeleteFacadeRightMostColumn()
+        }
+
+        // dataExchange, handle Angular function calls
+        dataExchange.handlers.clickCopyToTop = function () {
+          Designer.EventListener.clickCopyToTop()
+        }
+
+        // dataExchange, handle Angular function calls
+        dataExchange.handlers.clickDeleteFacadeTopMostRow = function () {
+          Designer.EventListener.clickDeleteFacadeTopMostRow()
+        }
+
+        // dataExchange, handle Angular function calls
+        dataExchange.handlers.clickDistributeFacadeMajorMullionsEqually = function () {
+          Designer.EventListener.clickDistributeFacadeMajorMullionsEqually()
+        }
+
+        // dataExchange, handle Angular function calls
+        dataExchange.handlers.clickAxes = function (obj) {
+          const isSelected = obj.isSelected;
+          Designer.DisplaySettings.updateDisplaySetting({ showAxes: !isSelected });
+          // Designer.DisplaySettings.updateDisplaySetting({ showQuickCheckSymbols: !isSelected });
+          //Designer.UnifiedModelOperator.addDoor(3);
+        }
+
+        // dataExchange, handle Angular function calls
+        dataExchange.handlers.clickGlassInfo = function (obj) {
+          const isSelected = obj.isSelected;
+          Designer.DisplaySettings.updateDisplaySetting({ showGlassID: !isSelected, showGlazingTypeColor: !isSelected, showVentInfo: !isSelected });
+          // Designer.UnifiedModelOperator.removeDoor();
+        }
+
+        // dataExchange, handle Angular function calls
+        dataExchange.handlers.clickGrid = function (obj) {
+          const isSelected = obj.isSelected;
+          Designer.DisplaySettings.updateDisplaySetting({ showGrid: !isSelected });
+        }
+
+        // dataExchange, handle Angular function calls: colorCode red - 0xbc0000; original highlight - null or 0xA2D892
+        dataExchange.handlers.takeScreenShot = function () {
+          const imgData = Designer.Renderer.takeScreenShot();
+          //return imgData;
+        }
+
+        // dataExchange, handle Angular function calls: colorCode red - 0xbc0000; original highlight - null or 0xA2D892
+        dataExchange.handlers.deselectAll = function () {
+          Designer.EventListener.clearSelectedMeshes();
+          //return imgData;
+        }
+
+        // dataExchange, handle Angular function calls: colorCode red - 0xbc0000; original highlight - null or 0xA2D892
+        dataExchange.handlers.getModelHeight = function () {
+          let height = Designer.EventListener.getModelHeight();
+          return height;
+        }
+
+        // dataExchange, handle Angular function calls
+        dataExchange.handlers.clickAddSlabAnchors = function (obj) {
+          Designer.EventListener.clickAddSlabAnchors(obj.anchorType)
+        }
+
+        // dataExchange, handle Angular function calls
+        dataExchange.handlers.clickAddSpliceJoints = function (obj) {
+          Designer.EventListener.clickAddSpliceJoints(obj.jointType)
+        }
+
+        // dataExchange, handle Angular function calls
+        // clr is a color in the form of a hex code, ex. 0xffffff
+        dataExchange.handlers.setProfilesColor = function (clr) {
+          Designer.Materials.setProfilesColor(clr);
+        }
+
+        // dataExchange, handle Angular function calls
+        // clr is a color in the form of a hex code, ex. 0xffffff
+        // dataExchange.handlers.setHandleFinishColor = function (clr) {
+        //   console.log("setting handle finish color from angular");
+        //   Designer.Materials.setHandleFinishColor(clr);
+        // }
+
+        // dataExchange, handle Angular function calls
+        // height is the height to place handle, index is index of vent frame
+        // dataExchange.handlers.setHandlePosition = function (obj) {
+        //   let height = obj.height, index = obj.index;
+        //   if (Designer.UnifiedModel.ventFrames[index] != null) {
+        //     Designer.UnifiedModel.ventFrames[index].changeHandleHeight(height);
+        //   }
+        // }
+
+        // dataExchange, handle Angular function calls
+        dataExchange.handlers.setOutsidePosition = function () {
+          Designer.Camera.centerCamera();
+        }
+
+        // dataExchange, handle Angular function calls
+        dataExchange.handlers.setInsidePosition = function () {
+          Designer.Camera.centerCameraInside();
+         }
+        // dataExchange, handle Angular function calls
+        dataExchange.handlers.centerForRightPanel = function () {
+          if(Designer.Camera.outside)
+            Designer.Camera.centerCamera();
+          else
+            Designer.Camera.centerCameraInside();
+        }
+      }
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<svg id="sps_round_icon_thermal_darkgrey" xmlns="http://www.w3.org/2000/svg" width="18.261" height="18.261" viewBox="0 0 18.261 18.261">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #666;
+      }
+
+      .cls-2, .cls-3, .cls-5 {
+        fill: none;
+      }
+
+      .cls-2, .cls-3 {
+        stroke: #666;
+      }
+
+      .cls-2 {
+        stroke-linecap: round;
+      }
+
+      .cls-4 {
+        stroke: none;
+      }
+    </style>
+  </defs>
+  <g id="Group_362" data-name="Group 362" transform="translate(4.336 6.848)">
+    <g id="Group_360" data-name="Group 360" transform="translate(9.555 0) rotate(90)">
+      <ellipse id="Ellipse_61" data-name="Ellipse 61" class="cls-1" cx="0.95" cy="0.95" rx="0.95" ry="0.95" transform="translate(0.38 7.609)"/>
+      <ellipse id="Ellipse_62" data-name="Ellipse 62" class="cls-1" cx="0.95" cy="0.95" rx="0.95" ry="0.95"/>
+      <path id="Path_167" data-name="Path 167" class="cls-2" d="M.836,7.381S-.852,4.812.569,3.742.128,0,.128,0" transform="translate(0.495 0.95)"/>
+    </g>
+    <g id="Group_361" data-name="Group 361" transform="translate(9.509 2.769) rotate(90)">
+      <ellipse id="Ellipse_61-2" data-name="Ellipse 61" class="cls-1" cx="0.95" cy="0.95" rx="0.95" ry="0.95" transform="translate(0.38 7.609)"/>
+      <ellipse id="Ellipse_62-2" data-name="Ellipse 62" class="cls-1" cx="0.95" cy="0.95" rx="0.95" ry="0.95"/>
+      <path id="Path_167-2" data-name="Path 167" class="cls-2" d="M.836,7.381S-.852,4.812.569,3.742.128,0,.128,0" transform="translate(0.495 0.95)"/>
+    </g>
+  </g>
+  <g id="Ellipse_98" data-name="Ellipse 98" class="cls-3">
+    <ellipse class="cls-4" cx="9.131" cy="9.13" rx="9.131" ry="9.13"/>
+    <ellipse class="cls-5" cx="9.131" cy="9.13" rx="8.631" ry="8.63"/>
+  </g>
+</svg>

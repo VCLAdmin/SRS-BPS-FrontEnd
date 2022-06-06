@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+    <defs>
+        <style>
+            .prefix__cls-3{isolation:isolate}
+        </style>
+    </defs>
+    <g id="prefix__sps_information_icon_blue" transform="translate(-240.392 -388)">
+        <g id="prefix__Ellipse_148" fill="none" data-name="Ellipse 148">
+            <circle id="prefix__Ellipse_629" cx="8" cy="8" r="8" data-name="Ellipse 629" transform="translate(240.392 388)"/>
+            <circle id="prefix__Ellipse_630" cx="7.5" cy="7.5" r="7.5" stroke="#0093c7" data-name="Ellipse 630" transform="translate(240.892 388.5)"/>
+        </g>
+        <g id="prefix__i" class="prefix__cls-3">
+            <g id="prefix__Group_5657" class="prefix__cls-3" data-name="Group 5657">
+                <path id="prefix__Path_1860" fill="#0093c7" d="M247.659 400H246.6l1.763-6.045h1.055zm2.3-7.628h-1.175l.312-1.043h1.175z" data-name="Path 1860"/>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,64 @@
+<div *ngIf="showSection" [ngStyle]="{'display': isPopoutOpened ? 'flex':'none' }"
+    class="sps-left-popout">
+    <div class="lp-panel">
+        <div class="lp-panel-top">
+            <!-- Header Title -->
+            <div class="lp-top-section">
+                <div class="lp-header">
+                    <!-- <h3 class="lp-header-text">{{'configure.vent-frame-library' | translate }}</h3> -->
+                    <h3 class="lp-header-text">Reinforcement Library</h3>
+                    <img src="/assets/Images/sps/sps_delete_icon_x_darkgrey.svg" id="fas fa-times fa-inverse"
+                        alt="close icon" (click)="onClose()">
+                </div>
+            </div>
+            <!-- Selected Info -->
+            <div class="lp-container lp-container-custom">
+                <div class="lp-container-displaybox">
+                    <img *ngIf="listOfDisplayData[selectedIndex]" alt="article"
+                        [attr.src]="baseImageSrc + listOfDisplayData[selectedIndex].description + '.jpg'">  
+                </div>
+                <div class="lp-container-text">
+                    <div class="sps-pill" *ngIf="listOfDisplayData[selectedIndex]">
+                        <p>{{ listOfDisplayData[selectedIndex].description }}</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Table Content -->
+            <div class="bpsTableContent">
+                <bps-table #bpsTable [data]="listOfDisplayData" [scroll]="{ y: 'calc(100vh - 413px)' }"
+                    [showPagination]="false" [frontPagination]="false" (onclickRow)="onclickRow($event)"
+                    (ondblclickRow)="ondblclickRow($event)" (selectionChange)="selectionChange($event)"
+                    [tableType]="'glass_profile'" class="bps-table-section"
+                    [filterPlaceholder]="searchByDimensionText" (searchValueChange)="filter($event)"
+                    (sortChange)="sort($event)" [(config)]="configurationCustomGrid">
+                </bps-table>
+            </div>
+        </div>
+        <!-- Confirm -->
+        <div class="lp-confirm-btn-container">
+            <button class="lp-confirm-btn" bps-button bpsType="variation-4" (click)="onConfirm()">{{'configure.confirm'
+                | translate }}</button>
+        </div>
+    </div>
+</div>
+<ng-template #uValueTemplate>
+    <div>{{'configure.inside' | translate }}</div>
+    <div class="headerColor">(mm)</div>
+</ng-template>
+
+<ng-template #rwTemplate>
+    <div>{{'configure.outside' | translate }}</div>
+    <div class="headerColor">(mm)</div>
+</ng-template>
+
+<ng-template #outsideTemplate let-value="value" let-disabled="disabled" let-arrowHovered="arrowHovered"
+    let-index="index">
+    <div>
+        <span>{{value}}</span>
+        <span (mouseenter)="onHover(index, true)" *ngIf="value === '--'" class="bpsArrow"
+            (mouseleave)="onHover(index, false)" (click)="preventDefault($event)">
+            <img *ngIf="!arrowHovered || disabled" alt="" src="/assets/bps-icons/sps_icon_arrowright_grey.svg" />
+            <img *ngIf="arrowHovered && !disabled" alt="" src="/assets/bps-icons/sps_icon_arrowright_blue.svg" />
+        </span>
+    </div>
+</ng-template>

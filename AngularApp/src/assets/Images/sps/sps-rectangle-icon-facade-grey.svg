@@ -1,0 +1,41 @@
+<svg id="sps_rectangle_icon_facade_grey" xmlns="http://www.w3.org/2000/svg" width="21.546" height="18.559" viewBox="0 0 21.546 18.559">
+  <defs>
+    <style>
+      .cls-1, .cls-3 {
+        fill: none;
+      }
+
+      .cls-1 {
+        stroke: #999;
+      }
+
+      .cls-2 {
+        stroke: none;
+      }
+    </style>
+  </defs>
+  <g id="Rectangle_26" data-name="Rectangle 26" class="cls-1" transform="translate(0 4.947)">
+    <rect class="cls-2" width="8.173" height="13.612" rx="2"/>
+    <rect class="cls-3" x="0.5" y="0.5" width="7.173" height="12.612" rx="1.5"/>
+  </g>
+  <g id="Rectangle_298" data-name="Rectangle 298" class="cls-1">
+    <rect class="cls-2" width="8.173" height="6.671" rx="2"/>
+    <rect class="cls-3" x="0.5" y="0.5" width="7.173" height="5.671" rx="1.5"/>
+  </g>
+  <g id="Rectangle_295" data-name="Rectangle 295" class="cls-1" transform="translate(13.374 4.947)">
+    <rect class="cls-2" width="8.173" height="13.612" rx="2"/>
+    <rect class="cls-3" x="0.5" y="0.5" width="7.173" height="12.612" rx="1.5"/>
+  </g>
+  <g id="Rectangle_296" data-name="Rectangle 296" class="cls-1" transform="translate(13.374)">
+    <rect class="cls-2" width="8.173" height="6.671" rx="2"/>
+    <rect class="cls-3" x="0.5" y="0.5" width="7.173" height="5.671" rx="1.5"/>
+  </g>
+  <g id="Rectangle_293" data-name="Rectangle 293" class="cls-1" transform="translate(6.687 4.947)">
+    <rect class="cls-2" width="8.173" height="13.612" rx="2"/>
+    <rect class="cls-3" x="0.5" y="0.5" width="7.173" height="12.612" rx="1.5"/>
+  </g>
+  <g id="Rectangle_297" data-name="Rectangle 297" class="cls-1" transform="translate(6.687)">
+    <rect class="cls-2" width="8.173" height="6.671" rx="2"/>
+    <rect class="cls-3" x="0.5" y="0.5" width="7.173" height="5.671" rx="1.5"/>
+  </g>
+</svg>

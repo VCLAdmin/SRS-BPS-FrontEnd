@@ -1,0 +1,117 @@
+body {
+  background-color: #262626;
+  color: #ffffff;
+}
+.main-container {
+  width: 100vw;
+  height: calc(100vh - 70px);
+  border-bottom: 1px solid #363636;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+}
+.left-panel {
+  width: 395px;
+  height: 100%;
+}
+
+.work-panel {
+  /* position: absolute;
+    top: 0;
+    left: 295px;
+    z-index: 0;
+    flex-grow: 1;
+    height: 100%;
+    width: calc(100vw - 295px); */
+  flex-grow: 1;
+  width: 60%;
+}
+.right-panel {
+  background-color: #262626;
+  color: #ffffff;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  /* overflow-y: auto; */
+  outline: none;
+  width: 235px;
+  height: 100%;
+}
+
+mwlResizable {
+  box-sizing: border-box;
+}
+
+.open-right-panel-icon {
+  position: absolute;
+  z-index: 2;
+  top: 18px;
+  right: 26px;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #363636;
+  background-color: #363636;
+  border-radius: 30px 30px 30px 30px;
+  font-size: 30px;
+  color: #ffffff;
+  background-image: url(/assets/Images/sps/sps_round_icon_rightpanelclosed_white.svg);
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-position: center;
+  cursor: pointer;
+}
+
+.close-right-panel-icon {
+  position: absolute;
+  z-index: 2;
+  top: 18px;
+  left: -30px;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #363636;
+  background-color: #363636;
+  border-radius: 15px 0px 0px 15px;
+  font-size: 30px;
+  color: #ffffff;
+  background-image: url(/assets/Images/sps/sps_round_icon_rightpanelopened_white.svg);
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-position: center;
+  cursor: pointer;
+}
+.hidden {
+  display: none;
+}
+
+.zIndex0 {
+  z-index: -1;
+  position: absolute;
+}
+.zIndex100 {
+  z-index: 100;
+}
+
+.overlay {
+  position: fixed;
+  width: 100%;
+  height: calc(100vh - 69px);
+  top: 38px;
+  left: 0;
+  background-color: #262626;
+  opacity: 0.65;
+  z-index: 0;
+}
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}

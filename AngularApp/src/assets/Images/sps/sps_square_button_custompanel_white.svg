@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22">
+    <defs>
+        <style>
+            .cls-1{fill:#00a2d1}.cls-2{fill:#fff}
+        </style>
+    </defs>
+    <g id="sps_square_button_custompanel_white" transform="translate(-1034 -116.5)">
+        <rect id="Rectangle_1651" width="22" height="22" class="cls-1" data-name="Rectangle 1651" rx="5" transform="rotate(180 528 69.25)"/>
+        <path id="Union_74" d="M1.126 7.126a1.126 1.126 0 0 1 0-2.252h3.75V1.123a1.124 1.124 0 1 1 2.248 0v4.753a1.122 1.122 0 0 1-.382.842 1.127 1.127 0 0 1-.869.409z" class="cls-2" data-name="Union 74" transform="rotate(135 499.268 281.455)"/>
+    </g>
+</svg>

@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="80" viewBox="0 0 240 80">
+  <defs>
+    <style>
+      .cls-1, .cls-2, .cls-4, .cls-5, .cls-9 {
+        fill: none;
+      }
+
+      .cls-1, .cls-2, .cls-4 {
+        stroke: #fff;
+      }
+
+      .cls-1, .cls-2, .cls-5 {
+        stroke-width: 2px;
+      }
+
+      .cls-2, .cls-5 {
+        stroke-linecap: round;
+      }
+
+      .cls-3, .cls-7 {
+        fill: #fff;
+      }
+
+      .cls-3 {
+        stroke: #707070;
+      }
+
+      .cls-4 {
+        stroke-width: 3px;
+      }
+
+      .cls-5 {
+        stroke: #00a2d1;
+      }
+
+      .cls-6 {
+        fill: #00a2d1;
+      }
+
+      .cls-8 {
+        stroke: none;
+      }
+    </style>
+  </defs>
+  <g id="sps_static_icon_sharedtruckload_color" transform="translate(-350 -260)">
+    <g id="Group_7028" data-name="Group 7028" transform="translate(-440 -85)">
+      <g id="Rectangle_3154" data-name="Rectangle 3154" class="cls-1" transform="translate(885 345)">
+        <rect class="cls-8" width="80" height="35" rx="5"/>
+        <rect class="cls-9" x="1" y="1" width="78" height="33" rx="4"/>
+      </g>
+      <g id="Rectangle_3155" data-name="Rectangle 3155" class="cls-1" transform="translate(970 345)">
+        <path class="cls-8" d="M5,0H6A24,24,0,0,1,30,24v6a5,5,0,0,1-5,5H5a5,5,0,0,1-5-5V5A5,5,0,0,1,5,0Z"/>
+        <path class="cls-9" d="M5,1H6A23,23,0,0,1,29,24v6a4,4,0,0,1-4,4H5a4,4,0,0,1-4-4V5A4,4,0,0,1,5,1Z"/>
+      </g>
+      <g id="Rectangle_3156" data-name="Rectangle 3156" class="cls-1" transform="translate(970 382)">
+        <rect class="cls-8" width="10" height="10" rx="5"/>
+        <rect class="cls-9" x="1" y="1" width="8" height="8" rx="4"/>
+      </g>
+      <g id="Rectangle_3159" data-name="Rectangle 3159" class="cls-1" transform="translate(940 382)">
+        <rect class="cls-8" width="10" height="10" rx="5"/>
+        <rect class="cls-9" x="1" y="1" width="8" height="8" rx="4"/>
+      </g>
+      <g id="Rectangle_3160" data-name="Rectangle 3160" class="cls-1" transform="translate(885 382)">
+        <rect class="cls-8" width="10" height="10" rx="5"/>
+        <rect class="cls-9" x="1" y="1" width="8" height="8" rx="4"/>
+      </g>
+      <g id="Rectangle_3157" data-name="Rectangle 3157" class="cls-1" transform="translate(990 382)">
+        <rect class="cls-8" width="10" height="10" rx="5"/>
+        <rect class="cls-9" x="1" y="1" width="8" height="8" rx="4"/>
+      </g>
+      <g id="Rectangle_3158" data-name="Rectangle 3158" class="cls-1" transform="translate(955 382)">
+        <rect class="cls-8" width="10" height="10" rx="5"/>
+        <rect class="cls-9" x="1" y="1" width="8" height="8" rx="4"/>
+      </g>
+      <path id="Path_2418" data-name="Path 2418" class="cls-2" d="M6979,13680h-30" transform="translate(-6104 -13305)"/>
+      <path id="Path_2419" data-name="Path 2419" class="cls-2" d="M6994,13680h-45" transform="translate(-6119 -13315)"/>
+      <path id="Path_2420" data-name="Path 2420" class="cls-2" d="M7009,13680h-60" transform="translate(-6134 -13325)"/>
+    </g>
+    <g id="Ellipse_603" data-name="Ellipse 603" class="cls-3" transform="translate(570 320)">
+      <circle class="cls-8" cx="10" cy="10" r="10"/>
+      <circle class="cls-9" cx="10" cy="10" r="9.5"/>
+    </g>
+    <path id="Path_2421" data-name="Path 2421" class="cls-4" d="M6899,13590h220" transform="translate(-6539 -13260)"/>
+    <g id="Rectangle_3154-2" data-name="Rectangle 3154" class="cls-1" transform="translate(445 260)">
+      <rect class="cls-8" width="80" height="35" rx="5"/>
+      <rect class="cls-9" x="1" y="1" width="78" height="33" rx="4"/>
+    </g>
+    <g id="Rectangle_3155-2" data-name="Rectangle 3155" class="cls-1" transform="translate(530 260)">
+      <path class="cls-8" d="M5,0H6A24,24,0,0,1,30,24v6a5,5,0,0,1-5,5H5a5,5,0,0,1-5-5V5A5,5,0,0,1,5,0Z"/>
+      <path class="cls-9" d="M5,1H6A23,23,0,0,1,29,24v6a4,4,0,0,1-4,4H5a4,4,0,0,1-4-4V5A4,4,0,0,1,5,1Z"/>
+    </g>
+    <g id="Rectangle_3156-2" data-name="Rectangle 3156" class="cls-1" transform="translate(530 297)">
+      <rect class="cls-8" width="10" height="10" rx="5"/>
+      <rect class="cls-9" x="1" y="1" width="8" height="8" rx="4"/>
+    </g>
+    <g id="Rectangle_3159-2" data-name="Rectangle 3159" class="cls-1" transform="translate(500 297)">
+      <rect class="cls-8" width="10" height="10" rx="5"/>
+      <rect class="cls-9" x="1" y="1" width="8" height="8" rx="4"/>
+    </g>
+    <g id="Rectangle_3160-2" data-name="Rectangle 3160" class="cls-1" transform="translate(445 297)">
+      <rect class="cls-8" width="10" height="10" rx="5"/>
+      <rect class="cls-9" x="1" y="1" width="8" height="8" rx="4"/>
+    </g>
+    <g id="Rectangle_3157-2" data-name="Rectangle 3157" class="cls-1" transform="translate(550 297)">
+      <rect class="cls-8" width="10" height="10" rx="5"/>
+      <rect class="cls-9" x="1" y="1" width="8" height="8" rx="4"/>
+    </g>
+    <g id="Rectangle_3158-2" data-name="Rectangle 3158" class="cls-1" transform="translate(515 297)">
+      <rect class="cls-8" width="10" height="10" rx="5"/>
+      <rect class="cls-9" x="1" y="1" width="8" height="8" rx="4"/>
+    </g>
+    <path id="Path_2418-2" data-name="Path 2418" class="cls-5" d="M6979,13680h-30" transform="translate(-6544 -13390)"/>
+    <path id="Path_2419-2" data-name="Path 2419" class="cls-5" d="M6994,13680h-45" transform="translate(-6559 -13400)"/>
+    <path id="Path_2420-2" data-name="Path 2420" class="cls-5" d="M7009,13680h-60" transform="translate(-6574 -13410)"/>
+    <path id="Rectangle_3225" data-name="Rectangle 3225" class="cls-6" d="M2.069,0h0A9.931,9.931,0,0,1,12,9.931v1A2.069,2.069,0,0,1,9.931,13H2.069A2.069,2.069,0,0,1,0,10.931V2.069A2.069,2.069,0,0,1,2.069,0Z" transform="translate(540 265)"/>
+    <path id="Path_2421-2" data-name="Path 2421" class="cls-4" d="M6899,13590h220" transform="translate(-6539 -13260)"/>
+    <circle id="Ellipse_603-2" data-name="Ellipse 603" class="cls-7" cx="10" cy="10" r="10" transform="translate(570 320)"/>
+    <circle id="Ellipse_602" data-name="Ellipse 602" class="cls-7" cx="10" cy="10" r="10" transform="translate(350 320)"/>
+    <circle id="Ellipse_604" data-name="Ellipse 604" class="cls-7" cx="7" cy="7" r="7" transform="translate(403 323)"/>
+    <circle id="Ellipse_605" data-name="Ellipse 605" class="cls-7" cx="7" cy="7" r="7" transform="translate(523 323)"/>
+  </g>
+</svg>

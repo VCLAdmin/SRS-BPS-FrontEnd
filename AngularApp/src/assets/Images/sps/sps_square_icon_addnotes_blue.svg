@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="20.39" height="19.131" viewBox="0 0 20.39 19.131">
+    <defs>
+        <style>
+            .cls-1,.cls-2{fill:none;stroke:#00a2d1;stroke-linecap:round;stroke-width:1.5px}.cls-1{stroke-linejoin:round}
+        </style>
+    </defs>
+    <g id="sps_square_icon_addnotes_blue" transform="translate(-404.305 -77.436)">
+        <g id="Group_2832" data-name="Group 2832" transform="translate(-39.945 -556.815)">
+            <g id="Group_2830" data-name="Group 2830" transform="translate(452.556 635)">
+                <path id="Path_1047" d="M-10323-11384.443v1.889h1.89l7.556-7.556-1.889-1.89z" class="cls-1" data-name="Path 1047" transform="translate(10323 11393.889)"/>
+                <path id="Path_1049" d="M-10303-11395.111l1.889-1.889 1.889 1.889-1.889 1.889z" class="cls-1" data-name="Path 1049" transform="translate(10310.556 11397)"/>
+            </g>
+            <path id="Path_1048" d="M-10331.666-11378.3v3.3H-10343v-17h11.334v.752" class="cls-1" data-name="Path 1048" transform="translate(10788 12027.63)"/>
+            <path id="Path_1050" d="M-10266.6-11352h2.1" class="cls-2" data-name="Path 1050" transform="translate(10714.521 11999.594)"/>
+            <path id="Path_1051" d="M-10266.6-11352h5.154" class="cls-2" data-name="Path 1051" transform="translate(10714.521 11992.037)"/>
+            <path id="Path_1052" d="M-10266.6-11352h2.095" class="cls-2" data-name="Path 1052" transform="translate(10714.521 11995.815)"/>
+        </g>
+    </g>
+</svg>

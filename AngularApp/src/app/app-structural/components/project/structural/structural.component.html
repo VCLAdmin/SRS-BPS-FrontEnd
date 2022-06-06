@@ -1,0 +1,531 @@
+<div *ngIf="unified3DModel" class="accordion-section-container">
+  <div>
+    <div class="sps-accordion-section" id="config-structural">
+      <div id="sps-structural">
+        <form bps-form [formGroup]="validateForm">
+          <bps-form-item style="margin: 0px !important;">
+            <bps-form-control>
+              <div class="alloys-container" *ngIf="unified3DModel.ProblemSetting.EnableStructural">
+                <h3 class="vent-frame-heading">{{'configure.alloys' | translate }}</h3>
+                <!-- Alloys -->
+                <div style="margin-top: 7px;">
+                  <bps-select formControlName="Alloys" [(ngModel)]="alloysSelection"
+                    (ngModelChange)="onAlloyChange($event)" bpsPlaceHolder="{{'configure.select' | translate }}">
+                    <!-- Select -->
+                    <bps-option bpsValue="6060-T66 (150MPa)" bpsLabel="6060-T66 (150MPa)"></bps-option>
+                    <bps-option bpsValue="6063-T6 (160MPa) -DIN" bpsLabel="6063-T6 (160MPa) -DIN"></bps-option>
+                    <bps-option bpsValue="6063-T6 (170MPa) -US" bpsLabel="6063-T6 (170MPa) -US"></bps-option>
+                    <bps-option bpsValue="6061-T6 (240MPa)" bpsLabel="6061-T6 (240MPa)"></bps-option>
+                    <bps-option bpsValue="6065A-T6 (240MPa)" bpsLabel="6065A-T6 (240MPa)"></bps-option>
+                  </bps-select>
+                </div>
+              </div>
+            </bps-form-control>
+          </bps-form-item>
+          <div class="sps-break"></div>
+          <div class="sps-str-permissabledeflection-heading"
+            style="display: flex; align-items: center; justify-content: space-between;">
+            <h3 class="permissibleTitle">{{'configure.permissible-deflection' | translate | uppercase}}</h3>
+            <!-- PERMISSIBLE DEFLECTION -->
+            <div value="terrain-category" style="height:16px;" bps-popover [bpsPopoverPlacement]="'right'"
+              [bpsPopoverType]="'variation_4'" [bpsPopoverContent]="language === 'en-US' ? tooltip1:tooltip2">
+              <img class="iconI" src="/assets/Images/icons/sps_information_icon_blue.svg">
+            </div>
+            <ng-template #tooltip1>
+              <div class="bps-popover-content-title">
+                DIN/EN {{'configure.guidance' | translate }}
+                <!-- Guidance -->
+              </div>
+              <div>
+                L/200, if L ≤ 3.0m
+              </div>
+              <div>
+                L/300 + 5mm, if 3.0m < L < 7.5m </div>
+                  <div>
+                    L /250, if L ≥ 7.5m
+                  </div>
+                  <div class="bps-popover-content-title" style="margin-top: 10px">
+                    US-{{'configure.guidance' | translate }}
+                    <!-- Guidance -->
+                  </div>
+                  <div>
+                    L/175, if L ≤ 4.12m (13.5ft)
+                  </div>
+                  <div>
+                    L/240 + 6mm, if L > 4.12m (13.5ft)
+                  </div>
+            </ng-template>
+            <ng-template #tooltip2>
+              <div class="bps-popover-content-title">
+                Nach DIN EN 13830:2015/2020:
+                <!-- Guidance -->
+              </div>
+              <div>
+                L/200, if L ≤ 3,0m
+              </div>
+              <div>
+                L/300 + 5mm, if 3,0m < L < 7,5m </div>
+                  <div>
+                    L /250, if L ≥ 7,5m
+                  </div>
+                  <div class="bps-popover-content-title" style="margin-top: 10px">
+                    Nach US-Norm:
+                    <!-- Guidance -->
+                  </div>
+                  <div>
+                    L/175, if L ≤ 4,12m (13,5ft)
+                  </div>
+                  <div>
+                    L/240 + 6mm, if L > 4,12m (13,5ft)
+                  </div>
+            </ng-template>
+          </div>
+          <div id="permissabledeflection-dropdown-container">
+            <div>
+              <bps-form-item class="bps-form-item">
+                <bps-form-control>
+                  <bps-select style="width: 215px" formControlName="pemissableDeflectionInput"
+                    [(ngModel)]="pemissableDeflectionInput" (ngModelChange)="onPermissableChange()"
+                    bpsPlaceHolder="{{'configure.select' | translate }}">
+                    <!-- Select -->
+                    <bps-option bpsValue="2" bpsLabel="DIN EN 14351-1-2016 CL. B L/200"></bps-option>
+                    <bps-option bpsValue="3" bpsLabel="DIN EN 14351-1-2016 CL. C L/300"></bps-option>
+                    <bps-option bpsValue="4" bpsLabel="DIN EN 13830:2003"></bps-option>
+                    <bps-option bpsValue="5" bpsLabel="DIN EN 13830:2015/2020"></bps-option>
+                    <!-- Standard -->
+                    <!--@ViewResources.Resource.Standard -->
+                    <bps-option bpsValue="6" bpsLabel="US-{{'configure.standard' | translate }}"></bps-option>
+                    <!-- Standard -->
+                    <!--@ViewResources.Resource.Standard -->
+                    <bps-option bpsValue="1" bpsLabel="{{'configure.user-define' | translate }}"></bps-option>
+                    <!-- User-Define' -->
+                    <!--@ViewResources.Resource.UserDefine -->
+                  </bps-select>
+                </bps-form-control>
+              </bps-form-item>
+              <div *ngIf="pemissableDeflectionInput=='1'" id="sps-structural-user-dispindices-container"
+                class="sps-structural-user-dispindices-container">
+                <bps-form-item class="bps-form-item">
+                  <bps-form-control>
+                    <div id="sps-structural-user-dispindex-container"
+                      style="margin-top: 15px; display: flex !important; align-items: baseline; justify-content: space-between;"
+                      class="sps-structural-user-dispindex-container fontUniversforSchueco-430">
+                      <div> {{'configure.horizontal' | translate }} </div>
+                      <!-- Horizontal -->
+                      <div style="display: flex; align-items: baseline;">
+                        L &nbsp; / &nbsp;
+                        <div id="sps-structural-user-dispindex-input-field">
+                          <input style="width: 60px" type="number" bps-input [(ngModel)]="horizontalIndex"
+                            formControlName="horizontalIndex" name="horizontalIndex"
+                            (ngModelChange)="onHorizontalIndexChange()" id="sps-structural-user-dispindex-input-box">
+                        </div>
+                      </div>
+                    </div>
+                  </bps-form-control>
+                </bps-form-item>
+                <bps-form-item class="bps-form-item">
+                  <bps-form-control>
+                    <div style="display:flex !important; align-items: baseline; justify-content: space-between;"
+                      id="sps-structural-user-verticaldispindex-container"
+                      class="sps-structural-user-dispindex-container fontUniversforSchueco-430">
+                      <div> {{'configure.vertical' | translate }}</div>
+                      <!-- Vertical -->
+                      <div style="display: flex; align-items: baseline;">
+                        L &nbsp; / &nbsp;
+                        <div id="sps-structural-user-verticaldispindex-input-field">
+                          <input style="width: 60px" type="number" bps-input [(ngModel)]="verticalIndex"
+                            name="verticalIndex" formControlName="verticalIndex"
+                            (ngModelChange)="onVerticalIndexChange()"
+                            id="sps-structural-user-verticaldispindex-input-box">
+                        </div>
+                      </div>
+                    </div>
+                  </bps-form-control>
+                </bps-form-item>
+              </div>
+            </div>
+          </div>
+          <bps-form-item class="bps-form-item">
+            <bps-form-control>
+              <div class="sps-break"></div>
+              <div class="sps-str-windload-heading">
+                <h3 [ngClass]="{'blue-heading': isWindLoadOpened}" class="permissibleTitle">
+                  {{'configure.left-configure-structural-wind-load' | translate}}</h3>
+                <div>
+                  <input style="width: 170px; color: #ffffff !important; border-color: #00a2d1 !important;" centered
+                    disabled bpsDisabled bps-input formControlName="windLoadSelectedText"
+                    (ngModelChange)="onWindLoadChange()" [(ngModel)]="calculateWindLoadSelection">
+                  <button bps-button bpsType="variation-13" [ngClass]="{'active': isWindLoadOpened}"
+                    style="margin-left: 22px; margin-top: 2px; position: absolute;" (click)="onOpenLeftTable()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12.967" height="11.956" viewBox="0 0 12.967 11.956">
+                      <defs>
+                        <style>
+                          .cls-1 {
+                            fill: none;
+                            stroke: #fff;
+                            stroke-linecap: round;
+                            stroke-width: 2px
+                          }
+                        </style>
+                      </defs>
+                      <g id="sps_square_icon_changeprofile_enabled_new" transform="translate(-2533.021 -328.325)">
+                        <g id="sps_round_icon_rightpanelopened_white" transform="translate(2540.011 329.74)">
+                          <path id="Path_287" d="M4.564 9.128L0 4.564 4.564 0" class="cls-1" data-name="Path 287"
+                            transform="rotate(180 2.282 4.564)" />
+                        </g>
+                        <path id="Path_1295" d="M-9323.126-21989.648H-9333" class="cls-1" data-name="Path 1295"
+                          transform="translate(11867.02 22323.951)" />
+                      </g>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </bps-form-control>
+          </bps-form-item>
+          <div *ngIf="positiveWindPressure && negativeWindPressure">
+            <div class="sps-break"></div>
+            <div class="sps-str-permissabledeflection-heading"
+            style="display: flex; align-items: center; justify-content: space-between;">
+            <h3 class="calculated-input-heading">{{'configure.calculated-results' | translate }} (W<sub>p</sub>)</h3>
+            <div value="terrain-category" style="height:16px;" bps-popover [bpsPopoverPlacement]="'right'"
+            [bpsPopoverType]="'variation_4'" [bpsPopoverContent]="language === 'en-US' ? tooltip1:tooltip2">
+            <img class="iconI" src="/assets/Images/icons/sps_information_icon_blue.svg">
+          </div>
+          <ng-template #tooltip1>
+            <div>
+              For a member with tributary area  ≤ 1 m<sup>2</sup>
+            </div>
+          </ng-template>
+          <ng-template #tooltip2>
+            <div>
+              Für ein Mitglied mit Lasteinzugsfläche ≤ 1 m<sup>2</sup>
+            </div>
+          </ng-template>
+        </div>
+            <!-- Calculated Results -->
+            <div class="calculated-results-rectangle" style="margin-top: 7px;">
+              <div class="calculated-results-ligne">
+                <div class="pressure-title">{{'configure.positive-wind-pressure' | translate }}
+                  <!-- W<sub>p</sub> -->
+                </div>
+                <!-- Positive Wind Pressure -->
+                <div class="pressure-value" style="margin-left: 15.2px;">
+                  {{ positiveWindPressure| number: '':language }}</div>
+                <div class="max-pressure-unit" style="margin-right: 5px;">kN/m<sup>2</sup></div>
+              </div>
+              <div class="calculated-results-ligne">
+                <div class="pressure-title">{{'configure.negative-wind-pressure' | translate }}
+                  <!-- W<sub>p</sub> -->
+                </div>
+                <!-- Negative Wind Pressure -->
+                <div class="pressure-value" style="margin-left: 8.2px;">{{ negativeWindPressure| number: '':language }}
+                </div>
+                <div class="max-pressure-unit" style="margin-right: 5px;">kN/m<sup>2</sup></div>
+              </div>
+            </div>
+          </div>
+          <div class="sps-break"></div>
+          <div class="switch-heading">
+            <h3 [ngStyle]="{'color':switchLiveLoad?'#00a2d1':'#ffffff'}">
+              {{'configure.horizontal-live-load' | translate | uppercase}}</h3>
+            <!-- HORIZONTAL LIVE LOAD -->
+            <bps-switch formControlName="switchLiveLoad" [(ngModel)]="switchLiveLoad"
+              (ngModelChange)="onSwitchLiveLoad()"></bps-switch>
+          </div>
+          <div *ngIf="switchLiveLoad" style="margin-top:24.5px;">
+            <div style="display:flex; align-items: center; justify-content: space-between;margin-bottom:7px;">
+              <h3 class="permissibleTitle">{{'configure.load' | translate | uppercase }}</h3>
+              <!-- LOAD -->
+              <div value="terrain-category" style="height:16px;" bps-popover [bpsPopoverPlacement]="'topRight'"
+                [bpsPopoverType]="'variation_4'" [bpsPopoverContent]="tooltip3">
+                <img class="iconI" src="/assets/Images/icons/sps_information_icon_blue.svg">
+              </div>
+              <ng-template #tooltip3>
+                <div style="border: 1.25px solid #00A2D1;">
+                  <div nz-row class="row first-row">
+                    <div nz-col nzSpan="24" class="tooltip-cell">
+                      {{'configure.left-configure-structural-categories-of-use' | translate}}</div>
+                  </div>
+                  <div nz-row #2 class="row second-row">
+                    <div nz-col nzSpan="3" class="bps-popover-content-title tooltip-cell">
+                      {{'configure.left-configure-structural-category' | translate}}</div>
+                    <div nz-col nzSpan="7" class="bps-popover-content-title tooltip-cell">
+                      {{'configure.left-configure-structural-specific-use' | translate}}</div>
+                    <div nz-col nzSpan="14" class="bps-popover-content-title tooltip-cell">
+                      {{'configure.left-configure-structural-example' | translate}}</div>
+                  </div>
+                  <div nz-row #3 class="row third-row">
+                    <div nz-col nzSpan="3" class="bps-popover-content-title tooltip-cell">
+                      {{'configure.left-configure-structural-a' | translate}}</div>
+                    <div nz-col nzSpan="7" class="tooltip-cell text-cell">
+                      {{'configure.left-configure-structural-domestic-residential-areas' | translate}}
+                    </div>
+                    <div nz-col nzSpan="14" class="tooltip-cell text-cell">
+                      {{'configure.left-configure-structural-resedential-rooms' | translate}}</div>
+                  </div>
+                  <div nz-row #4 class="row fourth-row">
+                    <div nz-col nzSpan="3" class="bps-popover-content-title tooltip-cell">
+                      {{'configure.left-configure-structural-b' | translate}}</div>
+                    <div nz-col nzSpan="7" class="tooltip-cell text-cell">
+                      {{'configure.left-configure-structural-office-areas' | translate}}</div>
+                    <div nz-col nzSpan="14" class="tooltip-cell text-cell"></div>
+                  </div>
+                  <div nz-row #5 class="row fifth-row">
+                    <div nz-col nzSpan="3" class="bps-popover-content-title tooltip-cell">
+                      {{'configure.left-configure-structural-c' | translate}}</div>
+                    <div nz-col nzSpan="7" class="tooltip-cell text-cell">
+                      {{'configure.left-configure-structural-congregate-areas' | translate}}</div>
+                    <div nz-col nzSpan="14" class="tooltip-cell text-cell">
+                      <p>{{'configure.left-configure-structural-c1-text' | translate}}</p>
+                      <p>{{'configure.left-configure-structural-c2-text' | translate}}</p>
+                      <p>{{'configure.left-configure-structural-c3-text' | translate}}</p>
+                      <p>{{'configure.left-configure-structural-c4-text' | translate}}</p>
+                      <p>{{'configure.left-configure-structural-c5-text' | translate}}</p>
+                    </div>
+                  </div>
+                  <div nz-row #6 class="sixth-row">
+                    <div nz-col nzSpan="3" class="bps-popover-content-title tooltip-cell">
+                      {{'configure.left-configure-structural-d-text' | translate}}</div>
+                    <div nz-col nzSpan="7" class="tooltip-cell text-cell">
+                      {{'configure.left-configure-structural-shopping-areas' | translate}}</div>
+                    <div nz-col nzSpan="14" class="tooltip-cell text-cell"></div>
+                  </div>
+                  <div nz-row #7 class="seventh-row">
+                    <div nz-col nzSpan="3" class="bps-popover-content-title tooltip-cell">
+                      {{'configure.left-configure-structural-e' | translate}}</div>
+                    <div nz-col nzSpan="7" class="tooltip-cell text-cell">
+                      {{'configure.left-configure-structural-storage-areas' | translate}}</div>
+                    <div nz-col nzSpan="14" class="tooltip-cell text-cell"></div>
+                  </div>
+                </div>
+              </ng-template>
+              <!-- <ng-template #tooltip4 class="load-tooltip">
+                <div style="border: 1.25px solid #00A2D1;">
+                  <div nz-row class="row first-row">
+                    <div nz-col nzSpan="24" class="tooltip-cell">Gebrauchskategorien (DIN EN 1990, 1991-1-1)</div>
+                  </div>
+                  <div nz-row #2 class="row second-row">
+                    <div nz-col nzSpan="3" class="bps-popover-content-title tooltip-cell">Kategorie</div>
+                    <div nz-col nzSpan="7" class="bps-popover-content-title tooltip-cell">Nutzungsmerkmal</div>
+                    <div nz-col nzSpan="14" class="bps-popover-content-title tooltip-cell">Beispiel</div>
+                  </div>
+                  <div nz-row #3 class="row third-row">
+                    <div nz-col nzSpan="3" class="bps-popover-content-title tooltip-cell">A</div>
+                    <div nz-col nzSpan="7" class="tooltip-cell text-cell">Wohnflächen</div>
+                    <div nz-col nzSpan="14" class="tooltip-cell text-cell">Räume in Wohngebäuden und -häusern, Stations-
+                      und Krankenzimmer in Krankenhäusern, Zimmer in Hotels und Herbergen, Küchen, Toiletten.</div>
+                  </div>
+                  <div nz-row #4 class="row fourth-row">
+                    <div nz-col nzSpan="3" class="bps-popover-content-title tooltip-cell">B</div>
+                    <div nz-col nzSpan="7" class="tooltip-cell text-cell">Büroflächen</div>
+                    <div nz-col nzSpan="14" class="tooltip-cell text-cell"></div>
+                  </div>
+                  <div nz-row #5 class="row fifth-row">
+                    <div nz-col nzSpan="3" class="bps-popover-content-title tooltip-cell">C</div>
+                    <div nz-col nzSpan="7" class="tooltip-cell text-cell">Flächen mit Personenansammlungen (außer
+                      Kategorie A, B und D)</div>
+                    <div nz-col nzSpan="14" class="tooltip-cell text-cell">
+                      <p>C1: Flächen mit Tischen usw., z. B. in Schulen, Cafés, Restaurants, Speisesälen, Lesezimmern,
+                        Empfangsräumen.</p>
+                      <p>C2: Flächen mit fester Bestuhlung, z. B. in Kirchen, Theatern, Kinos, Konferenzräumen,
+                        Vorlesungssälen, Versammlungshallen, Wartezimmern, Bahnhofswartesälen.</p>
+                      <p>C3: Flächen ohne Hindernisse für die Beweglichkeit von Personen, z. B. in Museen,
+                        Ausstellungsräumen usw. sowie Zugangsflächen in öffentlichen Gebäuden und Verwaltungsgebäuden,
+                        Hotels, Krankenhäusern, Bahnhofshallen.</p>
+                      <p>C4: Flächen mit möglichen körperlichen Aktivitäten von Personen, z. B. Tanzsäle, Turnsäle,
+                        Bühnen.</p>
+                      <p>C5: Flächen mit möglichem Menschengedränge, z. B. in Gebäuden mit öffentlichen Veranstaltungen,
+                        wie Konzertsälen, Sporthallen mit Tribünen, Terrassen und Zugangsbereiche und Bahnsteige.</p>
+                    </div>
+                  </div>
+                  <div nz-row #6 class="sixth-row">
+                    <div nz-col nzSpan="3" class="bps-popover-content-title tooltip-cell">D</div>
+                    <div nz-col nzSpan="7" class="tooltip-cell text-cell">Verkaufsflächen</div>
+                    <div nz-col nzSpan="14" class="tooltip-cell text-cell"></div>
+                  </div>
+                  <div nz-row #7 class="seventh-row">
+                    <div nz-col nzSpan="3" class="bps-popover-content-title tooltip-cell">E</div>
+                    <div nz-col nzSpan="7" class="tooltip-cell text-cell">Lagerflächen</div>
+                    <div nz-col nzSpan="14" class="tooltip-cell text-cell"></div>
+                  </div>
+                </div>
+              </ng-template> -->
+            </div>
+            <div>
+              <div>
+                <bps-form-item class="bps-form-item">
+                  <bps-form-control>
+                    <bps-select style="width: 215px; margin-left:0.4px;" formControlName="horizontalLiveLoad"
+                      [(ngModel)]="horizontalLiveLoad" (ngModelChange)="onHorizontalLiveLoadChange()"
+                      bpsPlaceHolder="{{'configure.select' | translate }}">
+                      <!-- Select -->
+                      <bps-option bpsValue="0.5"
+                        bpsLabel="0.5 kN/m ({{'configure.category' | translate }} A, B {{'configure.and' | translate }} C1)">
+                      </bps-option>
+                      <bps-option bpsValue="1"
+                        bpsLabel="1.0 kN/m ({{'configure.category' | translate }} C2 - C4 {{'configure.and' | translate }} D)">
+                      </bps-option>
+                      <bps-option bpsValue="2" bpsLabel="2.0 kN/m ({{'configure.category' | translate }} E)">
+                      </bps-option>
+                      <bps-option bpsValue="3" bpsLabel="3.0 kN/m ({{'configure.category' | translate }} C5)">
+                      </bps-option>
+                    </bps-select>
+                  </bps-form-control>
+                </bps-form-item>
+                <bps-form-item class="bps-form-item">
+                  <bps-form-control>
+                    <div>
+                      <div style="margin-top: 15px;margin-bottom: 7px;">
+                        <h3 style="color:#ffffff;">{{'configure.height' | translate | uppercase}}</h3>
+                        <!-- HEIGHT -->
+                      </div>
+                      <div id="sps-height-num-info" class="sps-height-num-info">
+                        <div id="sps-acoustics-height-input-container">
+                          <div class="input-container">
+                            <input formControlName="height" type="number" style="width: 62px; margin-left: -0.1px"
+                              bps-input [(ngModel)]="height" name="height" (ngModelChange)="onHeightChange()"
+                              autocomplete="off" id="sps-acoustics-height-input-box">
+                            <div>(mm)</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </bps-form-control>
+                </bps-form-item>
+              </div>
+            </div>
+          </div>
+
+          <div
+            *ngIf="unified3DModel.ProblemSetting.ProductType === 'Facade' && unified3DModel.ProblemSetting.FacadeType==='mullion-transom'"
+            class="sps-break"></div>
+          <div class="switch-heading"
+            *ngIf="unified3DModel.ProblemSetting.ProductType === 'Facade' && unified3DModel.ProblemSetting.FacadeType==='mullion-transom'">
+            <h3 style="color:#00a2d1">
+              {{'configure.boundary-condition' | translate | uppercase}}</h3>
+            <!-- BOUNDARY CONDITION -->
+            <!-- <bps-switch formControlName="switchBoundary" [(ngModel)]="switchBoundary"
+              (ngModelChange)="onSwitchBoundaryCondition()"></bps-switch> -->
+            </div>
+            <div style="display:block;margin-top:20px;" 
+            *ngIf="unified3DModel.ProblemSetting.ProductType === 'Facade' && unified3DModel.ProblemSetting.FacadeType==='mullion-transom'">
+              <bps-form-item>
+                <bps-form-control>  
+                  <h3 class="calculated-input-heading">{{'configure.top-recess' | translate | uppercase}}</h3>
+                  <div class="input-container">
+                    <input style="width: 60px" bps-input type="number" min="0" formControlName="topRecess"
+                          [(ngModel)]="topRecess"
+                          (blur)="onTopRecessChange(topRecess);">
+                          <div>mm</div>
+                          
+                          <div  style="height:12px;margin-left:99px;" bps-popover [bpsPopoverPlacement]="'right'"
+                          bpsType="variation-1" [bpsPopoverType]="'variation_3'" [bpsPopoverContent]="topRecessInfo">
+                            <img class="iconI" src="/assets/Images/icons/sps_information_icon_blue.svg">
+                        </div>
+                        <ng-template #topRecessInfo>
+                          <div style="width: 250px;">
+                              <div>
+                                  {{'configure.top-recess-info' | translate }}</div>
+                          </div>
+                      </ng-template>
+                  </div>
+                </bps-form-control>
+              </bps-form-item>
+              <bps-form-item>
+                <bps-form-control>  
+                  <h3 class="calculated-input-heading">{{'configure.bottom-recess' | translate | uppercase}}</h3>
+                  <div class="input-container">
+                    <input style="width: 60px" bps-input type="number" min="0" formControlName="bottomRecess"
+                          [(ngModel)]="bottomRecess"
+                          (blur)="onBottomRecessChange(bottomRecess);">
+                          <div>mm</div>
+                          <div value="terrain-category" style="height:12px;margin-left:99px;" bps-popover [bpsPopoverPlacement]="'right'"
+                          bpsType="variation-1" [bpsPopoverType]="'variation_3'" [bpsPopoverContent]="bottomRecessInfo">
+                            <img class="iconI" src="/assets/Images/icons/sps_information_icon_blue.svg">
+                           </div>
+                           <ng-template #bottomRecessInfo>
+                            <div style="width: 250px;">
+                                <div>
+                                    {{'configure.bottom-recess-info' | translate }}</div>
+                            </div>
+                        </ng-template>
+                  </div>
+                </bps-form-control>
+              </bps-form-item>
+              <div class="sps-break"></div>
+            </div>
+        </form>
+
+        <div
+          *ngIf="unified3DModel.ProblemSetting.ProductType === 'Facade' && unified3DModel.ProblemSetting.FacadeType==='mullion-transom'">
+          <div class="sps-break" style=" margin-top: 15px; margin-bottom: 15px;border-bottom:1px solid #262626;"></div>
+          <div class="sps-str-windload-heading">
+            <h3 class="manual-input-heading">{{'configure.left-configure-structural-intermediate-attachment' | translate
+              }}</h3>
+            <div style="margin-left:-0.1px;">
+              <bps-radio-group [(ngModel)]="floorAttachment">
+                <label style="width: 220px" bps-radio-button bpsValue="Sliding" bpsRadioButtonType="variation5">
+                  <span>{{'configure.left-configure-structural-sliding-bearing-point' | translate}}</span>
+                  <img style="margin-top:10px;"
+                    src="/assets/Images/icons/sps_boundary_icon_slidingbearingpoint_orange.svg" />
+                </label>
+                <label style="width: 220px" bps-radio-button bpsValue="Fixed" bpsRadioButtonType="variation5">
+                  <span>{{'configure.left-configure-structural-fixed-bearing-point' | translate}}</span>
+                  <img style="margin-top:10px;"
+                    src="/assets/Images/icons/sps_boundary_icon_fixedbearingpoint_orange.svg" />
+                </label>
+              </bps-radio-group>
+            </div>
+            <div class="apply-btn-container">
+              <button bps-button bpsType="variation-4"
+                [ngStyle]="{'padding-left': language === 'de-DE' ? '9px' : '15px'}" [disabled]="!floorAttachment"
+                style="width:80px;" (click)="onAddBoudaryCondition_floorAttachment()">{{'configure.add' | translate
+                }}</button>
+            </div>
+          </div>
+          <div class="sps-break"></div>
+          <div class="sps-str-windload-heading">
+            <h3 class="manual-input-heading">{{'configure.left-configure-structural-mullion-joints' | translate}}</h3>
+            <div style="margin-left:-0.1px;">
+              <bps-radio-group [(ngModel)]="mullionJoints">
+                <label style="width: 220px" bps-radio-button bpsValue="Hinged" bpsRadioButtonType="variation5">
+                  <span>{{'configure.left-configure-structural-hinged' | translate}}</span>
+                  <img style="margin-top:14px;" src="/assets/Images/icons/sps_boundary_icon_hinged_yellow.svg" />
+                </label>
+                <label style="width: 220px" bps-radio-button bpsValue="Rigid" bpsRadioButtonType="variation5">
+                  <span>{{'configure.left-configure-structural-structurally-rigid' | translate}}</span>
+                  <img style="margin-top:17px;"
+                    src="/assets/Images/icons/sps_boundary_icon_structurallyrigid_yellow.svg" />
+                </label>
+              </bps-radio-group>
+            </div>
+            <div class="apply-btn-container">
+              <button bps-button bpsType="variation-4"
+                [ngStyle]="{'padding-left': language === 'de-DE' ? '9px' : '15px'}" [disabled]="!mullionJoints"
+                style="width:80px;" (click)="onAddBoudaryCondition_mullionJoints()">{{'configure.add' | translate
+                }}</button>
+            </div>
+          </div>
+        </div>
+        <form bps-form [formGroup]="validateForm">
+          <div class="temporarily-hidden" style="display: none">
+            <div class="sps-break"></div>
+            <div class="switch-heading">
+              <h3 style="color: #666666;">{{'configure.seismic-load' | translate | uppercase}}</h3>
+              <!-- SEISMIC LOAD -->
+              <bps-switch formControlName="switchSeismic" [(ngModel)]="switchSeismic" bpsDisabled></bps-switch>
+            </div>
+
+            <div class="sps-break"></div>
+            <div class="switch-heading">
+              <h3 style="color: #666666;">{{'configure.slab-deflection' | translate | uppercase}}</h3>
+              <!-- SLAB DEFLECTION -->
+              <bps-switch formControlName="switchSlab" [(ngModel)]="switchSlab" bpsDisabled></bps-switch>
+            </div>
+          </div>
+        </form>
+        <div class="sps-last-break"></div>
+      </div>
+    </div>
+  </div>
+</div>

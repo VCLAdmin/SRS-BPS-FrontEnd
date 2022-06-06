@@ -1,0 +1,171 @@
+.sps-left-popout-container-level {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  position: absolute;
+  top: 0;
+  left: 355px;
+  height: 100%;
+  background-color: #262626;
+  border-left: 1px solid #474747;
+  z-index: 1;
+}
+
+.sps-left-popout-container-level2 {
+  width: 350px;
+  height: calc(100vh - 71px);
+  /* overflow-y: auto; */
+  margin-right: 5px;
+  padding: 27.6px 0 23px;
+}
+
+.sps-popout-header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  margin: 0 21px 17.4px 25px;
+}
+
+.outer-popout-panel-heading {
+  color: #00a2d1;
+}
+
+.disabled {
+  color: #666666;
+}
+
+.sps-dxf-upload-btn {
+  margin-top: 14px !important;
+  margin-bottom: 20px !important;
+}
+
+.sps-break {
+  width: 110% !important;
+}
+
+.sps-left-popout-custom-section-property {
+  width: 305px;
+  margin: 18px 25px 20px 25px;
+}
+
+.sps-left-popout-custom-section-property h3 {
+  display: block;
+  margin-bottom: 18px;
+  color: #ffffff;
+}
+
+.sps-custom-section-property-input-container {
+  display: inline-block;
+  width: 130px;
+}
+
+.sps-custom-section-property-input-container p {
+  font-size: 12px;
+  display: inline-block;
+  width: 30px;
+}
+
+.sps-custom-section-property-input-container .units {
+  margin-left: 4px;
+}
+
+.sps-left-popout-custom-section-property span {
+  display: inline-block;
+  width: 36px;
+}
+
+.sps-left-popout-level2-bottom-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sps-custom-article-delete-btn {
+  margin: 20px 0px 0 40px !important;
+}
+
+.sps-custom-article-add-btn {
+  margin: 20px 40px 0 0px !important;
+}
+
+.bps-form-item {
+  margin: 0px;
+  display: inline-block;
+}
+
+h3,
+p {
+  color: #ffffff;
+  line-height: 16.5px;
+}
+
+.sps-left-popout-container-level2-img {
+  /* border-left: 1px solid #363636; */
+  border-right: 1px solid #363636;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  width: 350px;
+  height: 100%;
+  margin-left: 0px;
+  background-color: #262626;
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.1) 1px,
+      transparent 1px
+    ),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 5px 5px, 5px 5px, 5px 5px, 5px 5px;
+  background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
+}
+
+.sps-left-popout-container-level2-img img {
+  border-style: none;
+}
+
+.sps-left-popout-container-level2-overlay-left {
+  position: fixed;
+  width: 650px;
+  height: calc(100vh - 69px);
+  top: 38px;
+  left: 0;
+  background-color: #262626;
+  opacity: 0.65;
+  z-index: 9;
+}
+
+.sps-left-popout-container-level2-overlay-right {
+  position: fixed;
+  width: calc(100vw - 1356px);
+  height: calc(100vh - 69px);
+  top: 38px;
+  right: 0;
+  background-color: #262626;
+  opacity: 0.65;
+  z-index: 9;
+}
+
+.ant-input.bps-input-opened.ng-touched.ng-invalid:focus-within {
+  border-bottom: 1px solid #00a2d1 !important;
+  color: #ffffff !important;
+}
+
+.ant-input.bps-input-opened.ng-touched.ng-invalid {
+  border-bottom: 1px solid #ef8621 !important;
+  color: #ffffff !important;
+}
+
+.active {
+  background-color: #00a2d1 !important;
+}
+
+.activeDeleteBtn {
+  color: #ffffff !important;
+  background-color: #363636 !important;
+}
+
+.activeDeleteBtn:hover {
+  background-color: #bc0000 !important;
+}

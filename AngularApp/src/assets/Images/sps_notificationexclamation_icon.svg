@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22">
+    <g data-name="Group 6912">
+        <g data-name="Group 741" transform="translate(.027 .027)">
+            <circle data-name="Ellipse 113" cx="11" cy="11" r="11" transform="rotate(90 11 10.974)" style="fill:#1b1b1b"/>
+        </g>
+    </g>
+    <g data-name="Group 6913">
+        <g data-name="Ellipse 724" style="stroke:#e94c0a;stroke-width:1.5px;fill:none">
+            <circle cx="11" cy="11" r="11" style="stroke:none"/>
+            <circle cx="11" cy="11" r="10.25" style="fill:none"/>
+        </g>
+        <text data-name="!" transform="translate(0 3)" style="fill:#e94c0a;font-size:14px;font-family:UniversForSchueco-630Bold,Univers for Schueco;font-weight:700"><tspan x="8.627" y="13">!</tspan></text>
+    </g>
+</svg>
