@@ -67,7 +67,12 @@ export class LoginComponent implements OnInit, OnDestroy {
           this.commonService.setUserGuid(user.UserGuid);
           this.loginService.currentUser = user; // are we using this code ???
           currentAccount.User = user;
-          this.loginService.ValidateHash(currentAccount).pipe(takeUntil(this.destroy$)).subscribe((isValid: boolean) => {
+      //
+      this.commonService.resetUser(JSON.stringify(currentAccount.User));
+      this.showLoader = false;
+      this.router.navigate(['/home']);
+      //
+          /*this.loginService.ValidateHash(currentAccount).pipe(takeUntil(this.destroy$)).subscribe((isValid: boolean) => {
             if (isValid) {
               this.commonService.resetUser(JSON.stringify(currentAccount.User));
               this.showLoader = false;
@@ -76,7 +81,7 @@ export class LoginComponent implements OnInit, OnDestroy {
             }
           }, error => {
             this.showLoader = false;
-          });
+          });*/
         } else {
           this.showLoader = false
           this.username = '';
