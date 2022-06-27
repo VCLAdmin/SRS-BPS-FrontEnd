@@ -1,0 +1,1247 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>angular-app documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">angular-app documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content class">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li>Classes</li>
+  <li >OrderModel</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/app-structural/models/order-model.ts</code>
+        </p>
+
+
+
+
+
+
+            <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#allOrders" >allOrders</a>
+                            </li>
+                            <li>
+                                <a href="#allow_ToPlaceOrder" >allow_ToPlaceOrder</a>
+                            </li>
+                            <li>
+                                <a href="#allProducts" >allProducts</a>
+                            </li>
+                            <li>
+                                <a href="#amount_EstimatedTax" >amount_EstimatedTax</a>
+                            </li>
+                            <li>
+                                <a href="#amount_SchucoPartnerDiscount" >amount_SchucoPartnerDiscount</a>
+                            </li>
+                            <li>
+                                <a href="#amount_Shipping" >amount_Shipping</a>
+                            </li>
+                            <li>
+                                <a href="#amount_Subtotal" >amount_Subtotal</a>
+                            </li>
+                            <li>
+                                <a href="#amount_Total" >amount_Total</a>
+                            </li>
+                            <li>
+                                <a href="#amount_TotalBeforeTax" >amount_TotalBeforeTax</a>
+                            </li>
+                            <li>
+                                <a href="#check_OneDisclaimer" >check_OneDisclaimer</a>
+                            </li>
+                            <li>
+                                <a href="#check_TwoDisclaimer" >check_TwoDisclaimer</a>
+                            </li>
+                            <li>
+                                <a href="#current_ProblemGuid" >current_ProblemGuid</a>
+                            </li>
+                            <li>
+                                <a href="#current_ProjectGuid" >current_ProjectGuid</a>
+                            </li>
+                            <li>
+                                <a href="#current_ProjectId" >current_ProjectId</a>
+                            </li>
+                            <li>
+                                <a href="#data_AllOrders" >data_AllOrders</a>
+                            </li>
+                            <li>
+                                <a href="#hasFullAccess" >hasFullAccess</a>
+                            </li>
+                            <li>
+                                <a href="#minAmount_PerOrder" >minAmount_PerOrder</a>
+                            </li>
+                            <li>
+                                <a href="#orderPlaced" >orderPlaced</a>
+                            </li>
+                            <li>
+                                <a href="#orderPlacedOn" >orderPlacedOn</a>
+                            </li>
+                            <li>
+                                <a href="#shipping_Address" >shipping_Address</a>
+                            </li>
+                            <li>
+                                <a href="#show_CancelOrder" >show_CancelOrder</a>
+                            </li>
+                            <li>
+                                <a href="#show_Disclaimer" >show_Disclaimer</a>
+                            </li>
+                            <li>
+                                <a href="#show_ProductInfo" >show_ProductInfo</a>
+                            </li>
+                            <li>
+                                <a href="#show_ShippingAddressPanel" >show_ShippingAddressPanel</a>
+                            </li>
+                            <li>
+                                <a href="#show_ShipToAddress" >show_ShipToAddress</a>
+                            </li>
+                            <li>
+                                <a href="#store_Address" >store_Address</a>
+                            </li>
+                            <li>
+                                <a href="#type_ShippingMethod" >type_ShippingMethod</a>
+                            </li>
+                            <li>
+                                <a href="#valid_ShipToAddress" >valid_ShipToAddress</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+            <section>
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="allOrders"></a>
+                    <span class="name">
+                        <span ><b>allOrders</b></span>
+                        <a href="#allOrders"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/OrderApiModel.html" target="_self" >OrderApiModel</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">src/app/app-structural/models/order-model.ts:52</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="allow_ToPlaceOrder"></a>
+                    <span class="name">
+                        <span ><b>allow_ToPlaceOrder</b></span>
+                        <a href="#allow_ToPlaceOrder"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/app-structural/models/order-model.ts:42</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="allProducts"></a>
+                    <span class="name">
+                        <span ><b>allProducts</b></span>
+                        <a href="#allProducts"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/BpsUnifiedProblem.html" target="_self" >BpsUnifiedProblem[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/app/app-structural/models/order-model.ts:51</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="amount_EstimatedTax"></a>
+                    <span class="name">
+                        <span ><b>amount_EstimatedTax</b></span>
+                        <a href="#amount_EstimatedTax"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>0</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/app-structural/models/order-model.ts:19</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="amount_SchucoPartnerDiscount"></a>
+                    <span class="name">
+                        <span ><b>amount_SchucoPartnerDiscount</b></span>
+                        <a href="#amount_SchucoPartnerDiscount"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>0</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/app-structural/models/order-model.ts:22</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="amount_Shipping"></a>
+                    <span class="name">
+                        <span ><b>amount_Shipping</b></span>
+                        <a href="#amount_Shipping"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>0</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/app-structural/models/order-model.ts:13</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="amount_Subtotal"></a>
+                    <span class="name">
+                        <span ><b>amount_Subtotal</b></span>
+                        <a href="#amount_Subtotal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>0</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/app-structural/models/order-model.ts:12</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="amount_Total"></a>
+                    <span class="name">
+                        <span ><b>amount_Total</b></span>
+                        <a href="#amount_Total"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>0</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/app-structural/models/order-model.ts:23</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="amount_TotalBeforeTax"></a>
+                    <span class="name">
+                        <span ><b>amount_TotalBeforeTax</b></span>
+                        <a href="#amount_TotalBeforeTax"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>0</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/app-structural/models/order-model.ts:16</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="check_OneDisclaimer"></a>
+                    <span class="name">
+                        <span ><b>check_OneDisclaimer</b></span>
+                        <a href="#check_OneDisclaimer"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/app-structural/models/order-model.ts:39</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="check_TwoDisclaimer"></a>
+                    <span class="name">
+                        <span ><b>check_TwoDisclaimer</b></span>
+                        <a href="#check_TwoDisclaimer"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/app-structural/models/order-model.ts:40</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="current_ProblemGuid"></a>
+                    <span class="name">
+                        <span ><b>current_ProblemGuid</b></span>
+                        <a href="#current_ProblemGuid"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/app-structural/models/order-model.ts:46</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="current_ProjectGuid"></a>
+                    <span class="name">
+                        <span ><b>current_ProjectGuid</b></span>
+                        <a href="#current_ProjectGuid"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/app-structural/models/order-model.ts:47</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="current_ProjectId"></a>
+                    <span class="name">
+                        <span ><b>current_ProjectId</b></span>
+                        <a href="#current_ProjectId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/app-structural/models/order-model.ts:48</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="data_AllOrders"></a>
+                    <span class="name">
+                        <span ><b>data_AllOrders</b></span>
+                        <a href="#data_AllOrders"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>any[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/app/app-structural/models/order-model.ts:50</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="hasFullAccess"></a>
+                    <span class="name">
+                        <span ><b>hasFullAccess</b></span>
+                        <a href="#hasFullAccess"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/app-structural/models/order-model.ts:11</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="minAmount_PerOrder"></a>
+                    <span class="name">
+                        <span ><b>minAmount_PerOrder</b></span>
+                        <a href="#minAmount_PerOrder"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>25000</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/app-structural/models/order-model.ts:24</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="orderPlaced"></a>
+                    <span class="name">
+                        <span ><b>orderPlaced</b></span>
+                        <a href="#orderPlaced"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">src/app/app-structural/models/order-model.ts:6</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="orderPlacedOn"></a>
+                    <span class="name">
+                        <span ><b>orderPlacedOn</b></span>
+                        <a href="#orderPlacedOn"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">src/app/app-structural/models/order-model.ts:7</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="shipping_Address"></a>
+                    <span class="name">
+                        <span ><b>shipping_Address</b></span>
+                        <a href="#shipping_Address"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/ShippingAddressModel.html" target="_self" >ShippingAddressModel</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/app-structural/models/order-model.ts:34</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="show_CancelOrder"></a>
+                    <span class="name">
+                        <span ><b>show_CancelOrder</b></span>
+                        <a href="#show_CancelOrder"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/app/app-structural/models/order-model.ts:8</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="show_Disclaimer"></a>
+                    <span class="name">
+                        <span ><b>show_Disclaimer</b></span>
+                        <a href="#show_Disclaimer"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/app-structural/models/order-model.ts:41</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="show_ProductInfo"></a>
+                    <span class="name">
+                        <span ><b>show_ProductInfo</b></span>
+                        <a href="#show_ProductInfo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/app-structural/models/order-model.ts:45</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="show_ShippingAddressPanel"></a>
+                    <span class="name">
+                        <span ><b>show_ShippingAddressPanel</b></span>
+                        <a href="#show_ShippingAddressPanel"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/app-structural/models/order-model.ts:30</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="show_ShipToAddress"></a>
+                    <span class="name">
+                        <span ><b>show_ShipToAddress</b></span>
+                        <a href="#show_ShipToAddress"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;ADDRESS&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/app-structural/models/order-model.ts:31</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="store_Address"></a>
+                    <span class="name">
+                        <span ><b>store_Address</b></span>
+                        <a href="#store_Address"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/StoreAddressModel.html" target="_self" >StoreAddressModel</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/app-structural/models/order-model.ts:33</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="type_ShippingMethod"></a>
+                    <span class="name">
+                        <span ><b>type_ShippingMethod</b></span>
+                        <a href="#type_ShippingMethod"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;TL&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/app-structural/models/order-model.ts:35</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="valid_ShipToAddress"></a>
+                    <span class="name">
+                        <span ><b>valid_ShipToAddress</b></span>
+                        <a href="#valid_ShipToAddress"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/app-structural/models/order-model.ts:32</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Subscription } from &quot;rxjs&quot;;
+import { BpsUnifiedModel } from &quot;src/app/app-common/models/bps-unified-model&quot;;
+import { BpsUnifiedProblem } from &quot;src/app/app-common/models/bps-unified-problem&quot;;
+
+export class OrderModel {
+  orderPlaced: boolean &#x3D; false;
+  orderPlacedOn: Date;
+  show_CancelOrder: boolean &#x3D; true;
+  /* -- Order Summary --------------------------------------------------------------- */
+  /* ----------------------------------------------------------------------------------- */
+  hasFullAccess: boolean &#x3D; false;
+  amount_Subtotal: number &#x3D; 0;
+  amount_Shipping: number &#x3D; 0;
+  // amount_Shipping1: number &#x3D; 0;
+  // amount_Shipping2: number &#x3D; 0;
+  amount_TotalBeforeTax: number &#x3D; 0;
+  // amount_TotalBeforeTax1: number &#x3D; 0;
+  // amount_TotalBeforeTax2: number &#x3D; 0;
+  amount_EstimatedTax: number &#x3D; 0;
+  // amount_EstimatedTax1: number &#x3D; 0;
+  // amount_EstimatedTax2: number &#x3D; 0;
+  amount_SchucoPartnerDiscount: number &#x3D; 0;
+  amount_Total: number &#x3D; 0;
+  minAmount_PerOrder: number &#x3D; 25000;
+  // amount_Total1: number &#x3D; 0;
+  // amount_Total2: number &#x3D; 0;
+
+  /*-- Shipping Address -- -------------------------------------------------------------------------*/
+  /*------------------------------------------------------------------------------------------------*/
+  show_ShippingAddressPanel: boolean &#x3D; false;
+  show_ShipToAddress: string &#x3D; &#x27;ADDRESS&#x27;;
+  valid_ShipToAddress: boolean &#x3D; false;
+  store_Address: StoreAddressModel;
+  shipping_Address: ShippingAddressModel;
+  type_ShippingMethod: string &#x3D; &#x27;TL&#x27;; //&#x27;STL&#x27;
+
+  /*-- Disclaimer -- -------------------------------------------------------------------------------*/
+  /*------------------------------------------------------------------------------------------------*/
+  check_OneDisclaimer: boolean &#x3D; false;
+  check_TwoDisclaimer: boolean &#x3D; false;
+  show_Disclaimer: boolean &#x3D; false;
+  allow_ToPlaceOrder: boolean &#x3D; false;
+  /*-- Product Info -- -----------------------------------------------------------------------------*/
+  /*------------------------------------------------------------------------------------------------*/
+  show_ProductInfo: boolean &#x3D; false;
+  current_ProblemGuid: string;
+  current_ProjectGuid: string;
+  current_ProjectId: number;
+
+  data_AllOrders: any[] &#x3D; [];
+  allProducts: BpsUnifiedProblem[] &#x3D; [];
+  allOrders: OrderApiModel;
+}
+
+export class ShippingAddressModel {
+  Email: string;
+  FirstName: string;
+  LastName: string;
+  PhoneNumber: string;
+  Email2: string;
+  Address: string;
+  Apartment: string;
+  PostalCode: string;
+  City: string;
+  State: string;
+  Country: string;
+  County: string;
+  Lat: number;
+  Lng: number;
+}
+
+export class StoreAddressModel {
+  Email: string;
+  PhoneNumber: string;
+  Address: string;
+}
+
+export class OrderApiModel {
+  OrderId: number;
+  OrderExternalId: string;
+  ProjectId: number;
+  DealerId: number;
+  DealerName: string;
+  ParentOrderId: number;
+  Notes: string;
+
+  ShippingAddressId: number;
+  ShippingCost: number;
+  Tax: number;
+  Total: number;
+  Discount: number;
+  DiscountPercentage: number;
+  ShippingMethod: boolean;
+
+  CreatedByName: string;
+  CreatedOn: Date;
+  ModifiedByName: string;
+  ModifiedOn: Date;
+
+  Line1: string;
+  Line2: string;
+  State: string;
+  City: string;
+  Country: string;
+  County: string;
+  Longitude: number;
+  Latitude: number;
+  PostalCode: string;
+  AdditionalDetails: string;
+  AddressType: string;
+  Current_Process: string;
+  Current_Status: string;
+  OrderDetails: OrderDetailsApiModel[];
+  OrderStatus: OrderStatusApiModel[];
+  SubOrder: OrderApiModel[];
+  Distance: number; // in meters
+  TaxRate: number;
+}
+
+export class OrderDetailsApiModel {
+  OrderDetailId: number;
+  OrderDetailExternalId: number;
+  OrderId: number;
+  ProductId: number;
+  DesignURL: string;
+  JsonURL: string;
+  ProposalURL: string;
+  OrderDetailscol: string;
+  UnitPrice: string;
+  Qty: number;
+  SubTotal: number;
+  AdditionalDetails: string;
+  OrderStatus: OrderStatusApiModel[];
+
+  ImagePath: string;
+}
+
+export class OrderStatusApiModel {
+  OrderId: number;
+  StatusId: number;
+  StatusCode: string;
+  StatusDescription: string;
+  StatusModifiedOn: Date;
+  StatusModifiedBy: number;
+}</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
+            var COMPODOC_CURRENT_PAGE_URL = 'OrderModel.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

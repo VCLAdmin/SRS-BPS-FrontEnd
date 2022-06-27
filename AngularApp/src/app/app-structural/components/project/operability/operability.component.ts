@@ -170,6 +170,11 @@ export class OperabilityComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   ngAfterViewInit() {
+
+/**
+ * This is observable of Unified Model which will calls when the unified model has changed anywhere in the application
+ * and will set the values for the input fields 
+ */
     this.umService.obsUnifiedModel.pipe(takeUntil(this.destroy$)).subscribe(
       response => {
         if (response) {
@@ -177,6 +182,11 @@ export class OperabilityComponent implements OnInit, OnChanges, OnDestroy {
           this.addPickerDisable();
         }
       });
+
+/**
+ * This is observable of Unified Problem which will calls when the unified Problem  has changed anywhere in the application 
+ * and will set the values for the input fields
+ */    
     this.umService.obsUnifiedProblem.pipe(takeUntil(this.destroy$)).subscribe(
       response => {
         if (response) {
@@ -196,6 +206,11 @@ export class OperabilityComponent implements OnInit, OnChanges, OnDestroy {
           }, 100);
         }
       });
+
+/**
+ * This is observable of Pop outs of all the child components is set to the variable which is used to open and close the pop out
+ *
+ */
     this.cpService.obsPopout.pipe(takeUntil(this.destroy$)).subscribe(
       response => {
         if (response.panelsModule === PanelsModule.FrameCombination) this.isFrameCombinationOpened = response.isOpened;
@@ -211,11 +226,20 @@ export class OperabilityComponent implements OnInit, OnChanges, OnDestroy {
         else if (response.panelsModule === PanelsModule.OutsideHandle) this.isOutsideHandleOpened = response.isOpened;
       });
 
+ /**
+ * This is observable of Operability panel to set the value of isOperabilityPanelactive when the panel is collapse or expanded from the left configure
+ *
+ */
     this.cpService.obsOperabilityPanelActive.pipe(takeUntil(this.destroy$)).subscribe(
       response => {
         this.isOperablilityPanelActive = response;
       });
 
+ /**
+ * This is observable of to load the operability side panel values such as Inside Handle, Outside Handle, Hinge type 
+ * in the left configure 
+ *
+ */
     this.umService.obsLoadSidePanel.pipe(takeUntil(this.destroy$)).subscribe(
       response => {
         if (response && response.panelsModule > -1 && response.finishedLoading) {
@@ -229,14 +253,29 @@ export class OperabilityComponent implements OnInit, OnChanges, OnDestroy {
     );
   }
 
+ /**
+ * This function will get the Outerframe value and assigns to the input value
+ *  
+ *
+ */
   getOuterFrameInputValue() {
     this.outerFrameInputValue = this.umService.get_OuterFrame();
   }
 
+ /**
+ * This function will get the Vent Frame value and assigns to the input value
+ *  
+ *
+ */
   getVentFrameInputValue() {
     this.ventFrameInputValue = this.umService.get_VentFrame();
   }
-  
+
+ /**
+ * This function will disable the add picker when the Door operable type is selected
+ *  
+ *
+ */
   private addPickerDisable() {
     if (this.unified3DModel.ModelInput.Geometry.OperabilitySystems && this.unified3DModel.ModelInput.Geometry.OperabilitySystems[0].DoorSystemID > 0) {
       this.isDoorOperableTypeSelected = true;
@@ -253,6 +292,11 @@ export class OperabilityComponent implements OnInit, OnChanges, OnDestroy {
     }
   }
 
+ /**
+ * This function is to get the Inside Handle, Hinge Type and Outside Handle to the input values respectively
+ *  
+ *
+ */
   private loadInputValues() {
     setTimeout(() => {
       this.insideHandle = this.umService.get_InsideHandle(this.selectedPicker);
@@ -261,6 +305,11 @@ export class OperabilityComponent implements OnInit, OnChanges, OnDestroy {
     }, 100);
   }
 
+ /**
+ * This function is to set all the values of Operability side panel values and populate them in the respective feilds
+ *  
+ *
+ */
   reloadInputValues() {
     this.umService.doLoadJSON = false;
     let ds = this.unified3DModel.ModelInput.Geometry.DoorSystems;
@@ -342,6 +391,11 @@ export class OperabilityComponent implements OnInit, OnChanges, OnDestroy {
     }, 500);
   }
 
+ /**
+ * This function will load the operability fields with the default values on the initial page load
+ *  
+ *
+ */
   loadOperability() {
     this.cpService.setSelectedPicker_Operability(this.selectedPicker);
     this.pickers = [
@@ -577,6 +631,11 @@ export class OperabilityComponent implements OnInit, OnChanges, OnDestroy {
     }
   }
 
+ /**
+ * This function is to update the unified model after applying the operability
+ *  
+ *
+ */
   private UpdateUnfiedModel() {
     this.glassAppliedArray = [[], [], [], [], []];
     this.glassIDsAlreadyApplied = {};
@@ -836,6 +895,11 @@ export class OperabilityComponent implements OnInit, OnChanges, OnDestroy {
     this.defaultOperableTypeSelection();
   }
 
+ /**
+ * This function is to disable apply button when the door operable type is selected and multiple glasses are selected
+ * 
+ *
+ */
   private disableApplyButton() {
     if (this.unified3DModel.ModelInput.Geometry.OperabilitySystems) {
       if (this.unified3DModel.ModelInput.Geometry.DoorSystems && this.unified3DModel.ModelInput.Geometry.DoorSystems.length > 0) {
@@ -865,6 +929,11 @@ export class OperabilityComponent implements OnInit, OnChanges, OnDestroy {
     }
   }
 
+ /**
+ * This function is to add pickers when click on add button 
+ *  
+ *
+ */
   onAddPicker(): void {
     if (this.pickers[this.pickers.length - 1].status === 'unpopulated') {
       let firstUnpopulatedIndex: number = this.pickers.findIndex(this.checkUnpopulatedStatus);
@@ -896,6 +965,12 @@ export class OperabilityComponent implements OnInit, OnChanges, OnDestroy {
   isBottomHung = true;
   isSingleDoorLeft = true;
   isDoubleDoorLeft = true;
+
+ /**
+ * This function is to change the direction of TiltTurn 
+ *  
+ *
+ */
   onChangeTiltTurn(): void {
     //if (this.unified3DModel.ProblemSetting.ProductType === 'Facade')
     this.isTurnTiltDirectionChanged = true;
@@ -905,6 +980,12 @@ export class OperabilityComponent implements OnInit, OnChanges, OnDestroy {
     else if (this.isTiltTurnLeft == true) this.pickers[this.selectedPicker].operableType = 'tiltTurn-left';
     this.onOperableTypeChange(this.pickers[this.selectedPicker].operableType);
   }
+
+ /**
+ * This function is to change the direction of SideHung 
+ *  
+ *
+ */
   onChangeSideHung(): void {
     //if (this.unified3DModel.ProblemSetting.ProductType === 'Facade')
     if (this.permissionService.checkPermission(this.feature.SideHung)) {
@@ -916,6 +997,11 @@ export class OperabilityComponent implements OnInit, OnChanges, OnDestroy {
 
   }
 
+ /**
+ * This function is to change the direction of SingleDoor 
+ *  
+ *
+ */
   onChangeSingleDoor(): void {
     this.isSingleDoorLeft = !this.isSingleDoorLeft;
     if (this.isSingleDoorLeft == false) this.pickers[this.selectedPicker].operableType = 'singleDoor-right';
@@ -923,6 +1009,11 @@ export class OperabilityComponent implements OnInit, OnChanges, OnDestroy {
     this.onOperableTypeChange(this.pickers[this.selectedPicker].operableType);
   }
 
+ /**
+ * This function is to change the direction of DoubleDoor 
+ *  
+ *
+ */
   onChangeDoubleDoor(): void {
     this.isDoubleDoorLeft = !this.isDoubleDoorLeft;
     if (this.isDoubleDoorLeft == false) this.pickers[this.selectedPicker].operableType = 'doubleDoor-right';
@@ -930,6 +1021,11 @@ export class OperabilityComponent implements OnInit, OnChanges, OnDestroy {
     this.onOperableTypeChange(this.pickers[this.selectedPicker].operableType);
   }
 
+ /**
+ * This function is to change the direction of BottomHung 
+ *  
+ *
+ */
   onChangeBottomHung(): void {
     //if (this.unified3DModel.ProblemSetting.ProductType === 'Facade')
     //this.isBottomHung = !this.isBottomHung; // No top Hung for either Inward-Window or Inward-Facade
@@ -939,6 +1035,11 @@ export class OperabilityComponent implements OnInit, OnChanges, OnDestroy {
   }
 
 
+ /**
+ * This function is to set the default direction of all operable types on Page load
+ *  
+ *
+ */
   defaultOperableTypeSelection(): void {
     if (this.pickers[this.selectedPicker]) {
       if (this.pickers[this.selectedPicker].operableType === 'tiltTurn-right') this.isTiltTurnLeft = false;
@@ -979,6 +1080,11 @@ export class OperabilityComponent implements OnInit, OnChanges, OnDestroy {
     return picker.status === 'unpopulated';
   }
 
+ /**
+ * This function is to set all the operable panel values based on the picker selected
+ *  
+ *
+ */
   reloadDate = false;
   onSelectPicker(): void {
     this.cpService.closeAllPopouts();
@@ -1078,6 +1184,11 @@ export class OperabilityComponent implements OnInit, OnChanges, OnDestroy {
     this.setDoorOperableTypeDisabled();
   }
 
+ /**
+ * This function is to set the operable values and saved to teh unified model  
+ * and also calls the 3D Modeler event to see the operable type applied to the glass in the 3D Viewer
+ *
+ */
   onApply(event = null): void {
     if (this.pickers[this.selectedPicker].operableType.includes('Door')) {
        this.isDoorOperableTypeSelected = true;
@@ -1462,6 +1573,12 @@ export class OperabilityComponent implements OnInit, OnChanges, OnDestroy {
       }, 10);
     }
   }
+
+ /**
+ * This function is to disable the door operable type when the Window operable type is selected
+ *
+ *
+ */
   private setDoorOperableTypeDisabled() {
      var vOT = [];
     this.unified3DModel.ModelInput.Geometry.Infills.forEach(element => {
@@ -1507,6 +1624,11 @@ export class OperabilityComponent implements OnInit, OnChanges, OnDestroy {
     // } 
   }
 
+ /**
+ * This function is to get the operable type 
+ * @param {string} value  which is the text from the unified model
+ * @returns the text which will display in the operable type applied list
+ */
   private getOperableType(value: string): string {
     let opType = '';
     switch (value) {
@@ -1526,6 +1648,11 @@ export class OperabilityComponent implements OnInit, OnChanges, OnDestroy {
     return opType;
   }
 
+ /**
+ * This function is to update the already applied operable values with the latest selected ones.
+ *
+ *
+ */
   //Rama - Need to modify this in next release
   updateSelected(event = null): void {
     if (!(this.selectedPicker === -1 || !this.pickers[this.selectedPicker].operableType || !this.pickers[this.selectedPicker].fixedOpening)) {
@@ -1847,6 +1974,12 @@ export class OperabilityComponent implements OnInit, OnChanges, OnDestroy {
     }
   }
 
+ /**
+ * This function is to set the door system Info 
+ * @param {string} opType  which is the text from the unified model to set the door system Info
+ * @param {number} doorsystemId  which is the door system Id from the unified model to set the door system Info
+ * sets the door system type of Unified Model
+ */
   private setDoorSystemInfo(opType: string, doorsystemId: number) {
     if (this.unified3DModel.ModelInput.Geometry.DoorSystems) {
       switch (opType) {
@@ -1980,6 +2113,11 @@ export class OperabilityComponent implements OnInit, OnChanges, OnDestroy {
   //   }
   // }
 
+ /**
+ * This function is to remove the applied operable type 
+ * @param {number} id  which is the glass Id to get the information and remove the applied the operable type
+ * sets the unified model and will drawn in the 3D Viewer with the updated operable types.
+ */
   onRemoveItem(id: number): void {
     this.glassAppliedArray[this.selectedPicker] = this.glassAppliedArray[this.selectedPicker].filter(glass => glass.glassID !== id);
     if (this.unified3DModel.ModelInput.Geometry.Infills.filter(glass => glass.InfillID == id)[0] &&

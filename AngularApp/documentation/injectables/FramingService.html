@@ -1,0 +1,3284 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>angular-app documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">angular-app documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li>Injectables</li>
+  <li >FramingService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/app-structural/services/framing.service.ts</code>
+        </p>
+
+
+
+
+
+            <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#language" >language</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#disabledTransomOrMullion" >disabledTransomOrMullion</a>
+                            </li>
+                            <li>
+                                <a href="#getADSArticlesList" >getADSArticlesList</a>
+                            </li>
+                            <li>
+                                <a href="#getADSDoorLeafList" >getADSDoorLeafList</a>
+                            </li>
+                            <li>
+                                <a href="#getASEArticlesList" >getASEArticlesList</a>
+                            </li>
+                            <li>
+                                <a href="#getBottomFrameList" >getBottomFrameList</a>
+                            </li>
+                            <li>
+                                <a href="#GetDoorHandleArticles" >GetDoorHandleArticles</a>
+                            </li>
+                            <li>
+                                <a href="#getFacade_Intermediate_MullionList" >getFacade_Intermediate_MullionList</a>
+                            </li>
+                            <li>
+                                <a href="#getFacade_Level2_Intermediate_MullionList" >getFacade_Level2_Intermediate_MullionList</a>
+                            </li>
+                            <li>
+                                <a href="#getFacade_Mullion_ReinforcementList" >getFacade_Mullion_ReinforcementList</a>
+                            </li>
+                            <li>
+                                <a href="#getFacade_MullionList" >getFacade_MullionList</a>
+                            </li>
+                            <li>
+                                <a href="#getFacade_Transom_ReinforcementList" >getFacade_Transom_ReinforcementList</a>
+                            </li>
+                            <li>
+                                <a href="#getFacade_TransomList" >getFacade_TransomList</a>
+                            </li>
+                            <li>
+                                <a href="#getFacadeInsertUnit" >getFacadeInsertUnit</a>
+                            </li>
+                            <li>
+                                <a href="#getFacadeProfile" >getFacadeProfile</a>
+                            </li>
+                            <li>
+                                <a href="#getFacadeSpacer" >getFacadeSpacer</a>
+                            </li>
+                            <li>
+                                <a href="#getFWSSystemType" >getFWSSystemType</a>
+                            </li>
+                            <li>
+                                <a href="#getMaxDepth" >getMaxDepth</a>
+                            </li>
+                            <li>
+                                <a href="#getMullionFramesForSystem" >getMullionFramesForSystem</a>
+                            </li>
+                            <li>
+                                <a href="#getOuterFramesForSystem" >getOuterFramesForSystem</a>
+                            </li>
+                            <li>
+                                <a href="#getSlidingDoorArticles" >getSlidingDoorArticles</a>
+                            </li>
+                            <li>
+                                <a href="#getUDCFramingList" >getUDCFramingList</a>
+                            </li>
+                            <li>
+                                <a href="#getUDCSystemType" >getUDCSystemType</a>
+                            </li>
+                            <li>
+                                <a href="#getVentFramesForSystem" >getVentFramesForSystem</a>
+                            </li>
+                            <li>
+                                <a href="#oldToNewFraming" >oldToNewFraming</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(localStorageService: <a href="../injectables/LocalStorageService.html" target="_self">LocalStorageService</a>, appConstantService: <a href="../injectables/AppconstantsService.html" target="_self">AppconstantsService</a>, http: <a href="https://angular.io/api/common/http/HttpClient" target="_blank">HttpClient</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/app-structural/services/framing.service.ts:10</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>localStorageService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/LocalStorageService.html" target="_self" >LocalStorageService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>appConstantService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AppconstantsService.html" target="_self" >AppconstantsService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>http</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/common/http/HttpClient" target="_blank" >HttpClient</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="disabledTransomOrMullion"></a>
+                    <span class="name">
+                        <span ><b>disabledTransomOrMullion</b></span>
+                        <a href="#disabledTransomOrMullion"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>disabledTransomOrMullion(selectedFrame, depthGlazingBar)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="1156"
+                            class="link-to-prism">src/app/app-structural/services/framing.service.ts:1156</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>selectedFrame</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>depthGlazingBar</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getADSArticlesList"></a>
+                    <span class="name">
+                        <span ><b>getADSArticlesList</b></span>
+                        <a href="#getADSArticlesList"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getADSArticlesList(systemName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="39"
+                            class="link-to-prism">src/app/app-structural/services/framing.service.ts:39</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>systemName</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Observable&lt;string&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getADSDoorLeafList"></a>
+                    <span class="name">
+                        <span ><b>getADSDoorLeafList</b></span>
+                        <a href="#getADSDoorLeafList"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getADSDoorLeafList(system: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="1216"
+                            class="link-to-prism">src/app/app-structural/services/framing.service.ts:1216</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>system</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getASEArticlesList"></a>
+                    <span class="name">
+                        <span ><b>getASEArticlesList</b></span>
+                        <a href="#getASEArticlesList"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getASEArticlesList(systemName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="43"
+                            class="link-to-prism">src/app/app-structural/services/framing.service.ts:43</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>systemName</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Observable&lt;string&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getBottomFrameList"></a>
+                    <span class="name">
+                        <span ><b>getBottomFrameList</b></span>
+                        <a href="#getBottomFrameList"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getBottomFrameList(framingId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="1083"
+                            class="link-to-prism">src/app/app-structural/services/framing.service.ts:1083</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>framingId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/FacadeUDC.html" target="_self" >FacadeUDC</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="GetDoorHandleArticles"></a>
+                    <span class="name">
+                        <span ><b>GetDoorHandleArticles</b></span>
+                        <a href="#GetDoorHandleArticles"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>GetDoorHandleArticles()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="47"
+                            class="link-to-prism">src/app/app-structural/services/framing.service.ts:47</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getFacade_Intermediate_MullionList"></a>
+                    <span class="name">
+                        <span ><b>getFacade_Intermediate_MullionList</b></span>
+                        <a href="#getFacade_Intermediate_MullionList"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getFacade_Intermediate_MullionList(system: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, mullionId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="691"
+                            class="link-to-prism">src/app/app-structural/services/framing.service.ts:691</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>system</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>mullionId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getFacade_Level2_Intermediate_MullionList"></a>
+                    <span class="name">
+                        <span ><b>getFacade_Level2_Intermediate_MullionList</b></span>
+                        <a href="#getFacade_Level2_Intermediate_MullionList"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getFacade_Level2_Intermediate_MullionList(system: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, mullionId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="512"
+                            class="link-to-prism">src/app/app-structural/services/framing.service.ts:512</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>system</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>mullionId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getFacade_Mullion_ReinforcementList"></a>
+                    <span class="name">
+                        <span ><b>getFacade_Mullion_ReinforcementList</b></span>
+                        <a href="#getFacade_Mullion_ReinforcementList"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getFacade_Mullion_ReinforcementList(mullionId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="1013"
+                            class="link-to-prism">src/app/app-structural/services/framing.service.ts:1013</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>mullionId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getFacade_MullionList"></a>
+                    <span class="name">
+                        <span ><b>getFacade_MullionList</b></span>
+                        <a href="#getFacade_MullionList"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getFacade_MullionList(system: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="91"
+                            class="link-to-prism">src/app/app-structural/services/framing.service.ts:91</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>system</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getFacade_Transom_ReinforcementList"></a>
+                    <span class="name">
+                        <span ><b>getFacade_Transom_ReinforcementList</b></span>
+                        <a href="#getFacade_Transom_ReinforcementList"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getFacade_Transom_ReinforcementList(system: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="1073"
+                            class="link-to-prism">src/app/app-structural/services/framing.service.ts:1073</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>system</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getFacade_TransomList"></a>
+                    <span class="name">
+                        <span ><b>getFacade_TransomList</b></span>
+                        <a href="#getFacade_TransomList"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getFacade_TransomList(system: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, mullionId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, applicationType: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="169"
+                            class="link-to-prism">src/app/app-structural/services/framing.service.ts:169</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Default value</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>system</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>mullionId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>applicationType</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                        <code>&#x27;BPS&#x27;</code>
+                                    </td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getFacadeInsertUnit"></a>
+                    <span class="name">
+                        <span ><b>getFacadeInsertUnit</b></span>
+                        <a href="#getFacadeInsertUnit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getFacadeInsertUnit(systemName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="27"
+                            class="link-to-prism">src/app/app-structural/services/framing.service.ts:27</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>systemName</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Observable&lt;string&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getFacadeProfile"></a>
+                    <span class="name">
+                        <span ><b>getFacadeProfile</b></span>
+                        <a href="#getFacadeProfile"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getFacadeProfile()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="31"
+                            class="link-to-prism">src/app/app-structural/services/framing.service.ts:31</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Observable&lt;string&gt;</code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getFacadeSpacer"></a>
+                    <span class="name">
+                        <span ><b>getFacadeSpacer</b></span>
+                        <a href="#getFacadeSpacer"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getFacadeSpacer()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="35"
+                            class="link-to-prism">src/app/app-structural/services/framing.service.ts:35</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Observable&lt;string&gt;</code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getFWSSystemType"></a>
+                    <span class="name">
+                        <span ><b>getFWSSystemType</b></span>
+                        <a href="#getFWSSystemType"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getFWSSystemType(systemType)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="1196"
+                            class="link-to-prism">src/app/app-structural/services/framing.service.ts:1196</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>systemType</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getMaxDepth"></a>
+                    <span class="name">
+                        <span ><b>getMaxDepth</b></span>
+                        <a href="#getMaxDepth"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getMaxDepth(unified3DModel: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="70"
+                            class="link-to-prism">src/app/app-structural/services/framing.service.ts:70</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>unified3DModel</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getMullionFramesForSystem"></a>
+                    <span class="name">
+                        <span ><b>getMullionFramesForSystem</b></span>
+                        <a href="#getMullionFramesForSystem"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getMullionFramesForSystem(systemName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="23"
+                            class="link-to-prism">src/app/app-structural/services/framing.service.ts:23</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>systemName</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Observable&lt;string&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getOuterFramesForSystem"></a>
+                    <span class="name">
+                        <span ><b>getOuterFramesForSystem</b></span>
+                        <a href="#getOuterFramesForSystem"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getOuterFramesForSystem(systemName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="15"
+                            class="link-to-prism">src/app/app-structural/services/framing.service.ts:15</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>systemName</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Observable&lt;string&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getSlidingDoorArticles"></a>
+                    <span class="name">
+                        <span ><b>getSlidingDoorArticles</b></span>
+                        <a href="#getSlidingDoorArticles"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getSlidingDoorArticles()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="52"
+                            class="link-to-prism">src/app/app-structural/services/framing.service.ts:52</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getUDCFramingList"></a>
+                    <span class="name">
+                        <span ><b>getUDCFramingList</b></span>
+                        <a href="#getUDCFramingList"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getUDCFramingList(system: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, mullionId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, type: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="1100"
+                            class="link-to-prism">src/app/app-structural/services/framing.service.ts:1100</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>system</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>mullionId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>type</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getUDCSystemType"></a>
+                    <span class="name">
+                        <span ><b>getUDCSystemType</b></span>
+                        <a href="#getUDCSystemType"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getUDCSystemType(systemType)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="1206"
+                            class="link-to-prism">src/app/app-structural/services/framing.service.ts:1206</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>systemType</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getVentFramesForSystem"></a>
+                    <span class="name">
+                        <span ><b>getVentFramesForSystem</b></span>
+                        <a href="#getVentFramesForSystem"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getVentFramesForSystem(systemName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="19"
+                            class="link-to-prism">src/app/app-structural/services/framing.service.ts:19</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>systemName</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Observable&lt;string&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="oldToNewFraming"></a>
+                    <span class="name">
+                        <span ><b>oldToNewFraming</b></span>
+                        <a href="#oldToNewFraming"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>oldToNewFraming(oldArticle: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="1164"
+                            class="link-to-prism">src/app/app-structural/services/framing.service.ts:1164</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>oldArticle</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section>
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="language"></a>
+                    <span class="name">
+                        <span ><b>language</b></span>
+                        <a href="#language"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>(this.localStorageService.getValue(&#x27;culture&#x27;)) ? this.localStorageService.getValue(&#x27;culture&#x27;) : &#x27;en-US&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/app-structural/services/framing.service.ts:12</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
+import { Observable, of } from &#x27;rxjs&#x27;;
+import { AppconstantsService } from &#x27;src/app/app-common/services/appconstants.service&#x27;;
+import { HttpClient } from &#x27;@angular/common/http&#x27;;
+import { LocalStorageService } from &#x27;src/app/app-core/services/local-storage.service&#x27;;
+
+@Injectable({
+  providedIn: &#x27;root&#x27;
+})
+export class FramingService {
+  constructor(private localStorageService: LocalStorageService, private appConstantService: AppconstantsService, private http: HttpClient) { }
+  language &#x3D; (this.localStorageService.getValue(&#x27;culture&#x27;)) ? this.localStorageService.getValue(&#x27;culture&#x27;) : &#x27;en-US&#x27;;
+
+  //#region API Calls
+  getOuterFramesForSystem(systemName: string): Observable&lt;string&gt; {
+    let url: string &#x3D; this.appConstantService.APP_DOMAIN + &quot;api/Article/GetOuterFramesForSystem/&quot; + systemName;
+    return this.http.get&lt;string&gt;(url);
+  }
+  getVentFramesForSystem(systemName: string): Observable&lt;string&gt; {
+    let url: string &#x3D; this.appConstantService.APP_DOMAIN + &quot;api/Article/GetVentFramesForSystem/&quot; + systemName;
+    return this.http.get&lt;string&gt;(url);
+  }
+  getMullionFramesForSystem(systemName: string): Observable&lt;string&gt; {
+    let url: string &#x3D; this.appConstantService.APP_DOMAIN + &quot;api/Article/GetMullionTransomForSystem/&quot; + systemName;
+    return this.http.get&lt;string&gt;(url);
+  }
+  getFacadeInsertUnit(systemName: string): Observable&lt;string&gt; {
+    let url: string &#x3D; this.appConstantService.APP_DOMAIN + &quot;api/Article/GetFacadeInsertUnit&quot;;
+    return this.http.get&lt;string&gt;(url);
+  }
+  getFacadeProfile(): Observable&lt;string&gt; {
+    let url: string &#x3D; this.appConstantService.APP_DOMAIN + &quot;api/Article/GetFacadeProfile&quot;;
+    return this.http.get&lt;string&gt;(url);
+  }
+  getFacadeSpacer(): Observable&lt;string&gt; {
+    let url: string &#x3D; this.appConstantService.APP_DOMAIN + &quot;api/Article/GetFacadeSpacer&quot;;
+    return this.http.get&lt;string&gt;(url);
+  }
+  getADSArticlesList(systemName: string): Observable&lt;string&gt; {
+    let url: string &#x3D; this.appConstantService.APP_DOMAIN + &quot;api/Article/GetArticlesForSystem/&quot; + systemName;
+    return this.http.get&lt;string&gt;(url);
+  }
+  getASEArticlesList(systemName: string): Observable&lt;string&gt; { 
+    let url: string &#x3D; this.appConstantService.APP_DOMAIN + &quot;api/Article/GetArticlesForSystem/&quot; + systemName;   // sliding data not in the db
+    return this.http.get&lt;string&gt;(url);
+  }
+  GetDoorHandleArticles(): Observable&lt;any&gt; {
+    let url: string &#x3D; this.appConstantService.APP_DOMAIN + &quot;api/Article/GetDoorHandleHingeForSystem/&quot;;
+    return this.http.get&lt;any&gt;(url);
+  }
+
+  getSlidingDoorArticles(): Observable&lt;any&gt; {
+    let slidingDoorArticlesList: any &#x3D; [];
+    slidingDoorArticlesList.push({&#x27;ArticleSetID&#x27;: 1, &#x27;ArticleName&#x27;:&#x27;269400&#x27;, &#x27;Color&#x27;: &#x27;Silver Grey - RAL 7001&#x27;,   &#x27;ColorCode&#x27;:&#x27;RAL 7001&#x27;, &#x27;Type&#x27;: &#x27;Lift-and-Slide Fittings&#x27;, &#x27;Description&#x27;: &#x27;Handle Recess&#x27;});
+    slidingDoorArticlesList.push({&#x27;ArticleSetID&#x27;: 2, &#x27;ArticleName&#x27;:&#x27;269401&#x27;, &#x27;Color&#x27;: &#x27;Jet Black - RAL 9005&#x27;,     &#x27;ColorCode&#x27;:&#x27;RAL 9005&#x27;, &#x27;Type&#x27;: &#x27;Lift-and-Slide Fittings&#x27;, &#x27;Description&#x27;: &#x27;Handle Recess&#x27;});
+    slidingDoorArticlesList.push({&#x27;ArticleSetID&#x27;: 3, &#x27;ArticleName&#x27;:&#x27;269402&#x27;, &#x27;Color&#x27;: &#x27;Pure White - RAL 9010&#x27;,    &#x27;ColorCode&#x27;:&#x27;RAL 9010&#x27;, &#x27;Type&#x27;: &#x27;Lift-and-Slide Fittings&#x27;, &#x27;Description&#x27;: &#x27;Handle Recess&#x27;});
+    slidingDoorArticlesList.push({&#x27;ArticleSetID&#x27;: 4, &#x27;ArticleName&#x27;:&#x27;269403&#x27;, &#x27;Color&#x27;: &#x27;Traffic White - RAL 9016&#x27;, &#x27;ColorCode&#x27;:&#x27;RAL 9016&#x27;, &#x27;Type&#x27;: &#x27;Lift-and-Slide Fittings&#x27;, &#x27;Description&#x27;: &#x27;Handle Recess&#x27;});
+    slidingDoorArticlesList.push({&#x27;ArticleSetID&#x27;: 5, &#x27;ArticleName&#x27;:&#x27;269404&#x27;, &#x27;Color&#x27;: &#x27;INOX&#x27;,                     &#x27;ColorCode&#x27;:&#x27;INOX&#x27;,     &#x27;Type&#x27;: &#x27;Lift-and-Slide Fittings&#x27;, &#x27;Description&#x27;: &#x27;Handle Recess&#x27;}); 
+    slidingDoorArticlesList.push({&#x27;ArticleSetID&#x27;: 6, &#x27;ArticleName&#x27;:&#x27;269411&#x27;, &#x27;Color&#x27;: &#x27;Silver Grey - RAL 7001&#x27;,   &#x27;ColorCode&#x27;:&#x27;RAL 7001&#x27;, &#x27;Type&#x27;: &#x27;Lift-and-Slide Fittings&#x27;, &#x27;Description&#x27;: &#x27;Crank Handle&#x27;});
+    slidingDoorArticlesList.push({&#x27;ArticleSetID&#x27;: 7, &#x27;ArticleName&#x27;:&#x27;269412&#x27;, &#x27;Color&#x27;: &#x27;Jet Black - RAL 9005&#x27;,     &#x27;ColorCode&#x27;:&#x27;RAL 9005&#x27;, &#x27;Type&#x27;: &#x27;Lift-and-Slide Fittings&#x27;, &#x27;Description&#x27;: &#x27;Crank Handle&#x27;});
+    slidingDoorArticlesList.push({&#x27;ArticleSetID&#x27;: 8, &#x27;ArticleName&#x27;:&#x27;269413&#x27;, &#x27;Color&#x27;: &#x27;Pure White - RAL 9010&#x27;,    &#x27;ColorCode&#x27;:&#x27;RAL 9010&#x27;, &#x27;Type&#x27;: &#x27;Lift-and-Slide Fittings&#x27;, &#x27;Description&#x27;: &#x27;Crank Handle&#x27;});
+    slidingDoorArticlesList.push({&#x27;ArticleSetID&#x27;: 9, &#x27;ArticleName&#x27;:&#x27;269414&#x27;, &#x27;Color&#x27;: &#x27;Traffic White - RAL 9016&#x27;, &#x27;ColorCode&#x27;:&#x27;RAL 9016&#x27;, &#x27;Type&#x27;: &#x27;Lift-and-Slide Fittings&#x27;, &#x27;Description&#x27;: &#x27;Crank Handle&#x27;});
+    slidingDoorArticlesList.push({&#x27;ArticleSetID&#x27;: 10, &#x27;ArticleName&#x27;:&#x27;269415&#x27;, &#x27;Color&#x27;: &#x27;INOX&#x27;,                     &#x27;ColorCode&#x27;:&#x27;INOX&#x27;,     &#x27;Type&#x27;: &#x27;Lift-and-Slide Fittings&#x27;, &#x27;Description&#x27;: &#x27;Crank Handle&#x27;});    
+       
+        return of(JSON.stringify(slidingDoorArticlesList));
+  }
+  //#endregion
+  
+  //#region Static Data
+  getMaxDepth(unified3DModel: any): number {
+    if (unified3DModel.ProblemSetting.ProductType &#x3D;&#x3D;&#x3D; &quot;Window&quot; &amp;&amp; unified3DModel.ModelInput.Geometry.Sections.length &gt; 0) {
+      var oDepth &#x3D; unified3DModel.ModelInput.Geometry.Sections[0].Depth;
+      var mDepth &#x3D; unified3DModel.ModelInput.Geometry.Sections[1].Depth;
+      var tDepth &#x3D; unified3DModel.ModelInput.Geometry.Sections[2].Depth;
+      oDepth &#x3D; oDepth &#x3D;&#x3D; undefined ? 0 : oDepth;
+      mDepth &#x3D; mDepth &#x3D;&#x3D; undefined ? 0 : mDepth;
+      tDepth &#x3D; tDepth &#x3D;&#x3D; undefined ? 0 : tDepth;
+      return [oDepth, mDepth, tDepth].sort(function (a, b) { return b - a })[0];
+    }
+    else if (unified3DModel.ProblemSetting.ProductType &#x3D;&#x3D;&#x3D; &quot;Facade&quot; &amp;&amp; unified3DModel.ModelInput.Geometry.FacadeSections.length &gt; 0) {
+      var oDepth &#x3D; unified3DModel.ModelInput.Geometry.FacadeSections[0].Depth;
+      var mDepth &#x3D; unified3DModel.ModelInput.Geometry.FacadeSections[1].Depth;
+      var tDepth &#x3D; unified3DModel.ModelInput.Geometry.FacadeSections[2].Depth;
+      oDepth &#x3D; oDepth &#x3D;&#x3D; undefined ? 0 : oDepth;
+      mDepth &#x3D; mDepth &#x3D;&#x3D; undefined ? 0 : mDepth;
+      tDepth &#x3D; tDepth &#x3D;&#x3D; undefined ? 0 : tDepth;
+      return [oDepth, mDepth, tDepth].sort(function (a, b) { return b - a })[0];
+    }
+  }
+
+  getFacade_MullionList(system: string): Observable&lt;any&gt; {
+    let facacdeMullionList: FacadeMullion[] &#x3D; [];
+    system &#x3D; this.getFWSSystemType(system);
+    switch (system) {
+      case &#x27;FWS 35&#x27;:
+        facacdeMullionList.push(new FacadeMullion(477750, 65));
+        facacdeMullionList.push(new FacadeMullion(477760, 85));
+        facacdeMullionList.push(new FacadeMullion(477770, 105));
+        facacdeMullionList.push(new FacadeMullion(477780, 125));
+        facacdeMullionList.push(new FacadeMullion(477790, 150));
+        return of(facacdeMullionList);
+      case &#x27;FWS 50&#x27;:
+        // ------------- Obsolete -------------------------------
+        // facacdeMullionList.push(new FacadeMullion(322250, 50));
+        // facacdeMullionList.push(new FacadeMullion(322260, 65));
+        // facacdeMullionList.push(new FacadeMullion(322270, 85));
+        // facacdeMullionList.push(new FacadeMullion(322280, 105));
+        // facacdeMullionList.push(new FacadeMullion(322290, 125));
+        // facacdeMullionList.push(new FacadeMullion(322300, 150));
+        // facacdeMullionList.push(new FacadeMullion(322310, 175));
+        // facacdeMullionList.push(new FacadeMullion(326030, 200));
+        // facacdeMullionList.push(new FacadeMullion(336230, 225));
+        // facacdeMullionList.push(new FacadeMullion(336240, 250));
+        facacdeMullionList.push(new FacadeMullion(536800, 50));
+        facacdeMullionList.push(new FacadeMullion(536810, 65));
+        facacdeMullionList.push(new FacadeMullion(536820, 85));
+        facacdeMullionList.push(new FacadeMullion(536830, 105));
+        facacdeMullionList.push(new FacadeMullion(536720, 115));  // javascript file missing
+        facacdeMullionList.push(new FacadeMullion(536840, 125));
+        facacdeMullionList.push(new FacadeMullion(536850, 150));
+        facacdeMullionList.push(new FacadeMullion(536270, 175, this.language &#x3D;&#x3D; &#x27;en-US&#x27; ? &#x27;(2.1mm)&#x27; : &#x27;(2,1mm)&#x27;));
+        facacdeMullionList.push(new FacadeMullion(536320, 175, this.language &#x3D;&#x3D; &#x27;en-US&#x27; ? &#x27;(3.1mm)&#x27; : &#x27;(3,1mm)&#x27;));
+        facacdeMullionList.push(new FacadeMullion(536380, 200));
+        facacdeMullionList.push(new FacadeMullion(536470, 225));
+        facacdeMullionList.push(new FacadeMullion(536180, 250));
+        return of(facacdeMullionList);
+      case &#x27;FWS 60&#x27;:
+        // ------------- Obsolete -------------------------------
+        // facacdeMullionList.push(new FacadeMullion(324010, 50));
+        // facacdeMullionList.push(new FacadeMullion(324020, 65));
+        // facacdeMullionList.push(new FacadeMullion(324030, 85));
+        // facacdeMullionList.push(new FacadeMullion(324040, 105));
+        // facacdeMullionList.push(new FacadeMullion(324050, 125));
+        // facacdeMullionList.push(new FacadeMullion(324060, 150));
+        // facacdeMullionList.push(new FacadeMullion(324070, 175));
+        // facacdeMullionList.push(new FacadeMullion(324080, 200));
+        // facacdeMullionList.push(new FacadeMullion(324090, 225));
+        // facacdeMullionList.push(new FacadeMullion(336270, 250));
+
+        facacdeMullionList.push(new FacadeMullion(543000, 50));
+        facacdeMullionList.push(new FacadeMullion(543010, 65));
+        facacdeMullionList.push(new FacadeMullion(543020, 85));
+        facacdeMullionList.push(new FacadeMullion(543030, 105));
+        facacdeMullionList.push(new FacadeMullion(543040, 125));
+        facacdeMullionList.push(new FacadeMullion(543050, 150));
+        facacdeMullionList.push(new FacadeMullion(536540, 175));
+        facacdeMullionList.push(new FacadeMullion(536580, 200));
+        facacdeMullionList.push(new FacadeMullion(536620, 225));
+        facacdeMullionList.push(new FacadeMullion(536660, 250));
+        return of(facacdeMullionList);
+      case &#x27;UDC 80&#x27;:
+        facacdeMullionList.push(new FacadeMullion(505200, 130));
+        facacdeMullionList.push(new FacadeMullion(505210, 155));
+        facacdeMullionList.push(new FacadeMullion(505220, 180));
+        facacdeMullionList.push(new FacadeMullion(505230, 205));
+        facacdeMullionList.push(new FacadeMullion(505240, 230));
+        facacdeMullionList.push(new FacadeMullion(505250, 255));
+        return of(facacdeMullionList);
+      default:
+        facacdeMullionList.push(new FacadeMullion(477750, 65));
+        facacdeMullionList.push(new FacadeMullion(477760, 85));
+        facacdeMullionList.push(new FacadeMullion(477770, 105));
+        facacdeMullionList.push(new FacadeMullion(477780, 125));
+        facacdeMullionList.push(new FacadeMullion(477790, 150));
+        return of(facacdeMullionList);
+    }
+  }
+
+  getFacade_TransomList(system: string, mullionId: string, applicationType &#x3D; &#x27;BPS&#x27;): Observable&lt;any&gt; {
+    let facadeTransomList: FacadeTransom[] &#x3D; [];
+    system &#x3D; this.getFWSSystemType(system);
+    switch (system) {
+      case &quot;FWS 35&quot;:
+        switch (mullionId) {
+          case &quot;477750&quot;:
+            facadeTransomList.push(new FacadeTransom(477800, 70));
+            return of(facadeTransomList);
+          case &quot;477760&quot;:
+            facadeTransomList.push(new FacadeTransom(477800, 70));
+            facadeTransomList.push(new FacadeTransom(477810, 90));
+            return of(facadeTransomList);
+          case &quot;477770&quot;:
+            facadeTransomList.push(new FacadeTransom(477800, 70));
+            facadeTransomList.push(new FacadeTransom(477810, 90));
+            facadeTransomList.push(new FacadeTransom(477820, 110));
+            return of(facadeTransomList);
+          case &quot;477780&quot;:
+            facadeTransomList.push(new FacadeTransom(477800, 70));
+            facadeTransomList.push(new FacadeTransom(477810, 90));
+            facadeTransomList.push(new FacadeTransom(477820, 110));
+            facadeTransomList.push(new FacadeTransom(477830, 130));
+            return of(facadeTransomList);
+          case &quot;477790&quot;:
+            facadeTransomList.push(new FacadeTransom(477800, 70));
+            facadeTransomList.push(new FacadeTransom(477810, 90));
+            facadeTransomList.push(new FacadeTransom(477820, 110));
+            facadeTransomList.push(new FacadeTransom(477830, 130));
+            facadeTransomList.push(new FacadeTransom(477840, 155));
+            return of(facadeTransomList);
+        }
+      case &quot;FWS 50&quot;:
+        switch (mullionId) {
+          case &quot;322250&quot;: // OLD
+          case &quot;536800&quot;:
+            facadeTransomList.push(new FacadeTransom(322370, 6));
+            facadeTransomList.push(new FacadeTransom(322380, 21));
+            facadeTransomList.push(new FacadeTransom(322460, 27));
+            facadeTransomList.push(new FacadeTransom(323840, 45));
+            facadeTransomList.push(new FacadeTransom(322390, 55));
+            return of(facadeTransomList);
+          case &quot;322260&quot;: // OLD
+          case &quot;536810&quot;:
+            facadeTransomList.push(new FacadeTransom(322370, 6));
+            facadeTransomList.push(new FacadeTransom(322380, 21));
+            facadeTransomList.push(new FacadeTransom(322460, 27));
+            facadeTransomList.push(new FacadeTransom(323840, 45));
+            facadeTransomList.push(new FacadeTransom(322390, 55));
+            facadeTransomList.push(new FacadeTransom(322400, 70));
+            return of(facadeTransomList);
+          case &quot;322270&quot;: // OLD
+          case &quot;536820&quot;:
+            facadeTransomList.push(new FacadeTransom(322370, 6));
+            facadeTransomList.push(new FacadeTransom(322380, 21));
+            facadeTransomList.push(new FacadeTransom(322460, 27));
+            facadeTransomList.push(new FacadeTransom(323840, 45));
+            facadeTransomList.push(new FacadeTransom(322390, 55));
+            facadeTransomList.push(new FacadeTransom(322400, 70));
+            facadeTransomList.push(new FacadeTransom(322410, 90));
+            return of(facadeTransomList);
+          case &quot;322280&quot;: // OLD
+          case &quot;536830&quot;:
+            facadeTransomList.push(new FacadeTransom(322370, 6));
+            facadeTransomList.push(new FacadeTransom(322380, 21));
+            facadeTransomList.push(new FacadeTransom(322460, 27));
+            facadeTransomList.push(new FacadeTransom(323840, 45));
+            facadeTransomList.push(new FacadeTransom(322390, 55));
+            facadeTransomList.push(new FacadeTransom(322400, 70));
+            facadeTransomList.push(new FacadeTransom(322410, 90));
+            facadeTransomList.push(new FacadeTransom(322420, 110));
+            return of(facadeTransomList);
+          case &quot;536720&quot;: //new data..........
+            facadeTransomList.push(new FacadeTransom(322370, 6));
+            facadeTransomList.push(new FacadeTransom(322380, 21));
+            facadeTransomList.push(new FacadeTransom(322460, 27));
+            facadeTransomList.push(new FacadeTransom(323840, 45));
+            facadeTransomList.push(new FacadeTransom(322390, 55));
+            facadeTransomList.push(new FacadeTransom(322400, 70));
+            facadeTransomList.push(new FacadeTransom(322410, 90));
+            facadeTransomList.push(new FacadeTransom(322420, 110));
+            facadeTransomList.push(new FacadeTransom(536750, 120));
+            return of(facadeTransomList);
+          case &quot;322290&quot;: // OLD
+          case &quot;536840&quot;:
+            facadeTransomList.push(new FacadeTransom(322370, 6));
+            facadeTransomList.push(new FacadeTransom(322380, 21));
+            facadeTransomList.push(new FacadeTransom(322460, 27));
+            facadeTransomList.push(new FacadeTransom(323840, 45));
+            facadeTransomList.push(new FacadeTransom(322390, 55));
+            facadeTransomList.push(new FacadeTransom(322400, 70));
+            facadeTransomList.push(new FacadeTransom(322410, 90));
+            facadeTransomList.push(new FacadeTransom(322420, 110));
+            facadeTransomList.push(new FacadeTransom(536750, 120));
+            facadeTransomList.push(new FacadeTransom(322430, 130));
+            return of(facadeTransomList);
+          case &quot;322300&quot;: // OLD
+          case &quot;536850&quot;:
+            facadeTransomList.push(new FacadeTransom(322370, 6));
+            facadeTransomList.push(new FacadeTransom(322380, 21));
+            facadeTransomList.push(new FacadeTransom(322460, 27));
+            facadeTransomList.push(new FacadeTransom(323840, 45));
+            facadeTransomList.push(new FacadeTransom(322390, 55));
+            facadeTransomList.push(new FacadeTransom(322400, 70));
+            facadeTransomList.push(new FacadeTransom(322410, 90));
+            facadeTransomList.push(new FacadeTransom(322420, 110));
+            facadeTransomList.push(new FacadeTransom(536750, 120));
+            facadeTransomList.push(new FacadeTransom(322430, 130));
+            facadeTransomList.push(new FacadeTransom(322440, 155));
+            return of(facadeTransomList);
+          case &quot;322310&quot;: // OLD
+          case &quot;536270&quot;: // NEW
+          case &quot;536320&quot;: // NEW
+            facadeTransomList.push(new FacadeTransom(322370, 6));
+            facadeTransomList.push(new FacadeTransom(322380, 21));
+            facadeTransomList.push(new FacadeTransom(322460, 27));
+            facadeTransomList.push(new FacadeTransom(323840, 45));
+            facadeTransomList.push(new FacadeTransom(322390, 55));
+            facadeTransomList.push(new FacadeTransom(322400, 70));
+            facadeTransomList.push(new FacadeTransom(322410, 90));
+            facadeTransomList.push(new FacadeTransom(322420, 110));
+            facadeTransomList.push(new FacadeTransom(536750, 120));
+            facadeTransomList.push(new FacadeTransom(322430, 130));
+            facadeTransomList.push(new FacadeTransom(322440, 155));
+            facadeTransomList.push(new FacadeTransom(322450, 180));
+            return of(facadeTransomList);
+          // ------------- Obsolete -------------------------------
+          // case &quot;326050&quot;:
+          //   facadeTransomList.push(new FacadeTransom(322370, 6));
+          //   facadeTransomList.push(new FacadeTransom(322380, 21));
+          //   facadeTransomList.push(new FacadeTransom(322460, 27));
+          //   facadeTransomList.push(new FacadeTransom(323840, 45));
+          //   facadeTransomList.push(new FacadeTransom(322390, 55));
+          //   facadeTransomList.push(new FacadeTransom(322400, 70));
+          //   facadeTransomList.push(new FacadeTransom(322410, 90));
+          //   facadeTransomList.push(new FacadeTransom(322420, 110));
+          //   facadeTransomList.push(new FacadeTransom(536750, 120));
+          //   facadeTransomList.push(new FacadeTransom(322430, 130));
+          //   facadeTransomList.push(new FacadeTransom(322440, 155));
+          //   facadeTransomList.push(new FacadeTransom(322450, 180));
+          //   return of(facadeTransomList);
+          case &quot;326030&quot;: // OLD
+          case &quot;536380&quot;:
+            facadeTransomList.push(new FacadeTransom(322370, 6));
+            facadeTransomList.push(new FacadeTransom(322380, 21));
+            facadeTransomList.push(new FacadeTransom(322460, 27));
+            facadeTransomList.push(new FacadeTransom(323840, 45));
+            facadeTransomList.push(new FacadeTransom(322390, 55));
+            facadeTransomList.push(new FacadeTransom(322400, 70));
+            facadeTransomList.push(new FacadeTransom(322410, 90));
+            facadeTransomList.push(new FacadeTransom(322420, 110));
+            facadeTransomList.push(new FacadeTransom(536750, 120));
+            facadeTransomList.push(new FacadeTransom(322430, 130));
+            facadeTransomList.push(new FacadeTransom(322440, 155));
+            facadeTransomList.push(new FacadeTransom(322450, 180));
+            facadeTransomList.push(new FacadeTransom(449590, 205));
+            return of(facadeTransomList);
+          case &quot;336230&quot;: // OLD
+          case &quot;536470&quot;: // NEW
+          case &quot;536480&quot;: // REMOVE //225 depth
+            facadeTransomList.push(new FacadeTransom(322370, 6));
+            facadeTransomList.push(new FacadeTransom(322380, 21));
+            facadeTransomList.push(new FacadeTransom(322460, 27));
+            facadeTransomList.push(new FacadeTransom(323840, 45));
+            facadeTransomList.push(new FacadeTransom(322390, 55));
+            facadeTransomList.push(new FacadeTransom(322400, 70));
+            facadeTransomList.push(new FacadeTransom(322410, 90));
+            facadeTransomList.push(new FacadeTransom(322420, 110));
+            facadeTransomList.push(new FacadeTransom(536750, 120));
+            facadeTransomList.push(new FacadeTransom(322430, 130));
+            facadeTransomList.push(new FacadeTransom(322440, 155));
+            facadeTransomList.push(new FacadeTransom(322450, 180));
+            facadeTransomList.push(new FacadeTransom(449590, 205));
+            facadeTransomList.push(new FacadeTransom(449600, 230));
+            //facadeTransomList.push(new FacadeTransom(505020, 230));//NEW
+            return of(facadeTransomList);
+          case &quot;336240&quot;: // OLD
+          case &quot;536180&quot;: // NEW
+          case &quot;536510&quot;: // REMOVE //250 depth
+            facadeTransomList.push(new FacadeTransom(322370, 6));
+            facadeTransomList.push(new FacadeTransom(322380, 21));
+            facadeTransomList.push(new FacadeTransom(322460, 27));
+            facadeTransomList.push(new FacadeTransom(323840, 45));
+            facadeTransomList.push(new FacadeTransom(322390, 55));
+            facadeTransomList.push(new FacadeTransom(322400, 70));
+            facadeTransomList.push(new FacadeTransom(322410, 90));
+            facadeTransomList.push(new FacadeTransom(322420, 110));
+            facadeTransomList.push(new FacadeTransom(536750, 120));
+            facadeTransomList.push(new FacadeTransom(322430, 130));
+            facadeTransomList.push(new FacadeTransom(322440, 155));
+            facadeTransomList.push(new FacadeTransom(322450, 180));
+            facadeTransomList.push(new FacadeTransom(449590, 205));
+            facadeTransomList.push(new FacadeTransom(449600, 230));
+            //facadeTransomList.push(new FacadeTransom(505020, 230));//NEW
+            facadeTransomList.push(new FacadeTransom(449610, 255));
+            //facadeTransomList.push(new FacadeTransom(505030, 255));
+            return of(facadeTransomList);
+        }
+      case &quot;FWS 60&quot;:
+        switch (mullionId) {
+          case &quot;324010&quot;: // OLD
+          case &quot;543000&quot;: //50
+            facadeTransomList.push(new FacadeTransom(324400, 6));
+            facadeTransomList.push(new FacadeTransom(324410, 21));
+            facadeTransomList.push(new FacadeTransom(324420, 27));
+            facadeTransomList.push(new FacadeTransom(324430, 45));
+            facadeTransomList.push(new FacadeTransom(324440, 55));
+            return of(facadeTransomList);
+          case &quot;324020&quot;: // OLD
+          case &quot;543010&quot;: //65
+            facadeTransomList.push(new FacadeTransom(324400, 6));
+            facadeTransomList.push(new FacadeTransom(324410, 21));
+            facadeTransomList.push(new FacadeTransom(324420, 27));
+            facadeTransomList.push(new FacadeTransom(324430, 45));
+            facadeTransomList.push(new FacadeTransom(324440, 55));
+            facadeTransomList.push(new FacadeTransom(324450, 70));
+            return of(facadeTransomList);
+          case &quot;324030&quot;: // OLD
+          case &quot;543020&quot;: //85
+            facadeTransomList.push(new FacadeTransom(324400, 6));
+            facadeTransomList.push(new FacadeTransom(324410, 21));
+            facadeTransomList.push(new FacadeTransom(324420, 27));
+            facadeTransomList.push(new FacadeTransom(324430, 45));
+            facadeTransomList.push(new FacadeTransom(324440, 55));
+            facadeTransomList.push(new FacadeTransom(324450, 70));
+            facadeTransomList.push(new FacadeTransom(324460, 90));
+            return of(facadeTransomList);
+          case &quot;324040&quot;: // OLD
+          case &quot;543030&quot;: //105
+            facadeTransomList.push(new FacadeTransom(324400, 6));
+            facadeTransomList.push(new FacadeTransom(324410, 21));
+            facadeTransomList.push(new FacadeTransom(324420, 27));
+            facadeTransomList.push(new FacadeTransom(324430, 45));
+            facadeTransomList.push(new FacadeTransom(324440, 55));
+            facadeTransomList.push(new FacadeTransom(324450, 70));
+            facadeTransomList.push(new FacadeTransom(324460, 90));
+            facadeTransomList.push(new FacadeTransom(324470, 110));
+            return of(facadeTransomList);
+          case &quot;324050&quot;: // OLD
+          case &quot;543040&quot;: //125
+            facadeTransomList.push(new FacadeTransom(324400, 6));
+            facadeTransomList.push(new FacadeTransom(324410, 21));
+            facadeTransomList.push(new FacadeTransom(324420, 27));
+            facadeTransomList.push(new FacadeTransom(324430, 45));
+            facadeTransomList.push(new FacadeTransom(324440, 55));
+            facadeTransomList.push(new FacadeTransom(324450, 70));
+            facadeTransomList.push(new FacadeTransom(324460, 90));
+            facadeTransomList.push(new FacadeTransom(324470, 110));
+            facadeTransomList.push(new FacadeTransom(324480, 130));
+            return of(facadeTransomList);
+          case &quot;324060&quot;: // OLD
+          case &quot;543050&quot;: // NEW //150
+            facadeTransomList.push(new FacadeTransom(324400, 6));
+            facadeTransomList.push(new FacadeTransom(324410, 21));
+            facadeTransomList.push(new FacadeTransom(324420, 27));
+            facadeTransomList.push(new FacadeTransom(324430, 45));
+            facadeTransomList.push(new FacadeTransom(324440, 55));
+            facadeTransomList.push(new FacadeTransom(324450, 70));
+            facadeTransomList.push(new FacadeTransom(324460, 90));
+            facadeTransomList.push(new FacadeTransom(324470, 110));
+            facadeTransomList.push(new FacadeTransom(324480, 130));
+            facadeTransomList.push(new FacadeTransom(324490, 155));
+            return of(facadeTransomList);
+          case &quot;324070&quot;: // OLD
+          case &quot;536540&quot;: // NEW //175
+            facadeTransomList.push(new FacadeTransom(324400, 6));
+            facadeTransomList.push(new FacadeTransom(324410, 21));
+            facadeTransomList.push(new FacadeTransom(324420, 27));
+            facadeTransomList.push(new FacadeTransom(324430, 45));
+            facadeTransomList.push(new FacadeTransom(324440, 55));
+            facadeTransomList.push(new FacadeTransom(324450, 70));
+            facadeTransomList.push(new FacadeTransom(324460, 90));
+            facadeTransomList.push(new FacadeTransom(324470, 110));
+            facadeTransomList.push(new FacadeTransom(324480, 130));
+            facadeTransomList.push(new FacadeTransom(324490, 155));
+            facadeTransomList.push(new FacadeTransom(324500, 180));
+            return of(facadeTransomList);
+          case &quot;324080&quot;: // OLD
+          case &quot;536580&quot;: // NEW //200
+            facadeTransomList.push(new FacadeTransom(324400, 6));
+            facadeTransomList.push(new FacadeTransom(324410, 21));
+            facadeTransomList.push(new FacadeTransom(324420, 27));
+            facadeTransomList.push(new FacadeTransom(324430, 45));
+            facadeTransomList.push(new FacadeTransom(324440, 55));
+            facadeTransomList.push(new FacadeTransom(324450, 70));
+            facadeTransomList.push(new FacadeTransom(324460, 90));
+            facadeTransomList.push(new FacadeTransom(324470, 110));
+            facadeTransomList.push(new FacadeTransom(324480, 130));
+            facadeTransomList.push(new FacadeTransom(324490, 155));
+            facadeTransomList.push(new FacadeTransom(324500, 180));
+            facadeTransomList.push(new FacadeTransom(326940, 205));
+            return of(facadeTransomList);
+          case &quot;324090&quot;: // OLD
+          case &quot;536620&quot;: // NEW
+          case &quot;536630&quot;: // REMOVE //225
+            facadeTransomList.push(new FacadeTransom(324400, 6));
+            facadeTransomList.push(new FacadeTransom(324410, 21));
+            facadeTransomList.push(new FacadeTransom(324420, 27));
+            facadeTransomList.push(new FacadeTransom(324430, 45));
+            facadeTransomList.push(new FacadeTransom(324440, 55));
+            facadeTransomList.push(new FacadeTransom(324450, 70));
+            facadeTransomList.push(new FacadeTransom(324460, 90));
+            facadeTransomList.push(new FacadeTransom(324470, 110));
+            facadeTransomList.push(new FacadeTransom(324480, 130));
+            facadeTransomList.push(new FacadeTransom(324490, 155));
+            facadeTransomList.push(new FacadeTransom(324500, 180));
+            facadeTransomList.push(new FacadeTransom(326940, 205));//NEW
+            facadeTransomList.push(new FacadeTransom(493680, 230));
+            return of(facadeTransomList);
+          case &quot;336270&quot;: // OLD
+          case &quot;536660&quot;: // NEW
+          case &quot;536670&quot;: // REMOVE
+            facadeTransomList.push(new FacadeTransom(324400, 6));
+            facadeTransomList.push(new FacadeTransom(324410, 21));
+            facadeTransomList.push(new FacadeTransom(324420, 27));
+            facadeTransomList.push(new FacadeTransom(324430, 45));
+            facadeTransomList.push(new FacadeTransom(324440, 55));
+            facadeTransomList.push(new FacadeTransom(324450, 70));
+            facadeTransomList.push(new FacadeTransom(324460, 90));
+            facadeTransomList.push(new FacadeTransom(324470, 110));
+            facadeTransomList.push(new FacadeTransom(324480, 130));
+            facadeTransomList.push(new FacadeTransom(324490, 155));
+            facadeTransomList.push(new FacadeTransom(324500, 180));
+            facadeTransomList.push(new FacadeTransom(326940, 205));//NEW
+            facadeTransomList.push(new FacadeTransom(493680, 230));
+            facadeTransomList.push(new FacadeTransom(493690, 255));
+            return of(facadeTransomList);
+        }
+      default:
+        if (applicationType &#x3D;&#x3D; &#x27;SRS&#x27;) {
+          facadeTransomList.push(new FacadeTransom(382280, 59));
+          return of(facadeTransomList);
+        } else {
+          facadeTransomList.push(new FacadeTransom(477750, 65));
+          facadeTransomList.push(new FacadeTransom(477760, 85));
+          facadeTransomList.push(new FacadeTransom(477770, 105));
+          facadeTransomList.push(new FacadeTransom(477780, 125));
+          facadeTransomList.push(new FacadeTransom(477790, 150));
+          return of(facadeTransomList);
+        }
+    }
+  }
+
+  getFacade_Level2_Intermediate_MullionList(system: string, mullionId: string): Observable&lt;any&gt; {
+    let facadeTransomList: FacadeTransom[] &#x3D; [];
+    system &#x3D; this.getFWSSystemType(system);
+    switch (system) {
+      case &quot;FWS 35&quot;:
+        switch (mullionId) {
+          case &quot;477750&quot;: //65
+            return of(facadeTransomList);
+          case &quot;477760&quot;: //85
+            facadeTransomList.push(new FacadeTransom(434200, 84));
+            return of(facadeTransomList);
+          case &quot;477770&quot;: //105
+            facadeTransomList.push(new FacadeTransom(434200, 84));
+            facadeTransomList.push(new FacadeTransom(434180, 104));
+            return of(facadeTransomList);
+          case &quot;477780&quot;: //125
+            facadeTransomList.push(new FacadeTransom(434200, 84));
+            facadeTransomList.push(new FacadeTransom(434180, 104));//NEW
+            facadeTransomList.push(new FacadeTransom(434210, 124));
+            return of(facadeTransomList);
+          case &quot;477790&quot;: //150
+            facadeTransomList.push(new FacadeTransom(434200, 84));
+            facadeTransomList.push(new FacadeTransom(434180, 104));//NEW
+            facadeTransomList.push(new FacadeTransom(434210, 124)); //NEW
+            facadeTransomList.push(new FacadeTransom(434220, 149));
+            return of(facadeTransomList);
+        }
+      case &quot;FWS 50&quot;:
+        switch (mullionId) {
+          case &quot;322250&quot;: // OLD
+          case &quot;536800&quot;:
+            return of(facadeTransomList);
+          case &quot;322260&quot;: // OLD
+          case &quot;536810&quot;:
+            return of(facadeTransomList);
+          case &quot;322270&quot;: // OLD
+          case &quot;536820&quot;:
+            facadeTransomList.push(new FacadeTransom(322330, 84));
+            return of(facadeTransomList);
+          case &quot;322280&quot;: // OLD
+          case &quot;536830&quot;:
+            facadeTransomList.push(new FacadeTransom(322330, 84));
+            facadeTransomList.push(new FacadeTransom(322340, 104));
+            return of(facadeTransomList);
+          case &quot;536720&quot;:
+            facadeTransomList.push(new FacadeTransom(322330, 84));
+            facadeTransomList.push(new FacadeTransom(322340, 104));
+            facadeTransomList.push(new FacadeTransom(536790, 114));//NEW
+            return of(facadeTransomList);
+          case &quot;322290&quot;: // OLD
+          case &quot;536840&quot;:
+            facadeTransomList.push(new FacadeTransom(322330, 84));
+            facadeTransomList.push(new FacadeTransom(322340, 104));
+            facadeTransomList.push(new FacadeTransom(536790, 114));//NEW
+            facadeTransomList.push(new FacadeTransom(322350, 124));
+            return of(facadeTransomList);
+          case &quot;322300&quot;: // OLD
+          case &quot;536850&quot;:
+            facadeTransomList.push(new FacadeTransom(322330, 84));
+            facadeTransomList.push(new FacadeTransom(322340, 104));
+            facadeTransomList.push(new FacadeTransom(536790, 114));//NEW
+            facadeTransomList.push(new FacadeTransom(322350, 124));
+            facadeTransomList.push(new FacadeTransom(322360, 149));
+            return of(facadeTransomList);
+          case &quot;322310&quot;: // OLD
+          case &quot;536270&quot;:
+          case &quot;536320&quot;: // NEW
+            facadeTransomList.push(new FacadeTransom(322330, 84));
+            facadeTransomList.push(new FacadeTransom(322340, 104));
+            facadeTransomList.push(new FacadeTransom(536790, 114));//NEW
+            facadeTransomList.push(new FacadeTransom(322350, 124));
+            facadeTransomList.push(new FacadeTransom(322360, 149));
+            facadeTransomList.push(new FacadeTransom(493110, 174));
+            return of(facadeTransomList);
+          // ------------- Obsolete -------------------------------
+          // case &quot;326050&quot;:
+          //   facadeTransomList.push(new FacadeTransom(322330, 84));
+          //   facadeTransomList.push(new FacadeTransom(322340, 104));
+          //   facadeTransomList.push(new FacadeTransom(536790, 114));
+          //   facadeTransomList.push(new FacadeTransom(322350, 124));
+          //   facadeTransomList.push(new FacadeTransom(322360, 149));
+          //   facadeTransomList.push(new FacadeTransom(493110, 174));
+          //   return of(facadeTransomList);
+          case &quot;326030&quot;: // OLD
+          case &quot;536380&quot;:
+            facadeTransomList.push(new FacadeTransom(322330, 84));
+            facadeTransomList.push(new FacadeTransom(322340, 104));
+            facadeTransomList.push(new FacadeTransom(536790, 114));
+            facadeTransomList.push(new FacadeTransom(322350, 124));
+            facadeTransomList.push(new FacadeTransom(322360, 149));
+            facadeTransomList.push(new FacadeTransom(493110, 174));
+            facadeTransomList.push(new FacadeTransom(493120, 199));
+            return of(facadeTransomList);
+          case &quot;336230&quot;: // OLD
+          case &quot;536470&quot;: // NEW
+          case &quot;536480&quot;: // REMOVE
+            facadeTransomList.push(new FacadeTransom(322330, 84));
+            facadeTransomList.push(new FacadeTransom(322340, 104));
+            facadeTransomList.push(new FacadeTransom(536790, 114));
+            facadeTransomList.push(new FacadeTransom(322350, 124));
+            facadeTransomList.push(new FacadeTransom(322360, 149));
+            facadeTransomList.push(new FacadeTransom(493110, 174));
+            facadeTransomList.push(new FacadeTransom(493120, 199));
+            return of(facadeTransomList);
+          case &quot;336240&quot;: // OLD
+          case &quot;536180&quot;: // NEW
+          case &quot;536510&quot;: // REMOVE
+            facadeTransomList.push(new FacadeTransom(322330, 84));
+            facadeTransomList.push(new FacadeTransom(322340, 104));
+            facadeTransomList.push(new FacadeTransom(536790, 114));
+            facadeTransomList.push(new FacadeTransom(322350, 124));
+            facadeTransomList.push(new FacadeTransom(322360, 149));
+            facadeTransomList.push(new FacadeTransom(493110, 174));
+            facadeTransomList.push(new FacadeTransom(493120, 199));
+            return of(facadeTransomList);
+        }
+      case &quot;FWS 60&quot;:
+        switch (mullionId) {
+          case &quot;324010&quot;: case &quot;543000&quot;:
+            return of(facadeTransomList);
+          case &quot;324020&quot;: case &quot;543010&quot;:
+            return of(facadeTransomList);
+          case &quot;324030&quot;: case &quot;543020&quot;:
+            facadeTransomList.push(new FacadeTransom(324510, 84));
+            return of(facadeTransomList);
+          case &quot;324040&quot;: case &quot;543030&quot;:
+            facadeTransomList.push(new FacadeTransom(324510, 84));
+            facadeTransomList.push(new FacadeTransom(324520, 104));
+            return of(facadeTransomList);
+          case &quot;324050&quot;: case &quot;543040&quot;:
+            facadeTransomList.push(new FacadeTransom(324510, 84));
+            facadeTransomList.push(new FacadeTransom(324520, 104));
+            facadeTransomList.push(new FacadeTransom(324530, 124));
+            return of(facadeTransomList);
+          case &quot;324060&quot;: case &quot;543050&quot;:
+            facadeTransomList.push(new FacadeTransom(324510, 84));
+            facadeTransomList.push(new FacadeTransom(324520, 104));
+            facadeTransomList.push(new FacadeTransom(324530, 124));
+            facadeTransomList.push(new FacadeTransom(324540, 149));
+            return of(facadeTransomList);
+          case &quot;324070&quot;: case &quot;536540&quot;:
+            facadeTransomList.push(new FacadeTransom(324510, 84));
+            facadeTransomList.push(new FacadeTransom(324520, 104));
+            facadeTransomList.push(new FacadeTransom(324530, 124));
+            facadeTransomList.push(new FacadeTransom(324540, 149));
+            return of(facadeTransomList);
+          case &quot;324080&quot;: case &quot;536580&quot;:
+            facadeTransomList.push(new FacadeTransom(324510, 84));
+            facadeTransomList.push(new FacadeTransom(324520, 104));
+            facadeTransomList.push(new FacadeTransom(324530, 124));
+            facadeTransomList.push(new FacadeTransom(324540, 149));
+            return of(facadeTransomList);
+          case &quot;324090&quot;: // OLD
+          case &quot;536620&quot;: // NEW
+          case &quot;536630&quot;: // REMOVE
+            facadeTransomList.push(new FacadeTransom(324510, 84));
+            facadeTransomList.push(new FacadeTransom(324520, 104));
+            facadeTransomList.push(new FacadeTransom(324530, 124));
+            facadeTransomList.push(new FacadeTransom(324540, 149));
+            return of(facadeTransomList);
+          case &quot;336270&quot;: // OLD
+          case &quot;536660&quot;: // NEW
+          case &quot;536670&quot;: // REMOVE
+            facadeTransomList.push(new FacadeTransom(324510, 84));
+            facadeTransomList.push(new FacadeTransom(324520, 104));
+            facadeTransomList.push(new FacadeTransom(324530, 124));
+            facadeTransomList.push(new FacadeTransom(324540, 149));
+            return of(facadeTransomList);
+        }
+      default:
+        facadeTransomList.push(new FacadeTransom(477750, 65));
+        facadeTransomList.push(new FacadeTransom(477760, 85));
+        facadeTransomList.push(new FacadeTransom(477770, 105));
+        facadeTransomList.push(new FacadeTransom(477780, 125));
+        facadeTransomList.push(new FacadeTransom(477790, 150));
+        return of(facadeTransomList);
+    }
+  }
+
+  getFacade_Intermediate_MullionList(system: string, mullionId: string): Observable&lt;any&gt; {
+    let facacdeMullionList: FacadeTransom[] &#x3D; [];
+    system &#x3D; this.getFWSSystemType(system);
+    switch (system) {
+      case &quot;FWS 35&quot;:
+        switch (mullionId) {
+          case &quot;477750&quot;:
+            //facacdeMullionList.push(new FacadeTransom(477800, 70));
+            return of(facacdeMullionList);
+          case &quot;477760&quot;:
+            facacdeMullionList.push(new FacadeTransom(477800, 70));
+            facacdeMullionList.push(new FacadeTransom(477810, 90));
+            return of(facacdeMullionList);
+          case &quot;477770&quot;:
+            facacdeMullionList.push(new FacadeTransom(477800, 70));
+            facacdeMullionList.push(new FacadeTransom(477810, 90));
+            facacdeMullionList.push(new FacadeTransom(477820, 110));
+            return of(facacdeMullionList);
+          case &quot;477780&quot;:
+            facacdeMullionList.push(new FacadeTransom(477800, 70));
+            facacdeMullionList.push(new FacadeTransom(477810, 90));
+            facacdeMullionList.push(new FacadeTransom(477820, 110));
+            facacdeMullionList.push(new FacadeTransom(477830, 130));
+            return of(facacdeMullionList);
+          case &quot;477790&quot;:
+            facacdeMullionList.push(new FacadeTransom(477800, 70));
+            facacdeMullionList.push(new FacadeTransom(477810, 90));
+            facacdeMullionList.push(new FacadeTransom(477820, 110));
+            facacdeMullionList.push(new FacadeTransom(477830, 130));
+            facacdeMullionList.push(new FacadeTransom(477840, 155));
+            return of(facacdeMullionList);
+        }
+      case &quot;FWS 50&quot;:
+        switch (mullionId) {
+          case &quot;322250&quot;: case &quot;536800&quot;:
+            // facacdeMullionList.push(new FacadeTransom(322370, 6));
+            // facacdeMullionList.push(new FacadeTransom(322380, 21));
+            // facacdeMullionList.push(new FacadeTransom(322460, 27));
+            // facacdeMullionList.push(new FacadeTransom(323840, 45));
+            //facacdeMullionList.push(new FacadeTransom(322390, 55));
+            return of(facacdeMullionList);
+          case &quot;322260&quot;: case &quot;536810&quot;:
+            // facacdeMullionList.push(new FacadeTransom(322370, 6));
+            // facacdeMullionList.push(new FacadeTransom(322380, 21));
+            // facacdeMullionList.push(new FacadeTransom(322460, 27));
+            // facacdeMullionList.push(new FacadeTransom(323840, 45));
+            // facacdeMullionList.push(new FacadeTransom(322390, 55));
+            //facacdeMullionList.push(new FacadeTransom(322400, 70));
+            return of(facacdeMullionList);
+          case &quot;322270&quot;: case &quot;536820&quot;:
+            facacdeMullionList.push(new FacadeTransom(322370, 6));
+            facacdeMullionList.push(new FacadeTransom(322380, 21));
+            facacdeMullionList.push(new FacadeTransom(322460, 27));
+            facacdeMullionList.push(new FacadeTransom(323840, 45));
+            facacdeMullionList.push(new FacadeTransom(322390, 55));
+            facacdeMullionList.push(new FacadeTransom(322400, 70));
+            facacdeMullionList.push(new FacadeTransom(322410, 90));
+            return of(facacdeMullionList);
+          case &quot;322280&quot;: case &quot;536830&quot;:
+            facacdeMullionList.push(new FacadeTransom(322370, 6));
+            facacdeMullionList.push(new FacadeTransom(322380, 21));
+            facacdeMullionList.push(new FacadeTransom(322460, 27));
+            facacdeMullionList.push(new FacadeTransom(323840, 45));
+            facacdeMullionList.push(new FacadeTransom(322390, 55));
+            facacdeMullionList.push(new FacadeTransom(322400, 70));
+            facacdeMullionList.push(new FacadeTransom(322410, 90));
+            facacdeMullionList.push(new FacadeTransom(322420, 110));
+            return of(facacdeMullionList);
+          case &quot;536720&quot;: //new data..........
+            facacdeMullionList.push(new FacadeTransom(322370, 6));
+            facacdeMullionList.push(new FacadeTransom(322380, 21));
+            facacdeMullionList.push(new FacadeTransom(322460, 27));
+            facacdeMullionList.push(new FacadeTransom(323840, 45));
+            facacdeMullionList.push(new FacadeTransom(322390, 55));
+            facacdeMullionList.push(new FacadeTransom(322400, 70));
+            facacdeMullionList.push(new FacadeTransom(322410, 90));
+            facacdeMullionList.push(new FacadeTransom(322420, 110));
+            facacdeMullionList.push(new FacadeTransom(536750, 120));
+          case &quot;322290&quot;: case &quot;536840&quot;:
+            facacdeMullionList.push(new FacadeTransom(322370, 6));
+            facacdeMullionList.push(new FacadeTransom(322380, 21));
+            facacdeMullionList.push(new FacadeTransom(322460, 27));
+            facacdeMullionList.push(new FacadeTransom(323840, 45));
+            facacdeMullionList.push(new FacadeTransom(322390, 55));
+            facacdeMullionList.push(new FacadeTransom(322400, 70));
+            facacdeMullionList.push(new FacadeTransom(322410, 90));
+            facacdeMullionList.push(new FacadeTransom(322420, 110));
+            facacdeMullionList.push(new FacadeTransom(536750, 120));
+            facacdeMullionList.push(new FacadeTransom(322430, 130));
+            return of(facacdeMullionList);
+          case &quot;322300&quot;: case &quot;536850&quot;:
+            facacdeMullionList.push(new FacadeTransom(322370, 6));
+            facacdeMullionList.push(new FacadeTransom(322380, 21));
+            facacdeMullionList.push(new FacadeTransom(322460, 27));
+            facacdeMullionList.push(new FacadeTransom(323840, 45));
+            facacdeMullionList.push(new FacadeTransom(322390, 55));
+            facacdeMullionList.push(new FacadeTransom(322400, 70));
+            facacdeMullionList.push(new FacadeTransom(322410, 90));
+            facacdeMullionList.push(new FacadeTransom(322420, 110));
+            facacdeMullionList.push(new FacadeTransom(536750, 120));
+            facacdeMullionList.push(new FacadeTransom(322430, 130));
+            facacdeMullionList.push(new FacadeTransom(322440, 155));
+            return of(facacdeMullionList);
+          case &quot;322310&quot;: // OLD
+          case &quot;536270&quot;: // NEW
+          case &quot;536320&quot;: // NEW
+            facacdeMullionList.push(new FacadeTransom(322370, 6));
+            facacdeMullionList.push(new FacadeTransom(322380, 21));
+            facacdeMullionList.push(new FacadeTransom(322460, 27));
+            facacdeMullionList.push(new FacadeTransom(323840, 45));
+            facacdeMullionList.push(new FacadeTransom(322390, 55));
+            facacdeMullionList.push(new FacadeTransom(322400, 70));
+            facacdeMullionList.push(new FacadeTransom(322410, 90));
+            facacdeMullionList.push(new FacadeTransom(322420, 110));
+            facacdeMullionList.push(new FacadeTransom(536750, 120));
+            facacdeMullionList.push(new FacadeTransom(322430, 130));
+            facacdeMullionList.push(new FacadeTransom(322440, 155));
+            facacdeMullionList.push(new FacadeTransom(322450, 180));
+            return of(facacdeMullionList);
+          // ------------- Obsolete -------------------------------
+          // case &quot;326050&quot;:
+          //   facacdeMullionList.push(new FacadeTransom(322370, 6));
+          //   facacdeMullionList.push(new FacadeTransom(322380, 21));
+          //   facacdeMullionList.push(new FacadeTransom(322460, 27));
+          //   facacdeMullionList.push(new FacadeTransom(323840, 45));
+          //   facacdeMullionList.push(new FacadeTransom(322390, 55));
+          //   facacdeMullionList.push(new FacadeTransom(322400, 70));
+          //   facacdeMullionList.push(new FacadeTransom(322410, 90));
+          //   facacdeMullionList.push(new FacadeTransom(322420, 110));
+          //   facacdeMullionList.push(new FacadeTransom(536750, 120));
+          //   facacdeMullionList.push(new FacadeTransom(322430, 130));
+          //   facacdeMullionList.push(new FacadeTransom(322440, 155));
+          //   facacdeMullionList.push(new FacadeTransom(322450, 180));
+          //   return of(facacdeMullionList);
+          case &quot;326030&quot;: case &quot;536380&quot;:
+            facacdeMullionList.push(new FacadeTransom(322370, 6));
+            facacdeMullionList.push(new FacadeTransom(322380, 21));
+            facacdeMullionList.push(new FacadeTransom(322460, 27));
+            facacdeMullionList.push(new FacadeTransom(323840, 45));
+            facacdeMullionList.push(new FacadeTransom(322390, 55));
+            facacdeMullionList.push(new FacadeTransom(322400, 70));
+            facacdeMullionList.push(new FacadeTransom(322410, 90));
+            facacdeMullionList.push(new FacadeTransom(322420, 110));
+            facacdeMullionList.push(new FacadeTransom(536750, 120));
+            facacdeMullionList.push(new FacadeTransom(322430, 130));
+            facacdeMullionList.push(new FacadeTransom(322440, 155));
+            facacdeMullionList.push(new FacadeTransom(322450, 180));
+            facacdeMullionList.push(new FacadeTransom(449590, 205));
+            return of(facacdeMullionList);
+          case &quot;336230&quot;: // OLD
+          case &quot;536470&quot;: // NEW
+          case &quot;536480&quot;: // REMOVE //225 depth
+            facacdeMullionList.push(new FacadeTransom(322370, 6));
+            facacdeMullionList.push(new FacadeTransom(322380, 21));
+            facacdeMullionList.push(new FacadeTransom(322460, 27));
+            facacdeMullionList.push(new FacadeTransom(323840, 45));
+            facacdeMullionList.push(new FacadeTransom(322390, 55));
+            facacdeMullionList.push(new FacadeTransom(322400, 70));
+            facacdeMullionList.push(new FacadeTransom(322410, 90));
+            facacdeMullionList.push(new FacadeTransom(322420, 110));
+            facacdeMullionList.push(new FacadeTransom(536750, 120));
+            facacdeMullionList.push(new FacadeTransom(322430, 130));
+            facacdeMullionList.push(new FacadeTransom(322440, 155));
+            facacdeMullionList.push(new FacadeTransom(322450, 180));
+            facacdeMullionList.push(new FacadeTransom(449590, 205));
+            // facacdeMullionList.push(new FacadeTransom(449600, 230));
+            // facacdeMullionList.push(new FacadeTransom(505020, 230));
+            return of(facacdeMullionList);
+          case &quot;336240&quot;: // OLD
+          case &quot;536180&quot;: // NEW
+          case &quot;536510&quot;: // REMOVE //250 depth
+            facacdeMullionList.push(new FacadeTransom(322370, 6));
+            facacdeMullionList.push(new FacadeTransom(322380, 21));
+            facacdeMullionList.push(new FacadeTransom(322460, 27));
+            facacdeMullionList.push(new FacadeTransom(323840, 45));
+            facacdeMullionList.push(new FacadeTransom(322390, 55));
+            facacdeMullionList.push(new FacadeTransom(322400, 70));
+            facacdeMullionList.push(new FacadeTransom(322410, 90));
+            facacdeMullionList.push(new FacadeTransom(322420, 110));
+            facacdeMullionList.push(new FacadeTransom(536750, 120));
+            facacdeMullionList.push(new FacadeTransom(322430, 130));
+            facacdeMullionList.push(new FacadeTransom(322440, 155));
+            facacdeMullionList.push(new FacadeTransom(322450, 180));
+            facacdeMullionList.push(new FacadeTransom(449590, 205));
+            // facacdeMullionList.push(new FacadeTransom(449600, 230));
+            // facacdeMullionList.push(new FacadeTransom(505020, 230));
+            // facacdeMullionList.push(new FacadeTransom(449610, 255));
+            // facacdeMullionList.push(new FacadeTransom(505030, 255));
+            return of(facacdeMullionList);
+        }
+      case &quot;FWS 60&quot;:
+        switch (mullionId) {
+          case &quot;324010&quot;: case &quot;543000&quot;: //50 depth
+            // facacdeMullionList.push(new FacadeTransom(324400, 6));
+            // facacdeMullionList.push(new FacadeTransom(324410, 21));
+            // facacdeMullionList.push(new FacadeTransom(324420, 27));
+            // facacdeMullionList.push(new FacadeTransom(324430, 45));
+            //facacdeMullionList.push(new FacadeTransom(324440, 55));
+            return of(facacdeMullionList);
+          case &quot;324020&quot;: case &quot;543010&quot;: //65 depth
+            // facacdeMullionList.push(new FacadeTransom(324400, 6));
+            // facacdeMullionList.push(new FacadeTransom(324410, 21));
+            // facacdeMullionList.push(new FacadeTransom(324420, 27));
+            // facacdeMullionList.push(new FacadeTransom(324430, 45));
+            // facacdeMullionList.push(new FacadeTransom(324440, 55));
+            //facacdeMullionList.push(new FacadeTransom(324450, 70));
+            return of(facacdeMullionList);
+          case &quot;324030&quot;: case &quot;543020&quot;:
+            facacdeMullionList.push(new FacadeTransom(324400, 6));
+            facacdeMullionList.push(new FacadeTransom(324410, 21));
+            facacdeMullionList.push(new FacadeTransom(324420, 27));
+            facacdeMullionList.push(new FacadeTransom(324430, 45));
+            facacdeMullionList.push(new FacadeTransom(324440, 55));
+            facacdeMullionList.push(new FacadeTransom(324450, 70));
+            facacdeMullionList.push(new FacadeTransom(324460, 90));
+            return of(facacdeMullionList);
+          case &quot;324040&quot;: case &quot;543030&quot;:
+            facacdeMullionList.push(new FacadeTransom(324400, 6));
+            facacdeMullionList.push(new FacadeTransom(324410, 21));
+            facacdeMullionList.push(new FacadeTransom(324420, 27));
+            facacdeMullionList.push(new FacadeTransom(324430, 45));
+            facacdeMullionList.push(new FacadeTransom(324440, 55));
+            facacdeMullionList.push(new FacadeTransom(324450, 70));
+            facacdeMullionList.push(new FacadeTransom(324460, 90));
+            facacdeMullionList.push(new FacadeTransom(324470, 110));
+            return of(facacdeMullionList);
+          case &quot;324050&quot;: case &quot;543040&quot;:
+            facacdeMullionList.push(new FacadeTransom(324400, 6));
+            facacdeMullionList.push(new FacadeTransom(324410, 21));
+            facacdeMullionList.push(new FacadeTransom(324420, 27));
+            facacdeMullionList.push(new FacadeTransom(324430, 45));
+            facacdeMullionList.push(new FacadeTransom(324440, 55));
+            facacdeMullionList.push(new FacadeTransom(324450, 70));
+            facacdeMullionList.push(new FacadeTransom(324460, 90));
+            facacdeMullionList.push(new FacadeTransom(324470, 110));
+            facacdeMullionList.push(new FacadeTransom(324480, 130));
+            return of(facacdeMullionList);
+          case &quot;324060&quot;: case &quot;543050&quot;:
+            facacdeMullionList.push(new FacadeTransom(324400, 6));
+            facacdeMullionList.push(new FacadeTransom(324410, 21));
+            facacdeMullionList.push(new FacadeTransom(324420, 27));
+            facacdeMullionList.push(new FacadeTransom(324430, 45));
+            facacdeMullionList.push(new FacadeTransom(324440, 55));
+            facacdeMullionList.push(new FacadeTransom(324450, 70));
+            facacdeMullionList.push(new FacadeTransom(324460, 90));
+            facacdeMullionList.push(new FacadeTransom(324470, 110));
+            facacdeMullionList.push(new FacadeTransom(324480, 130));
+            facacdeMullionList.push(new FacadeTransom(324490, 155));
+            return of(facacdeMullionList);
+          case &quot;324070&quot;: case &quot;536540&quot;:
+            facacdeMullionList.push(new FacadeTransom(324400, 6));
+            facacdeMullionList.push(new FacadeTransom(324410, 21));
+            facacdeMullionList.push(new FacadeTransom(324420, 27));
+            facacdeMullionList.push(new FacadeTransom(324430, 45));
+            facacdeMullionList.push(new FacadeTransom(324440, 55));
+            facacdeMullionList.push(new FacadeTransom(324450, 70));
+            facacdeMullionList.push(new FacadeTransom(324460, 90));
+            facacdeMullionList.push(new FacadeTransom(324470, 110));
+            facacdeMullionList.push(new FacadeTransom(324480, 130));
+            facacdeMullionList.push(new FacadeTransom(324490, 155));
+            //facacdeMullionList.push(new FacadeTransom(324500, 180));
+            return of(facacdeMullionList);
+          case &quot;324080&quot;: case &quot;536580&quot;:
+            facacdeMullionList.push(new FacadeTransom(324400, 6));
+            facacdeMullionList.push(new FacadeTransom(324410, 21));
+            facacdeMullionList.push(new FacadeTransom(324420, 27));
+            facacdeMullionList.push(new FacadeTransom(324430, 45));
+            facacdeMullionList.push(new FacadeTransom(324440, 55));
+            facacdeMullionList.push(new FacadeTransom(324450, 70));
+            facacdeMullionList.push(new FacadeTransom(324460, 90));
+            facacdeMullionList.push(new FacadeTransom(324470, 110));
+            facacdeMullionList.push(new FacadeTransom(324480, 130));
+            facacdeMullionList.push(new FacadeTransom(324490, 155));
+            //------facacdeMullionList.push(new FacadeTransom(324500, 180));
+            //facacdeMullionList.push(new FacadeTransom(326940, 205));
+            return of(facacdeMullionList);
+          case &quot;324090&quot;: // OLD
+          case &quot;536620&quot;: // NEW
+          case &quot;536630&quot;: // REMOVE
+            facacdeMullionList.push(new FacadeTransom(324400, 6));
+            facacdeMullionList.push(new FacadeTransom(324410, 21));
+            facacdeMullionList.push(new FacadeTransom(324420, 27));
+            facacdeMullionList.push(new FacadeTransom(324430, 45));
+            facacdeMullionList.push(new FacadeTransom(324440, 55));
+            facacdeMullionList.push(new FacadeTransom(324450, 70));
+            facacdeMullionList.push(new FacadeTransom(324460, 90));
+            facacdeMullionList.push(new FacadeTransom(324470, 110));
+            facacdeMullionList.push(new FacadeTransom(324480, 130));
+            facacdeMullionList.push(new FacadeTransom(324490, 155));
+            //------facacdeMullionList.push(new FacadeTransom(324500, 180));
+            //------facacdeMullionList.push(new FacadeTransom(326940, 205));
+            //facacdeMullionList.push(new FacadeTransom(493680, 230));
+            return of(facacdeMullionList);
+          case &quot;336270&quot;: // OLD
+          case &quot;536660&quot;: // NEW
+          case &quot;536670&quot;: // REMOVE
+            facacdeMullionList.push(new FacadeTransom(324400, 6));
+            facacdeMullionList.push(new FacadeTransom(324410, 21));
+            facacdeMullionList.push(new FacadeTransom(324420, 27));
+            facacdeMullionList.push(new FacadeTransom(324430, 45));
+            facacdeMullionList.push(new FacadeTransom(324440, 55));
+            facacdeMullionList.push(new FacadeTransom(324450, 70));
+            facacdeMullionList.push(new FacadeTransom(324460, 90));
+            facacdeMullionList.push(new FacadeTransom(324470, 110));
+            facacdeMullionList.push(new FacadeTransom(324480, 130));
+            facacdeMullionList.push(new FacadeTransom(324490, 155));
+            //------ facacdeMullionList.push(new FacadeTransom(324500, 180));
+            //------ facacdeMullionList.push(new FacadeTransom(326940, 205));
+            //------ facacdeMullionList.push(new FacadeTransom(493680, 230));
+            //facacdeMullionList.push(new FacadeTransom(493690, 255));
+            return of(facacdeMullionList);
+        }
+      default:
+        facacdeMullionList.push(new FacadeTransom(477750, 65));
+        facacdeMullionList.push(new FacadeTransom(477760, 85));
+        facacdeMullionList.push(new FacadeTransom(477770, 105));
+        facacdeMullionList.push(new FacadeTransom(477780, 125));
+        facacdeMullionList.push(new FacadeTransom(477790, 150));
+        return of(facacdeMullionList.filter(f &#x3D;&gt; f.transomArticleId &lt; parseInt(mullionId)));
+    }
+  }
+
+  getFacade_Mullion_ReinforcementList(mullionId: string): Observable&lt;any&gt; {
+    let reinforcementList: FacadeMullionReinforcement[] &#x3D; [];
+    switch (mullionId) {
+      // FWS 35
+      case &quot;477770&quot;: reinforcementList.push(new FacadeMullionReinforcement(477870, &quot;Aluminium&quot;)); reinforcementList.push(new FacadeMullionReinforcement(201310, &quot;Steel&quot;)); return of(reinforcementList);
+      case &quot;477780&quot;: reinforcementList.push(new FacadeMullionReinforcement(477880, &quot;Aluminium&quot;)); reinforcementList.push(new FacadeMullionReinforcement(201311, &quot;Steel&quot;)); return of(reinforcementList);
+      case &quot;477790&quot;: reinforcementList.push(new FacadeMullionReinforcement(477890, &quot;Aluminium&quot;)); return of(reinforcementList);
+
+      //Facade New FWS 50 article data
+      case &quot;536800&quot;: return of(reinforcementList);
+      case &quot;536810&quot;: return of(reinforcementList);
+      case &quot;536820&quot;: reinforcementList.push(new FacadeMullionReinforcement(536890, &quot;Aluminium&quot;)); return of(reinforcementList);
+      case &quot;536830&quot;: reinforcementList.push(new FacadeMullionReinforcement(536900, &quot;Aluminium&quot;)); reinforcementList.push(new FacadeMullionReinforcement(201216, &quot;Steel&quot;)); return of(reinforcementList);
+      case &quot;536720&quot;: reinforcementList.push(new FacadeMullionReinforcement(536740, &quot;Aluminium&quot;)); return of(reinforcementList);
+      case &quot;536840&quot;: reinforcementList.push(new FacadeMullionReinforcement(536910, &quot;Aluminium&quot;)); reinforcementList.push(new FacadeMullionReinforcement(201217, &quot;Steel&quot;)); return of(reinforcementList);
+      case &quot;536850&quot;: reinforcementList.push(new FacadeMullionReinforcement(536920, &quot;Aluminium&quot;)); return of(reinforcementList);
+      case &quot;536270&quot;: reinforcementList.push(new FacadeMullionReinforcement(536290, &quot;Aluminium&quot;)); return of(reinforcementList);
+      case &quot;536320&quot;: reinforcementList.push(new FacadeMullionReinforcement(536370, &quot;Aluminium&quot;)); return of(reinforcementList);
+      case &quot;536380&quot;: reinforcementList.push(new FacadeMullionReinforcement(536460, &quot;Aluminium&quot;)); return of(reinforcementList);
+      case &quot;536470&quot;: reinforcementList.push(new FacadeMullionReinforcement(536500, &quot;Aluminium&quot;)); return of(reinforcementList);
+      case &quot;536480&quot;: reinforcementList.push(new FacadeMullionReinforcement(536500, &quot;Aluminium&quot;)); return of(reinforcementList);
+      case &quot;536180&quot;:
+      case &quot;536510&quot;: reinforcementList.push(new FacadeMullionReinforcement(536530, &quot;Aluminium&quot;)); reinforcementList.push(new FacadeMullionReinforcement(484010, &quot;Aluminium&quot;)); return of(reinforcementList);
+      // OLD FWS 50 --------------------------------
+      case &quot;322270&quot;: reinforcementList.push(new FacadeMullionReinforcement(322720, &quot;Aluminium&quot;)); return of(reinforcementList);
+      case &quot;322280&quot;: reinforcementList.push(new FacadeMullionReinforcement(322730, &quot;Aluminium&quot;)); reinforcementList.push(new FacadeMullionReinforcement(201216, &quot;Steel&quot;)); return of(reinforcementList);
+      case &quot;322290&quot;: reinforcementList.push(new FacadeMullionReinforcement(322740, &quot;Aluminium&quot;)); reinforcementList.push(new FacadeMullionReinforcement(201217, &quot;Steel&quot;)); return of(reinforcementList);
+      case &quot;322300&quot;: reinforcementList.push(new FacadeMullionReinforcement(322750, &quot;Aluminium&quot;)); return of(reinforcementList);
+      case &quot;322310&quot;: reinforcementList.push(new FacadeMullionReinforcement(322760, &quot;Aluminium&quot;)); return of(reinforcementList);
+      case &quot;326250&quot;: reinforcementList.push(new FacadeMullionReinforcement(322760, &quot;Aluminium&quot;)); return of(reinforcementList);
+      case &quot;326030&quot;: reinforcementList.push(new FacadeMullionReinforcement(326050, &quot;Aluminium&quot;)); return of(reinforcementList);
+      case &quot;336230&quot;: reinforcementList.push(new FacadeMullionReinforcement(336250, &quot;Aluminium&quot;)); return of(reinforcementList);
+      case &quot;336240&quot;: reinforcementList.push(new FacadeMullionReinforcement(336260, &quot;Aluminium&quot;)); return of(reinforcementList);
+
+      //Facade New FWS 60 article data
+      case &quot;543000&quot;: return of(reinforcementList);
+      case &quot;543010&quot;: return of(reinforcementList);
+      case &quot;543020&quot;: reinforcementList.push(new FacadeMullionReinforcement(543060, &quot;Aluminium&quot;)); return of(reinforcementList);
+      case &quot;543030&quot;: reinforcementList.push(new FacadeMullionReinforcement(543070, &quot;Aluminium&quot;)); return of(reinforcementList);
+      case &quot;543040&quot;: reinforcementList.push(new FacadeMullionReinforcement(543080, &quot;Aluminium&quot;)); return of(reinforcementList);
+      case &quot;543050&quot;: reinforcementList.push(new FacadeMullionReinforcement(543090, &quot;Aluminium&quot;)); return of(reinforcementList);
+      case &quot;536540&quot;: reinforcementList.push(new FacadeMullionReinforcement(536570, &quot;Aluminium&quot;)); return of(reinforcementList);
+      case &quot;536580&quot;: reinforcementList.push(new FacadeMullionReinforcement(536610, &quot;Aluminium&quot;)); return of(reinforcementList);
+      case &quot;536620&quot;: reinforcementList.push(new FacadeMullionReinforcement(536650, &quot;Aluminium&quot;)); return of(reinforcementList);
+      case &quot;536630&quot;: reinforcementList.push(new FacadeMullionReinforcement(536650, &quot;Aluminium&quot;)); return of(reinforcementList);
+      case &quot;536660&quot;: reinforcementList.push(new FacadeMullionReinforcement(536690, &quot;Aluminium&quot;));reinforcementList.push(new FacadeMullionReinforcement(477570, &quot;Aluminium&quot;)); return of(reinforcementList);
+      case &quot;536670&quot;: reinforcementList.push(new FacadeMullionReinforcement(536690, &quot;Aluminium&quot;)); reinforcementList.push(new FacadeMullionReinforcement(477570, &quot;Aluminium&quot;)); return of(reinforcementList);
+      // OLD FWS 60 --------------------------------
+      case &quot;324030&quot;: reinforcementList.push(new FacadeMullionReinforcement(324300, &quot;Aluminium&quot;)); return of(reinforcementList)
+      case &quot;324040&quot;: reinforcementList.push(new FacadeMullionReinforcement(324310, &quot;Aluminium&quot;)); reinforcementList.push(new FacadeMullionReinforcement(201216, &quot;Steel&quot;)); return of(reinforcementList)
+      case &quot;324050&quot;: reinforcementList.push(new FacadeMullionReinforcement(324310, &quot;Aluminium&quot;)); reinforcementList.push(new FacadeMullionReinforcement(301217, &quot;Steel&quot;)); return of(reinforcementList)
+      case &quot;324060&quot;: reinforcementList.push(new FacadeMullionReinforcement(324330, &quot;Aluminium&quot;)); return of(reinforcementList)
+      case &quot;324070&quot;: reinforcementList.push(new FacadeMullionReinforcement(324340, &quot;Aluminium&quot;)); return of(reinforcementList)
+      case &quot;324080&quot;: reinforcementList.push(new FacadeMullionReinforcement(324350, &quot;Aluminium&quot;)); return of(reinforcementList)
+      case &quot;324090&quot;: reinforcementList.push(new FacadeMullionReinforcement(324360, &quot;Aluminium&quot;)); return of(reinforcementList)
+      case &quot;336270&quot;: reinforcementList.push(new FacadeMullionReinforcement(477570, &quot;Aluminium&quot;)); return of(reinforcementList)
+      default: return of(reinforcementList)
+    }
+  }
+
+  getFacade_Transom_ReinforcementList(system: string): Observable&lt;any&gt; {
+    let reinforcementList: FacadeMullionReinforcement[] &#x3D; [];
+    system &#x3D; this.getFWSSystemType(system);
+    switch (system) {
+      case &quot;FWS 35&quot;: reinforcementList.push(new FacadeMullionReinforcement(477900, &quot;Aluminium&quot;)); return of(reinforcementList);
+      case &quot;FWS 50&quot;: reinforcementList.push(new FacadeMullionReinforcement(351980, &quot;Aluminium&quot;)); return of(reinforcementList);
+      case &quot;FWS 60&quot;: reinforcementList.push(new FacadeMullionReinforcement(336090, &quot;Aluminium&quot;)); return of(reinforcementList);
+    }
+  }
+
+  getBottomFrameList(framingId: string): FacadeUDC {
+    switch (framingId) {
+      case &quot;505200&quot;: return new FacadeUDC(505300, 0, 130);
+      case &quot;505210&quot;: return new FacadeUDC(505310, 0, 155);
+      case &quot;505720&quot;: return new FacadeUDC(527820, 0, 180);
+      case &quot;505220&quot;: return new FacadeUDC(505320, 0, 180);
+      case &quot;505230&quot;: return new FacadeUDC(505330, 0, 205);
+      //case &quot;527230&quot;: return new FacadeUDC(527330, 0, 205);
+      case &quot;505240&quot;: return new FacadeUDC(505340, 0, 230);
+      //case &quot;527240&quot;: return new FacadeUDC(527340, 0, 230);
+      case &quot;505250&quot;: return new FacadeUDC(505350, 0, 255);
+      //case &quot;527250&quot;: return new FacadeUDC(527350, 0, 255);
+      default:
+        return null;
+    }
+  }
+
+  getUDCFramingList(system: string, mullionId: string, type: string): Observable&lt;any&gt; {
+    let facadeUDC80List: FacadeUDC[] &#x3D; [];
+    facadeUDC80List.push(new FacadeUDC(505200, 35, 130));
+    facadeUDC80List.push(new FacadeUDC(505210, 35, 155));
+    facadeUDC80List.push(new FacadeUDC(505220, 35, 180));
+    facadeUDC80List.push(new FacadeUDC(505230, 35, 205));
+    facadeUDC80List.push(new FacadeUDC(505240, 35, 230));
+    facadeUDC80List.push(new FacadeUDC(505250, 35, 255));
+
+    let facadeUDCList: FacadeUDC[] &#x3D; [];
+    system &#x3D; this.getUDCSystemType(system);
+    switch (system) {
+      case &#x27;UDC 80&#x27;:
+        if (type &#x3D;&#x3D;&#x3D; &#x27;Framing&#x27;) {
+          facadeUDCList &#x3D; facadeUDC80List;
+        }
+        else if (type &#x3D;&#x3D;&#x3D; &#x27;IntermediateMullion&#x27; || type &#x3D;&#x3D;&#x3D; &#x27;IntermediateTransom&#x27;) {
+          let selectedFrame &#x3D; facadeUDC80List.filter(f &#x3D;&gt; f.transomArticleId.toString() &#x3D;&#x3D;&#x3D; mullionId);
+          facadeUDCList.push(new FacadeUDC(505500, 60, 54, this.disabledTransomOrMullion(selectedFrame, 54)));
+          facadeUDCList.push(new FacadeUDC(505510, 60, 79, this.disabledTransomOrMullion(selectedFrame, 79)));
+          facadeUDCList.push(new FacadeUDC(505520, 60, 129, this.disabledTransomOrMullion(selectedFrame, 129)));
+          facadeUDCList.push(new FacadeUDC(505530, 60, 154, this.disabledTransomOrMullion(selectedFrame, 154)));
+          facadeUDCList.push(new FacadeUDC(505540, 60, 179, this.disabledTransomOrMullion(selectedFrame, 179)));
+          facadeUDCList.push(new FacadeUDC(505550, 60, 204, this.disabledTransomOrMullion(selectedFrame, 204)));
+          //facadeUDCList.push(new FacadeUDC(527550, 60, 204));
+          facadeUDCList.push(new FacadeUDC(505560, 60, 229, this.disabledTransomOrMullion(selectedFrame, 229)));
+          //facadeUDCList.push(new FacadeUDC(527560, 60));
+          facadeUDCList.push(new FacadeUDC(505570, 60, 254, this.disabledTransomOrMullion(selectedFrame, 254)));
+          //facadeUDCList.push(new FacadeUDC(527570, 60));
+
+          facadeUDCList.push(new FacadeUDC(505400, 80, 54, this.disabledTransomOrMullion(selectedFrame, 54)));
+          facadeUDCList.push(new FacadeUDC(505410, 80, 79, this.disabledTransomOrMullion(selectedFrame, 79)));
+          facadeUDCList.push(new FacadeUDC(505420, 80, 129, this.disabledTransomOrMullion(selectedFrame, 129)));
+          facadeUDCList.push(new FacadeUDC(505430, 80, 154, this.disabledTransomOrMullion(selectedFrame, 154)));
+          facadeUDCList.push(new FacadeUDC(505440, 80, 179, this.disabledTransomOrMullion(selectedFrame, 179)));
+          facadeUDCList.push(new FacadeUDC(505450, 80, 204, this.disabledTransomOrMullion(selectedFrame, 204)));
+          //facadeUDCList.push(new FacadeUDC(527450, 80, 204));
+          facadeUDCList.push(new FacadeUDC(505460, 80, 229, this.disabledTransomOrMullion(selectedFrame, 229)));
+          //facadeUDCList.push(new FacadeUDC(527460, 80, 229));
+          facadeUDCList.push(new FacadeUDC(505470, 80, 254, this.disabledTransomOrMullion(selectedFrame, 254)));
+          //facadeUDCList.push(new FacadeUDC(527470, 80, 254));
+        }
+    }
+    // if (mullionId !&#x3D;&#x3D; null &amp;&amp; type &#x3D;&#x3D;&#x3D; &#x27;IntermediateMullion&#x27;) {
+    //   let depth &#x3D; facadeUDC80List.filter(f &#x3D;&gt; f.transomArticleId.toString() &#x3D;&#x3D;&#x3D; mullionId);
+    //   if (depth.length &gt; 0)
+    //     facadeUDCList &#x3D; facadeUDCList.filter(f &#x3D;&gt; f.transomDepth &lt;&#x3D; depth[0].transomDepth);
+    // }
+    // else if (mullionId !&#x3D;&#x3D; null &amp;&amp; type &#x3D;&#x3D;&#x3D; &#x27;IntermediateTransom&#x27;) {
+    //   let depth &#x3D; facadeUDCList.filter(f &#x3D;&gt; f.transomArticleId.toString() &#x3D;&#x3D;&#x3D; mullionId);
+    //   if (depth.length &gt; 0)
+    //     facadeUDCList &#x3D; facadeUDCList.filter(f &#x3D;&gt; f.transomDepth &lt;&#x3D; depth[0].transomDepth);
+    // }
+    return of(facadeUDCList);
+  }
+
+  disabledTransomOrMullion(selectedFrame, depthGlazingBar): boolean {
+    let isDisabled: boolean &#x3D; false;
+    if (selectedFrame &amp;&amp; selectedFrame.length &gt; 0 &amp;&amp; depthGlazingBar &gt; selectedFrame[0].transomDepth) {
+      return true;
+    }
+    return isDisabled;
+  }
+
+  oldToNewFraming(oldArticle: number) {
+    if (oldArticle &#x3D;&#x3D; 322250) return 536800;
+    else if (oldArticle &#x3D;&#x3D; 322260) return 536810;
+    else if (oldArticle &#x3D;&#x3D; 322270) return 536820;
+    else if (oldArticle &#x3D;&#x3D; 322280) return 536830;
+    else if (oldArticle &#x3D;&#x3D; 322280) return 536720;
+    else if (oldArticle &#x3D;&#x3D; 322290) return 536840;
+    else if (oldArticle &#x3D;&#x3D; 322300) return 536850;
+    else if (oldArticle &#x3D;&#x3D; 322310) return 536270;
+    else if (oldArticle &#x3D;&#x3D; 322310) return 536320;
+    else if (oldArticle &#x3D;&#x3D; 326030) return 536380;
+    else if (oldArticle &#x3D;&#x3D; 336230) return 536470;
+    else if (oldArticle &#x3D;&#x3D; 336240) return 536180;
+    else if (oldArticle &#x3D;&#x3D; 324010) return 543000;
+    else if (oldArticle &#x3D;&#x3D; 324020) return 543010;
+    else if (oldArticle &#x3D;&#x3D; 324030) return 543020;
+    else if (oldArticle &#x3D;&#x3D; 324040) return 543030;
+    else if (oldArticle &#x3D;&#x3D; 324050) return 543040;
+    else if (oldArticle &#x3D;&#x3D; 324060) return 543050;
+    else if (oldArticle &#x3D;&#x3D; 324070) return 536540;
+    else if (oldArticle &#x3D;&#x3D; 324080) return 536580;
+    else if (oldArticle &#x3D;&#x3D; 324090) return 536620;
+    else if (oldArticle &#x3D;&#x3D; 336270) return 536660;
+    //Facade Mullion Reinforcement
+    else if (oldArticle &#x3D;&#x3D; 336280) return 536690;
+    else if (oldArticle &#x3D;&#x3D; 324360) return 536650;
+    else if (oldArticle &#x3D;&#x3D; 324350) return 536610;
+    else if (oldArticle &#x3D;&#x3D; 324340) return 536570;
+
+    else return oldArticle;
+  }
+
+  getFWSSystemType(systemType): string {
+    var fwsSystemDesc &#x3D; [&#x27;FWS 35&#x27;, &#x27;FWS 35&#x27;, &#x27;FWS 50&#x27;, &#x27;FWS 50&#x27;, &#x27;FWS 50&#x27;, &#x27;FWS 50&#x27;, &#x27;FWS 60&#x27;, &#x27;FWS 60&#x27;, &#x27;FWS 60&#x27;, &#x27;FWS 60&#x27;];
+    var fwsSystemDesc2 &#x3D; [&#x27;FWS 35 PD&#x27;, &#x27;FWS 35 PD&#x27;, &#x27;FWS 50&#x27;, &#x27;FWS 50&#x27;, &#x27;FWS 50&#x27;, &#x27;FWS 50&#x27;, &#x27;FWS 60&#x27;, &#x27;FWS 60&#x27;, &#x27;FWS 60&#x27;, &#x27;FWS 60&#x27;];
+    var systemIndex &#x3D; fwsSystemDesc2.indexOf(systemType);
+    if (systemIndex !&#x3D; -1)
+      return fwsSystemDesc[systemIndex];
+    else
+      return systemType;
+  }
+
+  getUDCSystemType(systemType): string {
+    var systemData_FacadeUDC &#x3D; [&#x27;UDC 80&#x27;, &#x27;UDC 80&#x27;, &#x27;UDC 80&#x27;, &#x27;UDC 80&#x27;];
+    var systemDataUpper_FacadeUDC &#x3D; [&#x27;UDC 80&#x27;, &#x27;UDC 80&#x27;, &#x27;UDC 80&#x27;, &#x27;UDC 80&#x27;];
+    var systemIndex &#x3D; systemDataUpper_FacadeUDC.indexOf(systemType);
+    if (systemIndex !&#x3D; -1)
+      return systemData_FacadeUDC[systemIndex];
+    else
+      return systemType;
+  }
+
+  getADSDoorLeafList(system: string): Observable&lt;any&gt; {
+    let doorleafArticle&#x3D; [{ &quot;ArticleId&quot;:0,
+      &quot;ArticleGuid&quot;:null,
+      &quot;Name&quot;:&quot;ads__476230&quot;,
+      &quot;Unit&quot;:&quot;mm&quot;,
+      &quot;ArticleTypeId&quot;:1,
+      &quot;CrossSectionUrl&quot;:null,
+      &quot;Description&quot;:&quot;Door Leaf 476230&quot;,
+      &quot;InsideDimension&quot;:73.0,
+      &quot;OutsideDimension&quot;:73.0,
+      &quot;Dimension&quot;:-1.0,
+      &quot;LeftRebate&quot;:-1.0,
+      &quot;RightRebate&quot;:-1.0,
+      &quot;DistBetweenIsoBars&quot;:-1.0,
+      &quot;Depth&quot;:-1.0}]
+    return of(doorleafArticle);
+  }
+  //#endregion
+}
+//#region Article Models
+class DoorLeafArticle {
+  ArticleId: number;
+  ArticleGuid: string;
+  Name: string;
+  Unit: string;
+  ArticleTypeId: number;
+  CrossSectionUrl: string;
+  Description: string;
+  InsideDimension: number;
+  OutsideDimension: number;
+  Dimension: number;
+  LeftRebate: number;
+  RightRebate: number;
+  DistBetweenIsoBars: number;
+  Depth: number;
+  // &quot;ArticleId&quot;:12,
+  // &quot;ArticleGuid&quot;:&quot;0eb57216-c19c-46f4-934e-b986f7c56f45&quot;,
+  // &quot;Name&quot;:&quot;article__382200&quot;,
+  // &quot;Unit&quot;:&quot;mm&quot;,
+  // &quot;ArticleTypeId&quot;:1,
+  // &quot;CrossSectionUrl&quot;:null,
+  // &quot;Description&quot;:&quot;Outer Frame 382200&quot;,
+  // &quot;InsideDimension&quot;:125.0,
+  // &quot;OutsideDimension&quot;:150.0,
+  // &quot;Dimension&quot;:-1.0,
+  // &quot;LeftRebate&quot;:-1.0,
+  // &quot;RightRebate&quot;:-1.0,
+  // &quot;DistBetweenIsoBars&quot;:119.8,
+  // &quot;Depth&quot;:-75.0
+}
+class FacadeMullion {
+  mullionArticleId: number;
+  mullionDepth: number;
+  moreInfo: string &#x3D; &#x27;&#x27;;
+  constructor(articleId_mullion &#x3D; null, depth_mullion &#x3D; null, moreInfo &#x3D; &#x27;&#x27;) {
+    this.mullionArticleId &#x3D; articleId_mullion;
+    this.mullionDepth &#x3D; depth_mullion;
+    this.moreInfo &#x3D; moreInfo;
+  }
+}
+class FacadeTransom {
+  transomArticleId: number;
+  transomDepth: number;
+  moreInfo: string &#x3D; &#x27;&#x27;;
+  constructor(articleId_transom &#x3D; null, depth_transom &#x3D; null, moreInfo &#x3D; &#x27;&#x27;) {
+    this.transomArticleId &#x3D; articleId_transom;
+    this.transomDepth &#x3D; depth_transom;
+    this.moreInfo &#x3D; moreInfo;
+  }
+}
+class FacadeMullionReinforcement {
+  value: number;
+  material: string;
+  moreInfo: string &#x3D; &#x27;&#x27;;
+  constructor(val &#x3D; null, mat &#x3D; null, moreInfo &#x3D; &#x27;&#x27;) {
+    this.value &#x3D; val;
+    this.material &#x3D; mat;
+    this.moreInfo &#x3D; moreInfo;
+  }
+}
+class FacadeUDC {
+  transomArticleId: number;
+  transomDepth: number;
+  transomWidth: number;
+  moreInfo: string &#x3D; &#x27;&#x27;;
+  disabled: boolean
+  constructor(articleId_transom &#x3D; null, width_transom &#x3D; null, depth_transom &#x3D; null, disabled &#x3D; false, moreInfo &#x3D; &#x27;&#x27;) {
+    this.transomArticleId &#x3D; articleId_transom;
+    this.transomWidth &#x3D; width_transom;
+    this.transomDepth &#x3D; depth_transom;
+    this.disabled &#x3D; disabled;
+    this.moreInfo &#x3D; moreInfo;
+  }
+}
+//#endregion
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'FramingService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

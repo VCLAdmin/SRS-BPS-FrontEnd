@@ -1,0 +1,3138 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>angular-app documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">angular-app documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li
+  >
+  HomeExpandablePanelComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/app-common/components/home-expandable-panel/home-expandable-panel.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+                    <code><a href="https://angular.io/api/core/OnChanges" target="_blank" >OnChanges</a></code>
+                    <code><a href="https://angular.io/api/core/AfterViewInit" target="_blank" >AfterViewInit</a></code>
+                    <code><a href="https://angular.io/api/core/OnDestroy" target="_blank" >OnDestroy</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-home-expandable-panel</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./home-expandable-panel.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./home-expandable-panel.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#allProducts" >allProducts</a>
+                            </li>
+                            <li>
+                                <a href="#cellTemplate" >cellTemplate</a>
+                            </li>
+                            <li>
+                                <a href="#configurationCustomGridProblems" >configurationCustomGridProblems</a>
+                            </li>
+                            <li>
+                                <a href="#current" >current</a>
+                            </li>
+                            <li>
+                                <a href="#dataProblems" >dataProblems</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#destroy$" >destroy$</a>
+                            </li>
+                            <li>
+                                <a href="#feature" >feature</a>
+                            </li>
+                            <li>
+                                <a href="#hasFullAccess" >hasFullAccess</a>
+                            </li>
+                            <li>
+                                <a href="#isAllDisplayDataCheckedA" >isAllDisplayDataCheckedA</a>
+                            </li>
+                            <li>
+                                <a href="#isAllDisplayDataCheckedB" >isAllDisplayDataCheckedB</a>
+                            </li>
+                            <li>
+                                <a href="#listOfDisplayDataProblems" >listOfDisplayDataProblems</a>
+                            </li>
+                            <li>
+                                <a href="#mapOfCheckedIdAcoustic" >mapOfCheckedIdAcoustic</a>
+                            </li>
+                            <li>
+                                <a href="#mapOfCheckedIdStructural" >mapOfCheckedIdStructural</a>
+                            </li>
+                            <li>
+                                <a href="#mapOfCheckedIdThermal" >mapOfCheckedIdThermal</a>
+                            </li>
+                            <li>
+                                <a href="#mapOfDisabledIdAcoustic" >mapOfDisabledIdAcoustic</a>
+                            </li>
+                            <li>
+                                <a href="#mapOfDisabledIdStructural" >mapOfDisabledIdStructural</a>
+                            </li>
+                            <li>
+                                <a href="#mapOfDisabledIdThermal" >mapOfDisabledIdThermal</a>
+                            </li>
+                            <li>
+                                <a href="#orderCancelledProgressList" >orderCancelledProgressList</a>
+                            </li>
+                            <li>
+                                <a href="#orderPlaced" >orderPlaced</a>
+                            </li>
+                            <li>
+                                <a href="#orderProgressList" >orderProgressList</a>
+                            </li>
+                            <li>
+                                <a href="#panelComponent" >panelComponent</a>
+                            </li>
+                            <li>
+                                <a href="#path" >path</a>
+                            </li>
+                            <li>
+                                <a href="#path_default" >path_default</a>
+                            </li>
+                            <li>
+                                <a href="#problemToRun_problemGuid" >problemToRun_problemGuid</a>
+                            </li>
+                            <li>
+                                <a href="#progressClicked" >progressClicked</a>
+                            </li>
+                            <li>
+                                <a href="#selectedItem" >selectedItem</a>
+                            </li>
+                            <li>
+                                <a href="#selectedItemImage" >selectedItemImage</a>
+                            </li>
+                            <li>
+                                <a href="#valueA" >valueA</a>
+                            </li>
+                            <li>
+                                <a href="#valueB" >valueB</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#addRow" >addRow</a>
+                            </li>
+                            <li>
+                                <a href="#DeleteProblemReport" >DeleteProblemReport</a>
+                            </li>
+                            <li>
+                                <a href="#deleteRow" >deleteRow</a>
+                            </li>
+                            <li>
+                                <a href="#getSelectedItem" >getSelectedItem</a>
+                            </li>
+                            <li>
+                                <a href="#loadDataProblems" >loadDataProblems</a>
+                            </li>
+                            <li>
+                                <a href="#loadProblems" >loadProblems</a>
+                            </li>
+                            <li>
+                                <a href="#log" >log</a>
+                            </li>
+                            <li>
+                                <a href="#ngAfterViewInit" >ngAfterViewInit</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnChanges" >ngOnChanges</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnDestroy" >ngOnDestroy</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#onClickProblem" >onClickProblem</a>
+                            </li>
+                            <li>
+                                <a href="#onIndexChange" >onIndexChange</a>
+                            </li>
+                            <li>
+                                <a href="#onRunningProblem" >onRunningProblem</a>
+                            </li>
+                            <li>
+                                <a href="#onRunProblem" >onRunProblem</a>
+                            </li>
+                            <li>
+                                <a href="#onSubmitNewProblemName" >onSubmitNewProblemName</a>
+                            </li>
+                            <li>
+                                <a href="#setDefaultImage" >setDefaultImage</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#isOperatingExpandableTable" >isOperatingExpandableTable</a>
+                            </li>
+                            <li>
+                                <a href="#problemsOfSelectedProject" >problemsOfSelectedProject</a>
+                            </li>
+                            <li>
+                                <a href="#projectClicked_projectGuid" >projectClicked_projectGuid</a>
+                            </li>
+                            <li>
+                                <a href="#projectToDelete_projectGuid" >projectToDelete_projectGuid</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(appConstantService: <a href="../injectables/AppconstantsService.html" target="_self">AppconstantsService</a>, cdr: <a href="https://angular.io/api/core/ChangeDetectorRef" target="_blank">ChangeDetectorRef</a>, configureService: <a href="../injectables/ConfigureService.html" target="_self">ConfigureService</a>, homeService: <a href="../injectables/HomeService.html" target="_self">HomeService</a>, resultService: <a href="../injectables/ResultService.html" target="_self">ResultService</a>, navLayoutService: <a href="../injectables/NavLayoutService.html" target="_self">NavLayoutService</a>, commonService: <a href="../injectables/CommonService.html" target="_self">CommonService</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, permissionService: <a href="../injectables/PermissionService.html" target="_self">PermissionService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/app-common/components/home-expandable-panel/home-expandable-panel.component.ts:24</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>appConstantService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AppconstantsService.html" target="_self" >AppconstantsService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>cdr</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/core/ChangeDetectorRef" target="_blank" >ChangeDetectorRef</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>configureService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ConfigureService.html" target="_self" >ConfigureService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>homeService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/HomeService.html" target="_self" >HomeService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>resultService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ResultService.html" target="_self" >ResultService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>navLayoutService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/NavLayoutService.html" target="_self" >NavLayoutService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>commonService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CommonService.html" target="_self" >CommonService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>permissionService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/PermissionService.html" target="_self" >PermissionService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isOperatingExpandableTable"></a>
+                        <b>isOperatingExpandableTable</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="74" class="link-to-prism">src/app/app-common/components/home-expandable-panel/home-expandable-panel.component.ts:74</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="problemsOfSelectedProject"></a>
+                        <b>problemsOfSelectedProject</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/BpsUnifiedProblem.html" target="_self" >BpsUnifiedProblem[]</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="73" class="link-to-prism">src/app/app-common/components/home-expandable-panel/home-expandable-panel.component.ts:73</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="projectClicked_projectGuid"></a>
+                        <b>projectClicked_projectGuid</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="72" class="link-to-prism">src/app/app-common/components/home-expandable-panel/home-expandable-panel.component.ts:72</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="projectToDelete_projectGuid"></a>
+                        <b>projectToDelete_projectGuid</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="71" class="link-to-prism">src/app/app-common/components/home-expandable-panel/home-expandable-panel.component.ts:71</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addRow"></a>
+                    <span class="name">
+                        <span ><b>addRow</b></span>
+                        <a href="#addRow"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>addRow($event)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="308"
+                            class="link-to-prism">src/app/app-common/components/home-expandable-panel/home-expandable-panel.component.ts:308</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>$event</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="DeleteProblemReport"></a>
+                    <span class="name">
+                        <span ><b>DeleteProblemReport</b></span>
+                        <a href="#DeleteProblemReport"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>DeleteProblemReport(ProjectGuid: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, ProblemGuid: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="376"
+                            class="link-to-prism">src/app/app-common/components/home-expandable-panel/home-expandable-panel.component.ts:376</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>ProjectGuid</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>ProblemGuid</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteRow"></a>
+                    <span class="name">
+                        <span ><b>deleteRow</b></span>
+                        <a href="#deleteRow"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>deleteRow($event)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="379"
+                            class="link-to-prism">src/app/app-common/components/home-expandable-panel/home-expandable-panel.component.ts:379</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>$event</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getSelectedItem"></a>
+                    <span class="name">
+                        <span ><b>getSelectedItem</b></span>
+                        <a href="#getSelectedItem"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getSelectedItem(event)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="297"
+                            class="link-to-prism">src/app/app-common/components/home-expandable-panel/home-expandable-panel.component.ts:297</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>event</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadDataProblems"></a>
+                    <span class="name">
+                        <span ><b>loadDataProblems</b></span>
+                        <a href="#loadDataProblems"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>loadDataProblems(event: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="254"
+                            class="link-to-prism">src/app/app-common/components/home-expandable-panel/home-expandable-panel.component.ts:254</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>event</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadProblems"></a>
+                    <span class="name">
+                        <span ><b>loadProblems</b></span>
+                        <a href="#loadProblems"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>loadProblems()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="109"
+                            class="link-to-prism">src/app/app-common/components/home-expandable-panel/home-expandable-panel.component.ts:109</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="log"></a>
+                    <span class="name">
+                        <span ><b>log</b></span>
+                        <a href="#log"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>log($event, type: null)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="295"
+                            class="link-to-prism">src/app/app-common/components/home-expandable-panel/home-expandable-panel.component.ts:295</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Default value</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>$event</td>
+                                    <td>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>type</td>
+                                    <td>
+                                            <code>null</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                        <code>null</code>
+                                    </td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngAfterViewInit"></a>
+                    <span class="name">
+                        <span ><b>ngAfterViewInit</b></span>
+                        <a href="#ngAfterViewInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngAfterViewInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="229"
+                            class="link-to-prism">src/app/app-common/components/home-expandable-panel/home-expandable-panel.component.ts:229</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnChanges"></a>
+                    <span class="name">
+                        <span ><b>ngOnChanges</b></span>
+                        <a href="#ngOnChanges"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnChanges(Changes: <a href="https://angular.io/api/core/SimpleChanges" target="_blank">SimpleChanges</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="93"
+                            class="link-to-prism">src/app/app-common/components/home-expandable-panel/home-expandable-panel.component.ts:93</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Changes</td>
+                                    <td>
+                                                <code><a href="https://angular.io/api/core/SimpleChanges" target="_blank" >SimpleChanges</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnDestroy"></a>
+                    <span class="name">
+                        <span ><b>ngOnDestroy</b></span>
+                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnDestroy()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="225"
+                            class="link-to-prism">src/app/app-common/components/home-expandable-panel/home-expandable-panel.component.ts:225</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="83"
+                            class="link-to-prism">src/app/app-common/components/home-expandable-panel/home-expandable-panel.component.ts:83</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onClickProblem"></a>
+                    <span class="name">
+                        <span ><b>onClickProblem</b></span>
+                        <a href="#onClickProblem"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onClickProblem(event)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="397"
+                            class="link-to-prism">src/app/app-common/components/home-expandable-panel/home-expandable-panel.component.ts:397</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>event</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onIndexChange"></a>
+                    <span class="name">
+                        <span ><b>onIndexChange</b></span>
+                        <a href="#onIndexChange"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onIndexChange()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="451"
+                            class="link-to-prism">src/app/app-common/components/home-expandable-panel/home-expandable-panel.component.ts:451</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onRunningProblem"></a>
+                    <span class="name">
+                        <span ><b>onRunningProblem</b></span>
+                        <a href="#onRunningProblem"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onRunningProblem(problem: <a href="../classes/BpsUnifiedProblem.html" target="_self">BpsUnifiedProblem</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="403"
+                            class="link-to-prism">src/app/app-common/components/home-expandable-panel/home-expandable-panel.component.ts:403</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>problem</td>
+                                    <td>
+                                                <code><a href="../classes/BpsUnifiedProblem.html" target="_self" >BpsUnifiedProblem</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onRunProblem"></a>
+                    <span class="name">
+                        <span ><b>onRunProblem</b></span>
+                        <a href="#onRunProblem"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onRunProblem(event: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="400"
+                            class="link-to-prism">src/app/app-common/components/home-expandable-panel/home-expandable-panel.component.ts:400</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>event</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onSubmitNewProblemName"></a>
+                    <span class="name">
+                        <span ><b>onSubmitNewProblemName</b></span>
+                        <a href="#onSubmitNewProblemName"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onSubmitNewProblemName(event: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="415"
+                            class="link-to-prism">src/app/app-common/components/home-expandable-panel/home-expandable-panel.component.ts:415</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>event</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setDefaultImage"></a>
+                    <span class="name">
+                        <span ><b>setDefaultImage</b></span>
+                        <a href="#setDefaultImage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setDefaultImage()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="431"
+                            class="link-to-prism">src/app/app-common/components/home-expandable-panel/home-expandable-panel.component.ts:431</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="allProducts"></a>
+                    <span class="name">
+                        <span ><b>allProducts</b></span>
+                        <a href="#allProducts"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/BpsUnifiedProblem.html" target="_self" >BpsUnifiedProblem[]</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/app/app-common/components/home-expandable-panel/home-expandable-panel.component.ts:53</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cellTemplate"></a>
+                    <span class="name">
+                        <span ><b>cellTemplate</b></span>
+                        <a href="#cellTemplate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>TemplateRef&lt;literal type&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(&#x27;cellTemplate&#x27;, {read: TemplateRef, static: false})<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="79" class="link-to-prism">src/app/app-common/components/home-expandable-panel/home-expandable-panel.component.ts:79</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="configurationCustomGridProblems"></a>
+                    <span class="name">
+                        <span ><b>configurationCustomGridProblems</b></span>
+                        <a href="#configurationCustomGridProblems"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/app-common/components/home-expandable-panel/home-expandable-panel.component.ts:36</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="current"></a>
+                    <span class="name">
+                        <span ><b>current</b></span>
+                        <a href="#current"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>1</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="82" class="link-to-prism">src/app/app-common/components/home-expandable-panel/home-expandable-panel.component.ts:82</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="dataProblems"></a>
+                    <span class="name">
+                        <span ><b>dataProblems</b></span>
+                        <a href="#dataProblems"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/app-common/components/home-expandable-panel/home-expandable-panel.component.ts:38</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="destroy$"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>destroy$</b></span>
+                        <a href="#destroy$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Subject&lt;void&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/app-common/components/home-expandable-panel/home-expandable-panel.component.ts:24</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="feature"></a>
+                    <span class="name">
+                        <span ><b>feature</b></span>
+                        <a href="#feature"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>Feature</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/app-common/components/home-expandable-panel/home-expandable-panel.component.ts:35</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="hasFullAccess"></a>
+                    <span class="name">
+                        <span ><b>hasFullAccess</b></span>
+                        <a href="#hasFullAccess"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="77" class="link-to-prism">src/app/app-common/components/home-expandable-panel/home-expandable-panel.component.ts:77</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isAllDisplayDataCheckedA"></a>
+                    <span class="name">
+                        <span ><b>isAllDisplayDataCheckedA</b></span>
+                        <a href="#isAllDisplayDataCheckedA"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/app-common/components/home-expandable-panel/home-expandable-panel.component.ts:42</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isAllDisplayDataCheckedB"></a>
+                    <span class="name">
+                        <span ><b>isAllDisplayDataCheckedB</b></span>
+                        <a href="#isAllDisplayDataCheckedB"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/app-common/components/home-expandable-panel/home-expandable-panel.component.ts:43</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="listOfDisplayDataProblems"></a>
+                    <span class="name">
+                        <span ><b>listOfDisplayDataProblems</b></span>
+                        <a href="#listOfDisplayDataProblems"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/app-common/components/home-expandable-panel/home-expandable-panel.component.ts:37</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mapOfCheckedIdAcoustic"></a>
+                    <span class="name">
+                        <span ><b>mapOfCheckedIdAcoustic</b></span>
+                        <a href="#mapOfCheckedIdAcoustic"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>literal type</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/app-common/components/home-expandable-panel/home-expandable-panel.component.ts:44</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mapOfCheckedIdStructural"></a>
+                    <span class="name">
+                        <span ><b>mapOfCheckedIdStructural</b></span>
+                        <a href="#mapOfCheckedIdStructural"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>literal type</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/app-common/components/home-expandable-panel/home-expandable-panel.component.ts:45</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mapOfCheckedIdThermal"></a>
+                    <span class="name">
+                        <span ><b>mapOfCheckedIdThermal</b></span>
+                        <a href="#mapOfCheckedIdThermal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>literal type</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/app-common/components/home-expandable-panel/home-expandable-panel.component.ts:46</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mapOfDisabledIdAcoustic"></a>
+                    <span class="name">
+                        <span ><b>mapOfDisabledIdAcoustic</b></span>
+                        <a href="#mapOfDisabledIdAcoustic"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>literal type</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/app-common/components/home-expandable-panel/home-expandable-panel.component.ts:47</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mapOfDisabledIdStructural"></a>
+                    <span class="name">
+                        <span ><b>mapOfDisabledIdStructural</b></span>
+                        <a href="#mapOfDisabledIdStructural"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>literal type</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/app-common/components/home-expandable-panel/home-expandable-panel.component.ts:48</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mapOfDisabledIdThermal"></a>
+                    <span class="name">
+                        <span ><b>mapOfDisabledIdThermal</b></span>
+                        <a href="#mapOfDisabledIdThermal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>literal type</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/app/app-common/components/home-expandable-panel/home-expandable-panel.component.ts:49</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="orderCancelledProgressList"></a>
+                    <span class="name">
+                        <span ><b>orderCancelledProgressList</b></span>
+                        <a href="#orderCancelledProgressList"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+    // { Index: 0, Progress: &quot;Pending&quot;, Status: &quot;Ordered&quot;, Description: &quot;&quot; },
+    { Index: 0, Progress: &quot;Order Placed&quot;, Status: &quot;In Process&quot;, Description: &quot;&quot; },
+    { Index: 1, Progress: &quot;Cancelled&quot;, Status: &quot;Finished&quot;, Description: &quot;&quot; }]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="65" class="link-to-prism">src/app/app-common/components/home-expandable-panel/home-expandable-panel.component.ts:65</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="orderPlaced"></a>
+                    <span class="name">
+                        <span ><b>orderPlaced</b></span>
+                        <a href="#orderPlaced"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/app/app-common/components/home-expandable-panel/home-expandable-panel.component.ts:55</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="orderProgressList"></a>
+                    <span class="name">
+                        <span ><b>orderProgressList</b></span>
+                        <a href="#orderProgressList"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+    // { Index: 0, Progress: &quot;Pending&quot;, Status: &quot;Ordered&quot;, Description: &quot;&quot; },
+    { Index: 0, Progress: &quot;Order Placed&quot;, Status: &quot;In Process&quot;, Description: &quot;&quot; },
+    { Index: 1, Progress: &quot;In Pre Production&quot;, Status: &quot;In Process&quot;, Description: &quot;&quot; },
+    { Index: 2, Progress: &quot;In Fabrication&quot;, Status: &quot;In Process&quot;, Description: &quot;&quot; },
+    { Index: 3, Progress: &quot;In Assembly&quot;, Status: &quot;In Process&quot;, Description: &quot;&quot; },
+    { Index: 4, Progress: &quot;Shipped&quot;, Status: &quot;In Process&quot;, Description: &quot;&quot; },
+    { Index: 5, Progress: &quot;Delivered&quot;, Status: &quot;Finished&quot;, Description: &quot;&quot; }]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">src/app/app-common/components/home-expandable-panel/home-expandable-panel.component.ts:56</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="panelComponent"></a>
+                    <span class="name">
+                        <span ><b>panelComponent</b></span>
+                        <a href="#panelComponent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>BpsTableExpandablePanelComponent</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(&#x27;panelComponent&#x27;, {read: BpsTableExpandablePanelComponent, static: false})<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="80" class="link-to-prism">src/app/app-common/components/home-expandable-panel/home-expandable-panel.component.ts:80</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="path"></a>
+                    <span class="name">
+                        <span ><b>path</b></span>
+                        <a href="#path"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/app/app-common/components/home-expandable-panel/home-expandable-panel.component.ts:51</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="path_default"></a>
+                    <span class="name">
+                        <span ><b>path_default</b></span>
+                        <a href="#path_default"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">src/app/app-common/components/home-expandable-panel/home-expandable-panel.component.ts:52</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="problemToRun_problemGuid"></a>
+                    <span class="name">
+                        <span ><b>problemToRun_problemGuid</b></span>
+                        <a href="#problemToRun_problemGuid"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/app/app-common/components/home-expandable-panel/home-expandable-panel.component.ts:54</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="progressClicked"></a>
+                    <span class="name">
+                        <span ><b>progressClicked</b></span>
+                        <a href="#progressClicked"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="450" class="link-to-prism">src/app/app-common/components/home-expandable-panel/home-expandable-panel.component.ts:450</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectedItem"></a>
+                    <span class="name">
+                        <span ><b>selectedItem</b></span>
+                        <a href="#selectedItem"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>null</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/app/app-common/components/home-expandable-panel/home-expandable-panel.component.ts:50</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectedItemImage"></a>
+                    <span class="name">
+                        <span ><b>selectedItemImage</b></span>
+                        <a href="#selectedItemImage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://angular.io/api/core/ElementRef" target="_blank" >ElementRef</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(&#x27;selectedItemImage&#x27;)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="78" class="link-to-prism">src/app/app-common/components/home-expandable-panel/home-expandable-panel.component.ts:78</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="valueA"></a>
+                    <span class="name">
+                        <span ><b>valueA</b></span>
+                        <a href="#valueA"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/app-common/components/home-expandable-panel/home-expandable-panel.component.ts:39</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="valueB"></a>
+                    <span class="name">
+                        <span ><b>valueB</b></span>
+                        <a href="#valueB"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/app-common/components/home-expandable-panel/home-expandable-panel.component.ts:40</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit, ViewChild, TemplateRef, ChangeDetectorRef, ElementRef, Input, AfterViewInit, OnDestroy, OnChanges, SimpleChanges } from &#x27;@angular/core&#x27;;
+import { BpsTableExpandablePanelComponent, CeldType } from &#x27;bps-components-lib&#x27;;
+import { ConfigureService } from &#x27;src/app/app-structural/services/configure.service&#x27;;
+import { BpsUnifiedProblem } from &#x27;../../models/bps-unified-problem&#x27;;
+import { AppconstantsService } from &#x27;../../services/appconstants.service&#x27;;
+import { HomeService } from &#x27;../../services/home.service&#x27;;
+import { BpsUnifiedModel } from &#x27;../../models/bps-unified-model&#x27;;
+import { NavLayoutService } from &#x27;src/app/app-layout/services/nav-layout.service&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+import { Subject, Subscription } from &#x27;rxjs&#x27;;
+import { CommonService } from &#x27;../../services/common.service&#x27;;
+import { OrderApiModel } from &#x27;src/app/app-structural/models/order-model&#x27;;
+import { takeUntil } from &#x27;rxjs/operators&#x27;;
+import { ResultService } from &#x27;src/app/app-structural/services/result.service&#x27;;
+import { Feature } from &#x27;src/app/app-core/models/feature&#x27;;
+import { PermissionService } from &#x27;src/app/app-core/services/permission.service&#x27;;
+
+@Component({
+  selector: &#x27;app-home-expandable-panel&#x27;,
+  templateUrl: &#x27;./home-expandable-panel.component.html&#x27;,
+  styleUrls: [&#x27;./home-expandable-panel.component.css&#x27;]
+})
+export class HomeExpandablePanelComponent implements OnInit, OnChanges, AfterViewInit, OnDestroy {
+  private destroy$ &#x3D; new Subject&lt;void&gt;();
+
+  constructor(private appConstantService: AppconstantsService,
+    private cdr: ChangeDetectorRef,
+    private configureService: ConfigureService,
+    private homeService: HomeService,
+    private resultService: ResultService,
+    private navLayoutService: NavLayoutService,
+    private commonService: CommonService,
+    private router: Router, private permissionService:PermissionService) { }
+
+    feature&#x3D;Feature;
+  configurationCustomGridProblems: any;
+  listOfDisplayDataProblems &#x3D; [];
+  dataProblems &#x3D; [];
+  valueA &#x3D; true;
+  valueB &#x3D; false;
+  //isOperating &#x3D; false;
+  isAllDisplayDataCheckedA &#x3D; false;
+  isAllDisplayDataCheckedB &#x3D; false;
+  mapOfCheckedIdAcoustic: { [key: string]: boolean } &#x3D; {};
+  mapOfCheckedIdStructural: { [key: string]: boolean } &#x3D; {};
+  mapOfCheckedIdThermal: { [key: string]: boolean } &#x3D; {};
+  mapOfDisabledIdAcoustic: { [key: string]: boolean } &#x3D; {};
+  mapOfDisabledIdStructural: { [key: string]: boolean } &#x3D; {};
+  mapOfDisabledIdThermal: { [key: string]: boolean } &#x3D; {};
+  selectedItem &#x3D; null;
+  path: string;
+  path_default: string;
+  allProducts: BpsUnifiedProblem[];
+  problemToRun_problemGuid: string;
+  orderPlaced: any &#x3D; false;
+  orderProgressList &#x3D; [
+    // { Index: 0, Progress: &quot;Pending&quot;, Status: &quot;Ordered&quot;, Description: &quot;&quot; },
+    { Index: 0, Progress: &quot;Order Placed&quot;, Status: &quot;In Process&quot;, Description: &quot;&quot; },
+    { Index: 1, Progress: &quot;In Pre Production&quot;, Status: &quot;In Process&quot;, Description: &quot;&quot; },
+    { Index: 2, Progress: &quot;In Fabrication&quot;, Status: &quot;In Process&quot;, Description: &quot;&quot; },
+    { Index: 3, Progress: &quot;In Assembly&quot;, Status: &quot;In Process&quot;, Description: &quot;&quot; },
+    { Index: 4, Progress: &quot;Shipped&quot;, Status: &quot;In Process&quot;, Description: &quot;&quot; },
+    { Index: 5, Progress: &quot;Delivered&quot;, Status: &quot;Finished&quot;, Description: &quot;&quot; }];
+
+  orderCancelledProgressList &#x3D; [
+    // { Index: 0, Progress: &quot;Pending&quot;, Status: &quot;Ordered&quot;, Description: &quot;&quot; },
+    { Index: 0, Progress: &quot;Order Placed&quot;, Status: &quot;In Process&quot;, Description: &quot;&quot; },
+    { Index: 1, Progress: &quot;Cancelled&quot;, Status: &quot;Finished&quot;, Description: &quot;&quot; }];
+
+  ////from project
+  @Input() projectToDelete_projectGuid: string;
+  @Input() projectClicked_projectGuid: string;
+  @Input() problemsOfSelectedProject: BpsUnifiedProblem[];
+  @Input() isOperatingExpandableTable: boolean;
+  //from project ends
+  //applicationType ;
+  hasFullAccess: boolean &#x3D; false;
+  @ViewChild(&#x27;selectedItemImage&#x27;) selectedItemImage: ElementRef;
+  @ViewChild(&#x27;cellTemplate&#x27;, { read: TemplateRef, static: false }) cellTemplate: TemplateRef&lt;{}&gt;;
+  @ViewChild(&#x27;panelComponent&#x27;, { read: BpsTableExpandablePanelComponent, static: false }) panelComponent: BpsTableExpandablePanelComponent;
+
+  current &#x3D; 1;
+  ngOnInit(): void {
+    //this.current &#x3D; Math.floor(Math.random() * 6) + 1;
+    //this.applicationType &#x3D; this.commonService.getApplicationType();
+    this.hasFullAccess &#x3D; this.commonService.getUserRole() &#x3D;&#x3D;&#x3D; &quot;Dealer-Full&quot; ? true : false;
+    // this.loadProblemSubscription &#x3D; this.homeService.loadProblemsInExpandableTable.subscribe((val)&#x3D;&gt;{
+    //   if(val &amp;&amp; val.projectGuid){
+    //     this.loadDataProblems(val);
+    //   }
+    // });
+  }
+  ngOnChanges(Changes: SimpleChanges) {
+    //this.current &#x3D; Math.floor(Math.random() * 6) + 1;
+    //this.applicationType &#x3D; this.commonService.getApplicationType();
+    if (Changes &amp;&amp; Changes.problemsOfSelectedProject &amp;&amp; Changes.problemsOfSelectedProject.currentValue) {
+      this.isOperatingExpandableTable &#x3D; true;
+      this.listOfDisplayDataProblems &#x3D; [];
+      this.cdr.detectChanges();
+      this.problemToRun_problemGuid &#x3D; null;
+      this.selectedItem &#x3D; null;
+      // this.projectClicked_projectGuid &#x3D; event.projectGuid;
+
+      this.allProducts &#x3D; Changes.problemsOfSelectedProject.currentValue;
+      this.loadProblems();
+    }
+  }
+
+  loadProblems(): void {
+    this.dataProblems &#x3D; [];
+    let problem_length &#x3D; this.allProducts.length;
+    if (this.permissionService.checkPermission(Feature.OrderList)) {
+      this.orderPlaced &#x3D; false;
+      var ordersListModel: OrderApiModel;
+      this.configureService.GetProjectOrders(this.projectClicked_projectGuid).pipe(takeUntil(this.destroy$)).pipe(takeUntil(this.destroy$)).subscribe((ordersList) &#x3D;&gt; {
+        ordersListModel &#x3D; ordersList;
+        for (let j &#x3D; 0; j &lt; problem_length; j++) {
+          let Status &#x3D; &#x27;&#x27;;
+          let Process &#x3D; &#x27;&#x27;;
+          let ModifiedOn;
+          let StatusId &#x3D; 0;
+          let OrderDetails;
+
+          if (ordersListModel.Current_Status) {
+            this.orderPlaced &#x3D; true;
+            if (ordersListModel.SubOrder &amp;&amp; ordersListModel.SubOrder.length &gt; 0) {
+              OrderDetails &#x3D; ordersListModel.SubOrder.filter(f &#x3D;&gt; f.OrderDetails[0].ProductId &#x3D;&#x3D;&#x3D; this.allProducts[j].ProblemId)[0];
+              if (OrderDetails) {
+                let currentOrder &#x3D; this.orderProgressList.filter(f &#x3D;&gt; OrderDetails.Current_Status &#x3D;&#x3D;&#x3D; &quot;&quot; || f.Progress &#x3D;&#x3D;&#x3D; OrderDetails.Current_Status)[0];
+                Status &#x3D; currentOrder.Status;
+                Process &#x3D; currentOrder.Progress;
+                ModifiedOn &#x3D; OrderDetails.ModifiedOn;
+                StatusId &#x3D; currentOrder.Index;
+              }
+            } else {
+              OrderDetails &#x3D; ordersListModel;
+              let currentOrder &#x3D; this.orderProgressList.filter(f &#x3D;&gt; OrderDetails.Current_Status &#x3D;&#x3D;&#x3D; &quot;&quot; || f.Progress &#x3D;&#x3D;&#x3D; OrderDetails.Current_Status)[0];
+              Status &#x3D; currentOrder.Status;
+              Process &#x3D; currentOrder.Progress;
+              ModifiedOn &#x3D; OrderDetails.ModifiedOn;
+              StatusId &#x3D; currentOrder.Index;
+            }
+          }
+          this.dataProblems.push({
+            index: j,
+            id: &#x27;&#x27; + j,
+            configuration: this.allProducts[j].ProblemName,
+            orderStatus: Status,
+            orderProgress: Process,
+            orderIndex: StatusId,
+            status: {
+              ref: this.cellTemplate,
+              context: {
+                id: &#x27;&#x27; + j,
+                disabled: false
+              }
+            },
+            disabled: false,
+            problemGuid: this.allProducts[j].ProblemGuid,
+            problem: this.allProducts[j]
+          });
+        }
+        this.listOfDisplayDataProblems &#x3D; [];
+        this.listOfDisplayDataProblems &#x3D; [...this.dataProblems];
+        this.cdr.detectChanges();
+        setTimeout(() &#x3D;&gt; {
+          this.isOperatingExpandableTable &#x3D; false;
+          if (this.dataProblems[0]) {
+            this.onClickProblem(this.dataProblems[0]);
+            this.getSelectedItem(
+              {
+                data: this.dataProblems[0],
+                selection: true
+              });
+            this.panelComponent.selectRow(this.dataProblems[0]);
+          }
+        }, 0);
+      });
+    }
+    else if(this.permissionService.checkPermission(Feature.ProblemList)){
+      for (let j &#x3D; 0; j &lt; problem_length; j++) {
+        let allProduct &#x3D; this.allProducts[j];
+        this.dataProblems.push({
+          index: j,
+          id: &#x27;&#x27; + j,
+          configuration: allProduct.ProblemName,
+          status: {
+            ref: this.cellTemplate,
+            context: {
+              id: &#x27;&#x27; + j,
+              disabled: false
+            }
+          },
+          disabled: false,
+          problemGuid: allProduct.ProblemGuid,
+          problem: allProduct
+        });
+
+        this.mapOfCheckedIdAcoustic[j] &#x3D; Boolean(allProduct.AcousticResult);
+        this.mapOfCheckedIdStructural[j] &#x3D; Boolean(allProduct.StructuralResult);
+        this.mapOfCheckedIdThermal[j] &#x3D; Boolean(allProduct.ThermalResult);
+
+        this.mapOfDisabledIdAcoustic[j] &#x3D; !Boolean(allProduct.EnableAcoustic);
+        this.mapOfDisabledIdStructural[j] &#x3D; !Boolean(allProduct.EnableStructural);
+        this.mapOfDisabledIdThermal[j] &#x3D; !Boolean(allProduct.EnableThermal);
+      }
+      this.listOfDisplayDataProblems &#x3D; [];
+      this.listOfDisplayDataProblems &#x3D; [...this.dataProblems];
+      this.cdr.detectChanges();
+      setTimeout(() &#x3D;&gt; {
+        this.isOperatingExpandableTable &#x3D; false;
+        if (this.dataProblems[0]) {
+          this.onClickProblem(this.dataProblems[0]);
+          this.getSelectedItem(
+            {
+              data: this.dataProblems[0],
+              selection: true
+            });
+          this.panelComponent.selectRow(this.dataProblems[0]);
+        }
+      }, 0);
+
+    }
+  }
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
+  }
+  ngAfterViewInit() {
+    if (Boolean(this.path)) {
+      this.selectedItemImage.nativeElement.src &#x3D; this.path;
+    }
+    this.configurationCustomGridProblems &#x3D; {
+      fields: [
+        {
+          celdType: CeldType.Default,
+          property: &#x27;configuration&#x27;
+        },
+        {
+          celdType: CeldType.TemplateRef,
+          property: &#x27;status&#x27;,
+          width: this.permissionService.checkPermission(this.feature.ProblemList) ? &#x27;80px&#x27; : &#x27;200px&#x27;,
+          ngClass: {
+            [&#x60;bps-centered&#x60;]: true,
+            [&#x60;bps-no-padding&#x60;]: true
+          }
+        },
+      ],
+      fieldId: &#x27;id&#x27;
+    };
+    this.cdr.detectChanges();
+  }
+
+  loadDataProblems(event: any): void {
+    event.isLoaded &#x3D; true;
+    this.problemToRun_problemGuid &#x3D; null;
+    this.isOperatingExpandableTable &#x3D; true;
+    this.selectedItem &#x3D; null;
+    this.projectClicked_projectGuid &#x3D; event.projectGuid;
+    this.listOfDisplayDataProblems &#x3D; [];
+    this.configureService.GetProblemsForProjectLite(event.projectGuid).pipe(takeUntil(this.destroy$)).subscribe((response) &#x3D;&gt; {
+      this.dataProblems &#x3D; [];
+      this.allProducts &#x3D; response;
+      let problem_length &#x3D; this.allProducts.length;
+      for (let j &#x3D; 0; j &lt; problem_length; j++) {
+        let allProduct &#x3D; this.allProducts[j];
+        this.dataProblems.push({
+          index: j,
+          id: &#x27;&#x27; + j,
+          configuration: allProduct.ProblemName,
+          status: {
+            ref: this.cellTemplate,
+            context: {
+              id: &#x27;&#x27; + j,
+              disabled: false
+            }
+          },
+          disabled: false,
+          problemGuid: allProduct.ProblemGuid,
+          problem: allProduct
+        });
+
+        this.mapOfCheckedIdAcoustic[j] &#x3D; Boolean(allProduct.AcousticResult);
+        this.mapOfCheckedIdStructural[j] &#x3D; Boolean(allProduct.StructuralResult);
+        this.mapOfCheckedIdThermal[j] &#x3D; Boolean(allProduct.ThermalResult);
+        
+        this.mapOfDisabledIdAcoustic[j] &#x3D; !Boolean(allProduct.EnableAcoustic);
+        this.mapOfDisabledIdStructural[j] &#x3D; !Boolean(allProduct.EnableStructural);
+        this.mapOfDisabledIdThermal[j] &#x3D; !Boolean(allProduct.EnableThermal);
+      }
+      this.listOfDisplayDataProblems &#x3D; [...this.dataProblems];
+      this.isOperatingExpandableTable &#x3D; false;
+    });
+  }
+  log($event, type &#x3D; null) {
+  }
+  getSelectedItem(event) {
+    this.selectedItem &#x3D; event;
+    this.configureService.GetScreenshotURL(event.data.problemGuid).subscribe(imageURL &#x3D;&gt; {
+      if (imageURL) {
+        this.path &#x3D; imageURL;
+      }
+    }, (error) &#x3D;&gt; {
+      this.path &#x3D; this.appConstantService.APP_DOMAIN + &quot;Content/screenshots/default.jpg&quot;
+    });
+  }
+
+  addRow($event) {
+    this.isOperatingExpandableTable &#x3D; true;
+   //this.configureService.applicationType &#x3D; this.applicationType;
+    this.configureService.CreateProblemForProject(this.projectClicked_projectGuid).pipe(takeUntil(this.destroy$)).subscribe(problem &#x3D;&gt; {
+      if (problem) {
+        if (this.permissionService.checkPermission(Feature.OrderList)) {
+          const index &#x3D; this.listOfDisplayDataProblems.length;
+          const newRow &#x3D; {
+            index: index,
+            id: &#x27;&#x27; + index,
+            configuration: problem.ProblemName,
+            orderStatus: &#x27;Order Placed&#x27;,
+            orderProgress: &#x27;Order Placed&#x27;,
+            status: {
+              ref: this.cellTemplate,
+              context: {
+                id: &#x27;&#x27; + index,
+                disabled: false
+              }
+            },
+            disabled: false,
+            problemGuid: problem.ProblemGuid,
+            problem: problem
+          };
+          this.listOfDisplayDataProblems &#x3D; [...this.listOfDisplayDataProblems, newRow];
+          this.cdr.detectChanges();
+          this.panelComponent.startEdit(newRow, $event);
+          const panel &#x3D; this.panelComponent.panel.nativeElement as HTMLElement;
+          const table &#x3D; panel.getElementsByClassName(&#x27;ant-table-body&#x27;)[0];
+          table.scrollTop &#x3D; table.scrollHeight;
+        } else if(this.permissionService.checkPermission(Feature.ProblemList)){
+          const newRowID &#x3D; Date.now().toString();
+          const index &#x3D; this.listOfDisplayDataProblems.length;
+          const newRow &#x3D; {
+            index: index,
+            id: &#x27;&#x27; + newRowID,
+            configuration: problem.ProblemName,
+            status: {
+              ref: this.cellTemplate,
+              context: {
+                id: &#x27;&#x27; + newRowID,
+                disabled: false
+              }
+            },
+            disabled: false,
+            problemGuid: problem.ProblemGuid,
+            problem: problem
+          };
+          this.listOfDisplayDataProblems &#x3D; [...this.listOfDisplayDataProblems, newRow];
+          this.mapOfDisabledIdAcoustic[newRowID] &#x3D; true;
+          this.mapOfDisabledIdStructural[newRowID] &#x3D; true;
+          this.mapOfDisabledIdThermal[newRowID] &#x3D; true;
+          this.mapOfCheckedIdAcoustic[newRowID] &#x3D; false;
+          this.mapOfCheckedIdStructural[newRowID] &#x3D; false;
+          this.mapOfCheckedIdThermal[newRowID] &#x3D; false;
+          //this.loadDataProblems({projectGuid: JSON.parse(problem.UnifiedModel).ProjectGuid}); 
+
+          this.cdr.detectChanges();
+          this.panelComponent.startEdit(newRow, $event);
+          const panel &#x3D; this.panelComponent.panel.nativeElement as HTMLElement;
+          const table &#x3D; panel.getElementsByClassName(&#x27;ant-table-body&#x27;)[0];
+          table.scrollTop &#x3D; table.scrollHeight;
+        }
+      }
+
+      this.isOperatingExpandableTable &#x3D; false;
+    }, (error) &#x3D;&gt; this.isOperatingExpandableTable &#x3D; false);
+  }
+  DeleteProblemReport(ProjectGuid: string, ProblemGuid: string) {
+    this.resultService.DeleteProblemReport(ProjectGuid, ProblemGuid).subscribe((val) &#x3D;&gt; { });
+  }
+  deleteRow($event) {
+    if (this.problemToRun_problemGuid) {
+      let index &#x3D; this.listOfDisplayDataProblems.map(project &#x3D;&gt; project.problemGuid).indexOf(this.problemToRun_problemGuid);
+      if (index !&#x3D; -1) {
+        this.homeService.DeleteProblemByGuid(this.projectClicked_projectGuid).pipe(takeUntil(this.destroy$)).subscribe((response) &#x3D;&gt; {
+              this.DeleteProblemReport(this.projectClicked_projectGuid, this.problemToRun_problemGuid);
+              this.path &#x3D; &quot;&quot;;
+              //this.listOfDisplayDataProblems.splice(index,1);
+              let data &#x3D; this.listOfDisplayDataProblems;
+              data.splice(index, 1);
+              this.listOfDisplayDataProblems &#x3D; [];
+              this.listOfDisplayDataProblems &#x3D; [...data];
+              this.cdr.detectChanges();
+              this.problemToRun_problemGuid &#x3D; null;
+        });
+      }
+    }
+  }
+  onClickProblem(event) {
+    this.problemToRun_problemGuid &#x3D; event.problemGuid;
+  }
+  onRunProblem(event: any) {
+    this.onRunningProblem(event.problem);
+  }
+  onRunningProblem(problem: BpsUnifiedProblem): void {  // keep
+    this.navLayoutService.changeNavBarButtonAndTitleVisibility(true);
+    this.configureService.configureCall &#x3D; false;
+    this.configureService.setProblemShow(problem.ProblemGuid);
+    let unifiedModel: BpsUnifiedModel &#x3D; JSON.parse(problem.UnifiedModel);
+    if (unifiedModel &amp;&amp; !unifiedModel.AnalysisResult)
+      this.configureService.sendMessage(false);
+    if (problem.OrderPlaced &amp;&amp; this.progressClicked)
+      this.router.navigate([&#x27;/orders/&#x27;, problem.ProblemGuid]);
+    else
+      this.router.navigate([&#x27;/problemconfigure/&#x27;, problem.ProblemGuid]);
+  }
+  onSubmitNewProblemName(event: any): void {   // keep
+    // let problemSimplified &#x3D; new BpsSimplifiedProblem;
+    // problemSimplified.ProblemGuid &#x3D; event[0].problemGuid;
+    // problemSimplified.ProblemName &#x3D; event[0].configuration;
+    if (event &amp;&amp; event.length &gt; 0 &amp;&amp; event[0].problem &amp;&amp; event[0].problem.UnifiedModel) {
+      let unifiedModel: BpsUnifiedModel &#x3D; JSON.parse(event[0].problem.UnifiedModel);
+      if (unifiedModel &amp;&amp; unifiedModel.ProblemSetting) {
+        unifiedModel.ProblemSetting.ConfigurationName &#x3D; event[0].configuration;
+        this.configureService.RenameProblem(unifiedModel).pipe(takeUntil(this.destroy$)).subscribe(_response &#x3D;&gt; {
+          unifiedModel.ProblemSetting.ConfigurationName &#x3D; _response.ProblemName;
+          this.loadDataProblems({ projectGuid: unifiedModel.ProblemSetting.ProjectGuid });
+        });
+      }
+    }
+  }
+
+  setDefaultImage() {
+    this.path &#x3D; this.permissionService.checkPermission(Feature.WindowDefaultImageV2) ? &#x27;/assets/Images/window_default_SRS.png&#x27; : &#x27;/assets/Images/window__default.png&#x27;;
+    // this.path &#x3D; &#x27;/assets/Images/window__default.png&#x27;;
+    if (this.problemToRun_problemGuid) {
+      let selectedProblem &#x3D; this.allProducts.filter(x &#x3D;&gt; x.ProblemGuid &#x3D;&#x3D; this.problemToRun_problemGuid);
+      if (selectedProblem &amp;&amp; selectedProblem.length &#x3D;&#x3D; 1 &amp;&amp; selectedProblem[0].UnifiedModel) {
+        let unified3DModel: BpsUnifiedModel &#x3D; JSON.parse(selectedProblem[0].UnifiedModel);
+        if (unified3DModel &amp;&amp; unified3DModel.ProblemSetting) {
+          if (unified3DModel.ProblemSetting.ProductType &#x3D;&#x3D; &quot;Facade&quot;) {
+            if (unified3DModel.ProblemSetting.FacadeType &#x3D;&#x3D; &quot;mullion-transom&quot;)
+              this.path &#x3D; &#x27;/assets/Images/facade_default.png&#x27;;
+            else if (unified3DModel.ProblemSetting.FacadeType &#x3D;&#x3D; &quot;UDC&quot;)
+              this.path &#x3D; &#x27;/assets/Images/facade_UDC_default.png&#x27;;
+          }
+        }
+      }
+    }
+  }
+
+  progressClicked &#x3D; false;
+  onIndexChange(): void {
+    this.progressClicked &#x3D; true;
+    setTimeout(() &#x3D;&gt; {
+      this.progressClicked &#x3D; false;
+    }, 500);
+  }
+
+  // getRandomInt(min, max) : number{
+  //   min &#x3D; Math.ceil(min);
+  //   max &#x3D; Math.floor(max);
+  //   return Math.floor(Math.random() * (max - min + 1)) + min; 
+  // }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&#x27;row&#x27;&gt;
+  &lt;bps-table-expandable-panel #panelComponent [data]&#x3D;&quot;listOfDisplayDataProblems&quot; [scroll]&#x3D;&quot;{ y: &#x27;200px&#x27;, x: &#x27;300px&#x27; }&quot;
+    [loading]&#x3D;&quot;isOperatingExpandableTable&quot; [inlineEdit]&#x3D;&quot;!orderPlaced&quot; [menuTemplate]&#x3D;&quot;menuTemplate&quot;
+    [currentPreviewTemplate]&#x3D;&quot;currentPreviewTemplate&quot; (onclickRow)&#x3D;&quot;onClickProblem($event)&quot;
+    (ondblclickRow)&#x3D;&quot;onRunProblem($event)&quot; (onedit)&#x3D;&quot;onSubmitNewProblemName($event)&quot;
+    (selectionChange)&#x3D;&quot;getSelectedItem($event)&quot; class&#x3D;&quot;bps-table-example&quot; [(config)]&#x3D;&quot;configurationCustomGridProblems&quot;&gt;
+  &lt;/bps-table-expandable-panel&gt;
+  &lt;ng-template #cellTemplate let-id&#x3D;&quot;id&quot;&gt;
+    &lt;div *appCheckPermissions&#x3D;&quot;feature.AnalysisStatus&quot;&gt;
+      &lt;label bps-checkbox bpsType&#x3D;&quot;variation3&quot; [bpsDisabled]&#x3D;&quot;mapOfDisabledIdAcoustic[id]&quot;
+        [ngModel]&#x3D;&quot;mapOfCheckedIdAcoustic[id]&quot;&gt;
+        &lt;ng-container *ngIf&#x3D;&quot;mapOfCheckedIdAcoustic[id] &amp;&amp; !mapOfDisabledIdAcoustic[id]&quot;&gt;
+          &lt;img src&#x3D;&quot;/assets/bps-icons/sps_acoustic_icon_report_selected.svg&quot; bps-tooltip
+            [bpsTooltipType]&#x3D;&quot;&#x27;variation_11&#x27;&quot; bpsTooltipTitle&#x3D;&quot;{{&#x27;home.computed&#x27; | translate }}&quot;
+            bpsTooltipPlacement&#x3D;&quot;top&quot; /&gt;
+        &lt;/ng-container&gt;
+        &lt;ng-container *ngIf&#x3D;&quot;!mapOfCheckedIdAcoustic[id] &amp;&amp; !mapOfDisabledIdAcoustic[id]&quot;&gt;
+          &lt;img src&#x3D;&quot;/assets/bps-icons/sps_acoustic_icon_report_enabled.svg&quot; bps-tooltip
+            [bpsTooltipType]&#x3D;&quot;&#x27;variation_11&#x27;&quot; bpsTooltipTitle&#x3D;&quot;{{&#x27;home.not-computed&#x27; | translate }}&quot;
+            bpsTooltipPlacement&#x3D;&quot;top&quot; /&gt;
+        &lt;/ng-container&gt;
+        &lt;ng-container *ngIf&#x3D;&quot;mapOfDisabledIdAcoustic[id]&quot;&gt;
+          &lt;img src&#x3D;&quot;/assets/bps-icons/sps_acoustic_icon_report_disable.svg&quot; bps-tooltip
+            [bpsTooltipType]&#x3D;&quot;&#x27;variation_11&#x27;&quot; bpsTooltipTitle&#x3D;&quot;{{&#x27;home.not-selected&#x27; | translate }}&quot;
+            bpsTooltipPlacement&#x3D;&quot;top&quot; /&gt;
+        &lt;/ng-container&gt;
+      &lt;/label&gt;
+
+      &lt;label bps-checkbox bpsType&#x3D;&quot;variation3&quot; [bpsDisabled]&#x3D;&quot;mapOfDisabledIdStructural[id]&quot;
+        [ngModel]&#x3D;&quot;mapOfCheckedIdStructural[id]&quot;&gt;
+        &lt;ng-container *ngIf&#x3D;&quot;mapOfCheckedIdStructural[id] &amp;&amp; !mapOfDisabledIdStructural[id]&quot;&gt;
+          &lt;img src&#x3D;&quot;/assets/bps-icons/sps_structural_icon_report_selected.svg&quot; bps-tooltip
+            [bpsTooltipType]&#x3D;&quot;&#x27;variation_11&#x27;&quot; bpsTooltipTitle&#x3D;&quot;{{&#x27;home.computed&#x27; | translate }}&quot;
+            bpsTooltipPlacement&#x3D;&quot;top&quot; /&gt;
+        &lt;/ng-container&gt;
+        &lt;ng-container *ngIf&#x3D;&quot;!mapOfCheckedIdStructural[id] &amp;&amp; !mapOfDisabledIdStructural[id]&quot;&gt;
+          &lt;img src&#x3D;&quot;/assets/bps-icons/sps_structural_icon_report_enabled.svg&quot; bps-tooltip
+            [bpsTooltipType]&#x3D;&quot;&#x27;variation_11&#x27;&quot; bpsTooltipTitle&#x3D;&quot;{{&#x27;home.not-computed&#x27; | translate }}&quot;
+            bpsTooltipPlacement&#x3D;&quot;top&quot; /&gt;
+        &lt;/ng-container&gt;
+        &lt;ng-container *ngIf&#x3D;&quot;mapOfDisabledIdStructural[id]&quot;&gt;
+          &lt;img src&#x3D;&quot;/assets/bps-icons/sps_structural_icon_report_disable.svg&quot; bps-tooltip
+            [bpsTooltipType]&#x3D;&quot;&#x27;variation_11&#x27;&quot; bpsTooltipTitle&#x3D;&quot;{{&#x27;home.not-selected&#x27; | translate }}&quot;
+            bpsTooltipPlacement&#x3D;&quot;top&quot; /&gt;
+        &lt;/ng-container&gt;
+      &lt;/label&gt;
+
+      &lt;label bps-checkbox bpsType&#x3D;&quot;variation3&quot; [ngModel]&#x3D;&quot;mapOfCheckedIdThermal[id]&quot;
+        [bpsDisabled]&#x3D;&quot;mapOfDisabledIdThermal[id]&quot;&gt;
+        &lt;ng-container *ngIf&#x3D;&quot;mapOfCheckedIdThermal[id] &amp;&amp; !mapOfDisabledIdThermal[id]&quot;&gt;
+          &lt;img src&#x3D;&quot;/assets/bps-icons/sps_thermal_icon_report_selected.svg&quot; bps-tooltip
+            [bpsTooltipType]&#x3D;&quot;&#x27;variation_11&#x27;&quot; bpsTooltipTitle&#x3D;&quot;{{&#x27;home.computed&#x27; | translate }}&quot;
+            bpsTooltipPlacement&#x3D;&quot;top&quot; /&gt;
+        &lt;/ng-container&gt;
+        &lt;ng-container *ngIf&#x3D;&quot;!mapOfCheckedIdThermal[id] &amp;&amp; !mapOfDisabledIdThermal[id]&quot;&gt;
+          &lt;img src&#x3D;&quot;/assets/bps-icons/sps_thermal_icon_report_enabled.svg&quot; bps-tooltip [bpsTooltipType]&#x3D;&quot;&#x27;variation_11&#x27;&quot;
+            bpsTooltipTitle&#x3D;&quot;{{&#x27;home.not-computed&#x27; | translate }}&quot; bpsTooltipPlacement&#x3D;&quot;top&quot; /&gt;
+        &lt;/ng-container&gt;
+        &lt;ng-container *ngIf&#x3D;&quot;mapOfDisabledIdThermal[id]&quot;&gt;
+          &lt;img src&#x3D;&quot;/assets/bps-icons/sps_thermal_icon_report_disable.svg&quot; bps-tooltip [bpsTooltipType]&#x3D;&quot;&#x27;variation_11&#x27;&quot;
+            bpsTooltipTitle&#x3D;&quot;{{&#x27;home.not-selected&#x27; | translate }}&quot; bpsTooltipPlacement&#x3D;&quot;top&quot; /&gt;
+        &lt;/ng-container&gt;
+      &lt;/label&gt;
+    &lt;/div&gt;
+    &lt;ng-container *appCheckPermissions&#x3D;&quot;feature.OrderList&quot;&gt;
+      &lt;div *ngIf&#x3D;&quot;orderPlaced &#x3D;&#x3D;&#x3D; true &amp;&amp; listOfDisplayDataProblems[id].orderStatus&quot;
+      style&#x3D;&quot;width: 156px; float: left; &quot; class&#x3D;&quot;order-progress-small&quot; (click)&#x3D;&quot;onIndexChange()&quot;&gt;
+        &lt;nz-steps [nzCurrent]&#x3D;&quot;listOfDisplayDataProblems[id].orderIndex&quot; nzSize&#x3D;&quot;small&quot; nzProgressDot&gt;
+          &lt;nz-step *ngIf&#x3D;&quot;listOfDisplayDataProblems[id].orderIndex &#x3D;&#x3D;&#x3D; 0&quot; nzStatus&#x3D;&quot;error&quot;&gt;&lt;/nz-step&gt;
+          &lt;nz-step *ngIf&#x3D;&quot;listOfDisplayDataProblems[id].orderIndex !&#x3D;&#x3D; 0&quot;&gt;&lt;/nz-step&gt;
+          &lt;nz-step&gt;&lt;/nz-step&gt;
+          &lt;nz-step&gt;&lt;/nz-step&gt;
+          &lt;nz-step&gt;&lt;/nz-step&gt;
+          &lt;nz-step&gt;&lt;/nz-step&gt;
+          &lt;nz-step&gt;&lt;/nz-step&gt;
+        &lt;/nz-steps&gt;
+      &lt;/div&gt;
+      &lt;div *ngIf&#x3D;&quot;orderPlaced &#x3D;&#x3D;&#x3D; true &amp;&amp; listOfDisplayDataProblems[id].orderStatus&quot;
+        style&#x3D;&quot;width: 16px; float: left; margin-left: 10px&quot;&gt;
+        &lt;ng-container&gt;
+          {{listOfDisplayDataProblems[id].orderIndex + 1}}/6
+        &lt;/ng-container&gt;
+      &lt;/div&gt;
+    &lt;/ng-container&gt;
+  &lt;/ng-template&gt;
+
+  &lt;ng-template #menuTemplate&gt;
+    &lt;div *ngIf&#x3D;&quot;!orderPlaced&quot;&gt;
+      &lt;img *ngIf&#x3D;&quot; listOfDisplayDataProblems.length &lt; 50&quot; bps-tooltip [bpsTooltipType]&#x3D;&quot;&#x27;variation_10&#x27;&quot; bpsTooltipTitle&#x3D;&quot;{{&#x27;home.new-configuration&#x27; | translate }}&quot;
+        bpsTooltipPlacement&#x3D;&quot;left&quot; (click)&#x3D;&quot;addRow($event)&quot; style&#x3D;&quot;height: 22px;width: 22px;&quot; 
+        src&#x3D;&quot;/assets/Images/icons/sps_round_icon_newconfiguration_white.svg&quot; /&gt;
+
+        &lt;img *ngIf&#x3D;&quot; listOfDisplayDataProblems &amp;&amp; (this.listOfDisplayDataProblems.length &#x3D;&#x3D; 50 || this.listOfDisplayDataProblems.length &gt; 50)&quot; bps-tooltip [bpsTooltipType]&#x3D;&quot;&#x27;variation_10&#x27;&quot; bpsTooltipTitle&#x3D;&quot;{{&#x27;home.new-configuration&#x27; | translate }}&quot;
+        bpsTooltipPlacement&#x3D;&quot;left&quot; style&#x3D;&quot;height: 22px;width: 22px; cursor: not-allowed;&quot; disabled
+        src&#x3D;&quot;/assets/Images/icons/sps_round_icon_newconfiguration_grey_add.svg&quot; /&gt;
+      &lt;!-- New --&gt;
+      &lt;img bps-tooltip *ngIf&#x3D;&quot;problemToRun_projectGuid&quot; [bpsTooltipType]&#x3D;&quot;&#x27;variation_10&#x27;&quot;
+        bpsTooltipTitle&#x3D;&quot;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;{{&#x27;home.delete-configuration&#x27; | translate }}&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&quot;
+        bpsTooltipPlacement&#x3D;&quot;left&quot; (click)&#x3D;&quot;deleteRow($event)&quot; style&#x3D;&quot;height: 22px;width: 22px;&quot;
+        src&#x3D;&quot;/assets/Images/icons/sps_round_icon_deleteconfiguration_white.svg&quot; /&gt;
+      &lt;img bps-tooltip *ngIf&#x3D;&quot;!problemToRun_projectGuid&quot; [bpsTooltipType]&#x3D;&quot;&#x27;variation_10&#x27;&quot;
+        bpsTooltipTitle&#x3D;&quot;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;{{&#x27;home.delete-configuration&#x27; | translate }}&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&quot;
+        bpsTooltipPlacement&#x3D;&quot;left&quot; (click)&#x3D;&quot;deleteRow($event)&quot; style&#x3D;&quot;height: 22px;width: 22px; cursor: not-allowed;&quot;
+        src&#x3D;&quot;/assets/Images/icons/sps_round_icon_deleteconfiguration_grey.svg&quot; /&gt;
+    &lt;/div&gt;
+    &lt;div *ngIf&#x3D;&quot;orderPlaced&quot;&gt;
+      &lt;img bps-tooltip [bpsTooltipType]&#x3D;&quot;&#x27;variation_10&#x27;&quot; bpsTooltipTitle&#x3D;&quot;{{&#x27;home.new-configuration&#x27; | translate }}&quot;
+        bpsTooltipPlacement&#x3D;&quot;left&quot; style&#x3D;&quot;height: 22px;width: 22px; cursor: not-allowed;&quot; disabled
+        src&#x3D;&quot;/assets/Images/icons/sps_round_icon_newconfiguration_grey_add.svg&quot; /&gt;
+      &lt;!-- New hasFullAccess--&gt;
+      &lt;img bps-tooltip [bpsTooltipType]&#x3D;&quot;&#x27;variation_10&#x27;&quot;
+        bpsTooltipTitle&#x3D;&quot;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;{{&#x27;home.delete-configuration&#x27; | translate }}&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&quot;
+        bpsTooltipPlacement&#x3D;&quot;left&quot; style&#x3D;&quot;height: 22px;width: 22px; cursor: not-allowed; &quot; disabled
+        src&#x3D;&quot;/assets/Images/icons/sps_round_icon_deleteconfiguration_grey.svg&quot; /&gt;
+    &lt;/div&gt;
+  &lt;/ng-template&gt;
+
+  &lt;ng-template #currentPreviewTemplate&gt;
+    &lt;div class&#x3D;&quot;preview-panel&quot; style&#x3D;&quot;display: flex; justify-content: center; align-items: center;&quot;&gt;
+      &lt;ng-container *ngIf&#x3D;&quot;!selectedItem&quot;&gt;
+        {{&#x27;home.no-item-selected&#x27; | translate }}
+        &lt;!-- No Item Selected --&gt;
+      &lt;/ng-container&gt;
+      &lt;ng-container *ngIf&#x3D;&quot;selectedItem&quot;&gt;
+        &lt;img #selectedItemImage (error)&#x3D;&quot;setDefaultImage()&quot; src&#x3D;&#x27;{{path}}&#x27;
+          style&#x3D;&quot;height: 190px; width: auto; object-fit: cover;&quot; alt&#x3D;&quot;&quot;&gt;
+      &lt;/ng-container&gt;
+    &lt;/div&gt;
+  &lt;/ng-template&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./home-expandable-panel.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss"></code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class=\'row\'>  <bps-table-expandable-panel #panelComponent [data]="listOfDisplayDataProblems" [scroll]="{ y: \'200px\', x: \'300px\' }"    [loading]="isOperatingExpandableTable" [inlineEdit]="!orderPlaced" [menuTemplate]="menuTemplate"    [currentPreviewTemplate]="currentPreviewTemplate" (onclickRow)="onClickProblem($event)"    (ondblclickRow)="onRunProblem($event)" (onedit)="onSubmitNewProblemName($event)"    (selectionChange)="getSelectedItem($event)" class="bps-table-example" [(config)]="configurationCustomGridProblems">  </bps-table-expandable-panel>  <ng-template #cellTemplate let-id="id">    <div *appCheckPermissions="feature.AnalysisStatus">      <label bps-checkbox bpsType="variation3" [bpsDisabled]="mapOfDisabledIdAcoustic[id]"        [ngModel]="mapOfCheckedIdAcoustic[id]">        <ng-container *ngIf="mapOfCheckedIdAcoustic[id] && !mapOfDisabledIdAcoustic[id]">          <img src="/assets/bps-icons/sps_acoustic_icon_report_selected.svg" bps-tooltip            [bpsTooltipType]="\'variation_11\'" bpsTooltipTitle="{{\'home.computed\' | translate }}"            bpsTooltipPlacement="top" />        </ng-container>        <ng-container *ngIf="!mapOfCheckedIdAcoustic[id] && !mapOfDisabledIdAcoustic[id]">          <img src="/assets/bps-icons/sps_acoustic_icon_report_enabled.svg" bps-tooltip            [bpsTooltipType]="\'variation_11\'" bpsTooltipTitle="{{\'home.not-computed\' | translate }}"            bpsTooltipPlacement="top" />        </ng-container>        <ng-container *ngIf="mapOfDisabledIdAcoustic[id]">          <img src="/assets/bps-icons/sps_acoustic_icon_report_disable.svg" bps-tooltip            [bpsTooltipType]="\'variation_11\'" bpsTooltipTitle="{{\'home.not-selected\' | translate }}"            bpsTooltipPlacement="top" />        </ng-container>      </label>      <label bps-checkbox bpsType="variation3" [bpsDisabled]="mapOfDisabledIdStructural[id]"        [ngModel]="mapOfCheckedIdStructural[id]">        <ng-container *ngIf="mapOfCheckedIdStructural[id] && !mapOfDisabledIdStructural[id]">          <img src="/assets/bps-icons/sps_structural_icon_report_selected.svg" bps-tooltip            [bpsTooltipType]="\'variation_11\'" bpsTooltipTitle="{{\'home.computed\' | translate }}"            bpsTooltipPlacement="top" />        </ng-container>        <ng-container *ngIf="!mapOfCheckedIdStructural[id] && !mapOfDisabledIdStructural[id]">          <img src="/assets/bps-icons/sps_structural_icon_report_enabled.svg" bps-tooltip            [bpsTooltipType]="\'variation_11\'" bpsTooltipTitle="{{\'home.not-computed\' | translate }}"            bpsTooltipPlacement="top" />        </ng-container>        <ng-container *ngIf="mapOfDisabledIdStructural[id]">          <img src="/assets/bps-icons/sps_structural_icon_report_disable.svg" bps-tooltip            [bpsTooltipType]="\'variation_11\'" bpsTooltipTitle="{{\'home.not-selected\' | translate }}"            bpsTooltipPlacement="top" />        </ng-container>      </label>      <label bps-checkbox bpsType="variation3" [ngModel]="mapOfCheckedIdThermal[id]"        [bpsDisabled]="mapOfDisabledIdThermal[id]">        <ng-container *ngIf="mapOfCheckedIdThermal[id] && !mapOfDisabledIdThermal[id]">          <img src="/assets/bps-icons/sps_thermal_icon_report_selected.svg" bps-tooltip            [bpsTooltipType]="\'variation_11\'" bpsTooltipTitle="{{\'home.computed\' | translate }}"            bpsTooltipPlacement="top" />        </ng-container>        <ng-container *ngIf="!mapOfCheckedIdThermal[id] && !mapOfDisabledIdThermal[id]">          <img src="/assets/bps-icons/sps_thermal_icon_report_enabled.svg" bps-tooltip [bpsTooltipType]="\'variation_11\'"            bpsTooltipTitle="{{\'home.not-computed\' | translate }}" bpsTooltipPlacement="top" />        </ng-container>        <ng-container *ngIf="mapOfDisabledIdThermal[id]">          <img src="/assets/bps-icons/sps_thermal_icon_report_disable.svg" bps-tooltip [bpsTooltipType]="\'variation_11\'"            bpsTooltipTitle="{{\'home.not-selected\' | translate }}" bpsTooltipPlacement="top" />        </ng-container>      </label>    </div>    <ng-container *appCheckPermissions="feature.OrderList">      <div *ngIf="orderPlaced === true && listOfDisplayDataProblems[id].orderStatus"      style="width: 156px; float: left; " class="order-progress-small" (click)="onIndexChange()">        <nz-steps [nzCurrent]="listOfDisplayDataProblems[id].orderIndex" nzSize="small" nzProgressDot>          <nz-step *ngIf="listOfDisplayDataProblems[id].orderIndex === 0" nzStatus="error"></nz-step>          <nz-step *ngIf="listOfDisplayDataProblems[id].orderIndex !== 0"></nz-step>          <nz-step></nz-step>          <nz-step></nz-step>          <nz-step></nz-step>          <nz-step></nz-step>          <nz-step></nz-step>        </nz-steps>      </div>      <div *ngIf="orderPlaced === true && listOfDisplayDataProblems[id].orderStatus"        style="width: 16px; float: left; margin-left: 10px">        <ng-container>          {{listOfDisplayDataProblems[id].orderIndex + 1}}/6        </ng-container>      </div>    </ng-container>  </ng-template>  <ng-template #menuTemplate>    <div *ngIf="!orderPlaced">      <img *ngIf=" listOfDisplayDataProblems.length < 50" bps-tooltip [bpsTooltipType]="\'variation_10\'" bpsTooltipTitle="{{\'home.new-configuration\' | translate }}"        bpsTooltipPlacement="left" (click)="addRow($event)" style="height: 22px;width: 22px;"         src="/assets/Images/icons/sps_round_icon_newconfiguration_white.svg" />        <img *ngIf=" listOfDisplayDataProblems && (this.listOfDisplayDataProblems.length == 50 || this.listOfDisplayDataProblems.length > 50)" bps-tooltip [bpsTooltipType]="\'variation_10\'" bpsTooltipTitle="{{\'home.new-configuration\' | translate }}"        bpsTooltipPlacement="left" style="height: 22px;width: 22px; cursor: not-allowed;" disabled        src="/assets/Images/icons/sps_round_icon_newconfiguration_grey_add.svg" />      <!-- New -->      <img bps-tooltip *ngIf="problemToRun_projectGuid" [bpsTooltipType]="\'variation_10\'"        bpsTooltipTitle="&nbsp;&nbsp;&nbsp;&nbsp;{{\'home.delete-configuration\' | translate }}&nbsp;&nbsp;&nbsp;&nbsp;"        bpsTooltipPlacement="left" (click)="deleteRow($event)" style="height: 22px;width: 22px;"        src="/assets/Images/icons/sps_round_icon_deleteconfiguration_white.svg" />      <img bps-tooltip *ngIf="!problemToRun_projectGuid" [bpsTooltipType]="\'variation_10\'"        bpsTooltipTitle="&nbsp;&nbsp;&nbsp;&nbsp;{{\'home.delete-configuration\' | translate }}&nbsp;&nbsp;&nbsp;&nbsp;"        bpsTooltipPlacement="left" (click)="deleteRow($event)" style="height: 22px;width: 22px; cursor: not-allowed;"        src="/assets/Images/icons/sps_round_icon_deleteconfiguration_grey.svg" />    </div>    <div *ngIf="orderPlaced">      <img bps-tooltip [bpsTooltipType]="\'variation_10\'" bpsTooltipTitle="{{\'home.new-configuration\' | translate }}"        bpsTooltipPlacement="left" style="height: 22px;width: 22px; cursor: not-allowed;" disabled        src="/assets/Images/icons/sps_round_icon_newconfiguration_grey_add.svg" />      <!-- New hasFullAccess-->      <img bps-tooltip [bpsTooltipType]="\'variation_10\'"        bpsTooltipTitle="&nbsp;&nbsp;&nbsp;&nbsp;{{\'home.delete-configuration\' | translate }}&nbsp;&nbsp;&nbsp;&nbsp;"        bpsTooltipPlacement="left" style="height: 22px;width: 22px; cursor: not-allowed; " disabled        src="/assets/Images/icons/sps_round_icon_deleteconfiguration_grey.svg" />    </div>  </ng-template>  <ng-template #currentPreviewTemplate>    <div class="preview-panel" style="display: flex; justify-content: center; align-items: center;">      <ng-container *ngIf="!selectedItem">        {{\'home.no-item-selected\' | translate }}        <!-- No Item Selected -->      </ng-container>      <ng-container *ngIf="selectedItem">        <img #selectedItemImage (error)="setDefaultImage()" src=\'{{path}}\'          style="height: 190px; width: auto; object-fit: cover;" alt="">      </ng-container>    </div>  </ng-template></div></div>'
+    var COMPONENTS = [{'name': 'AcousticChartComponent', 'selector': 'app-acoustic-chart'},{'name': 'AcousticComponent', 'selector': 'app-acoustic'},{'name': 'AcousticPerformanceComponent', 'selector': 'app-acoustic-performance'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AutocompleteComponent', 'selector': 'app-autocomplete'},{'name': 'ConfigureComponent', 'selector': 'app-configure'},{'name': 'ContactTableComponent', 'selector': 'app-contact-table'},{'name': 'ContentLayoutComponent', 'selector': 'app-content-layout'},{'name': 'DisclaimerComponent', 'selector': 'app-disclaimer'},{'name': 'DoorLeafActiveComponent', 'selector': 'app-door-leaf-active'},{'name': 'DoorLeafPassiveComponent', 'selector': 'app-door-leaf-passive'},{'name': 'DoubleVentTableComponent', 'selector': 'app-double-vent-table'},{'name': 'FaqComponent', 'selector': 'app-faq'},{'name': 'FrameCombinationTableComponent', 'selector': 'app-frame-combination-table'},{'name': 'FramingComponent', 'selector': 'app-framing'},{'name': 'FramingCustomComponent', 'selector': 'app-framing-custom'},{'name': 'GlassPanelComponent', 'selector': 'app-glass-panel'},{'name': 'GlassPanelTableComponent', 'selector': 'app-glass-panel-table'},{'name': 'HandleColorComponent', 'selector': 'app-handle-color'},{'name': 'HingeTypeComponent', 'selector': 'app-hinge-type'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'HomeExpandablePanelComponent', 'selector': 'app-home-expandable-panel'},{'name': 'IframeWrapperComponent', 'selector': 'app-iframe-wrapper'},{'name': 'InsideHandleComponent', 'selector': 'app-inside-handle'},{'name': 'InterlockProfileComponent', 'selector': 'app-interlock-profile'},{'name': 'LeftAcousticPanelComponent', 'selector': 'app-left-acoustic-panel'},{'name': 'LeftConfigureComponent', 'selector': 'app-left-configure'},{'name': 'LeftPanelComponent', 'selector': 'app-left-panel'},{'name': 'LeftReportComponent', 'selector': 'app-left-report'},{'name': 'LeftResultComponent', 'selector': 'app-left-result'},{'name': 'LeftStructuralPanelComponent', 'selector': 'app-left-structural-panel'},{'name': 'LeftThermalPanelComponent', 'selector': 'app-left-thermal-panel'},{'name': 'LibraryCustomComponent', 'selector': 'app-library-custom'},{'name': 'LoadComponent', 'selector': 'app-load'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MainLayoutComponent', 'selector': 'app-main-layout'},{'name': 'MiddlePanelComponent', 'selector': 'app-middle-panel'},{'name': 'MigrationComponent', 'selector': 'app-migration'},{'name': 'ModelCustomComponent', 'selector': 'app-model-custom'},{'name': 'MullionDepthTableComponent', 'selector': 'app-mullion-depth-table'},{'name': 'MullionTableComponent', 'selector': 'app-mullion-table'},{'name': 'NavLayoutComponent', 'selector': 'app-nav-layout'},{'name': 'NotificationCustomComponent', 'selector': 'app-notification-custom'},{'name': 'OperabilityComponent', 'selector': 'app-operability'},{'name': 'OrderProgressComponent', 'selector': 'app-order-progress'},{'name': 'OrdersComponent', 'selector': 'app-orders'},{'name': 'OuterTableComponent', 'selector': 'app-outer-table'},{'name': 'OutsideHandleComponent', 'selector': 'app-outside-handle'},{'name': 'ProfileColorComponent', 'selector': 'app-profile-color'},{'name': 'ReinforcementProfileComponent', 'selector': 'app-reinforcement-profile'},{'name': 'ReportGeneralComponent', 'selector': 'app-report-general'},{'name': 'ResultGeneralComponent', 'selector': 'app-result-general'},{'name': 'RightConfigureComponent', 'selector': 'app-right-configure'},{'name': 'RightReportComponent', 'selector': 'app-right-report'},{'name': 'RightResultComponent', 'selector': 'app-right-result'},{'name': 'SillProfileBottomComponent', 'selector': 'app-sill-profile-bottom'},{'name': 'SillProfileFixedComponent', 'selector': 'app-sill-profile-fixed'},{'name': 'SlidingUnitComponent', 'selector': 'app-sliding-unit'},{'name': 'SpacerTypeComponent', 'selector': 'app-spacer-type'},{'name': 'StructuralComponent', 'selector': 'app-structural'},{'name': 'StructuralProfileTableComponent', 'selector': 'app-structural-profile-table'},{'name': 'StructuralTableComponent', 'selector': 'app-structural-table'},{'name': 'ThermalComponent', 'selector': 'app-thermal'},{'name': 'TooltipCustomComponent', 'selector': 'app-tooltip-custom'},{'name': 'VentTableComponent', 'selector': 'app-vent-table'},{'name': 'ViewerInfillComponent', 'selector': 'app-viewer-infill'}];
+    var DIRECTIVES = [{'name': 'CheckPermissionsDirective', 'selector': '[appCheckPermissions]'}];
+    var ACTUAL_COMPONENT = {'name': 'HomeExpandablePanelComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'HomeExpandablePanelComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

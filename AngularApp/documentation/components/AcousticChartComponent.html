@@ -1,0 +1,1947 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>angular-app documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">angular-app documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li
+  >
+  AcousticChartComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/app-structural/components/result/acoustic-chart/acoustic-chart.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+                    <code><a href="https://angular.io/api/core/OnChanges" target="_blank" >OnChanges</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-acoustic-chart</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./acoustic-chart.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./acoustic-chart.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#amChartLogo" >amChartLogo</a>
+                            </li>
+                            <li>
+                                <a href="#amChartLogoParent" >amChartLogoParent</a>
+                            </li>
+                            <li>
+                                <a href="#baseColor" >baseColor</a>
+                            </li>
+                            <li>
+                                <a href="#baseFont" >baseFont</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#chart" >chart</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#ColumnSeries" >ColumnSeries</a>
+                            </li>
+                            <li>
+                                <a href="#configure_" >configure_</a>
+                            </li>
+                            <li>
+                                <a href="#configureCursor" >configureCursor</a>
+                            </li>
+                            <li>
+                                <a href="#configureExportMenu" >configureExportMenu</a>
+                            </li>
+                            <li>
+                                <a href="#configureLegend" >configureLegend</a>
+                            </li>
+                            <li>
+                                <a href="#configureScrollbar" >configureScrollbar</a>
+                            </li>
+                            <li>
+                                <a href="#LineSeries" >LineSeries</a>
+                            </li>
+                            <li>
+                                <a href="#loadPerformanceChartInfo" >loadPerformanceChartInfo</a>
+                            </li>
+                            <li>
+                                <a href="#ngAfterViewInit" >ngAfterViewInit</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnChanges" >ngOnChanges</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnDestroy" >ngOnDestroy</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#StepLineSeries" >StepLineSeries</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#ChartDataList" >ChartDataList</a>
+                            </li>
+                            <li>
+                                <a href="#unified3DModel" >unified3DModel</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(zone: <a href="https://angular.io/api/core/NgZone" target="_blank">NgZone</a>, translate: TranslateService, _elementRef: <a href="https://angular.io/api/core/ElementRef" target="_blank">ElementRef</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/app-structural/components/result/acoustic-chart/acoustic-chart.component.ts:26</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>zone</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/core/NgZone" target="_blank" >NgZone</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>translate</td>
+                                                  
+                                                        <td>
+                                                                    <code>TranslateService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_elementRef</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/core/ElementRef" target="_blank" >ElementRef</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="ChartDataList"></a>
+                        <b>ChartDataList</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>any[]</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/app-structural/components/result/acoustic-chart/acoustic-chart.component.ts:19</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="unified3DModel"></a>
+                        <b>unified3DModel</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/BpsUnifiedModel.html" target="_self" >BpsUnifiedModel</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/app-structural/components/result/acoustic-chart/acoustic-chart.component.ts:20</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ColumnSeries"></a>
+                    <span class="name">
+                        <span ><b>ColumnSeries</b></span>
+                        <a href="#ColumnSeries"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ColumnSeries(chart: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, valueY: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, categoryX: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, color: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, tooltipText: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="140"
+                            class="link-to-prism">src/app/app-structural/components/result/acoustic-chart/acoustic-chart.component.ts:140</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>chart</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>name</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>valueY</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>categoryX</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>color</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>tooltipText</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="configure_"></a>
+                    <span class="name">
+                        <span ><b>configure_</b></span>
+                        <a href="#configure_"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>configure_(chart: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="249"
+                            class="link-to-prism">src/app/app-structural/components/result/acoustic-chart/acoustic-chart.component.ts:249</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>chart</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="configureCursor"></a>
+                    <span class="name">
+                        <span ><b>configureCursor</b></span>
+                        <a href="#configureCursor"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>configureCursor(chart: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, xAxis: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="275"
+                            class="link-to-prism">src/app/app-structural/components/result/acoustic-chart/acoustic-chart.component.ts:275</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>chart</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>xAxis</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="configureExportMenu"></a>
+                    <span class="name">
+                        <span ><b>configureExportMenu</b></span>
+                        <a href="#configureExportMenu"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>configureExportMenu(chart: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="251"
+                            class="link-to-prism">src/app/app-structural/components/result/acoustic-chart/acoustic-chart.component.ts:251</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>chart</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="configureLegend"></a>
+                    <span class="name">
+                        <span ><b>configureLegend</b></span>
+                        <a href="#configureLegend"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>configureLegend(chart: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="267"
+                            class="link-to-prism">src/app/app-structural/components/result/acoustic-chart/acoustic-chart.component.ts:267</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>chart</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="configureScrollbar"></a>
+                    <span class="name">
+                        <span ><b>configureScrollbar</b></span>
+                        <a href="#configureScrollbar"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>configureScrollbar(chart: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="283"
+                            class="link-to-prism">src/app/app-structural/components/result/acoustic-chart/acoustic-chart.component.ts:283</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>chart</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="LineSeries"></a>
+                    <span class="name">
+                        <span ><b>LineSeries</b></span>
+                        <a href="#LineSeries"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>LineSeries(chart: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, valueY: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, categoryX: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, color: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, tooltipText: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, dashed: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="176"
+                            class="link-to-prism">src/app/app-structural/components/result/acoustic-chart/acoustic-chart.component.ts:176</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Default value</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>chart</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>name</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>valueY</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>categoryX</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>color</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>tooltipText</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>dashed</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                        <code>false</code>
+                                    </td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadPerformanceChartInfo"></a>
+                    <span class="name">
+                        <span ><b>loadPerformanceChartInfo</b></span>
+                        <a href="#loadPerformanceChartInfo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>loadPerformanceChartInfo()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="41"
+                            class="link-to-prism">src/app/app-structural/components/result/acoustic-chart/acoustic-chart.component.ts:41</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngAfterViewInit"></a>
+                    <span class="name">
+                        <span ><b>ngAfterViewInit</b></span>
+                        <a href="#ngAfterViewInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngAfterViewInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="130"
+                            class="link-to-prism">src/app/app-structural/components/result/acoustic-chart/acoustic-chart.component.ts:130</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnChanges"></a>
+                    <span class="name">
+                        <span ><b>ngOnChanges</b></span>
+                        <a href="#ngOnChanges"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnChanges(Changes: <a href="https://angular.io/api/core/SimpleChanges" target="_blank">SimpleChanges</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="34"
+                            class="link-to-prism">src/app/app-structural/components/result/acoustic-chart/acoustic-chart.component.ts:34</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Changes</td>
+                                    <td>
+                                                <code><a href="https://angular.io/api/core/SimpleChanges" target="_blank" >SimpleChanges</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnDestroy"></a>
+                    <span class="name">
+                        <span ><b>ngOnDestroy</b></span>
+                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnDestroy()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="133"
+                            class="link-to-prism">src/app/app-structural/components/result/acoustic-chart/acoustic-chart.component.ts:133</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="32"
+                            class="link-to-prism">src/app/app-structural/components/result/acoustic-chart/acoustic-chart.component.ts:32</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="StepLineSeries"></a>
+                    <span class="name">
+                        <span ><b>StepLineSeries</b></span>
+                        <a href="#StepLineSeries"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>StepLineSeries(chart: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, valueY: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, categoryX: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, color: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, tooltipText: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, dashed: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="212"
+                            class="link-to-prism">src/app/app-structural/components/result/acoustic-chart/acoustic-chart.component.ts:212</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Default value</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>chart</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>name</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>valueY</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>categoryX</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>color</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>tooltipText</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>dashed</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                        <code>false</code>
+                                    </td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="amChartLogo"></a>
+                    <span class="name">
+                        <span ><b>amChartLogo</b></span>
+                        <a href="#amChartLogo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Element</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/app-structural/components/result/acoustic-chart/acoustic-chart.component.ts:25</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="amChartLogoParent"></a>
+                    <span class="name">
+                        <span ><b>amChartLogoParent</b></span>
+                        <a href="#amChartLogoParent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>HTMLInputElement</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/app-structural/components/result/acoustic-chart/acoustic-chart.component.ts:26</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="baseColor"></a>
+                    <span class="name">
+                        <span ><b>baseColor</b></span>
+                        <a href="#baseColor"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>am4core.color(&quot;#778d98&quot;)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/app-structural/components/result/acoustic-chart/acoustic-chart.component.ts:23</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="baseFont"></a>
+                    <span class="name">
+                        <span ><b>baseFont</b></span>
+                        <a href="#baseFont"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&quot;UniversForSchueco-530Med&quot;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/app-structural/components/result/acoustic-chart/acoustic-chart.component.ts:22</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="chart"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>chart</b></span>
+                        <a href="#chart"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>am4charts.XYChart</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/app-structural/components/result/acoustic-chart/acoustic-chart.component.ts:21</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, ElementRef, Input, NgZone, OnChanges, OnInit, SimpleChanges } from &quot;@angular/core&quot;;
+import { TranslateService } from &quot;@ngx-translate/core&quot;;
+import { _ } from &quot;@biesbjerg/ngx-translate-extract/dist/utils/utils&quot;;
+import * as am4core from &quot;@amcharts/amcharts4/core&quot;;
+import * as am4charts from &quot;@amcharts/amcharts4/charts&quot;;
+import am4themes_dark from &quot;@amcharts/amcharts4/themes/dark&quot;;
+import am4themes_animated from &quot;@amcharts/amcharts4/themes/animated&quot;;
+import { BpsUnifiedModel } from &quot;src/app/app-common/models/bps-unified-model&quot;;
+am4core.useTheme(am4themes_dark);
+am4core.useTheme(am4themes_animated);
+
+@Component({
+  selector: &quot;app-acoustic-chart&quot;,
+  templateUrl: &quot;./acoustic-chart.component.html&quot;,
+  styleUrls: [&quot;./acoustic-chart.component.css&quot;],
+})
+
+export class AcousticChartComponent implements OnInit, OnChanges {
+  @Input() ChartDataList: any[];
+  @Input() unified3DModel: BpsUnifiedModel;
+  private chart: am4charts.XYChart;
+  baseFont &#x3D; &quot;UniversForSchueco-530Med&quot;;
+  baseColor &#x3D; am4core.color(&quot;#778d98&quot;);
+
+  amChartLogo: Element;
+  amChartLogoParent: HTMLInputElement;
+
+  constructor(private zone: NgZone, private translate: TranslateService, private _elementRef: ElementRef) {
+    this.amChartLogoParent &#x3D; this._elementRef.nativeElement;
+  }
+
+  ngOnInit(): void { }
+
+  ngOnChanges(Changes: SimpleChanges): void {
+    if (Changes) {
+      if (Changes.unified3DModel &amp;&amp; Changes.unified3DModel.currentValue) {
+        this.loadPerformanceChartInfo();
+      }
+    }
+  }
+  loadPerformanceChartInfo() {
+    // Themes begin
+    am4core.useTheme(am4themes_dark);
+    am4core.useTheme(am4themes_animated);
+    // Themes end
+
+    // Create chart instance
+    var chart &#x3D; am4core.create(&quot;chartdiv&quot;, am4charts.XYChart);
+    let colors &#x3D; [&quot;#007496&quot;, &quot;#0084aa&quot;, &quot;#00a2d1&quot;, &quot;#00c0f8&quot;, &quot;#f18700&quot;, &quot;#696969&quot;, &quot;#81D8D0&quot;];
+
+    // Export
+    this.configureExportMenu(chart);
+    // Data for both series
+    var data &#x3D; this.ChartDataList;
+
+    chart.numberFormatter.numberFormat &#x3D; &quot;#&quot;;
+    chart.maskBullets &#x3D; false;
+    chart.fontSize &#x3D; 12;
+    chart.fontFamily &#x3D; this.baseFont;
+    chart.tooltipContainer.fontSize &#x3D; 12;
+
+    /* Create axes */
+    /* Category axis  ---------------------------------------*/
+    var categoryAxis &#x3D; chart.xAxes.push(new am4charts.CategoryAxis());
+    categoryAxis.dataFields.category &#x3D; &quot;frequency&quot;;
+    categoryAxis.title.text &#x3D; this.translate.instant(_(&#x27;result.frequency&#x27;)) + &quot; (Hz)&quot;;
+    categoryAxis.title.fill &#x3D; this.baseColor;
+    categoryAxis.minX &#x3D; 0;
+    categoryAxis.maxX &#x3D; 5000;
+    categoryAxis.fontSize &#x3D; 12;
+    categoryAxis.fontFamily &#x3D; this.baseFont;
+    categoryAxis.renderer.minGridDistance &#x3D; 30;
+    categoryAxis.cursorTooltipEnabled &#x3D; true;
+    categoryAxis.renderer.fullWidthTooltip &#x3D; true;
+    categoryAxis.renderer.labels.template.fill &#x3D; this.baseColor;
+    categoryAxis.tooltip.background.fillOpacity &#x3D; 0.8;
+    categoryAxis.tooltip.background.cornerRadius &#x3D; 5;
+
+    /* Create value axis  ---------------------------------------*/
+    var valueAxis &#x3D; chart.yAxes.push(new am4charts.ValueAxis());
+    //valueAxis.logarithmic &#x3D; true;
+    valueAxis.title.text &#x3D; this.translate.instant(_(&#x27;result.sound-transmission-loss&#x27;)) + &quot; (dB)&quot;;
+    valueAxis.title.fill &#x3D; this.baseColor;
+    valueAxis.min &#x3D; 0;
+    valueAxis.max &#x3D; 60;
+    valueAxis.strictMinMax &#x3D; true;
+    valueAxis.fontSize &#x3D; 12;
+    valueAxis.fontFamily &#x3D; this.baseFont;
+    valueAxis.renderer.labels.template.fill &#x3D; this.baseColor;
+    valueAxis.tooltip.background.fillOpacity &#x3D; 0.8;
+    valueAxis.tooltip.background.cornerRadius &#x3D; 5;
+
+    //lineSeries ---------------------------------------
+    let tooltipFormat &#x3D; &quot;[font-family: UniversForSchueco-530Med; font-size: 10px; width: 150px]{categoryX}[/] (Hz)\n [/][font-family: UniversForSchueco-530Med; font-size: 10px; width: 150px]{valueY}[/] (dB)[/]&quot;;
+    this.LineSeries(chart, &#x27;TL&#x27;, &#x27;opening0&#x27;, &#x27;frequency&#x27;, colors[4], tooltipFormat);
+    // this.LineSeries(chart, &#x27;1% Opening&#x27;, &#x27;opening1&#x27;, &#x27;frequency&#x27;, colors[3], tooltipFormat);
+    // this.LineSeries(chart, &#x27;2% Opening&#x27;, &#x27;opening2&#x27;, &#x27;frequency&#x27;, colors[2], tooltipFormat);
+    // this.LineSeries(chart, &#x27;5% Opening&#x27;, &#x27;opening5&#x27;, &#x27;frequency&#x27;, colors[1], tooltipFormat);
+    // this.LineSeries(chart, &#x27;100% Opening&#x27;, &#x27;opening100&#x27;, &#x27;frequency&#x27;, colors[0], tooltipFormat);
+
+    /* Create series */
+    this.ColumnSeries(chart, &#x27;Deficiencies&#x27;, &#x27;deficiencies&#x27;, &#x27;frequency&#x27;, colors[5], tooltipFormat);
+
+    /* lc Dashed lines */
+    //this.LineSeries(chart, &#x27;NC&#x27;, &#x27;nc&#x27;, &#x27;frequency&#x27;, colors[6], tooltipFormat, true);
+    this.LineSeries(chart, &#x27;NC&#x27;, &#x27;nc&#x27;, &#x27;frequency&#x27;, colors[6], tooltipFormat, true);
+
+    //data ---------------------------------------
+    chart.data &#x3D; data;
+
+    //legend ---------------------------------------
+    this.configureLegend(chart);
+
+    //cursor ---------------------------------------
+    this.configureCursor(chart, categoryAxis);
+
+    //scrollbar Y &amp; X ---------------------------------------
+    this.configureScrollbar(chart);
+
+    setTimeout(function () {
+      this.amChartLogo &#x3D; document.querySelectorAll(&#x27;title[id*&#x3D;&quot;id-&quot;]&#x27;);
+      this.amChartLogo.forEach(element &#x3D;&gt; {
+        if (element.innerHTML &#x3D;&#x3D;&#x3D; &quot;Chart created using amCharts library&quot;) {
+          this.amChartLogoParent &#x3D; element.parentNode;
+          this.amChartLogoParent.style.display &#x3D; &quot;none&quot;;
+        }
+      });
+    }, 500);
+  }
+  ngAfterViewInit() {
+    this.loadPerformanceChartInfo();
+  }
+  ngOnDestroy() {
+    this.zone.runOutsideAngular(() &#x3D;&gt; {
+      if (this.chart) {
+        this.chart.dispose();
+      }
+    });
+  }
+  ColumnSeries(chart: any, name: string, valueY: string, categoryX: string, color: string, tooltipText: string): any {
+    var columnSeries &#x3D; chart.series.push(new am4charts.ColumnSeries());
+    columnSeries.name &#x3D; name;
+    columnSeries.dataFields.valueY &#x3D; valueY;
+    columnSeries.dataFields.categoryX &#x3D; categoryX;
+    columnSeries.stroke &#x3D; am4core.color(color);
+    columnSeries.fill &#x3D; am4core.color(color);
+    //[#fff font-size: 12px]{name} in {categoryX}:\n[/][#fff font-size: 0px]{valueY}[/] [#fff]{additional}[/]
+    //columnSeries.columns.template.tooltipText &#x3D; tooltipText;
+    columnSeries.columns.template.propertyFields.fillOpacity &#x3D; &quot;fillOpacity&quot;;
+    columnSeries.columns.template.propertyFields.stroke &#x3D; &quot;stroke&quot;;
+    columnSeries.columns.template.propertyFields.strokeWidth &#x3D; &quot;strokeWidth&quot;;
+    columnSeries.columns.template.propertyFields.strokeDasharray &#x3D; &quot;columnDash&quot;;
+    columnSeries.propertyFields.strokeDasharray &#x3D; &quot;lineDash&quot;;
+    columnSeries.showOnInit &#x3D; true;
+
+    // Drop-shaped tooltips
+    columnSeries.tooltipText &#x3D; tooltipText;
+    columnSeries.tooltip.background.cornerRadius &#x3D; 5;
+    columnSeries.tooltip.background.strokeOpacity &#x3D; 0;
+    columnSeries.tooltip.background.fillOpacity &#x3D; 0.9;
+    columnSeries.tooltip.pointerOrientation &#x3D; &quot;horizontal&quot;;
+    columnSeries.tooltip.label.minWidth &#x3D; 40;
+    columnSeries.tooltip.label.minHeight &#x3D; 20;
+    columnSeries.tooltip.label.textAlign &#x3D; &quot;left&quot;;
+    columnSeries.tooltip.label.textValign &#x3D; &quot;middle&quot;;
+
+    var columnTemplate &#x3D; columnSeries.columns.template;
+    columnTemplate.strokeWidth &#x3D; 1;
+    columnTemplate.strokeOpacity &#x3D; 1;
+    columnTemplate.maxWidth &#x3D; 20;
+
+    let distanceState &#x3D; columnSeries.columns.template.states.create(&quot;hover&quot;);
+    distanceState.properties.fillOpacity &#x3D; 0.9;
+    return columnSeries;
+  }
+  LineSeries(chart: any, name: string, valueY: string, categoryX: string, color: string, tooltipText: string, dashed: boolean &#x3D; false) {
+    var lineSeries &#x3D; chart.series.push(new am4charts.LineSeries());
+    lineSeries.name &#x3D; name;
+    lineSeries.dataFields.valueY &#x3D; valueY;
+    lineSeries.dataFields.categoryX &#x3D; categoryX;
+    lineSeries.stroke &#x3D; am4core.color(color);
+    lineSeries.fill &#x3D; am4core.color(color);
+    lineSeries.strokeWidth &#x3D; 1;
+    lineSeries.propertyFields.strokeDasharray &#x3D; &quot;lineDash&quot;;
+    lineSeries.showOnInit &#x3D; true;
+    if (dashed) {
+      // lineSeries.fillOpacity &#x3D; .1;
+      // lineSeries.tensionX &#x3D; 1;
+      lineSeries.noRisers &#x3D; true;
+      lineSeries.strokeDasharray &#x3D; &quot;2,3&quot;;
+    }
+
+    // Drop-shaped tooltips
+    lineSeries.tooltipText &#x3D; tooltipText;
+    lineSeries.tooltip.background.cornerRadius &#x3D; 5;
+    lineSeries.tooltip.background.strokeOpacity &#x3D; 0;
+    lineSeries.tooltip.background.fillOpacity &#x3D; 0.9;
+    lineSeries.tooltip.pointerOrientation &#x3D; &quot;horizontal&quot;;
+    lineSeries.tooltip.label.minWidth &#x3D; 40;
+    lineSeries.tooltip.label.minHeight &#x3D; 20;
+    lineSeries.tooltip.label.textAlign &#x3D; &quot;left&quot;;
+    lineSeries.tooltip.label.textValign &#x3D; &quot;middle&quot;;
+
+    var bullet &#x3D; lineSeries.bullets.push(new am4charts.Bullet());
+    bullet.fill &#x3D; am4core.color(color); // tooltips grab fill from parent by default
+    bullet.tooltipText &#x3D; tooltipText
+    var circle &#x3D; bullet.createChild(am4core.Circle);
+    circle.radius &#x3D; 3;
+    circle.fill &#x3D; am4core.color(color);//&quot;#30303d&quot;
+    circle.strokeWidth &#x3D; 1;
+  }
+  StepLineSeries(chart: any, name: string, valueY: string, categoryX: string, color: string, tooltipText: string, dashed: boolean &#x3D; false) {
+    // Create series
+    var lineSeries &#x3D; chart.series.push(new am4charts.StepLineSeries());
+    lineSeries.name &#x3D; name;
+    lineSeries.dataFields.valueY &#x3D; valueY;
+    lineSeries.dataFields.categoryX &#x3D; categoryX;
+    lineSeries.stroke &#x3D; am4core.color(color);
+    lineSeries.fill &#x3D; am4core.color(color);
+    lineSeries.strokeWidth &#x3D; 1;
+    lineSeries.propertyFields.strokeDasharray &#x3D; &quot;lineDash&quot;;
+    lineSeries.showOnInit &#x3D; true;
+    if (dashed) {
+      lineSeries.fillOpacity &#x3D; .1;
+      lineSeries.tensionX &#x3D; 1;
+      lineSeries.noRisers &#x3D; true;
+      lineSeries.strokeDasharray &#x3D; &quot;2,2&quot;;
+    }
+
+    // Drop-shaped tooltips
+    lineSeries.tooltipText &#x3D; tooltipText;
+    lineSeries.tooltip.background.cornerRadius &#x3D; 5;
+    lineSeries.tooltip.background.strokeOpacity &#x3D; 0;
+    lineSeries.tooltip.background.fillOpacity &#x3D; 0.9;
+    lineSeries.tooltip.pointerOrientation &#x3D; &quot;horizontal&quot;;
+    lineSeries.tooltip.label.minWidth &#x3D; 40;
+    lineSeries.tooltip.label.minHeight &#x3D; 20;
+    lineSeries.tooltip.label.textAlign &#x3D; &quot;left&quot;;
+    lineSeries.tooltip.label.textValign &#x3D; &quot;middle&quot;;
+
+    var bullet &#x3D; lineSeries.bullets.push(new am4charts.Bullet());
+    bullet.fill &#x3D; am4core.color(color); // tooltips grab fill from parent by default
+    bullet.tooltipText &#x3D; tooltipText
+    var circle &#x3D; bullet.createChild(am4core.Circle);
+    circle.radius &#x3D; 3;
+    circle.fill &#x3D; am4core.color(color);//&quot;#30303d&quot;
+    circle.strokeWidth &#x3D; 1;
+  }
+  configure_(chart: any) {
+  }
+  configureExportMenu(chart: any) {
+    //https://www.amcharts.com/docs/v4/concepts/exporting/
+    chart.exporting.menu &#x3D; new am4core.ExportMenu();
+    chart.exporting.menu.align &#x3D; &quot;right&quot;;
+    chart.exporting.menu.verticalAlign &#x3D; &quot;top&quot;;
+    chart.exporting.menu.items &#x3D; [
+      {
+        &quot;label&quot;: &quot;&amp;#8681;&quot;,
+        &quot;menu&quot;: [
+          { &quot;type&quot;: &quot;jpg&quot;, &quot;label&quot;: &quot;Jpeg&quot; },
+          { &quot;type&quot;: &quot;xlsx&quot;, &quot;label&quot;: &quot;Xlsx&quot; },
+          { &quot;type&quot;: &quot;print&quot;, &quot;label&quot;: &quot;PDF&quot; }
+        ]
+      }
+    ];
+  }
+  configureLegend(chart: any) {
+    chart.legend &#x3D; new am4charts.Legend();
+    chart.legend.labels.template.text &#x3D; &quot;[bold {color}]{name}[/]&quot;;
+    chart.legend.fontSize &#x3D; 13;
+    chart.legend.fontFamily &#x3D; this.baseFont;
+    chart.legend.labels.template.fill &#x3D; am4core.color(&#x27;#778d98&#x27;);
+    chart.legend.valueLabels.template.fill &#x3D; am4core.color(&#x27;#778d98&#x27;);
+  }
+  configureCursor(chart: any, xAxis: any) {
+    chart.cursor &#x3D; new am4charts.XYCursor();
+    chart.cursor.fullWidthLineX &#x3D; true;
+    chart.cursor.xAxis &#x3D; xAxis;
+    chart.cursor.lineX.strokeOpacity &#x3D; 0;
+    chart.cursor.lineX.fill &#x3D; this.baseColor;
+    chart.cursor.lineX.fillOpacity &#x3D; 0.1;
+  }
+  configureScrollbar(chart: any) {
+    // Create vertical scrollbar and place it before the value axis
+    // chart.scrollbarY &#x3D; new am4core.Scrollbar();
+    // chart.scrollbarY.toBack();
+    // var scrollbarX &#x3D; new am4core.Scrollbar();
+    // scrollbarX.marginBottom &#x3D; 20;
+    // scrollbarX.marginRight &#x3D; 20;
+    // chart.scrollbarX &#x3D; scrollbarX;
+
+    // Create a horizontal scrollbar with previe and place it underneath the date axis
+    // chart.scrollbarX &#x3D; new am4charts.XYChartScrollbar();
+    // chart.scrollbarX.s series.push(series);
+    // chart.scrollbarX.parent &#x3D; chart.bottomAxesContainer;
+    // valueAxis.start &#x3D; 0.79;
+    // valueAxis.keepSelection &#x3D; true;
+  }
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div id&#x3D;&quot;chartdiv&quot; style&#x3D;&quot;width: 100%; height: 100%&quot;&gt;&lt;/div&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./acoustic-chart.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">body {
+    font-family: UniversForSchueco-530Med !important; 
+}
+
+.ant-calendar-picker-container, .ant-statistic-content, .ant-steps-item-icon, .ant-time-picker-panel {
+    font-family: UniversForSchueco-530Med !important; 
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div id="chartdiv" style="width: 100%; height: 100%"></div></div>'
+    var COMPONENTS = [{'name': 'AcousticChartComponent', 'selector': 'app-acoustic-chart'},{'name': 'AcousticComponent', 'selector': 'app-acoustic'},{'name': 'AcousticPerformanceComponent', 'selector': 'app-acoustic-performance'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AutocompleteComponent', 'selector': 'app-autocomplete'},{'name': 'ConfigureComponent', 'selector': 'app-configure'},{'name': 'ContactTableComponent', 'selector': 'app-contact-table'},{'name': 'ContentLayoutComponent', 'selector': 'app-content-layout'},{'name': 'DisclaimerComponent', 'selector': 'app-disclaimer'},{'name': 'DoorLeafActiveComponent', 'selector': 'app-door-leaf-active'},{'name': 'DoorLeafPassiveComponent', 'selector': 'app-door-leaf-passive'},{'name': 'DoubleVentTableComponent', 'selector': 'app-double-vent-table'},{'name': 'FaqComponent', 'selector': 'app-faq'},{'name': 'FrameCombinationTableComponent', 'selector': 'app-frame-combination-table'},{'name': 'FramingComponent', 'selector': 'app-framing'},{'name': 'FramingCustomComponent', 'selector': 'app-framing-custom'},{'name': 'GlassPanelComponent', 'selector': 'app-glass-panel'},{'name': 'GlassPanelTableComponent', 'selector': 'app-glass-panel-table'},{'name': 'HandleColorComponent', 'selector': 'app-handle-color'},{'name': 'HingeTypeComponent', 'selector': 'app-hinge-type'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'HomeExpandablePanelComponent', 'selector': 'app-home-expandable-panel'},{'name': 'IframeWrapperComponent', 'selector': 'app-iframe-wrapper'},{'name': 'InsideHandleComponent', 'selector': 'app-inside-handle'},{'name': 'InterlockProfileComponent', 'selector': 'app-interlock-profile'},{'name': 'LeftAcousticPanelComponent', 'selector': 'app-left-acoustic-panel'},{'name': 'LeftConfigureComponent', 'selector': 'app-left-configure'},{'name': 'LeftPanelComponent', 'selector': 'app-left-panel'},{'name': 'LeftReportComponent', 'selector': 'app-left-report'},{'name': 'LeftResultComponent', 'selector': 'app-left-result'},{'name': 'LeftStructuralPanelComponent', 'selector': 'app-left-structural-panel'},{'name': 'LeftThermalPanelComponent', 'selector': 'app-left-thermal-panel'},{'name': 'LibraryCustomComponent', 'selector': 'app-library-custom'},{'name': 'LoadComponent', 'selector': 'app-load'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MainLayoutComponent', 'selector': 'app-main-layout'},{'name': 'MiddlePanelComponent', 'selector': 'app-middle-panel'},{'name': 'MigrationComponent', 'selector': 'app-migration'},{'name': 'ModelCustomComponent', 'selector': 'app-model-custom'},{'name': 'MullionDepthTableComponent', 'selector': 'app-mullion-depth-table'},{'name': 'MullionTableComponent', 'selector': 'app-mullion-table'},{'name': 'NavLayoutComponent', 'selector': 'app-nav-layout'},{'name': 'NotificationCustomComponent', 'selector': 'app-notification-custom'},{'name': 'OperabilityComponent', 'selector': 'app-operability'},{'name': 'OrderProgressComponent', 'selector': 'app-order-progress'},{'name': 'OrdersComponent', 'selector': 'app-orders'},{'name': 'OuterTableComponent', 'selector': 'app-outer-table'},{'name': 'OutsideHandleComponent', 'selector': 'app-outside-handle'},{'name': 'ProfileColorComponent', 'selector': 'app-profile-color'},{'name': 'ReinforcementProfileComponent', 'selector': 'app-reinforcement-profile'},{'name': 'ReportGeneralComponent', 'selector': 'app-report-general'},{'name': 'ResultGeneralComponent', 'selector': 'app-result-general'},{'name': 'RightConfigureComponent', 'selector': 'app-right-configure'},{'name': 'RightReportComponent', 'selector': 'app-right-report'},{'name': 'RightResultComponent', 'selector': 'app-right-result'},{'name': 'SillProfileBottomComponent', 'selector': 'app-sill-profile-bottom'},{'name': 'SillProfileFixedComponent', 'selector': 'app-sill-profile-fixed'},{'name': 'SlidingUnitComponent', 'selector': 'app-sliding-unit'},{'name': 'SpacerTypeComponent', 'selector': 'app-spacer-type'},{'name': 'StructuralComponent', 'selector': 'app-structural'},{'name': 'StructuralProfileTableComponent', 'selector': 'app-structural-profile-table'},{'name': 'StructuralTableComponent', 'selector': 'app-structural-table'},{'name': 'ThermalComponent', 'selector': 'app-thermal'},{'name': 'TooltipCustomComponent', 'selector': 'app-tooltip-custom'},{'name': 'VentTableComponent', 'selector': 'app-vent-table'},{'name': 'ViewerInfillComponent', 'selector': 'app-viewer-infill'}];
+    var DIRECTIVES = [{'name': 'CheckPermissionsDirective', 'selector': '[appCheckPermissions]'}];
+    var ACTUAL_COMPONENT = {'name': 'AcousticChartComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'AcousticChartComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
