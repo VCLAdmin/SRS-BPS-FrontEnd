@@ -1514,8 +1514,8 @@ export class UnifiedModelService {
       this.handleDataList = JSON.parse(localStorage.getItem('DoorHandleArticles_'));
     } else {
       this.fService.GetDoorHandleArticles().subscribe(data => {
-        localStorage.setItem('DoorHandleArticles_', data);
-        this.handleDataList = JSON.parse(data);
+        localStorage.setItem('DoorHandleArticles_', JSON.stringify(data));
+        this.handleDataList = data;
       });
     }
   }
