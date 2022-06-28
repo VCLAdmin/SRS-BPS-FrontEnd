@@ -67,24 +67,21 @@ export class LoginComponent implements OnInit, OnDestroy {
           this.commonService.setUserGuid(user.UserGuid);
           this.loginService.currentUser = user; // are we using this code ???
           currentAccount.User = user;
-      //
-      // this.commonService.resetUser(JSON.stringify(currentAccount.User));
-      // this.showLoader = false;
-      // setTimeout(()=>{
-      //   console.log('Redirect to HOME');
-      //   this.router.navigate(['/home/'])
-      // },500);
-      //
-          this.loginService.ValidateHash(currentAccount).pipe(takeUntil(this.destroy$)).subscribe((isValid: boolean) => {
-            if (isValid) {
-              this.commonService.resetUser(JSON.stringify(currentAccount.User));
-              this.showLoader = false;
-              this.router.navigate(['/home']);
-              //isAuthentificated = true;
-            }
-          }, error => {
-            this.showLoader = false;
-          });
+        //
+          this.commonService.resetUser(JSON.stringify(currentAccount.User));
+          this.showLoader = false;
+          this.router.navigate(['/home/'])
+        //
+          // this.loginService.ValidateHash(currentAccount).pipe(takeUntil(this.destroy$)).subscribe((isValid: boolean) => {
+          //   if (isValid) {
+          //     this.commonService.resetUser(JSON.stringify(currentAccount.User));
+          //     this.showLoader = false;
+          //     this.router.navigate(['/home']);
+          //     //isAuthentificated = true;
+          //   }
+          // }, error => {
+          //   this.showLoader = false;
+          // });
         } else {
           this.showLoader = false
           this.username = '';

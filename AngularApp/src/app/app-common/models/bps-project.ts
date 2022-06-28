@@ -22,4 +22,5 @@ export class BpsProject {
     Longitude: number = 0;
     Latitude: number = 0;
     PostalCode: string = '';
+    OrderPlacedCreatedOn: Date = new Date();
 }

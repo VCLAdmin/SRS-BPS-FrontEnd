@@ -91,15 +91,15 @@ export class AuthService {
   }
 
   login(username: string, password: string): Observable<boolean> {
-    const requestBody = 'grant_type=password&username=' + username + '&password=' + password;
-    // const requestBody =
-    // {
-    //   UserName: username,
-    //   Password: password,
-    //   Language: "en-US",
-    //  User: null
-    // };
-    return this.http.post<any>(this.appConstantService.APP_DOMAIN + "/Token", requestBody)
+    //const requestBody = 'grant_type=password&username=' + username + '&password=' + password;
+    const requestBody =
+    {
+      UserName: username,
+      Password: password,
+      Language: "en-US",
+      User: null
+    };
+    return this.http.post<any>(this.appConstantService.APP_DOMAIN + "api/Account/login", requestBody)
     .pipe(map(data => {
         this.setAuthorizationToken(data);
         // this.setPCToken().pipe(first()).subscribe((result: any)=>{
