@@ -183,6 +183,11 @@ export class SlidingUnitComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   ngAfterViewInit() {
+
+ /**
+ * This is observable of Unified Model which will calls when the unified model has changed anywhere in the application
+ * and will set the values for the input fields 
+ */
     this.umService.obsUnifiedModel.pipe(takeUntil(this.destroy$)).subscribe(
       response => {
         if (response) {
@@ -200,6 +205,11 @@ export class SlidingUnitComponent implements OnInit, OnChanges, OnDestroy {
           }  
         }
       });
+
+ /**
+ * This is observable of Unified Problem which will calls when the unified Problem  has changed anywhere in the application 
+ * and will set the values for the input fields
+ */
     this.umService.obsUnifiedProblem.pipe(takeUntil(this.destroy$)).subscribe(
       response => {
         if (response) {
@@ -211,6 +221,11 @@ export class SlidingUnitComponent implements OnInit, OnChanges, OnDestroy {
           }, 100);
         }
       });
+
+ /**
+ * This is observable of Pop outs of all the child components is set to the variable which is used to open and close the pop out
+ *
+ */
     this.cpService.obsPopout.pipe(takeUntil(this.destroy$)).subscribe(
       response => {
         if (response.panelsModule === PanelsModule.FrameCombination) this.isFrameCombinationOpened = response.isOpened;
@@ -220,6 +235,10 @@ export class SlidingUnitComponent implements OnInit, OnChanges, OnDestroy {
         else if (response.panelsModule === PanelsModule.OutsideHandle) this.isOutsideHandleOpened = response.isOpened;
       });
 
+ /**
+ * This is observable of Operability panel to set the value of isOperabilityPanelactive when the panel is collapse or expanded from the left configure
+ *
+ */
     this.umService.obsLoadSidePanel.pipe(takeUntil(this.destroy$)).subscribe(
       response => {
         if (response && response.panelsModule > -1 && response.finishedLoading) {
@@ -229,6 +248,10 @@ export class SlidingUnitComponent implements OnInit, OnChanges, OnDestroy {
       }
     );
 
+ /**
+ * This observable subscription is called whenever load Json finished in the 3d model to hide the loader
+ *
+ */
     this.iframeService.sendChildEventObs.pipe(takeUntil(this.destroy$)).subscribe((response) => {
              if(response) {
                switch (response.eventType) {
@@ -244,6 +267,11 @@ export class SlidingUnitComponent implements OnInit, OnChanges, OnDestroy {
   }
 
 
+ /**
+ * This function is to load the values of Inside Handle, Outside Handle, Slide Option, Track Type and Moving Vent 
+ *  
+ * on Page load and  on Page refresh
+ */
   private loadInputValues() {
     setTimeout(() => {
       this.insideHandle = this.umService.get_InsideHandleForSlidingDoors();
@@ -423,6 +451,11 @@ export class SlidingUnitComponent implements OnInit, OnChanges, OnDestroy {
     }, 100);
   }
 
+ /**
+ * This function is to set all the values of Sliding unit side panel and to load the model in the 3D viewer
+ *  
+ *
+ */
   reloadInputValues() {
     this.umService.doLoadJSON = false;
     let ds = this.unified3DModel.ModelInput.Geometry.SlidingDoorSystems;
@@ -648,7 +681,11 @@ export class SlidingUnitComponent implements OnInit, OnChanges, OnDestroy {
     }
   }
 
-
+ /**
+ * This function is to select the System type for Product type Facade such as AWS ADS ASE 
+ * @param {string} popup  based up on this popup value the respective side panels will open 
+ * 
+ */
   onOpenIFramePopout(popup: string): void {
     if (popup === 'FrameCombination') this.cpService.setPopout(true, PanelsModule.FrameCombination);
     else if (popup === 'OuterFrame') this.cpService.setPopout(true, PanelsModule.OuterFrame);
@@ -660,10 +697,20 @@ export class SlidingUnitComponent implements OnInit, OnChanges, OnDestroy {
     else if (popup === 'OutsideHandle') this.cpService.setPopout(true, PanelsModule.OutsideHandle);
   }
 
+ /**
+ * This function is called whenever user changes the Track Type 
+ * @param {any} event  this value is set to the moving vent so that it will be selected on track type change. 
+ * 
+ */
   onMovingVentChange(event: any) {
     this.movingVent = event;
   }
 
+ /**
+ * This function is called whenever user changes the Track Type 
+ * @param {any} event  this value is set to the track type and will be selected in the left panel and the model will be loaded in the 3D Viewer 
+ * 
+ */
   onTrackTypeChange(event: any) {
     this.trackType = event;
     if(this.trackType !== null && this.trackType !== undefined) {
@@ -763,7 +810,11 @@ export class SlidingUnitComponent implements OnInit, OnChanges, OnDestroy {
   }
 
 
-
+ /**
+ * This function is called whenever user changes the Slide Option
+ * @param {any} event  this value is set to the slide option and will be selected in the left panel and the model will be loaded in the 3D Viewer 
+ * 
+ */
   onSlideOptionChange(event: any) { 
    this.slideOption = event;
 
@@ -771,10 +822,19 @@ export class SlidingUnitComponent implements OnInit, OnChanges, OnDestroy {
 
   onSelectOperationType(event: any){;
   }
-  
+
+ /**
+ * This function is called to load JSON for the 3D Viewer to display the model 
+ * @param {any} data is the unified model which will pass to teh 3D Modeler to display the model in the viewer.  
+ */
   loadJSONService(data: any) {
     this.iframeService.loadJSON(this.iframeEvent, 'loadJSON', data);
   }
+
+ /**
+ * This function will return the boolean value to display the Outside Handle option in the left panel 
+ * @returns {boolean} result this will return true or false based up on the track type in order to display the outside handle option in the left panel.
+ */
   isMissingHandleRecees(){
     let result: boolean = false;
     if(this.unified3DModel && this.unified3DModel.ModelInput && this.unified3DModel.ModelInput.Geometry 

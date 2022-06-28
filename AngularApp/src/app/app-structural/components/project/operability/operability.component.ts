@@ -2362,7 +2362,7 @@ export class OperabilityComponent implements OnInit, OnChanges, OnDestroy {
 
  /**
  * This function is to select the System type for Product type Facade such as AWS ADS ASE 
- * @param {number} popup  based up on this popup value the respective side panels will open 
+ * @param {string} popup  based up on this popup value the respective side panels will open 
  * 
  */
   onOpenIFramePopout(popup: string): void {
