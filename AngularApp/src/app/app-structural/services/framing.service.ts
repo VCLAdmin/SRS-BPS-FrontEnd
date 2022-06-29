@@ -36,9 +36,9 @@ export class FramingService {
     let url: string = this.appConstantService.APP_DOMAIN + "api/Article/GetFacadeSpacer";
     return this.http.get<string>(url);
   }
-  getADSArticlesList(systemName: string): Observable<string> {
+  getADSArticlesList(systemName: string): Observable<any> {
     let url: string = this.appConstantService.APP_DOMAIN + "api/Article/GetArticlesForSystem/" + systemName;
-    return this.http.get<string>(url);
+    return this.http.get<any>(url);
   }
   getASEArticlesList(systemName: string): Observable<string> { 
     let url: string = this.appConstantService.APP_DOMAIN + "api/Article/GetArticlesForSystem/" + systemName;   // sliding data not in the db

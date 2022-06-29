@@ -1536,8 +1536,8 @@ export class UnifiedModelService {
       this.adsArticlesList = JSON.parse(localStorage.getItem('ADSArticlesList_'));
     } else {
       this.fService.getADSArticlesList("ADS").subscribe(data => {
-        localStorage.setItem('ADSArticlesList_', data);
-        this.adsArticlesList = JSON.parse(data);
+        localStorage.setItem('ADSArticlesList_', JSON.stringify(data));
+        this.adsArticlesList = data;
       });
     }
 

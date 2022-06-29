@@ -180,8 +180,8 @@ export class OutsideHandleComponent implements OnInit, OnDestroy, AfterViewInit 
         this.fillData(localStorage.getItem('SlidingDoorArticles_' + system));
       } else {
         this.fService.GetDoorHandleArticles().pipe(takeUntil(this.destroy$)).subscribe(data => {
-          localStorage.setItem('SlidingDoorArticles_' + system, data);
-          this.fillData(data);
+          localStorage.setItem('SlidingDoorArticles_' + system, JSON.stringify(data));
+          this.fillData(JSON.stringify(data));
         })
       }
     }
