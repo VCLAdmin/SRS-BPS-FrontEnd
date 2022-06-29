@@ -216,14 +216,14 @@ export class Section {
     E: number;                      // Optional, for future use
     alpha: number;                  // Optional, for future use
 
-    // Woyp: number;
-    // Woyn: number;
-    // Wozp: number;
-    // Wozn: number;
-    // Wuyp: number;
-    // Wuyn: number;
-    // Wuzp: number;
-    // Wuzn: number;
+    Woyp: number;
+    Woyn: number;
+    Wozp: number;
+    Wozn: number;
+    Wuyp: number;
+    Wuyn: number;
+    Wuzp: number;
+    Wuzn: number;
 
     gammaM: number;
 
