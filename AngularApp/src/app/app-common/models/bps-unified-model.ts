@@ -161,6 +161,8 @@ export class GlazingSystem {
     RwC: number;
     RwCtr: number;
     PSIValue: number;
+
+    Thickness: number;
 }
 export class PanelSystem {
     PanelSystemID: number;
@@ -580,6 +582,10 @@ export class OperabilitySystem {
     InsideHandleColor: string;
     // HandlePosition: number;
     // HandleColor: string;
+
+    InsertOuterFrameDepth: number;
+    InsertWindowSystem: string;
+
     PickerIndex: number; // Angular Use only
 }
 export class SRSProblemSetting {

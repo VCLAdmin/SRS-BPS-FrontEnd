@@ -1,9 +1,10 @@
+import { number, string } from '@amcharts/amcharts4/core';
 import { Point } from './bps-unified-model';
 
 export class FrameSeg{
     FrameSegID: number;
-    PointA: { X: number, Y: number};
-    PointB: { X: number, Y: number};
+    PointA: { PointID: number, X: number, Y: number};
+    PointB: { PointID: number, X: number, Y: number};
     ArticleCombo: string;
 }
 export class ThermalFrame {
@@ -35,6 +36,29 @@ export class ThermalFacadeMember
     FacadeFrameID: number;
     Width: number;
 }
+
+export class ThermalSlidingDoorFrame // SlidingDoor Systems for Thermal Solver, added 2022.03.02
+{
+    SDFrameSegments: ThermalSDFrameSegment[];
+    ThermalFrameID: number;
+    Area: number;
+    Uf: number;
+    Key: string;
+    SlidingDoorFrameID: number;
+}
+
+export class ThermalSDFrameSegment // SlidingDoor Systems for Thermal Solver, added 2022.03.02
+{
+    ArticleCombo: string[];
+    Area: number;
+    Uf: number;
+    Key: string
+    HeatLoss: number;
+    Width: number;
+    PointA: { PointID: number, X: number, Y: number};
+    PointB: { PointID: number, X: number, Y: number};
+}
+
 export class ThermalUIFacadeGlassEdge
 {
     GlassID: number[];
@@ -115,7 +139,10 @@ export class GlassGeometricInfo{
 export class ThermalOutput{
     ThermalFrames: ThermalFrame[];
     ThermalFacadeMembers: ThermalFacadeMember[];
+    ThermalSlidingDoorFrames: ThermalSlidingDoorFrame[];
     ThermalUIFacadeGlassEdges: ThermalUIFacadeGlassEdge[];
+    ThermalGlasses: ThermalGlass[];
+    ThermalGlassEdges: ThermalGlassEdge[];
     ThermalUIGlasses: ThermalUIGlass[];
     ThermalUIGlassEdges: ThermalUIGlassEdge[];  
     ThermalUIPanels: ThermalUIPanel[];

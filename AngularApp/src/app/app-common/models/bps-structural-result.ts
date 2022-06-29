@@ -4,12 +4,15 @@ export class StructuralMemberResult {
     verticalDeflectionRatio: number;
     stressRatio: number;
     shearRatio: number;
+    windLoadCapacity: number;
 }
 
 export class StructuralResult {
     MemberResults: StructuralMemberResult[];
     reportFileUrl: string;
     summaryFileUrl: string;
+    errorMessage: string;
+    windLoadCapacity: number;
 }
 
 export class FacadeStructuralMemberResult {
@@ -19,11 +22,13 @@ export class FacadeStructuralMemberResult {
     inplaneBendingCapacityRatio: number;
     outofplaneDeflectionCapacityRatio: number;
     inplaneDeflectionCapacityRatio: number;
+    combinedStressRatio: number;
 }
 export class FacadeStructuralResult {
     MemberResults: FacadeStructuralMemberResult[];
     reportFileUrl: string;
     summaryFileUrl: string;
+    errorMessage: string;
 }
 
 export class UDCStructuralMemberResult {
