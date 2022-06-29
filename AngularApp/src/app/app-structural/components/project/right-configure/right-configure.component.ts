@@ -93,21 +93,41 @@ export class RightConfigureComponent implements OnInit, OnDestroy, OnChanges, Af
     private cpService: ConfigPanelsService) {
   }
   ngAfterViewInit(): void {
+
+ /**
+ * This is observable Subscription to set the Check out button disable whenever the model dimensions are changed to Invalid large Dimensions
+ * 
+ */
     this.cpService.obsCheckoutDisable_InvalidLargeDimension.pipe(takeUntil(this.destroy$)).subscribe(
       response => {
         this.isCheckoutDisableInvalLargeDim = response;
       });
+
+ /**
+ * This is observable Subscription to set the Check out button disable whenever the model dimensions are changed to Invalid small Dimensions
+ * 
+ */
     this.cpService.obsCheckoutDisable_InvalidSmallDimension.pipe(takeUntil(this.destroy$)).subscribe(
       response => {
         this.isCheckoutDisableInvalSmallDim = response;
       });
-      
+
+
+ /**
+ * This is observable of Unified Problem which will calls when the unified Problem  has changed anywhere in the application 
+ * and will set the values to false for Invalid Dimension variables
+ */
     this.umService.obsUnifiedProblem.subscribe(response => {
       if (response) {
         this.isCheckoutDisableInvalLargeDim = false;
         this.isCheckoutDisableInvalSmallDim = false;
       }
     });
+
+ /**
+ * This is observable of Unified Model which will calls when the unified model has changed anywhere in the application
+ * and will set the unified model and set to the current probem Unified Model 
+ */
     this.umService.obsUnifiedModel.subscribe(
       response => {
         if (response) {
@@ -274,6 +294,12 @@ export class RightConfigureComponent implements OnInit, OnDestroy, OnChanges, Af
       }
     }
   }
+
+ /**
+ * This function will update all the values of the problems and also set the current unified model with the unified model of selected problem.
+ * 
+ * And also will set the value of quick check and based on boolean value Checkout button will be enable and disable.
+ */
   updateList() {
     this.configureService.GetProblemsForProject(this.projectGuid).subscribe(problems => {
       this.problemList = problems;
@@ -311,6 +337,10 @@ export class RightConfigureComponent implements OnInit, OnDestroy, OnChanges, Af
     }, (error) => this.enableAllButtons = true);
   }
 
+ /**
+ * This function will check whether  created product is valid or not in order to enable and disable the Checkout button.
+ * If the product is disabled then the checkout button will be disabled and if the product is valid then the checkout button is enabled.
+ */
   CheckProductValidity() {
     if (this.bpsAnalysisResult && this.bpsAnalysisResult.length > 0) {
       if (this.permissionService.checkPermission(this.feature.Checkout) && this.bpsAnalysisResult && this.bpsAnalysisResult.length > 0) {
@@ -327,6 +357,10 @@ export class RightConfigureComponent implements OnInit, OnDestroy, OnChanges, Af
     } 
   }
 
+ /**
+ * This function will update the Problems list with the details and selection in the right configure .
+ * 
+ */
   updateListAndRedirect() {
     this.configureService.GetProblemsForProject(this.projectGuid).subscribe(problems => {
       this.problemList = problems;
@@ -338,6 +372,10 @@ export class RightConfigureComponent implements OnInit, OnDestroy, OnChanges, Af
     }, (error) => this.enableAllButtons = true);
   }
 
+ /**
+ * This function will set the bpsAnalysisResult value to true and false for all the problems created .
+ * 
+ */
   populate_bpsAnalysisResult() {
     for (let i = 0; i < this.problemList.length; i++) {
 
@@ -376,6 +414,11 @@ export class RightConfigureComponent implements OnInit, OnDestroy, OnChanges, Af
   //   }, (error)=> this.enableAllButtons = true);
   // }
 
+ /**
+ * This function will call when user clicks on the create button in the right configure.
+ * 
+ * It will create a new problem with default model
+ */
   actionType = '';
   onClickOnCreateBtn() {
     // this.configureService.areRightPanelButtonsDisabled = true;
@@ -413,6 +456,11 @@ export class RightConfigureComponent implements OnInit, OnDestroy, OnChanges, Af
     });
   }
 
+ /**
+ * This function will call when user clicks on the copy button in the right configure.
+ * 
+ * It will copy the selected problem
+ */
   onClickOnCopyBtn() {
     this.configureService.areRightPanelButtonsDisabled = true;
     this.configureService.areRightPanelButtonsClicked = true;
@@ -450,6 +498,13 @@ export class RightConfigureComponent implements OnInit, OnDestroy, OnChanges, Af
   DeleteProblemReport(ProjectGuid: string, ProblemGuid: string) {
     this.resultService.DeleteProblemReport(ProjectGuid, ProblemGuid).subscribe((val) => {});
   }
+
+
+ /**
+ * This function will call when user clicks on the delete button in the right configure.
+ * 
+ * It will delete the selected problem
+ */
   onClickOnDeleteBtn() {
     // this.modalService.confirm({
     //   nzWrapClassName: "vertical-center-modal",
@@ -498,6 +553,11 @@ export class RightConfigureComponent implements OnInit, OnDestroy, OnChanges, Af
     // });
   }
 
+ /**
+ * This function will call to rename the Problem name.
+ * @param {number} index  this is the index of the current problem of which user wants to rename the problem
+ * 
+ */
   isConfirRenamed = false;
   onRename(index: any): void {
     let currentProblem = this.problemList[index];
@@ -540,6 +600,11 @@ export class RightConfigureComponent implements OnInit, OnDestroy, OnChanges, Af
     }
   }
 
+ /**
+ * This function will call after create or copy problem as to focus on the newly created or copied problem.
+ * @param {number} i  this is the index of the current problem when user clicks on the problem from right configure
+ * 
+ */
   rightPanelDisable = false;
   onClick(i: number) {
     if (!this.configureService.areRightPanelButtonsDisabled){
@@ -569,6 +634,12 @@ export class RightConfigureComponent implements OnInit, OnDestroy, OnChanges, Af
       }, delay);
     }
   }
+
+ /**
+ * This function will call after create or copy problem as to focus on the newly created or copied problem.
+ * @param {number} i  this is the index of the current problem 
+ * 
+ */
   onMove(i: number) {
     this.actionType = 'Move';
     this.rightPanelDisable = true;
@@ -586,6 +657,11 @@ export class RightConfigureComponent implements OnInit, OnDestroy, OnChanges, Af
     }
   }
 
+ /**
+ * This function is to redirect to new Problem 
+ * @param {number} newProblemGuid  this is the max limit to enable create button on the right configure. 
+ * 
+ */
   redirectToNewProblem(newProblemGuid) {
     this.newProblemGuid = newProblemGuid;
     if (this.isUpdatePreviousProblemFinishedSubsciption) { this.isUpdatePreviousProblemFinishedSubsciption.unsubscribe(); }
@@ -602,18 +678,37 @@ export class RightConfigureComponent implements OnInit, OnDestroy, OnChanges, Af
     });
   }
 
+ /**
+ * This function is to save problem from right panel  
+ * 
+ */
   saveProblemFromRightPanel() {
     this.configureService.isSaved = false;
     this.configureService.saveProblemFromRightPanelSubject.next(true);
   }
   log(event: any) {
   }
+
+ /**
+ * This will apply the css class for the last current Problem in the right configure
+ * 
+ */
   getCurrentProblemClass(problem: any, isLast: any) {
     return { 'bps-button-editable-selected': this.currentProblemGuid === problem.ProblemGuid, 'last': isLast }
   }
+
+ /**
+ * This will disable the current problem in the right configure
+ * 
+ */
   getCurrentProblemDisabled(problem: any) {
     return this.currentProblemGuid === problem.ProblemGuid;
   }
+
+ /**
+ * This function calls when checkout button is clicked from the right Configure
+ * 
+ */
   onCheckout() {
     let infills = this.unified3DModel.ModelInput.Geometry.Infills.filter(g => g.OperabilitySystemID > 0);
     if (this.permissionService.checkPermission(this.feature.Max4VentsAllowed) && (this.selectedGlassIDs.length > 4 || infills.length > 4)) {
@@ -628,6 +723,11 @@ export class RightConfigureComponent implements OnInit, OnDestroy, OnChanges, Af
 
   }
 
+ /**
+ * This function is to enable create button up to certain limit
+ * @param {number} limit  this is the max limit to enable create button on the right configure. 
+ * 
+ */
   enableCreateButton(limit:number){
     return (this.permissionService.checkPermission(Feature.CreateNewProject) ||
        (this.permissionService.checkPermission(Feature.CreateNewOrder) && this.problemList && this.problemList.length < limit && this.orderPlaced == false));
