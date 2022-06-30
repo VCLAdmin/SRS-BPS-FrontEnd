@@ -192,8 +192,8 @@ export class InsideHandleComponent implements OnInit, OnDestroy, AfterViewInit {
         this.fillData(localStorage.getItem('SlidingDoorArticles_'), system);
       } else {
         this.fService.GetDoorHandleArticles().pipe(takeUntil(this.destroy$)).subscribe(data => {
-          localStorage.setItem('SlidingDoorArticles_', data);
-          this.fillData(data, system);
+          localStorage.setItem('SlidingDoorArticles_', JSON.stringify(data));
+          this.fillData(JSON.stringify(data), system);
         });
       }
     } 
