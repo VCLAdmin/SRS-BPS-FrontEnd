@@ -1050,7 +1050,7 @@ export class FramingComponent implements OnInit, OnChanges, OnDestroy, AfterView
       }
       reinforcement.ReinforcementID = newId;
       reinforcement.MemberID = reinforcementId;
-      reinforcement.sectionID = 4;   // mullion
+      reinforcement.SectionID = 4;   // mullion
       this.unified3DModel.ModelInput.Geometry.Reinforcements.push(reinforcement);
       this.appliedMullionReinforcement.push(reinforcementId);
     });
