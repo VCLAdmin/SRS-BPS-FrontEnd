@@ -171,7 +171,7 @@ export class OperabilityComponent implements OnInit, OnChanges, OnDestroy {
 
   ngAfterViewInit() {
 
-/**
+ /**
  * This is observable of Unified Model which will calls when the unified model has changed anywhere in the application
  * and will set the values for the input fields 
  */

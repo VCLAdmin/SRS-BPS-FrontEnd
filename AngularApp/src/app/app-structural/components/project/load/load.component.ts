@@ -33,6 +33,11 @@ export class LoadComponent implements OnInit, OnChanges, AfterViewInit {
   }
 
   ngAfterViewInit(): void { 
+
+ /**
+ * This is observable of Unified Model which will calls when the unified model has changed anywhere in the application
+ * and will set the values for the input fields 
+ */  
     this.umService.obsUnifiedModel.pipe(takeUntil(this.destroy$)).subscribe(
       response => {
         if (response) {
@@ -40,7 +45,12 @@ export class LoadComponent implements OnInit, OnChanges, AfterViewInit {
           this.loadData();
         }
       });
-    
+
+ /**
+ * This is observable of to load the load side panel values of WindLoad 
+ * in the left configure 
+ *
+ */      
     this.umService.obsLoadSidePanel.pipe(takeUntil(this.destroy$)).subscribe(
       response => {
         if (response && response.panelsModule > -1 && response.finishedLoading) {
@@ -62,6 +72,11 @@ export class LoadComponent implements OnInit, OnChanges, AfterViewInit {
     // }
   }
 
+ /**
+ * This function is to set the Windload value to the unified model 
+ * and also will get the value from unified model and assign to the input fiels on page refresh
+ *
+ */
   loadData(){
     if(this.unified3DModel.ModelInput.Structural === null) {
       this.unified3DModel.ModelInput.Structural = new Structural();
@@ -78,6 +93,11 @@ export class LoadComponent implements OnInit, OnChanges, AfterViewInit {
     }
   }
 
+ /**
+ * This function is called when user changes the windload input 
+ * and also will set load value to the unified model.
+ *
+ */
   onWindLoadChange(){
     if(this.unified3DModel && this.unified3DModel.ModelInput && this.unified3DModel.ModelInput.Structural){
       setTimeout(() => {
