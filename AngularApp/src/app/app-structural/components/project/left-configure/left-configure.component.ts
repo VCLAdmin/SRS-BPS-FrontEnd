@@ -163,6 +163,11 @@ export class LeftConfigureComponent implements OnInit, AfterViewInit, OnChanges,
 
   ngOnInit(): void {
     this.unified3DModel = this.umService.current_UnifiedModel;
+
+ /**
+ * This is observable of Unified Model which will calls when the unified model has changed anywhere in the application
+ * and will call the function to generate download JSON Uri inorder to udate the current unified model for download
+ */
     this.umService.obsUnifiedModel.subscribe(
       response => {
         if (response) {
@@ -198,6 +203,13 @@ export class LeftConfigureComponent implements OnInit, AfterViewInit, OnChanges,
       this.onLeftConfigureLoad();
     }
   }*/
+
+ /**
+ * This function is used to load all left configure settings which panel is active and expanded etc on page load and page refresh 
+ * 
+ * It is called whenever there is change in the unified model regarding the expand and collapse the panels
+ * 
+ */
   onLeftConfigureLoad() {
     // if (this.unified3DModel.ProblemSetting.ProductType === 'SlidingDoor'){
     //   this.Window = this.unified3DModel.ModelInput.Geometry.SlidingDoorSystems[0].SlidingDoorType;
@@ -355,6 +367,13 @@ export class LeftConfigureComponent implements OnInit, AfterViewInit, OnChanges,
     this.destroy$.complete();    
   }
 
+
+ /**
+ * This function is used to show or hide solver content dot and 
+ * 
+ * It is called when user clicks on solver content dot
+ * 
+ */
   //closedByDot: boolean = true;
   onChangeSolverButtonContentDisplay(): void {
     //this.closedByDot = true;
@@ -362,10 +381,24 @@ export class LeftConfigureComponent implements OnInit, AfterViewInit, OnChanges,
     this.collapseAllPanels('Configure');
   }
 
+ /**
+ * This function is called to display the notification message in the custom notification component
+ * 
+ * @param {any} event which is the object having title, message and icon to display in the notification
+ * 
+ */
   ngNotificaionShowEvent(event: any) {
     this.ngNotificaionShow.next(event);
   }
 
+ /**
+ * This function is called when the user changes the Physics types i.e., acoustic, structural and thermal
+ * 
+ * based on the selection of physics types the values it will validate the respective physics type forms.
+ * 
+ * @param {string} event is the input parameter which holds the value of selected Physics type
+ * 
+ */
   afterChangeStatus(event: any): void {
     if (event === "EnableAcoustic" && this.unified3DModel.ProblemSetting.EnableAcoustic) {
       this.isAcousticGlassFormValid();
@@ -379,6 +412,13 @@ export class LeftConfigureComponent implements OnInit, AfterViewInit, OnChanges,
       }
     }, 250);
   }
+
+ /**
+ * This function is called when the user changes the Physics types i.e., acoustic, structural and thermal
+ * 
+ * based on the selection of physics types the values in the unified model will be set for acoustic, structural and thermal.
+ * 
+ */
   onChangeStatus(): void {
     this.unified3DModel.ProblemSetting.isAcousticEnabled = this.unified3DModel.ProblemSetting.EnableAcoustic;
     this.unified3DModelCopy = this.unified3DModel;
@@ -444,6 +484,12 @@ export class LeftConfigureComponent implements OnInit, AfterViewInit, OnChanges,
   }
 
 
+ /**
+ * This function is used to check whether acoustic glass form is valid or not
+ * 
+ * @returns {boolean}  returns false if it is not valid and display a notification
+ * 
+ */
   isAcousticGlassFormValid(): boolean {
     // loop and check if any of the rw uvalues are empty for A and T.
     if (!this.unified3DModel.CollapsedPanels.Panel_Glass && this.unified3DModel.ProblemSetting.EnableAcoustic) {
@@ -465,7 +511,12 @@ export class LeftConfigureComponent implements OnInit, AfterViewInit, OnChanges,
     }
   }
 
-
+ /**
+ * This function is used to check whether thermal glass form is valid or not
+ * 
+ * @returns {boolean}  returns false if it is not valid and display a notification
+ * 
+ */
   isThermalGlassFormValid(): boolean {
     // loop and check if any of the rw uvalues are empty for A and T.
     if (!this.unified3DModel.CollapsedPanels.Panel_Glass && this.unified3DModel.ProblemSetting.EnableThermal) {
@@ -480,13 +531,21 @@ export class LeftConfigureComponent implements OnInit, AfterViewInit, OnChanges,
       if (alertUValueIds !== "") {
         setTimeout(() => {
           if (alertUValueIds !== "")
-            this.ngNotificaionShow.next({ title: this.translate.instant(_('notification.missing-information')), message: alertUValueMsg.replace("{0}", alertUValueIds), logoToShow: 'Thermal' });
+            this.ngNotificaionShow.next({ title: this.translate.instant(_('notification. ')), message: alertUValueMsg.replace("{0}", alertUValueIds), logoToShow: 'Thermal' });
         }, 200);
         return false;
       }
     }
   }
 
+ /**
+ * This function is used to get the default unified model object for product type Unitized
+ * 
+ * @param {string} projectId the default unified model object is created for this particular ProjectId
+ * 
+ * @param {string} ProblemId the default unified model object is created for this particular 
+ * 
+ */
   GetDefaultProblemForFacadeUDCProject(projectId: string, ProblemId: string) {
     const that = this;
     return new Promise(function (resolve, reject) {
@@ -523,6 +582,14 @@ export class LeftConfigureComponent implements OnInit, AfterViewInit, OnChanges,
     });
   }
 
+ /**
+ * This function is used to get the default unified model object for product type Facade
+ * 
+ * @param {string} projectId the default unified model object is created for this particular ProjectId
+ * 
+ * @param {string} ProblemId the default unified model object is created for this particular 
+ * 
+ */
   GetDefaultProblemForFacadeProject(projectId: string, ProblemId: string) {
     const that = this;
     return new Promise(function (resolve, reject) {
@@ -565,6 +632,14 @@ export class LeftConfigureComponent implements OnInit, AfterViewInit, OnChanges,
   }
 
 
+ /**
+ * This function is used to get the default unified model object for product type Window
+ * 
+ * @param {string} projectId the default unified model object is created for this particular ProjectId
+ * 
+ * @param {string} ProblemId the default unified model object is created for this particular 
+ * 
+ */
   GetDefaultProblemForProject(projectId: string, ProblemId: string) {
     const that = this;
     return new Promise(function (resolve, reject) {
@@ -599,6 +674,15 @@ export class LeftConfigureComponent implements OnInit, AfterViewInit, OnChanges,
       });
     });
   }
+
+ /**
+ * This function is used to get the default unified model object for product type Sliding Door
+ * 
+ * @param {string} projectId the default unified model object is created for this particular ProjectId
+ * 
+ * @param {string} ProblemId the default unified model object is created for this particular 
+ * 
+ */
   GetDefaultSlidingDoorProblemForProject(projectId: string, ProblemId: string) {
     const that = this;
     return new Promise(function (resolve, reject) {
@@ -641,6 +725,17 @@ export class LeftConfigureComponent implements OnInit, AfterViewInit, OnChanges,
     });
   }
 
+ /**
+ * This function is called when user changes the product type
+ * 
+ * It will load the default model based on the product type selection
+ * 
+ * @param {any} event which is the value when user selects i.e., Window, Facade, UDC, Sliding Door etc.,
+ * 
+ * @param {boolean} hidePanel which is boolean and it is set to false whenever the product type changes
+ * 
+ * @param {boolean} saveModel which is boolean and it is set to false whenever the product type changes
+ */
   onChangeProductType(event: any, hidePanel: boolean = false, saveModel = false) {
     this.isProductTypeChangeInProgress = true;
     const that = this;
@@ -809,10 +904,19 @@ export class LeftConfigureComponent implements OnInit, AfterViewInit, OnChanges,
     this.onChangeProductType('Facade', true, true);
   }
 
+ /**
+ * This function is called when user clicks on Compute on the left Configure
+ *
+ */
   onCompute(): void {
     this.configureService.newProblemBool = false;
     this.sendParentEvent.emit(this.unified3DModel);
   }
+
+ /**
+ * This function is used to automatically scrolled to top when there is an error in the page
+ *
+ */
   scrollToTop() {
     //if(this.closedByDot) {
     //this.closedByDot = false;
@@ -824,6 +928,10 @@ export class LeftConfigureComponent implements OnInit, AfterViewInit, OnChanges,
     //}
   }
 
+ /**
+ * This function is used to check the validation of structural panel
+ *
+ */
   structuralPaneValid(structuralModel: Structural) {
     setTimeout(() => {
       if (!this.unified3DModel.ModelInput) {
@@ -847,6 +955,10 @@ export class LeftConfigureComponent implements OnInit, AfterViewInit, OnChanges,
     });
   }
 
+ /**
+ * This function is used to check the validation of Thermal panel 
+ *
+ */
   thermalPaneValid(thermalModel: Thermal) {
     setTimeout(() => {
       if (!this.unified3DModel.ModelInput) {
@@ -867,6 +979,10 @@ export class LeftConfigureComponent implements OnInit, AfterViewInit, OnChanges,
     });
   }
 
+ /**
+ * This function is called when user clicks on the download button on navbar
+ *  this is used to download the current Product Unified model
+ */
   generateDownloadJsonUri() {
     let theJSON = JSON.stringify(this.unified3DModel);
     let blob = new Blob([theJSON], { type: 'text/json' });
@@ -875,6 +991,10 @@ export class LeftConfigureComponent implements OnInit, AfterViewInit, OnChanges,
     this.configureService.currentUnifiedModel = uri;
   }
 
+ /**
+ * This function is used to enable compute button based on teh validation of Panel sin the left configure component
+ *  
+ */
   enableCompute() {
     setTimeout(() => {
       if (this.permissionService.checkPermission(Feature.Compute)) {
@@ -903,15 +1023,31 @@ export class LeftConfigureComponent implements OnInit, AfterViewInit, OnChanges,
     }, 15);
   }
 
+ /**
+ * This function is used to set the acoustic value in the unified model object
+ *  
+ * @param {any} acoustic_unified3DModel which is the acoustic object is assigned to the unified model acoustic object in the left configure component  
+ */
   onGetUnified3DModelFromAcoustic(acoustic_unified3DModel: any): void {
     this.unified3DModel.ModelInput.Acoustic = acoustic_unified3DModel.ModelInput.Acoustic;
     this.validatePanel(true, 'Acoustic');
   }
 
+
+ /**
+ * This function is used to set the unified model whenever it has modified in child components
+ *  
+ * @param {any} child_unified3DModel which is the unified model object is assigned to the unified model in the left configure component  
+ */
   onGetUnified3DModelFromChildren(child_unified3DModel: any): void {
     this.unified3DModel = child_unified3DModel;
   }
 
+ /**
+ * This function is used to collapse all the panels in the left configure
+ *  
+ * @param {string} expand which is the name of a panel and will set the collapse status in the unified model also inorder to display the same when the page refresh   
+ */
   collapseAllPanels(expand: string) {
     if (!this.unified3DModel.CollapsedPanels)
       this.unified3DModel.CollapsedPanels = new CollapsedPanelStatus();
@@ -981,6 +1117,11 @@ export class LeftConfigureComponent implements OnInit, AfterViewInit, OnChanges,
     }
   }
 
+ /**
+ * This function is used to validate the panel inorder make the check out button or compute button disabled
+ *  
+ * @param {string} panel which is the name of a panel and based on this will check the panel is valid or not  
+ */
   validatePanel(_event: any, panel: string) {
     this.scrollToTop();
     this.cpService.closeAllPopouts();
@@ -1033,6 +1174,10 @@ export class LeftConfigureComponent implements OnInit, AfterViewInit, OnChanges,
     this.sendActivePanel();
   }
 
+ /**
+ * This function is used to emit the output event with the active panel in the left configure
+ *  
+ */
   sendActivePanel() {
     // if(this.unified3DModel.ProblemSetting.ProductType && this.unified3DModel.ProblemSetting.ProductType !== '') {
     //   this.showSolverButtonContent = false;
@@ -1082,6 +1227,10 @@ export class LeftConfigureComponent implements OnInit, AfterViewInit, OnChanges,
 
   }
 
+ /**
+ * This function is used to set the display settings in the 3D model based on the accordian selectedfro the left configure 
+ * @param {boolean} onAccrodianClick is the boolean value, based on the accordian click and the selected accordian the settings of the 3D Model will be set.  
+ */
   displaySettingPerAccordian(onAccrodianClick: boolean = false) {
     const showBoundaryCondition = this.unified3DModel.ModelInput.Structural ? this.unified3DModel.ModelInput.Structural.ShowBoundaryCondition : false;
     if (this.isOperabilityActive) {
@@ -1216,6 +1365,10 @@ export class LeftConfigureComponent implements OnInit, AfterViewInit, OnChanges,
     }
   }
 
+ /**
+ * This function is used to reset 3D Model with the default values to display in the viewer  
+ *  
+ */
   resetThreeDModel() {
     let showBCSymbol: boolean = this.isStructuralActive ? true : false;
     let displaySettings: any;
@@ -1235,6 +1388,11 @@ export class LeftConfigureComponent implements OnInit, AfterViewInit, OnChanges,
     this.iframeEvent.next(new IFrameEvent('loadDisplaySetting', { settings: displaySettings }));
   }
 
+ /**
+ * This function is used to expand or collapse Accordian of Product type and Physics types based on the selection of  
+ *  
+ * Product type and Physics Type
+ */
   setAccordionBool(): void {
     let isPhysicstypeSelected = (this.unified3DModel.ProblemSetting.EnableAcoustic || this.unified3DModel.ProblemSetting.EnableStructural || this.unified3DModel.ProblemSetting.EnableThermal);
     this.isAccordianDisabled = !this.permissionService.checkPermission(this.feature.PhysicsTypes) ? !Boolean(this.unified3DModel.ProblemSetting.ProductType)
@@ -1242,6 +1400,10 @@ export class LeftConfigureComponent implements OnInit, AfterViewInit, OnChanges,
         : true;
   }
 
+ /**
+ * This function is called when the Product type has changed to UDC 
+ *  
+ */
   onFacadeTypeChange() {
     // this.unified3DModel.ProblemSetting.FacadeType = this.facadeType;
     // this.unified3DModelEvent.emit(this.unified3DModel);  
@@ -1250,18 +1412,42 @@ export class LeftConfigureComponent implements OnInit, AfterViewInit, OnChanges,
     }
   }
 
+ /**
+ * This function is to check the  whether the product type is Window or not 
+ * @returns {boolean} true if the product type is window else will return false .  
+ */
   getProductType() {
     return this.unified3DModel.ProblemSetting.ProductType === 'Window' ? true : false;
   }
+
+ /**
+ * This function is to check the  whether the product type is Window or not 
+ * @returns {boolean} true if the product type is window else will return false .  
+ */
   getProductTypeWindow() {
     return this.unified3DModel.ProblemSetting.ProductType === 'Window' ? true : false;
   }
+
+ /**
+ * This function is to check the permission for the user whether the Facade feature is allowed or not 
+ * @returns {boolean} true if the facade feature is allowed else will return false .  
+ */
   isFacadeFeatureAllowed(){
     return this.permissionService.checkPermission(Feature.Facade);
   }
+
+ /**
+ * This function is to check the permission for the user whether the sliding door feature is allowed or not 
+ * @returns {boolean} true if the sliding door feature is allowed else will return false .  
+ */
   isSlidingDoorFeatureAllowed(){
     return this.permissionService.checkPermission(Feature.SlidingDoor);
   }
+
+ /**
+ * This function is called to load JSON for the 3D Viewer to display the model 
+ * @param {any} data is the unified model which will pass to teh 3D Modeler to display the model in the viewer.  
+ */
   loadJSONService(data: any) {
     this.iframeService.loadJSON(this.iframeEvent, 'loadJSON', data);
   }
