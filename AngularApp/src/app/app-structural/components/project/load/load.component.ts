@@ -74,7 +74,7 @@ export class LoadComponent implements OnInit, OnChanges, AfterViewInit {
 
  /**
  * This function is to set the Windload value to the unified model 
- * and also will get the value from unified model and assign to the input fiels on page refresh
+ * and also will get the value from unified model and assign to the input fields on page refresh
  *
  */
   loadData(){
