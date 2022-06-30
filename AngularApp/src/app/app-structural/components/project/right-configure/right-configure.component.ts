@@ -706,8 +706,9 @@ export class RightConfigureComponent implements OnInit, OnDestroy, OnChanges, Af
   }
 
  /**
- * This function calls when checkout button is clicked from the right Configure
+ * This function calls when checkout button is clicked from the right configure
  * 
+ * It will redirect to the orders page where user can place the order
  */
   onCheckout() {
     let infills = this.unified3DModel.ModelInput.Geometry.Infills.filter(g => g.OperabilitySystemID > 0);
