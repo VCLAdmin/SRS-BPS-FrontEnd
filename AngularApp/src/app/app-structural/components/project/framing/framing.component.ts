@@ -202,6 +202,10 @@ export class FramingComponent implements OnInit, OnChanges, OnDestroy, AfterView
   }
 
   ngAfterViewInit() {
+    /**
+     * This is observable of Unified Model which will calls when the unified model has changed anywhere in the application
+     * and will set the values for the input fields
+     */
     this.umService.obsUnifiedModel.pipe(takeUntil(this.destroy$)).subscribe(
       response => {
         if (response) {
@@ -210,6 +214,10 @@ export class FramingComponent implements OnInit, OnChanges, OnDestroy, AfterView
         }
       });
 
+    /**
+     * This is observable of Unified Problem which will calls when the unified problem has changed anywhere in the application
+     * and will load or reload the framing component
+     */
     this.umService.obsUnifiedProblem.pipe(takeUntil(this.destroy$)).subscribe(
       response => {
         if (response) {
@@ -217,6 +225,12 @@ export class FramingComponent implements OnInit, OnChanges, OnDestroy, AfterView
           this.loadInputValues();
         }
       });
+
+    /**
+     * This is observable to load all the framing side panel values.
+     * Whenever a framing side panel is updated, the unified model is updated too and the framing component
+     * will load the modified value from it.
+     */
     this.umService.obsLoadSidePanel.pipe(takeUntil(this.destroy$)).subscribe(
       response => {
         if (response && response.panelsModule > -1 && response.finishedLoading) {
@@ -242,6 +256,9 @@ export class FramingComponent implements OnInit, OnChanges, OnDestroy, AfterView
       }
     );
 
+    /**
+     * This is observable of Pop outs of all the child components is set to the variable which is used to open and close the pop out
+     */
     this.cpService.obsPopout.pipe(takeUntil(this.destroy$)).subscribe(
       response => {
         if (response.panelsModule === PanelsModule.OuterFrame) this.isOuterOpened = response.isOpened;
@@ -268,6 +285,10 @@ export class FramingComponent implements OnInit, OnChanges, OnDestroy, AfterView
 
     this.loadInputValues();
   }
+
+  /**
+   * This function loads all the framing values which come from the unified model in the unified model service.
+   */
   private loadInputValues() {
     setTimeout(() => {
       this.getOuterFrameInputValue();
@@ -294,6 +315,9 @@ export class FramingComponent implements OnInit, OnChanges, OnDestroy, AfterView
     }, 100);
   }
 
+  /**
+   * Function called when the component is created.
+   */
   ngOnInit(): void {
     //this is used to load data in leftPanel and call all child components to load data
     this.loadFraming();
@@ -305,6 +329,12 @@ export class FramingComponent implements OnInit, OnChanges, OnDestroy, AfterView
     this.destroy$.next();
     this.destroy$.complete();
   }
+  /**
+   * Loading the framing component :
+   * 1. Get the configured language & check if there is a frame system in the UM (if no, create a new one)
+   * 2. if there is a frame system in the UM, initialized the product type and all the input values and articles
+   *
+   */
   loadFraming() {
     this.language = this.configureService.getLanguage();
     if (!this.unified3DModel.ModelInput.FrameSystem) {
@@ -493,6 +523,10 @@ export class FramingComponent implements OnInit, OnChanges, OnDestroy, AfterView
     this.interlockInputValue = this.umService.get_Interlock();
   }
 
+  /**
+   * Fetch from the unified model service the boolean of the existence of reinforcement and if yes, the related article of the reinforcement.
+   * Then get the ASE articles dependending on the system used and set the reinforcement value to display in framing.
+   */
   getReinforcementSliding() {
     let dataReinforcementSliding;  // article from the unified model & boolean is there reinforcement ?
     dataReinforcementSliding = this.umService.get_Reinforcement();
@@ -509,6 +543,11 @@ export class FramingComponent implements OnInit, OnChanges, OnDestroy, AfterView
     }
   }
 
+  /**
+   * This function collects from the local storage (or fetchs them from the server and store them on the local storage) all the reinforcement
+   * articles, double vent articles and structural profile articles depending on the system used.
+   * @param {string} system System used
+   */
   collect_ASE_ArticlesData(system: string) {
     if (system.includes("ase")) {
       if (localStorage.getItem('reinforcement_' + system)) {
@@ -817,6 +856,7 @@ export class FramingComponent implements OnInit, OnChanges, OnDestroy, AfterView
       }
     }
   }
+
   buildFramingSection(inputArticle: any, tfsections: any, isUDCFramingUpdate = false): string {
     var inputString = '';
     let article = inputArticle.article;
@@ -995,6 +1035,10 @@ export class FramingComponent implements OnInit, OnChanges, OnDestroy, AfterView
     }
   }
 
+  /**
+   * Function called with the name of the pop up to open when the user clicks on an arrow.
+   * @param {string} popup Name of the pop up to open
+   */
   onOpenIFramePopout(popup: string): void {
     if (popup === 'OuterFrame') this.cpService.setPopout(true, PanelsModule.OuterFrame);
     else if (popup === 'VentFrame') this.cpService.setPopout(true, PanelsModule.VentFrame);
@@ -1023,11 +1067,17 @@ export class FramingComponent implements OnInit, OnChanges, OnDestroy, AfterView
   onSelectInsulationZone(event: any) {
 
   }
+  /**
+   * Function called when the user switchs the reinforcement : the unified model is reload everywhere and the reinforcement HTML is display/hidden.
+   */
   onSwitchReinforcement() {
     this.loadJSONService({ Unified3DModel: this.unified3DModel, canBeDrawn: this.canBeDrawnBool });
     this.unified3DModelEvent.emit(this.unified3DModel);
   }
 
+  /**
+   * Function called when the user clicks on the apply button for the reinforcement.
+   */
   onApplyReinforcement() {
     this.selectedReinforcementIds;
     this.ReinforcementMullionInputArticle;
@@ -1059,6 +1109,10 @@ export class FramingComponent implements OnInit, OnChanges, OnDestroy, AfterView
     this.loadJSONService({ Unified3DModel: this.unified3DModel, canBeDrawn: this.canBeDrawnBool });
   }
 
+  /**
+   * Removes a reinforcement member in unified3DModel.ModelInput.Geometry.Reinforcements ad reload the UM everywhere
+   * @param {number} memberID ID of the member to delete from the reinforcement of the unified model
+   */
   onDeleteReinforcement(memberID: number) {
     if (this.unified3DModel.ModelInput.Geometry.Reinforcements) {
       this.unified3DModel.ModelInput.Geometry.Reinforcements = this.unified3DModel.ModelInput.Geometry.Reinforcements.filter(reinforcement => reinforcement.MemberID !== memberID);
@@ -1068,6 +1122,7 @@ export class FramingComponent implements OnInit, OnChanges, OnDestroy, AfterView
     this.unified3DModelEvent.emit(this.unified3DModel);
     this.loadJSONService({ Unified3DModel: this.unified3DModel, canBeDrawn: this.canBeDrawnBool });
   }
+
   onVerticalJointChange(event: any): void {
     for (const key in this.validateFormForFacadeUDC.controls) {
       this.validateFormForFacadeUDC.controls[key].markAsDirty();
@@ -1086,6 +1141,11 @@ export class FramingComponent implements OnInit, OnChanges, OnDestroy, AfterView
       this.loadJSONService({ resetCamera: true, Unified3DModel: this.unified3DModel, canBeDrawn: this.canBeDrawnBool });
     }
   }
+
+  /**
+   * If the profile color is changed, the compute button becomes disabled and the UM is reload everywhere.
+   * @param event 
+   */
   onProfileColorChange(event: any) {
     if (event) {
       if (this.unified3DModel.ModelInput.FrameSystem.AluminumColor != this.profileColorInputValue) {
@@ -1182,6 +1242,9 @@ export class FramingComponent implements OnInit, OnChanges, OnDestroy, AfterView
     }
   }
 
+  /**
+   * When the user changes the reinforcement switch, it updates the reinformement information in the unified model service.
+   */
   onSwitchReinforcementBool() {
     this.umService.set_ReinforcementBoolFrame(this.addReinforcementBool);
   }

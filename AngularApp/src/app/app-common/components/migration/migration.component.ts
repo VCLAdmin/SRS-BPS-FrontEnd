@@ -37,6 +37,11 @@ export class MigrationComponent implements OnInit {
   goBackHome() {
     this.router.navigate(['/home']);
   }
+
+  /**
+   * 
+   * @param event always true
+   */
   migrate(event: boolean) {
     this.successRecords = 0;
     this.failedRecords = 0;
@@ -65,6 +70,11 @@ export class MigrationComponent implements OnInit {
     else if (event === 'Success') { this.migrationResult = this.listOfData.filter(f => f.Success); }
   }
 
+  /**
+   * Convert the unified model to a blod for download
+   * @param jsonString 
+   * @param problemId 
+   */
   onDownloadButtonClick(jsonString: string, problemId: number) {
     let theJSON = JSON.stringify(jsonString);
     let blob = new Blob([theJSON], { type: 'text/json' });

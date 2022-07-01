@@ -40,6 +40,10 @@ export class LibraryCustomComponent implements OnInit {
     this.patternLanguage = this.configureService.getNumberPattern();
   }
 
+  /**
+   * Initialisation of the table with an customed article to edit or to create a new one
+   * @param article Customed article to edit if not null
+   */
   ngOnInit(article: CustomGlass = null): void {
     this.applicationType = this.configureService.applicationType;
     this.unified3DModel = this.umService.current_UnifiedModel;
@@ -149,6 +153,9 @@ export class LibraryCustomComponent implements OnInit {
     // });
   }
 
+  /**
+   * Settings for creating a new customed article
+   */
   glazingSystemsId = undefined;
   openNewCustom(article: any) {
     if (article.customGlassID === undefined) {
@@ -167,6 +174,10 @@ export class LibraryCustomComponent implements OnInit {
     }
   }
 
+  /**
+   * Set the select type
+   * @param selectType 
+   */
   onSelectTypeChange(selectType: string) {
     this.disableUpdate = false;
     if (selectType === 'custom-triple') {
@@ -188,25 +199,41 @@ export class LibraryCustomComponent implements OnInit {
     }
   }
 
+  /**
+   * Hide the table and remove the overlay panel which disable the rest of the screen
+   */
   onCloseButton(): void {
     this.isDisplay = false;
     this.closeNdisableRightPanelEvent.emit(this.isDisplay);
   }
 
+  /**
+   * Delete the customed article and close the table
+   */
   onDelete(): void {
     this.deleteLibraryCustomArticleEvent.emit(this.libraryArticleIndex);
     this.isDisplay = false;
     this.closeNdisableRightPanelEvent.emit(this.isDisplay);
   }
 
+  /**
+   * Create a new customed article model
+   */
   onAdd(): void {
     this.buildModel(true);
   }
 
+  /**
+   * Don't create a new customed article model
+   */
   onUpdate(): void {
     this.buildModel(false);
   }
 
+  /**
+   * Build a model
+   * @param isNew 
+   */
   buildModel(isNew: boolean = true): void {
     this.libraryElements = this.defaultLibraryElements;
     this.unified3DModel.ModelInput.Geometry.GlazingSystems = this.unified3DModel.ModelInput.Geometry.GlazingSystems.filter(element => element.GlazingSystemID !== this.glazingSystemsId);
@@ -324,6 +351,9 @@ export class LibraryCustomComponent implements OnInit {
   }
 
   hasDuplicateGlass = false;
+  /**
+   * Check if there are duplicate customed articles (with all same properties )
+   */
   checkForDuplicateCustomGlass() {
     if (this.libraryElements) {
       this.hasDuplicateGlass = false;
@@ -360,6 +390,11 @@ export class LibraryCustomComponent implements OnInit {
       }
     }
   }
+
+  /**
+   * Check the validity of the form
+   * @returns 
+   */
   isFormValid() {
     this.checkForDuplicateCustomGlass();
     if (this.validateForm) {
@@ -405,6 +440,11 @@ export class LibraryCustomComponent implements OnInit {
     return false;
   }
 
+  /**
+   * Setting to edit a custom article 
+   * Filling all the fields in the form
+   * @param data article to edit
+   */
   editCustomArticle(data) {
     let sectionElement = data.article;
     let index = data.index;

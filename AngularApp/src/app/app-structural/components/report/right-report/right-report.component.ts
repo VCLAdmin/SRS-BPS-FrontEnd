@@ -39,6 +39,11 @@ export class RightReportComponent implements OnInit, OnDestroy, OnChanges {
   data = [];
   listOfDisplayData = [];
   //new code
+  /**
+   * Gte the problem selected in the table of the left report component.
+   * Enable/Disable the radio button according to the Analysis Result in the unified model
+   * Load the first report enabled by default
+   */
   ngOnInit(): void {
     // this.allDataSubscription = this.reportService.allConfigurationTableDataSubject.subscribe((data)=>{
     //   this.data = data;
@@ -120,11 +125,18 @@ export class RightReportComponent implements OnInit, OnDestroy, OnChanges {
     this.selectedProblemGuid = this.currentProblem.ProblemGuid;
     this.buildListOfDisplayData();
   }
+  /**
+   * Hides the animtion for the loading report
+   */
   FinishedLoadingReport() {
     setTimeout(() => {
       this.reportFinishedLoading = true;
     }, 100);
   }
+  /**
+   * Load a report according to the param fetched from the back-end
+   * @param param 
+   */
   loadReport(param: any) { 
     param = param.split('/');
     this.resultService.GetReportURL(param[0], param[1], param[2].replace('.pdf', '')).subscribe((val) => {
@@ -136,25 +148,42 @@ export class RightReportComponent implements OnInit, OnDestroy, OnChanges {
     });
   }
 
-
+  /**
+   * Strucutral regular tooltip text
+   * @returns 
+   */
   getStructuralRegularReportTooltip() {
     return this.translate.instant(_('report.structural-regular-report'));
   }
 
-  getStructuralFullReportTooltip() {
+  /**
+   * Strucutral full tooltip text
+   * @returns 
+   */
+   getStructuralFullReportTooltip() {
     return this.translate.instant(_('report.structural-full-report'));
   }
 
-  getAcousticRegularReportTooltip() {
+  /**
+   * Acoustic tooltip text
+   * @returns 
+   */
+   getAcousticRegularReportTooltip() {
     return this.translate.instant(_('report.acoustic-regular-report'));
   }
 
-  getThermalRegularReportTooltip() {
+  /**
+   * thermal tooltip text
+   * @returns 
+   */
+   getThermalRegularReportTooltip() {
     return this.translate.instant(_('report.thermal-regular-report'));
   }
 
 
-
+/**
+ * Create the list of all the problems
+ */
   buildListOfDisplayData() {
     this.reportService.allConfigurationTableDataSubject.pipe(takeUntil(this.destroy$)).subscribe((data) => {
       setTimeout(() => {
@@ -228,6 +257,10 @@ export class RightReportComponent implements OnInit, OnDestroy, OnChanges {
   radioValueBDisabled = false;
   radioValueCDisabled = false;
 
+  /**
+   * Load the report of the related radio button
+   * @param event radio button selected
+   */
   onPhysicsTypeClicked(event: any) {
     this.reportFinishedLoading = false;
     if (event) {

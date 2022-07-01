@@ -32,7 +32,10 @@ export class LoginComponent implements OnInit, OnDestroy {
   constructor(private navLayoutService: NavLayoutService, private loginService: LoginService,
     private localStorageService: LocalStorageService, private translate: TranslateService,
     private router: Router, private authService: AuthService, private commonService: CommonService,private appConstantService: AppconstantsService) { }
-
+  
+    /**
+     * No nav bar and set the language (local storageor english by default)
+     */
   ngOnInit(): void {
     // this.navLayoutService.isEmptyPage.next(false);
     // this.navLayoutService.changeNavBarVisibility(false);
@@ -57,6 +60,10 @@ export class LoginComponent implements OnInit, OnDestroy {
       this.translate.use(this.language);
     },200);
   }
+
+  /**
+   * Check the validation of the unsername and password, redirect to home if they are correct
+   */
   onLogin() {
     this.showLoader = true;
     this.InvalidUserContainer = false;
@@ -93,6 +100,10 @@ export class LoginComponent implements OnInit, OnDestroy {
     });
   }
 
+  /**
+   * Save the language on local storage
+   * @param language 
+   */
   onChangeLanguage(language: string) {
     this.language = language;
     this.localStorageService.setValue<string>('culture', language);

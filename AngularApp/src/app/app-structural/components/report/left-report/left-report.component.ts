@@ -112,14 +112,26 @@ export class LeftReportComponent implements OnInit, OnDestroy, AfterViewInit  {
 
   reportNotReadyModal_isVisible = false;
 
+  /**
+   * Show a notification that the report is not ready
+   */
   reportNotReadyModal_handleOk(): void {
     this.reportNotReadyModal_isVisible = false;
   }
 
+  /**
+   * Hide the notification that the report is not ready
+   */
   reportNotReadyModal_handleCancel(): void {
     this.reportNotReadyModal_isVisible = false;
   }
 
+  /**
+   * Strutural has two columns (summary and full reports) so the columns are disabled by default 
+   * Enable a column only if has related AnalysisResult in the unified model
+   * Set the table properties for the HTML code.
+   * Fetch the problems to populate the table
+   */
   ngAfterViewInit() {
     let disabledAcousticColumn: boolean = true, disabledStructuralColumn: boolean = true, disabledThermalColumn: boolean = true;
     this.listOfProblems.forEach((problem) => {
@@ -194,6 +206,9 @@ export class LeftReportComponent implements OnInit, OnDestroy, AfterViewInit  {
     this.getAllProblems();
   }
 
+  /**
+   * Whenever the user changes the configuration to display on right panel, the table selects the new row selected
+   */
   ngOnInit(): void {
     this.reportService.selectTableRowSubject.pipe(takeUntil(this.destroy$)).subscribe(data => {
       if (this.gridComponent && data) {
@@ -207,6 +222,9 @@ export class LeftReportComponent implements OnInit, OnDestroy, AfterViewInit  {
     this.destroy$.complete();
   }
 
+  /**
+   * Display and hide the loading display of the table while the status are refreshed
+   */
   operateData(): void {
     this.isOperating = true;
     setTimeout(() => {
@@ -218,6 +236,9 @@ export class LeftReportComponent implements OnInit, OnDestroy, AfterViewInit  {
     }, 1000);
   }
 
+  /**
+   * Map the configurations data to parse in the table component
+   */
   loadData(): void {
     this.data = [];
     for (let i = 0; i < this.listOfProblems.length; i++) {
@@ -270,6 +291,12 @@ export class LeftReportComponent implements OnInit, OnDestroy, AfterViewInit  {
     this.reportService.sendAllData(this.data);
   }
 
+  /**
+   * Select or Unselect the cells of the Acoustic column
+   * The download button is enable when at least one report is selected
+   * @param $event
+   * @param id 
+   */
   refreshStatusAcoustic($event = false, id = null): void {
     if (id !== null && id !== undefined) {
       this.mapOfCheckedIdAcoustic[id] = $event;
@@ -286,6 +313,12 @@ export class LeftReportComponent implements OnInit, OnDestroy, AfterViewInit  {
       this.enableDownload = false;
   }
 
+  /**
+   * Select or Unselect the cells of the structural summary column
+   * The download button is enable when at least one report is selected
+   * @param $event
+   * @param id 
+   */
   refreshStatusStructural($event = false, id = null): void {
     if (id !== null && id !== undefined) {
       this.mapOfCheckedIdStructural[id] = $event;
@@ -303,7 +336,13 @@ export class LeftReportComponent implements OnInit, OnDestroy, AfterViewInit  {
       this.enableDownload = false;
   }
 
-  refreshFullStatusReport($event = false, id = null): void {
+  /**
+   * Select or Unselect the cells of the structural full column
+   * The download button is enable when at least one report is selected
+   * @param $event
+   * @param id 
+   */
+   refreshFullStatusReport($event = false, id = null): void {
     if (id !== null && id !== undefined) {
       this.mapOfCheckedIdFullStructural[id] = $event;
     }
@@ -322,8 +361,13 @@ export class LeftReportComponent implements OnInit, OnDestroy, AfterViewInit  {
       this.enableDownload = false;
   }
 
-
-  refreshStatusThermal($event = false, id = null): void {
+  /**
+   * Select or Unselect the cells of the thermal column
+   * The download button is enable when at least one report is selected
+   * @param $event
+   * @param id 
+   */
+   refreshStatusThermal($event = false, id = null): void {
     if (id !== null && id !== undefined) {
       this.mapOfCheckedIdThermal[id] = $event;
     }
@@ -340,16 +384,29 @@ export class LeftReportComponent implements OnInit, OnDestroy, AfterViewInit  {
       this.enableDownload = false;
   }
 
+  /**
+   * Select or Unselect all the acoustic cells
+   * @param value Boolean for the selection or unselection
+   */
   checkAllAcoustic(value: boolean): void {
     this.listOfDisplayData.filter(item => !item.disabled).forEach(item => (this.mapOfCheckedIdAcoustic[item.id] = value));
     this.refreshStatusAcoustic();
   }
 
-  checkAllStructural(value: boolean): void {
+  /**
+   * Select or Unselect all the structural summary cells
+   * @param value Boolean for the selection or unselection
+   */
+   checkAllStructural(value: boolean): void {
     this.listOfDisplayData.filter(item => !item.disabled).forEach(item => (this.mapOfCheckedIdStructural[item.id] = value));
     this.refreshStatusStructural();
   }
-  checkAllThermal(value: boolean): void {
+
+  /**
+   * Select or Unselect all the thermal cells
+   * @param value Boolean for the selection or unselection
+   */
+   checkAllThermal(value: boolean): void {
     this.listOfDisplayData.filter(item => !item.disabled).forEach(item => (this.mapOfCheckedIdThermal[item.id] = value));
     this.refreshStatusThermal();
   }
@@ -363,12 +420,26 @@ export class LeftReportComponent implements OnInit, OnDestroy, AfterViewInit  {
 
   }
 
+  /**
+   * @param disabledAcoustic If disabled : Not computed
+   * @returns Text to display in the tooltip when hover an acoustic cell
+   */
   getAcousticTooltip(disabledAcoustic) {
     return disabledAcoustic ? this.translate.instant(_('report.not-computed')):this.translate.instant(_('configure.acoustic'));
   }
+
+  /**
+   * @param disabledAcoustic If disabled : Not computed
+   * @returns Text to display in the tooltip when hover a structural cell
+   */
   getStructuralTooltip(disabledStructural) {
     return disabledStructural ? this.translate.instant(_('report.not-computed')):this.translate.instant(_('configure.structural'));
   }
+
+  /**
+   * @param disabledAcoustic If disabled : Not computed
+   * @returns Text to display in the tooltip when hover a thermal cell
+   */
   getThermalTooltip(disabledThermal) {
     return disabledThermal ? this.translate.instant(_('report.not-computed')):this.translate.instant(_('configure.thermal'));
   }
@@ -376,7 +447,12 @@ export class LeftReportComponent implements OnInit, OnDestroy, AfterViewInit  {
   //#endregion new code ends
   //technical code below
 
-
+/**
+ * Get the file name from the response headers of the download request.
+ * Needed to know which report category (acoustic, summary structural, ...) it is
+ * @param resp 
+ * @returns 
+ */
   getFileName(resp: HttpResponse<Blob>): string {
     let fileName = "Report.pdf";
     if (resp.headers && resp.headers.get('content-disposition')) {
@@ -392,18 +468,14 @@ export class LeftReportComponent implements OnInit, OnDestroy, AfterViewInit  {
     }
     return fileName;
   }
-  getProblemName(resp: HttpResponse<Blob>): string {
-    let problemName = "Report.pdf";
-    if (resp.headers && resp.headers.get('content-disposition')) {
-      if (resp.headers.get('content-disposition').split('; name=') && resp.headers.get('content-disposition').split('; name=').length > 0)
-        if (resp.headers.get('content-disposition').split('; name=')[1].split(" ") && resp.headers.get('content-disposition').split('; name=')[1].split(" ").length > 0) {
-          problemName = resp.headers.get('content-disposition').split('; name=')[1].replace(/"/g, '');
-        }
-    }
-    return problemName;
-  }
 
-  getConfigurationName(resp: HttpResponse<Blob>): string {
+/**
+ * Get the configuration name from the response headers of the download request.
+ * Needed to know which report category (acoustic, summary structural, ...) it is
+ * @param resp 
+ * @returns 
+ */
+ getConfigurationName(resp: HttpResponse<Blob>): string {
     let configurationName = "Configuration";
     if (resp.headers && resp.headers.get('content-disposition')
     && resp.headers.get('content-disposition').split('filename=').length > 1
@@ -418,43 +490,24 @@ export class LeftReportComponent implements OnInit, OnDestroy, AfterViewInit  {
     return configurationName;
   }
 
-  onMoreOptionClick(selectedRowProblemGuid) {
-    this.currentProblemGuidMoreOption = selectedRowProblemGuid;
-  }
-  onSummaryReportClick() {
-    if (this.currentProblemGuidMoreOption) {
-      let problemGuid = this.currentProblemGuidMoreOption;
-      this.currentProblemGuidMoreOption = null;
-      let selectedProblemList = this.listOfProblems.filter(x => x.ProblemGuid == problemGuid);
-      if (selectedProblemList && selectedProblemList.length == 1) {
-        let selectedProblem = selectedProblemList[0];
-        let unifiedModel: BpsUnifiedModel = JSON.parse(selectedProblem.UnifiedModel);
-        if (unifiedModel) {
-          let reportFileUrl = null;
-          if (unifiedModel.AnalysisResult.StructuralResult && unifiedModel.AnalysisResult.StructuralResult.summaryFileUrl)
-            reportFileUrl = unifiedModel.AnalysisResult.StructuralResult.summaryFileUrl;
-          else if (unifiedModel.AnalysisResult.FacadeStructuralResult && unifiedModel.AnalysisResult.FacadeStructuralResult.summaryFileUrl)
-            reportFileUrl = unifiedModel.AnalysisResult.FacadeStructuralResult.summaryFileUrl;
-          else if (unifiedModel.AnalysisResult.UDCStructuralResult && unifiedModel.AnalysisResult.UDCStructuralResult.summaryFileUrl)
-            reportFileUrl = unifiedModel.AnalysisResult.UDCStructuralResult.summaryFileUrl;
-          if (reportFileUrl) {
-            var param = this.getBuildParam(reportFileUrl);
-            this.configureService.GetPCReport(param[0], param[1], param[2].replace('.pdf', ''), selectedProblem.ProblemName.replace(' ', '_'))
-              .pipe(takeUntil(this.destroy$)).subscribe((response) => {
-                let language = unifiedModel.UserSetting.Language && unifiedModel.UserSetting.Language == 'de-DE' ? 'en-DE' : 'en-US';
-                let pipe = new DatePipe(unifiedModel.UserSetting.Language);
-                let dateFormat = language && language == 'de-DE' ? 'dd_MMM_yyyy' : 'MMM_dd_yyyy';
-                let fileName = this.getProblemName(response) + "_" + this.getFileName(response) + '_' + pipe.transform(Date.now(), dateFormat) + '.pdf';
-                saveAs(response.body, fileName);
-              });
-          }
-        }
-      }
-    }
-  }
+  /**
+   * 
+   * @param reportFileUrl 
+   * @returns the parameters of the report file url
+   */
   getBuildParam(reportFileUrl: string) {
     return reportFileUrl.split('/');
   }
+
+  /**
+   * For each type of report, get the configurations to download report
+   * For each configuration, build the url for the call to the back-end (1 call for each report to download)
+   * Send all the calls and wait for their responses
+   * For each response, get the problemGuid and the report type from the response headers to rename it
+   * Zip all the files
+   * 
+   * If one response fails (report not ready!), the download stops and a notification is displayed
+   */
   onDownloadClick() {
     let totalCount = 0;
     let language;
@@ -546,7 +599,6 @@ export class LeftReportComponent implements OnInit, OnDestroy, AfterViewInit  {
               if (response && this.areAllReportsReady) {
                 let configurationName = this.getConfigurationName(response);
                 let fileName = this.getFileName(response);
-                // let fullFileName = this.getProblemName(response) + "_" + fileName + '_' + pipe.transform(Date.now(), dateFormat) + '.pdf';
                 let acoustic_folder, structural_folder, thermal_folder;
                 if (fileName.toLowerCase().includes('acoustic') || fileName.toLowerCase().includes('akustik')) {
                   let fullFileName = configurationName + '_' + this.translate.instant(_('report.acoustic-regular-report')) + '_' + pipe.transform(Date.now(), dateFormat) + '.pdf';
@@ -636,6 +688,11 @@ export class LeftReportComponent implements OnInit, OnDestroy, AfterViewInit  {
       //   );
     }
   }
+
+  /**
+   * Inform the right panel that a new configuration has been selected
+   * @param event new row selected
+   */
   onRowSelected(event: any) {
     if (event && event.data) {
       if (event.selected) {
@@ -651,12 +708,22 @@ export class LeftReportComponent implements OnInit, OnDestroy, AfterViewInit  {
 
   }
 
-  checkAllFullReport(value: boolean): void {
+  /**
+   * Select or Unselect all the structural full cells
+   * @param value Boolean for the selection or unselection
+   */
+   checkAllFullReport(value: boolean): void {
     this.listOfDisplayData.filter(item => !item.disabled).forEach(item => (this.mapOfCheckedIdFullStructural[item.id] = value));
     this.refreshFullStatusReport();
   }
 
-
+/**
+ * When the user changes the name of a problem,
+ * it creates a url for the renaming in the back-end (configureService.RenameProblem)
+ * it creates urls for the report renaming in the back-end
+ * all the urls are sent at the same time
+ * @param event 
+ */
   onProblemNameEdit(event: any) {
     if (event && event.length > 0 && event[0].problemGuid) {
       let selectedProblemList = this.listOfProblems.filter(x => x.ProblemGuid == event[0].problemGuid);
@@ -706,6 +773,10 @@ export class LeftReportComponent implements OnInit, OnDestroy, AfterViewInit  {
 
     }
   }
+
+  /**
+   * Fetch all the problems to display in the table
+   */
   getAllProblems() {
 
     this.loadData();
@@ -743,12 +814,22 @@ export class LeftReportComponent implements OnInit, OnDestroy, AfterViewInit  {
     }
     //this.hideEditor = false;
   }
+
+  /**
+   * Hides the note pop up
+   */
   handleCancel() {
 
     this.isNotesModalVisible = false;
     this.resetForm();
   }
 
+  /**
+   * Build all the urls to edit the reports with the new note.
+   * Send all the urls at the same time
+   * 
+   * @param value Notes written by the user
+   */
   submitForm(value: any): void {
     for (const key in this.validateForm.controls) {
       this.validateForm.controls[key].markAsDirty();

@@ -27,6 +27,10 @@ export class ReportGeneralComponent implements OnInit, OnDestroy, AfterViewInit 
   currentProblem: BpsUnifiedProblem;
 
   listOfProblems: BpsUnifiedProblem[];
+  /**
+   * Get the problem list and parse it to its child components (left/right report)
+   * Handle the display of notifications
+   */
   ngOnInit(): void {
     // this.navLayoutService.isEmptyPage.next(false);
     // this.navLayoutService.changeNavBarVisibility(true);

@@ -53,6 +53,13 @@ export class ContactTableComponent implements OnInit, OnDestroy {
       validator: this.EmailExist('Email')
     });
   }
+
+  /**
+   * Check the validation of the control name
+   * @param controlName 
+   * @param matchingControlName 
+   * @returns 
+   */
   ConfirmedValidator(controlName: string, matchingControlName: string) {
     return (formGroup: FormGroup) => {
       const control = formGroup.controls[controlName];
@@ -67,6 +74,12 @@ export class ContactTableComponent implements OnInit, OnDestroy {
       }
     }
   }
+
+  /**
+   * Check the validation of the email
+   * @param controlName 
+   * @returns 
+   */
   EmailExist(controlName: string) {
     return (formGroup: FormGroup) => {
       const control = formGroup.controls[controlName];
@@ -84,6 +97,10 @@ export class ContactTableComponent implements OnInit, OnDestroy {
     }
   }
 
+  /**
+   * Update the contact if the password form is valid
+   * @param value 
+   */
   submitPasswordForm(value: any): void {
     // tslint:disable-next-line:forin
     for (const key in this.validatePasswordForm.controls) {
@@ -95,6 +112,11 @@ export class ContactTableComponent implements OnInit, OnDestroy {
       });
     }
   }
+
+  /**
+   * If the form is valid, a new contact is created with a default password
+   * @param value 
+   */
   submitForm(value: any): void {
     // tslint:disable-next-line:forin
     for (const key in this.validateForm.controls) {
@@ -149,6 +171,10 @@ export class ContactTableComponent implements OnInit, OnDestroy {
     this.isAddContact = true;
     this.showEmpty = false;
   }
+
+  /**
+   * Remove a contact from the list
+   */
   deleteContact(): void {
     if (this.allowedToChange(this.contact.Email)) {
       this.homeService.canRemoveItem(this.contact.UserGuid).pipe(takeUntil(this.destroy$)).subscribe(returnVal => {
@@ -168,6 +194,10 @@ export class ContactTableComponent implements OnInit, OnDestroy {
     }
   }
   
+  /**
+   * Reinitialize the contact form
+   * @param e 
+   */
   resetForm(e: MouseEvent): void {
     this.formDataChanged = false;
     e.preventDefault();
@@ -301,17 +331,31 @@ export class ContactTableComponent implements OnInit, OnDestroy {
     });
   }
 
+    /**
+   * Sorting by sortName with the method (ascend or descend) sortValue
+   * @param sort Properties of the sorting
+   */
   sort(sort: { sortName: string; sortValue: string }): void {
     this.sortName = sort.sortName;
     this.sortValue = sort.sortValue;
     this.search();
   }
 
+  /**
+   * The function stores the search text in the searchValue variable, and then calls the search function to make the filtering.
+   * @param {string} value Text entered by the user to filter the articles 
+   */
   filter(value: string): void {
     this.searchValue = value;
     this.search();
   }
 
+  /**
+   * Rearrange the order of the articles displayed in the table.
+   * 1. The articles are filtered according to the search text entered by the user
+   * 2. If there are sort properties, the selected articles are sorted depending of the sort properties and then displayed in the table
+   * 3. If there are no sort properties, the selected articles are directly displayed in the table.   * 
+   */
   search(): void {
     const filterFunc = (item: any) => {
       return item.UserName.indexOf(this.searchValue) !== -1;
@@ -337,6 +381,10 @@ export class ContactTableComponent implements OnInit, OnDestroy {
     }
   }
 
+  /**
+   * Change the contact information of the row selected
+   * @param event 
+   */
   editRow(event: any): void {
     if (event.data) {
       this.isAddContact = false;

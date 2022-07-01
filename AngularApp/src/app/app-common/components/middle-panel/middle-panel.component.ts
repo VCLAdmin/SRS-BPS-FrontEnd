@@ -411,6 +411,12 @@ export class MiddlePanelComponent implements OnInit, OnDestroy {
         this.build_chart1();
       })
   }
+
+  /**
+   * Map the project data for the table component
+   * Set the custom configuration to parse in the table HTML code
+   * Get the dealer information
+   */
   ngOnInit(): void {
     this.loadDataProjects(); //project
     this.hasFullAccess = this.commonService.getUserRole() === "Dealer-Full" ? true : false;
@@ -482,7 +488,9 @@ export class MiddlePanelComponent implements OnInit, OnDestroy {
     }
   }
 
-  //project
+  /**
+   * Map the project data for the table component
+   */
   loadDataProjects(): void {
     this.dataProjects = [];
     let number_of_project = this.projects.length;
@@ -516,21 +524,32 @@ export class MiddlePanelComponent implements OnInit, OnDestroy {
     this.listOfDisplayDataProjects = [...this.dataProjects];
   }
 
-  //project
-  sort(sort: { sortName: string; sortValue: string }): void {
+  /**
+   * Sorting by sortName with the method (ascend or descend) sortValue
+   * @param sort Properties of the sorting
+   */
+   sort(sort: { sortName: string; sortValue: string }): void {
     this.sortName = sort.sortName;
     this.sortValue = sort.sortValue;
     this.search();
   }
 
-  //project
+    /**
+   * The function stores the search text in the searchValue variable, and then calls the search function to make the filtering.
+   * @param {string} value Text entered by the user to filter the projects 
+   */
   filter(value: string): void {
     this.searchValue = value;
     this.search();
   }
 
-  //project
-  search(): void {
+  /**
+   * Rearrange the order of the projects displayed in the table.
+   * 1. The projects are filtered according to the search text entered by the user
+   * 2. If there are sort properties, the selected projects are sorted depending of the sort properties and then displayed in the table
+   * 3. If there are no sort properties, the selected projects are directly displayed in the table.   * 
+   */
+   search(): void {
     const filterFunc = (item: any) => {
       return item.projects.toLowerCase().indexOf(this.searchValue.toLowerCase()) !== -1;
     };
@@ -567,6 +586,11 @@ export class MiddlePanelComponent implements OnInit, OnDestroy {
     this.projectToDelete_projectGuid = event.projectGuid;
   }
 
+  /**
+   * Expand or reduce the arrow of a product
+   * @param event 
+   * @param isOpened 
+   */
   onExpandableArrowClicked(event: any, isOpened: any) {
     this.currentProductOrderPlaced = event.orderPlaced;
     if (this.isrowClicked)
@@ -586,6 +610,10 @@ export class MiddlePanelComponent implements OnInit, OnDestroy {
     }
   }
 
+  /**
+   * Fectch and display the problems of the product clicked
+   * @param event 
+   */
   onRowClicked(event: any) {
     this.currentProductOrderPlaced = event.orderPlaced;
     this.isOperatingExpandableTable = true;
@@ -597,6 +625,10 @@ export class MiddlePanelComponent implements OnInit, OnDestroy {
     }, (error) => this.isOperatingExpandableTable = false);
   }
 
+  /**
+   * Load the first problem of a product double clicked
+   * @param event
+   */
   onDblClickProject(event) {
     this.configureService.GetProblemsForProject(event.projectGuid).pipe(takeUntil(this.destroy$)).subscribe((response) => {
       this.onRunningProblem(response[0]);
@@ -612,6 +644,9 @@ export class MiddlePanelComponent implements OnInit, OnDestroy {
     this.GetProjects();
   }
 
+  /**
+   * Pull & sort the projects of the user depending of the BPS or SRS permission
+   */
   GetProjects(): void {
     if (this.permissionService.checkPermission(this.feature.GetProjects)) {
       this.homeService.GetProjects().pipe(takeUntil(this.destroy$)).subscribe(bpsProject => {
@@ -627,6 +662,11 @@ export class MiddlePanelComponent implements OnInit, OnDestroy {
     }
   }
 
+  /**
+   * Number of days between sentDate and today
+   * @param sentDate 
+   * @returns 
+   */
   calculateDiff(sentDate: Date) {
     var date1: any = new Date(sentDate);
     var date2: any = new Date();
@@ -634,6 +674,11 @@ export class MiddlePanelComponent implements OnInit, OnDestroy {
     return diffDays;
   }
 
+  /**
+   * Check if the user can delete or not the project :
+   * No :  Notification of order submitted or placed
+   * Yes : Request to the back-end and pull the project list from it
+   */
   onDeleteProject(): void {  // keep
     if (this.calculateDiff(this.activeRow.OrderPlacedCreatedOn) > 1) {
       this.modalService.error({
@@ -690,6 +735,10 @@ export class MiddlePanelComponent implements OnInit, OnDestroy {
   }
 
   //project
+  /**
+   * Load a problem to problemconfigure or orders if the order is already placed
+   * @param problem 
+   */
   onRunningProblem(problem: BpsUnifiedProblem): void {  // keep
     this.navLayoutService.changeNavBarButtonAndTitleVisibility(true);
     this.configureService.configureCall = false;
@@ -707,12 +756,20 @@ export class MiddlePanelComponent implements OnInit, OnDestroy {
   }
 
   //project
+  /**
+   * Select row of the table
+   * @param $event 
+   */
   setActiveRow($event) {
     this.currentProductOrderPlaced = $event.orderPlaced;
     this.activeRow = $event;
   }
 
   //project
+  /**
+   * 
+   * @param property Edit row property
+   */
   editRow(property) {
     if (this.activeRow && !this.activeRow.orderPlaced) {
       this.tableComponent.editRow(this.activeRow, property);
@@ -721,6 +778,12 @@ export class MiddlePanelComponent implements OnInit, OnDestroy {
   }
 
   //project
+  /**
+   * Update a project info in the back-end
+   * The back-end send back the list of the poject's problems
+   * For each problem : create the url requests to bring the project modification to the reports and make the request at the same time
+   * @param event 
+   */
   onProjectEdit(event: any) {
     if (this.activeRow && !this.activeRow.orderPlaced) {
       this.currentProductOrderPlaced = event.orderPlaced;
@@ -763,6 +826,9 @@ export class MiddlePanelComponent implements OnInit, OnDestroy {
   }
 
   filteredData: any[];
+  /**
+   * Filtering of the dates of the projects
+   */
   onDateFilter_Change() {
     this.listOfDisplayDataProjects = [];
     if ((this.selectedDateValue == null || this.selectedDateValue == undefined) && (this.selectedStatusValue == null || this.selectedStatusValue == undefined))
@@ -801,6 +867,12 @@ export class MiddlePanelComponent implements OnInit, OnDestroy {
   daysInMonth(month, year): number {
     return new Date(year, month, 0).getDate();
   }
+
+  /**
+   * Change the type of filtering the projects
+   * @param event 
+   * @param type 
+   */
   onFilterChanged(event: any, type: string) {
     if (type === "Date")
       this.selectedDateValue = event;

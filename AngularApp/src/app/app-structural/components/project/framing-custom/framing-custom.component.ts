@@ -98,6 +98,9 @@ export class FramingCustomComponent implements OnInit {
     this.patternLanguage = this.configureService.getNumberPattern();
   }
 
+  /**
+   * Form initialisation
+   */
   ngOnInit(): void {
     /*this.unified3DModel = this.umService.current_UnifiedModel;
     this.onUnifiedModelUpdated();
@@ -125,6 +128,9 @@ export class FramingCustomComponent implements OnInit {
     this.buildForm();
   }
   // onUnifiedModelUpdated() {  }
+  /**
+   * Form validation : all fields are required
+   */
   buildForm() {
     if (this.unified3DModel) {
       if (this.unified3DModel.ProblemSetting.FacadeType === 'UDC') {
@@ -189,6 +195,10 @@ export class FramingCustomComponent implements OnInit {
       }
     }
   }
+  /**
+   * Initialisation of the component :
+   * the table is displayed and the right panel hidden
+   */
   openNewCustom() {
     this.ngOnInit();
     this.isDisplay = true;
@@ -209,17 +219,27 @@ export class FramingCustomComponent implements OnInit {
     }
   }
 
+  /**
+   * Hide the table and the right panel can be displayed
+   */
   onCloseButton(): void {
     this.isDisplay = false;
     this.closeNdisableRightPanelEvent.emit(this.isDisplay);
   }
 
+  /**
+   * Delete the article and close the table
+   */
   onDelete(): void {
     this.deleteMullionTransomArticleEvent.emit(this.mullionArticleIndex);
     this.isDisplay = false;
     this.closeNdisableRightPanelEvent.emit(this.isDisplay);
   }
 
+  /**
+   * The number values are replaced with dots (german decimal separator is comma).
+   * Send the custom article to the parent's component and close the table.
+   */
   onAdd(): void {
     if (this.unified3DModel) {
       if (this.unified3DModel.ProblemSetting.FacadeType === 'UDC') {
@@ -242,6 +262,10 @@ export class FramingCustomComponent implements OnInit {
     this.closeNdisableRightPanelEvent.emit(this.isDisplay);
   }
 
+  /**
+   * The number values are replaced with dots (german decimal separator is comma).
+   * Update the custom article to the parent's component and close the table
+   */
   onUpdate(): void {
     if (this.unified3DModel) {
       if (this.unified3DModel.ProblemSetting.FacadeType === 'UDC') {
@@ -261,6 +285,10 @@ export class FramingCustomComponent implements OnInit {
     this.closeNdisableRightPanelEvent.emit(this.isDisplay);
   }
 
+  /**
+   * Check the validation of the form
+   * @returns
+   */
   isFormValid() {
     if (this.unified3DModel) {
       if (this.unified3DModel.ProblemSetting.FacadeType === 'UDC' && this.validateUDCForm && !this.validateUDCForm.pristine) {
@@ -273,6 +301,10 @@ export class FramingCustomComponent implements OnInit {
     return false;
   }
 
+  /**
+   * Get the index of the article to edit and edit it.
+   * @param data Article data to edit
+   */
   editCustomArticle(data) {
     let sectionElement = data.article;
     let index = data.index;

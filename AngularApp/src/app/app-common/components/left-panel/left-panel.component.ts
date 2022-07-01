@@ -48,6 +48,9 @@ export class LeftPanelComponent implements OnInit, OnDestroy, AfterViewInit {
     });
   }
 
+  /**
+   * Initialize the version inforlmation and the dealer information
+   */
   ngOnInit(): void {
     this.userEmail = this.commonService.getUserEmail();
     //this.applicationType = this.commonService.getApplicationType();
@@ -81,6 +84,10 @@ export class LeftPanelComponent implements OnInit, OnDestroy, AfterViewInit {
   onOpenHelpAndSupport() {
     this.router.navigate(['faqs'], { queryParams: {showBackButton: true } });
   }
+
+  /**
+   * Create a new project, save all the address details of the project location from the Google Map API and open the project
+   */
   onCreate() {
     let newProject = new BpsProject();
     newProject.ProjectName = this.projectName;
@@ -119,6 +126,9 @@ export class LeftPanelComponent implements OnInit, OnDestroy, AfterViewInit {
     });
   }
 
+  /**
+   * Ban the '/' character in the project name
+   */
   checkModelValidity() {
     if (this.projectName.includes('/')) {
       this.newProjectForm.controls['projectName'].setErrors({ 'incorrect': true });
@@ -143,6 +153,9 @@ export class LeftPanelComponent implements OnInit, OnDestroy, AfterViewInit {
   _address: Address;
   @ViewChild('addressText') addressText: any;
   autocomplete: google.maps.places.Autocomplete;
+  /**
+   * Add the Google Map API to the project location input
+   */
   ngAfterViewInit() {
     //if (this.applicationType === 'SRS')
     {
@@ -165,6 +178,9 @@ export class LeftPanelComponent implements OnInit, OnDestroy, AfterViewInit {
     }
   }
 
+  /**
+   * Populate the project location with the Google Map API suggestion
+   */
   private getPlaceAutocomplete(): void {
     const autocomplete = new google.maps.places.Autocomplete(this.addressText.nativeElement,
       {

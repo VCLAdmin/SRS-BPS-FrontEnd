@@ -62,19 +62,27 @@ export class MullionTableComponent implements OnInit, OnDestroy {
 
   ngAfterViewInit() {
     this.getConfigGrid();
+    /**
+     * Whenever the UM is changed somewhere, this observable updates the UM of this table.
+     */
     this.umService.obsUnifiedModel.pipe(takeUntil(this.destroy$)).subscribe(
       response => {
         if (response) {
           this.unified3DModel = response;
         }
       });
-
+    /**
+     * Whenever the system is changed, this observable updates the system of this table.
+     */
     this.cpService.obsSystem.pipe(takeUntil(this.destroy$)).subscribe(
       response => {
         this.systemSelected = response.data;
       });
-
-    this.cpService.obsPopout.pipe(takeUntil(this.destroy$)).subscribe(
+    /**
+     * This observable handles the display of the table.
+     * If the table is opened, the table properties are set and parsed to the bps component with the getConfigGrid() function.
+     */
+     this.cpService.obsPopout.pipe(takeUntil(this.destroy$)).subscribe(
       response => {
         if (response.panelsModule === PanelsModule.Mullion) { 
           this.isMullionPopoutOpened = response.isOpened;
@@ -98,6 +106,9 @@ export class MullionTableComponent implements OnInit, OnDestroy {
     this.unified3DModel = this.umService.current_UnifiedModel;
   }
   //#region bpstable
+  /**
+   * Set the properties of the bps table component for the HTML code
+   */
   getConfigGrid() {
     this.configurationCustomGrid = {
       fields: [
@@ -138,7 +149,11 @@ export class MullionTableComponent implements OnInit, OnDestroy {
     this.destroy$.complete();
   }
 
-  preventDefault($event: Event) {
+  /**
+   * This function is to restrict the execution of Code for multiple times click of the button
+   * @param $event
+   */
+   preventDefault($event: Event) {
     $event.preventDefault();
     $event.stopImmediatePropagation();
   }
@@ -150,18 +165,32 @@ export class MullionTableComponent implements OnInit, OnDestroy {
   log($event) {
   }
 
-  sort(sort: { sortName: string; sortValue: string }): void {
+  /**
+   * Sorting by sortName with the method (ascend or descend) sortValue
+   * @param sort Properties of the sorting
+   */
+   sort(sort: { sortName: string; sortValue: string }): void {
     this.sortName = sort.sortName;
     this.sortValue = sort.sortValue;
     this.search();
   }
 
-  filter(value: string): void {
+  /**
+   * The function stores the search text in the searchValue variable, and then calls the search function to make the filtering.
+   * @param {string} value Text entered by the user to filter the articles 
+   */
+   filter(value: string): void {
     this.searchValue = value;
     this.search();
   }
 
-  search(): void {
+  /**
+   * Rearrange the order of the articles displayed in the table.
+   * 1. The articles are filtered according to the search text entered by the user
+   * 2. If there are sort properties, the selected articles are sorted depending of the sort properties and then displayed in the table
+   * 3. If there are no sort properties, the selected articles are directly displayed in the table.   * 
+   */
+   search(): void {
     const filterFunc = (item: any) => {
       return item.description.indexOf(this.searchValue) !== -1;
     };
@@ -184,6 +213,9 @@ export class MullionTableComponent implements OnInit, OnDestroy {
   //#endregion
 
   //#region build data
+  /**
+   * Makes sure the table knows the system selected before collecting the articles related to the system.
+   */
   onPopoutOpened() {
     if (!this.systemSelected) {
       this.systemSelected = this.cpService.currentSystem;
@@ -193,6 +225,12 @@ export class MullionTableComponent implements OnInit, OnDestroy {
     this.data = [];
     this.collectData(this.systemSelected.Images);
   }
+
+
+  /**
+   * Collect the articles linked to the system from the local storage or the server and rearrange the data in the fillData function.
+   * @param system system selected in the framing section
+   */
   collectData(system: string) {
     this.showSection = false;
     if (localStorage.getItem(system)) {
@@ -219,6 +257,14 @@ export class MullionTableComponent implements OnInit, OnDestroy {
     }
   }
 
+
+  /**
+   * The table is displayed only when we have the data.
+   * The articles information is mapped in the getTableData before getting displayed in the table component.
+   * 
+   * Once the table is displayed (have to wait first with a setTimeout() ), only then we make one row selectioned and the search text empty with no filtering in the data.
+   * @param dataList List of all the articles collected
+   */
   fillData(dataList: any) {
     let data = JSON.parse(dataList);
     this.showSection = true;
@@ -242,7 +288,13 @@ export class MullionTableComponent implements OnInit, OnDestroy {
     }, 1);
   }
 
-  getTableData(data: any[]) {
+  /**
+   * Map the data to fit the properties of the table and its columns.
+   * And then store the mapped data in the variable listOfDisplayData, which is parsed in the HTML code of the table component.
+   * Calls the function getSelectedIndex() to know the index of which row should be selectioned by default.
+   * @param data 
+   */
+   getTableData(data: any[]) {
     if (this.unified3DModel.ModelInput.Geometry.Sections) {
       var secOne = this.unified3DModel.ModelInput.Geometry.Sections[1];
       var secTwo = this.unified3DModel.ModelInput.Geometry.Sections[2];
@@ -318,7 +370,10 @@ export class MullionTableComponent implements OnInit, OnDestroy {
     this.getSelectedIndex();
   }
 
-  getSelectedIndex() {
+  /**
+   * To know the index of which row of the table should be selectioned by default.
+   */
+   getSelectedIndex() {
     let savedData;
     if (this.isMullionPopoutOpened) savedData = this.umService.obj_Mullion();
     if (this.isTransomPopoutOpened) savedData = this.umService.obj_Transom();
@@ -341,7 +396,10 @@ export class MullionTableComponent implements OnInit, OnDestroy {
   //#region events
   selectionChange($event) { }
 
-  onClose(): void {
+  /**
+   * Before closing the table, the search text is cleared for when the user reopens the table all the articles are displayed.
+   */
+   onClose(): void {
     if (this.tableComponent) { this.tableComponent.inputElement.nativeElement.value = ''; }
     this.searchValue = '';
     this.search();
@@ -349,18 +407,30 @@ export class MullionTableComponent implements OnInit, OnDestroy {
     if (this.isTransomPopoutOpened) this.cpService.setPopout(false, PanelsModule.Transom);
   }
 
-  onclickRow(event) { //onSelectOuterFrameArticle
+  /**
+   * When the user clicks on a row of the table
+   * @param event Information stored in the row of the table
+   */
+   onclickRow(event) { //onSelectOuterFrameArticle
     this.selectedIndex = parseInt(event.id);
     if (this.selectedIndex < 0)
       this.selectedIndex = 0;
   }
 
-  ondblclickRow(event) { //onDblClickRow
+  /**
+   * When the user double clicks on a row of the table, the row is selected and confirmed
+   * @param event Information stored in the row of the table
+   */
+   ondblclickRow(event) { //onDblClickRow
     this.tableComponent.selectRow(event);
     this.onConfirm();
   }
 
-  onConfirm() {
+  /**
+   * The data is sent to the unified model service to update the mullion property.
+   * The table is also closed.
+   */
+   onConfirm() {
     if (this.isMullionPopoutOpened && this.listOfDisplayData.length > 0) {
       if (!this.listOfDisplayData[this.selectedIndex].isCustomProfile)
         this.umService.set_Mullion({ article: this.listOfDisplayData[this.selectedIndex], isCustomed: false });

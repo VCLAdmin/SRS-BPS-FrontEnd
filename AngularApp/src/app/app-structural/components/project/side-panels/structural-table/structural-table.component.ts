@@ -129,6 +129,9 @@ export class StructuralTableComponent implements OnInit, OnChanges, OnDestroy {
     this.destroy$.next();
     this.destroy$.complete();
   }
+  /**
+   * Initialize the form with the values fetched from the unified model
+   */
   ngOnInit(): void {
     this.validateForm = this.fb.group({
       codeSelection: [this.windLoadSelectedText, []],
@@ -150,14 +153,20 @@ export class StructuralTableComponent implements OnInit, OnChanges, OnDestroy {
 
     /*this.unified3DModel = this.umService.current_UnifiedModel;*/
     this.loadStructuralTable();
-
-    this.umService.obsUnifiedModel.pipe(takeUntil(this.destroy$)).subscribe(
+    /**
+     * Whenever the UM is changed somewhere, this observable updates the UM and the fields of this table.
+     */
+     this.umService.obsUnifiedModel.pipe(takeUntil(this.destroy$)).subscribe(
       response => {
         if (response) {
           this.unified3DModel = response;
           this.loadStructuralTable();
         }
       });
+    /**
+     * This observable handles the display of the table.
+     * If the table is opened, the table properties are set and parsed to the bps component with the getConfigGrid() function.
+     */
     this.cpService.obsPopout.pipe(takeUntil(this.destroy$)).subscribe(
       response => {        
         if (response.panelsModule === PanelsModule.WindLoad) {
@@ -168,6 +177,9 @@ export class StructuralTableComponent implements OnInit, OnChanges, OnDestroy {
     
   }
 
+  /**
+   * updates the fields from the data of the unified model
+   */
   loadStructuralTable() {
     this.structuralModel = new Structural();
     if (this.unified3DModel && this.unified3DModel.ModelInput && this.unified3DModel.ModelInput.Structural && this.unified3DModel.ModelInput.Structural.WindLoadInputType) {

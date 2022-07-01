@@ -48,8 +48,7 @@ export class ThermalComponent implements OnInit, OnChanges, AfterViewInit {
           this.unified3DModel = response;
           this.loadThermal(); 
         }
-      });
-    
+      });    
   }
 
   loadThermal() {

@@ -86,7 +86,9 @@ export class GlassPanelTableComponent implements OnInit, OnChanges, OnDestroy, A
 
   ngOnInit(): void {
     this.language = this.configureService.getLanguage();
-
+    /**
+     * Whenever the UM is changed somewhere, this observable updates the UM of this table.
+     */
     this.unified3DModel = this.umService.current_UnifiedModel;
     this.umService.obsUnifiedModel.pipe(takeUntil(this.destroy$)).subscribe(
       response => {
@@ -99,7 +101,9 @@ export class GlassPanelTableComponent implements OnInit, OnChanges, OnDestroy, A
           }
         }
       });
-    
+    /**
+     * Fetch the double glass articles and triple glass articles depending on the SRS or BPS permission
+     */
     if (this.permissionService.checkPermission(this.feature.GlassPanelSideTableShort)) {
       this.doubleData = this.configureService.getArticleListByType("double_SRS");
       this.tripleData = this.configureService.getArticleListByType("triple_SRS");
@@ -112,7 +116,11 @@ export class GlassPanelTableComponent implements OnInit, OnChanges, OnDestroy, A
     this.searchByDimensionText = this.translate.instant(_('configure.search-by-dimension'))
     this.getConfigGrid();
 
-    this.cpService.obsPopout.pipe(takeUntil(this.destroy$)).subscribe(
+    /**
+     * This observable handles the display of the table.
+     * If the table is opened, the search text is set to null and all the articles are displayed (no filtering).
+     */
+     this.cpService.obsPopout.pipe(takeUntil(this.destroy$)).subscribe(
       response => {
         if (response.panelsModule === PanelsModule.GlassPanel)
           this.isPopoutOpened = response.isOpened;
@@ -136,6 +144,9 @@ export class GlassPanelTableComponent implements OnInit, OnChanges, OnDestroy, A
       });
   }
 
+  /**
+   * Set the properties of the bps table component for the HTML code
+   */
   getConfigGrid(action: string = "") {
     if (action == "") {
       this.configurationCustomGrid = {
@@ -225,6 +236,10 @@ export class GlassPanelTableComponent implements OnInit, OnChanges, OnDestroy, A
     this.destroy$.complete();
   }
 
+  /**
+   * This function is to restrict the execution of Code for multiple times click of the button
+   * @param $event
+   */
   preventDefault($event: Event, index) {
     $event.preventDefault();
     $event.stopImmediatePropagation();
@@ -241,18 +256,32 @@ export class GlassPanelTableComponent implements OnInit, OnChanges, OnDestroy, A
   log($event) {
   }
 
-  sort(sort: { sortName: string; sortValue: string }): void {
+  /**
+   * Sorting by sortName with the method (ascend or descend) sortValue
+   * @param sort Properties of the sorting
+   */
+   sort(sort: { sortName: string; sortValue: string }): void {
     this.sortName = sort.sortName;
     this.sortValue = sort.sortValue;
     this.search();
   }
 
+  /**
+   * The function stores the search text in the searchValue variable, and then calls the search function to make the filtering.
+   * @param {string} value Text entered by the user to filter the articles 
+   */
   filter(value: string): void {
     this.searchValue = value;
     this.search();
   }
 
-  search(): void {
+  /**
+   * Rearrange the order of the articles displayed in the table.
+   * 1. The articles are filtered according to the search text entered by the user
+   * 2. If there are sort properties, the selected articles are sorted depending of the sort properties and then displayed in the table
+   * 3. If there are no sort properties, the selected articles are directly displayed in the table.   * 
+   */
+   search(): void {
     const filterFunc = (item: any) => {
       return item.description.indexOf(this.searchValue) !== -1;
     };
@@ -268,13 +297,21 @@ export class GlassPanelTableComponent implements OnInit, OnChanges, OnDestroy, A
   }
 
   //#region events
+  /**
+   * When another customed row is selected
+   * @param event
+   */
   selectionChange(event) {
     if (event !== undefined && event.data !== undefined && this.unified3DModel.ModelInput.Geometry.CustomGlass !== undefined && this.unified3DModel.ModelInput.Geometry.CustomGlass !== null) {
-      this.SelectedCustomRow = this.unified3DModel.ModelInput.Geometry.CustomGlass[event.data.id]; this.isEditCustomDisabled = false;
+      this.SelectedCustomRow = this.unified3DModel.ModelInput.Geometry.CustomGlass[event.data.id];
+      this.isEditCustomDisabled = false;
     }
   }
 
-  onClose(): void {
+  /**
+   * Before closing the table, the search text is cleared for when the user reopens the table all the articles are displayed.
+   */
+   onClose(): void {
     if (this.tableComponent) {
       this.tableComponent.inputElement.nativeElement.value = "";
     }
@@ -284,7 +321,11 @@ export class GlassPanelTableComponent implements OnInit, OnChanges, OnDestroy, A
       this.cpService.setPopout(false, PanelsModule.GlassPanel);
   }
 
-  onclickRow(event: any): void {
+  /**
+   * When the user clicks on a row of the table
+   * @param event Information stored in the row of the table
+   */
+   onclickRow(event: any): void {
     this.selectedArticle = event.article;
     this.selectedArticle.idArticle = this.glazingSystemsId;
     if (
@@ -293,12 +334,20 @@ export class GlassPanelTableComponent implements OnInit, OnChanges, OnDestroy, A
     else this.isConfirmBtnDisabled = false;
   }
 
-  ondblclickRow(event) {
+  /**
+   * When the user double clicks on a row of the table, the row is selected and confirmed
+   * @param event Information stored in the row of the table
+   */
+   ondblclickRow(event) {
     this.tableComponent.selectRow(event);
     this.onConfirm();
   }
 
-  onConfirm() {
+  /**
+   * When the user clicks on the confirm button or double clicks on a row, the information of the row selected is sent to the unified model service to update the douvle vent frame property.
+   * The table is also closed.
+   */
+   onConfirm() {
     this.umService.set_GlassPanel(this.selectedArticle);
     this.fromOldTable = null;
     this.cpService.setConfirm(this.selectedArticle, PanelsModule.GlassPanel);
@@ -342,6 +391,14 @@ export class GlassPanelTableComponent implements OnInit, OnChanges, OnDestroy, A
     }
   }
   
+  /**
+   * Check the validation of the custom row
+   * @param uvalue 
+   * @param rw 
+   * @param index 
+   * @param selectedRow 
+   * @returns 
+   */
   isCustomRowValid(uvalue: string, rw: string, index: number, selectedRow: any): boolean {
     if (selectedRow && index.toString() === selectedRow.id && (uvalue === "N/D" || rw === "N/D" || uvalue === "" || rw === ""))
       return false;
@@ -468,6 +525,9 @@ export class GlassPanelTableComponent implements OnInit, OnChanges, OnDestroy, A
     }
   }
 
+    /**
+   * To know the index of which row of the table should be selectioned by default.
+   */
   getSelectedRow(): any {
     let selectedRow;
     if (this.fromOldTable) {
@@ -622,17 +682,31 @@ export class GlassPanelTableComponent implements OnInit, OnChanges, OnDestroy, A
     });
   }
 
+  /**
+   * Open the pop up of the custom table
+   */
   onOpenCustom(): void {
     this.openNewCustomEvent.emit(this.selectedArticle);
   }
+
+  /**
+   * Open the pop up to edit the custom article selected
+   */
   onOpenEditCustom(): void {
     this.openNewCustomEvent.emit(this.SelectedCustomRow);
   }
 
+  /**
+   * Confirm the edition of the custom article
+   * @param index 
+   */
   onEditCustom(index: number): void {
     this.editCustomArticleEvent.emit({ article: this.listOfDisplayData[index], index: index });
   }
   SelectedCustomRow: any;
+  /**
+   * Create a new customed article
+   */
   onClickNew() {
     this.getConfigGrid("NEW");
     this.numberOfClicks = 0;
@@ -681,6 +755,10 @@ export class GlassPanelTableComponent implements OnInit, OnChanges, OnDestroy, A
     });
   }
 
+  /**
+   * New type is selected
+   * @param type 
+   */
   onNewTypeSelection(type: string) {
     this.getConfigGrid();
     if (this.selectedType !== type) {
@@ -704,6 +782,10 @@ export class GlassPanelTableComponent implements OnInit, OnChanges, OnDestroy, A
     }
   }
 
+  /**
+   * The users selects another article
+   * @param article 
+   */
   selectRow(article: any) {
     if (this.configureService.applicationType == "SRS") {
       let articleData = this.doubleData.filter(f => f.composition == article.article.composition);
@@ -790,6 +872,10 @@ export class GlassPanelTableComponent implements OnInit, OnChanges, OnDestroy, A
     }
   }
 
+  /**
+   * Remove a custom article from the table
+   * @param articleIndex index of the custom article to remove in the table
+   */
   deleteLibraryCustomArticle(articleIndex) {
     this.unified3DModel.ModelInput.Geometry.CustomGlass.splice(this.SelectedCustomRow.customGlassID, 1);
     //this.unified3DModel.ModelInput.Geometry.CustomGlass.splice(articleIndex, 1);
@@ -798,6 +884,10 @@ export class GlassPanelTableComponent implements OnInit, OnChanges, OnDestroy, A
     this.onClickNew();
   }
 
+  /**
+   * Get the custom library
+   * @param sectionElement 
+   */
   addLibraryCustomArticle(sectionElement) {
     if (this.customLibraryData === undefined) this.customLibraryData = [];
     this.customLibraryData = this.umService.ConvertCustomGlassData();
@@ -805,6 +895,10 @@ export class GlassPanelTableComponent implements OnInit, OnChanges, OnDestroy, A
   }
 
   isCustomArticleUpdated = false;
+  /**
+   * update the custom article library from the unified model service
+   * @param data 
+   */
   updateLibraryCustomArticle(data) {
     this.customLibraryData = this.umService.ConvertCustomGlassData();
     this.isEditCustomDisabled = false;
