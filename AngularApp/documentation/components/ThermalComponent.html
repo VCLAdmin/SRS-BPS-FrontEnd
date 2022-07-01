@@ -350,17 +350,25 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="168"
-                            class="link-to-prism">src/app/app-structural/components/project/thermal/thermal.component.ts:168</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="200"
+                            class="link-to-prism">src/app/app-structural/components/project/thermal/thermal.component.ts:200</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>This function is used to check whether the thermal form is valid or not</p>
+</div>
 
+                    <div>
+                    </div>
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>returns true if the form is valid else will return as false</p>
 
                     </div>
                 </td>
@@ -387,14 +395,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="158"
-                            class="link-to-prism">src/app/app-structural/components/project/thermal/thermal.component.ts:158</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="185"
+                            class="link-to-prism">src/app/app-structural/components/project/thermal/thermal.component.ts:185</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>This function is used to validate a given value is a number or not</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -405,6 +415,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -419,6 +430,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>is the input value will check whether it is a number or not</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -430,7 +445,8 @@
 
                     </div>
                     <div class="io-description">
-                        
+                        <p>returns true if it is a number else will return as false</p>
+
                     </div>
                 </td>
             </tr>
@@ -456,14 +472,17 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="55"
-                            class="link-to-prism">src/app/app-structural/components/project/thermal/thermal.component.ts:55</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="65"
+                            class="link-to-prism">src/app/app-structural/components/project/thermal/thermal.component.ts:65</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>This function is to set the thermal input values to the unified model
+and also will get the value from unified model and assign to the input fields on page refresh</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -530,8 +549,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="87"
-                            class="link-to-prism">src/app/app-structural/components/project/thermal/thermal.component.ts:87</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="97"
+                            class="link-to-prism">src/app/app-structural/components/project/thermal/thermal.component.ts:97</a></div>
                 </td>
             </tr>
 
@@ -636,14 +655,17 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="104"
-                            class="link-to-prism">src/app/app-structural/components/project/thermal/thermal.component.ts:104</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="119"
+                            class="link-to-prism">src/app/app-structural/components/project/thermal/thermal.component.ts:119</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>This function is called when user Checks and unchecks the DewPoint checkbox
+and it will validate the form and accordingly will set to the unified model</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -673,14 +695,17 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="124"
-                            class="link-to-prism">src/app/app-structural/components/project/thermal/thermal.component.ts:124</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="145"
+                            class="link-to-prism">src/app/app-structural/components/project/thermal/thermal.component.ts:145</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>This function is called when user changes the Humidity value
+and it will validate the form and will set to the unified model</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -990,6 +1015,11 @@ export class ThermalComponent implements OnInit, OnChanges, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
+    
+   /**
+   * This is observable of Unified Model which will calls when the unified model has changed anywhere in the application
+   * and will set the values for the input fields 
+   */ 
     this.umService.obsUnifiedModel.pipe(takeUntil(this.destroy$)).subscribe(
       response &#x3D;&gt; {
         if (response) {
@@ -1000,6 +1030,11 @@ export class ThermalComponent implements OnInit, OnChanges, AfterViewInit {
     
   }
 
+ /**
+ * This function is to set the thermal input values to the unified model 
+ * and also will get the value from unified model and assign to the input fields on page refresh
+ *
+ */
   loadThermal() {
     if (this.unified3DModel &amp;&amp; this.unified3DModel.ModelInput &amp;&amp; this.unified3DModel.ModelInput.Thermal &amp;&amp; this.unified3DModel.ModelInput.Thermal.RelativeHumidity &gt; 0) {
       this.dewPointChecked &#x3D; true;
@@ -1049,6 +1084,11 @@ export class ThermalComponent implements OnInit, OnChanges, AfterViewInit {
     }
   }
 
+ /**
+ * This function is called when user Checks and unchecks the DewPoint checkbox 
+ * and it will validate the form and accordingly will set to the unified model
+ *
+ */
   onDewPointSelected() {
     let isValueChanged &#x3D; false;
     if (!this.dewPointChecked &amp;&amp; this.realtiveHumidityNumber)
@@ -1069,6 +1109,12 @@ export class ThermalComponent implements OnInit, OnChanges, AfterViewInit {
       this.umService.set_Thermal(thermal);
     }
   }
+
+ /**
+ * This function is called when user changes the Humidity value 
+ * and it will validate the form and will set to the unified model
+ *
+ */
   onRealativeHumidityChange() {
     if (this.realtiveHumidityString) {
       this.realtiveHumidityNumber &#x3D; parseFloat(this.realtiveHumidityString.replace(&#x27;,&#x27;, &#x27;.&#x27;));
@@ -1103,6 +1149,12 @@ export class ThermalComponent implements OnInit, OnChanges, AfterViewInit {
     this.umService.set_Thermal(thermalModel);
   }
 
+ /**
+ * This function is used to validate a given value is a number or not 
+ * @param {any} value is the input value will check whether it is a number or not
+ *
+ * @returns {boolean}  returns true if it is a number else will return as false 
+ */
   isValidNumber(value: any): boolean {
     if (!value)
       return false;
@@ -1113,6 +1165,11 @@ export class ThermalComponent implements OnInit, OnChanges, AfterViewInit {
     return true;
   }
 
+ /**
+ * This function is used to check whether the thermal form is valid or not 
+ *
+ * @returns {boolean}  returns true if the form is valid else will return as false 
+ */
   isFormValid(): boolean {
     return this.validateForm.valid;
   }

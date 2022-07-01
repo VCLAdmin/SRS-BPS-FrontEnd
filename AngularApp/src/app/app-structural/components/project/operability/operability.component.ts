@@ -171,7 +171,7 @@ export class OperabilityComponent implements OnInit, OnChanges, OnDestroy {
 
   ngAfterViewInit() {
 
-/**
+ /**
  * This is observable of Unified Model which will calls when the unified model has changed anywhere in the application
  * and will set the values for the input fields 
  */
@@ -2268,6 +2268,12 @@ export class OperabilityComponent implements OnInit, OnChanges, OnDestroy {
       this.onFocusGreen(glassId);
     }
   }
+ 
+ /**
+ * This function is to select the System type for product type Windows/Door such as AWS ADS ASE 
+ * @param {number} index  based up on this index will fetch system type information
+ * 
+ */  
   systemType: string = "";
   onSelectAWSWindowSystem(index: number): void {
     this.systemType = "114";
@@ -2314,6 +2320,11 @@ export class OperabilityComponent implements OnInit, OnChanges, OnDestroy {
     this.systemAWS114FacadeSelected = index;
   }
 
+ /**
+ * This function is to select the System type for Product type Facade such as AWS ADS ASE 
+ * @param {number} index  based up on this index will fetch system type information
+ * 
+ */
   onSelectFWSWindowSystem(index: number): void {
     //this.isSystemFacadeChanged = 2;
     if (this.systemFacadeSelected !== undefined) {
@@ -2349,6 +2360,11 @@ export class OperabilityComponent implements OnInit, OnChanges, OnDestroy {
     this.systemFacadeSelected = index;
   }
 
+ /**
+ * This function is to select the System type for Product type Facade such as AWS ADS ASE 
+ * @param {string} popup  based up on this popup value the respective side panels will open 
+ * 
+ */
   onOpenIFramePopout(popup: string): void {
     if (popup === 'FrameCombination') this.cpService.setPopout(true, PanelsModule.FrameCombination);
     else if (popup === 'OuterFrame') this.cpService.setPopout(true, PanelsModule.OuterFrame);
@@ -2360,6 +2376,11 @@ export class OperabilityComponent implements OnInit, OnChanges, OnDestroy {
     else if (popup === 'OutsideHandle') this.cpService.setPopout(true, PanelsModule.OutsideHandle);
   }
 
+ /**
+ * This function is called when user change the operable type 
+ * @param {string} event  this will have the operable type value and will set to the Unified Model and will load accordingly 
+ * in the 3D Viewer
+ */
   onOperableTypeChange(event: any) {
     if (event.includes('Door')) {
       //this.cpService.setPopout(true, PanelsModule.DoorOperableType);
@@ -2463,6 +2484,10 @@ export class OperabilityComponent implements OnInit, OnChanges, OnDestroy {
       }
     }
   }
+
+ /**
+ * This function is to enable acoustic
+ */
   doEnableAcoustic() {
     setTimeout(() => {
       if (!this.unified3DModel.ProblemSetting.EnableAcoustic && this.unified3DModel.ProblemSetting.isAcousticEnabled) {
@@ -2486,6 +2511,12 @@ export class OperabilityComponent implements OnInit, OnChanges, OnDestroy {
     // if (this.unified3DModel.ModelInput.Geometry.Infills.filter(section => section.OperabilitySystemID == (this.selectedPicker + 1))[0] && this.unified3DModel.ModelInput.Geometry.OperabilitySystems)
     //   this.sendCurrentArticleToFrameCombinationTable.emit({ ArticleID: this.unified3DModel.ModelInput.Geometry.OperabilitySystems.filter(section => section.OperabilitySystemID == (this.selectedPicker + 1))[0].VentArticleName, SystemID: this.aws114SystemValue[this.aws114SystemDesc2.indexOf(this.pickers[this.selectedPicker].windowSystem)], OperationType: this.pickers[this.selectedPicker].operationType });
   }
+
+ /**
+ * This function is called when user changes the Vent Opening direction Inward or Outward 
+ * @param {string} event  this will have the Vent opening direction value and will set to the Unified Model and will load accordingly 
+ * in the 3D Viewer
+ */
   onVentOpeningDirectionChange(event: any) {
     // this.pickers[this.selectedPicker].operableType = '';
     // this.onOperableTypeChange('')
@@ -2514,6 +2545,7 @@ export class OperabilityComponent implements OnInit, OnChanges, OnDestroy {
     // this.unified3DModelFromOperabilityEvent.emit(this.unified3DModel);
   }
 
+
   gasketSelection: string = "AIF";
   insulatingSelection: string = "PA";
   insertInsulationTypeName: string;
@@ -2534,6 +2566,10 @@ export class OperabilityComponent implements OnInit, OnChanges, OnDestroy {
     // this.unified3DModelEvent.emit(this.unified3DModel);
   }
 
+ /**
+ * This function is to set the Insulation Type and Insert UValue type 
+ * @param {any} event  
+ */
   onSelectInsulating(_event: any): void {
     if (!this.unified3DModel.ModelInput.FrameSystem) { this.unified3DModel.ModelInput.FrameSystem = new FrameSystem(); }
     //this.insertInsulationTypeName = this.insulatingSelection;
@@ -2565,6 +2601,10 @@ export class OperabilityComponent implements OnInit, OnChanges, OnDestroy {
     }
   }
 
+ /**
+ * This function is called to load JSON for the 3D Viewer to display the model 
+ * @param {any} data is the unified model which will pass to teh 3D Modeler to display the model in the viewer.  
+ */
   loadJSONService(data: any) {
     this.iframeService.loadJSON(this.iframeEvent, 'loadJSON', data);
   }

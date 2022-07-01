@@ -42,6 +42,11 @@ export class ThermalComponent implements OnInit, OnChanges, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
+    
+   /**
+   * This is observable of Unified Model which will calls when the unified model has changed anywhere in the application
+   * and will set the values for the input fields 
+   */ 
     this.umService.obsUnifiedModel.pipe(takeUntil(this.destroy$)).subscribe(
       response => {
         if (response) {
@@ -51,6 +56,11 @@ export class ThermalComponent implements OnInit, OnChanges, AfterViewInit {
       });    
   }
 
+ /**
+ * This function is to set the thermal input values to the unified model 
+ * and also will get the value from unified model and assign to the input fields on page refresh
+ *
+ */
   loadThermal() {
     if (this.unified3DModel && this.unified3DModel.ModelInput && this.unified3DModel.ModelInput.Thermal && this.unified3DModel.ModelInput.Thermal.RelativeHumidity > 0) {
       this.dewPointChecked = true;
@@ -100,6 +110,11 @@ export class ThermalComponent implements OnInit, OnChanges, AfterViewInit {
     }
   }
 
+ /**
+ * This function is called when user Checks and unchecks the DewPoint checkbox 
+ * and it will validate the form and accordingly will set to the unified model
+ *
+ */
   onDewPointSelected() {
     let isValueChanged = false;
     if (!this.dewPointChecked && this.realtiveHumidityNumber)
@@ -120,6 +135,12 @@ export class ThermalComponent implements OnInit, OnChanges, AfterViewInit {
       this.umService.set_Thermal(thermal);
     }
   }
+
+ /**
+ * This function is called when user changes the Humidity value 
+ * and it will validate the form and will set to the unified model
+ *
+ */
   onRealativeHumidityChange() {
     if (this.realtiveHumidityString) {
       this.realtiveHumidityNumber = parseFloat(this.realtiveHumidityString.replace(',', '.'));
@@ -154,6 +175,12 @@ export class ThermalComponent implements OnInit, OnChanges, AfterViewInit {
     this.umService.set_Thermal(thermalModel);
   }
 
+ /**
+ * This function is used to validate a given value is a number or not 
+ * @param {any} value is the input value will check whether it is a number or not
+ *
+ * @returns {boolean}  returns true if it is a number else will return as false 
+ */
   isValidNumber(value: any): boolean {
     if (!value)
       return false;
@@ -164,6 +191,11 @@ export class ThermalComponent implements OnInit, OnChanges, AfterViewInit {
     return true;
   }
 
+ /**
+ * This function is used to check whether the thermal form is valid or not 
+ *
+ * @returns {boolean}  returns true if the form is valid else will return as false 
+ */
   isFormValid(): boolean {
     return this.validateForm.valid;
   }
