@@ -64,6 +64,12 @@ export class AcousticComponent implements OnInit, OnChanges {
   //     this.loadAcoustic();
   //   }
   // }
+
+ /**
+ * This function is to load the deafult values of acoustic on page load
+ * 
+ * It is used to load the acoustic values which is already saved to Unified model
+ */
   loadAcoustic() {
     this.validateForm.disable();
     if (this.unified3DModel && this.unified3DModel.ModelInput && this.unified3DModel.ModelInput.Acoustic &&
@@ -135,6 +141,10 @@ export class AcousticComponent implements OnInit, OnChanges {
     }
   }
 
+ /**
+ * This function is called on change of wall perimeter that is when it is checked or unchecked
+ * 
+ */
   onWallPerimeterChecked() {
     this.configureService.computeClickedSubject.next(false);
     if (this.wallPerimeterEffectChecked) {
@@ -152,11 +162,19 @@ export class AcousticComponent implements OnInit, OnChanges {
     }
   }
 
+ /**
+ * This function is called on chnage of wall type and this will internally call teh method to set the values to Unified Model
+ * 
+ */
   onWallTypeChange() {
     this.wallTypeNumberClicks++;
     this.writeNsendUnified3DModel();
   }
 
+ /**
+ * This function is used to set the acoustic values of unified model
+ * 
+ */
   writeNsendUnified3DModel() {
     if (this.heightString) {
       this.height = parseFloat(this.heightString.replace(',', '.'));
@@ -209,12 +227,22 @@ export class AcousticComponent implements OnInit, OnChanges {
     this.unified3DModelFromAcousticEvent.emit(this.unified3DModel);
   }
 
+ /**
+ * This function is used to check whether the form is valid or not  
+ * 
+ * @returns true if the form is valid else returns false
+ * 
+ */
   isFormValid() {
     if (!this.wallPerimeterEffectChecked) { return true; }
     else
       return this.validateForm.valid;
   }
 
+ /**
+ * This function is called to load JSON for the 3D Viewer to display the model 
+ * @param {any} data is the unified model which will pass to teh 3D Modeler to display the model in the viewer.  
+ */
   loadJSONService(data: any) {
     this.iframeService.loadJSON(this.iframeEvent, 'loadJSON', data);
   }

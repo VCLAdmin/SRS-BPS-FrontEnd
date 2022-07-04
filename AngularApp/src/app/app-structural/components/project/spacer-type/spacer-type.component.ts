@@ -41,6 +41,11 @@ export class SpacerTypeComponent implements OnInit, AfterViewInit, OnDestroy {
   }
   ngOnInit(): void {
     this.language = (this.localStorageService.getValue('culture')) ? this.localStorageService.getValue('culture') : 'en-US';
+
+   /**
+   * This is observable of Pop outs of all the child components is set to the variable which is used to open and close the pop out
+   *
+   */
     this.cpService.obsPopout.pipe(takeUntil(this.destroy$)).subscribe(
       response => {
         if (response.panelsModule === PanelsModule.SpacerType) {
@@ -151,6 +156,10 @@ export class SpacerTypeComponent implements OnInit, AfterViewInit, OnDestroy {
     ];
   }
 
+ /**
+ * This function is called when we open and close the spacer type and it is used to set the default value
+ *
+ */
   onOpenCloseSpacerTypePopout() {
     this.defaultExpandedKeys = [];
     this.defaultSelectedKeys.forEach(key => {
@@ -158,10 +167,18 @@ export class SpacerTypeComponent implements OnInit, AfterViewInit, OnDestroy {
     });
   }
 
+ /**
+ * This function will close the spacer type pop out
+ *
+ */
   onClose() {
     if (this.isPopoutOpened) this.cpService.setPopout(false, PanelsModule.SpacerType);
   }
 
+ /**
+ * This function is called when we click on the node
+ *
+ */
   bpsClick(event: NzFormatEmitEvent): void {
     this.articleSelected = event.selectedKeys;
     this.defaultSelectedKeys = event.keys;
@@ -173,6 +190,10 @@ export class SpacerTypeComponent implements OnInit, AfterViewInit, OnDestroy {
 
   }
 
+ /**
+ * This function is called when we expand the nodes in the spacer component
+ *
+ */
   bpsExpandChange(event: NzFormatEmitEvent): void {
     if (event.keys.length == 2) {
       this.defaultExpandedKeys = [event.node.key];
@@ -192,11 +213,19 @@ export class SpacerTypeComponent implements OnInit, AfterViewInit, OnDestroy {
     // );
   }
 
+  /**
+   * This function will send the information of the row selected  to the parent component service to update the Spacer type info.
+   * The table is also closed.
+   */
   onConfirmSpacerType() {
     this.confirmSpacerTypeEvent.emit(this.articleSelected);
     this.onClose();
   }
 
+  /**
+   * This function is used to get the article selected based on the given key and sends the selected article to parent component
+   * @param {string} key it has the key value 
+   */
   getSpacerTypeByKey(key: string) {
     this.defaultSelectedKeys = [key];
     this.defaultExpandedKeys = [this.nodes.filter(node => node.children.map(child => child.key).includes(key))[0].key];
@@ -204,6 +233,10 @@ export class SpacerTypeComponent implements OnInit, AfterViewInit, OnDestroy {
     this.onConfirmSpacerType();
   }
 
+  /**
+   * When the user double clicks on a row of the table, the row is selected and sent to the parent component
+   * @param event Information stored in the row of the table
+   */
   onDblClickRow(event) {
     if(event.node.level > 0){
       this.bpsClick(event);
@@ -212,6 +245,9 @@ export class SpacerTypeComponent implements OnInit, AfterViewInit, OnDestroy {
     }
   }
 
+  /**
+   * When the user clicks on the confirm button or double clicks on a row, the information of the row selected is sent to the configure service to update the Spacer type info.
+   */
   onConfirm() {
     this.configureService.computeClickedSubject.next(false);
     this.onConfirmSpacerType();
