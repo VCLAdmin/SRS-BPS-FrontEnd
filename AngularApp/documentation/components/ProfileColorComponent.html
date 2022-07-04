@@ -403,14 +403,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="166"
-                            class="link-to-prism">src/app/app-structural/components/project/side-panels/profile-color/profile-color.component.ts:166</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="202"
+                            class="link-to-prism">src/app/app-structural/components/project/side-panels/profile-color/profile-color.component.ts:202</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Collect the articles linked to the system from the local storage or the server and rearrange the data in the fillData function.</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -440,14 +442,18 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="171"
-                            class="link-to-prism">src/app/app-structural/components/project/side-panels/profile-color/profile-color.component.ts:171</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="214"
+                            class="link-to-prism">src/app/app-structural/components/project/side-panels/profile-color/profile-color.component.ts:214</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>The table is displayed only when we have the data.
+The articles information is mapped in the getTableData before getting displayed in the table component.</p>
+<p>Once the table is displayed (have to wait first with a setTimeout() ), only then we make one row selectioned and the search text empty with no filtering in the data.</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -509,14 +515,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="132"
-                            class="link-to-prism">src/app/app-structural/components/project/side-panels/profile-color/profile-color.component.ts:132</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="155"
+                            class="link-to-prism">src/app/app-structural/components/project/side-panels/profile-color/profile-color.component.ts:155</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>The function stores the search text in the searchValue variable, and then calls the search function to make the filtering.</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -527,6 +535,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -541,6 +550,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>Text entered by the user to filter the articles</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -578,14 +591,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="82"
-                            class="link-to-prism">src/app/app-structural/components/project/side-panels/profile-color/profile-color.component.ts:82</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="93"
+                            class="link-to-prism">src/app/app-structural/components/project/side-panels/profile-color/profile-color.component.ts:93</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Set the properties of the bps table component for the HTML code</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -615,14 +630,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="215"
-                            class="link-to-prism">src/app/app-structural/components/project/side-panels/profile-color/profile-color.component.ts:215</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="272"
+                            class="link-to-prism">src/app/app-structural/components/project/side-panels/profile-color/profile-color.component.ts:272</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>To know the index of which row of the table should be selectioned by default.</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -652,14 +669,18 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="205"
-                            class="link-to-prism">src/app/app-structural/components/project/side-panels/profile-color/profile-color.component.ts:205</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="259"
+                            class="link-to-prism">src/app/app-structural/components/project/side-panels/profile-color/profile-color.component.ts:259</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>After searching and filtering the articles, we need to reselect the row which was selected before these events
+So we first try to get the index of the selected row, and if the selected row is still in the filtered rows (selectedIndex &gt; -1)
+Then we make the table selecting the row</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -689,14 +710,18 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="184"
-                            class="link-to-prism">src/app/app-structural/components/project/side-panels/profile-color/profile-color.component.ts:184</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="233"
+                            class="link-to-prism">src/app/app-structural/components/project/side-panels/profile-color/profile-color.component.ts:233</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Map the data to fit the properties of the table and its columns.
+And then store the mapped data in the variable listOfDisplayData, which is parsed in the HTML code of the table component.
+Calls the function getSelectedIndex() to know the index of which row should be selectioned by default.</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -758,8 +783,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="123"
-                            class="link-to-prism">src/app/app-structural/components/project/side-panels/profile-color/profile-color.component.ts:123</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="138"
+                            class="link-to-prism">src/app/app-structural/components/project/side-panels/profile-color/profile-color.component.ts:138</a></div>
                 </td>
             </tr>
 
@@ -860,8 +885,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="109"
-                            class="link-to-prism">src/app/app-structural/components/project/side-panels/profile-color/profile-color.component.ts:109</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="120"
+                            class="link-to-prism">src/app/app-structural/components/project/side-panels/profile-color/profile-color.component.ts:120</a></div>
                 </td>
             </tr>
 
@@ -897,8 +922,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="77"
-                            class="link-to-prism">src/app/app-structural/components/project/side-panels/profile-color/profile-color.component.ts:77</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="85"
+                            class="link-to-prism">src/app/app-structural/components/project/side-panels/profile-color/profile-color.component.ts:85</a></div>
                 </td>
             </tr>
 
@@ -934,14 +959,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="236"
-                            class="link-to-prism">src/app/app-structural/components/project/side-panels/profile-color/profile-color.component.ts:236</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="300"
+                            class="link-to-prism">src/app/app-structural/components/project/side-panels/profile-color/profile-color.component.ts:300</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>When the user clicks on a row of the table</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -951,6 +978,7 @@
                                 <tr>
                                     <td>Name</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -962,6 +990,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>Information stored in the row of the table</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -999,14 +1031,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="229"
-                            class="link-to-prism">src/app/app-structural/components/project/side-panels/profile-color/profile-color.component.ts:229</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="289"
+                            class="link-to-prism">src/app/app-structural/components/project/side-panels/profile-color/profile-color.component.ts:289</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Before closing the table, the search text is cleared for when the user reopens the table all the articles are displayed.</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -1036,14 +1070,17 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="247"
-                            class="link-to-prism">src/app/app-structural/components/project/side-panels/profile-color/profile-color.component.ts:247</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="319"
+                            class="link-to-prism">src/app/app-structural/components/project/side-panels/profile-color/profile-color.component.ts:319</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>When the user clicks on the confirm button or double clicks on a row, the information of the row selected is sent to the unified model service to update the profile color property.
+The table is also closed.</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -1073,14 +1110,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="242"
-                            class="link-to-prism">src/app/app-structural/components/project/side-panels/profile-color/profile-color.component.ts:242</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="310"
+                            class="link-to-prism">src/app/app-structural/components/project/side-panels/profile-color/profile-color.component.ts:310</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>When the user double clicks on a row of the table, the row is selected and confirmed</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -1090,6 +1129,7 @@
                                 <tr>
                                     <td>Name</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -1101,6 +1141,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>Information stored in the row of the table</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -1138,8 +1182,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="119"
-                            class="link-to-prism">src/app/app-structural/components/project/side-panels/profile-color/profile-color.component.ts:119</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="134"
+                            class="link-to-prism">src/app/app-structural/components/project/side-panels/profile-color/profile-color.component.ts:134</a></div>
                 </td>
             </tr>
 
@@ -1212,14 +1256,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="162"
-                            class="link-to-prism">src/app/app-structural/components/project/side-panels/profile-color/profile-color.component.ts:162</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="194"
+                            class="link-to-prism">src/app/app-structural/components/project/side-panels/profile-color/profile-color.component.ts:194</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Makes sure the table knows the system selected before collecting the articles related to the system.</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -1249,14 +1295,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="114"
-                            class="link-to-prism">src/app/app-structural/components/project/side-panels/profile-color/profile-color.component.ts:114</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="129"
+                            class="link-to-prism">src/app/app-structural/components/project/side-panels/profile-color/profile-color.component.ts:129</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>This function is to restrict the execution of Code for multiple times click of the button</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -1318,14 +1366,21 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="137"
-                            class="link-to-prism">src/app/app-structural/components/project/side-panels/profile-color/profile-color.component.ts:137</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="166"
+                            class="link-to-prism">src/app/app-structural/components/project/side-panels/profile-color/profile-color.component.ts:166</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Rearrange the order of the articles displayed in the table.</p>
+<ol>
+<li>The articles are filtered according to the search text entered by the user</li>
+<li>If there are sort properties, the selected articles are sorted depending of the sort properties and then displayed in the table</li>
+<li>If there are no sort properties, the selected articles are directly displayed in the table.   *</li>
+</ol>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -1355,8 +1410,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="227"
-                            class="link-to-prism">src/app/app-structural/components/project/side-panels/profile-color/profile-color.component.ts:227</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="284"
+                            class="link-to-prism">src/app/app-structural/components/project/side-panels/profile-color/profile-color.component.ts:284</a></div>
                 </td>
             </tr>
 
@@ -1420,14 +1475,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="126"
-                            class="link-to-prism">src/app/app-structural/components/project/side-panels/profile-color/profile-color.component.ts:126</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="145"
+                            class="link-to-prism">src/app/app-structural/components/project/side-panels/profile-color/profile-color.component.ts:145</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Sorting by sortName with the method (ascend or descend) sortValue</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -1438,6 +1495,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -1452,6 +1510,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>Properties of the sorting</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -2059,18 +2121,26 @@ export class ProfileColorComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   ngAfterViewInit() {
+    /**
+     * Whenever the UM is changed somewhere, this observable updates the UM of this table.
+     */
     this.umService.obsUnifiedModel.pipe(takeUntil(this.destroy$)).subscribe(
       response &#x3D;&gt; {
         if (response) {
           this.unified3DModel &#x3D; response;
         }
       });
-    
+    /**
+     * Whenever the system is changed, this observable updates the system of this table.
+     */
     this.cpService.obsSystem.pipe(takeUntil(this.destroy$)).subscribe(
       response &#x3D;&gt; {
         this.systemSelected &#x3D; response.data;
       });
-    
+    /**
+     * This observable handles the display of the table.
+     * If the table is opened, the table properties are set and parsed to the bps component with the getConfigGrid() function.
+     */
     this.cpService.obsPopout.pipe(takeUntil(this.destroy$)).subscribe(
       response &#x3D;&gt; {
         if (this.unified3DModel !&#x3D;&#x3D; undefined &amp;&amp; response.panelsModule &#x3D;&#x3D;&#x3D; PanelsModule.ProfileColor) {
@@ -2088,6 +2158,9 @@ export class ProfileColorComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   //#region bpstable
+  /**
+   * Set the properties of the bps table component for the HTML code
+   */
   getConfigGrid() {
     this.configurationCustomGrid &#x3D; {
       fields: [
@@ -2120,7 +2193,11 @@ export class ProfileColorComponent implements OnInit, OnDestroy, AfterViewInit {
     this.destroy$.complete();
   }
 
-  preventDefault($event: Event) {
+  /**
+   * This function is to restrict the execution of Code for multiple times click of the button
+   * @param $event
+   */
+   preventDefault($event: Event) {
     $event.preventDefault();
     $event.stopImmediatePropagation();
   }
@@ -2132,18 +2209,32 @@ export class ProfileColorComponent implements OnInit, OnDestroy, AfterViewInit {
   log($event) {
   }
 
-  sort(sort: { sortName: string; sortValue: string }): void {
+  /**
+   * Sorting by sortName with the method (ascend or descend) sortValue
+   * @param sort Properties of the sorting
+   */
+   sort(sort: { sortName: string; sortValue: string }): void {
     this.sortName &#x3D; sort.sortName;
     this.sortValue &#x3D; sort.sortValue;
     this.search();
   }
 
-  filter(value: string): void {
+  /**
+   * The function stores the search text in the searchValue variable, and then calls the search function to make the filtering.
+   * @param {string} value Text entered by the user to filter the articles 
+   */
+   filter(value: string): void {
     this.searchValue &#x3D; value;
     this.search();
   }
 
-  search(): void {
+  /**
+   * Rearrange the order of the articles displayed in the table.
+   * 1. The articles are filtered according to the search text entered by the user
+   * 2. If there are sort properties, the selected articles are sorted depending of the sort properties and then displayed in the table
+   * 3. If there are no sort properties, the selected articles are directly displayed in the table.   * 
+   */
+   search(): void {
     const filterFunc &#x3D; (item: any) &#x3D;&gt; {
       return item.description.indexOf(this.searchValue) !&#x3D;&#x3D; -1;
     };
@@ -2168,16 +2259,30 @@ export class ProfileColorComponent implements OnInit, OnDestroy, AfterViewInit {
   //#endregion
   
   //#region build data
+  /**
+   * Makes sure the table knows the system selected before collecting the articles related to the system.
+   */
   onPopoutOpened() {
     this.collectData();
   }
 
-  collectData() {
+  /**
+   * Collect the articles linked to the system from the local storage or the server and rearrange the data in the fillData function.
+   * @param system system selected in the framing section
+   */
+   collectData() {
     this.showSection &#x3D; false;
     this.fillData(this.profileColorData);    
   }
 
-  fillData(data: any) {    
+  /**
+   * The table is displayed only when we have the data.
+   * The articles information is mapped in the getTableData before getting displayed in the table component.
+   * 
+   * Once the table is displayed (have to wait first with a setTimeout() ), only then we make one row selectioned and the search text empty with no filtering in the data.
+   * @param dataList List of all the articles collected
+   */
+   fillData(data: any) {    
     this.getTableData(data);
     this.showSection &#x3D; true;
     setTimeout(() &#x3D;&gt; {
@@ -2189,8 +2294,14 @@ export class ProfileColorComponent implements OnInit, OnDestroy, AfterViewInit {
       }
     }, 1);
   }
-  
-  getTableData(data: any[]) {
+
+  /**
+   * Map the data to fit the properties of the table and its columns.
+   * And then store the mapped data in the variable listOfDisplayData, which is parsed in the HTML code of the table component.
+   * Calls the function getSelectedIndex() to know the index of which row should be selectioned by default.
+   * @param data 
+   */
+   getTableData(data: any[]) {
     this.data &#x3D; [];
     data.forEach((article, index) &#x3D;&gt; {
       this.data.push({
@@ -2211,7 +2322,12 @@ export class ProfileColorComponent implements OnInit, OnDestroy, AfterViewInit {
     this.getSelectedIndex();
   }
 
-  getSelectedIndexAfterSearch() {
+  /**
+   * After searching and filtering the articles, we need to reselect the row which was selected before these events
+   * So we first try to get the index of the selected row, and if the selected row is still in the filtered rows (selectedIndex &gt; -1)
+   * Then we make the table selecting the row
+   */
+   getSelectedIndexAfterSearch() {
     let savedData &#x3D; this.umService.obj_ProfileColor();
     if (savedData) {
       this.selectedIndex &#x3D; this.listOfDisplayData.map(article &#x3D;&gt; article.description).indexOf(savedData);
@@ -2221,7 +2337,10 @@ export class ProfileColorComponent implements OnInit, OnDestroy, AfterViewInit {
     }, 100);
   }
 
-  getSelectedIndex() {
+  /**
+   * To know the index of which row of the table should be selectioned by default.
+   */
+   getSelectedIndex() {
     let savedData &#x3D; this.umService.obj_ProfileColor();
     this.selectedIndex &#x3D; 0;
     if (savedData) {
@@ -2235,25 +2354,40 @@ export class ProfileColorComponent implements OnInit, OnDestroy, AfterViewInit {
   //#region events
   selectionChange($event) { }
 
-  onClose(): void {
+  /**
+   * Before closing the table, the search text is cleared for when the user reopens the table all the articles are displayed.
+   */
+   onClose(): void {
     if (this.tableComponent) { this.tableComponent.inputElement.nativeElement.value &#x3D; &#x27;&#x27;; }
     this.searchValue &#x3D; &#x27;&#x27;;
     this.search();
     if (this.isPopoutOpened) this.cpService.setPopout(false, PanelsModule.ProfileColor);
   }
 
-  onclickRow(event) { //onSelectOuterFrameArticle
+  /**
+   * When the user clicks on a row of the table
+   * @param event Information stored in the row of the table
+   */
+   onclickRow(event) { //onSelectOuterFrameArticle
     this.selectedIndex &#x3D; parseInt(event.id);
     if (this.selectedIndex &lt; 0)
       this.selectedIndex &#x3D; 0;
   }
 
-  ondblclickRow(event) { //onDblClickRow
+  /**
+   * When the user double clicks on a row of the table, the row is selected and confirmed
+   * @param event Information stored in the row of the table
+   */
+   ondblclickRow(event) { //onDblClickRow
     this.tableComponent.selectRow(event);
     this.onConfirm();
   }
 
-  onConfirm() {
+  /**
+   * When the user clicks on the confirm button or double clicks on a row, the information of the row selected is sent to the unified model service to update the profile color property.
+   * The table is also closed.
+   */
+   onConfirm() {
     this.umService.set_ProfileColor(this.listOfDisplayData[this.selectedIndex]);
     this.onClose();
   }

@@ -391,14 +391,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="36"
-                            class="link-to-prism">src/app/app-common/components/login/login.component.ts:36</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="39"
+                            class="link-to-prism">src/app/app-common/components/login/login.component.ts:39</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>No nav bar and set the language (local storageor english by default)</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -428,14 +430,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="96"
-                            class="link-to-prism">src/app/app-common/components/login/login.component.ts:96</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="107"
+                            class="link-to-prism">src/app/app-common/components/login/login.component.ts:107</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Save the language on local storage</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -497,14 +501,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="60"
-                            class="link-to-prism">src/app/app-common/components/login/login.component.ts:60</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="67"
+                            class="link-to-prism">src/app/app-common/components/login/login.component.ts:67</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Check the validation of the unsername and password, redirect to home if they are correct</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -766,7 +772,10 @@ export class LoginComponent implements OnInit, OnDestroy {
   constructor(private navLayoutService: NavLayoutService, private loginService: LoginService,
     private localStorageService: LocalStorageService, private translate: TranslateService,
     private router: Router, private authService: AuthService, private commonService: CommonService,private appConstantService: AppconstantsService) { }
-
+  
+    /**
+     * No nav bar and set the language (local storageor english by default)
+     */
   ngOnInit(): void {
     // this.navLayoutService.isEmptyPage.next(false);
     // this.navLayoutService.changeNavBarVisibility(false);
@@ -791,6 +800,10 @@ export class LoginComponent implements OnInit, OnDestroy {
       this.translate.use(this.language);
     },200);
   }
+
+  /**
+   * Check the validation of the unsername and password, redirect to home if they are correct
+   */
   onLogin() {
     this.showLoader &#x3D; true;
     this.InvalidUserContainer &#x3D; false;
@@ -827,6 +840,10 @@ export class LoginComponent implements OnInit, OnDestroy {
     });
   }
 
+  /**
+   * Save the language on local storage
+   * @param language 
+   */
   onChangeLanguage(language: string) {
     this.language &#x3D; language;
     this.localStorageService.setValue&lt;string&gt;(&#x27;culture&#x27;, language);

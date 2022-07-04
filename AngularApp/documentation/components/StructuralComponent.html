@@ -857,8 +857,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="795"
-                            class="link-to-prism">src/app/app-structural/components/project/structural/structural.component.ts:795</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="806"
+                            class="link-to-prism">src/app/app-structural/components/project/structural/structural.component.ts:806</a></div>
                 </td>
             </tr>
 
@@ -894,8 +894,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="798"
-                            class="link-to-prism">src/app/app-structural/components/project/structural/structural.component.ts:798</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="809"
+                            class="link-to-prism">src/app/app-structural/components/project/structural/structural.component.ts:809</a></div>
                 </td>
             </tr>
 
@@ -931,8 +931,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="801"
-                            class="link-to-prism">src/app/app-structural/components/project/structural/structural.component.ts:801</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="812"
+                            class="link-to-prism">src/app/app-structural/components/project/structural/structural.component.ts:812</a></div>
                 </td>
             </tr>
 
@@ -1074,14 +1074,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="821"
-                            class="link-to-prism">src/app/app-structural/components/project/structural/structural.component.ts:821</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="836"
+                            class="link-to-prism">src/app/app-structural/components/project/structural/structural.component.ts:836</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>This function is called to load JSON for the 3D Viewer to display the model</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -1092,6 +1094,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -1106,6 +1109,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>is the unified model which will pass to teh 3D Modeler to display the model in the viewer.</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -1397,8 +1404,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="750"
-                            class="link-to-prism">src/app/app-structural/components/project/structural/structural.component.ts:750</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="752"
+                            class="link-to-prism">src/app/app-structural/components/project/structural/structural.component.ts:752</a></div>
                 </td>
             </tr>
 
@@ -1434,14 +1441,17 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="782"
-                            class="link-to-prism">src/app/app-structural/components/project/structural/structural.component.ts:782</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="793"
+                            class="link-to-prism">src/app/app-structural/components/project/structural/structural.component.ts:793</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>This function is called when user changes the alloy value</p>
+<p>It is used to set the alloy value to the unified model object</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -1452,6 +1462,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -1466,6 +1477,11 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>is the value which has been changed.  </p>
+<p>It is used to set the alloy value to the unified model object</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -3995,6 +4011,8 @@ export class StructuralComponent implements OnInit, OnChanges, OnDestroy, AfterV
     //this.configureService.computeClickedSubject.next(false);
     //this.umService.setUnifiedModel(this.unified3DModel);
   }
+
+
   onAddBoudaryCondition_mullionJoints() {
     this.iframeEvent.next(new IFrameEvent(&#x27;clickAddSpliceJoints&#x27;, { jointType: this.mullionJoints }));
 
@@ -4027,6 +4045,15 @@ export class StructuralComponent implements OnInit, OnChanges, OnDestroy, AfterV
     // this.configureService.computeClickedSubject.next(false);
     // this.umService.setUnifiedModel(this.unified3DModel);
   }
+
+ /**
+ * This function is called when user changes the alloy value
+ * 
+ * @param {any} event is the value which has been changed.  
+ * 
+ * It is used to set the alloy value to the unified model object
+ * 
+ */
   onAlloyChange(event: any) {
     if (!this.unified3DModel.ModelInput.FrameSystem) {
       this.unified3DModel.ModelInput.FrameSystem &#x3D; new FrameSystem();
@@ -4066,6 +4093,10 @@ export class StructuralComponent implements OnInit, OnChanges, OnDestroy, AfterV
 
   }
 
+ /**
+ * This function is called to load JSON for the 3D Viewer to display the model 
+ * @param {any} data is the unified model which will pass to teh 3D Modeler to display the model in the viewer.  
+ */
   loadJSONService(data: any) {
     this.iframeService.loadJSON(this.iframeEvent, &#x27;loadJSON&#x27;, data);
   }

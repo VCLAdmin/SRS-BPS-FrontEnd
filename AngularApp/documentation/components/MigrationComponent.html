@@ -368,8 +368,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="40"
-                            class="link-to-prism">src/app/app-common/components/migration/migration.component.ts:40</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="45"
+                            class="link-to-prism">src/app/app-common/components/migration/migration.component.ts:45</a></div>
                 </td>
             </tr>
 
@@ -386,6 +386,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -400,6 +401,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>always true</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -474,14 +479,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="68"
-                            class="link-to-prism">src/app/app-common/components/migration/migration.component.ts:68</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="78"
+                            class="link-to-prism">src/app/app-common/components/migration/migration.component.ts:78</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Convert the unified model to a blod for download</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -555,8 +562,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="61"
-                            class="link-to-prism">src/app/app-common/components/migration/migration.component.ts:61</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="66"
+                            class="link-to-prism">src/app/app-common/components/migration/migration.component.ts:66</a></div>
                 </td>
             </tr>
 
@@ -851,6 +858,11 @@ export class MigrationComponent implements OnInit {
   goBackHome() {
     this.router.navigate([&#x27;/home&#x27;]);
   }
+
+  /**
+   * 
+   * @param event always true
+   */
   migrate(event: boolean) {
     this.successRecords &#x3D; 0;
     this.failedRecords &#x3D; 0;
@@ -879,6 +891,11 @@ export class MigrationComponent implements OnInit {
     else if (event &#x3D;&#x3D;&#x3D; &#x27;Success&#x27;) { this.migrationResult &#x3D; this.listOfData.filter(f &#x3D;&gt; f.Success); }
   }
 
+  /**
+   * Convert the unified model to a blod for download
+   * @param jsonString 
+   * @param problemId 
+   */
   onDownloadButtonClick(jsonString: string, problemId: number) {
     let theJSON &#x3D; JSON.stringify(jsonString);
     let blob &#x3D; new Blob([theJSON], { type: &#x27;text/json&#x27; });

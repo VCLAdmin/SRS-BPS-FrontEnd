@@ -122,6 +122,11 @@ export class StructuralComponent implements OnInit, OnChanges, OnDestroy, AfterV
   }
 
   ngAfterViewInit(): void {
+
+   /**
+   * This is observable of Unified Model which will be called when the unified model has changed anywhere in the application
+   * and will set the values of structural model 
+   */  
     this.umService.obsUnifiedModel.pipe(takeUntil(this.destroy$)).subscribe(
       response => {
         if (response) {
@@ -133,6 +138,10 @@ export class StructuralComponent implements OnInit, OnChanges, OnDestroy, AfterV
   ngOnInit(): void {
     this.unified3DModel = this.umService.current_UnifiedModel;
     
+   /**
+   * This is observable of Pop outs of all the child components is set to the variable which is used to open and close the pop out
+   *
+   */
     this.cpService.obsPopout.pipe(takeUntil(this.destroy$)).subscribe(
       response => {
         if (response.panelsModule === PanelsModule.WindLoad) {
@@ -146,6 +155,13 @@ export class StructuralComponent implements OnInit, OnChanges, OnDestroy, AfterV
   //       this.loadStructural();
   //   }
   // }
+
+ /**
+ * This function is used to load the default structural values on page load
+ * 
+ * on page refresh it will load all the structural values which was saved to unified model
+ * 
+ */
   loadStructural() {
     // if (this.horizontalIndex){
     //   this.horizontalIndexString = this.horizontalIndex.toString();
@@ -393,6 +409,10 @@ export class StructuralComponent implements OnInit, OnChanges, OnDestroy, AfterV
     }
   }
 
+ /**
+ * This function is used to open the win load side table
+ * 
+ */
   onOpenLeftTable() {
     if (!this.positiveWindPressure || !this.negativeWindPressure) {
       this.structuralModel = new Structural();
@@ -403,6 +423,12 @@ export class StructuralComponent implements OnInit, OnChanges, OnDestroy, AfterV
     //this.openLeftStructuralTableTableEvent.emit();
   }
 
+ /**
+ * This function is called on change of permissable value
+ * 
+ * this value will be set to unified model
+ * 
+ */
   onPermissableChange() {  // keep
     let isValueChanged: boolean = false;
     isValueChanged = this.unified3DModel.ModelInput.Structural && this.unified3DModel.ModelInput.Structural.DispIndexType != parseInt(this.pemissableDeflectionInput);
@@ -425,6 +451,12 @@ export class StructuralComponent implements OnInit, OnChanges, OnDestroy, AfterV
     }
   }
 
+ /**
+ * This function is called on change of top recess value
+ * 
+ * this value will be set to unified model
+ * 
+ */
   onTopRecessChange(value){
     if(value !== null && value !== 0) {
       this.topRecess = value;
@@ -449,6 +481,13 @@ export class StructuralComponent implements OnInit, OnChanges, OnDestroy, AfterV
     this.unified3DModelEvent.emit(this.unified3DModel);
     }
   }
+
+ /**
+ * This function is called when horizontal live load switch has turned on and off 
+ * 
+ * Based on turn on and off the values has been set to structural model and those will set to unified model
+ * 
+ */
   onBottomRecessChange(value){
     if(value !== null && value !== 0) {
       this.bottomRecess = value;
@@ -469,6 +508,13 @@ export class StructuralComponent implements OnInit, OnChanges, OnDestroy, AfterV
     this.unified3DModelEvent.emit(this.unified3DModel);
     }
   }
+
+ /**
+ * This function is called when horizontal live load switch has turned on and off 
+ * 
+ * Based on turn on and off the values has been set to structural model and those will set to unified model
+ * 
+ */
   onSwitchLiveLoad() {
     if (this.unified3DModel.ModelInput.Structural && ((this.switchLiveLoad && this.unified3DModel.ModelInput.Structural.HorizontalLiveLoad == 0) || (!this.switchLiveLoad && this.unified3DModel.ModelInput.Structural.HorizontalLiveLoad > 0)))
       this.configureService.computeClickedSubject.next(false);
@@ -499,6 +545,11 @@ export class StructuralComponent implements OnInit, OnChanges, OnDestroy, AfterV
     this.validStructuralEvent.emit(this.structuralModel);
     this.umService.set_Structural(this.structuralModel);
   }
+
+ /**
+ * This function is called when horizontal live load has changed and the horizontal live load has set to the unified model
+ * 
+ */
   onHorizontalLiveLoadChange() {
     if (this.horizontalLiveLoad) {
       this.structuralModel.HorizontalLiveLoad = parseFloat(this.horizontalLiveLoad);
@@ -521,6 +572,10 @@ export class StructuralComponent implements OnInit, OnChanges, OnDestroy, AfterV
     }
   }
 
+ /**
+ * This function is called when height has changed and the height has set to the unified model
+ * 
+ */
   onHeightChange() {
     if (this.height) {
       var modelHeight = this.getMaxModelHeight();
@@ -535,6 +590,11 @@ export class StructuralComponent implements OnInit, OnChanges, OnDestroy, AfterV
     this.umService.set_Structural(this.structuralModel);
 
   }
+
+ /**
+ * This function is called when horizontal Index has changed and the horizontal index has set to the unified model
+ * 
+ */
   onHorizontalIndexChange() {  // keep
     // if (this.horizontalIndexString){
     //   this.horizontalIndex = parseFloat(this.horizontalIndexString.replace(",","."));
@@ -560,6 +620,10 @@ export class StructuralComponent implements OnInit, OnChanges, OnDestroy, AfterV
     }
   }
 
+ /**
+ * This function is called when vertical Index has changed and the vertical index has set to the unified model
+ * 
+ */
   onVerticalIndexChange() {  // keep
     // if (this.verticalIndexString){
     //   this.verticalIndex = parseFloat(this.verticalIndexString.replace(",","."));
@@ -585,6 +649,10 @@ export class StructuralComponent implements OnInit, OnChanges, OnDestroy, AfterV
     }
   }
 
+ /**
+ * This function is called when wind load has changed and the winload has set to the unified model
+ * 
+ */
   onWindLoadChange() {  // keep
     if (this.structuralTableFormData && this.structuralTableFormData.windLoadSelectedText == 'DIN EN 1991-1-4') {
       let isValueChanged = false;
@@ -617,6 +685,10 @@ export class StructuralComponent implements OnInit, OnChanges, OnDestroy, AfterV
     }
   }
 
+ /**
+ * This function is used to set the value of windload to the structural model and will set the structural model object to the unified model structural object
+ * 
+ */
   updateParentForInvalid() {  // keep
     this.isValid = false;
     this.structuralModel = new Structural();
@@ -624,6 +696,14 @@ export class StructuralComponent implements OnInit, OnChanges, OnDestroy, AfterV
     this.umService.set_Structural(this.structuralModel);
   }
 
+/**
+ * This function is used to check whether the given value is valid number or not
+ *  
+ * @param {any} value is the input value which needs to check whether it is a valid number or not
+ * 
+ * @returns true if the given input is valid number else returns false
+ * 
+ */
   isValidNumber(value: any): boolean {   // keep
     if (!value)
       return false;
@@ -634,6 +714,10 @@ export class StructuralComponent implements OnInit, OnChanges, OnDestroy, AfterV
     return true;
   }
 
+ /**
+ * This function is used to set the value of windload to the structural model and will set the structural model object to the unified model structural object
+ * 
+ */
   onClickManual() {
     this.structuralModel = new Structural();
     this.structuralModel.WindLoad = this.windLoadNumber;
@@ -641,6 +725,12 @@ export class StructuralComponent implements OnInit, OnChanges, OnDestroy, AfterV
     this.umService.set_Structural(this.structuralModel);
   }
 
+ /**
+ * This function is used to check whether the form is valid or not  
+ * 
+ * @returns true if the form is valid else returns false
+ * 
+ */
   isFormValid(): boolean {
     var modelHeight = this.getMaxModelHeight();
     if (this.structuralModel && modelHeight < this.structuralModel.HorizontalLiveLoadHeight) {
@@ -678,6 +768,12 @@ export class StructuralComponent implements OnInit, OnChanges, OnDestroy, AfterV
     }
   }
 
+ /**
+ * This function is to get the Major mullionIds 
+ * 
+ * @returns the selected Major MullionIds object
+ * 
+ */
   GetMajorMullionMemberIds(): any[] {
     if (this.selectedMajorMullionIDs.length > 0) {
       return this.selectedMajorMullionIDs;
@@ -712,10 +808,23 @@ export class StructuralComponent implements OnInit, OnChanges, OnDestroy, AfterV
   //   //this.configureService.computeClickedSubject.next(false);
   // this.unified3DModelEvent.emit(this.unified3DModel);
   // }
+
+ /**
+ * This function sorts the array
+ * 
+ * @param {any} arr is the array of values.  
+ * 
+ * @returns sorted array
+ * 
+ */
   sortByAttribue(arr) {
     return arr.sort((a, b) => a["Y"] > b["Y"] ? 1 : -1);
   }
 
+ /**
+ * This function calls the 3D Event to add slab anchors 
+ * 
+ */
   selectedMajorMullionIDs: [] = []; // for mullion reinforcement
   onAddBoudaryCondition_floorAttachment() {
     // var SlabAnchorLength = this.unified3DModel.ModelInput.Geometry.SlabAnchors.length + 1;
@@ -747,6 +856,12 @@ export class StructuralComponent implements OnInit, OnChanges, OnDestroy, AfterV
     //this.configureService.computeClickedSubject.next(false);
     //this.umService.setUnifiedModel(this.unified3DModel);
   }
+
+
+ /**
+ * This function calls the 3D Event to add splice Joints 
+ * 
+ */
   onAddBoudaryCondition_mullionJoints() {
     this.iframeEvent.next(new IFrameEvent('clickAddSpliceJoints', { jointType: this.mullionJoints }));
 
@@ -779,6 +894,15 @@ export class StructuralComponent implements OnInit, OnChanges, OnDestroy, AfterV
     // this.configureService.computeClickedSubject.next(false);
     // this.umService.setUnifiedModel(this.unified3DModel);
   }
+
+ /**
+ * This function is called when user changes the alloy value
+ * 
+ * @param {any} event is the value which has been changed.  
+ * 
+ * It is used to set the alloy value to the unified model object
+ * 
+ */
   onAlloyChange(event: any) {
     if (!this.unified3DModel.ModelInput.FrameSystem) {
       this.unified3DModel.ModelInput.FrameSystem = new FrameSystem();
@@ -818,6 +942,10 @@ export class StructuralComponent implements OnInit, OnChanges, OnDestroy, AfterV
 
   }
 
+ /**
+ * This function is called to load JSON for the 3D Viewer to display the model 
+ * @param {any} data is the unified model which will pass to teh 3D Modeler to display the model in the viewer.  
+ */
   loadJSONService(data: any) {
     this.iframeService.loadJSON(this.iframeEvent, 'loadJSON', data);
   }
