@@ -101,6 +101,11 @@ export class GlassPanelComponent implements OnInit, OnChanges, OnDestroy {
 
 
   ngAfterViewInit(): void {
+  
+   /**
+   * This is called when the user clicks on confirm and it stores the selected data and save to teh unified model
+   *
+   */
     this.cpService.obsConfirm.pipe(takeUntil(this.destroy$)).subscribe(
       response => {
         if (response.panelsModule === PanelsModule.GlassPanel) {
@@ -108,7 +113,11 @@ export class GlassPanelComponent implements OnInit, OnChanges, OnDestroy {
           this.onGlassPanelConfirm();
         }
       });
-    
+
+   /**
+   * This is observable of Pop outs of all the child components is set to the variable which is used to open and close the pop out
+   *
+   */
    this.cpService.obsPopout.pipe(takeUntil(this.destroy$)).subscribe(
       response => {
         if (response.panelsModule === PanelsModule.GlassPanel) this.isGlassPanelTableOpened = response.isOpened;
@@ -130,6 +139,13 @@ export class GlassPanelComponent implements OnInit, OnChanges, OnDestroy {
     
    
   }
+
+ /**
+ * This function is used to load the default values
+ *
+ * It is used to reset the default values to pickers
+ * 
+ */
   reloadToDefault() {
     this.elementsSize = [[], [], [], [], []];
     this.elementsType = [[], [], [], [], []];
@@ -147,6 +163,13 @@ export class GlassPanelComponent implements OnInit, OnChanges, OnDestroy {
     this.spacerTypeDisplayInPanel = ['', '', '', '', ''];        // string name of spacer type
     this.isSidePanel = true;
   }
+
+ /**
+ * This function is used to load the glass and panel default values on the page load
+ *
+ *and also it is used to load the glass and panel values from the saved unified model on page refresh
+ * 
+ */
   loadGlassnPanel() {
     if (this.unified3DModel.ModelInput.Geometry.GlazingSystems)
       this.unified3DModel.ModelInput.Geometry.GlazingSystems.filter(f => f.Description == '1/4 Clear+1/2 ARGON+1/4 Clear (1 in)').map(x => { x.Description = "1/4 Clear SB 60+1/2 ARGON+1/4 Clear (1 in)"; return x });
@@ -389,6 +412,12 @@ export class GlassPanelComponent implements OnInit, OnChanges, OnDestroy {
     this.destroy$.complete();
   }
 
+ /**
+ * This function is called when user clicks confirm and it will store the selected article 
+ *
+ * Selected article will save to the unified model
+ * 
+ */
   onGlassPanelConfirm() {
     if (this.selectedPicker !== -1 && this.confirmedGlassPanelArticle) {  // library table confirmation
       let actualComposition = this.confirmedGlassPanelArticle.composition;
@@ -535,6 +564,12 @@ export class GlassPanelComponent implements OnInit, OnChanges, OnDestroy {
 
   }
 
+ /**
+ * This function is called when user adds the picker
+ *
+ * It is used to set the deafult values to the Picker when user adds the picker
+ * 
+ */
   onAddPicker(): void { 
     if (!this.pickers[this.pickers.length - 1].populated) {
       this.blockDistanceNumber = 150;
@@ -556,6 +591,12 @@ export class GlassPanelComponent implements OnInit, OnChanges, OnDestroy {
     }
   }
 
+ /**
+ * This function is used to change the type to upper case
+ *
+ * @param {number} arrayIndex is the index of Elements Type in which the type of that elements will convert  to upper case
+ * 
+ */
   changeTypeToUpperCase(arrayIndex: number) {
     this.elementsType[arrayIndex].forEach((typeString, index) => {
       if (Boolean(typeString)) {
@@ -569,12 +610,26 @@ export class GlassPanelComponent implements OnInit, OnChanges, OnDestroy {
     });
   }
 
+ /**
+ * This function is called when user checks the picker
+ *
+ * @param {boolean} picker is the boolean value when the user checks the picker
+ * 
+ * @returns {boolean} returns true and false
+ */
   checkUnpopulatedStatus(picker): boolean {
     return !picker.populated;
   }
   blockDistanceNumberEvent(event: any) {
     // this.pickers[this.selectedPicker].blockDistance = event;
   }
+
+ /**
+ * This function is called when user changes Block distance number
+ *
+ * and also sets the block distance number to the unified model Infills object
+ * 
+ */
   onBlockDistanceNumberChange() {
     if (this.blockDistanceNumber != this.pickers[this.selectedPicker].blockDistance)
       this.configureService.computeClickedSubject.next(false);
@@ -594,6 +649,13 @@ export class GlassPanelComponent implements OnInit, OnChanges, OnDestroy {
       this.validateBlockDistanceForm.controls["blockDistance"].setErrors({ incorrect: true });
     }
   }
+
+ /**
+ * This function is called when user chnages PSI Value
+ *
+ * and also sets the PSI Value to the unified model panel systems
+ * 
+ */
   onPSIValueChange() {
     if (this.selectedPicker > -1 && this.psiValueNumber) {
       if (this.psiValueNumber < 0 || this.psiValueNumber > 10) {
@@ -611,6 +673,14 @@ export class GlassPanelComponent implements OnInit, OnChanges, OnDestroy {
       }, 10);
     }
   }
+
+ /**
+ * This function is used to check the given value is valid number or not
+ *
+ * @param {any} value checks the given value is valid number or not
+ * 
+ * @returns {boolean} returns true if the given value is valid number else returns false
+ */
   isValidNumber(value: any): boolean {
     if (!value)
       return false;
@@ -621,6 +691,12 @@ export class GlassPanelComponent implements OnInit, OnChanges, OnDestroy {
     return true;
   }
 
+ /**
+ * This function is used to check whether the form is valid or not
+ *
+ * @returns {boolean} returns true if the form is valid else returns false
+ * 
+ */
   isFormValid(): boolean {
     // loop and check if any of the rw uvalues are empty for A and T.
     if (!this.unified3DModel.CollapsedPanels.Panel_Glass && (this.unified3DModel.ProblemSetting.EnableAcoustic || this.unified3DModel.ProblemSetting.EnableThermal)) {
@@ -652,6 +728,11 @@ export class GlassPanelComponent implements OnInit, OnChanges, OnDestroy {
       return this.validateBlockDistanceForm.valid;
     }
   }
+
+ /**
+ * This function is called when user selects the picker
+ * 
+ */
   onSelectPicker() {
     this.selectedPicker = parseInt(this.selectedPickerString);
     this.blockDistanceNumber = this.pickers[this.selectedPicker].blockDistance;
@@ -663,6 +744,12 @@ export class GlassPanelComponent implements OnInit, OnChanges, OnDestroy {
     this.getSpacerTypeByKeyEvent.emit(this.spacerTypeModelInputArray[this.selectedPicker]);
   }
 
+ /**
+ * This function is used to set the article composition to the pickers
+ * 
+ * and also it is used to open and close glass and panel component
+ *
+ */
   onOpenCloseGlassPanelTable(): void {
     let composition = [];
 
@@ -686,6 +773,12 @@ export class GlassPanelComponent implements OnInit, OnChanges, OnDestroy {
     this.openCloseGlassPanelTableEvent.emit({ article: articleData });
   }
 
+ /**
+ * This function is used to add the glass
+ *
+ * @param {string} desciptions is the glass descriptions which is user selected and it is saved to the unified model
+ * 
+ */
   onAddGlass(desciptions: string = "") {
     if ((this.confirmedGlassPanelArticle !== undefined && this.confirmedGlassPanelArticle.category === 'panel')
       || this.pickers[this.selectedPicker].article.category === 'panel') {
@@ -794,6 +887,12 @@ export class GlassPanelComponent implements OnInit, OnChanges, OnDestroy {
     }
   }
 
+ /**
+ * This function is used to add the panel
+ *
+ * @param {string} desciptions is the panel descriptions which is user selected and it is saved to the unified model
+ * 
+ */
   onAddPanel(desciptions: string = "") {
     if (!desciptions || desciptions == "") {
       let compositionList = this.pickers[this.selectedPicker].article.composition.split('-');
@@ -896,6 +995,11 @@ export class GlassPanelComponent implements OnInit, OnChanges, OnDestroy {
     this.selectedGlassId_array = [];
   }
 
+ /**
+ * This function is used to delete the glass by Id
+ *
+ * @param {number} glassId this is the input parameter based on this glassId will delete the glass 
+ */
   onDelete(glassId) {
     this.pickers[this.selectedPicker].glassId_added = this.pickers[this.selectedPicker].glassId_added.filter(o => o !== glassId);
     delete this.glassIDsAlreadyApplied[glassId];
@@ -908,14 +1012,31 @@ export class GlassPanelComponent implements OnInit, OnChanges, OnDestroy {
     this.sendValidationBoolToParentEvent.emit();
   }
 
+ /**
+ * This function is used to validate whether the form is valid or not
+ *
+ * @returns boolean that is it returns true when the form is valid else returns false 
+ */
   isValid(): boolean {
     return this.isFormValid() && Object.keys(this.glassIDsAlreadyApplied).length === this.unified3DModel.ModelInput.Geometry.Infills.length;
   }
 
+ /**
+ * This function is used to call the 3D viewer method to highlight the class in Red Color
+ *
+ * @param {number} glassId is the Id which needs to be highlighted
+ */
   onFocusGreen(glassId) {
     this.iframeEvent.next(new IFrameEvent('highlightGlassById', { id: glassId }));
   }
 
+ /**
+ * This function is used to call the 3D viewer method to highlight the class in Red Color
+ * 
+ * @param {number} glassId is the Id which needs to be highlighted
+ * 
+ * @param {boolean} event sends true if it is mouse in and send false if it is mouse out
+ */
   onFocusRed(glassId, event) {  // event = true if mouse In, event = false if mouse out
     if (event) {
       let obj = { id: glassId, colorCode: "0xbc0000" };
@@ -926,6 +1047,9 @@ export class GlassPanelComponent implements OnInit, OnChanges, OnDestroy {
     }
   }
 
+ /**
+ * This function is used to call the 3D viewer method to clear out highlight meshes
+ */
   onFocusOutItem(glassId) {
     this.iframeEvent.next(new IFrameEvent('clearHighlightedMeshes'));
   }
@@ -933,10 +1057,17 @@ export class GlassPanelComponent implements OnInit, OnChanges, OnDestroy {
   log(item, type = null, value = null) {
   }
 
+ /**
+ * This function is used to open and close space type pop out  
+ */
   onOpenCloseSpacerTypePopout() {
     this.cpService.setPopout(true, PanelsModule.SpacerType);
   }
 
+ /**
+ * This function is called to load JSON for the 3D Viewer to display the model 
+ * @param {any} data is the unified model which will pass to teh 3D Modeler to display the model in the viewer.  
+ */
   loadJSONService(data: any) {
     this.iframeService.loadJSON(this.iframeEvent, 'loadJSON', data);
   }
