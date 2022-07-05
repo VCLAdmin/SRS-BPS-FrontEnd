@@ -29,7 +29,7 @@ export class OuterTableComponent implements OnInit, OnDestroy, AfterViewInit {
   baseImageSrc = 'https://vcl-design-com.s3.amazonaws.com/StaticFiles/Images/article-jpeg/cross-section/';
   //defaultImageSrc = 'https://vcl-design-com.s3.amazonaws.com/StaticFiles/Images/article-jpeg/customArticle.svg';
   private destroy$ = new Subject<void>();
-  selectedIndex: any;
+  selectedId: any;
   configurationCustomGrid: any;
   listOfDisplayData = [];
   data = [];
@@ -164,10 +164,10 @@ export class OuterTableComponent implements OnInit, OnDestroy, AfterViewInit {
             : -1
       );
       this.listOfDisplayData = [...this.listOfDisplayData];
-      this.getSelectedIndexAfterSearch();
+      this.getSelectedIdAfterSearch();
     } else {
       this.listOfDisplayData = data;
-      this.getSelectedIndexAfterSearch();
+      this.getSelectedIdAfterSearch();
     }
   }
   //#endregion
@@ -246,8 +246,8 @@ export class OuterTableComponent implements OnInit, OnDestroy, AfterViewInit {
     
     this.getTableData(data);
     setTimeout(() => {
-      if (this.tableComponent && this.listOfDisplayData[this.selectedIndex] !== undefined) {
-        this.tableComponent.selectRow(this.listOfDisplayData[this.selectedIndex]);
+      if (this.tableComponent && this.listOfDisplayData.find(article => {return article.id == this.selectedId}) !== undefined ) {
+        this.tableComponent.selectRow(this.listOfDisplayData.find(article => {return article.id == this.selectedId}));
         this.tableComponent.inputElement.nativeElement.value = '';
         this.searchValue = '';
         this.sortName = 'description';
@@ -319,27 +319,28 @@ export class OuterTableComponent implements OnInit, OnDestroy, AfterViewInit {
       });
     }
     this.listOfDisplayData = [...this.data];
-    this.getSelectedIndex();
+    this.getSelectedId();
   }
 
-  getSelectedIndexAfterSearch() {
+  getSelectedIdAfterSearch() {
     let savedData = this.isPopoutOpenedForBottomOuterFrame ? this.umService.obj_BottomOuterFrameSliding():this.umService.obj_OuterFrame();
     if (savedData) {
-      this.selectedIndex = this.listOfDisplayData.map(article => article.description).indexOf(savedData.ArticleName);
+      let articleToSelect = this.listOfDisplayData.find(article => {return article.description == savedData.ArticleName });
+      this.selectedId = articleToSelect ? articleToSelect.id:-1;
     }
     setTimeout(() => {
-      if (this.selectedIndex > -1 && this.tableComponent) this.tableComponent.selectRow(this.listOfDisplayData[this.selectedIndex]);
+      if (this.selectedId > -1 && this.tableComponent) this.tableComponent.selectRow(this.listOfDisplayData.find(article => {return article.id == this.selectedId}));
     }, 100);
   }
 
-  getSelectedIndex() {
+  getSelectedId() {
     let savedData = this.isPopoutOpenedForBottomOuterFrame ? this.umService.obj_BottomOuterFrameSliding():this.umService.obj_OuterFrame();
-    this.selectedIndex = 0;
+    this.selectedId = 0;
     if (savedData) {
-      this.selectedIndex = this.listOfDisplayData.map(article => article.description).indexOf(savedData.ArticleName);
+      this.selectedId = this.listOfDisplayData.find(article => {return article.description == savedData.ArticleName}).id;
     }
-    if (this.selectedIndex < 0)
-      this.selectedIndex = 0;
+    if (this.selectedId < 0)
+      this.selectedId = 0;
 
     if (this.unified3DModel.ProblemSetting.ProductType != "SlidingDoor") {
       let os = this.unified3DModel.ModelInput.Geometry.OperabilitySystems;
@@ -368,9 +369,9 @@ export class OuterTableComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   onclickRow(event) { //onSelectOuterFrameArticle
-    this.selectedIndex = parseInt(event.id);
-    if (this.selectedIndex < 0)
-      this.selectedIndex = 0;
+    this.selectedId = parseInt(event.id);
+    if (this.selectedId < 0)
+      this.selectedId = 0;
   }
 
   ondblclickRow(event) { //onDblClickRow
@@ -380,12 +381,12 @@ export class OuterTableComponent implements OnInit, OnDestroy, AfterViewInit {
 
   onConfirm() {
     if (this.isPopoutOpenedForBottomOuterFrame) {   // Bottom Outer Frame for Sliding Door
-      this.umService.set_BottomOuterFrame(this.listOfDisplayData[this.selectedIndex]);
+      this.umService.set_BottomOuterFrame(this.listOfDisplayData.find(article =>{ return article.id == this.selectedId}));
     }
     else {
       this.cpService.closeAllPopouts();
       setTimeout(() => {
-        this.umService.set_OuterFrame(this.listOfDisplayData[this.selectedIndex]);
+        this.umService.set_OuterFrame(this.listOfDisplayData.find(article =>{ return article.id == this.selectedId}));
       }, 200);
     }
     this.onClose();
