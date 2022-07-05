@@ -70,7 +70,7 @@ export class NavLayoutComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
   public showDownloadButton() {
-    if (this.appConstantService.APP_DOMAIN === 'http://localhost:58119/'
+    if (this.appConstantService.APP_DOMAIN === 'https://localhost:58119/'
       || this.appConstantService.APP_DOMAIN === 'https://apiwebtest.vcldesign.com/'
       || this.appConstantService.APP_DOMAIN === 'https://srsapitest.vcldesign.com/') {
       this.showDownload = true;
