@@ -7,6 +7,7 @@ import { HttpClient } from '@angular/common/http';
 import { AppconstantsService } from 'src/app/app-common/services/appconstants.service';
 import { Observable } from 'rxjs';
 import { map, first } from 'rxjs/operators';
+import { SchecoDecyptedToken } from '../models/schecoDecyptedToken';
 
 const userDataKey = 'current_User';
 
@@ -106,6 +107,10 @@ export class AuthService {
         // });
         return true;
     }));
+  }
+
+  loginTokenSSO(schuecoToken: string): Observable<SchecoDecyptedToken> {
+    return this.http.get<SchecoDecyptedToken>(this.appConstantService.APP_DOMAIN + "api/account/logintoken?token=" + schuecoToken);
   }
   
   // setPCToken(): Observable<boolean> {
