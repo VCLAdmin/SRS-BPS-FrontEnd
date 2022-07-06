@@ -14,6 +14,8 @@ import { takeUntil } from 'rxjs/operators';
 import { ResultService } from 'src/app/app-structural/services/result.service';
 import { Feature } from 'src/app/app-core/models/feature';
 import { PermissionService } from 'src/app/app-core/services/permission.service';
+import { TranslateService } from '@ngx-translate/core';
+import { _ } from '@biesbjerg/ngx-translate-extract/dist/utils/utils';
 
 @Component({
   selector: 'app-home-expandable-panel',
@@ -30,6 +32,7 @@ export class HomeExpandablePanelComponent implements OnInit, OnChanges, AfterVie
     private resultService: ResultService,
     private navLayoutService: NavLayoutService,
     private commonService: CommonService,
+    private translate: TranslateService,
     private router: Router, private permissionService:PermissionService) { }
 
     feature=Feature;
@@ -460,4 +463,47 @@ export class HomeExpandablePanelComponent implements OnInit, OnChanges, AfterVie
   //   max = Math.floor(max);
   //   return Math.floor(Math.random() * (max - min + 1)) + min; 
   // }
+
+  /**
+   * Text to display in the tooltip displayed when the user hovers the acoustic cell of the problem
+   * @param id row number of the problem
+   * @returns 
+   */
+  getAcousticCellTooltip(id: number) {
+    if (this.mapOfCheckedIdAcoustic[id] && !this.mapOfDisabledIdAcoustic[id])
+      return this.translate.instant(_('home.acoustic-computed'));
+    else if (!this.mapOfCheckedIdAcoustic[id] && !this.mapOfDisabledIdAcoustic[id])
+      return this.translate.instant(_('home.acoustic-not-computed'));
+    else if (this.mapOfDisabledIdAcoustic[id])
+      return this.translate.instant(_('home.acoustic-not-selected'));
+  }
+
+  /**
+   * Text to display in the tooltip displayed when the user hovers the structural cell of the problem
+   * @param id row number of the problem
+   * @returns 
+   */
+  getStructuralCellTooltip(id: number) {
+    if (this.mapOfCheckedIdStructural[id] && !this.mapOfDisabledIdStructural[id])
+      return this.translate.instant(_('home.structural-computed'));
+    else if (!this.mapOfCheckedIdStructural[id] && !this.mapOfDisabledIdStructural[id])
+      return this.translate.instant(_('home.structural-not-computed'));
+    else if (this.mapOfDisabledIdStructural[id])
+      return this.translate.instant(_('home.structural-not-selected'));
+  }
+
+  /**
+   * Text to display in the tooltip displayed when the user hovers the thermal cell of the problem
+   * @param id row number of the problem
+   * @returns 
+   */
+  getThermalCellTooltip(id: number) {
+    if (this.mapOfCheckedIdThermal[id] && !this.mapOfDisabledIdThermal[id])
+      return this.translate.instant(_('home.thermal-computed'));
+    else if (!this.mapOfCheckedIdThermal[id] && !this.mapOfDisabledIdThermal[id])
+      return this.translate.instant(_('home.thermal-not-computed'));
+    else if (this.mapOfDisabledIdThermal[id])
+      return this.translate.instant(_('home.thermal-not-selected'));
+  }
+  
 }
