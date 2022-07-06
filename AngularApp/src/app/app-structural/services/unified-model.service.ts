@@ -555,8 +555,14 @@ export class UnifiedModelService {
   get_Mullion(): string {
     if (this.current_UnifiedModel.ModelInput.Geometry.Sections && this.current_UnifiedModel.ModelInput.Geometry.Sections.filter(f => f.SectionID == 2 && f.SectionType == 2).length > 0) {
       let sec = this.obj_Mullion();
-      if (sec)
-      return sec.ArticleName + ' - ' + sec.InsideW.toString() + ' / ' + sec.OutsideW.toString();
+      if (sec) {
+        if (sec.InsideW !== undefined && sec.OutsideW !== undefined) {
+          return sec.ArticleName + ' - ' + sec.InsideW.toString() + ' / ' + sec.OutsideW.toString();
+        }
+        else {
+          return sec.ArticleName;
+        }
+      }
     } else {
       return '';
     }
@@ -574,36 +580,34 @@ export class UnifiedModelService {
       let article = inputData.article;
       let isCustomed = inputData.isCustomed;
       if (isCustomed && article) {
-        sectionClass.Ao = article.Ao;
-        sectionClass.ArticleName = article.ArticleName;
-        sectionClass.Au = article.Au;
-        sectionClass.Cn20 = article.Cn20;
-        sectionClass.Cp20 = article.Cp20;
-        sectionClass.Cp80 = article.Cp80;
-        sectionClass.InsideW = article.InsideW;
-        sectionClass.Io = article.Io;
-        sectionClass.Ioyy = article.Ioyy;
-        sectionClass.Iu = article.Iu;
-        sectionClass.Iuyy = article.Iuyy;
+        let element = article.sectionElement;
+        sectionClass.Ao = element.Ao;
+        sectionClass.ArticleName = element.ArticleName;
+        sectionClass.Au = element.Au;
+        sectionClass.Cn20 = element.Cn20;
+        sectionClass.Cp20 = element.Cp20;
+        sectionClass.Cp80 = element.Cp80;
+        sectionClass.Io = element.Io;
+        sectionClass.Ioyy = element.Ioyy;
+        sectionClass.Iu = element.Iu;
+        sectionClass.Iuyy = element.Iuyy;
         sectionClass.OutsideW = article.OutsideW;
-        sectionClass.RSn20 = article.RSn20;
-        sectionClass.RSp80 = article.RSp80;
-        sectionClass.RTn20 = article.RTn20;
-        sectionClass.RTp80 = article.RTp80;
-        sectionClass.SectionID = article.SectionID;
-        sectionClass.SectionType = article.SectionType;
-        sectionClass.Weight = article.Weight;
-        sectionClass.Zol = article.Zol;
-        sectionClass.Zoo = article.Zoo;
-        sectionClass.Zor = article.Zor;
-        sectionClass.Zou = article.Zou;
-        sectionClass.Zul = article.Zul;
-        sectionClass.Zuo = article.Zuo;
-        sectionClass.Zur = article.Zur;
-        sectionClass.Zuu = article.Zuu;
-        sectionClass.d = article.d;
-        sectionClass.isCustomProfile = article.isCustomProfile;
-        sectionClass.Depth = article.Depth;
+        sectionClass.RSn20 = element.RSn20;
+        sectionClass.RSp80 = element.RSp80;
+        sectionClass.RTn20 = element.RTn20;
+        sectionClass.RTp80 = element.RTp80;
+        sectionClass.Weight = element.Weight;
+        sectionClass.Zol = element.Zol;
+        sectionClass.Zoo = element.Zoo;
+        sectionClass.Zor = element.Zor;
+        sectionClass.Zou = element.Zou;
+        sectionClass.Zul = element.Zul;
+        sectionClass.Zuo = element.Zuo;
+        sectionClass.Zur = element.Zur;
+        sectionClass.Zuu = element.Zuu;
+        sectionClass.d = element.d;
+        sectionClass.isCustomProfile = element.isCustomProfile;
+        sectionClass.Depth = element.Depth;
       }
       else {
         if (article) {
@@ -631,8 +635,14 @@ export class UnifiedModelService {
   get_Transom(): string {
     if (this.current_UnifiedModel.ModelInput.Geometry.Sections && this.current_UnifiedModel.ModelInput.Geometry.Sections.filter(f => f.SectionID == 3 && f.SectionType == 3).length > 0) {
       let sec = this.obj_Transom();
-      if (sec)
-      return sec.ArticleName + ' - ' + sec.InsideW.toString() + ' / ' + sec.OutsideW.toString();
+      if (sec) {
+        if (sec.InsideW !== undefined && sec.OutsideW !== undefined) {
+          return sec.ArticleName + ' - ' + sec.InsideW.toString() + ' / ' + sec.OutsideW.toString();
+        }
+        else {
+          return sec.ArticleName;
+        }
+      }
     }
     else {
       return '';
@@ -647,36 +657,34 @@ export class UnifiedModelService {
       sectionClass.SectionID = 3;
       sectionClass.SectionType = 3;
       if (isCustomed && article) {
-        sectionClass.Ao = article.Ao;
-        sectionClass.ArticleName = article.ArticleName;
-        sectionClass.Au = article.Au;
-        sectionClass.Cn20 = article.Cn20;
-        sectionClass.Cp20 = article.Cp20;
-        sectionClass.Cp80 = article.Cp80;
-        sectionClass.InsideW = article.InsideW;
-        sectionClass.Io = article.Io;
-        sectionClass.Ioyy = article.Ioyy;
-        sectionClass.Iu = article.Iu;
-        sectionClass.Iuyy = article.Iuyy;
+        let element = article.sectionElement;
+        sectionClass.Ao = element.Ao;
+        sectionClass.ArticleName = element.ArticleName;
+        sectionClass.Au = element.Au;
+        sectionClass.Cn20 = element.Cn20;
+        sectionClass.Cp20 = element.Cp20;
+        sectionClass.Cp80 = element.Cp80;
+        sectionClass.Io = element.Io;
+        sectionClass.Ioyy = element.Ioyy;
+        sectionClass.Iu = element.Iu;
+        sectionClass.Iuyy = element.Iuyy;
         sectionClass.OutsideW = article.OutsideW;
-        sectionClass.RSn20 = article.RSn20;
-        sectionClass.RSp80 = article.RSp80;
-        sectionClass.RTn20 = article.RTn20;
-        sectionClass.RTp80 = article.RTp80;
-        sectionClass.SectionID = article.SectionID;
-        sectionClass.SectionType = article.SectionType;
-        sectionClass.Weight = article.Weight;
-        sectionClass.Zol = article.Zol;
-        sectionClass.Zoo = article.Zoo;
-        sectionClass.Zor = article.Zor;
-        sectionClass.Zou = article.Zou;
-        sectionClass.Zul = article.Zul;
-        sectionClass.Zuo = article.Zuo;
-        sectionClass.Zur = article.Zur;
-        sectionClass.Zuu = article.Zuu;
-        sectionClass.d = article.d;
-        sectionClass.isCustomProfile = article.isCustomProfile;
-        sectionClass.Depth = article.Depth;
+        sectionClass.RSn20 = element.RSn20;
+        sectionClass.RSp80 = element.RSp80;
+        sectionClass.RTn20 = element.RTn20;
+        sectionClass.RTp80 = element.RTp80;
+        sectionClass.Weight = element.Weight;
+        sectionClass.Zol = element.Zol;
+        sectionClass.Zoo = element.Zoo;
+        sectionClass.Zor = element.Zor;
+        sectionClass.Zou = element.Zou;
+        sectionClass.Zul = element.Zul;
+        sectionClass.Zuo = element.Zuo;
+        sectionClass.Zur = element.Zur;
+        sectionClass.Zuu = element.Zuu;
+        sectionClass.d = element.d;
+        sectionClass.isCustomProfile = element.isCustomProfile;
+        sectionClass.Depth = element.Depth;
       }
       else {
         if (article) {
