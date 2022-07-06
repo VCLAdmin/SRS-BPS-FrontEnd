@@ -324,7 +324,7 @@ export class UnifiedModelService {
     }
   }
   set_OuterFrame(inputData: any) {
-    if (inputData && this.current_UnifiedModel.ProblemSetting.ProductType == "Window") {
+    if (inputData && (this.current_UnifiedModel.ProblemSetting.ProductType == "Window" || this.current_UnifiedModel.ProblemSetting.ProductType == "Facade")) {
       let sectionClass = this.obj_OuterFrame();
       if (!sectionClass) sectionClass = new Section();
       // create section class for outer frame, mullion and transom information

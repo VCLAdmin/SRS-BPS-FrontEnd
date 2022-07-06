@@ -270,7 +270,10 @@ export class FramingComponent implements OnInit, OnChanges, OnDestroy, AfterView
   }
   private loadInputValues() {
     setTimeout(() => {
-      this.getOuterFrameInputValue();
+      if(this.unified3DModel.ProblemSetting.ProductType!=='Facade'){
+        this.getOuterFrameInputValue();
+      }
+     
       this.getBottomOuterFrameInputValue();
       this.getVentFrameInputValue();
       this.getMullionFrameInputValue();
@@ -297,7 +300,9 @@ export class FramingComponent implements OnInit, OnChanges, OnDestroy, AfterView
   ngOnInit(): void {
     //this is used to load data in leftPanel and call all child components to load data
     this.loadFraming();
-    this.getOuterFrameInputValue();
+    if(this.unified3DModel.ProblemSetting.ProductType!=='Facade'){
+      this.getOuterFrameInputValue();
+    }
   }
 
 
