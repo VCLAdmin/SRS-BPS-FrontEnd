@@ -318,13 +318,13 @@ export class UnifiedModelService {
       return sec.ArticleName + ' - ' + sec.InsideW.toString() + ' / ' + sec.OutsideW.toString();
     else
     {
-      let sec = this.obj_OuterFrameOperabilitySystems();
-      if (sec)
-        return sec.InsertOuterFrameArticleName + ' - ' + sec.InsertOuterFrameInsideW.toString() + ' / ' + sec.InsertOuterFrameOutsideW.toString();
+      let sec1 = this.obj_OuterFrameOperabilitySystems();
+      if (sec1)
+        return sec1.InsertOuterFrameArticleName + ' - ' + sec1.InsertOuterFrameInsideW.toString() + ' / ' + sec1.InsertOuterFrameOutsideW.toString();
     }
   }
   set_OuterFrame(inputData: any) {
-    if (inputData && this.current_UnifiedModel.ProblemSetting.ProductType == "Window") {
+    if (inputData && (this.current_UnifiedModel.ProblemSetting.ProductType == "Window" || this.current_UnifiedModel.ProblemSetting.ProductType == "Facade")) {
       let sectionClass = this.obj_OuterFrame();
       if (!sectionClass) sectionClass = new Section();
       // create section class for outer frame, mullion and transom information
@@ -555,8 +555,14 @@ export class UnifiedModelService {
   get_Mullion(): string {
     if (this.current_UnifiedModel.ModelInput.Geometry.Sections && this.current_UnifiedModel.ModelInput.Geometry.Sections.filter(f => f.SectionID == 2 && f.SectionType == 2).length > 0) {
       let sec = this.obj_Mullion();
-      if (sec)
-      return sec.ArticleName + ' - ' + sec.InsideW.toString() + ' / ' + sec.OutsideW.toString();
+      if (sec) {
+        if (sec.InsideW !== undefined && sec.OutsideW !== undefined) {
+          return sec.ArticleName + ' - ' + sec.InsideW.toString() + ' / ' + sec.OutsideW.toString();
+        }
+        else {
+          return sec.ArticleName;
+        }
+      }
     } else {
       return '';
     }
@@ -574,36 +580,34 @@ export class UnifiedModelService {
       let article = inputData.article;
       let isCustomed = inputData.isCustomed;
       if (isCustomed && article) {
-        sectionClass.Ao = article.Ao;
-        sectionClass.ArticleName = article.ArticleName;
-        sectionClass.Au = article.Au;
-        sectionClass.Cn20 = article.Cn20;
-        sectionClass.Cp20 = article.Cp20;
-        sectionClass.Cp80 = article.Cp80;
-        sectionClass.InsideW = article.InsideW;
-        sectionClass.Io = article.Io;
-        sectionClass.Ioyy = article.Ioyy;
-        sectionClass.Iu = article.Iu;
-        sectionClass.Iuyy = article.Iuyy;
+        let element = article.sectionElement;
+        sectionClass.Ao = element.Ao;
+        sectionClass.ArticleName = element.ArticleName;
+        sectionClass.Au = element.Au;
+        sectionClass.Cn20 = element.Cn20;
+        sectionClass.Cp20 = element.Cp20;
+        sectionClass.Cp80 = element.Cp80;
+        sectionClass.Io = element.Io;
+        sectionClass.Ioyy = element.Ioyy;
+        sectionClass.Iu = element.Iu;
+        sectionClass.Iuyy = element.Iuyy;
         sectionClass.OutsideW = article.OutsideW;
-        sectionClass.RSn20 = article.RSn20;
-        sectionClass.RSp80 = article.RSp80;
-        sectionClass.RTn20 = article.RTn20;
-        sectionClass.RTp80 = article.RTp80;
-        sectionClass.SectionID = article.SectionID;
-        sectionClass.SectionType = article.SectionType;
-        sectionClass.Weight = article.Weight;
-        sectionClass.Zol = article.Zol;
-        sectionClass.Zoo = article.Zoo;
-        sectionClass.Zor = article.Zor;
-        sectionClass.Zou = article.Zou;
-        sectionClass.Zul = article.Zul;
-        sectionClass.Zuo = article.Zuo;
-        sectionClass.Zur = article.Zur;
-        sectionClass.Zuu = article.Zuu;
-        sectionClass.d = article.d;
-        sectionClass.isCustomProfile = article.isCustomProfile;
-        sectionClass.Depth = article.Depth;
+        sectionClass.RSn20 = element.RSn20;
+        sectionClass.RSp80 = element.RSp80;
+        sectionClass.RTn20 = element.RTn20;
+        sectionClass.RTp80 = element.RTp80;
+        sectionClass.Weight = element.Weight;
+        sectionClass.Zol = element.Zol;
+        sectionClass.Zoo = element.Zoo;
+        sectionClass.Zor = element.Zor;
+        sectionClass.Zou = element.Zou;
+        sectionClass.Zul = element.Zul;
+        sectionClass.Zuo = element.Zuo;
+        sectionClass.Zur = element.Zur;
+        sectionClass.Zuu = element.Zuu;
+        sectionClass.d = element.d;
+        sectionClass.isCustomProfile = element.isCustomProfile;
+        sectionClass.Depth = element.Depth;
       }
       else {
         if (article) {
@@ -631,8 +635,14 @@ export class UnifiedModelService {
   get_Transom(): string {
     if (this.current_UnifiedModel.ModelInput.Geometry.Sections && this.current_UnifiedModel.ModelInput.Geometry.Sections.filter(f => f.SectionID == 3 && f.SectionType == 3).length > 0) {
       let sec = this.obj_Transom();
-      if (sec)
-      return sec.ArticleName + ' - ' + sec.InsideW.toString() + ' / ' + sec.OutsideW.toString();
+      if (sec) {
+        if (sec.InsideW !== undefined && sec.OutsideW !== undefined) {
+          return sec.ArticleName + ' - ' + sec.InsideW.toString() + ' / ' + sec.OutsideW.toString();
+        }
+        else {
+          return sec.ArticleName;
+        }
+      }
     }
     else {
       return '';
@@ -647,36 +657,34 @@ export class UnifiedModelService {
       sectionClass.SectionID = 3;
       sectionClass.SectionType = 3;
       if (isCustomed && article) {
-        sectionClass.Ao = article.Ao;
-        sectionClass.ArticleName = article.ArticleName;
-        sectionClass.Au = article.Au;
-        sectionClass.Cn20 = article.Cn20;
-        sectionClass.Cp20 = article.Cp20;
-        sectionClass.Cp80 = article.Cp80;
-        sectionClass.InsideW = article.InsideW;
-        sectionClass.Io = article.Io;
-        sectionClass.Ioyy = article.Ioyy;
-        sectionClass.Iu = article.Iu;
-        sectionClass.Iuyy = article.Iuyy;
+        let element = article.sectionElement;
+        sectionClass.Ao = element.Ao;
+        sectionClass.ArticleName = element.ArticleName;
+        sectionClass.Au = element.Au;
+        sectionClass.Cn20 = element.Cn20;
+        sectionClass.Cp20 = element.Cp20;
+        sectionClass.Cp80 = element.Cp80;
+        sectionClass.Io = element.Io;
+        sectionClass.Ioyy = element.Ioyy;
+        sectionClass.Iu = element.Iu;
+        sectionClass.Iuyy = element.Iuyy;
         sectionClass.OutsideW = article.OutsideW;
-        sectionClass.RSn20 = article.RSn20;
-        sectionClass.RSp80 = article.RSp80;
-        sectionClass.RTn20 = article.RTn20;
-        sectionClass.RTp80 = article.RTp80;
-        sectionClass.SectionID = article.SectionID;
-        sectionClass.SectionType = article.SectionType;
-        sectionClass.Weight = article.Weight;
-        sectionClass.Zol = article.Zol;
-        sectionClass.Zoo = article.Zoo;
-        sectionClass.Zor = article.Zor;
-        sectionClass.Zou = article.Zou;
-        sectionClass.Zul = article.Zul;
-        sectionClass.Zuo = article.Zuo;
-        sectionClass.Zur = article.Zur;
-        sectionClass.Zuu = article.Zuu;
-        sectionClass.d = article.d;
-        sectionClass.isCustomProfile = article.isCustomProfile;
-        sectionClass.Depth = article.Depth;
+        sectionClass.RSn20 = element.RSn20;
+        sectionClass.RSp80 = element.RSp80;
+        sectionClass.RTn20 = element.RTn20;
+        sectionClass.RTp80 = element.RTp80;
+        sectionClass.Weight = element.Weight;
+        sectionClass.Zol = element.Zol;
+        sectionClass.Zoo = element.Zoo;
+        sectionClass.Zor = element.Zor;
+        sectionClass.Zou = element.Zou;
+        sectionClass.Zul = element.Zul;
+        sectionClass.Zuo = element.Zuo;
+        sectionClass.Zur = element.Zur;
+        sectionClass.Zuu = element.Zuu;
+        sectionClass.d = element.d;
+        sectionClass.isCustomProfile = element.isCustomProfile;
+        sectionClass.Depth = element.Depth;
       }
       else {
         if (article) {
@@ -1514,8 +1522,8 @@ export class UnifiedModelService {
       this.handleDataList = JSON.parse(localStorage.getItem('DoorHandleArticles_'));
     } else {
       this.fService.GetDoorHandleArticles().subscribe(data => {
-        localStorage.setItem('DoorHandleArticles_', data);
-        this.handleDataList = JSON.parse(data);
+        localStorage.setItem('DoorHandleArticles_', JSON.stringify(data));
+        this.handleDataList = data;
       });
     }
   }

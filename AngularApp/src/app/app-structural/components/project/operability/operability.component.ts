@@ -1168,8 +1168,8 @@ export class OperabilityComponent implements OnInit, OnChanges, OnDestroy {
         
         if (os) {
           operabilitysystem.VentArticleName = os.VentArticleName;
-          operabilitysystem.VentInsideW = os.VentInsideW;
-          operabilitysystem.VentOutsideW = os.VentOutsideW;
+          operabilitysystem.VentInsideW = os.VentInsideW? os.VentInsideW : -1;
+          operabilitysystem.VentOutsideW = os.VentOutsideW? os.VentOutsideW : -1;
           operabilitysystem.VentDistBetweenIsoBars = os.VentDistBetweenIsoBars;
 
           operabilitysystem.InsertOuterFrameArticleName = os.InsertOuterFrameArticleName;
@@ -1188,8 +1188,8 @@ export class OperabilityComponent implements OnInit, OnChanges, OnDestroy {
         } else {
           if (this.isDoorOperableTypeSelected) {
             operabilitysystem.VentArticleName = '-1';
-            operabilitysystem.VentInsideW = null;
-            operabilitysystem.VentOutsideW = null;
+            operabilitysystem.VentInsideW = -1;
+            operabilitysystem.VentOutsideW = -1;
           }
           this.unified3DModel.ModelInput.Geometry.Infills[id - 1].HandlePosition = 1050; // sets the handle position if it is doorsystem
           var ds = this.umService.obj_Door(1);
@@ -1250,8 +1250,8 @@ export class OperabilityComponent implements OnInit, OnChanges, OnDestroy {
             var os = this.umService.obj_OperabilitySystem(0);
             if (os) {
               umOperabilitySystems.VentArticleName = os.VentArticleName;
-              umOperabilitySystems.VentInsideW = os.VentInsideW;
-              umOperabilitySystems.VentOutsideW = os.VentOutsideW;
+              umOperabilitySystems.VentInsideW = os.VentInsideW? os.VentInsideW : -1;
+              umOperabilitySystems.VentOutsideW = os.VentOutsideW? os.VentOutsideW:-1;
               umOperabilitySystems.VentDistBetweenIsoBars = os.VentDistBetweenIsoBars;
               umOperabilitySystems.InsertOuterFrameArticleName = os.InsertOuterFrameArticleName;
               umOperabilitySystems.InsertOuterFrameInsideW = os.InsertOuterFrameInsideW;
@@ -1305,8 +1305,8 @@ export class OperabilityComponent implements OnInit, OnChanges, OnDestroy {
               }
               umDoorSystems.HingeCondition = 0;
               this.unified3DModel.ModelInput.Geometry.OperabilitySystems.filter(glass => glass.OperabilitySystemID === operableId)[0].VentArticleName = '-1';
-              this.unified3DModel.ModelInput.Geometry.OperabilitySystems.filter(glass => glass.OperabilitySystemID === operableId)[0].VentInsideW = null;
-              this.unified3DModel.ModelInput.Geometry.OperabilitySystems.filter(glass => glass.OperabilitySystemID === operableId)[0].VentOutsideW = null;
+              this.unified3DModel.ModelInput.Geometry.OperabilitySystems.filter(glass => glass.OperabilitySystemID === operableId)[0].VentInsideW = -1;
+              this.unified3DModel.ModelInput.Geometry.OperabilitySystems.filter(glass => glass.OperabilitySystemID === operableId)[0].VentOutsideW = -1;
               // umDoorSystems.DoorSystemType = opType.toLowerCase().includes('single') ? 'Single' : 'Double';
               switch (opType) {
                 case "Double Door - Right Active": umDoorSystems.DoorSystemType = this.doubleDoorRightSystemTypeText; break;
@@ -1592,8 +1592,8 @@ export class OperabilityComponent implements OnInit, OnChanges, OnDestroy {
           var os = this.umService.obj_OperabilitySystem(this.selectedPicker);
           if (os) {
             operabilitysystem.VentArticleName = os.VentArticleName;
-            operabilitysystem.VentInsideW = os.VentInsideW;
-            operabilitysystem.VentOutsideW = os.VentOutsideW;
+            operabilitysystem.VentInsideW = os.VentInsideW ? os.VentInsideW : -1;
+            operabilitysystem.VentOutsideW = os.VentOutsideW? os.VentOutsideW: -1;
             operabilitysystem.VentDistBetweenIsoBars = os.VentDistBetweenIsoBars;
             operabilitysystem.InsertOuterFrameArticleName = os.InsertOuterFrameArticleName;
             operabilitysystem.InsertOuterFrameInsideW = os.InsertOuterFrameInsideW;
@@ -1620,8 +1620,8 @@ export class OperabilityComponent implements OnInit, OnChanges, OnDestroy {
             this.unified3DModel.ModelInput.Geometry.Infills[id - 1].HandlePosition = 1050; //  sets the handle position to 1050 for the door system
             if (this.isDoorOperableTypeSelected) {
               operabilitysystem.VentArticleName = '-1';
-              operabilitysystem.VentInsideW = null;
-              operabilitysystem.VentOutsideW = null;
+              operabilitysystem.VentInsideW = -1;
+              operabilitysystem.VentOutsideW = -1;
             }
             let ds = this.umService.obj_Door(1);
             if (ds) {
@@ -1679,8 +1679,8 @@ export class OperabilityComponent implements OnInit, OnChanges, OnDestroy {
               var os = this.umService.obj_OperabilitySystem(0);
               if (os) {
                 umOperabilitySystems.VentArticleName = os.VentArticleName;
-                umOperabilitySystems.VentInsideW = os.VentInsideW;
-                umOperabilitySystems.VentOutsideW = os.VentOutsideW;
+                umOperabilitySystems.VentInsideW = os.VentInsideW? os.VentInsideW : -1;
+                umOperabilitySystems.VentOutsideW = os.VentOutsideW? os.VentOutsideW : -1;
                 umOperabilitySystems.VentDistBetweenIsoBars = os.VentDistBetweenIsoBars;
                 umOperabilitySystems.InsertOuterFrameArticleName = os.InsertOuterFrameArticleName;
                 umOperabilitySystems.InsertOuterFrameInsideW = os.InsertOuterFrameInsideW;
@@ -1729,8 +1729,8 @@ export class OperabilityComponent implements OnInit, OnChanges, OnDestroy {
                   umDoorSystem.HingeArticleDescription = ds.HingeArticleDescription;
                 }
                 this.unified3DModel.ModelInput.Geometry.OperabilitySystems.filter(glass => glass.OperabilitySystemID === operableId)[0].VentArticleName = '-1';
-                this.unified3DModel.ModelInput.Geometry.OperabilitySystems.filter(glass => glass.OperabilitySystemID === operableId)[0].VentInsideW = null;
-                this.unified3DModel.ModelInput.Geometry.OperabilitySystems.filter(glass => glass.OperabilitySystemID === operableId)[0].VentOutsideW = null;
+                this.unified3DModel.ModelInput.Geometry.OperabilitySystems.filter(glass => glass.OperabilitySystemID === operableId)[0].VentInsideW = -1;
+                this.unified3DModel.ModelInput.Geometry.OperabilitySystems.filter(glass => glass.OperabilitySystemID === operableId)[0].VentOutsideW = -1;
                 // umDoorSystem.DoorSystemType = opType.toLowerCase().includes('single') ? 'Single' : 'Double';
                 switch (opType) {
                   case "Double Door - Right Active": this.unified3DModel.ModelInput.Geometry.DoorSystems.filter(glass => glass.DoorSystemID === doorsystemId)[0].DoorSystemType = this.doubleDoorRightSystemTypeText; break;

@@ -14,12 +14,12 @@
             <!-- Selected Info -->
             <div class="lp-container lp-container-custom">
                 <div class="lp-container-displaybox">
-                    <img *ngIf="listOfDisplayData[selectedIndex]" alt="article"
-                        [attr.src]="baseImageSrc + listOfDisplayData[selectedIndex].description + '.jpg'">  
+                    <img *ngIf="listOfDisplayData[selectedId]" alt="article"
+                        [attr.src]="baseImageSrc + listOfDisplayData[selectedId].description + '.jpg'">  
                 </div>
                 <div class="lp-container-text">
-                    <div class="sps-pill" *ngIf="listOfDisplayData[selectedIndex]">
-                        <p>{{ listOfDisplayData[selectedIndex].description }}</p>
+                    <div class="sps-pill" *ngIf="listOfDisplayData[selectedId]">
+                        <p>{{ listOfDisplayData[selectedId].description }}</p>
                     </div>
                 </div>
             </div>

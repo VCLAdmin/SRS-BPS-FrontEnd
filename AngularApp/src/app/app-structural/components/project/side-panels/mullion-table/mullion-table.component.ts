@@ -278,11 +278,11 @@ export class MullionTableComponent implements OnInit, OnDestroy {
         this.data.push({
           id: '' + index,
           description: article.isCustomProfile ? article.Description : article.ArticleName,
-          inside: article.InsideW.toString(),
+          inside: article.InsideW ? article.InsideW.toString():'',
           outside: {
             ref: this.outsideTemplate,
             context: {
-              value: article.OutsideW.toString(),
+              value: article.OutsideW ? article.OutsideW.toString():'',
               disabled: true,
               arrowHovered: true,
               index: index
@@ -290,7 +290,7 @@ export class MullionTableComponent implements OnInit, OnDestroy {
           },
           data: article,
           disabled: false,
-          bpsTable4CustomRow: article.isCustomProfile ? false : article.isCustomProfile
+          bpsTable4CustomRow: article.isCustomProfile
         });
       });
     } else {
@@ -298,11 +298,11 @@ export class MullionTableComponent implements OnInit, OnDestroy {
         this.data.push({
           id: '' + index,
           description: article.isCustomProfile ? article.Description : article.Description.substr(8),
-          inside: article.InsideDimension.toString(),
+          inside: article.InsideDimension ? article.InsideDimension.toString():'',
           outside: {
             ref: this.outsideTemplate,
             context: {
-              value: article.OutsideDimension.toString(),
+              value: article.OutsideDimension ? article.OutsideDimension.toString():'',
               disabled: true,
               arrowHovered: true,
               index: index
@@ -310,7 +310,7 @@ export class MullionTableComponent implements OnInit, OnDestroy {
           },
           data: article,
           disabled: false,
-          bpsTable4CustomRow: article.isCustomProfile ? false : article.isCustomProfile
+          bpsTable4CustomRow: article.isCustomProfile
         });
       });
     }
@@ -362,16 +362,16 @@ export class MullionTableComponent implements OnInit, OnDestroy {
 
   onConfirm() {
     if (this.isMullionPopoutOpened && this.listOfDisplayData.length > 0) {
-      if (!this.listOfDisplayData[this.selectedIndex].isCustomProfile)
+      if (!this.listOfDisplayData[this.selectedIndex].bpsTable4CustomRow)
         this.umService.set_Mullion({ article: this.listOfDisplayData[this.selectedIndex], isCustomed: false });
       else
-        this.umService.set_Mullion({ article: this.listOfDisplayData[this.selectedIndex], isCustomed: this.listOfDisplayData[this.selectedIndex].isCustomProfile });
+        this.umService.set_Mullion({ article: this.listOfDisplayData[this.selectedIndex], isCustomed: true });
     }
     else if (this.listOfDisplayData.length > 0){
-      if (!this.listOfDisplayData[this.selectedIndex].isCustomProfile)
+      if (!this.listOfDisplayData[this.selectedIndex].bpsTable4CustomRow)
         this.umService.set_Transom({ article: this.listOfDisplayData[this.selectedIndex], isCustomed: false });
       else
-        this.umService.set_Transom({ article: this.listOfDisplayData[this.selectedIndex], isCustomed: this.listOfDisplayData[this.selectedIndex].isCustomProfile });
+        this.umService.set_Transom({ article: this.listOfDisplayData[this.selectedIndex], isCustomed: true });
     }
     this.onClose();
   }
@@ -417,7 +417,8 @@ export class MullionTableComponent implements OnInit, OnDestroy {
         }
       },
       disabled: false,
-      bpsTable4CustomRow: sectionElement.isCustomProfile
+      bpsTable4CustomRow: sectionElement.isCustomProfile,
+      sectionElement: sectionElement
     });
     this.listOfDisplayData = [...this.data];
     setTimeout(() => {

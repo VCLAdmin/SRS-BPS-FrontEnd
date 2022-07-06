@@ -51,13 +51,13 @@ export class FrameSystem {
     //for UDC only
     VerticalJointWidth: number;
     HorizontalJointWidth: number;
-    //Remove this for next release. Due to some issue in UI we are using below property
-    InsulationZone: string;
 
     // added for SRS
     AluminumFinish: string;
     AluminumColor: string;
     //WeatherTightness: string;
+    //Remove this for next release. Due to some issue in UI we are using below property
+    InsulationZone: string;
 }
 export class Point {
     PointID: number;
@@ -107,13 +107,13 @@ export class Infill {
     //  InsertOuterFrameDistBetweenIsoBars: number;// Facade Only. read from database Article table; -1 if we don't have any operabiltity for that particular glass
                
 
-    UvalueType: string;                        // Facade Thermal: for inserted window
-    InsulationType: string;                    // Facade Thermal: for inserted window, PA or PT
+    ////UvalueType: string;                        // Facade Thermal: for inserted window
+    ////InsulationType: string;                    // Facade Thermal: for inserted window, PA or PT
     // VentOpeningDirection: string;              //1. Inward, 2: Outward
     // VentOperableType: string;                  // 1. Tilt-Turn, 2: Side-Hung...
     // for solver internal use
-    centerX: number;
-    centerY: number;
+    ////centerX: number;
+    ////centerY: number;
     // InsertUvalueType: string;                  //for insert unit only
     //  InsertInsulationType: string;              //for insert unit only
     // InsertInsulationTypeName: string;          //for insert unit only
@@ -141,26 +141,22 @@ export class GlazingSystem {
     Manufacturer: string = "Vitro Architectural Glass";
     BrandName: string;
     GlazingSystemID: number;
+    Color: string;
     Rw: number;
+    RwC: number;
+    RwCtr: number;
+    STC: number;
+    OITC: number;
     UValue: number;
+    SHGC: number;
+    VT: number;
     SpacerType: number;
     Description: string;
     Plates: Plate[];
     Cavities: Cavity[];
-    Category: string;
-
-    //for local use DOMMatrixReadOnly.
-    //IsDefault: boolean;
-
-    //for SRS
-    Color: string;
-    SHGC: number;
-    VT: number;
-    STC: number;
-    OITC: number;
-    RwC: number;
-    RwCtr: number;
+    Category: string;  
     PSIValue: number;
+    Thickness: number;
 }
 export class PanelSystem {
     PanelSystemID: number;
@@ -168,11 +164,11 @@ export class PanelSystem {
     Rw: number;
     UValue: number;
     PanelType: number;             // Panel Type 1, 2, 3, 4 based on EN ISO 12631
+    Psi: number;
     Description: string;
+    Thickness: number;
     Plates: Plate[];
     Cavities: Cavity[];
-    Thickness: number;
-    Psi: number;
 }
 export class Section {
     SectionID: number;              // = 1,2,3 , SectionID and SectionType is same
@@ -214,14 +210,14 @@ export class Section {
     E: number;                      // Optional, for future use
     alpha: number;                  // Optional, for future use
 
-    // Woyp: number;
-    // Woyn: number;
-    // Wozp: number;
-    // Wozn: number;
-    // Wuyp: number;
-    // Wuyn: number;
-    // Wuzp: number;
-    // Wuzn: number;
+    Woyp: number;
+    Woyn: number;
+    Wozp: number;
+    Wozn: number;
+    Wuyp: number;
+    Wuyn: number;
+    Wuzp: number;
+    Wuzn: number;
 
     gammaM: number;
 
@@ -297,13 +293,13 @@ export class SlabAnchor {
     MemberID: number;
     AnchorType: string;           // "Fixed" or "Sliding"
     Y: number;
-    X: number;
+    //X: number;
 }
 
 export class Reinforcement {
     ReinforcementID: number;
     MemberID: number;
-    sectionID: number;
+    SectionID: number;
 }
 
 export class SpliceJoint {
@@ -311,7 +307,7 @@ export class SpliceJoint {
     MemberID: number;
     JointType: string;           // "Hinged" or "Rigid"
     Y: number;
-    X: number;
+    //X: number;
 }
 export class Geometry {
     Points: Point[];
@@ -542,9 +538,9 @@ export class SlidingDoorSystem {
     SteelTubeArticleName: string;               //Added 2022.02.22, if InterlockReinforcement is set to 'true,' this string will list article number for said reinforcement. Otherwise, string is null.
     StructuralProfileArticleName: string;   //Added 2022.02.22, this article is not assigned by user, but is rather required with double spilt ASE vent profiles (the kind used in SRS 3.0 release). 
     DoubleVentArticleName: string;          //Added 2022.02.22, this article is not assigned by user, but is required for Type 2D/1.i in SRS 3.0 release, as well as Type 3F in BPS 4.0 release (i.e. any Type that has a double vent interlock at middle)
-    VentFrames: VentFrame[]; 
     MovingVent: string;  
-    SlidingDoorType: string;
+    VentFrames: VentFrame[]; 
+    //SlidingDoorType: string;
 }
 
 export class VentFrame {                    //Added 2022.02.01
@@ -559,8 +555,8 @@ export class OperabilitySystem {
     DoorSystemID: number;
     SlidingDoorSystemID: number;
     VentArticleName: string;
-    VentInsideW: number;
-    VentOutsideW: number;
+    VentInsideW: number = -1;
+    VentOutsideW: number = -1;
     VentDistBetweenIsoBars: number;
     JunctionType: number;
     InsertedWindowType: string;
@@ -574,12 +570,16 @@ export class OperabilitySystem {
     VentOpeningDirection: string;
     VentOperableType: string;
     RebateGasketArticleName: string;
-    CenterGasketArticleName: string;
+    CenterGasketInsulationArticleName: string;
     InsideHandleArticleName: string;
     InsideHandleArticleDescription: string;  // Angular Use only
     InsideHandleColor: string;
     // HandlePosition: number;
     // HandleColor: string;
+
+    InsertOuterFrameDepth: number;
+    InsertWindowSystem: string;
+
     PickerIndex: number; // Angular Use only
 }
 export class SRSProblemSetting {
