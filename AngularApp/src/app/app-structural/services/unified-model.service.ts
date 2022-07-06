@@ -318,9 +318,9 @@ export class UnifiedModelService {
       return sec.ArticleName + ' - ' + sec.InsideW.toString() + ' / ' + sec.OutsideW.toString();
     else
     {
-      let sec = this.obj_OuterFrameOperabilitySystems();
-      if (sec)
-        return sec.InsertOuterFrameArticleName + ' - ' + sec.InsertOuterFrameInsideW.toString() + ' / ' + sec.InsertOuterFrameOutsideW.toString();
+      let sec1 = this.obj_OuterFrameOperabilitySystems();
+      if (sec1)
+        return sec1.InsertOuterFrameArticleName + ' - ' + sec1.InsertOuterFrameInsideW.toString() + ' / ' + sec1.InsertOuterFrameOutsideW.toString();
     }
   }
   set_OuterFrame(inputData: any) {
