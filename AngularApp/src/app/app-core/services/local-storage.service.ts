@@ -47,20 +47,20 @@ export class LocalStorageService {
       throw new Error('Invalid token');
     }
 
-    if (typeof authToken.expires_in !== 'number') {
-      localStorage.removeItem(this.lsPrevix + 'auth-token');
-      throw new Error('Invalid token');
-    }
+    // if (typeof authToken.expires_in !== 'number') {
+    //   localStorage.removeItem(this.lsPrevix + 'auth-token');
+    //   throw new Error('Invalid token');
+    // }
 
-    if (typeof authToken.refresh_token !== 'string') {
-      localStorage.removeItem(this.lsPrevix + 'auth-token');
-      throw new Error('Invalid token');
-    }
+    // if (typeof authToken.refresh_token !== 'string') {
+    //   localStorage.removeItem(this.lsPrevix + 'auth-token');
+    //   throw new Error('Invalid token');
+    // }
 
-    if (typeof authToken.token_type !== 'string') {
-      localStorage.removeItem(this.lsPrevix + 'auth-token');
-      throw new Error('Invalid token');
-    }
+    // if (typeof authToken.token_type !== 'string') {
+    //   localStorage.removeItem(this.lsPrevix + 'auth-token');
+    //   throw new Error('Invalid token');
+    // }
 
     return authToken;
   }
