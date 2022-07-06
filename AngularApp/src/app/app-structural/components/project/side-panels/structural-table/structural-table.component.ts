@@ -162,7 +162,9 @@ export class StructuralTableComponent implements OnInit, OnChanges, OnDestroy {
       response => {        
         if (response.panelsModule === PanelsModule.WindLoad) {
           this.isStructuralTableOpened = response.isOpened;
-          this.loadStructuralTable();
+          setTimeout(() => {
+            this.loadStructuralTable();
+          }, 1000);
         }
       });
     
@@ -270,108 +272,10 @@ export class StructuralTableComponent implements OnInit, OnChanges, OnDestroy {
     }
   }
   ngOnChanges(Changes: SimpleChanges) {
-    
-    if (Changes.dinWindLoad && Boolean(Changes.dinWindLoad.currentValue)) {
+    setTimeout(() => {
+      if (Changes.dinWindLoad && Boolean(Changes.dinWindLoad.currentValue)) {
 
-      this.windLoadSelectedText = "DIN EN 1991-1-4";
-      // this.validateForm = this.fb.group({
-      //   codeSelection: [this.windLoadSelectedText, [Validators.required]],
-      //   postCode: ['', [Validators.pattern("[0-9]{5}")]],
-      //   windZone: ['', []],
-      //   terrainCategory: ['', []],
-      //   buildingWidth: ['', [Validators.pattern(this.patternLanguage)]],
-      //   buildingDepth: ['', [Validators.pattern(this.patternLanguage)]],
-      //   buildingHeight: ['', [Validators.pattern(this.patternLanguage)]],
-      //   windowElevation: ['', [Validators.pattern(this.patternLanguage)]],
-      //   windowZone: ['', []],
-      //   pressure: ['1', []],
-      //   packVelocityPressure: ['0.96', []],
-      //   suction: ['-1', []]
-      // });
-      this.windLoadSelectedText_obs = this.windLoadSelectedText;
-      this.onWindLoadCalculationTypeSelected("DIN EN 1991-1-4");
-      this.windZone = this.dinWindLoad.WindZone;
-      this.windZoneValue = this.dinWindLoad.WindZone.toString();
-      this.windowZone = this.dinWindLoad.WindowZone.toString();
-      this.buildingHeight = this.dinWindLoad.h;
-      this.buildingWidth = this.dinWindLoad.L0;
-      this.buildingDepth = this.dinWindLoad.B0;
-      this.windowElevation = this.dinWindLoad.ElvW;
-      this.windowElevationString_obs = this.dinWindLoad.ElvW;
-      this.internalPressure = this.dinWindLoad.IncludeCpi;
-      this.positiveInternalPressure = this.dinWindLoad.pCpi;
-      this.negativeInternalPressure = this.dinWindLoad.nCpi;
-    
-      if (this.buildingHeight) {
-        this.buildingWidthString = this.buildingWidth.toString();
-        if (this.language == "de-DE") {
-          this.buildingWidthString = this.buildingWidthString.replace(".", ",")
-        }
-      } else {
-        this.buildingWidthString = null;
-      }
-      if (this.buildingDepth) {
-        this.buildingDepthString = this.buildingDepth.toString();
-        if (this.language == "de-DE") {
-          this.buildingDepthString = this.buildingDepthString.replace(".", ",")
-        }
-      } else {
-        this.buildingDepthString = null;
-      }
-      if (this.buildingHeight) {
-        this.buildingHeightString = this.buildingHeight.toString();
-        if (this.language == "de-DE") {
-          this.buildingHeightString = this.buildingHeightString.replace(".", ",")
-        }
-      } else {
-        this.buildingHeightString = null;
-      }
-      if (this.windowElevation) {
-        this.windowElevationString = this.windowElevation.toString();
-        if (this.language == "de-DE") {
-          this.windowElevationString = this.windowElevationString.replace(".", ",")
-        }
-      } else {
-        this.windowElevationString = null;
-      }
-      this.terrainCategory = this.dinWindLoad.TerrainCategory.toString();
-      this.windLoadSelectedText = 'DIN EN 1991-1-4';
-      this.windLoadSelectedText_obs = this.windLoadSelectedText;
-      if (this.dinWindLoad && this.dinWindLoad.PostCodeValue) {
-        this.siteInformation = 'zipeCode';
-        // this.postcodeValue = this.windZoneValue;
-        this.postcodeValue = this.dinWindLoad.PostCodeValue;
-        this.postcodeValue_obs = this.dinWindLoad.PostCodeValue;
-        this.siteInformation_obs = this.siteInformation;
-        this.dualValues[0].checked = true;
-        this.dualValues[1].checked = false;
-      } else {
-        this.siteInformation = 'windZone';
-        this.postcodeValue = this.windZoneValue.toString();
-        this.postcodeValue_obs = this.windZoneValue;
-        this.siteInformation_obs = this.siteInformation;
-        this.dualValues[0].checked = false;
-        this.dualValues[1].checked = true;
-      }
-      this.windowElevationString_obs = this.windowElevationString;
-      this.buildingHeightString_obs = this.buildingHeightString;
-      this.buildingDepthString_obs = this.buildingDepthString;
-      this.buildingWidthString_obs = this.buildingWidthString;
-      this.terrainCategory_obs = this.terrainCategory;
-      this.windZone_obs = this.windZone;
-      this.windZoneValue_obs = this.windZoneValue;
-      this.windowZone_obs = this.windowZone;
-      this.windLoadSelectedText_obs = this.windLoadSelectedText;
-      if (this.dualValues[0].checked) {
-        this.siteInformation = "zipeCode";
-      }
-      else {
-        this.siteInformation = "windZone";
-      }
-      this.calculatedWindLoadDIN(true);
-    } else {
-      this.windLoadSelectedText = 'User Defined'
-      if (this.windLoadSelectedText === 'User Defined') {
+        this.windLoadSelectedText = "DIN EN 1991-1-4";
         // this.validateForm = this.fb.group({
         //   codeSelection: [this.windLoadSelectedText, [Validators.required]],
         //   postCode: ['', [Validators.pattern("[0-9]{5}")]],
@@ -380,23 +284,123 @@ export class StructuralTableComponent implements OnInit, OnChanges, OnDestroy {
         //   buildingWidth: ['', [Validators.pattern(this.patternLanguage)]],
         //   buildingDepth: ['', [Validators.pattern(this.patternLanguage)]],
         //   buildingHeight: ['', [Validators.pattern(this.patternLanguage)]],
-        //   windowElevation: ['', [Validators.pattern(this.patternLanguage), Validators.min(0.5)]],
+        //   windowElevation: ['', [Validators.pattern(this.patternLanguage)]],
         //   windowZone: ['', []],
         //   pressure: ['1', []],
         //   packVelocityPressure: ['0.96', []],
         //   suction: ['-1', []]
         // });
         this.windLoadSelectedText_obs = this.windLoadSelectedText;
-        this.positiveWindPressure = (parseFloat(this.pressureString) * parseFloat(this.packVelocityPressureString)).toString();
-        this.negativeWindPressure = (parseFloat(this.suctionString) * parseFloat(this.packVelocityPressureString)).toString();
+        this.onWindLoadCalculationTypeSelected("DIN EN 1991-1-4");
+        this.windZone = this.dinWindLoad.WindZone;
+        this.windZoneValue = this.dinWindLoad.WindZone.toString();
+        this.windowZone = this.dinWindLoad.WindowZone.toString();
+        this.buildingHeight = this.dinWindLoad.h;
+        this.buildingWidth = this.dinWindLoad.L0;
+        this.buildingDepth = this.dinWindLoad.B0;
+        this.windowElevation = this.dinWindLoad.ElvW;
+        this.windowElevationString_obs = this.dinWindLoad.ElvW;
+        this.internalPressure = this.dinWindLoad.IncludeCpi;
+        this.positiveInternalPressure = this.dinWindLoad.pCpi;
+        this.negativeInternalPressure = this.dinWindLoad.nCpi;
+
+        if (this.buildingHeight) {
+          this.buildingWidthString = this.buildingWidth.toString();
+          if (this.language == "de-DE") {
+            this.buildingWidthString = this.buildingWidthString.replace(".", ",")
+          }
+        } else {
+          this.buildingWidthString = null;
+        }
+        if (this.buildingDepth) {
+          this.buildingDepthString = this.buildingDepth.toString();
+          if (this.language == "de-DE") {
+            this.buildingDepthString = this.buildingDepthString.replace(".", ",")
+          }
+        } else {
+          this.buildingDepthString = null;
+        }
+        if (this.buildingHeight) {
+          this.buildingHeightString = this.buildingHeight.toString();
+          if (this.language == "de-DE") {
+            this.buildingHeightString = this.buildingHeightString.replace(".", ",")
+          }
+        } else {
+          this.buildingHeightString = null;
+        }
+        if (this.windowElevation) {
+          this.windowElevationString = this.windowElevation.toString();
+          if (this.language == "de-DE") {
+            this.windowElevationString = this.windowElevationString.replace(".", ",")
+          }
+        } else {
+          this.windowElevationString = null;
+        }
+        this.terrainCategory = this.dinWindLoad.TerrainCategory.toString();
+        this.windLoadSelectedText = 'DIN EN 1991-1-4';
+        this.windLoadSelectedText_obs = this.windLoadSelectedText;
+        if (this.dinWindLoad && this.dinWindLoad.PostCodeValue) {
+          this.siteInformation = 'zipeCode';
+          // this.postcodeValue = this.windZoneValue;
+          this.postcodeValue = this.dinWindLoad.PostCodeValue;
+          this.postcodeValue_obs = this.dinWindLoad.PostCodeValue;
+          this.siteInformation_obs = this.siteInformation;
+          this.dualValues[0].checked = true;
+          this.dualValues[1].checked = false;
+        } else {
+          this.siteInformation = 'windZone';
+          this.postcodeValue = this.windZoneValue.toString();
+          this.postcodeValue_obs = this.windZoneValue;
+          this.siteInformation_obs = this.siteInformation;
+          this.dualValues[0].checked = false;
+          this.dualValues[1].checked = true;
+        }
+        this.windowElevationString_obs = this.windowElevationString;
+        this.buildingHeightString_obs = this.buildingHeightString;
+        this.buildingDepthString_obs = this.buildingDepthString;
+        this.buildingWidthString_obs = this.buildingWidthString;
+        this.terrainCategory_obs = this.terrainCategory;
+        this.windZone_obs = this.windZone;
+        this.windZoneValue_obs = this.windZoneValue;
+        this.windowZone_obs = this.windowZone;
+        this.windLoadSelectedText_obs = this.windLoadSelectedText;
         if (this.dualValues[0].checked) {
           this.siteInformation = "zipeCode";
         }
         else {
           this.siteInformation = "windZone";
         }
+        this.calculatedWindLoadDIN(false);
+      } else {
+        this.windLoadSelectedText = 'User Defined'
+        if (this.windLoadSelectedText === 'User Defined') {
+          // this.validateForm = this.fb.group({
+          //   codeSelection: [this.windLoadSelectedText, [Validators.required]],
+          //   postCode: ['', [Validators.pattern("[0-9]{5}")]],
+          //   windZone: ['', []],
+          //   terrainCategory: ['', []],
+          //   buildingWidth: ['', [Validators.pattern(this.patternLanguage)]],
+          //   buildingDepth: ['', [Validators.pattern(this.patternLanguage)]],
+          //   buildingHeight: ['', [Validators.pattern(this.patternLanguage)]],
+          //   windowElevation: ['', [Validators.pattern(this.patternLanguage), Validators.min(0.5)]],
+          //   windowZone: ['', []],
+          //   pressure: ['1', []],
+          //   packVelocityPressure: ['0.96', []],
+          //   suction: ['-1', []]
+          // });
+          this.windLoadSelectedText_obs = this.windLoadSelectedText;
+          this.positiveWindPressure = (parseFloat(this.pressureString) * parseFloat(this.packVelocityPressureString)).toString();
+          this.negativeWindPressure = (parseFloat(this.suctionString) * parseFloat(this.packVelocityPressureString)).toString();
+          if (this.dualValues[0].checked) {
+            this.siteInformation = "zipeCode";
+          }
+          else {
+            this.siteInformation = "windZone";
+          }
+        }
       }
-    }
+    }, 1000);
+   
   }
 
   clearTable() {
@@ -788,7 +792,6 @@ export class StructuralTableComponent implements OnInit, OnChanges, OnDestroy {
         this.structuralModel.Cpp = parseFloat(this.pressureString);
         this.structuralModel.Cpn = parseFloat(this.suctionString);
         this.sendPressureValueEvent.emit({ positiveWindPressure: this.positiveWindPressure, negativeWindPressure: this.negativeWindPressure, maxAbsoluteValue: this.maxAbsoluteValue, structuralModel: this.structuralModel });
-        this.showHidePopUp(false);
       });
       if (this.siteInformation == 'zipeCode') {
         setTimeout(() => {
