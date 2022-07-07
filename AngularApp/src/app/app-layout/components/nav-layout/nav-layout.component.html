@@ -161,7 +161,10 @@
 </nz-header>
 
 <button bps-button bpsType="variation-18" *ngIf="showCrossButton && previousRoute" (click)="onComePreviousPage()"
-    class="cross-button">
+    class="cross-button" bps-tooltip
+    [bpsTooltipType]="'variation_10'"
+    bpsTooltipTitle="{{'home.configure-tab' | translate }}"
+    bpsTooltipPlacement="top">
     <svg xmlns="http://www.w3.org/2000/svg" width="15.392" height="14.054" viewBox="0 0 15.392 14.054">
         <defs>
             <style>

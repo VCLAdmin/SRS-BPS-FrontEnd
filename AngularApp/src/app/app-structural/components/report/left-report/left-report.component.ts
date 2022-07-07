@@ -25,11 +25,11 @@ declare var tinymce: any;
   styleUrls: ['./left-report.component.css']
 })
 export class LeftReportComponent implements OnInit, OnDestroy, AfterViewInit  {
-  @ViewChild('fullReportCellTemplate', { read: TemplateRef, static: true }) fullReportCellTemplate: TemplateRef<{}>;
+  @ViewChild('summaryReportCellTemplate', { read: TemplateRef, static: true }) summaryReportCellTemplate: TemplateRef<{}>;
   @ViewChild('configColTemplate', { read: TemplateRef, static: true }) configColTemplate: TemplateRef<{}>;
   @ViewChild('noteColTemplate', { read: TemplateRef, static: true }) noteColTemplate: TemplateRef<{}>;
   @ViewChild('regReportColTemplate', { read: TemplateRef, static: true }) regReportColTemplate: TemplateRef<{}>;
-  @ViewChild('fullReportColTemplate', { read: TemplateRef, static: true }) fullReportColTemplate: TemplateRef<{}>;
+  @ViewChild('summaryReportColTemplate', { read: TemplateRef, static: true }) summaryReportColTemplate: TemplateRef<{}>;
   @ViewChild('noteTemplate', { read: TemplateRef, static: true }) noteTemplate: TemplateRef<{}>;
   @ViewChild('cellTemplate', { read: TemplateRef, static: true }) cellTemplate: TemplateRef<{}>;
   @ViewChild('bpsExampleTable', { read: BpsTableComponent, static: false }) gridComponent: BpsTableComponent;
@@ -180,7 +180,7 @@ export class LeftReportComponent implements OnInit, OnDestroy, AfterViewInit  {
           property: 'options',
           width: '80px',
           template: {
-            ref: this.fullReportColTemplate,
+            ref: this.summaryReportColTemplate,
             context: {}
           },
           ngClass: {
@@ -243,24 +243,27 @@ export class LeftReportComponent implements OnInit, OnDestroy, AfterViewInit  {
             id: '' + i,
             disabled: isComputed,
             disabledAcoustic: !(unifiedModelPerCell && unifiedModelPerCell.AnalysisResult && unifiedModelPerCell.AnalysisResult.AcousticResult),
-            disabledStructural: !(unifiedModelPerCell && unifiedModelPerCell.AnalysisResult && (unifiedModelPerCell.AnalysisResult.StructuralResult || unifiedModelPerCell.AnalysisResult.FacadeStructuralResult || unifiedModelPerCell.AnalysisResult.UDCStructuralResult)),
+            disabledStructural: !(unifiedModelPerCell && unifiedModelPerCell.AnalysisResult
+              && (unifiedModelPerCell.AnalysisResult.StructuralResult && unifiedModelPerCell.AnalysisResult.StructuralResult.summaryFileUrl ||
+                unifiedModelPerCell.AnalysisResult.FacadeStructuralResult && unifiedModelPerCell.AnalysisResult.FacadeStructuralResult.summaryFileUrl ||
+                unifiedModelPerCell.AnalysisResult.UDCStructuralResult && unifiedModelPerCell.AnalysisResult.UDCStructuralResult.summaryFileUrl)),
             disabledThermal: !(unifiedModelPerCell && unifiedModelPerCell.AnalysisResult && unifiedModelPerCell.AnalysisResult.ThermalResult)
           }
         },
         options: {
-          ref: this.fullReportCellTemplate,
+          ref: this.summaryReportCellTemplate,
           context: {
             index: i,
             id: '' + i,
-            disabled: !(unifiedModelPerCell && unifiedModelPerCell.AnalysisResult
-              && (unifiedModelPerCell.AnalysisResult.StructuralResult && unifiedModelPerCell.AnalysisResult.StructuralResult.summaryFileUrl ||
-                unifiedModelPerCell.AnalysisResult.FacadeStructuralResult && unifiedModelPerCell.AnalysisResult.FacadeStructuralResult.summaryFileUrl ||
-                unifiedModelPerCell.AnalysisResult.UDCStructuralResult && unifiedModelPerCell.AnalysisResult.UDCStructuralResult.summaryFileUrl))
+            disabled: !(unifiedModelPerCell && unifiedModelPerCell.AnalysisResult && (unifiedModelPerCell.AnalysisResult.StructuralResult || unifiedModelPerCell.AnalysisResult.FacadeStructuralResult || unifiedModelPerCell.AnalysisResult.UDCStructuralResult))
           }
         },
         disabled: isComputed,
         disabledAcoustic: !(unifiedModelPerCell && unifiedModelPerCell.AnalysisResult && unifiedModelPerCell.AnalysisResult.AcousticResult),
-        disabledStructural: !(unifiedModelPerCell && unifiedModelPerCell.AnalysisResult && (unifiedModelPerCell.AnalysisResult.StructuralResult || unifiedModelPerCell.AnalysisResult.FacadeStructuralResult || unifiedModelPerCell.AnalysisResult.UDCStructuralResult)),
+        disabledStructural: !(unifiedModelPerCell && unifiedModelPerCell.AnalysisResult
+          && (unifiedModelPerCell.AnalysisResult.StructuralResult && unifiedModelPerCell.AnalysisResult.StructuralResult.summaryFileUrl ||
+            unifiedModelPerCell.AnalysisResult.FacadeStructuralResult && unifiedModelPerCell.AnalysisResult.FacadeStructuralResult.summaryFileUrl ||
+            unifiedModelPerCell.AnalysisResult.UDCStructuralResult && unifiedModelPerCell.AnalysisResult.UDCStructuralResult.summaryFileUrl)),
         disabledThermal: !(unifiedModelPerCell && unifiedModelPerCell.AnalysisResult && unifiedModelPerCell.AnalysisResult.ThermalResult),
         problemGuid: problemCell.ProblemGuid
       };
@@ -403,7 +406,7 @@ export class LeftReportComponent implements OnInit, OnDestroy, AfterViewInit  {
     return problemName;
   }
 
-  getConfigurationName(resp: HttpResponse<Blob>): string {
+  getProblemGuid(resp: HttpResponse<Blob>): string {
     let configurationName = "Configuration";
     if (resp.headers && resp.headers.get('content-disposition')
     && resp.headers.get('content-disposition').split('filename=').length > 1
@@ -439,7 +442,7 @@ export class LeftReportComponent implements OnInit, OnDestroy, AfterViewInit  {
             reportFileUrl = unifiedModel.AnalysisResult.UDCStructuralResult.summaryFileUrl;
           if (reportFileUrl) {
             var param = this.getBuildParam(reportFileUrl);
-            this.configureService.GetPCReport(param[0], param[1], param[2].replace('.pdf', ''), selectedProblem.ProblemName.replace(' ', '_'))
+            this.configureService.GetPCReport(param[0], param[1], param[2].replace('.pdf', '')))
               .pipe(takeUntil(this.destroy$)).subscribe((response) => {
                 let language = unifiedModel.UserSetting.Language && unifiedModel.UserSetting.Language == 'de-DE' ? 'en-DE' : 'en-US';
                 let pipe = new DatePipe(unifiedModel.UserSetting.Language);
@@ -454,6 +457,10 @@ export class LeftReportComponent implements OnInit, OnDestroy, AfterViewInit  {
   }
   getBuildParam(reportFileUrl: string) {
     return reportFileUrl.split('/');
+  }
+  
+  getProblemNameFromGuid(problemGuid) {
+    return this.listOfProblems.filter(problem => {return problem.ProblemGuid == problemGuid})[0].ProblemName
   }
   onDownloadClick() {
     let totalCount = 0;
@@ -484,7 +491,7 @@ export class LeftReportComponent implements OnInit, OnDestroy, AfterViewInit  {
             language = unifiedModel.UserSetting.Language;
           if (unifiedModel && unifiedModel.AnalysisResult && unifiedModel.AnalysisResult.AcousticResult) {
             var param = this.getBuildParam(unifiedModel.AnalysisResult.AcousticResult.reportFileUrl);
-            calls.push(this.configureService.GetPCReport(param[0], param[1], param[2].replace('.pdf', ''), problem.ProblemName.replace(' ', '_')));
+            calls.push(this.configureService.GetPCReport(param[0], param[1], param[2].replace('.pdf', '')));
           }
         }
         if (selectedIconsStructuralFull.some(x => x.problemGuid == problem.ProblemGuid)) {
@@ -500,7 +507,7 @@ export class LeftReportComponent implements OnInit, OnDestroy, AfterViewInit  {
               reportFileUrl = unifiedModel.AnalysisResult.UDCStructuralResult.reportFileUrl;
             if (reportFileUrl) {
               var param = this.getBuildParam(reportFileUrl);
-              calls.push(this.configureService.GetPCReport(param[0], param[1], param[2].replace('.pdf', ''), problem.ProblemName.replace(' ', '_')));
+              calls.push(this.configureService.GetPCReport(param[0], param[1], param[2].replace('.pdf', '')));
             }
           }
         }
@@ -517,7 +524,7 @@ export class LeftReportComponent implements OnInit, OnDestroy, AfterViewInit  {
               reportFileUrl = unifiedModel.AnalysisResult.UDCStructuralResult.summaryFileUrl;
             if (reportFileUrl) {
               var param = this.getBuildParam(reportFileUrl);
-              calls.push(this.configureService.GetPCReport(param[0], param[1], param[2].replace('.pdf', ''), problem.ProblemName.replace(' ', '_')));
+              calls.push(this.configureService.GetPCReport(param[0], param[1], param[2].replace('.pdf', '')));
             }
           }
         }
@@ -527,7 +534,7 @@ export class LeftReportComponent implements OnInit, OnDestroy, AfterViewInit  {
             language = unifiedModel.UserSetting.Language;
           if (unifiedModel && unifiedModel.AnalysisResult && unifiedModel.AnalysisResult.ThermalResult) {
             var param = this.getBuildParam(unifiedModel.AnalysisResult.ThermalResult.reportFileUrl);
-            calls.push(this.configureService.GetPCReport(param[0], param[1], param[2].replace('.pdf', ''), problem.ProblemName.replace(' ', '_')));
+            calls.push(this.configureService.GetPCReport(param[0], param[1], param[2].replace('.pdf', '')));
           }
         }
       });
@@ -540,33 +547,32 @@ export class LeftReportComponent implements OnInit, OnDestroy, AfterViewInit  {
             this.areAllReportsReady = true;
             const zip = new JSZip();
             const name = this.projectName + '_' + this.projectLocation + '_' + pipe.transform(Date.now(), dateFormat) + '.zip';
-            //responses.forEach((response: any) => {
             for(let index in responses) {
               var response: any = responses[index];
-              if (response && this.areAllReportsReady) {
-                let configurationName = this.getConfigurationName(response);
+              if (response && response.body && response.body.size && response.body.size > 0 && this.areAllReportsReady) {
+                let problemGuidOfResponse = this.getProblemGuid(response);
+                let problemNameOfResponse = this.getProblemNameFromGuid(problemGuidOfResponse);
                 let fileName = this.getFileName(response);
-                // let fullFileName = this.getProblemName(response) + "_" + fileName + '_' + pipe.transform(Date.now(), dateFormat) + '.pdf';
                 let acoustic_folder, structural_folder, thermal_folder;
                 if (fileName.toLowerCase().includes('acoustic') || fileName.toLowerCase().includes('akustik')) {
-                  let fullFileName = configurationName + '_' + this.translate.instant(_('report.acoustic-regular-report')) + '_' + pipe.transform(Date.now(), dateFormat) + '.pdf';
-                  let folderName = fileName.split('_')[0];
+                  let fullFileName = problemNameOfResponse + '_' + this.translate.instant(_('report.acoustic-report')) + '_' + pipe.transform(Date.now(), dateFormat) + '.pdf';
+                  let folderName = this.getProblemNameFromGuid(fileName.split('_')[0]);
                   acoustic_folder = acoustic_folder ? acoustic_folder : zip.folder(folderName);
                   acoustic_folder.file(fullFileName, response.body);
                 } else if (fileName.toLowerCase().includes('structural') || fileName.toLowerCase().includes('statik')) {
                   let fullFileName = '';
                   if (fileName.toLowerCase().includes('summary') || fileName.toLowerCase().includes('zusammenfassung')) {
-                    fullFileName = configurationName + '_' + this.translate.instant(_('report.structural-regular-report')) + '_' + pipe.transform(Date.now(), dateFormat) + '.pdf';
+                    fullFileName = problemNameOfResponse + '_' + this.translate.instant(_('report.structural-short-report')) + '_' + pipe.transform(Date.now(), dateFormat) + '.pdf';
                   }
                   else {
-                    fullFileName = configurationName + '_' + this.translate.instant(_('report.structural-full-report')) + '_' + pipe.transform(Date.now(), dateFormat) + '.pdf';
+                    fullFileName = problemNameOfResponse + '_' + this.translate.instant(_('report.structural-report')) + '_' + pipe.transform(Date.now(), dateFormat) + '.pdf';
                   }
-                  let folderName = fileName.split('_')[0];
+                  let folderName = this.getProblemNameFromGuid(fileName.split('_')[0]);
                   structural_folder = structural_folder ? structural_folder : zip.folder(folderName);
                   structural_folder.file(fullFileName, response.body);
                 } else if (fileName.toLowerCase().includes('thermal') || fileName.toLowerCase().includes('thermisch')) {
-                  let fullFileName = configurationName + '_' + this.translate.instant(_('report.thermal-regular-report')) + '_' + pipe.transform(Date.now(), dateFormat) + '.pdf';
-                  let folderName = fileName.split('_')[0];
+                  let fullFileName = problemNameOfResponse + '_' + this.translate.instant(_('report.thermal-report')) + '_' + pipe.transform(Date.now(), dateFormat) + '.pdf';
+                  let folderName = this.getProblemNameFromGuid(fileName.split('_')[0]);
                   thermal_folder = thermal_folder ? thermal_folder : zip.folder(folderName);
                   thermal_folder.file(fullFileName, response.body);
                 } else {
@@ -676,15 +682,18 @@ export class LeftReportComponent implements OnInit, OnDestroy, AfterViewInit  {
           }
           if (unifiedModel.AnalysisResult.FacadeStructuralResult !== null) {
             reportURLs.push(unifiedModel.AnalysisResult.FacadeStructuralResult.reportFileUrl);
+            reportURLs.push(unifiedModel.AnalysisResult.FacadeStructuralResult.summaryFileUrl);
           }
           if (unifiedModel.AnalysisResult.StructuralResult !== null) {
             reportURLs.push(unifiedModel.AnalysisResult.StructuralResult.reportFileUrl);
+            reportURLs.push(unifiedModel.AnalysisResult.StructuralResult.summaryFileUrl);
           }
           if (unifiedModel.AnalysisResult.ThermalResult !== null) {
             reportURLs.push(unifiedModel.AnalysisResult.ThermalResult.reportFileUrl);
           }
           if (unifiedModel.AnalysisResult.UDCStructuralResult !== null) {
             reportURLs.push(unifiedModel.AnalysisResult.UDCStructuralResult.reportFileUrl);
+            reportURLs.push(unifiedModel.AnalysisResult.UDCStructuralResult.summaryFileUrl);
           }
           calls.push(this.resultService.RenameProblem({ reportURLs, newProblemName }));
           calls.push(this.configureService.RenameProblem(unifiedModel));
@@ -766,15 +775,18 @@ export class LeftReportComponent implements OnInit, OnDestroy, AfterViewInit  {
       }
       if (this.unifiedModelForNotes.AnalysisResult.FacadeStructuralResult !== null) {
         reportURLs.push(this.unifiedModelForNotes.AnalysisResult.FacadeStructuralResult.reportFileUrl);
+        reportURLs.push(this.unifiedModelForNotes.AnalysisResult.FacadeStructuralResult.summaryFileUrl);
       }
       if (this.unifiedModelForNotes.AnalysisResult.StructuralResult !== null) {
         reportURLs.push(this.unifiedModelForNotes.AnalysisResult.StructuralResult.reportFileUrl);
+        reportURLs.push(this.unifiedModelForNotes.AnalysisResult.StructuralResult.summaryFileUrl);
       }
       if (this.unifiedModelForNotes.AnalysisResult.ThermalResult !== null) {
         reportURLs.push(this.unifiedModelForNotes.AnalysisResult.ThermalResult.reportFileUrl);
       }
       if (this.unifiedModelForNotes.AnalysisResult.UDCStructuralResult !== null) {
         reportURLs.push(this.unifiedModelForNotes.AnalysisResult.UDCStructuralResult.reportFileUrl);
+        reportURLs.push(this.unifiedModelForNotes.AnalysisResult.UDCStructuralResult.summaryFileUrl);
       }
       calls.push(this.resultService.UpdateUserNotes({ reportURLs, userNotes }));
       calls.push(this.reportService.updateUserNotes(this.unifiedModelForNotes));

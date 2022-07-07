@@ -230,13 +230,15 @@ export class ConfigureService {
       responseType: 'blob' as 'json'
     });
   }
-  GetPCReport(ProjectGuid: string, ProblemGuid: string, reportName: string, problemName: string): Observable<HttpResponse<Blob>> {
-    let url = this.appConstantService.PHYSICS_CORE_DOMAIN + 'api/Report/DownloadReport/' + ProjectGuid + '/' + ProblemGuid + '/' + reportName + '/' + problemName;
+
+  GetPCReport(ProjectGuid: string, ProblemGuid: string, reportName: string): Observable<HttpResponse<Blob>> {
+    let url = this.appConstantService.PHYSICS_CORE_DOMAIN + 'api/Report/DownloadReport/' + ProjectGuid + '/' + ProblemGuid + '/' + reportName;
     return this.http.get<Blob>(url, {
       observe: 'response',
       responseType: 'blob' as 'json'
     });
   }
+
   GetReportFromPhysicsCore(reportURL: string): Observable<HttpResponse<Blob>> {
     let url = this.appConstantService.PHYSICS_CORE_DOMAIN + 'api/Report/GetReport?reportURL=' + reportURL;
     return this.http.get<Blob>(url, {

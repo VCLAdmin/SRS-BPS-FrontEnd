@@ -57,9 +57,9 @@ export class RightReportComponent implements OnInit, OnDestroy, OnChanges {
         this.selectedProblemGuid = problem.ProblemGuid;
         this.unifiedModel = JSON.parse(problem.UnifiedModel);
         if (this.unifiedModel && this.unifiedModel.AnalysisResult) {
-          this.radioValueADisabled = this.unifiedModel.AnalysisResult.AcousticResult ? false : true;
-          this.radioValueBDisabled = this.unifiedModel.AnalysisResult.StructuralResult || this.unifiedModel.AnalysisResult.FacadeStructuralResult || this.unifiedModel.AnalysisResult.UDCStructuralResult  ? false : true;
-          this.radioValueCDisabled = this.unifiedModel.AnalysisResult.ThermalResult ? false : true;
+          this.radioValueAcousticDisabled = this.unifiedModel.AnalysisResult.AcousticResult ? false : true;
+          this.radioValueStructuralDisabled = this.unifiedModel.AnalysisResult.StructuralResult || this.unifiedModel.AnalysisResult.FacadeStructuralResult || this.unifiedModel.AnalysisResult.UDCStructuralResult  ? false : true;
+          this.radioValueThermalDisabled = this.unifiedModel.AnalysisResult.ThermalResult ? false : true;
           if (this.unifiedModel.AnalysisResult.AcousticResult) {
             this.radioValue = 'Acoustic';
             this.physicsTypeName = this.translate.instant(_('report.acoustic-report'));
@@ -68,24 +68,24 @@ export class RightReportComponent implements OnInit, OnDestroy, OnChanges {
           } else if (this.unifiedModel.AnalysisResult.StructuralResult) {
             this.radioValue = 'SummaryStructural';
             this.physicsTypeName = this.translate.instant(_('report.structural-report'));
-            this.loadReport(this.unifiedModel.AnalysisResult.StructuralResult.reportFileUrl);
+            this.loadReport(this.unifiedModel.AnalysisResult.StructuralResult.summaryFileUrl);
           } else if (this.unifiedModel.AnalysisResult.FacadeStructuralResult) { 
             this.radioValue = 'SummaryStructural';
             this.physicsTypeName = this.translate.instant(_('report.structural-report'));
-            this.loadReport(this.unifiedModel.AnalysisResult.FacadeStructuralResult.reportFileUrl);
+            this.loadReport(this.unifiedModel.AnalysisResult.FacadeStructuralResult.summaryFileUrl);
           } else if (this.unifiedModel.AnalysisResult.UDCStructuralResult) { 
             this.radioValue = 'SummaryStructural';
             this.physicsTypeName = this.translate.instant(_('report.structural-report'));
-            this.loadReport(this.unifiedModel.AnalysisResult.UDCStructuralResult.reportFileUrl);
+            this.loadReport(this.unifiedModel.AnalysisResult.UDCStructuralResult.summaryFileUrl);
           } else if (this.unifiedModel.AnalysisResult.ThermalResult) {
             this.radioValue = 'Thermal';
             this.physicsTypeName = this.translate.instant(_('report.thermal-report'));
             this.loadReport(this.unifiedModel.AnalysisResult.ThermalResult.reportFileUrl);
           }
         } else {
-          this.radioValueADisabled = true;
-          this.radioValueBDisabled = true;
-          this.radioValueCDisabled = true;
+          this.radioValueAcousticDisabled = true;
+          this.radioValueStructuralDisabled = true;
+          this.radioValueThermalDisabled = true;
           this.FinishedLoadingReport();
         }
       } else {
@@ -128,29 +128,31 @@ export class RightReportComponent implements OnInit, OnDestroy, OnChanges {
   loadReport(param: any) { 
     param = param.split('/');
     this.resultService.GetReportURL(param[0], param[1], param[2].replace('.pdf', '')).subscribe((val) => {
-      if (val)
+      if (val) {
         this.reportUrl = this.sanitizer.bypassSecurityTrustResourceUrl(val + "#toolbar=0&navpanes=0?v=" + new Date().getTime());
-      else
+      }
+      else {
         this.reportUrl = "";
+      }
       this.FinishedLoadingReport();
     });
   }
 
 
   getStructuralRegularReportTooltip() {
-    return this.translate.instant(_('report.structural-regular-report'));
+    return this.translate.instant(_('report.structural-short-report'));
   }
 
   getStructuralFullReportTooltip() {
-    return this.translate.instant(_('report.structural-full-report'));
+    return this.translate.instant(_('report.structural-report'));
   }
 
   getAcousticRegularReportTooltip() {
-    return this.translate.instant(_('report.acoustic-regular-report'));
+    return this.translate.instant(_('report.acoustic-report'));
   }
 
   getThermalRegularReportTooltip() {
-    return this.translate.instant(_('report.thermal-regular-report'));
+    return this.translate.instant(_('report.thermal-report'));
   }
 
 
@@ -177,9 +179,9 @@ export class RightReportComponent implements OnInit, OnDestroy, OnChanges {
     this.selectedProblemGuid = this.currentProblem && this.currentProblem.ProblemGuid ? this.currentProblem.ProblemGuid : null;
     this.unifiedModel = JSON.parse(this.currentProblem.UnifiedModel);
     if (this.unifiedModel && this.unifiedModel.AnalysisResult) {
-      this.radioValueADisabled = this.unifiedModel.AnalysisResult.AcousticResult ? false : true;
-      this.radioValueBDisabled = this.unifiedModel.AnalysisResult.StructuralResult || this.unifiedModel.AnalysisResult.FacadeStructuralResult || this.unifiedModel.AnalysisResult.UDCStructuralResult ? false : true;
-      this.radioValueCDisabled = this.unifiedModel.AnalysisResult.ThermalResult ? false : true;
+      this.radioValueAcousticDisabled = this.unifiedModel.AnalysisResult.AcousticResult ? false : true;
+      this.radioValueStructuralDisabled = this.unifiedModel.AnalysisResult.StructuralResult || this.unifiedModel.AnalysisResult.FacadeStructuralResult || this.unifiedModel.AnalysisResult.UDCStructuralResult ? false : true;
+      this.radioValueThermalDisabled = this.unifiedModel.AnalysisResult.ThermalResult ? false : true;
       if (this.unifiedModel.AnalysisResult.AcousticResult) {
         this.radioValue = 'Acoustic';
         this.physicsTypeName = this.translate.instant(_('report.acoustic-report'));
@@ -203,9 +205,9 @@ export class RightReportComponent implements OnInit, OnDestroy, OnChanges {
       }
 
     } else {
-      this.radioValueADisabled = true;
-      this.radioValueBDisabled = true;
-      this.radioValueCDisabled = true;
+      this.radioValueAcousticDisabled = true;
+      this.radioValueStructuralDisabled = true;
+      this.radioValueThermalDisabled = true;
     }
   }
 
@@ -224,9 +226,9 @@ export class RightReportComponent implements OnInit, OnDestroy, OnChanges {
   // valueA: boolean;
   // valueB: boolean;
   // valueC: boolean;
-  radioValueADisabled = false;
-  radioValueBDisabled = false;
-  radioValueCDisabled = false;
+  radioValueAcousticDisabled = false;
+  radioValueStructuralDisabled = false;
+  radioValueThermalDisabled = false;
 
   onPhysicsTypeClicked(event: any) {
     this.reportFinishedLoading = false;
