@@ -366,7 +366,7 @@ export class StructuralComponent implements OnInit, OnChanges, OnDestroy, AfterV
           this.unified3DModel.ModelInput.Structural.dinWindLoadInput.L0 = parseInt(this.structuralTableFormData.buildingWidthString);
           this.unified3DModel.ModelInput.Structural.dinWindLoadInput.B0 = parseInt(this.structuralTableFormData.buildingDepthString);
           this.unified3DModel.ModelInput.Structural.dinWindLoadInput.h = parseInt(this.structuralTableFormData.buildingHeightString);
-          this.unified3DModel.ModelInput.Structural.dinWindLoadInput.ElvW = parseInt(this.structuralTableFormData.windowElevationString);
+          this.unified3DModel.ModelInput.Structural.dinWindLoadInput.ElvW = parseInt(this.structuralTableFormData.windowElevationString)? parseInt(this.structuralTableFormData.windowElevationString) : -1;
           this.unified3DModel.ModelInput.Structural.dinWindLoadInput.WindowZone = parseInt(this.structuralTableFormData.windowZone);
 
         }
