@@ -442,7 +442,7 @@ export class LeftReportComponent implements OnInit, OnDestroy, AfterViewInit  {
             reportFileUrl = unifiedModel.AnalysisResult.UDCStructuralResult.summaryFileUrl;
           if (reportFileUrl) {
             var param = this.getBuildParam(reportFileUrl);
-            this.configureService.GetPCReport(param[0], param[1], param[2].replace('.pdf', '')))
+            this.configureService.GetPCReport(param[0], param[1], param[2].replace('.pdf', ''))
               .pipe(takeUntil(this.destroy$)).subscribe((response) => {
                 let language = unifiedModel.UserSetting.Language && unifiedModel.UserSetting.Language == 'de-DE' ? 'en-DE' : 'en-US';
                 let pipe = new DatePipe(unifiedModel.UserSetting.Language);

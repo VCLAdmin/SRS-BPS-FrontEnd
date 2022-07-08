@@ -138,25 +138,6 @@ export class RightReportComponent implements OnInit, OnDestroy, OnChanges {
     });
   }
 
-
-  getStructuralRegularReportTooltip() {
-    return this.translate.instant(_('report.structural-short-report'));
-  }
-
-  getStructuralFullReportTooltip() {
-    return this.translate.instant(_('report.structural-report'));
-  }
-
-  getAcousticRegularReportTooltip() {
-    return this.translate.instant(_('report.acoustic-report'));
-  }
-
-  getThermalRegularReportTooltip() {
-    return this.translate.instant(_('report.thermal-report'));
-  }
-
-
-
   buildListOfDisplayData() {
     this.reportService.allConfigurationTableDataSubject.pipe(takeUntil(this.destroy$)).subscribe((data) => {
       setTimeout(() => {

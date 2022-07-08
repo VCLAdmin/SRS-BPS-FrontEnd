@@ -12,112 +12,110 @@
 
     <!---->
     <div class="cells-group">
-      <div class="three-cells-group">
-        <bps-radio-group [(ngModel)]="radioValue" (ngModelChange)="onPhysicsTypeClicked($event)">
-          <label bps-radio-button bpsValue="Acoustic" [bpsDisabled]="radioValueADisabled" bpsRadioButtonType="variation12">
-            <ng-container *ngIf="radioValue === 'Acoustic' && !radioValueADisabled">
+      <bps-radio-group [(ngModel)]="radioValue" (ngModelChange)="onPhysicsTypeClicked($event)" style="display: flex;">
+        <div class="three-cells-group">        
+          <label bps-radio-button bpsValue="Acoustic" [bpsDisabled]="radioValueAcousticDisabled" bpsRadioButtonType="variation12">
+            <ng-container *ngIf="radioValue === 'Acoustic' && !radioValueAcousticDisabled">
               <img src="/assets/Images/icons/sps_round_iconreport_acoustic_blue.svg" 
               bps-tooltip
               [bpsTooltipType]="'variation_11'"
-              [bpsTooltipTitle]="getStructuralRegularReportTooltip()"
+              bpsTooltipTitle="{{'report.acoustic-report' | translate }}"
               bpsTooltipPlacement="top" />
             </ng-container>
-            <ng-container *ngIf="radioValue !== 'Acoustic' && !radioValueADisabled">
+            <ng-container *ngIf="radioValue !== 'Acoustic' && !radioValueAcousticDisabled">
               <img src="/assets/Images/icons/sps_round_iconreport_acoustic_lightgrey.svg" 
               bps-tooltip
               [bpsTooltipType]="'variation_11'"
-              [bpsTooltipTitle]="getStructuralRegularReportTooltip()"
+              bpsTooltipTitle="{{'report.acoustic-report' | translate }}"
               bpsTooltipPlacement="top"/>
             </ng-container>
-            <ng-container *ngIf="radioValueADisabled">
+            <ng-container *ngIf="radioValueAcousticDisabled">
               <img src="/assets/Images/icons/sps_round_iconreport_acoustic_darkgrey.svg" 
               bps-tooltip
               [bpsTooltipType]="'variation_11'"
               bpsTooltipDisabled
-              [bpsTooltipTitle]="getStructuralRegularReportTooltip()"
+              bpsTooltipTitle="{{'report.acoustic-report' | translate }}"
               bpsTooltipPlacement="top"/>
             </ng-container>
           </label>
   
-          <label bps-radio-button bpsValue="SummaryStructural" [bpsDisabled]="radioValueBDisabled" bpsRadioButtonType="variation12">
-            <ng-container *ngIf="radioValue === 'SummaryStructural' && !radioValueBDisabled">
-              <img src="/assets/Images/icons/sps_round_iconreport_structural_blue.svg" 
-              bps-tooltip
-              [bpsTooltipType]="'variation_11'"
-              [bpsTooltipTitle]="getStructuralRegularReportTooltip()"
-              bpsTooltipPlacement="top"/>
-            </ng-container>
-            <ng-container *ngIf="radioValue !== 'SummaryStructural' && !radioValueBDisabled">
-              <img src="/assets/Images/icons/sps_round_iconreport_structural_lightgrey.svg"  
-              bps-tooltip
-              [bpsTooltipType]="'variation_11'"
-              [bpsTooltipTitle]="getStructuralRegularReportTooltip()"
-              bpsTooltipPlacement="top"/>
-            </ng-container>
-            <ng-container *ngIf="radioValueBDisabled">
-              <img src="/assets/Images/icons/sps_round_iconreport_structural_darkgrey.svg" 
-              bps-tooltip
-              [bpsTooltipType]="'variation_11'"
-              bpsTooltipDisabled
-              [bpsTooltipTitle]="getStructuralRegularReportTooltip()"
-              bpsTooltipPlacement="top" />
-            </ng-container>
-          </label>
-  
-          <label bps-radio-button bpsValue="Thermal" [bpsDisabled]="radioValueCDisabled" bpsRadioButtonType="variation12">
-            <ng-container *ngIf="radioValue === 'Thermal' && !radioValueCDisabled">
-              <img src="/assets/Images/icons/sps_round_iconreport_thermal_blue.svg" 
-               bps-tooltip
-              [bpsTooltipType]="'variation_11'"
-              [bpsTooltipTitle]="getStructuralRegularReportTooltip()"
-              bpsTooltipPlacement="top"/>
-            </ng-container>
-            <ng-container *ngIf="radioValue !== 'Thermal' && !radioValueCDisabled">
-              <img src="/assets/Images/icons/sps_round_iconreport_thermal_lightgrey.svg"  
-              bps-tooltip
-              [bpsTooltipType]="'variation_11'"
-              [bpsTooltipTitle]="getStructuralRegularReportTooltip()"
-              bpsTooltipPlacement="top"/>
-            </ng-container>
-            <ng-container *ngIf="radioValueCDisabled">
-              <img src="/assets/Images/icons/sps_round_iconreport_thermal_darkgrey.svg" 
-              bps-tooltip
-              [bpsTooltipType]="'variation_11'"
-              bpsTooltipDisabled
-              [bpsTooltipTitle]="getThermalRegularReportTooltip()"
-              bpsTooltipPlacement="top"/>
-            </ng-container>
-          </label>
-        </bps-radio-group>
-      </div>
-      <div class="full-cell">
-        <bps-radio-group [(ngModel)]="radioValue" (ngModelChange)="onPhysicsTypeClicked($event)">
-          <label bps-radio-button bpsValue="FullStrucural" [bpsDisabled]="radioValueADisabled" bpsRadioButtonType="variation12">
-            <ng-container *ngIf="radioValue === 'FullStrucural' && !radioValueADisabled">
+          <label bps-radio-button bpsValue="FullStrucural" [bpsDisabled]="radioValueStructuralDisabled" bpsRadioButtonType="variation12">
+            <ng-container *ngIf="radioValue === 'FullStrucural' && !radioValueStructuralDisabled">
               <img src="/assets/bps-icons/sps_structural_icon_report_selected.svg" 
               bps-tooltip
               [bpsTooltipType]="'variation_11'"
-              [bpsTooltipTitle]="getStructuralFullReportTooltip()"
+              bpsTooltipTitle="{{'report.structural-report' | translate }}"
               bpsTooltipPlacement="top" />
             </ng-container>
-            <ng-container *ngIf="radioValue !== 'FullStrucural' && !radioValueADisabled">
+            <ng-container *ngIf="radioValue !== 'FullStrucural' && !radioValueStructuralDisabled">
               <img src="/assets/bps-icons/sps_structural_icon_report_enabled.svg" 
               bps-tooltip
               [bpsTooltipType]="'variation_11'"
-              [bpsTooltipTitle]="getStructuralFullReportTooltip()"
+              bpsTooltipTitle="{{'report.structural-report' | translate }}"
               bpsTooltipPlacement="top"/>
             </ng-container>
-            <ng-container *ngIf="radioValueADisabled">
+            <ng-container *ngIf="radioValueStructuralDisabled">
               <img src="/assets/bps-icons/sps_structural_icon_report_disable.svg" 
               bps-tooltip
               [bpsTooltipType]="'variation_11'"
               bpsTooltipDisabled
-              [bpsTooltipTitle]="getStructuralFullReportTooltip()"
+              bpsTooltipTitle="{{'report.structural-report' | translate }}"
               bpsTooltipPlacement="top"/>
             </ng-container>
           </label>
-        </bps-radio-group>
-      </div>  
+  
+          <label bps-radio-button bpsValue="Thermal" [bpsDisabled]="radioValueThermalDisabled" bpsRadioButtonType="variation12">
+            <ng-container *ngIf="radioValue === 'Thermal' && !radioValueThermalDisabled">
+              <img src="/assets/Images/icons/sps_round_iconreport_thermal_blue.svg" 
+               bps-tooltip
+              [bpsTooltipType]="'variation_11'"
+              bpsTooltipTitle="{{'report.thermal-report' | translate }}"
+              bpsTooltipPlacement="top"/>
+            </ng-container>
+            <ng-container *ngIf="radioValue !== 'Thermal' && !radioValueThermalDisabled">
+              <img src="/assets/Images/icons/sps_round_iconreport_thermal_lightgrey.svg"  
+              bps-tooltip
+              [bpsTooltipType]="'variation_11'"
+              bpsTooltipTitle="{{'report.thermal-report' | translate }}"
+              bpsTooltipPlacement="top"/>
+            </ng-container>
+            <ng-container *ngIf="radioValueThermalDisabled">
+              <img src="/assets/Images/icons/sps_round_iconreport_thermal_darkgrey.svg" 
+              bps-tooltip
+              [bpsTooltipType]="'variation_11'"
+              bpsTooltipDisabled
+              bpsTooltipTitle="{{'report.thermal-report' | translate }}"
+              bpsTooltipPlacement="top"/>
+            </ng-container>
+          </label>
+        </div>
+        <div class="full-cell">
+          <label bps-radio-button bpsValue="SummaryStructural" [bpsDisabled]="radioValueStructuralDisabled" bpsRadioButtonType="variation12">
+            <ng-container *ngIf="radioValue === 'SummaryStructural' && !radioValueStructuralDisabled">
+              <img src="/assets/Images/icons/sps_round_iconreport_structural_blue.svg" 
+              bps-tooltip
+              [bpsTooltipType]="'variation_11'"
+              bpsTooltipTitle="{{'report.structural-short-report' | translate }}"
+              bpsTooltipPlacement="top"/>
+            </ng-container>
+            <ng-container *ngIf="radioValue !== 'SummaryStructural' && !radioValueStructuralDisabled">
+              <img src="/assets/Images/icons/sps_round_iconreport_structural_lightgrey.svg"  
+              bps-tooltip
+              [bpsTooltipType]="'variation_11'"
+              bpsTooltipTitle="{{'report.structural-short-report' | translate }}"
+              bpsTooltipPlacement="top"/>
+            </ng-container>
+            <ng-container *ngIf="radioValueStructuralDisabled">
+              <img src="/assets/Images/icons/sps_round_iconreport_structural_darkgrey.svg" 
+              bps-tooltip
+              [bpsTooltipType]="'variation_11'"
+              bpsTooltipDisabled
+              bpsTooltipTitle="{{'report.structural-short-report' | translate }}"
+              bpsTooltipPlacement="top" />
+            </ng-container>
+          </label>
+        </div>
+      </bps-radio-group>
     </div>
 
     <!---->

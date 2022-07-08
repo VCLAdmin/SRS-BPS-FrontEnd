@@ -34,7 +34,7 @@
     
       <!-- regular report cells header -->
       <ng-template #regReportColTemplate>
-        <div class="bps-custom-header-with-divider bps-custom-header-with-divider-regReport"><div>{{'report.regular-report' | translate }}</div></div>
+        <div class="bps-custom-header-with-divider bps-custom-header-with-divider-regReport"><div>{{'report.reports' | translate }}</div></div>
         <div class="bps-custom-header-radio-button-label" style="text-align: center">
           <label bps-checkbox
                  style="margin-right: 5px"
@@ -61,16 +61,16 @@
                  style="margin-right: 5px"
                  bpsType="variation3"
                  [bpsDisabled]="isAllDisplayDataDisabledStructural"
-                 (ngModelChange)="checkAllStructural($event)"
-                 [(ngModel)]="isAllDisplayDataCheckedStructural"
+                 (ngModelChange)="checkAllFullReport($event)"
+                 [(ngModel)]="isAllDisplayDataCheckedFullReport"
                  bps-tooltip
                 [bpsTooltipType]="'variation_10'"
                 bpsTooltipTitle="{{'report.select-all-structural' | translate }}"
                 bpsTooltipPlacement="top">
-            <ng-container *ngIf="!isAllDisplayDataDisabledStructural && isAllDisplayDataCheckedStructural">
+            <ng-container *ngIf="!isAllDisplayDataDisabledStructural && isAllDisplayDataCheckedFullReport">
               <img src="/assets/bps-icons/sps_structural_icon_report_selected.svg" />
             </ng-container>
-            <ng-container *ngIf="!isAllDisplayDataDisabledStructural && !isAllDisplayDataCheckedStructural">
+            <ng-container *ngIf="!isAllDisplayDataDisabledStructural && !isAllDisplayDataCheckedFullReport">
               <img src="/assets/bps-icons/sps_structural_icon_report_enabled.svg" />
             </ng-container>
             <ng-container *ngIf="isAllDisplayDataDisabledStructural">
@@ -102,24 +102,24 @@
       </ng-template>
     
       <!-- full report cell header -->
-      <ng-template #fullReportColTemplate>
-        <div class="bps-custom-header-with-divider bps-custom-header-with-divider-fullReport">{{'report.full-report' | translate }}</div>
+      <ng-template #summaryReportColTemplate>
+        <div class="bps-custom-header-with-divider bps-custom-header-with-divider-fullReport">{{'report.short-report' | translate }}</div>
         <div class="bps-custom-header-radio-button-label" style="text-align: center">
     
           <label bps-checkbox
                  style="margin-right: 10px"
                  bpsType="variation3"
-                 (ngModelChange)="checkAllFullReport($event)"
+                 (ngModelChange)="checkAllStructural($event)"
                  [bpsDisabled]="isAllDisplayDataDisabledStructural"
-                 [(ngModel)]="isAllDisplayDataCheckedFullReport"
+                 [(ngModel)]="isAllDisplayDataCheckedStructural"
                  bps-tooltip
                 [bpsTooltipType]="'variation_10'"
                 bpsTooltipTitle="{{'report.select-all-structural' | translate }}"
                 bpsTooltipPlacement="top">
-            <ng-container *ngIf="!isAllDisplayDataDisabledStructural && isAllDisplayDataCheckedFullReport">
+            <ng-container *ngIf="!isAllDisplayDataDisabledStructural && isAllDisplayDataCheckedStructural">
               <img src="/assets/bps-icons/sps_structural_icon_report_selected.svg" />
             </ng-container>
-            <ng-container *ngIf="!isAllDisplayDataDisabledStructural && !isAllDisplayDataCheckedFullReport">
+            <ng-container *ngIf="!isAllDisplayDataDisabledStructural && !isAllDisplayDataCheckedStructural">
               <img src="/assets/bps-icons/sps_structural_icon_report_enabled.svg" />
             </ng-container>
             <ng-container *ngIf="isAllDisplayDataDisabledStructural">
@@ -182,18 +182,18 @@
           <label bps-checkbox
                  bpsType="variation3"
                  style="margin-right: 5px"
-                 (ngModelChange)="refreshStatusStructural($event, id)"
+                 (ngModelChange)="refreshFullStatusReport($event, id)"
                  [bpsDisabled]="disabled || disabledStructural"
-                 [ngModel]="mapOfCheckedIdStructural[id]"
+                 [ngModel]="mapOfCheckedIdFullStructural[id]"
                  bps-tooltip
                 [bpsTooltipType]="'variation_10'"
                 [bpsTooltipDisabled]="disabledStructural"
                 [bpsTooltipTitle]="getStructuralTooltip(disabledStructural)"
                 bpsTooltipPlacement="top">
-            <ng-container *ngIf="mapOfCheckedIdStructural[id] && !disabledStructural">
+            <ng-container *ngIf="mapOfCheckedIdFullStructural[id] && !disabledStructural">
               <img src="/assets/bps-icons/sps_structural_icon_report_selected.svg" />
             </ng-container>
-            <ng-container *ngIf="!mapOfCheckedIdStructural[id] && !disabledStructural">
+            <ng-container *ngIf="!mapOfCheckedIdFullStructural[id] && !disabledStructural">
               <img src="/assets/bps-icons/sps_structural_icon_report_enabled.svg" />
             </ng-container>
             <ng-container *ngIf="disabledStructural">
@@ -228,23 +228,23 @@
 
 
       <!-- Full report cell lines -->    
-      <ng-template #fullReportCellTemplate let-id="id" let-disabled="disabled">
+      <ng-template #summaryReportCellTemplate let-id="id" let-disabled="disabled">
         <div style="text-align: center">    
           <label bps-checkbox
                  bpsType="variation3"
                  style="margin-right: 10px"
-                 (ngModelChange)="refreshFullStatusReport($event, id)"
-                 [bpsDisabled]="disabled"
-                 [ngModel]="mapOfCheckedIdFullStructural[id]"
+                 (ngModelChange)="refreshStatusStructural($event, id)"
+                 [bpsDisabled]="disabled || disabledStructural"
+                 [ngModel]="mapOfCheckedIdStructural[id]"
                  bps-tooltip
                 [bpsTooltipType]="'variation_10'"
                 [bpsTooltipDisabled]="disabled"
                 [bpsTooltipTitle]="getStructuralTooltip(disabled)"
                 bpsTooltipPlacement="top">
-            <ng-container *ngIf="mapOfCheckedIdFullStructural[id] && !disabled">
+            <ng-container *ngIf="mapOfCheckedIdStructural[id] && !disabled">
               <img src="/assets/bps-icons/sps_structural_icon_report_selected.svg" />
             </ng-container>
-            <ng-container *ngIf="!mapOfCheckedIdFullStructural[id] && !disabled">
+            <ng-container *ngIf="!mapOfCheckedIdStructural[id] && !disabled">
               <img src="/assets/bps-icons/sps_structural_icon_report_enabled.svg" />
             </ng-container>
             <ng-container *ngIf="disabled">
