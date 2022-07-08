@@ -1265,9 +1265,9 @@ export class OrdersComponent implements OnInit, AfterViewInit {
   removeProduct(problemGuid: string) {
     this.modalService.error({
       nzWrapClassName: "vertical-center-modal",
-      nzWidth: '410px',
+      nzWidth: '470px',
       nzTitle: '',
-      nzContent: 'Are you sure you want to delete this Product from your Order? <br/> By clicking YES you will lose your configured Product in “Configure”.',
+      nzContent: 'Are you sure you want to delete this Product from your Order? <br/><br/> By clicking YES you will lose your configured Product in “Configure”.',
       nzOkText: "Yes",
       nzOnOk: () => {
         //DeleteOrderByGuid
