@@ -337,7 +337,10 @@ export class OuterTableComponent implements OnInit, OnDestroy, AfterViewInit {
     let savedData = this.isPopoutOpenedForBottomOuterFrame ? this.umService.obj_BottomOuterFrameSliding():this.umService.obj_OuterFrame();
     this.selectedId = 0;
     if (savedData) {
-      this.selectedId = this.listOfDisplayData.find(article => {return article.description == savedData.ArticleName}).id;
+      let displayData = this.listOfDisplayData.find(article => {return article.description == savedData.ArticleName});
+      if (displayData != null) {
+        this.selectedId = displayData.id;
+      }
     }
     if (this.selectedId < 0)
       this.selectedId = 0;
