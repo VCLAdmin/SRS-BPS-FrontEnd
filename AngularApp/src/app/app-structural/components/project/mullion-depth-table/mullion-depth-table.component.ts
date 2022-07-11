@@ -561,7 +561,7 @@ export class MullionDepthTableComponent implements OnInit, OnDestroy {
             celdType: CeldType.Default,
             display: this.translate.instant(_('configure.description')),
             property: 'description',
-            width: '235px',
+            width: '180px',
             showSort: true
           },
           {
@@ -594,13 +594,13 @@ export class MullionDepthTableComponent implements OnInit, OnDestroy {
             celdType: CeldType.Default,
             display: this.translate.instant(_('configure.description')),
             property: 'description',
-            width: '235px',
+            width: '180px',
             showSort: true
           },
           {
             celdType: CeldType.TemplateRef,
             property: 'column2',
-            width: '165px',
+            width: '130px',
             template: {
               ref: this.column2Template,
               context: {}

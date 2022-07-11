@@ -11,13 +11,13 @@
         [ngModel]="mapOfCheckedIdAcoustic[id]" bps-tooltip
         [bpsTooltipType]="'variation_11'" [bpsTooltipTitle]="getAcousticCellTooltip(id)"
         bpsTooltipPlacement="top">
-        <ng-container *ngIf="mapOfCheckedIdAcoustic[id] && !mapOfDisabledIdAcoustic[id]">
+        <ng-container *ngIf="mapOfCheckedIdAcoustic[id]">
           <img src="/assets/bps-icons/sps_acoustic_icon_report_selected.svg"/>
         </ng-container>
         <ng-container *ngIf="!mapOfCheckedIdAcoustic[id] && !mapOfDisabledIdAcoustic[id]">
           <img src="/assets/bps-icons/sps_acoustic_icon_report_enabled.svg"/>
         </ng-container>
-        <ng-container *ngIf="mapOfDisabledIdAcoustic[id]">
+        <ng-container *ngIf="!mapOfCheckedIdAcoustic[id] && mapOfDisabledIdAcoustic[id]">
           <img src="/assets/bps-icons/sps_acoustic_icon_report_disable.svg"/>
         </ng-container>
       </label>
@@ -26,13 +26,13 @@
         [ngModel]="mapOfCheckedIdStructural[id]" bps-tooltip
         [bpsTooltipType]="'variation_11'" [bpsTooltipTitle]="getStructuralCellTooltip(id)"
         bpsTooltipPlacement="top">
-        <ng-container *ngIf="mapOfCheckedIdStructural[id] && !mapOfDisabledIdStructural[id]">
+        <ng-container *ngIf="mapOfCheckedIdStructural[id]">
           <img src="/assets/bps-icons/sps_structural_icon_report_selected.svg"/>
         </ng-container>
         <ng-container *ngIf="!mapOfCheckedIdStructural[id] && !mapOfDisabledIdStructural[id]">
           <img src="/assets/bps-icons/sps_structural_icon_report_enabled.svg"/>
         </ng-container>
-        <ng-container *ngIf="mapOfDisabledIdStructural[id]">
+        <ng-container *ngIf="!mapOfCheckedIdStructural[id] && mapOfDisabledIdStructural[id]">
           <img src="/assets/bps-icons/sps_structural_icon_report_disable.svg"/>
         </ng-container>
       </label>
@@ -41,13 +41,13 @@
         [bpsDisabled]="mapOfDisabledIdThermal[id]" bps-tooltip
         [bpsTooltipType]="'variation_11'" [bpsTooltipTitle]="getThermalCellTooltip(id)"
         bpsTooltipPlacement="top">
-        <ng-container *ngIf="mapOfCheckedIdThermal[id] && !mapOfDisabledIdThermal[id]">
+        <ng-container *ngIf="mapOfCheckedIdThermal[id]">
           <img src="/assets/bps-icons/sps_thermal_icon_report_selected.svg"/>
         </ng-container>
         <ng-container *ngIf="!mapOfCheckedIdThermal[id] && !mapOfDisabledIdThermal[id]">
           <img src="/assets/bps-icons/sps_thermal_icon_report_enabled.svg"/>
         </ng-container>
-        <ng-container *ngIf="mapOfDisabledIdThermal[id]">
+        <ng-container *ngIf="!mapOfCheckedIdThermal[id] && mapOfDisabledIdThermal[id]">
           <img src="/assets/bps-icons/sps_thermal_icon_report_disable.svg"/>
         </ng-container>
       </label>

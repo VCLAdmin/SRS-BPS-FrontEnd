@@ -198,14 +198,13 @@ export class HomeExpandablePanelComponent implements OnInit, OnChanges, AfterVie
           problemGuid: allProduct.ProblemGuid,
           problem: allProduct
         });
-
         this.mapOfCheckedIdAcoustic[j] = Boolean(allProduct.AcousticResult);
         this.mapOfCheckedIdStructural[j] = Boolean(allProduct.StructuralResult);
         this.mapOfCheckedIdThermal[j] = Boolean(allProduct.ThermalResult);
 
-        this.mapOfDisabledIdAcoustic[j] = !Boolean(allProduct.EnableAcoustic);
-        this.mapOfDisabledIdStructural[j] = !Boolean(allProduct.EnableStructural);
-        this.mapOfDisabledIdThermal[j] = !Boolean(allProduct.EnableThermal);
+        this.mapOfDisabledIdAcoustic[j] = Boolean(allProduct.EnableAcoustic);
+        this.mapOfDisabledIdStructural[j] = Boolean(allProduct.EnableStructural);
+        this.mapOfDisabledIdThermal[j] = Boolean(allProduct.EnableThermal);
       }
       this.listOfDisplayDataProblems = [];
       this.listOfDisplayDataProblems = [...this.dataProblems];
@@ -282,14 +281,13 @@ export class HomeExpandablePanelComponent implements OnInit, OnChanges, AfterVie
           problemGuid: allProduct.ProblemGuid,
           problem: allProduct
         });
-
         this.mapOfCheckedIdAcoustic[j] = Boolean(allProduct.AcousticResult);
         this.mapOfCheckedIdStructural[j] = Boolean(allProduct.StructuralResult);
         this.mapOfCheckedIdThermal[j] = Boolean(allProduct.ThermalResult);
         
-        this.mapOfDisabledIdAcoustic[j] = !Boolean(allProduct.EnableAcoustic);
-        this.mapOfDisabledIdStructural[j] = !Boolean(allProduct.EnableStructural);
-        this.mapOfDisabledIdThermal[j] = !Boolean(allProduct.EnableThermal);
+        this.mapOfDisabledIdAcoustic[j] = Boolean(allProduct.EnableAcoustic);
+        this.mapOfDisabledIdStructural[j] = Boolean(allProduct.EnableStructural);
+        this.mapOfDisabledIdThermal[j] = Boolean(allProduct.EnableThermal);
       }
       this.listOfDisplayDataProblems = [...this.dataProblems];
       this.isOperatingExpandableTable = false;
@@ -470,11 +468,11 @@ export class HomeExpandablePanelComponent implements OnInit, OnChanges, AfterVie
    * @returns 
    */
   getAcousticCellTooltip(id: number) {
-    if (this.mapOfCheckedIdAcoustic[id] && !this.mapOfDisabledIdAcoustic[id])
+    if (this.mapOfCheckedIdAcoustic[id])
       return this.translate.instant(_('home.acoustic-computed'));
     else if (!this.mapOfCheckedIdAcoustic[id] && !this.mapOfDisabledIdAcoustic[id])
       return this.translate.instant(_('home.acoustic-not-computed'));
-    else if (this.mapOfDisabledIdAcoustic[id])
+    else if (!this.mapOfCheckedIdAcoustic[id] && this.mapOfDisabledIdAcoustic[id])
       return this.translate.instant(_('home.acoustic-not-selected'));
   }
 
@@ -484,11 +482,11 @@ export class HomeExpandablePanelComponent implements OnInit, OnChanges, AfterVie
    * @returns 
    */
   getStructuralCellTooltip(id: number) {
-    if (this.mapOfCheckedIdStructural[id] && !this.mapOfDisabledIdStructural[id])
+    if (this.mapOfCheckedIdStructural[id])
       return this.translate.instant(_('home.structural-computed'));
     else if (!this.mapOfCheckedIdStructural[id] && !this.mapOfDisabledIdStructural[id])
       return this.translate.instant(_('home.structural-not-computed'));
-    else if (this.mapOfDisabledIdStructural[id])
+    else if (!this.mapOfCheckedIdStructural[id] && this.mapOfDisabledIdStructural[id])
       return this.translate.instant(_('home.structural-not-selected'));
   }
 
@@ -498,11 +496,11 @@ export class HomeExpandablePanelComponent implements OnInit, OnChanges, AfterVie
    * @returns 
    */
   getThermalCellTooltip(id: number) {
-    if (this.mapOfCheckedIdThermal[id] && !this.mapOfDisabledIdThermal[id])
+    if (this.mapOfCheckedIdThermal[id])
       return this.translate.instant(_('home.thermal-computed'));
     else if (!this.mapOfCheckedIdThermal[id] && !this.mapOfDisabledIdThermal[id])
       return this.translate.instant(_('home.thermal-not-computed'));
-    else if (this.mapOfDisabledIdThermal[id])
+    else if (!this.mapOfCheckedIdThermal[id] && this.mapOfDisabledIdThermal[id])
       return this.translate.instant(_('home.thermal-not-selected'));
   }
   
