@@ -23,7 +23,7 @@
         </div>
         <!-- Confirm -->
         <div class="lp-confirm-btn-container">
-            <button class="lp-confirm-btn" bps-button bpsType="variation-4" (click)="onConfirm()">{{'configure.confirm'
+            <button class="lp-confirm-btn" bps-button bpsType="variation-4" (click)="onConfirm()"[disabled]="disableConfirmBtn">{{'configure.confirm'
                 | translate }}</button>
         </div>
     </div>
