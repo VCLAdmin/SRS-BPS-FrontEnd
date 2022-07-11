@@ -534,7 +534,7 @@ export class StructuralTableComponent implements OnInit, OnChanges, OnDestroy {
     this.dinWinLoad.L0 = this.buildingWidth;
     this.dinWinLoad.B0 = this.buildingDepth;
     this.dinWinLoad.h = this.buildingHeight;
-    this.dinWinLoad.ElvW = this.windowElevation;
+    this.dinWinLoad.ElvW = this.windowElevation? this.windowElevation : -1;
     this.dinWinLoad.WindowZone = parseFloat(this.windowZone);
     if (andThenConfirm)
       this.onConfirm();
@@ -718,7 +718,7 @@ export class StructuralTableComponent implements OnInit, OnChanges, OnDestroy {
       this.structuralModel.dinWindLoadInput.L0 = this.buildingWidth;
       this.structuralModel.dinWindLoadInput.B0 = this.buildingDepth;
       this.structuralModel.dinWindLoadInput.h = this.buildingHeight;
-      this.structuralModel.dinWindLoadInput.ElvW = this.windowElevation;
+      this.structuralModel.dinWindLoadInput.ElvW = this.windowElevation? this.windowElevation : -1;
       this.structuralModel.dinWindLoadInput.WindowZone = parseFloat(this.windowZone);
       this.structuralModel.dinWindLoadInput.IncludeCpi = this.internalPressure;
       if(this.internalPressure){
