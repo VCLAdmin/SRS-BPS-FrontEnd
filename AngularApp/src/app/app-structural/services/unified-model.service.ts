@@ -788,6 +788,7 @@ export class UnifiedModelService {
           sectionClass.ArticleName = article.transomArticleId.toString();
           sectionClass.Depth = article.transomDepth;
           this.setLoadDisplaySetting();
+          this.sideTableUpdated(PanelsModule.TransomFacade);
         }
       }
     }

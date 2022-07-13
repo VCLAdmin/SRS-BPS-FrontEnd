@@ -342,7 +342,7 @@ export class MullionDepthTableComponent implements OnInit, OnDestroy {
     else if (this.isTransomPopoutOpened) {
       this.cpService.setConfirm({ article: this.transomData[this.selectedTransomArticle], isCustomed: false }, PanelsModule.TransomFacade);
       this.collectIntermediateMullionDepthData(this.systemFacadeSelectedFromFraming, this.mullionData[this.selectedMullionArticle].mullionArticleId.toString(), this.transomData[this.selectedTransomArticle].transomDepth.toString());
-      //this.collectIntermediateTransomDepthData(this.systemFacadeSelectedFromFraming, this.transomData[this.selectedTransomArticle].transomArticleId.toString());
+      this.umService.set_TransomDepth({ article: this.transomData[this.selectedTransomArticle], isCustomed: false });
       this.onCloseLeftPopout();
     }
     else if (this.isIntermediateMullionPopoutOpened) {
