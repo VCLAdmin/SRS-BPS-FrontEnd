@@ -39,9 +39,9 @@ export class MainLayoutComponent implements OnInit, AfterViewInit, OnDestroy {
       this.applicationType = 'SRS';
     } else {
       this.landingImageURL = '/assets/Images/sps/IMG_landing_2.png';
-      this.applicationNameImageURL = '/assets/Images/sps/sps_bpssolver_betaversion_4.0.png';
+      this.applicationNameImageURL = '/assets/Images/sps/sps_bpssolver_betaversion_3.7.png';
       this.landingSrcSet = '/assets/Images/sps/IMG_landing_2@2x.png 2x, /assets/Images/sps/IMG_landing_2@3x.png 3x';
-      this.applicationNameSrcSet = '/assets/Images/sps/sps_bpssolver_betaversion_4.0@2x.png 2x, /assets/Images/sps/sps_bpssolver_betaversion_4.0@3x.png 3x';
+      this.applicationNameSrcSet = '/assets/Images/sps/sps_bpssolver_betaversion_3.7@2x.png 2x, /assets/Images/sps/sps_bpssolver_betaversion_3.7@3x.png 3x';
       this.applicationType = 'BPS';
     }
     if (this.commonService.getUserGuid() === null || this.commonService.getUserGuid() === undefined) {
