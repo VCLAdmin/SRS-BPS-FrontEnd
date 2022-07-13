@@ -90,6 +90,11 @@ export class HomeExpandablePanelComponent implements OnInit, OnChanges, AfterVie
     //   }
     // });
   }
+
+  /**
+   * When the user selects another project, this component is displayed to another place with another list of problems
+   * @param Changes Changes related to the list of the problems of the project
+   */
   ngOnChanges(Changes: SimpleChanges) {
     //this.current = Math.floor(Math.random() * 6) + 1;
     //this.applicationType = this.commonService.getApplicationType();
@@ -106,6 +111,10 @@ export class HomeExpandablePanelComponent implements OnInit, OnChanges, AfterVie
     }
   }
 
+  /**
+   * Send to the back-end the projectGuid and get back the list of problems of the selected project
+   * Map the data of each problem to display in the table, depending if it related to SRS (OrderList) or BPS (ProblemList)
+   */
   loadProblems(): void {
     this.dataProblems = [];
     let problem_length = this.allProducts.length;
@@ -226,6 +235,9 @@ export class HomeExpandablePanelComponent implements OnInit, OnChanges, AfterVie
     this.destroy$.next();
     this.destroy$.complete();
   }
+  /**
+   * Settings of the table component
+   */
   ngAfterViewInit() {
     if (Boolean(this.path)) {
       this.selectedItemImage.nativeElement.src = this.path;
@@ -251,6 +263,10 @@ export class HomeExpandablePanelComponent implements OnInit, OnChanges, AfterVie
     this.cdr.detectChanges();
   }
 
+  /**
+   * Load the problems of a BPS project from the back-end and map the data of each problem to display in the table
+   * @param event Variable containing the project guid to use for loading the problems
+   */
   loadDataProblems(event: any): void {
     event.isLoaded = true;
     this.problemToRun_problemGuid = null;
@@ -294,6 +310,10 @@ export class HomeExpandablePanelComponent implements OnInit, OnChanges, AfterVie
   }
   log($event, type = null) {
   }
+  /**
+   * load the screenshot of the new selected problem
+   * @param event data related to the problem selected
+   */
   getSelectedItem(event) {
     this.selectedItem = event;
     this.configureService.GetScreenshotURL(event.data.problemGuid).subscribe(imageURL => {
@@ -305,6 +325,11 @@ export class HomeExpandablePanelComponent implements OnInit, OnChanges, AfterVie
     });
   }
 
+  /**
+   * Create a new problem from the table :
+   * Send the data of the new problem to the back-end, get the list of problems to display in the table and map the data for the display of the table
+   * @param $event 
+   */
   addRow($event) {
     this.isOperatingExpandableTable = true;
    //this.configureService.applicationType = this.applicationType;
@@ -373,9 +398,18 @@ export class HomeExpandablePanelComponent implements OnInit, OnChanges, AfterVie
       this.isOperatingExpandableTable = false;
     }, (error) => this.isOperatingExpandableTable = false);
   }
+  /**
+   * Send to the back-end a request to delete a problem
+   * @param ProjectGuid 
+   * @param ProblemGuid 
+   */
   DeleteProblemReport(ProjectGuid: string, ProblemGuid: string) {
     this.resultService.DeleteProblemReport(ProjectGuid, ProblemGuid).subscribe((val) => { });
   }
+  /**
+   * Request to the back-end to delete a problem by its problem guid and get back the new list of problems to display in the table
+   * @param $event 
+   */
   deleteRow($event) {
     if (this.problemToRun_problemGuid) {
       let index = this.listOfDisplayDataProblems.map(project => project.problemGuid).indexOf(this.problemToRun_problemGuid);
@@ -394,12 +428,21 @@ export class HomeExpandablePanelComponent implements OnInit, OnChanges, AfterVie
       }
     }
   }
+  /**
+   * New problem selected
+   * @param event 
+   */
   onClickProblem(event) {
     this.problemToRun_problemGuid = event.problemGuid;
   }
   onRunProblem(event: any) {
     this.onRunningProblem(event.problem);
   }
+  /**
+   * Open the problem to display :
+   * the user is rooted to the configure page (unless the order is already placed on SRS, he is then rooted to the order page)
+   * @param problem problem information to load
+   */
   onRunningProblem(problem: BpsUnifiedProblem): void {  // keep
     this.navLayoutService.changeNavBarButtonAndTitleVisibility(true);
     this.configureService.configureCall = false;
@@ -412,6 +455,10 @@ export class HomeExpandablePanelComponent implements OnInit, OnChanges, AfterVie
     else
       this.router.navigate(['/problemconfigure/', problem.ProblemGuid]);
   }
+  /**
+   * Change the problem name in the back-end and get back the list of problems updated
+   * @param event 
+   */
   onSubmitNewProblemName(event: any): void {   // keep
     // let problemSimplified = new BpsSimplifiedProblem;
     // problemSimplified.ProblemGuid = event[0].problemGuid;
@@ -428,6 +475,9 @@ export class HomeExpandablePanelComponent implements OnInit, OnChanges, AfterVie
     }
   }
 
+  /**
+   * Set the default image
+   */
   setDefaultImage() {
     this.path = this.permissionService.checkPermission(Feature.WindowDefaultImageV2) ? '/assets/Images/window_default_SRS.png' : '/assets/Images/window__default.png';
     // this.path = '/assets/Images/window__default.png';

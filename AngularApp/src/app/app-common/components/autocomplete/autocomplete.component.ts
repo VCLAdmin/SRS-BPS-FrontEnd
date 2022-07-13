@@ -26,7 +26,9 @@ export class AutocompleteComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
   }
-
+  /**
+   * Set the auto-completion of the google map API
+   */
   ngAfterViewInit() {
     const self = this;
     const googleUrl = 'https://maps.googleapis.com/maps/api/js?libraries=places&key=' + this.appconstantsService.GOOGLE_API_KEY;

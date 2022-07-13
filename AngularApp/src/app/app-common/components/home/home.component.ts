@@ -24,6 +24,9 @@ export class HomeComponent implements OnInit, OnDestroy {
   updateProjectList: boolean = false;
   projects: BpsProject[];
   isOperating = false;
+  /**
+   * Load the projects depending on the BPS or SRS permission
+   */
   ngOnInit(): void {
     // this.navLayoutService.isEmptyPage.next(false);
     // this.navLayoutService.changeNavBarVisibility(true);
