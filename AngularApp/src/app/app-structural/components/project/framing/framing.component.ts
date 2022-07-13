@@ -1011,7 +1011,7 @@ export class FramingComponent implements OnInit, OnChanges, OnDestroy, AfterView
     else if (popup === 'DoorLeafPassive') this.cpService.setPopout(true, PanelsModule.DoorLeafPassive);
     else if (popup === 'SillProfileFixed') this.cpService.setPopout(true, PanelsModule.SillProfileFixed);
     else if (popup === 'SillProfileBottom') this.cpService.setPopout(true, PanelsModule.SillProfileBottom);
-    else if (popup === 'MullionFacade') this.cpService.setPopout(true, PanelsModule.MullionFacade);
+    else if (popup === 'MullionFacade') this.cpService.setPopout(true, PanelsModule.MullionFacade); //Mullion-Depth
     else if (popup === 'ReinforcementFacade') this.cpService.setPopout(true, PanelsModule.ReinforcementFacade);
     else if (popup === 'TransomFacade') this.cpService.setPopout(true, PanelsModule.TransomFacade);
     else if (popup === 'IntermediateMullionFacade') this.cpService.setPopout(true, PanelsModule.IntermediateMullionFacade);

@@ -750,6 +750,7 @@ export class UnifiedModelService {
           sectionClass.ArticleName = article.mullionArticleId.toString();
           sectionClass.Depth = article.mullionDepth;
           this.setLoadDisplaySetting();
+          this.sideTableUpdated(PanelsModule.MullionFacade);
         }
       }
     }

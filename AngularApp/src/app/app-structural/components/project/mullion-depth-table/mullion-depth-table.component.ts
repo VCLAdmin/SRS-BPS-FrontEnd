@@ -168,7 +168,7 @@ export class MullionDepthTableComponent implements OnInit, OnDestroy {
     this.cpService.obsSystem.pipe(takeUntil(this.destroy$)).subscribe(
       response => {
         if (this.unified3DModel && this.unified3DModel.ProblemSetting.FacadeType == 'mullion-transom') {
-          this.collectMullionDepthData(response.data.Images);
+          this.collectMullionDepthData(response.data.Value);
         }
         else if (this.unified3DModel && this.unified3DModel.ProblemSetting.FacadeType == 'UDC') {
           this.collectUDCFramingFacadData(response.data.Images, null);
@@ -336,6 +336,7 @@ export class MullionDepthTableComponent implements OnInit, OnDestroy {
         this.collectIntermediateMullionDepthData(this.systemFacadeSelectedFromFraming, this.mullionData[this.selectedMullionArticle].mullionArticleId.toString(), this.transomData[this.selectedTransomArticle].transomDepth.toString());
       }, 500);
       this.cpService.setConfirm({ article: this.mullionData[this.selectedMullionArticle], isCustomed: false }, PanelsModule.MullionFacade);
+      this.umService.set_MullionDepth({ article: this.mullionData[this.selectedMullionArticle], isCustomed: false });
       this.onCloseLeftPopout();
     }
     else if (this.isTransomPopoutOpened) {
