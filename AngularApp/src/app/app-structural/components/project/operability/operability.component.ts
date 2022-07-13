@@ -174,6 +174,10 @@ export class OperabilityComponent implements OnInit, OnChanges, OnDestroy {
       response => {
         if (response) {
           this.unified3DModel = response;
+          if(this.unified3DModel.ProblemSetting.ProductType === 'Facade' && this.unified3DModel.ProblemSetting.FacadeType=== 'mullion-transom') {
+            this.getOuterFrameInputValue();
+            this.getVentFrameInputValue();
+          }
           this.addPickerDisable();
         }
       });
