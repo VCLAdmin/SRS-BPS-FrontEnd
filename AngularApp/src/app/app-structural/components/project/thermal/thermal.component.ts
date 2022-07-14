@@ -39,6 +39,7 @@ export class ThermalComponent implements OnInit, OnChanges, AfterViewInit {
 
   ngOnInit(): void {
     this.unified3DModel = this.umService.current_UnifiedModel;
+    this.loadThermal(); 
   }
 
   ngAfterViewInit(): void {
