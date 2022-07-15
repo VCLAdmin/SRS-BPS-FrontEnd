@@ -389,6 +389,7 @@ export class MullionDepthTableComponent implements OnInit, OnDestroy {
     }
     else if (this.isReinforcementPopoutOpened) {
       this.cpService.setConfirm({ article: this.reinforcementData[this.selectedReinforcementMullionArticle] }, PanelsModule.ReinforcementFacade);
+      this.umService.set_ReinforcementFacade({ article: this.reinforcementData[this.selectedReinforcementMullionArticle] })
       this.onCloseLeftPopout();
     }
   }
@@ -446,6 +447,7 @@ export class MullionDepthTableComponent implements OnInit, OnDestroy {
           this.listOfDisplayDataInTable = this.listOfDisplayDataInTable_reinforcement;
           this.tableComponent.selectRow(this.listOfDisplayDataInTable_reinforcement[this.selectedReinforcementMullionArticle], true);
           this.articleTitle = this.selectedReinforcementMullionArticle >= 0 ? this.reinforcementData[this.selectedReinforcementMullionArticle].value : this.reinforcementData[this.selectedReinforcementMullionArticle].value;
+          this.umService.set_ReinforcementFacade({ article: this.reinforcementData[this.selectedReinforcementMullionArticle]});
         }
       }
     }

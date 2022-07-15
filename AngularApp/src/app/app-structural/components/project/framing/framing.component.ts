@@ -227,7 +227,8 @@ export class FramingComponent implements OnInit, OnChanges, OnDestroy, AfterView
           else if (response.panelsModule === PanelsModule.Transom) this.getTransomFrameInputValue();
           else if (response.panelsModule === PanelsModule.MullionFacade) this.getMullionFacadeInputValue();
           else if (response.panelsModule === PanelsModule.TransomFacade) this.getTransomFacadeInputValue();
-          else if (response.panelsModule === PanelsModule.ReinforcementFacade) this.getReinforcementFacadeInputValue();
+          //else if (response.panelsModule === PanelsModule.ReinforcementFacade) this.getReinforcementFacadeInputValue();
+         // else if (response.panelsModule === PanelsModule.ReinforcementFacade) this.ReinforcementFacadeUpdated();
           else if (response.panelsModule === PanelsModule.IntermediateMullionFacade) this.getIntermediateTransomFacadeInputValue();
           else if (response.panelsModule === PanelsModule.IntermediateTransomFacade) this.getIntermediateMullionFacadeInputValue();
           else if (response.panelsModule === PanelsModule.UDCFraming) this.getUDCFramingDepthInputValue();
@@ -267,6 +268,13 @@ export class FramingComponent implements OnInit, OnChanges, OnDestroy, AfterView
       });
 
     this.loadInputValues();
+
+    this.cpService.obsConfirm.pipe(takeUntil(this.destroy$)).subscribe(response => {
+      setTimeout(() => {           
+        if (response.panelsModule === PanelsModule.ReinforcementFacade) { this.ReinforcementFacadeUpdated(response.data); }      
+    }, 10);
+    })
+  
   }
   private loadInputValues() {
     setTimeout(() => {
@@ -281,7 +289,7 @@ export class FramingComponent implements OnInit, OnChanges, OnDestroy, AfterView
       this.getProfileColorInputValue();
       this.getMullionFacadeInputValue();
       this.getTransomFacadeInputValue();
-      this.getReinforcementFacadeInputValue();
+      //this.getReinforcementFacadeInputValue();
       this.getIntermediateTransomFacadeInputValue();
       this.getIntermediateMullionFacadeInputValue();
       this.getUDCFramingDepthInputValue();
@@ -545,11 +553,7 @@ export class FramingComponent implements OnInit, OnChanges, OnDestroy, AfterView
   }
 
   getReinforcementFacadeInputValue() {
-    // if (this.unified3DModel.ModelInput.Geometry.Sections) {
-    //   let sec = this.unified3DModel.ModelInput.Geometry.Sections.filter(f => f.SectionID == 3 && f.SectionType == 3)[0];
-    //   if (sec)
-    //   this.mullionInputValue = sec.ArticleName + ' - ' + sec.InsideW.toString() + ' / ' + sec.OutsideW.toString();
-    // }
+    this.mullionReinforcementTypeHeading = this.umService.get_ReinforcementFacade();
   }
   ReinforcementFacadeUpdated(data: any) {
     if (data) {

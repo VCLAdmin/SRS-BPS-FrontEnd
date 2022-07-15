@@ -704,20 +704,20 @@ export class UnifiedModelService {
   //#endregion
 
   //#region Reinforcement
-  // obj_Reinforcement(): any {
-  //   if (this.current_UnifiedModel.ModelInput.Geometry.Sections.length > 0) {
-  //     return this.current_UnifiedModel.ModelInput.Geometry.Sections.filter(f => f.SectionID == 3 && f.SectionType == 3)[0];
-  //   }
-  // }
-  // get_Reinforcement(): string {
-  //   if (this.current_UnifiedModel.ModelInput.Geometry.Sections.length > 0) {
-  //     let sec = this.obj_Reinforcement();
-  //     if(sec)
-  //     return sec.ArticleName + ' - ' + sec.InsideW.toString() + ' / ' + sec.OutsideW.toString();
-  //   }
-  // }
-  // set_Reinforcement(inputData: any) {
-  // }
+  obj_ReinforcementFacade(): any {
+    if (this.current_UnifiedModel.ModelInput.Geometry.Reinforcements.length > 0) {
+      return this.current_UnifiedModel.ModelInput.Geometry.Reinforcements.filter(facadeSection => facadeSection.SectionID == 4)[0];
+    }
+  }
+  get_ReinforcementFacade(): string {
+    if (this.current_UnifiedModel.ModelInput.Geometry.FacadeSections.length > 0) {
+      let reinforcementSec = this.obj_ReinforcementFacade();
+      if(reinforcementSec)
+      return reinforcementSec.ArticleName ;
+    }
+  }
+  set_ReinforcementFacade(inputData: any) {
+  }
   //#endregion
 
   //#region Mullion Depth
