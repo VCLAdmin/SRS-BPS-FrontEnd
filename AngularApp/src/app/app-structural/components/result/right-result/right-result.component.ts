@@ -36,6 +36,9 @@ export class RightResultComponent implements OnInit, OnDestroy {
     private resultService: ResultService, private translate: TranslateService
   ) { }
 
+  /**
+   * Observable to get the selected problem
+   */
   ngOnInit(): void {
     this.configureService.problemSubject.pipe(takeUntil(this.destroy$)).subscribe(problem => {
       if (this.configureService.isSelectedFromRightResultPanel) {
@@ -60,6 +63,9 @@ export class RightResultComponent implements OnInit, OnDestroy {
     this.destroy$.next();
     this.destroy$.complete();
   }
+  /**
+   * Update the list of problems from the back-end
+   */
   updateList() {
     this.configureService.GetProblemsForProject(this.projectGuid).subscribe(problems => {
       this.problemList = problems;
@@ -75,6 +81,10 @@ export class RightResultComponent implements OnInit, OnDestroy {
     });
   }
 
+  /**
+   * Select a problem : update the unified model of the problem everywhere
+   * @param i index of the problem in the problem list
+   */
   onClick(i: number) {
     this.problem = this.problemList[i];
     this.currentIndex = i;

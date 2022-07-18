@@ -89,6 +89,12 @@ export class ConfigureService {
       }, 1000);
     };
   }
+
+  /**
+   * Get the problem of a project by its problem guid from he back-end
+   * Update the unified model in the unified model service
+   * @param problemGuid 
+   */
   GetProblemByGuid(problemGuid: string): void {
     this.umService.setProblemGuid(problemGuid);
     let url: string = this.appConstantService.APP_DOMAIN + "api/BpsProject/GetProblemByGuid/" + problemGuid;
@@ -114,6 +120,9 @@ export class ConfigureService {
     });
   }
 
+  /**
+   * @returns the problem guid saved in the cookie service
+   */
   getCurrentProblemGuid() {
     if (!this.problemGuid)
       this.problemGuid = this.cookieService.get('problemGuid') ? this.cookieService.get('problemGuid') : this.navLayoutService.getRouteParam('problemGuid') ? this.navLayoutService.getRouteParam('problemGuid') : '';
@@ -125,10 +134,17 @@ export class ConfigureService {
   //   return this.http.get<string>(url);
   // }
 
+  /**
+   * Emit the current problem
+   */
   emitProblemByGuid(): void {
     this.problemSubject.next(this.problem);
   }
 
+  /**
+   * Save the problem guid in the cookie service
+   * @param problemGuid 
+   */
   setProblemShow(problemGuid: string): void {
     if (this.cookieService.get('problemGuid')) {
       this.cookieService.delete('problemGuid');
@@ -146,6 +162,9 @@ export class ConfigureService {
   //#region rightPanelOpened
   rightPanelOpened: boolean = false;
   rightPanelOpenedSubject: Subject<boolean> = new Subject<boolean>();
+  /**
+   * Open or Close the right panel
+   */
   changeRightPanelDisplay(): void {
     this.rightPanelOpened = !this.rightPanelOpened;
     this.rightPanelOpenedSubject.next(this.rightPanelOpened);
@@ -167,6 +186,10 @@ export class ConfigureService {
    isMullionBarDisplay: boolean = true;
    sujMullionButtonsBar: Subject<boolean> = new Subject<boolean>();
    obsMullionButtonsBar = this.sujMullionButtonsBar.asObservable();
+   /**
+    * Set the display or not of the mullion bar
+    * @param isDisplay 
+    */
    setMullionBarDisplay(isDisplay: boolean): void {
      this.isMullionBarDisplay = isDisplay;
      this.sujMullionButtonsBar.next(this.isMullionBarDisplay);
@@ -177,36 +200,72 @@ export class ConfigureService {
    isInfoBtnSelected: boolean = false;
    sujInfoBtn: Subject<boolean> = new Subject<boolean>();
    obsInfoBtn = this.sujInfoBtn.asObservable();
+   /**
+    * Activate or Deactivate the display of information from the info button
+    * @param isDisplay 
+    */
    setInfoButtonDisplay(isDisplay: boolean): void {
      this.isInfoBtnSelected = isDisplay;
      this.sujInfoBtn.next(this.isInfoBtnSelected);
    }
    //#endregion
 
+   /**
+    * 
+    * @param projectGuid 
+    * @returns List of problems of a project
+    */
   GetProblemsForProject(projectGuid: string): Observable<BpsUnifiedProblem[]> {
     let url: string = this.appConstantService.APP_DOMAIN + "api/BpsProject/GetProblemsForProject/" + projectGuid;
     return this.http.get<BpsUnifiedProblem[]>(url);
   }
 
+  /**
+   * 
+   * @param projectGuid 
+   * @returns List of problems of a project
+   */
   GetProblemsForProjectLite(projectGuid: string): Observable<BpsUnifiedProblem[]> {
     let url: string = this.appConstantService.APP_DOMAIN + "api/BpsProject/GetProblemsForProjectLite/" + projectGuid;
     return this.http.get<BpsUnifiedProblem[]>(url);
   }
+
+  /**
+   * Create a problem of a project in the back-end and get back the new list of problem of the project
+   * @param projectGuid 
+   * @returns 
+   */
   CreateProblemForProject(projectGuid: string): Observable<BpsUnifiedProblem> {
     let url: string = this.appConstantService.APP_DOMAIN + "api/BpsProject/CreateDefaultProblemForProject/" + projectGuid + "/" + this.applicationType;
     return this.http.get<BpsUnifiedProblem>(url);
   }
 
+  
+  /**
+   * Create a problem of a project in the back-end and get back the new list of problem of the project
+   * @param projectGuid 
+   * @returns 
+   */
   CreateProblemFacadeForProject(projectGuid: string, navLayout: any): Observable<BpsUnifiedProblem> {
     let url: string = this.appConstantService.APP_DOMAIN + "api/BpsProject/CreateDefaultProblemForFacadeProject/" + projectGuid;
     return this.http.post<BpsUnifiedProblem>(url, navLayout);
   }
 
+  /**
+   * 
+   * @param PostCode 
+   * @returns Windzone depending on the postal code
+   */
   GetWindZone(PostCode: string): Observable<any> {
     let url: string = this.appConstantService.APP_DOMAIN + "api/Structural/GetWindZone/" + PostCode;
     return this.http.get<any>(url);
   }
 
+  /**
+   * Generate a pdf in the back-end
+   * @param fileName 
+   * @returns 
+   */
   generatePDF(fileName: string) {
     let url = this.appConstantService.APP_DOMAIN + fileName;
     const headers = new HttpHeaders()
@@ -223,6 +282,11 @@ export class ConfigureService {
   // ,responseType: 'blob' as 'json'
   //     });
   //   }
+  /**
+   * Pull report from back-end
+   * @param reportRequest 
+   * @returns 
+   */
   GetReport(reportRequest: any): Observable<HttpResponse<Blob>> {
     let url = this.appConstantService.APP_DOMAIN + 'api/BpsProject/GetReport';
     return this.http.post<Blob>(url, reportRequest, {
@@ -230,6 +294,15 @@ export class ConfigureService {
       responseType: 'blob' as 'json'
     });
   }
+
+  /**
+   * Pull report from physics core
+   * @param ProjectGuid
+   * @param ProblemGuid 
+   * @param reportName 
+   * @param problemName 
+   * @returns 
+   */
   GetPCReport(ProjectGuid: string, ProblemGuid: string, reportName: string, problemName: string): Observable<HttpResponse<Blob>> {
     let url = this.appConstantService.PHYSICS_CORE_DOMAIN + 'api/Report/DownloadReport/' + ProjectGuid + '/' + ProblemGuid + '/' + reportName + '/' + problemName;
     return this.http.get<Blob>(url, {
@@ -237,6 +310,12 @@ export class ConfigureService {
       responseType: 'blob' as 'json'
     });
   }
+
+  /**
+   * Pull report from physics core
+   * @param reportURL 
+   * @returns 
+   */
   GetReportFromPhysicsCore(reportURL: string): Observable<HttpResponse<Blob>> {
     let url = this.appConstantService.PHYSICS_CORE_DOMAIN + 'api/Report/GetReport?reportURL=' + reportURL;
     return this.http.get<Blob>(url, {
@@ -245,15 +324,31 @@ export class ConfigureService {
     });
   }
 
+  /**
+   * calulate in the back-end the wind load din from the DinWindLoadInput 
+   * @param input 
+   * @returns 
+   */
   calculatedWindLoadDIN(input: DinWindLoadInput): Observable<WindLoadOutput> {
     let url: string = this.appConstantService.APP_DOMAIN + "api/Structural/CalculateWindLoadDIN/";
     return this.http.post<WindLoadOutput>(url, input);
   }
 
+  /**
+   * Read section properties in the back-end
+   * @param unified3DModel 
+   * @returns 
+   */
   ReadSectionProperties(unified3DModel: BpsUnifiedModel): Observable<BpsUnifiedModel> {
     let url: string = this.appConstantService.APP_DOMAIN + "api/Structural/ReadSectionProperties/";
     return this.http.post<BpsUnifiedModel>(url, unified3DModel);
   }
+
+  /**
+   * Read facade section properties in the back-end
+   * @param unified3DModel 
+   * @returns 
+   */
   ReadFacadeSectionProperties(unified3DModel: BpsUnifiedModel): Observable<BpsUnifiedModel> {
     let url: string = this.appConstantService.APP_DOMAIN + "api/Structural/ReadFacadeSectionProperties/";
     return this.http.post<BpsUnifiedModel>(url, unified3DModel);
@@ -264,20 +359,42 @@ export class ConfigureService {
   //   return this.http.get(url);
   // }
 
+  /**
+   * Get the order info of a project
+   * @param projectGuid
+   * @returns 
+   */
   GetProjectOrders(projectGuid: string): Observable<OrderApiModel> {
     let url: string = this.appConstantService.APP_DOMAIN + "api/Order/GetProjectOrders/" + projectGuid;
     return this.http.get<OrderApiModel>(url);
   }
 
+  /**
+   * Place a new order
+   * @param newOrders 
+   * @returns 
+   */
   CreateOrders(newOrders: OrderApiModel) {
     let url: string = this.appConstantService.APP_DOMAIN + "api/Order/PostOrders/";
     return this.http.post<BpsUnifiedModel>(url, newOrders);
   }
+
+  /**
+   * update a problem in the back-end
+   * @param unified3DModel 
+   * @returns 
+   */
   updateProblem(unified3DModel: BpsUnifiedModel) {
     unified3DModel = this.updateOperabilitySystemsIds(unified3DModel);
     let url: string = this.appConstantService.APP_DOMAIN + "api/BpsProject/UpdateProblem/";
     return this.http.post<number>(url, unified3DModel);
   }
+
+  /**
+   * Update the operability system id of a unified model
+   * @param unified3DModel 
+   * @returns 
+   */
   updateOperabilitySystemsIds(unified3DModel: BpsUnifiedModel): BpsUnifiedModel {
     if (unified3DModel && unified3DModel.ModelInput.Geometry.OperabilitySystems) {
       let id = 1;
@@ -292,6 +409,12 @@ export class ConfigureService {
     }
     return unified3DModel;
   }
+
+  /**
+   * 
+   * @param formData 
+   * @returns the results of a BPS project
+   */
   uploadResults(formData: FormData) {
     // let headers = new Headers();
     // headers.append('Content-Type', 'multipart/form-data');
@@ -299,10 +422,22 @@ export class ConfigureService {
     let url: string = this.appConstantService.APP_DOMAIN + "api/BpsProject/UploadResults/";
     return this.http.post<any>(url, formData);
   }
+
+  /**
+   * Save screenshot of window of a problem
+   * @param saveScreenShotRequest 
+   * @returns 
+   */
   saveProblemScreenShot(saveScreenShotRequest: any): Observable<string> {
     let url: string = this.appConstantService.APP_DOMAIN + "api/BpsProject/SaveProblemScreenShotS3/";
     return this.http.post<string>(url, saveScreenShotRequest);
   }
+
+  /**
+   * Get the screenshot of window of a problem
+   * @param id 
+   * @returns 
+   */
   GetScreenshotURL(id: string): Observable<string> {
     let url: string = this.appConstantService.APP_DOMAIN + "api/Order/GetPresignedScreenshotURL/" + id;
     return this.http.get<string>(url);
@@ -315,6 +450,11 @@ export class ConfigureService {
     return this.http.get<string>(url);
   }
 
+  /**
+   * Hardcoded list of articles for glassNpanel
+   * @param selectedType 
+   * @returns 
+   */
   getArticleListByType(selectedType: string): any[] {
     var language = this.getLanguage();
     let value = "1.1";
@@ -392,11 +532,21 @@ export class ConfigureService {
     return numberPattern;
   }
 
+  /**
+   * Change the name of a problem API
+   * @param unifiedModel 
+   * @returns 
+   */
   RenameProblem(unifiedModel: BpsUnifiedModel): Observable<BpsSimplifiedProblem> {
     let url: string = this.appConstantService.APP_DOMAIN + "api/BpsProject/RenameProblem/";
     return this.http.post<BpsSimplifiedProblem>(url, unifiedModel);
   }
 
+  /**
+   * Display date format depending on the user culture
+   * @param date 
+   * @returns 
+   */
   convertUTCDateToLocalDate(date) {
     var newDate = new Date(date.getTime() - date.getTimezoneOffset() * 60 * 1000);
     var offset = date.getTimezoneOffset() / 60;
@@ -406,12 +556,25 @@ export class ConfigureService {
   } 
 
   //Create default Problem for sliding Doors based on the TrackType Selection
+  /**
+   * Create a problem for sliding door API
+   * @param projectGuid 
+   * @param aseType 
+   * @returns 
+   */
   CreateProblemForSlidingDoorProject(projectGuid: string, aseType: string): Observable<BpsUnifiedProblem> {
     let url: string = this.appConstantService.APP_DOMAIN + "api/BpsProject/CreateDefaultProblemForASEProject/" + projectGuid;
     return this.http.post<BpsUnifiedProblem>(url, aseType);
   }
 
   //Get Default Problem for Sliding Doors based on the TrackType Selection
+  /**
+   * Get the list of problems of sliding door project API
+   * @param projectGuid 
+   * @param problemGuid 
+   * @param aseType 
+   * @returns 
+   */
   GetProblemForSlidingDoorProject(projectGuid: string, problemGuid: string, aseType: string): Observable<BpsUnifiedProblem> {
     let url: string = this.appConstantService.APP_DOMAIN + "api/BpsProject/GetDefaultASEProblem/" + projectGuid + "/" + problemGuid + "/" + aseType;
     return this.http.post<any>(url, '');

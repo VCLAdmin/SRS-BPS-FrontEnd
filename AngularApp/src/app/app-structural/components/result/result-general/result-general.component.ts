@@ -41,6 +41,9 @@ export class ResultGeneralComponent implements OnInit, AfterViewInit, OnDestroy 
   isResizingRightPanel: boolean = false;
   showLoader: boolean = false;
   @ViewChild("acousticPerforamnce") acousticPerforamnceComponent: any;
+  /**
+   * Initialisation of the result page : get the unified model with its results
+   */
   ngOnInit(): void {
     // this.resultService.structuralAnalysis = null;
     // this.resultService.thermalAnalysis = null;
@@ -90,6 +93,10 @@ export class ResultGeneralComponent implements OnInit, AfterViewInit, OnDestroy 
       // this.LoadDisplaySettings();
     }
   }
+  /**
+   * Listen to the child component events to execute some actions
+   * @param event child component event
+   */
   onChildEvents(event: any) {
     switch (event.eventType) {
       case 'readyState':
@@ -115,6 +122,9 @@ export class ResultGeneralComponent implements OnInit, AfterViewInit, OnDestroy 
         break;
     }
   }
+  /**
+   * Display the window if the physicstype is selected on structural or thermal
+   */
   LoadDisplaySettings() {
     let displaySettings = {};
     if (this.physicsType == 'B' || this.physicsType == 'C') {
@@ -158,6 +168,10 @@ export class ResultGeneralComponent implements OnInit, AfterViewInit, OnDestroy 
     this.configureService.changeRightPanelDisplay();
   }
 
+  /**
+   * New problem selected from the right panel
+   * @param problem New problem to load
+   */
   listenForRightPanel(problem: BpsUnifiedProblem) {
     this.problem = problem;
     this.unified3DModel = JSON.parse(problem.UnifiedModel);
@@ -165,6 +179,11 @@ export class ResultGeneralComponent implements OnInit, AfterViewInit, OnDestroy 
      this.loadJSONService({ Unified3DModel: this.unified3DModel, canBeDrawn: true });
   }
 
+  /**
+   * If a new physics type is selected, the new settings are displayed
+   * If acoustic is not selected, the audio performance is stopped
+   * @param physicsType 
+   */
   onReceivePhysicsType(physicsType): void {
     setTimeout(() => {
       this.physicsType = physicsType; // A for acoustic, B for structural C for thermal
@@ -186,6 +205,10 @@ export class ResultGeneralComponent implements OnInit, AfterViewInit, OnDestroy 
     });
   }
 
+  /**
+   * Select intermediate event from left panel
+   * @param intermediateId 
+   */
   onReceiveSelectedIntermediate(intermediateId: number) {
     this.iframeEvent.next(new IFrameEvent('selectIntermediateById',
       {
@@ -193,6 +216,10 @@ export class ResultGeneralComponent implements OnInit, AfterViewInit, OnDestroy 
       }));
   }
 
+  /**
+   * Load a new unified model
+   * @param val
+   */
   onReceiveUnifiedModel(val: BpsUnifiedModel) {
     this.unified3DModel = val;
     if (!this.isThermalResult) {
@@ -200,6 +227,10 @@ export class ResultGeneralComponent implements OnInit, AfterViewInit, OnDestroy 
     }
   }
 
+  /**
+   * Highlight intermediate by id event from the left panel
+   * @param val 
+   */
   onReceiveIntermediateRedColorGeneral(val: any[]) {
     if (val && val.length > 0) {
       val.forEach(member => {
@@ -213,6 +244,11 @@ export class ResultGeneralComponent implements OnInit, AfterViewInit, OnDestroy 
     }
   }
 
+  /**
+   * Validation of the expansion of the right panel
+   * @param event 
+   * @returns 
+   */
   validate(event: ResizeEvent): boolean {
     const MIN_DIMENSIONS_PX: number = 235;
     const MAX_DIMENSIONS_PX: number = 800;
@@ -224,6 +260,10 @@ export class ResultGeneralComponent implements OnInit, AfterViewInit, OnDestroy 
     return true;
   }
 
+  /**
+   * Right panel expansion event
+   * @param event
+   */
   onResizeEnd(event: ResizeEvent): void {
     this.style = {
       position: 'absolute',
@@ -233,6 +273,11 @@ export class ResultGeneralComponent implements OnInit, AfterViewInit, OnDestroy 
     this.isResizingRightPanel = false;
   }
 
+  
+  /**
+   * Right panel expansion event
+   * @param event
+   */
   onResizeStart(event: ResizeEvent): void {
     this.isResizingRightPanel = true;
   }
