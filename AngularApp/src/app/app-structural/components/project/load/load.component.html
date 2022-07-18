@@ -13,7 +13,7 @@
                 <bps-select style="width: 170px" formControlName="windPressure" [(ngModel)]="windPressure" [bpsDisabled]="orderPlaced"
                   name="windPressure" bpsPlaceHolder="{{'configure.select' | translate }}" (ngModelChange)="onWindLoadChange()">
                   <!-- Select -->
-                  <bps-option *ngIf="this.unified3DModel.ProblemSetting.ProductType != 'Window'" bpsValue="1.20" bpsLabel="25 psf (1.20 kN/m^2)">
+                  <bps-option  bpsValue="1.20" bpsLabel="25 psf (1.20 kN/m^2)">
                   </bps-option>
                   <bps-option bpsValue="1.68" bpsLabel="35 psf (1.68 kN/m^2)">
                   </bps-option>
