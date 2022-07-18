@@ -121,7 +121,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="1301" class="link-to-prism">src/app/app-structural/services/framing.service.ts:1301</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="1380" class="link-to-prism">src/app/app-structural/services/framing.service.ts:1380</a></div>
                             </td>
                         </tr>
 
@@ -230,7 +230,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="1301" class="link-to-prism">src/app/app-structural/services/framing.service.ts:1301</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="1380" class="link-to-prism">src/app/app-structural/services/framing.service.ts:1380</a></div>
                         </td>
                     </tr>
 
@@ -261,7 +261,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="1300" class="link-to-prism">src/app/app-structural/services/framing.service.ts:1300</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="1379" class="link-to-prism">src/app/app-structural/services/framing.service.ts:1379</a></div>
                         </td>
                     </tr>
 
@@ -287,7 +287,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="1297" class="link-to-prism">src/app/app-structural/services/framing.service.ts:1297</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="1376" class="link-to-prism">src/app/app-structural/services/framing.service.ts:1376</a></div>
                         </td>
                     </tr>
 
@@ -313,7 +313,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="1298" class="link-to-prism">src/app/app-structural/services/framing.service.ts:1298</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="1377" class="link-to-prism">src/app/app-structural/services/framing.service.ts:1377</a></div>
                         </td>
                     </tr>
 
@@ -339,7 +339,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="1299" class="link-to-prism">src/app/app-structural/services/framing.service.ts:1299</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="1378" class="link-to-prism">src/app/app-structural/services/framing.service.ts:1378</a></div>
                         </td>
                     </tr>
 
@@ -409,6 +409,10 @@ export class FramingService {
     return this.http.get&lt;any&gt;(url);
   }
 
+  /**
+   * Hardcoded sliding door articles
+   * @returns 
+   */
   getSlidingDoorArticles(): Observable&lt;any&gt; {
     let slidingDoorArticlesList: any &#x3D; [];
     slidingDoorArticlesList.push({&#x27;ArticleSetID&#x27;: 1, &#x27;ArticleName&#x27;:&#x27;269400&#x27;, &#x27;Color&#x27;: &#x27;Silver Grey - RAL 7001&#x27;,   &#x27;ColorCode&#x27;:&#x27;RAL 7001&#x27;, &#x27;Type&#x27;: &#x27;Lift-and-Slide Fittings&#x27;, &#x27;Description&#x27;: &#x27;Handle Recess&#x27;});
@@ -427,6 +431,11 @@ export class FramingService {
   //#endregion
   
   //#region Static Data
+  /**
+   * Depth calculation dependnig on the product type of the unified model
+   * @param unified3DModel 
+   * @returns 
+   */
   getMaxDepth(unified3DModel: any): number {
     if (unified3DModel.ProblemSetting.ProductType &#x3D;&#x3D;&#x3D; &quot;Window&quot; &amp;&amp; unified3DModel.ModelInput.Geometry.Sections.length &gt; 0) {
       var oDepth &#x3D; unified3DModel.ModelInput.Geometry.Sections[0].Depth;
@@ -448,6 +457,11 @@ export class FramingService {
     }
   }
 
+  /**
+   * Hardcoded articles for facade mullion list
+   * @param system system used in framing
+   * @returns 
+   */
   getFacade_MullionList(system: string): Observable&lt;any&gt; {
     let facacdeMullionList: FacadeMullion[] &#x3D; [];
     system &#x3D; this.getFWSSystemType(system);
@@ -526,6 +540,11 @@ export class FramingService {
     }
   }
 
+    /**
+   * Hardcoded articles for facade transom list
+   * @param system system used in framing
+   * @returns 
+   */
   getFacade_TransomList(system: string, mullionId: string, applicationType &#x3D; &#x27;BPS&#x27;): Observable&lt;any&gt; {
     let facadeTransomList: FacadeTransom[] &#x3D; [];
     system &#x3D; this.getFWSSystemType(system);
@@ -869,6 +888,12 @@ export class FramingService {
     }
   }
 
+  /**
+   * Hardcoded intermediate mullion list
+   * @param system system used in framing
+   * @param mullionId id of mullion
+   * @returns 
+   */
   getFacade_Level2_Intermediate_MullionList(system: string, mullionId: string): Observable&lt;any&gt; {
     let facadeTransomList: FacadeTransom[] &#x3D; [];
     system &#x3D; this.getFWSSystemType(system);
@@ -1048,6 +1073,12 @@ export class FramingService {
     }
   }
 
+  /**
+   * Hardcoded intermediate mullion list
+   * @param system system used in framing
+   * @param mullionId id of mullion
+   * @returns 
+   */
   getFacade_Intermediate_MullionList(system: string, mullionId: string): Observable&lt;any&gt; {
     let facacdeMullionList: FacadeTransom[] &#x3D; [];
     system &#x3D; this.getFWSSystemType(system);
@@ -1370,6 +1401,11 @@ export class FramingService {
     }
   }
 
+  /**
+   * Hardcoded reinforcement article list of a mullion
+   * @param mullionId 
+   * @returns 
+   */
   getFacade_Mullion_ReinforcementList(mullionId: string): Observable&lt;any&gt; {
     let reinforcementList: FacadeMullionReinforcement[] &#x3D; [];
     switch (mullionId) {
@@ -1430,6 +1466,11 @@ export class FramingService {
     }
   }
 
+  /**
+   * Hardcoded reinforcement article list of a transom
+   * @param system Hard
+   * @returns 
+   */
   getFacade_Transom_ReinforcementList(system: string): Observable&lt;any&gt; {
     let reinforcementList: FacadeMullionReinforcement[] &#x3D; [];
     system &#x3D; this.getFWSSystemType(system);
@@ -1440,6 +1481,11 @@ export class FramingService {
     }
   }
 
+  /**
+   * Hardcoded article list
+   * @param framingId 
+   * @returns 
+   */
   getBottomFrameList(framingId: string): FacadeUDC {
     switch (framingId) {
       case &quot;505200&quot;: return new FacadeUDC(505300, 0, 130);
@@ -1457,6 +1503,13 @@ export class FramingService {
     }
   }
 
+  /**
+   * Hardcoded article list
+   * @param system 
+   * @param mullionId 
+   * @param type 
+   * @returns 
+   */
   getUDCFramingList(system: string, mullionId: string, type: string): Observable&lt;any&gt; {
     let facadeUDC80List: FacadeUDC[] &#x3D; [];
     facadeUDC80List.push(new FacadeUDC(505200, 35, 130));
@@ -1513,6 +1566,12 @@ export class FramingService {
     return of(facadeUDCList);
   }
 
+  /**
+   * Condition to disable or not the transom and mullion
+   * @param selectedFrame 
+   * @param depthGlazingBar 
+   * @returns 
+   */
   disabledTransomOrMullion(selectedFrame, depthGlazingBar): boolean {
     let isDisabled: boolean &#x3D; false;
     if (selectedFrame &amp;&amp; selectedFrame.length &gt; 0 &amp;&amp; depthGlazingBar &gt; selectedFrame[0].transomDepth) {
@@ -1521,6 +1580,11 @@ export class FramingService {
     return isDisabled;
   }
 
+  /**
+   * Table ot convert old framing article number to the new one
+   * @param oldArticle 
+   * @returns 
+   */
   oldToNewFraming(oldArticle: number) {
     if (oldArticle &#x3D;&#x3D; 322250) return 536800;
     else if (oldArticle &#x3D;&#x3D; 322260) return 536810;
@@ -1553,6 +1617,11 @@ export class FramingService {
     else return oldArticle;
   }
 
+  /**
+   * Return the FWS system type
+   * @param systemType 
+   * @returns 
+   */
   getFWSSystemType(systemType): string {
     var fwsSystemDesc &#x3D; [&#x27;FWS 35&#x27;, &#x27;FWS 35&#x27;, &#x27;FWS 50&#x27;, &#x27;FWS 50&#x27;, &#x27;FWS 50&#x27;, &#x27;FWS 50&#x27;, &#x27;FWS 60&#x27;, &#x27;FWS 60&#x27;, &#x27;FWS 60&#x27;, &#x27;FWS 60&#x27;];
     var fwsSystemDesc2 &#x3D; [&#x27;FWS 35 PD&#x27;, &#x27;FWS 35 PD&#x27;, &#x27;FWS 50&#x27;, &#x27;FWS 50&#x27;, &#x27;FWS 50&#x27;, &#x27;FWS 50&#x27;, &#x27;FWS 60&#x27;, &#x27;FWS 60&#x27;, &#x27;FWS 60&#x27;, &#x27;FWS 60&#x27;];
@@ -1563,6 +1632,11 @@ export class FramingService {
       return systemType;
   }
 
+  /**
+   * Return the UDC system type
+   * @param systemType 
+   * @returns 
+   */
   getUDCSystemType(systemType): string {
     var systemData_FacadeUDC &#x3D; [&#x27;UDC 80&#x27;, &#x27;UDC 80&#x27;, &#x27;UDC 80&#x27;, &#x27;UDC 80&#x27;];
     var systemDataUpper_FacadeUDC &#x3D; [&#x27;UDC 80&#x27;, &#x27;UDC 80&#x27;, &#x27;UDC 80&#x27;, &#x27;UDC 80&#x27;];
@@ -1573,6 +1647,11 @@ export class FramingService {
       return systemType;
   }
 
+  /**
+   * 
+   * @param system 
+   * @returns ADS door leaf list
+   */
   getADSDoorLeafList(system: string): Observable&lt;any&gt; {
     let doorleafArticle&#x3D; [{ &quot;ArticleId&quot;:0,
       &quot;ArticleGuid&quot;:null,

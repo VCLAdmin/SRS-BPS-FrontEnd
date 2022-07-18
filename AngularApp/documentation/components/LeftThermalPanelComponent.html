@@ -374,14 +374,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="50"
-                            class="link-to-prism">src/app/app-structural/components/result/left-thermal-panel/left-thermal-panel.component.ts:50</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="53"
+                            class="link-to-prism">src/app/app-structural/components/result/left-thermal-panel/left-thermal-panel.component.ts:53</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Map the data of the classes</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -443,14 +445,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="88"
-                            class="link-to-prism">src/app/app-structural/components/result/left-thermal-panel/left-thermal-panel.component.ts:88</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="94"
+                            class="link-to-prism">src/app/app-structural/components/result/left-thermal-panel/left-thermal-panel.component.ts:94</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Go throught the thermal results to display the relevant information in the table</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -942,6 +946,9 @@ export class LeftThermalPanelComponent implements OnInit, OnDestroy, OnChanges {
     }
   }
 
+  /** 
+   * Map the data of the classes
+   */
   getGroupedGlasses(array: any[]) {
     array &#x3D; array.sort(function (a, b) { return a - b });
     array &#x3D; [...new Set(array)];
@@ -980,6 +987,9 @@ export class LeftThermalPanelComponent implements OnInit, OnDestroy, OnChanges {
     return unFilteredResult.filter(f &#x3D;&gt; f !&#x3D;&#x3D; &quot;&quot;).join(&#x27;, &#x27;);
   }
 
+  /**
+   * Go throught the thermal results to display the relevant information in the table
+   */
   GetThermalResults() {
     this.language &#x3D; this.configureService.getLanguage();
     if (this.unified3DModel &amp;&amp; this.unified3DModel.AnalysisResult &amp;&amp; this.unified3DModel.AnalysisResult.ThermalResult) {

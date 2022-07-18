@@ -274,14 +274,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="23"
-                            class="link-to-prism">src/app/app-structural/services/report.service.ts:23</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="28"
+                            class="link-to-prism">src/app/app-structural/services/report.service.ts:28</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Update notes from the user on the reports</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -481,6 +483,11 @@ export class ReportService {
     this.allConfigurationTableDataSubject.next(data);
   }
 
+  /**
+   * Update notes from the user on the reports
+   * @param unifiedModel 
+   * @returns 
+   */
   updateUserNotes(unifiedModel: BpsUnifiedModel): Observable&lt;boolean&gt;{
     let url: string &#x3D; this.appConstantService.APP_DOMAIN + &quot;api/BpsProject/UpdateUserNotes/&quot;;
     return this.http.post&lt;boolean&gt;(url, unifiedModel);

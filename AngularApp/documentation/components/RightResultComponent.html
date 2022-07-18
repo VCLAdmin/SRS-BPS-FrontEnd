@@ -434,8 +434,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="59"
-                            class="link-to-prism">src/app/app-structural/components/result/right-result/right-result.component.ts:59</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="62"
+                            class="link-to-prism">src/app/app-structural/components/result/right-result/right-result.component.ts:62</a></div>
                 </td>
             </tr>
 
@@ -471,14 +471,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="39"
-                            class="link-to-prism">src/app/app-structural/components/result/right-result/right-result.component.ts:39</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="42"
+                            class="link-to-prism">src/app/app-structural/components/result/right-result/right-result.component.ts:42</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Observable to get the selected problem</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -508,14 +510,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="78"
-                            class="link-to-prism">src/app/app-structural/components/result/right-result/right-result.component.ts:78</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="88"
+                            class="link-to-prism">src/app/app-structural/components/result/right-result/right-result.component.ts:88</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Select a problem : update the unified model of the problem everywhere</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -526,6 +530,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -540,6 +545,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>index of the problem in the problem list</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -577,14 +586,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="63"
-                            class="link-to-prism">src/app/app-structural/components/result/right-result/right-result.component.ts:63</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="69"
+                            class="link-to-prism">src/app/app-structural/components/result/right-result/right-result.component.ts:69</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Update the list of problems from the back-end</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -888,6 +899,9 @@ export class RightResultComponent implements OnInit, OnDestroy {
     private resultService: ResultService, private translate: TranslateService
   ) { }
 
+  /**
+   * Observable to get the selected problem
+   */
   ngOnInit(): void {
     this.configureService.problemSubject.pipe(takeUntil(this.destroy$)).subscribe(problem &#x3D;&gt; {
       if (this.configureService.isSelectedFromRightResultPanel) {
@@ -912,6 +926,9 @@ export class RightResultComponent implements OnInit, OnDestroy {
     this.destroy$.next();
     this.destroy$.complete();
   }
+  /**
+   * Update the list of problems from the back-end
+   */
   updateList() {
     this.configureService.GetProblemsForProject(this.projectGuid).subscribe(problems &#x3D;&gt; {
       this.problemList &#x3D; problems;
@@ -927,6 +944,10 @@ export class RightResultComponent implements OnInit, OnDestroy {
     });
   }
 
+  /**
+   * Select a problem : update the unified model of the problem everywhere
+   * @param i index of the problem in the problem list
+   */
   onClick(i: number) {
     this.problem &#x3D; this.problemList[i];
     this.currentIndex &#x3D; i;

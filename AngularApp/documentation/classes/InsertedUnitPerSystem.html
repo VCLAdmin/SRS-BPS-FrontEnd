@@ -141,7 +141,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="248" class="link-to-prism">src/app/app-structural/components/result/left-thermal-panel/left-thermal-panel.component.ts:248</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="254" class="link-to-prism">src/app/app-structural/components/result/left-thermal-panel/left-thermal-panel.component.ts:254</a></div>
                         </td>
                     </tr>
 
@@ -167,7 +167,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="249" class="link-to-prism">src/app/app-structural/components/result/left-thermal-panel/left-thermal-panel.component.ts:249</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="255" class="link-to-prism">src/app/app-structural/components/result/left-thermal-panel/left-thermal-panel.component.ts:255</a></div>
                         </td>
                     </tr>
 
@@ -193,7 +193,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="250" class="link-to-prism">src/app/app-structural/components/result/left-thermal-panel/left-thermal-panel.component.ts:250</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="256" class="link-to-prism">src/app/app-structural/components/result/left-thermal-panel/left-thermal-panel.component.ts:256</a></div>
                         </td>
                     </tr>
 
@@ -219,7 +219,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="252" class="link-to-prism">src/app/app-structural/components/result/left-thermal-panel/left-thermal-panel.component.ts:252</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="258" class="link-to-prism">src/app/app-structural/components/result/left-thermal-panel/left-thermal-panel.component.ts:258</a></div>
                         </td>
                     </tr>
 
@@ -245,7 +245,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="251" class="link-to-prism">src/app/app-structural/components/result/left-thermal-panel/left-thermal-panel.component.ts:251</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="257" class="link-to-prism">src/app/app-structural/components/result/left-thermal-panel/left-thermal-panel.component.ts:257</a></div>
                         </td>
                     </tr>
 
@@ -271,7 +271,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="254" class="link-to-prism">src/app/app-structural/components/result/left-thermal-panel/left-thermal-panel.component.ts:254</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="260" class="link-to-prism">src/app/app-structural/components/result/left-thermal-panel/left-thermal-panel.component.ts:260</a></div>
                         </td>
                     </tr>
 
@@ -297,7 +297,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="253" class="link-to-prism">src/app/app-structural/components/result/left-thermal-panel/left-thermal-panel.component.ts:253</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="259" class="link-to-prism">src/app/app-structural/components/result/left-thermal-panel/left-thermal-panel.component.ts:259</a></div>
                         </td>
                     </tr>
 
@@ -365,6 +365,9 @@ export class LeftThermalPanelComponent implements OnInit, OnDestroy, OnChanges {
     }
   }
 
+  /** 
+   * Map the data of the classes
+   */
   getGroupedGlasses(array: any[]) {
     array &#x3D; array.sort(function (a, b) { return a - b });
     array &#x3D; [...new Set(array)];
@@ -403,6 +406,9 @@ export class LeftThermalPanelComponent implements OnInit, OnDestroy, OnChanges {
     return unFilteredResult.filter(f &#x3D;&gt; f !&#x3D;&#x3D; &quot;&quot;).join(&#x27;, &#x27;);
   }
 
+  /**
+   * Go throught the thermal results to display the relevant information in the table
+   */
   GetThermalResults() {
     this.language &#x3D; this.configureService.getLanguage();
     if (this.unified3DModel &amp;&amp; this.unified3DModel.AnalysisResult &amp;&amp; this.unified3DModel.AnalysisResult.ThermalResult) {
