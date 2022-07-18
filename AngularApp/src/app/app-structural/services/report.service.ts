@@ -20,6 +20,11 @@ export class ReportService {
     this.allConfigurationTableDataSubject.next(data);
   }
 
+  /**
+   * Update notes from the user on the reports
+   * @param unifiedModel 
+   * @returns 
+   */
   updateUserNotes(unifiedModel: BpsUnifiedModel): Observable<boolean>{
     let url: string = this.appConstantService.APP_DOMAIN + "api/BpsProject/UpdateUserNotes/";
     return this.http.post<boolean>(url, unifiedModel);

@@ -18,6 +18,12 @@ export class IframeService {
   intervalID: any;
   public iframeEvent: Subject<IFrameEvent> = new Subject<IFrameEvent>();
   sendIFrameEventObs = this.iframeEvent.asObservable();
+  /**
+   * Handles actions on the iframe display
+   * @param iframeEvent 
+   * @param jsonAction 
+   * @param jsonData 
+   */
   setIFrameEvent(iframeEvent: any, jsonAction: string, jsonData: any = undefined) {
     if (jsonAction !== '') {
       if (jsonData) {
@@ -42,6 +48,12 @@ export class IframeService {
       }
     }, 0);      
   }
+  /**
+   * Change the unified model
+   * @param iframeEvent 
+   * @param jsonAction 
+   * @param jsonData 
+   */
   loadJSON(iframeEvent: any, jsonAction: string = '', jsonData: any = undefined) {
     setTimeout(() => {
       this.setIFrameEvent(iframeEvent, jsonAction, jsonData);      
@@ -66,6 +78,11 @@ export class IframeService {
   //#endregion
 
   //#region Calculate
+  /**
+   * Calculate the cost of the window system of the unified model
+   * @param unified3DModel 
+   * @returns 
+   */
   CalculateSubTotalCost(unified3DModel: BpsUnifiedModel) {
     let subTotal = 0;
     let geometry = unified3DModel.ModelInput.Geometry;
@@ -98,6 +115,11 @@ export class IframeService {
     return subTotal;
   }
 
+  /**
+   * Calculate the sub total cost of the window system of the unified model
+   * @param unified3DModel 
+   * @returns 
+   */
   CalculateWindowSubTotalCost(unified3DModel: BpsUnifiedModel): number {
     let subTotal = 0;
     if (unified3DModel) {
@@ -195,6 +217,11 @@ export class IframeService {
     return subTotal;
   }
 
+  /**
+   * Calculate the glass cost
+   * @param unified3DModel 
+   * @returns 
+   */
   CalculateGlassCost(unified3DModel: BpsUnifiedModel): number {
     let subTotal = 0;
     let markup = 0.8;
@@ -249,6 +276,11 @@ export class IframeService {
     return subTotal;
   }
 
+  /**
+   * Calculate the sub total cost of the door system of the unified model
+   * @param unified3DModel 
+   * @returns 
+   */
   CalculateDoorSubTotalCost(unified3DModel: BpsUnifiedModel): number {
     let subTotal = 0;
     let markup = 0.8;
@@ -376,6 +408,11 @@ export class IframeService {
     return subTotal;
   }
 
+  /**
+   * Calculate the sub total cost of the sliding door system of the unified model
+   * @param unified3DModel 
+   * @returns 
+   */
   CalculateSlidingDoorSubTotalCost(unified3DModel: BpsUnifiedModel): number {
     // define general mark up 
     let markup = 0.8;
@@ -507,6 +544,11 @@ export class IframeService {
   }
   //#endregion
 
+  /**
+   * Last modifed date of the unified model to display
+   * @param ModifiedOn 
+   * @returns 
+   */
   getLastModifiedDate(ModifiedOn: Date): string {
     let date = new Date(ModifiedOn);
     let language = this.configureService.getLanguage();
@@ -540,6 +582,10 @@ export class IframeService {
   }
 
   //#region DisplaySettings
+  /**
+   * 
+   * @returns Default settings of the iframe buttons
+   */
   getDisplaySettings_Default() {
     return {
       showThreeDView: false,
@@ -554,6 +600,11 @@ export class IframeService {
       showQuickCheckSymbols: true
     };
   }
+  /**
+   * 
+   * @param unified3DModel
+   * @returns Settings of the iframe buttons when operability is opened
+   */
   getDisplaySettings_Operability(unified3DModel: BpsUnifiedModel) {
     const showBoundaryCondition = unified3DModel.ModelInput.Structural ? unified3DModel.ModelInput.Structural.ShowBoundaryCondition : false;
     return {
@@ -570,6 +621,12 @@ export class IframeService {
       showQuickCheckSymbols: true
     };
   }
+
+  /**
+   * 
+   * @param unified3DModel 
+   * @returns Settings of the iframe buttons when sliding unit is opened
+   */
   getDisplaySettings_SlidingUnit(unified3DModel: BpsUnifiedModel) {
     const showBoundaryCondition = unified3DModel.ModelInput.Structural ? unified3DModel.ModelInput.Structural.ShowBoundaryCondition : false;
     return {
@@ -586,6 +643,13 @@ export class IframeService {
       showQuickCheckSymbols: true
     };
   }
+
+  /**
+   * 
+   * @param unified3DModel 
+   * @param activePanel 
+   * @returns Settings of the iframe buttons when glass & panel is opened
+   */
   getDisplaySettings_GlassPanel(unified3DModel: BpsUnifiedModel, activePanel: any) {
     const showBoundaryCondition = unified3DModel.ModelInput.Structural ? unified3DModel.ModelInput.Structural.ShowBoundaryCondition : false;
     let displaySettings: any;

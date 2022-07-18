@@ -47,6 +47,9 @@ export class LeftThermalPanelComponent implements OnInit, OnDestroy, OnChanges {
     }
   }
 
+  /** 
+   * Map the data of the classes
+   */
   getGroupedGlasses(array: any[]) {
     array = array.sort(function (a, b) { return a - b });
     array = [...new Set(array)];
@@ -85,6 +88,9 @@ export class LeftThermalPanelComponent implements OnInit, OnDestroy, OnChanges {
     return unFilteredResult.filter(f => f !== "").join(', ');
   }
 
+  /**
+   * Go throught the thermal results to display the relevant information in the table
+   */
   GetThermalResults() {
     this.language = this.configureService.getLanguage();
     if (this.unified3DModel && this.unified3DModel.AnalysisResult && this.unified3DModel.AnalysisResult.ThermalResult) {

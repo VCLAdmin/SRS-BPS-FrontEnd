@@ -49,6 +49,10 @@ export class FramingService {
     return this.http.get<any>(url);
   }
 
+  /**
+   * Hardcoded sliding door articles
+   * @returns 
+   */
   getSlidingDoorArticles(): Observable<any> {
     let slidingDoorArticlesList: any = [];
     slidingDoorArticlesList.push({'ArticleSetID': 1, 'ArticleName':'269400', 'Color': 'Silver Grey - RAL 7001',   'ColorCode':'RAL 7001', 'Type': 'Lift-and-Slide Fittings', 'Description': 'Handle Recess'});
@@ -67,6 +71,11 @@ export class FramingService {
   //#endregion
   
   //#region Static Data
+  /**
+   * Depth calculation dependnig on the product type of the unified model
+   * @param unified3DModel 
+   * @returns 
+   */
   getMaxDepth(unified3DModel: any): number {
     if (unified3DModel.ProblemSetting.ProductType === "Window" && unified3DModel.ModelInput.Geometry.Sections.length > 0) {
       var oDepth = unified3DModel.ModelInput.Geometry.Sections[0].Depth;
@@ -88,6 +97,11 @@ export class FramingService {
     }
   }
 
+  /**
+   * Hardcoded articles for facade mullion list
+   * @param system system used in framing
+   * @returns 
+   */
   getFacade_MullionList(system: string): Observable<any> {
     let facacdeMullionList: FacadeMullion[] = [];
     system = this.getFWSSystemType(system);
@@ -166,6 +180,11 @@ export class FramingService {
     }
   }
 
+    /**
+   * Hardcoded articles for facade transom list
+   * @param system system used in framing
+   * @returns 
+   */
   getFacade_TransomList(system: string, mullionId: string, applicationType = 'BPS'): Observable<any> {
     let facadeTransomList: FacadeTransom[] = [];
     system = this.getFWSSystemType(system);
@@ -509,6 +528,12 @@ export class FramingService {
     }
   }
 
+  /**
+   * Hardcoded intermediate mullion list
+   * @param system system used in framing
+   * @param mullionId id of mullion
+   * @returns 
+   */
   getFacade_Level2_Intermediate_MullionList(system: string, mullionId: string): Observable<any> {
     let facadeTransomList: FacadeTransom[] = [];
     system = this.getFWSSystemType(system);
@@ -688,6 +713,12 @@ export class FramingService {
     }
   }
 
+  /**
+   * Hardcoded intermediate mullion list
+   * @param system system used in framing
+   * @param mullionId id of mullion
+   * @returns 
+   */
   getFacade_Intermediate_MullionList(system: string, mullionId: string): Observable<any> {
     let facacdeMullionList: FacadeTransom[] = [];
     system = this.getFWSSystemType(system);
@@ -1010,6 +1041,11 @@ export class FramingService {
     }
   }
 
+  /**
+   * Hardcoded reinforcement article list of a mullion
+   * @param mullionId 
+   * @returns 
+   */
   getFacade_Mullion_ReinforcementList(mullionId: string): Observable<any> {
     let reinforcementList: FacadeMullionReinforcement[] = [];
     switch (mullionId) {
@@ -1070,6 +1106,11 @@ export class FramingService {
     }
   }
 
+  /**
+   * Hardcoded reinforcement article list of a transom
+   * @param system Hard
+   * @returns 
+   */
   getFacade_Transom_ReinforcementList(system: string): Observable<any> {
     let reinforcementList: FacadeMullionReinforcement[] = [];
     system = this.getFWSSystemType(system);
@@ -1080,6 +1121,11 @@ export class FramingService {
     }
   }
 
+  /**
+   * Hardcoded article list
+   * @param framingId 
+   * @returns 
+   */
   getBottomFrameList(framingId: string): FacadeUDC {
     switch (framingId) {
       case "505200": return new FacadeUDC(505300, 0, 130);
@@ -1097,6 +1143,13 @@ export class FramingService {
     }
   }
 
+  /**
+   * Hardcoded article list
+   * @param system 
+   * @param mullionId 
+   * @param type 
+   * @returns 
+   */
   getUDCFramingList(system: string, mullionId: string, type: string): Observable<any> {
     let facadeUDC80List: FacadeUDC[] = [];
     facadeUDC80List.push(new FacadeUDC(505200, 35, 130));
@@ -1153,6 +1206,12 @@ export class FramingService {
     return of(facadeUDCList);
   }
 
+  /**
+   * Condition to disable or not the transom and mullion
+   * @param selectedFrame 
+   * @param depthGlazingBar 
+   * @returns 
+   */
   disabledTransomOrMullion(selectedFrame, depthGlazingBar): boolean {
     let isDisabled: boolean = false;
     if (selectedFrame && selectedFrame.length > 0 && depthGlazingBar > selectedFrame[0].transomDepth) {
@@ -1161,6 +1220,11 @@ export class FramingService {
     return isDisabled;
   }
 
+  /**
+   * Table ot convert old framing article number to the new one
+   * @param oldArticle 
+   * @returns 
+   */
   oldToNewFraming(oldArticle: number) {
     if (oldArticle == 322250) return 536800;
     else if (oldArticle == 322260) return 536810;
@@ -1193,6 +1257,11 @@ export class FramingService {
     else return oldArticle;
   }
 
+  /**
+   * Return the FWS system type
+   * @param systemType 
+   * @returns 
+   */
   getFWSSystemType(systemType): string {
     var fwsSystemDesc = ['FWS 35', 'FWS 35', 'FWS 50', 'FWS 50', 'FWS 50', 'FWS 50', 'FWS 60', 'FWS 60', 'FWS 60', 'FWS 60'];
     var fwsSystemDesc2 = ['FWS 35 PD', 'FWS 35 PD', 'FWS 50', 'FWS 50', 'FWS 50', 'FWS 50', 'FWS 60', 'FWS 60', 'FWS 60', 'FWS 60'];
@@ -1203,6 +1272,11 @@ export class FramingService {
       return systemType;
   }
 
+  /**
+   * Return the UDC system type
+   * @param systemType 
+   * @returns 
+   */
   getUDCSystemType(systemType): string {
     var systemData_FacadeUDC = ['UDC 80', 'UDC 80', 'UDC 80', 'UDC 80'];
     var systemDataUpper_FacadeUDC = ['UDC 80', 'UDC 80', 'UDC 80', 'UDC 80'];
@@ -1213,6 +1287,11 @@ export class FramingService {
       return systemType;
   }
 
+  /**
+   * 
+   * @param system 
+   * @returns ADS door leaf list
+   */
   getADSDoorLeafList(system: string): Observable<any> {
     let doorleafArticle= [{ "ArticleId":0,
       "ArticleGuid":null,

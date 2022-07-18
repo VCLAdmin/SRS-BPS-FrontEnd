@@ -66,7 +66,9 @@ export class LeftStructuralPanelComponent implements OnInit, OnDestroy {
 
   }
 
-
+  /**
+   * Map the data of the structural resultats to display the relevant information in the table
+   */
   SetStructuralResultLabels() {
     if (this.selectedStructuralIntermediate && this.selectedStructuralIntermediate.length > 0) {
       this.resultService.selectedIntermediatesStructural = this.selectedStructuralIntermediate[0];
@@ -127,6 +129,9 @@ export class LeftStructuralPanelComponent implements OnInit, OnDestroy {
       // }
     }
   }
+  /**
+   * Get the structural result which depends on the configuration
+   */
   GetStructuralResults() {
     if (this.unified3DModel.ProblemSetting.ProductType === "Window") {
       if (this.unified3DModel && this.unified3DModel.AnalysisResult && this.unified3DModel.AnalysisResult.StructuralResult) {
@@ -196,6 +201,9 @@ export class LeftStructuralPanelComponent implements OnInit, OnDestroy {
     // }
   }
 
+  /**
+   * Populate the structural result after the structural result labels are set.
+   */
   PopulateStructuralResultForMemeber() {
     if (this.unified3DModel.ProblemSetting.ProductType === "Window") {
       let selectedMembers = this.bpsStructuralResult.MemberResults.filter(x => this.selectedStructuralIntermediate[0] == (x.memberID));

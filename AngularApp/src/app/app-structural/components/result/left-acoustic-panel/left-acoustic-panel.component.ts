@@ -52,6 +52,11 @@ export class LeftAcousticPanelComponent implements OnInit, OnChanges, OnDestroy 
     return this.getGroupedGlasses(this.unified3DModel.ModelInput.Geometry.Infills.filter(glass => glass.GlazingSystemID === glazingSystemId).map(glass => glass.InfillID));
   }
 
+  /**
+   * Map the data of the glass list for the display
+   * @param array Glass list
+   * @returns 
+   */
   getGroupedGlasses(array: any[]) {
     array = array.sort(function (a, b) { return a - b });
     array = [...new Set(array)];
@@ -89,15 +94,32 @@ export class LeftAcousticPanelComponent implements OnInit, OnChanges, OnDestroy 
     // else 
     return unFilteredResult.filter(f => f !== "").join(', ');
   }
+
+  /**
+   * Do the glazing system id exist in the glass list of the unified model ?
+   * @param glazingSystemId 
+   * @returns 
+   */
   hasGlazingSystem(glazingSystemId: number): boolean {
     return this.unified3DModel.ModelInput.Geometry.Infills.filter(glass => glass.GlazingSystemID === glazingSystemId).length > 0
 
   }
 
+  /**
+   * Return the Rw of the glass
+   * @param glazingSystemId
+   * @returns 
+   */
   getGlassRw(glazingSystemId: number): number {
     return this.unified3DModel.ModelInput.Geometry.GlazingSystems.filter(GlazingSystem => GlazingSystem.GlazingSystemID === glazingSystemId)[0].Rw
   }
 
+  /**
+   * 
+   * @param glazingSystemId 
+   * @param index 
+   * @returns the index ranked plate value of the glass
+   */
   getPlatesValue(glazingSystemId: number, index: number) {
     if (this.unified3DModel.ModelInput.Geometry.GlazingSystems.filter(GlazingSystem => GlazingSystem.GlazingSystemID === glazingSystemId).map(GlazingSystem => GlazingSystem.Plates)[0][index]) {
       return this.unified3DModel.ModelInput.Geometry.GlazingSystems.filter(GlazingSystem => GlazingSystem.GlazingSystemID === glazingSystemId).map(GlazingSystem => GlazingSystem.Plates)[0][index].H;
@@ -106,6 +128,12 @@ export class LeftAcousticPanelComponent implements OnInit, OnChanges, OnDestroy 
     }
   }
 
+  /**
+   * 
+   * @param glazingSystemId
+   * @param index 
+   * @returns the index ranked cavity value of the glass
+   */
   getCavitiesValue(glazingSystemId: number, index: number) {
     if (this.unified3DModel.ModelInput.Geometry.GlazingSystems.filter(GlazingSystem => GlazingSystem.GlazingSystemID === glazingSystemId).map(GlazingSystem => GlazingSystem.Cavities)[0][index]) {
       return this.unified3DModel.ModelInput.Geometry.GlazingSystems.filter(GlazingSystem => GlazingSystem.GlazingSystemID === glazingSystemId).map(GlazingSystem => GlazingSystem.Cavities)[0][index].Lz;
@@ -114,6 +142,12 @@ export class LeftAcousticPanelComponent implements OnInit, OnChanges, OnDestroy 
     }
   }
 
+  /**
+   * 
+   * @param glazingSystemId 
+   * @param index 
+   * @returns the description of the index ranked plate of the glass
+   */
   getPlatesDescription(glazingSystemId: number, index: number) {
     if (this.unified3DModel.ModelInput.Geometry.GlazingSystems.filter(GlazingSystem => GlazingSystem.GlazingSystemID === glazingSystemId).map(GlazingSystem => GlazingSystem.Plates)[0][index]) {
       let glazingSystemPlate = this.unified3DModel.ModelInput.Geometry.GlazingSystems.filter(GlazingSystem => GlazingSystem.GlazingSystemID === glazingSystemId).map(GlazingSystem => GlazingSystem.Plates)[0][index];
@@ -130,6 +164,12 @@ export class LeftAcousticPanelComponent implements OnInit, OnChanges, OnDestroy 
     }
   }
 
+  /**
+   * 
+   * @param glazingSystemId 
+   * @param index 
+   * @returns the description of the index ranked cavity of the glass
+   */
   getCavitiesDescription(glazingSystemId: number, index: number) {
     if (this.unified3DModel.ModelInput.Geometry.GlazingSystems.filter(GlazingSystem => GlazingSystem.GlazingSystemID === glazingSystemId).map(GlazingSystem => GlazingSystem.Cavities)[0][index]) {
       // if (this.unified3DModel.ModelInput.Geometry.GlazingSystems.filter(GlazingSystem => GlazingSystem.GlazingSystemID === glazingSystemId).map(GlazingSystem => GlazingSystem.Cavities)[0][index].CavityType.toLowerCase() == "air") {

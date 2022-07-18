@@ -53,6 +53,10 @@ export class LeftResultComponent implements OnInit, OnChanges {
     this.refreshPanel();
   }
   GeometryGlassList = [];
+  /**
+   * Main panel of the results.
+   * Handle the events when the user changes the physics type
+   */
   refreshPanel() {
     this.GeometryGlassList = [];
     // let physicsTypes: string[] = this.configureService.getPhysicsTypesSelected();
@@ -162,6 +166,9 @@ export class LeftResultComponent implements OnInit, OnChanges {
     }
   }
 
+  /**
+   * refresh the display of the results
+   */
   selectPhysicsType() {
     switch (this.physicsType) {
       case 'A':

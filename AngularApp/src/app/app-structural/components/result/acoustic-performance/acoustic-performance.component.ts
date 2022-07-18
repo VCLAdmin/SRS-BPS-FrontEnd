@@ -55,6 +55,9 @@ export class AcousticPerformanceComponent implements OnInit, AfterViewInit, OnCh
     this.loadPerformanceInfo();
   }
 
+  /**
+   * Settings of the acoustic audio display
+   */
   loadPerformanceInfo(): void {
     this.yAxisLabel = this.translate.instant(_('result.sound-transmission-loss')) + " (dB)";
     this.yAxisLabel2 = 'Deficiencies';
@@ -99,6 +102,9 @@ export class AcousticPerformanceComponent implements OnInit, AfterViewInit, OnCh
     this.stopAudio();
   }
 
+  /**
+   * update sound effect due to the window opening 
+   */
   updateSelectedWindowOpening() {
     switch (this.audioPercentage) {
       case 0:
@@ -123,6 +129,9 @@ export class AcousticPerformanceComponent implements OnInit, AfterViewInit, OnCh
     this.updateFilter();
   }
 
+  /**
+   * Play/Stop the audio
+   */
   onClickPlayAudio(): void {
     if (this.playing) {
       this.stopAudio();
@@ -132,6 +141,9 @@ export class AcousticPerformanceComponent implements OnInit, AfterViewInit, OnCh
 
   }
 
+  /**
+   * Stop the sound and the display
+   */
   stopAudio() {
     if (this.context) {
       this.context.suspend();
@@ -139,6 +151,9 @@ export class AcousticPerformanceComponent implements OnInit, AfterViewInit, OnCh
     }
   }
 
+  /**
+   * play the audio sound and display
+   */
   playAudio() {
     // window.AudioContext = window.AudioContext || window.webkitAudioContext;
     window.AudioContext = window.AudioContext;
@@ -173,6 +188,9 @@ export class AcousticPerformanceComponent implements OnInit, AfterViewInit, OnCh
   }
 
   currentAudio: string;
+  /**
+   * reinitialise the audio if the selection has been changed
+   */
   onClickChangeAudioSelection() {
     let isValueChanged = this.currentAudio && this.selectedAudio && this.currentAudio != this.selectedAudio ? true : false;
     if (isValueChanged) {
@@ -186,7 +204,9 @@ export class AcousticPerformanceComponent implements OnInit, AfterViewInit, OnCh
     this.updateFilter();
   }
 
-
+  /**
+   * sound drawing displayed when the audio is played
+   */
   updateSource() {
     // window.AudioContext = window.AudioContext || window.webkitAudioContext;
     window.AudioContext = window.AudioContext;
@@ -233,6 +253,9 @@ export class AcousticPerformanceComponent implements OnInit, AfterViewInit, OnCh
     analyser.connect(context.destination);
   }
 
+  /**
+   * Update filter with the window opening.
+   */
   updateFilter() {
     if (this.unified3DModel && this.unified3DModel.AnalysisResult) {
       const result = this.unified3DModel.AnalysisResult.AcousticResult.AcousticUIOutput;
@@ -296,6 +319,10 @@ export class AcousticPerformanceComponent implements OnInit, AfterViewInit, OnCh
     }
   }
 
+  /**
+   * Audio drawing code in the canvas
+   * @returns
+   */
   drawTimeDomain = () => {
     if (this.playing) {
       requestAnimationFrame(this.drawTimeDomain);
@@ -500,6 +527,10 @@ export class AcousticPerformanceComponent implements OnInit, AfterViewInit, OnCh
   onDeactivate(data): void {
   }
 
+  /**
+   * Set the acoustic audio setting from the unified model acoustic ui output
+   * @param dataAcousticUIOutput 
+   */
   setData(dataAcousticUIOutput: any) {
     let data = dataAcousticUIOutput.LossDistributions;
     if (dataAcousticUIOutput.classification) {
