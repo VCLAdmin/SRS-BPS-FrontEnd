@@ -130,7 +130,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="334" class="link-to-prism">src/app/app-structural/services/config-panels.service.ts:334</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="503" class="link-to-prism">src/app/app-structural/services/config-panels.service.ts:503</a></div>
                             </td>
                         </tr>
 
@@ -256,7 +256,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="330" class="link-to-prism">src/app/app-structural/services/config-panels.service.ts:330</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="499" class="link-to-prism">src/app/app-structural/services/config-panels.service.ts:499</a></div>
                         </td>
                     </tr>
 
@@ -287,7 +287,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="333" class="link-to-prism">src/app/app-structural/services/config-panels.service.ts:333</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="502" class="link-to-prism">src/app/app-structural/services/config-panels.service.ts:502</a></div>
                         </td>
                     </tr>
 
@@ -318,7 +318,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="334" class="link-to-prism">src/app/app-structural/services/config-panels.service.ts:334</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="503" class="link-to-prism">src/app/app-structural/services/config-panels.service.ts:503</a></div>
                         </td>
                     </tr>
 
@@ -344,7 +344,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="327" class="link-to-prism">src/app/app-structural/services/config-panels.service.ts:327</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="496" class="link-to-prism">src/app/app-structural/services/config-panels.service.ts:496</a></div>
                         </td>
                     </tr>
 
@@ -370,7 +370,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="329" class="link-to-prism">src/app/app-structural/services/config-panels.service.ts:329</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="498" class="link-to-prism">src/app/app-structural/services/config-panels.service.ts:498</a></div>
                         </td>
                     </tr>
 
@@ -401,7 +401,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="328" class="link-to-prism">src/app/app-structural/services/config-panels.service.ts:328</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="497" class="link-to-prism">src/app/app-structural/services/config-panels.service.ts:497</a></div>
                         </td>
                     </tr>
 
@@ -432,7 +432,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="331" class="link-to-prism">src/app/app-structural/services/config-panels.service.ts:331</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="500" class="link-to-prism">src/app/app-structural/services/config-panels.service.ts:500</a></div>
                         </td>
                     </tr>
 
@@ -463,7 +463,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="332" class="link-to-prism">src/app/app-structural/services/config-panels.service.ts:332</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="501" class="link-to-prism">src/app/app-structural/services/config-panels.service.ts:501</a></div>
                         </td>
                     </tr>
 
@@ -495,11 +495,22 @@ export class ConfigPanelsService {
 
   private bsujPopoutOpened: BehaviorSubject&lt;any&gt; &#x3D; new BehaviorSubject&lt;any&gt;({ isOpened: false, panelsModule: undefined });
   obsPopout &#x3D; this.bsujPopoutOpened.asObservable();
+
+ /**
+ * This function is to set the pop up to open or close. 
+ * @param {boolean} isOpened  this will have true or false values which will make the pop out open or close.
+ * @param {string} panelsModule  this is the Panel name which pop out has to open or close.
+ */
   setPopout(isOpened: boolean, moduleName: PanelsModule) {
     if (isOpened)
       this.closeAllPopouts();
     this.bsujPopoutOpened.next({ isOpened: isOpened, panelsModule: moduleName });
   }
+
+ /**
+ * This function is to subscribe methods which makes all the pop outs close. 
+ *
+ */
   closeAllPopouts() {
     this.bsujPopoutOpened.next({ isOpened: false, panelsModule: PanelsModule.DoorLeafActive });
     this.bsujPopoutOpened.next({ isOpened: false, panelsModule: PanelsModule.DoorLeafPassive });
@@ -547,6 +558,16 @@ export class ConfigPanelsService {
 
   private sujConfirm: Subject&lt;any&gt; &#x3D; new Subject&lt;any&gt;();
   obsConfirm &#x3D; this.sujConfirm.asObservable();
+ /**
+ * This function is called when user clicks on Confirm on Side Panels. 
+ * 
+ * @param {any} data  this is the object which will set when user clicks on confirm
+ * 
+ * @param {string} panelsModule  this is the Panel name in which user clicks on confirm buton.
+ * 
+ * @param {string} action  this tells us which action has been done
+ * 
+ */
   setConfirm(data: any, moduleName: PanelsModule, action: string &#x3D; &#x27;Confirm&#x27;, otherInfo: any &#x3D; &#x27;&#x27;) {
     setTimeout(() &#x3D;&gt; {
       this.sujConfirm.next({ data: data, panelsModule: moduleName, action: action, otherInfo: otherInfo });
@@ -555,6 +576,16 @@ export class ConfigPanelsService {
 
   private sujAction: Subject&lt;any&gt; &#x3D; new Subject&lt;any&gt;();
   obsAction &#x3D; this.sujAction.asObservable();
+ /**
+ * This function is called when user does any action in side panels. 
+ * 
+ * @param {any} data  this is the object which will set when user clicks on confirm
+ * 
+ * @param {string} panelsModule  this is the Panel name in which user clicks on confirm buton.
+ * 
+ * @param {string} action  this tells us which action has been done
+ * 
+ */
   setAction(data: any, moduleName: PanelsModule, action: string &#x3D; &#x27;&#x27;, otherInfo: any &#x3D; &#x27;&#x27;) {
     setTimeout(() &#x3D;&gt; {
       this.sujAction.next({ data: data, panelsModule: moduleName, action: action, otherInfo: otherInfo });
@@ -564,6 +595,14 @@ export class ConfigPanelsService {
   public currentSystem: SystemData;
   private sujSystem: Subject&lt;any&gt; &#x3D; new Subject&lt;any&gt;();
   obsSystem &#x3D; this.sujSystem.asObservable();
+ /**
+ * This function is used set the system type across the application. 
+ * 
+ * @param {any} data  this is the object which has all the Sytem Type Data like AWS, ADS and ASE etc.,
+ * 
+ * @param {string} systemFor  this is the system for which it is changing from.
+ *
+ */
   setSystem(data: SystemData, systemFor: string) {
     setTimeout(() &#x3D;&gt; {
       if (data &amp;&amp; (!this.currentSystem || this.currentSystem.Description !&#x3D;&#x3D; data.Description))
@@ -571,6 +610,14 @@ export class ConfigPanelsService {
       this.sujSystem.next({ data: data, systemFor: systemFor });
     }, 10);
   }
+ /**
+ * This function is get the System Data based on the given system Type. 
+ * 
+ * @param {string} systemType  this is the system type based on the Product type selected
+ * 
+ * @returns {SystemData} systemDataList  this is system type object based on the System type selected.
+ *
+ */
   SystemData(systemType: string): SystemData[] {
     let systemDataList: SystemData[] &#x3D; [];
     switch (systemType) {
@@ -615,6 +662,12 @@ export class ConfigPanelsService {
     return systemDataList;
   }
 
+ /**
+ * This function is to get the Physice Type List which displays on the left panel. 
+ *  
+ * @returns {any} Physics Type object list which will user selects in the configure.
+ *
+ */
   buildPhysicsTypeList(): any[] {
     return [
       { id: &#x27;1&#x27;, value: &#x27;Acoustic&#x27;, description: &#x27;Acoustic&#x27; },
@@ -622,18 +675,39 @@ export class ConfigPanelsService {
       { id: &#x27;3&#x27;, value: &#x27;Thermal&#x27;, description: &#x27;Thermal&#x27; }
     ];
   }
+
+ /**
+ * This function is to get the fixed open List which displays on the left panel. 
+ *  
+ * @returns {any} fixed open object list which will user selects in the configure.
+ *
+ */
   buildFixedOpeningList(): any[] {
     return [
       { id: &#x27;1&#x27;, value: &#x27;Inward&#x27;, description: &#x27;Inward&#x27; },
       { id: &#x27;2&#x27;, value: &#x27;Outward&#x27;, description: &#x27;Outward&#x27; }
     ];
   }
+
+ /**
+ * This function is to get the Operation Type List which displays on the left panel. 
+ *  
+ * @returns {any} Operation type object list which will user selects in the configure.
+ *
+ */
   buildOperationTypeList(): any[] {
     return [
       { id: &#x27;1&#x27;, value: &#x27;Manual&#x27;, description: &#x27;Manual&#x27; },
       { id: &#x27;2&#x27;, value: &#x27;TipTronic&#x27;, description: &#x27;TipTronic&#x27; }
     ];
   }
+
+ /**
+ * This function is to get the Operable Type List which displays on the left panel under Operability/ Insert Unit panel. 
+ *  
+ * @returns {any} Operable Type object list which will user selects in the configure under Operability/ Insert Unit panel.
+ *
+ */
   buildOperableTypeList(): any[] {
     return [
       { id: &#x27;1&#x27;, value: &#x27;tiltTurn-right&#x27;, description: &#x27;Turn-Tilt-Right&#x27; },
@@ -651,6 +725,13 @@ export class ConfigPanelsService {
       { id: &#x27;13&#x27;, value: &#x27;doubleDoor-right&#x27;, description: &#x27;Double-Door-Active-Right&#x27; }
     ];
   }
+ 
+ /**
+ * This function is to get the Inside Handle list which displays on the left panel under Operability. 
+ *  
+ * @returns {any} Inside Handle object list which will user selects in the configure under Operability.
+ *
+ */
   buildInsideHandleList(): any[] {
     return [
       { ArticleName: &quot;240152&quot;, ArticleSetID: 1, Color: &quot;Silver Grey - RAL 7001&quot;, ColorCode: &quot;RAL 7001&quot;, Description: &quot;Door Handle&quot;, Type: &quot;Door Handle&quot; },
@@ -659,6 +740,13 @@ export class ConfigPanelsService {
       { ArticleName: &quot;240168&quot;, ArticleSetID: 4, Color: &quot;INOX&quot;, ColorCode: &quot;INOX&quot;, Description: &quot;Door Handle&quot;, Type: &quot;Door Handle&quot; }
     ];
   }
+
+ /**
+ * This function is to get the Outside Handle list which displays on the left panel under Operability. 
+ *  
+ * @returns {any} Outside Handle object list which will user selects in the configure under Operability.
+ *
+ */
   buildOutsideHandleList(): any[] {
     return [
       { ArticleName: &quot;240152&quot;, ArticleSetID: 1, Color: &quot;Silver Grey - RAL 7001&quot;, ColorCode: &quot;RAL 7001&quot;, Description: &quot;Door Handle&quot;, Type: &quot;Door Handle&quot; },
@@ -668,6 +756,13 @@ export class ConfigPanelsService {
       { ArticleName: &quot;240099&quot;, ArticleSetID: 5, Color: &quot;INOX&quot;, ColorCode: &quot;INOX&quot;, Description: &quot;Door Pull&quot;, Type: &quot;Door Handle&quot; }
     ];
   }
+
+ /**
+ * This function is to get the Hinge Type list which displays on the left panel under Operability. 
+ *  
+ * @returns {any} Hinge Type object list which will user selects in the configure under Operability.
+ *
+ */
   buildHingeTypeList(): any[] {
     return [
       { ArticleName: &quot;279545&quot;, ArticleSetID: 9, Color: &quot;Silver Grey - RAL 7001&quot;, ColorCode: &quot;RAL 7001&quot;, Description: &quot;Surface Mounted&quot;, Type: &quot;Hinge Type&quot; },
@@ -676,6 +771,13 @@ export class ConfigPanelsService {
       { ArticleName: &quot;279549&quot;, ArticleSetID: 12, Color: &quot;INOX&quot;, ColorCode: &quot;INOX&quot;, Description: &quot;Surface Mounted&quot;, Type: &quot;Hinge Type&quot; }
     ];
   }
+
+ /**
+ * This function is to get the Window Handle list which displays on the left panel under Operability. 
+ *  
+ * @returns {any} Window Handle object list which will user selects in the configure under Operability.
+ *
+ */
   buildWindowHandleList(): any[] {
     return [
       { ArticleName: &quot;247001&quot;, ArticleSetID: 6, Color: &quot;Silver Grey - RAL 7001&quot;, ColorCode: &quot;RAL 7001&quot;, Description: &quot;Window Handle&quot;, Type: &quot;Window Handle&quot; },
@@ -683,6 +785,13 @@ export class ConfigPanelsService {
       { ArticleName: &quot;247004&quot;, ArticleSetID: 8, Color: &quot;Traffic White - RAL 9016&quot;, ColorCode: &quot;RAL 9016&quot;, Description: &quot;Window Handle&quot;, Type: &quot;Window Handle&quot; }
     ];
   }
+
+ /**
+ * This function is to get the Profile Color list which displays on the left panel under Framing. 
+ *  
+ * @returns {any} Profile Color object list which will user selects in the configure under Framing.
+ *
+ */
   buildProfileColorList(): any[] {
     return [
       { Description: &#x27;Silver grey - RAL 7001&#x27;, Value: &#x27;RAL 7001&#x27;, Image: &#x27;7001&#x27;, Code: &#x27;CFA2100B0&#x27; },
@@ -692,6 +801,13 @@ export class ConfigPanelsService {
       { Description: &#x27;Black-brown - RAL 8022&#x27;, Value: &#x27;RAL 8022&#x27;, Image: &#x27;8022&#x27;, Code: &#x27;HFJ655S2&#x27; }
     ];
   }
+
+ /**
+ * This function is to get the Handle Color list which displays on the left panel under Operability. 
+ *  
+ * @returns {any} Handle Color object list which will user selects in the configure under Operability.
+ *
+ */
   buildhandleColorList(): any[] {
     return [
       { Description: &#x27;Silver grey - RAL 7001&#x27;, Value: &#x27;RAL 7001&#x27;, Image: &#x27;7001&#x27;, Code: &#x27;CFA2100B0&#x27; },
@@ -714,6 +830,12 @@ export class ConfigPanelsService {
   public isCheckoutDisableInvalSmallDim: boolean &#x3D; false;
   private sujCheckoutDisable_InvalidSmallDimension: Subject&lt;boolean&gt; &#x3D; new Subject&lt;boolean&gt;();
   obsCheckoutDisable_InvalidSmallDimension &#x3D; this.sujCheckoutDisable_InvalidSmallDimension.asObservable();
+ /**
+ * This function is used set the enable and disable Check out button in the 3D Viewer and in the right Configure. 
+ * 
+ * @param {boolean} data  this is the boolean value which is true or false which makes the checkout button  enable or disable.
+ *
+ */
   setCheckoutDisable_InvalidSmallDimension(data: boolean) {
     this.isCheckoutDisableInvalSmallDim &#x3D; data;
     this.sujCheckoutDisable_InvalidSmallDimension.next(this.isCheckoutDisableInvalSmallDim);
@@ -724,6 +846,12 @@ export class ConfigPanelsService {
   public isOperabilityPanelActive: boolean &#x3D; false;
   private sujOperabilityPanelActive: Subject&lt;boolean&gt; &#x3D; new Subject&lt;boolean&gt;();
   obsOperabilityPanelActive &#x3D; this.sujOperabilityPanelActive.asObservable();
+ /**
+ * This function is used set the operability panel expanded or collapse in the left panel. 
+ * 
+ * @param {boolean} data  this is the boolean value which is true or false which makes the operability panel expand or collapse.
+ *
+ */
   setOperabilityPanelActive(data: boolean) {
     this.isOperabilityPanelActive &#x3D; data;
     this.sujOperabilityPanelActive.next(this.isOperabilityPanelActive);
@@ -734,6 +862,12 @@ export class ConfigPanelsService {
   public selectedPicker: number &#x3D; -1;
   private sujSelectedPicker_Operability: Subject&lt;number&gt; &#x3D; new Subject&lt;number&gt;();
   obsSelectedPicker_Operability &#x3D; this.sujSelectedPicker_Operability.asObservable();
+ /**
+ * This function is used set the selected picker in the operability panel. 
+ * 
+ * @param {number} data  this is the picker number which needs to set in selected state.
+ *
+ */  
   setSelectedPicker_Operability(data: number) {
     this.selectedPicker &#x3D; data;
     this.sujSelectedPicker_Operability.next(this.selectedPicker);
@@ -746,6 +880,12 @@ export class ConfigPanelsService {
   public picker_Operability: any[];
   private sujPicker_Operability: Subject&lt;any&gt; &#x3D; new Subject&lt;any&gt;();
   obsPicker_Operability &#x3D; this.sujPicker_Operability.asObservable();
+ /**
+ * This function is used set the selected picker in the operability panel. 
+ * 
+ * @param {number} data  this is the picker number which is selected and this will be subjected across the application.
+ *
+ */
   setPicker_Operability(data: any) {
     this.picker_Operability &#x3D; data;
     if (data &amp;&amp; data.idPicker &gt;&#x3D; 0) {
@@ -754,9 +894,22 @@ export class ConfigPanelsService {
     }
     this.sujPicker_Operability.next(this.picker_Operability);
   }
+
+ /**
+ * This function is used to check the unpopulated picker. 
+ * 
+ * @param {any} picker  this is the picker number which is to check whether it is populated or unpopulated.
+ *
+ * @returns {any} picker.populated it returns the status whether it is populated or unpopulated.
+ */
   checkUnpopulated_Operability(picker: any) {
     return picker.populated;
   }
+
+ /**
+ * This function is used to add picker under operability panel in the left configure. 
+ * 
+ */
   onAddPicker_Operability(): void {
     if (!this.picker_Operability) this.picker_Operability &#x3D; this.buildPickerList_Operability();
     if (!this.picker_Operability[this.picker_Operability.length - 1].populated) {
@@ -766,6 +919,11 @@ export class ConfigPanelsService {
       this.setSelectedPicker_Operability(this.selectedPicker);
     }
   }
+
+ /**
+ * This function is used to delete picker and set to default values for a picker under operability panel in the left configure. 
+ * 
+ */
   onRemovePicker_Operability() {
     this.picker_Operability[this.selectedPicker].populated &#x3D; false;
     this.picker_Operability[this.selectedPicker].selected &#x3D; false;
@@ -776,6 +934,12 @@ export class ConfigPanelsService {
     this.picker_Operability[this.selectedPicker].windowSystem &#x3D; &#x27;&#x27;;
     this.setPicker_Operability(this.picker_Operability);
   }
+
+ /**
+ * This function is used to get the pickers list object with the default values. 
+ * 
+ * @returns {any} Pickers list which has the picker object with the default values.
+ */
   buildPickerList_Operability(): any[] {
     // return this.picker_Operability &#x3D; [
     //   { idPicker: 0, populated: false, selected: false, data: { fixedOpening: &#x27;&#x27;, operableType: &#x27;&#x27;, operationType: &#x27;&#x27;, windowSystem: &#x27;&#x27;, handleColor: &#x27;Silver grey - RAL 7001&#x27;, insideHandle: &#x27;Door Handle&#x27;, outsideHandle: &#x27;Door Handle&#x27; } },
@@ -794,6 +958,11 @@ export class ConfigPanelsService {
   }
 
   //#region Glass Panel
+ /**
+ * This function is used to get the pickers list object of glass and Panel with the default values. 
+ * 
+ * @returns {any} Pickers list of glass and panel which has the picker object with the default values.
+ */
   buildPickerList_GlassPanel(): any[] {
     return [
       { idPicker: 0, populated: false, article: { idArticle: 0, composition: &quot;4-16-4&quot;, type: &quot;glass-argon-glass&quot;, totalThickness: 24, thicknessFraction: null, totalThicknessUnit: &quot;mm&quot;, uvalue: &quot;1.1&quot;, uvalueBTU: &quot;0&quot;, rw: 31, spacer: &quot;1&quot;, psiValue: 0.13, category: &#x27;double&#x27; }, shgc: 0, vt: 0, stc: 0, oitc: 0, blockDistance: 100, glassId_added: [] },

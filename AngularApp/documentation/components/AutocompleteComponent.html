@@ -296,8 +296,8 @@ id&#x3D;&quot;new-project-location&quot; placeholder&#x3D;&quot;Street address o
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="50"
-                            class="link-to-prism">src/app/app-common/components/autocomplete/autocomplete.component.ts:50</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="52"
+                            class="link-to-prism">src/app/app-common/components/autocomplete/autocomplete.component.ts:52</a></div>
                 </td>
             </tr>
 
@@ -333,8 +333,8 @@ id&#x3D;&quot;new-project-location&quot; placeholder&#x3D;&quot;Street address o
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="87"
-                            class="link-to-prism">src/app/app-common/components/autocomplete/autocomplete.component.ts:87</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="89"
+                            class="link-to-prism">src/app/app-common/components/autocomplete/autocomplete.component.ts:89</a></div>
                 </td>
             </tr>
 
@@ -402,14 +402,16 @@ id&#x3D;&quot;new-project-location&quot; placeholder&#x3D;&quot;Street address o
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="30"
-                            class="link-to-prism">src/app/app-common/components/autocomplete/autocomplete.component.ts:30</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="32"
+                            class="link-to-prism">src/app/app-common/components/autocomplete/autocomplete.component.ts:32</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Set the auto-completion of the google map API</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -588,7 +590,9 @@ export class AutocompleteComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
   }
-
+  /**
+   * Set the auto-completion of the google map API
+   */
   ngAfterViewInit() {
     const self &#x3D; this;
     const googleUrl &#x3D; &#x27;https://maps.googleapis.com/maps/api/js?libraries&#x3D;places&amp;key&#x3D;&#x27; + this.appconstantsService.GOOGLE_API_KEY;

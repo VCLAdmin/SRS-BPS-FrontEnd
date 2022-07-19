@@ -331,14 +331,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="27"
-                            class="link-to-prism">src/app/app-common/components/home/home.component.ts:27</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="30"
+                            class="link-to-prism">src/app/app-common/components/home/home.component.ts:30</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Load the projects depending on the BPS or SRS permission</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -368,8 +370,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="48"
-                            class="link-to-prism">src/app/app-common/components/home/home.component.ts:48</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="51"
+                            class="link-to-prism">src/app/app-common/components/home/home.component.ts:51</a></div>
                 </td>
             </tr>
 
@@ -531,6 +533,9 @@ export class HomeComponent implements OnInit, OnDestroy {
   updateProjectList: boolean &#x3D; false;
   projects: BpsProject[];
   isOperating &#x3D; false;
+  /**
+   * Load the projects depending on the BPS or SRS permission
+   */
   ngOnInit(): void {
     // this.navLayoutService.isEmptyPage.next(false);
     // this.navLayoutService.changeNavBarVisibility(true);

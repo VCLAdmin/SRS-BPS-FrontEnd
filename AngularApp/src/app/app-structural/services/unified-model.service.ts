@@ -30,6 +30,12 @@ export class UnifiedModelService {
 
   //#region Side Tables Updated
   doLoadJSON: boolean = true;
+ /**
+ * This function is to update the side table. 
+ * 
+ * @param {PanelsModule} panelsModule  which is the panel moule name that is the name of the side table which has to be updated.
+ * 
+ */
   public sideTableUpdated(panelsModule: PanelsModule) {
     this.setUnifiedModel(this.current_UnifiedModel);
     this.sujLoadSidePanel.next({ panelsModule: panelsModule, finishedLoading: true });
@@ -49,6 +55,12 @@ export class UnifiedModelService {
   private sujUnifiedModel = new Subject<BpsUnifiedModel>();
   obsUnifiedModel = this.sujUnifiedModel.asObservable();
 
+ /**
+ * This function is set the unified model across the application. 
+ * 
+ * @param {BpsUnifiedModel} unifiedModel  this is the current unified model which has to be set across the application.
+ * 
+ */
   public setUnifiedModel(unifiedModel: BpsUnifiedModel) {
     //this.cService.computeClickedSubject.next(false);
     //if (!unifiedModel.ModelInput.Thermal) { unifiedModel.ModelInput.Thermal = new Thermal(); }
@@ -68,6 +80,12 @@ export class UnifiedModelService {
   previous_ProjectGuid: string;
   private sujPrjectGuid: Subject<string> = new Subject<string>();
   obsProjectGuid = this.sujPrjectGuid.asObservable();
+ /**
+ * This function is set the current Project Guid and Problem Guid across the application. 
+ * 
+ * @param {string} problemGuid  this is the current problem guid which has to be set across the application.
+ * 
+ */
   setProblemGuid(problemGuid: string) {
     if (this.current_ProjectGuid !== problemGuid)
       this.previous_ProjectGuid = problemGuid;
@@ -81,6 +99,12 @@ export class UnifiedModelService {
   previous_UnifiedProblem: BpsUnifiedProblem;
   private sujUnifiedProblem: Subject<BpsUnifiedProblem> = new Subject<BpsUnifiedProblem>();
   obsUnifiedProblem = this.sujUnifiedProblem.asObservable();
+ /**
+ * This function is set the unified problem across the application. 
+ * 
+ * @param {BpsUnifiedProblem} unifiedProblem  this is the current unified problem which has to be set across the application.
+ * 
+ */
   setUnifiedProblem(unifiedProblem: BpsUnifiedProblem) {
     if (!this.handleDataList)
       this.GetDoorHandleArticles();
@@ -99,6 +123,10 @@ export class UnifiedModelService {
   //#region SaveUnifiedModel
   private sujSaveUnifiedModel: Subject<any> = new Subject<any>();
   obsSaveUnifiedModel = this.sujSaveUnifiedModel.asObservable();
+ /**
+ * This function is to save the unified Problem. 
+ * 
+ */
   callSaveUnifiedModel() {
     this.sujSaveUnifiedModel.next(true);
   }
@@ -112,6 +140,10 @@ export class UnifiedModelService {
   //#region Load Display Setting
   private sujLoadDisplaySetting: Subject<any> = new Subject<any>();
   obsLoadDisplaySetting = this.sujLoadDisplaySetting.asObservable();
+ /**
+ * This function is to set the display settings. 
+ * 
+ */
   setLoadDisplaySetting() {
     this.sujLoadDisplaySetting.next();
   }
@@ -120,6 +152,12 @@ export class UnifiedModelService {
   //#region Load JSON
   private sujLoadJSON: Subject<any> = new Subject<any>();
   obsLoadJSON = this.sujLoadJSON.asObservable();
+ /**
+ * This function is used to fire 3D viewer event to load the unified model and display the model in the viewer. 
+ * 
+ * @param {boolean} canBeDrawnBool it is the boolean value true or false to draw the model in 3D viewer.
+ * 
+ */
   callLoadJSON(canBeDrawnBool: boolean) {
     this.sujLoadJSON.next({ resetCamera: false, Unified3DModel: this.current_UnifiedModel, canBeDrawn: canBeDrawnBool });
   }
@@ -129,6 +167,12 @@ export class UnifiedModelService {
   takeScreenShot: boolean = false;
   private sujTakeScreenShot: Subject<any> = new Subject<any>();
   obsTakeScreenShot = this.sujTakeScreenShot.asObservable();
+ /**
+ * This function is used to take screenshot of the existing model in teh 3D Viewer. 
+ * 
+ * @param {boolean} takeScreenShot it is the boolean value true or false to take the screenshot of the model in 3D Viewer.
+ * 
+ */
   callTakeScreenShot(takeScreenShot: boolean) {
     this.takeScreenShot = takeScreenShot;
     this.sujTakeScreenShot.next(takeScreenShot);
@@ -138,12 +182,22 @@ export class UnifiedModelService {
   //#region Show Notificaion
   private sujNotificaionShow: Subject<any> = new Subject<any>();
   obsNotificaionShow = this.sujNotificaionShow.asObservable();
+ /**
+ * This function is used to set the notification to display. 
+ * 
+ * @param {any} event it is the object contains the notification title, message and the icon to display.
+ * 
+ */
   setNotificaionShow(event: any) {
     this.sujNotificaionShow.next(event);
   }
   //#endregion
 
   //#region just for referance
+ /**
+ * This function is used to update the unified model. 
+ *  
+ */
   updateUM() {
     let mi = this.current_UnifiedModel.ModelInput;
     let ge = mi.Geometry;
@@ -297,6 +351,13 @@ export class UnifiedModelService {
   //#region FRAMING
 
   //#region Outer Frame
+
+ /**
+ * This function is used to get the Selected Outerframe Object. 
+ * 
+ * @returns {Section}  it returns the outerFrame object which is in the current unified model with the SectionId 1.
+ * 
+ */
   obj_OuterFrame(): Section {
       if (this.current_UnifiedModel.ModelInput.Geometry.Sections && this.current_UnifiedModel.ModelInput.Geometry.Sections.length > 0) {
         if (this.current_UnifiedModel.ProblemSetting.ProductType == "SlidingDoor") {
@@ -307,11 +368,25 @@ export class UnifiedModelService {
       }
     }
   }
+
+ /**
+ * This function is used to get the OPerability system for the Selected Outerframe Object. 
+ * 
+ * @returns {OperabilitySystem}  it returns the operability system of the Current unified Model.
+ * 
+ */
   obj_OuterFrameOperabilitySystems(): OperabilitySystem {
     let os = this.current_UnifiedModel.ModelInput.Geometry.OperabilitySystems;
     if (os && os.length > 0)
       return os[0];
   }
+
+ /**
+ * This function is used to get the Selected Outerframe Article Name with the Inside width and Outside Width to display in the lef Panel under operability section. 
+ * 
+ * @returns {string}  it returns the Selected Outerframe Article Name with the Inside width and Outside Width to display in the lef Panel under operability section.
+ * 
+ */
   get_OuterFrame(): string {
     let sec = this.obj_OuterFrame();
     if (sec)
@@ -323,6 +398,13 @@ export class UnifiedModelService {
         return sec.InsertOuterFrameArticleName + ' - ' + sec.InsertOuterFrameInsideW.toString() + ' / ' + sec.InsertOuterFrameOutsideW.toString();
     }
   }
+
+ /**
+ * This function is used to set the Selected Outerframe Article to the unified model. 
+ * 
+ * @param {any}  inputData which is the selected outerframe object which has to set to the unified model outer frame section.
+ * 
+ */
   set_OuterFrame(inputData: any) {
     if (inputData && this.current_UnifiedModel.ProblemSetting.ProductType == "Window") {
       let sectionClass = this.obj_OuterFrame();
@@ -370,18 +452,36 @@ export class UnifiedModelService {
     }
   }
 
+ /**
+ * This function is used to get the Selected Bottom Outerframe Object for Sliding Doors. 
+ * 
+ * @returns {Section}  it returns the bottom outerFrame object which is in the current unified model with the SectionId 45.
+ * 
+ */
   obj_BottomOuterFrameSliding(): Section {
     if (this.current_UnifiedModel.ModelInput.Geometry.Sections) {
       return this.current_UnifiedModel.ModelInput.Geometry.Sections.filter(f => f.SectionID == 45 && f.SectionType == 45)[0];
     }
   }
 
+ /**
+ * This function is used to get the Selected Bottom Outerframe article name along with Inside width and Outside width for Sliding Doors. 
+ * 
+ * @returns {string}  it returns the Selected Bottom Outerframe article name along with Inside width and Outside width for Sliding Doors.
+ * 
+ */
   get_BottomOuterFrame() {
     let sec = this.obj_BottomOuterFrameSliding();
     if (sec) return sec.ArticleName + ' - ' + sec.InsideW.toString() + ' / ' + sec.OutsideW.toString();
     else return '';
   }
 
+ /**
+ * This function is used to set the Selected Bottom Outerframe Article to the unified model. 
+ * 
+ * @param {any}  inputData which is the selected bottom outerframe object which has to set to the unified model  bottom outer frame section.
+ * 
+ */
   set_BottomOuterFrame(inputData: any) {
     if (inputData && this.current_UnifiedModel.ProblemSetting.ProductType == "SlidingDoor") {
       let sectionClass = this.obj_BottomOuterFrameSliding();
@@ -400,6 +500,12 @@ export class UnifiedModelService {
   //#endregion
 
   //#region Vent Frame
+ /**
+ * This function is used to get the Selected VentFrame Article Name with the Inside width and Outside Width to display in the lef Panel under operability section. 
+ * 
+ * @returns {string}  it returns the Selected VentFrame Article Name with the Inside width and Outside Width to display in the lef Panel under operability section.
+ * 
+ */
   get_VentFrame(): string {
     if (this.current_UnifiedModel.ProblemSetting.ProductType == "SlidingDoor") {
       if (this.current_UnifiedModel.ModelInput.Geometry.Sections) {
@@ -417,6 +523,13 @@ export class UnifiedModelService {
       }  
     }
   }
+
+ /**
+ * This function is used to set the Selected Vent frame Article to the unified model. 
+ * 
+ * @param {any}  inputData which is the selected Vent frame object which has to set to the unified model  Vent frame section.
+ * 
+ */
   set_VentFrame(inputData: any) {
     if (inputData) {
       if (this.current_UnifiedModel.ProblemSetting.ProductType == "SlidingDoor") {
@@ -448,18 +561,37 @@ export class UnifiedModelService {
   //#endregion
 
   //#region Interlock Profile
+
+ /**
+ * This function is used to get the Selected Interlock Object for Sliding Doors. 
+ * 
+ * @returns {Section}  it returns the Interlock object which is in the current unified model with the SectionId 42.
+ * 
+ */
   obj_InterlockSliding(): Section {
     if (this.current_UnifiedModel.ModelInput.Geometry.Sections) {
       return this.current_UnifiedModel.ModelInput.Geometry.Sections.filter(f => f.SectionID == 42 && f.SectionType == 42)[0];
     }
   }
 
+ /**
+ * This function is used to get the Selected Interlock article name along with Inside width and Outside width for Sliding Doors. 
+ * 
+ * @returns {string}  it returns the Selected Interlock article name along with Inside width and Outside width for Sliding Doors.
+ * 
+ */
   get_Interlock(): string {
     let os = this.obj_InterlockSliding();
     if (os) return os.ArticleName + ' - ' + os.InsideW.toString() + ' / ' + os.OutsideW.toString();
     else return '';
   }
 
+ /**
+ * This function is used to set the Selected Interlock Frame Article to the unified model. 
+ * 
+ * @param {any}  inputData which is the selected Interlock frame object which has to set to the unified model  Interlock frame section.
+ * 
+ */
   set_InterlockFrame(inputData: any) {
     if (inputData) {
       let sectionClass = this.obj_InterlockSliding();
@@ -478,12 +610,25 @@ export class UnifiedModelService {
   //#endregion
 
   //#region double vent frame
+
+ /**
+ * This function is used to get the Selected Double Vent Frame article name along with Inside width and Outside width for Sliding Doors. 
+ * 
+ * @returns {string}  it returns the Selected Double Vent Frame article name along with Inside width and Outside width for Sliding Doors.
+ * 
+ */ 
   get_DoubleVentFrame() {
     if (this.current_UnifiedModel.ModelInput.Geometry.SlidingDoorSystems) {
       return this.current_UnifiedModel.ModelInput.Geometry.SlidingDoorSystems[0].DoubleVentArticleName;
     }
   }
 
+ /**
+ * This function is used to set the Selected DoubleVent Frame Article to the unified model. 
+ * 
+ * @param {any}  inputData which is the selected DoubleVent frame object which has to set to the unified model  DoubleVent frame section.
+ * 
+ */
   set_DoubleVentFrame(inputData : any) {
     if (inputData) {
       let os = this.current_UnifiedModel.ModelInput.Geometry.SlidingDoorSystems;
@@ -496,12 +641,25 @@ export class UnifiedModelService {
   //#endregion
 
   //#region structural profile
+
+ /**
+ * This function is used to get the Selected Structural article name. 
+ * 
+ * @returns {string}  it returns the Selected Structural article name.
+ * 
+ */ 
   get_StucturalProfile() {
     if (this.current_UnifiedModel.ModelInput.Geometry.SlidingDoorSystems) {
       return this.current_UnifiedModel.ModelInput.Geometry.SlidingDoorSystems[0].StructuralProfileArticleName;
     }
   }
 
+ /**
+ * This function is used to set the Selected Structural Profile article to the unified model. 
+ * 
+ * @param {any}  inputData which is the selected Structural Profile object which has to set to the unified model Structural Profile section.
+ * 
+ */
   set_structuralProfile(inputData : any) {
     if (inputData) {
       let os = this.current_UnifiedModel.ModelInput.Geometry.SlidingDoorSystems;
@@ -514,6 +672,13 @@ export class UnifiedModelService {
   //#endregion
 
   //#region Reinforcement Profile
+ 
+ /**
+ * This function is used to get the Selected Reinforcement Object for Sliding Doors. 
+ * 
+ * @returns {any}  it returns the Selected Reinforcement Object for Sliding Doors.
+ * 
+ */
   get_Reinforcement(): any {
     if (this.current_UnifiedModel.ModelInput.Geometry.SlidingDoorSystems) {
       let os = this.current_UnifiedModel.ModelInput.Geometry.SlidingDoorSystems[0];
@@ -521,6 +686,12 @@ export class UnifiedModelService {
     }
   }
 
+ /**
+ * This function is used to set the Selected Reinforcement object to the unified model. 
+ * 
+ * @param {any}  inputData which is the selected Reinforcement object which has to set to the unified model Reinforcement section.
+ * 
+ */
   set_ReinforcementFrame(inputData : any) {
     if (inputData) {
       let os = this.current_UnifiedModel.ModelInput.Geometry.SlidingDoorSystems;
@@ -530,7 +701,13 @@ export class UnifiedModelService {
       this.sideTableUpdated(PanelsModule.ReinforcementSliding);
     }
   }
-  
+ 
+ /**
+ * This function is used to set the Selected Reinforcement bool frame object to the unified model. 
+ * 
+ * @param {any}  inputData which is the selected Reinforcement bool frame object which has to set to the unified model Reinforcement section.
+ * 
+ */
   set_ReinforcementBoolFrame(reinforcementBool: any) {
     let os = this.current_UnifiedModel.ModelInput.Geometry.SlidingDoorSystems;
     if (os) {
@@ -547,11 +724,25 @@ export class UnifiedModelService {
   //#endregion
 
   //#region Mullion
+
+ /**
+ * This function is used to get the Selected Mullion Object. 
+ * 
+ * @returns {Section}  it returns the Mullion object which is in the current unified model with the SectionId 2.
+ * 
+ */
   obj_Mullion(): Section {
       if (this.current_UnifiedModel.ModelInput.Geometry.Sections && this.current_UnifiedModel.ModelInput.Geometry.Sections.length > 0) {
       return this.current_UnifiedModel.ModelInput.Geometry.Sections.filter(f => f.SectionID == 2 && f.SectionType == 2)[0];
     }
   }
+
+ /**
+ * This function is used to get the Selected Mullion article name along with Inside width and Outside width. 
+ * 
+ * @returns {string}  it returns the Selected Mullion article name along with Inside width and Outside width.
+ * 
+ */
   get_Mullion(): string {
     if (this.current_UnifiedModel.ModelInput.Geometry.Sections && this.current_UnifiedModel.ModelInput.Geometry.Sections.filter(f => f.SectionID == 2 && f.SectionType == 2).length > 0) {
       let sec = this.obj_Mullion();
@@ -561,6 +752,13 @@ export class UnifiedModelService {
       return '';
     }
   }
+
+ /**
+ * This function is used to set the Selected Mullion object to the unified model. 
+ * 
+ * @param {any}  inputData which is the selected mullion object which has to set to the unified model mullion section.
+ * 
+ */
   set_Mullion(inputData: any) {
     if (inputData && this.current_UnifiedModel.ProblemSetting.ProductType == "Window") {
       let sectionClass = this.obj_Mullion();
@@ -623,11 +821,25 @@ export class UnifiedModelService {
   //#endregion
 
   //#region Transom
+
+ /**
+ * This function is used to get the Selected Transom Object. 
+ * 
+ * @returns {Section}  it returns the Transom object which is in the current unified model with the SectionId 3.
+ * 
+ */
   obj_Transom(): Section {
     if (this.current_UnifiedModel.ModelInput.Geometry.Sections.length > 0) {
       return this.current_UnifiedModel.ModelInput.Geometry.Sections.filter(f => f.SectionID == 3 && f.SectionType == 3)[0];
     }
   }
+
+ /**
+ * This function is used to get the Selected Transom article name along with Inside width and Outside width. 
+ * 
+ * @returns {string}  it returns the Selected Transom article name along with Inside width and Outside width.
+ * 
+ */
   get_Transom(): string {
     if (this.current_UnifiedModel.ModelInput.Geometry.Sections && this.current_UnifiedModel.ModelInput.Geometry.Sections.filter(f => f.SectionID == 3 && f.SectionType == 3).length > 0) {
       let sec = this.obj_Transom();
@@ -638,6 +850,13 @@ export class UnifiedModelService {
       return '';
     }
   }
+
+ /**
+ * This function is used to set the Selected Transom object to the unified model. 
+ * 
+ * @param {any}  inputData which is the selected Transom object which has to set to the unified model Transom section.
+ * 
+ */
   set_Transom(inputData: any) {
     if (inputData && this.current_UnifiedModel.ProblemSetting.ProductType == "Window") {
       let sectionClass = this.obj_Transom();
@@ -713,11 +932,25 @@ export class UnifiedModelService {
   //#endregion
 
   //#region Mullion Depth
+
+ /**
+ * This function is used to get the Selected Mullion Depth Object. 
+ * 
+ * @returns {Section}  it returns the Mullion Depth object which is in the current unified model with the Facade SectionId 1.
+ * 
+ */
   obj_MullionDepth(): FacadeSection {
     if (this.current_UnifiedModel.ModelInput.Geometry.FacadeSections) {
       return this.current_UnifiedModel.ModelInput.Geometry.FacadeSections.filter(section => section.SectionID == 1)[0];
     }
   }
+
+ /**
+ * This function is used to get the Selected Mullion depth article name along with depth. 
+ * 
+ * @returns {string}  it returns the Selected Mullion depth article name along with depth.
+ * 
+ */
   get_MullionDepth(): string {
     if (this.current_UnifiedModel.ModelInput.Geometry.FacadeSections) {
       let sec = this.obj_MullionDepth();
@@ -725,6 +958,13 @@ export class UnifiedModelService {
       return sec.ArticleName + ' - ' + sec.Depth.toString();
     }
   }
+
+ /**
+ * This function is used to set the Selected mullion depth object to the unified model. 
+ * 
+ * @param {any}  inputData which is the selected mullion depth object which has to set to the unified model Mullion depth facade section.
+ * 
+ */
   set_MullionDepth(inputData: any) {
     if (inputData &&
       this.current_UnifiedModel.ProblemSetting.ProductType == "Facade" &&
@@ -749,12 +989,26 @@ export class UnifiedModelService {
   //#endregion
 
   //#region Transom Depth
+
+ /**
+ * This function is used to get the Selected Transom Depth Object. 
+ * 
+ * @returns {Section}  it returns the Transom Depth object which is in the current unified model with the Facade SectionId 2.
+ * 
+ */
   obj_TransomDepth(): FacadeSection {
     if (this.current_UnifiedModel.ModelInput.Geometry.FacadeSections) {
       //  && f.SectionType == 2 ???
       return this.current_UnifiedModel.ModelInput.Geometry.FacadeSections.filter(section => section.SectionID == 2)[0];
     }
   }
+
+ /**
+ * This function is used to get the Selected Transom depth article name along with depth. 
+ * 
+ * @returns {string}  it returns the Selected Transom depth article name along with depth.
+ * 
+ */
   get_TransomDepth(): string {
     if (this.current_UnifiedModel.ModelInput.Geometry.FacadeSections) {
       let sec = this.obj_TransomDepth();
@@ -762,6 +1016,13 @@ export class UnifiedModelService {
       return sec.ArticleName + ' - ' + sec.Depth.toString();
     }
   }
+
+ /**
+ * This function is used to set the Selected Transom depth object to the unified model. 
+ * 
+ * @param {any}  inputData which is the selected Transom depth object which has to set to the unified model Transom depth facade section.
+ * 
+ */
   set_TransomDepth(inputData: any) {
     if (inputData &&
       this.current_UnifiedModel.ProblemSetting.ProductType == "Facade" &&
@@ -786,17 +1047,38 @@ export class UnifiedModelService {
   //#endregion
 
   //#region Intermediate Transom Depth
+
+ /**
+ * This function is used to get the Selected Intermediate Transom Depth Object. 
+ * 
+ * @returns {Section}  it returns the Intermediate Transom Depth object which is in the current unified model with the Facade SectionId 5.
+ * 
+ */
   obj_IntermediateTransomDepth(): FacadeSection {
     if (this.current_UnifiedModel.ModelInput.Geometry.FacadeSections) {
       // && section.SectionType == 24
       return this.current_UnifiedModel.ModelInput.Geometry.FacadeSections.filter(section => section.SectionID == 5)[0];
     }
   }
+
+ /**
+ * This function is used to get the Selected Intermediate Transom depth article name along with depth. 
+ * 
+ * @returns {string}  it returns the Selected Intermediate Transom depth article name along with depth.
+ * 
+ */
   get_IntermediateTransomDepth(): string {
     let sec = this.obj_IntermediateTransomDepth();
     if (sec)
     return sec.ArticleName + ' - ' + sec.Depth.toString();
   }
+
+ /**
+ * This function is used to set the Selected Intermediate Transom depth object to the unified model. 
+ * 
+ * @param {any}  inputData which is the selected Intermediate Transom depth object which has to set to the unified model Intermediate Transom depth facade section.
+ * 
+ */
   set_IntermediateTransomDepth(inputData: any) {
     if (inputData) {
       var fsections = this.obj_IntermediateTransomDepth();
@@ -806,6 +1088,13 @@ export class UnifiedModelService {
   //#endregion
 
   //#region Intermediate Mullion Depth
+
+ /**
+ * This function is used to get the Selected Intermediate Mullion Depth Object. 
+ * 
+ * @returns {FacadeSection}  it returns the Intermediate Mullion Depth object which is in the current unified model with the Facade SectionId 3.
+ * 
+ */
   obj_IntermediateMullionDepth(): FacadeSection {
     if (this.current_UnifiedModel.ProblemSetting.ProductType == "Facade" && this.current_UnifiedModel.ModelInput.Geometry.FacadeSections) {
       if (this.current_UnifiedModel.ProblemSetting.FacadeType == 'mullion-transom') {
@@ -816,11 +1105,25 @@ export class UnifiedModelService {
       }
     }
   }
+
+ /**
+ * This function is used to get the Selected Intermediate Mullion depth article name along with depth. 
+ * 
+ * @returns {string}  it returns the Selected Intermediate Mullion depth article name along with depth.
+ * 
+ */
   get_IntermediateMullionDepth(): string {
     let sec = this.obj_IntermediateMullionDepth();
     if (sec)
     return sec.ArticleName + ' - ' + sec.Depth.toString();
   }
+
+ /**
+ * This function is used to set the Selected Intermediate Mullion depth object to the unified model. 
+ * 
+ * @param {any}  inputData which is the selected Intermediate Mullion depth object which has to set to the unified model Intermediate Mullion depth facade section.
+ * 
+ */
   set_IntermediateMullionDepth(inputData: any) {
     if (inputData && this.current_UnifiedModel.ProblemSetting.ProductType == "Facade") {
       let article = inputData.article;
@@ -856,16 +1159,37 @@ export class UnifiedModelService {
   //#endregion
 
   //#region Frame Sections
+
+ /**
+ * This function is used to get the Selected top frame section Object. 
+ * 
+ * @returns {FacadeSection}  it returns the top frame section object which is in the current unified model with the Facade SectionId 1 and Section Type 21.
+ * 
+ */
   obj_topFrameSection(): FacadeSection {
     if (this.current_UnifiedModel.ModelInput.Geometry.FacadeSections) {
       return this.current_UnifiedModel.ModelInput.Geometry.FacadeSections.filter(section => section.SectionID == 1)[0]; // && section.SectionType == 21
     }
   }
+
+ /**
+ * This function is used to get the Selected Vertical frame section Object. 
+ * 
+ * @returns {FacadeSection}  it returns the Vertical frame section object which is in the current unified model with the Facade SectionId 2 and Section Type 22.
+ * 
+ */
   obj_verticleFrameSection(): FacadeSection {
     if (this.current_UnifiedModel.ModelInput.Geometry.FacadeSections) {
       return this.current_UnifiedModel.ModelInput.Geometry.FacadeSections.filter(section => section.SectionID == 2)[0]; // && section.SectionType == 22
     }
   }
+
+ /**
+ * This function is used to get the Selected bottom frame section Object. 
+ * 
+ * @returns {FacadeSection}  it returns the bottom frame section object which is in the current unified model with the Facade SectionId 3 and Section Type 23.
+ * 
+ */
   obj_bottomFrameSection(): FacadeSection {
     if (this.current_UnifiedModel.ModelInput.Geometry.FacadeSections) {
       return this.current_UnifiedModel.ModelInput.Geometry.FacadeSections.filter(section => section.SectionID == 3)[0]; // && section.SectionType == 23
@@ -874,6 +1198,13 @@ export class UnifiedModelService {
   //#endregion
 
   //#region UDC Framing Depth
+
+ /**
+ * This function is used to get the Selected UDC Framing depth article name along with depth. 
+ * 
+ * @returns {string}  it returns the Selected UDC Framing depth article name along with depth.
+ * 
+ */
   get_UDCFramingDepth(): string {
     if (this.current_UnifiedModel.ProblemSetting.ProductType == "Facade" && this.current_UnifiedModel.ModelInput.Geometry.FacadeSections) {
       let tfsections = this.obj_topFrameSection();
@@ -891,6 +1222,13 @@ export class UnifiedModelService {
   //#endregion
 
   //#region UDC Framing
+
+ /**
+ * This function is used to set the Selected UDC Framing depth object to the unified model. 
+ * 
+ * @param {any}  inputData which is the selected UDC Framing depth object which has to set to the unified model UDC Framing depth facade section.
+ * 
+ */
   set_UDCFraming(inputData: any) {
     if (inputData) {
       var tfsections = this.obj_topFrameSection();
@@ -914,12 +1252,33 @@ export class UnifiedModelService {
   //#endregion
 
   //#region Profile Color
+
+ /**
+ * This function is used to get the Selected Profile Color. 
+ * 
+ * @returns {string}  it returns the selected profile Color from the current unified model.
+ * 
+ */
   obj_ProfileColor(): string {
     return this.current_UnifiedModel.ModelInput.FrameSystem.AluminumColor;
   }
+
+ /**
+ * This function is used to get the Selected Profile Color. 
+ * 
+ * @returns {string}  it returns the selected profile Color from the current unified model.
+ * 
+ */
   get_ProfileColor(): string {
     return this.obj_ProfileColor();
   }
+
+ /**
+ * This function is used to set the Profile color to the unified model. 
+ * 
+ * @param {any}  inputData which is the selected Profile color which has to set to the unified model.
+ * 
+ */
   set_ProfileColor(inputData: any) {
     if (this.pService.checkPermission(Feature.ProfileColor)) {
       if (inputData) {
@@ -931,16 +1290,37 @@ export class UnifiedModelService {
   //#endregion
 
   //#region Door Leaf Active
+
+ /**
+ * This function is used to get the Selected Door Leaf Active Object. 
+ * 
+ * @returns {DoorSystem}  it returns the selected Door Leaf Active Object from the current unified model.
+ * 
+ */
   obj_DoorLeafActive(): DoorSystem {
     if (this.current_UnifiedModel.ModelInput.Geometry.DoorSystems) {
       return this.current_UnifiedModel.ModelInput.Geometry.DoorSystems[0];
     }
   }
+
+ /**
+ * This function is used to get the Selected Door Leaf active Article Name with Inside and Outside Depths. 
+ * 
+ * @returns {string}  it returns the selected door leaf active article name with inside and outside depths from the current unified model.
+ * 
+ */
   get_DoorLeafActive(): string {
     let ds = this.obj_DoorLeafActive();
     if (ds)
       return ds.DoorLeafArticleName + ' - ' + ds.DoorLeafInsideW + ' / ' + ds.DoorLeafOutsideW;
   }
+
+ /**
+ * This function is used to set the Door leaf active object to the unified model. 
+ * 
+ * @param {any}  inputData which is the selected door leaf active object which has to set to the unified model.
+ * 
+ */
   set_DoorLeafActive(inputData: any) {
     if (inputData) {
       let ds = this.current_UnifiedModel.ModelInput.Geometry.DoorSystems;
@@ -958,16 +1338,37 @@ export class UnifiedModelService {
   //#endregion
 
   //#region Door Leaf Passive
+
+ /**
+ * This function is used to get the Selected Door Leaf Passive Object. 
+ * 
+ * @returns {DoorSystem}  it returns the selected Door Leaf Passive Object from the current unified model.
+ * 
+ */
   obj_DoorLeafPassive(): DoorSystem {
     if (this.current_UnifiedModel.ModelInput.Geometry.DoorSystems) {
       return this.current_UnifiedModel.ModelInput.Geometry.DoorSystems[0];
     }
   }
+
+ /**
+ * This function is used to get the Selected Door Leaf passive Article Name with Inside and Outside Depths. 
+ * 
+ * @returns {string}  it returns the selected door leaf passive article name with inside and outside depths from the current unified model.
+ * 
+ */
   get_DoorLeafPassive(): string {
     let ds = this.obj_DoorLeafPassive();
     if (ds)
       return ds.DoorPassiveJambArticleName + ' - ' + ds.DoorPassiveJambInsideW + ' / ' + ds.DoorPassiveJambOutsideW;
   }
+
+ /**
+ * This function is used to set the Door leaf passive object to the unified model. 
+ * 
+ * @param {any}  inputData which is the selected door leaf passive object which has to set to the unified model.
+ * 
+ */
   set_DoorLeafPassive(inputData: any) {
     if (inputData) {
       let ds = this.current_UnifiedModel.ModelInput.Geometry.DoorSystems;
@@ -986,17 +1387,38 @@ export class UnifiedModelService {
   //#endregion
 
   //#region Sill Profile Bottom
+
+ /**
+ * This function is used to get the Selected sill profile bottom Object. 
+ * 
+ * @returns {DoorSystem}  it returns the selected sill profile bottom Object from the current unified model.
+ * 
+ */
   obj_SillProfileBottom(): DoorSystem {
     if (this.current_UnifiedModel.ModelInput.Geometry.DoorSystems) {
       return this.current_UnifiedModel.ModelInput.Geometry.DoorSystems[0];
     }
   }
+
+ /**
+ * This function is used to get the Selected Sill profile bottom Article Name with Inside and Outside Depths. 
+ * 
+ * @returns {string}  it returns the selected Sill profile bottom article name with inside and outside depths from the current unified model.
+ * 
+ */
   get_SillProfileBottom(): string {
     let ds = this.obj_SillProfileBottom();
     if (ds) {
       return ds.DoorSillArticleName + ' - ' + ds.DoorSillInsideW + ' / ' + ds.DoorSillOutsideW;
     }
   }
+
+ /**
+ * This function is used to set the Sill Profile bottom object to the unified model. 
+ * 
+ * @param {any}  inputData which is the selected sill profile bottom object which has to set to the unified model.
+ * 
+ */
   set_SillProfileBottom(inputData: any) {
     if (inputData) {
       let ds = this.current_UnifiedModel.ModelInput.Geometry.DoorSystems;
@@ -1015,17 +1437,38 @@ export class UnifiedModelService {
   //#endregion
 
   //#region Sill Profile Fixed
+
+ /**
+ * This function is used to get the Selected sill profile fixed Object. 
+ * 
+ * @returns {DoorSystem}  it returns the selected sill profile fixed Object from the current unified model.
+ * 
+ */
   obj_SillProfileFixed(): DoorSystem {
     if (this.current_UnifiedModel.ModelInput.Geometry.DoorSystems) {
       return this.current_UnifiedModel.ModelInput.Geometry.DoorSystems[0];
     }
   }
+
+ /**
+ * This function is used to get the Selected sill profile fixed sections Object. 
+ * 
+ * @returns {Section}  it returns the selected sill profile fixed sections Object from the current unified model.
+ * 
+ */
   obj_SillProfileFixedSections(): Section {
     let sillProfileFixedSection = this.current_UnifiedModel.ModelInput.Geometry.Sections.filter(f => f.SectionID == 33 && f.SectionType == 33)[0];
     if (sillProfileFixedSection) {
       return sillProfileFixedSection;
     }
   }
+
+ /**
+ * This function is used to get the Selected sill profile default section Object. 
+ * 
+ * @returns {Section}  it returns the selected sill profile default section Object from the current unified model.
+ * 
+ */
   obj_SillProfileDefaultSection(): Section {
     let sillProfileDefaultSection = this.current_UnifiedModel.ModelInput.Geometry.Sections.filter(f => f.SectionID == 31 && f.SectionType == 31)[0];
     if (sillProfileDefaultSection) {
@@ -1033,6 +1476,12 @@ export class UnifiedModelService {
     }
   }
 
+ /**
+ * This function is used to remove the  sill profile fixed section Object. 
+ * 
+ * @returns {Section}  it removes the selected sill profile fixed section Object from the current unified model.
+ * 
+ */
   remove_SillProfileFixedSections(): void {
     let sillProfileSectionIndex = this.current_UnifiedModel.ModelInput.Geometry.Sections.findIndex(f => f.SectionID == 33 && f.SectionType == 33)
     if (sillProfileSectionIndex !== -1) {
@@ -1045,13 +1494,25 @@ export class UnifiedModelService {
     this.setUnifiedModel(this.current_UnifiedModel);
   }
 
-
+ /**
+ * This function is used to get the Selected Sill profile fixed Article Name with Inside and Outside Widths. 
+ * 
+ * @returns {string}  it returns the selected Sill profile fixed article name with inside and outside widths from the current unified model.
+ * 
+ */
   get_SillProfileFixed(): string {
     let ds = this.obj_SillProfileFixed();
     if (ds) {
       return ds.DoorSidelightSillArticleName + ' - ' + ds.DoorSillInsideW + ' / ' + ds.DoorSillOutsideW;;
     }
   }
+
+ /**
+ * This function is used to set the Sill Profile fixed object to the unified model. 
+ * 
+ * @param {any}  inputData which is the selected sill profile fixed object which has to set to the unified model.
+ * 
+ */
   set_SillProfileFixed(inputData: any) {
     if (inputData) {
       let ds = this.current_UnifiedModel.ModelInput.Geometry.DoorSystems;
@@ -1099,6 +1560,15 @@ export class UnifiedModelService {
   //#region OPERABILITY
 
   //#region FrameCombination
+
+ /**
+ * This function is used to get the Selected Frame Combination. 
+ * 
+ * @param {any} data which is the selected frame Combination object
+ * 
+ * @returns {string}  it returns the selected Frame combination name.
+ * 
+ */
   get_FrameCombination(inputData: any) {
     if (inputData) {
       return 'Combination 1';
@@ -1107,9 +1577,27 @@ export class UnifiedModelService {
   //#endregion
 
   //#region Operability System
+
+ /**
+ * This function is used to get the Operability System Object. 
+ * 
+ * @param {any} OperableId which is the Operable SystemId by which operable system object is returned
+ * 
+ * @returns {OperabilitySystem}  it returns the Operable System Object by Operable System Id given.
+ * 
+ */
   obj_OperabilitySystemById(OperableId: any): OperabilitySystem {
     return this.current_UnifiedModel.ModelInput.Geometry.OperabilitySystems.filter(glass => glass.OperabilitySystemID === OperableId)[0];
   }
+
+ /**
+ * This function is used to get the Operability System Object with the given picker. 
+ * 
+ * @param {number} selectedPicker which is the PickerId by which operable system object is returned
+ * 
+ * @returns {OperabilitySystem}  it returns the Operable System Object by Selected Picker given.
+ * 
+ */
   obj_OperabilitySystem(selectedPicker: number = -1): OperabilitySystem {
     if (this.current_UnifiedModel.ProblemSetting.ProductType == "SlidingDoor") { 
       return this.current_UnifiedModel.ModelInput.Geometry.OperabilitySystems[0];
@@ -1124,12 +1612,29 @@ export class UnifiedModelService {
   //#endregion
 
   //#region Handle Color
+
+ /**
+ * This function is used to get the Handle Color. 
+ * 
+ * @param {number} selectedPicker which is the selected Picker by which obtain the operability system and its associated Handle Color
+ * 
+ * @returns {string}  it returns Handle Color applied from the operability system based on the selected picker.
+ * 
+ */
   get_HandleColor(selectedPicker: number = -1): string {
     if (selectedPicker > -1) {
       if (this.obj_OperabilitySystem(selectedPicker))
         return this.obj_OperabilitySystem(selectedPicker).InsideHandleColor;
     }
   }
+
+ /**
+ * This function is used to set the Handle color to the unified model. 
+ * 
+ * @param {any}  inputData which is the selected Handle Color object which has to set to the unified model.
+ * 
+ * @param {number} selectedPicker Handle color is set to the operabilitysystem object of the selected picker
+ */
   set_HandleColor(inputData: any, selectedPicker: number = -1) {
     if (this.pService.checkPermission(this.feature.HandleColor) && inputData) {
       if (selectedPicker > -1) {
@@ -1150,10 +1655,28 @@ export class UnifiedModelService {
   //#endregion
 
   //#region HingeType
+
+ /**
+ * This function is used to get the Door Object with the given Door SystemId. 
+ * 
+ * @param {any} doorsystemId which is the door systemId by which Door System Object is returned from the current unified model.
+ * 
+ * @returns {DoorSystem}  it returns the Door System Object by the given door systemId.
+ * 
+ */
   obj_Door(doorsystemId: any): DoorSystem {
     if (this.current_UnifiedModel.ModelInput.Geometry.DoorSystems)
       return this.current_UnifiedModel.ModelInput.Geometry.DoorSystems.filter(glass => glass.DoorSystemID === doorsystemId)[0];
   }
+
+ /**
+ * This function is used to get the Hinge Type. 
+ * 
+ * @param {number} selectedPicker which is the selected Picker by which the operability system is obtained from which Hinge type is extracted
+ * 
+ * @returns {string}  it returns Hinge Type article name along with the associated color applied from the operability system based on the selected picker.
+ * 
+ */
   get_HingeType(selectedPicker: number = -1): string {
     if (selectedPicker > -1 && this.handleDataList) {
       if (this.current_UnifiedModel.ModelInput.Geometry.OperabilitySystems && this.current_UnifiedModel.ModelInput.Geometry.OperabilitySystems.length > 0) {
@@ -1171,6 +1694,14 @@ export class UnifiedModelService {
       }
     }
   }
+
+ /**
+ * This function is used to set the HInge Type to the unified model. 
+ * 
+ * @param {any}  inputData which is the selected Hinge tYpe object which has to set to the unified model.
+ * 
+ * @param {number} selectedPicker Hinge Type is set to the operabilitysystem object of the selected picker
+ */
   set_HingeType(inputData: any, selectedPicker: number = -1) {
     if (this.pService.checkPermission(this.feature.ADS_75) && inputData) {
       if (selectedPicker > -1) {
@@ -1197,6 +1728,15 @@ export class UnifiedModelService {
   //#endregion
 
   //#region Inside Handle
+
+ /**
+ * This function is used to get the Inside Handle. 
+ * 
+ * @param {number} selectedPicker which is the selected Picker by which the operability system is obtained from which Inside Handle is extracted
+ * 
+ * @returns {string}  it returns Inside Handle article name along with the associated color applied from the operability system based on the selected picker.
+ * 
+ */
   get_InsideHandle(selectedPicker: number = -1): string {
     if (selectedPicker > -1 && this.handleDataList) {
       if (this.current_UnifiedModel.ModelInput.Geometry.OperabilitySystems && this.current_UnifiedModel.ModelInput.Geometry.OperabilitySystems.length > 0) {
@@ -1247,6 +1787,14 @@ export class UnifiedModelService {
       }
     }
   }
+
+ /**
+ * This function is used to set the Inside Handle to the unified model. 
+ * 
+ * @param {any}  inputData which is the selected Inside Handle object which has to set to the unified model.
+ * 
+ * @param {number} selectedPicker Inside Handle is set to the operabilitysystem object of the selected picker
+ */
   set_InsideHandle(inputData: any, selectedPicker: number = -1) {
     // the below code is to retain the selected value of Inside handle from the child component
     if (this.pService.checkPermission(this.feature.InsideHandle) && inputData) {
@@ -1282,7 +1830,16 @@ export class UnifiedModelService {
   }
   //#endregion
 
-  //#region Outside Handle  
+  //#region Outside Handle
+  
+ /**
+ * This function is used to get the Outside Handle. 
+ * 
+ * @param {number} selectedPicker which is the selected Picker by which the operability system is obtained from which Outside Handle is extracted
+ * 
+ * @returns {string}  it returns Outside Handle article name along with the associated color applied from the operability system based on the selected picker.
+ * 
+ */
   get_OutsideHandle(selectedPicker: number = -1): string {
     if (selectedPicker > -1 && this.handleDataList) {
       if (this.current_UnifiedModel.ModelInput.Geometry.OperabilitySystems && this.current_UnifiedModel.ModelInput.Geometry.OperabilitySystems.length > 0) {
@@ -1300,6 +1857,14 @@ export class UnifiedModelService {
       }
     }
   }
+
+ /**
+ * This function is used to set the Outside Handle to the unified model. 
+ * 
+ * @param {any}  inputData which is the selected Outside Handle object which has to set to the unified model.
+ * 
+ * @param {number} selectedPicker Outside Handle is set to the operabilitysystem object of the selected picker
+ */
   set_OutsideHandle(inputData: any, selectedPicker: number = -1) {
     // the below code is to retain the selected value of Inside handle from the child component
     if (this.pService.checkPermission(this.feature.ADS_75) && inputData) {
@@ -1326,6 +1891,13 @@ export class UnifiedModelService {
 
   //#endregion OPERABILITY
   //#region GLASSPANEL
+
+ /**
+ * This function is used to set the acoustic enabled and disabled by displaying a notification. 
+ * 
+ * @param {any}  selectedArticle which is the selected Glass and Panel article based on its category will disable and enable acoustic acoustic which has to set to the unified model.
+ *
+ */
   set_GlassPanel(selectedArticle: any) { 
     if (selectedArticle.composition.split("-").length === 5 && selectedArticle.category === "custom") {
       if (this.current_UnifiedModel.ProblemSetting.EnableAcoustic) {
@@ -1341,6 +1913,10 @@ export class UnifiedModelService {
     }
   }
 
+ /**
+ * This function is used to enable the acoustic icon and will display a notification. 
+ *
+ */
   DoEnableAcoustic() {
     if (!this.current_UnifiedModel.ProblemSetting.EnableAcoustic && this.current_UnifiedModel.ProblemSetting.isAcousticEnabled) {
       var AWS114Data = this.current_UnifiedModel.ModelInput.Geometry.Infills.filter((g) => g.InsertWindowSystem !== null && g.InsertWindowSystem !== undefined && g.InsertWindowSystem.indexOf("AWS 114") > -1);
@@ -1352,6 +1928,11 @@ export class UnifiedModelService {
     }
   }
 
+ /**
+ * This function is used to convert the custom glass data to display. 
+ *
+ * @returns {any} customGlassData which is the custom glass data in the format with the existing double and triple glass data.
+ */
   ConvertCustomGlassData(): any[] {
     var customGlassData = [];
     var customGlassId = 0;
@@ -1407,6 +1988,16 @@ export class UnifiedModelService {
   //#endregion GLASSPANEL
 
   //#region Support functions
+
+ /**
+ * This function is used to build the article properties under framing section. 
+ *
+ * @param {any} inputArticle which is the selected article under framing option.
+ * 
+ * @param {FacadeSection} section which is the setion to which all the properties has to be set
+ * 
+ * @param {boolean} isUDCFramingUpdate which is the boolean value which tells us whether it is the UDC Framing Update or other Framing Update.
+ */
   buildFramingSection(inputArticle: any, section: FacadeSection, isUDCFramingUpdate = false) {
     let article = inputArticle.article;
     let isCustomed = inputArticle.isCustomed;
@@ -1462,6 +2053,11 @@ export class UnifiedModelService {
       }
     }
   }
+
+ /**
+ * This function is used to set the bottom framing section to the unified model. 
+ * 
+ */
   setBottomFraming() {
     if (this.current_UnifiedModel.ModelInput.FrameSystem.HorizontalJointWidth === 20) {
       var tfsections = this.obj_topFrameSection();
@@ -1493,6 +2089,13 @@ export class UnifiedModelService {
       }
     }
   }
+
+ /**
+ * This function is used to check whether the Mullion exists in UDC Product Type. 
+ * 
+ * @return {boolean} isMullion returns as true if the mullion exists else returns false
+ * 
+ */
   isMullionExistUDC() {
     let isMullion = false;
     if (this.current_UnifiedModel && this.current_UnifiedModel.ModelInput && this.current_UnifiedModel.ModelInput.Geometry && this.current_UnifiedModel.ModelInput.Geometry.Members) {
@@ -1501,6 +2104,13 @@ export class UnifiedModelService {
     }
     return isMullion;
   }
+
+ /**
+ * This function is used to check whether the Transom exists in UDC Product Type. 
+ * 
+ * @return {boolean} isTransom returns as true if the transom exists else returns false
+ * 
+ */
   isTransomExistUDC() {
     let isTransom = false;
     if (this.current_UnifiedModel && this.current_UnifiedModel.ModelInput && this.current_UnifiedModel.ModelInput.Geometry && this.current_UnifiedModel.ModelInput.Geometry.Members) {
@@ -1509,6 +2119,13 @@ export class UnifiedModelService {
     }
     return isTransom;
   }
+
+ /**
+ * This function is used to get the Door Handle Articles list from the api call if the list is already not there in local storage. 
+ * 
+ * If exists from the local storage the will return from the local storage.
+ * 
+ */
   GetDoorHandleArticles() {
     if (localStorage.getItem('DoorHandleArticles_')) {
       this.handleDataList = JSON.parse(localStorage.getItem('DoorHandleArticles_'));
@@ -1520,6 +2137,12 @@ export class UnifiedModelService {
     }
   }
 
+ /**
+ * This function is used to get the sliding Door Handle Articles list from the api call if the list is already not there in local storage. 
+ * 
+ * If exists from the local storage the will return from the local storage.
+ * 
+ */
   GetSlidingDoorHandleArticles() {
     if (localStorage.getItem('SlidingDoor')) {
       this.slidingDoorsHandlesList = JSON.parse(localStorage.getItem('SlidingDoorArticles_'));
@@ -1531,6 +2154,12 @@ export class UnifiedModelService {
     }
   }
 
+ /**
+ * This function is used to get the  Articles list related to ADS System Type from the api call if the list is already not there in local storage. 
+ * 
+ * If exists from the local storage the will return from the local storage.
+ * 
+ */
   GetADSArticlesList() {
     if (localStorage.getItem('ADSArticlesList_')) {
       this.adsArticlesList = JSON.parse(localStorage.getItem('ADSArticlesList_'));
@@ -1545,6 +2174,12 @@ export class UnifiedModelService {
   //#endregion
 
   //#region Load
+
+ /**
+ * This function is used to set the Wind Load to the unified model. 
+ * 
+ * @param {any} loadData which is the Windload has to set to the unified model.
+ */
   set_WindLoad(loadData: any) {
     if(this.current_UnifiedModel && this.current_UnifiedModel.ModelInput && this.current_UnifiedModel.ModelInput.Structural) {
       this.current_UnifiedModel.ModelInput.Structural.WindLoad = parseFloat(loadData)
@@ -1552,6 +2187,12 @@ export class UnifiedModelService {
     this.sideTableUpdated(PanelsModule.Load);
   }  
 
+ /**
+ * This function is used to get the Wind Load. 
+ *  
+ * @returns {string}  it returns Windload from the current Unified model.
+ * 
+ */
   get_WindLoad(): string {
     if (this.current_UnifiedModel && this.current_UnifiedModel.ModelInput && this.current_UnifiedModel.ModelInput.Structural) {
       return this.current_UnifiedModel.ModelInput.Structural.WindLoad ? this.current_UnifiedModel.ModelInput.Structural.WindLoad.toFixed(2) : "1.68";
@@ -1560,6 +2201,12 @@ export class UnifiedModelService {
   //#endregion
 
  // #region Thermal
+
+ /**
+ * This function is used to set the thermal values to the unified model. 
+ * 
+ * @param {Thermal} thermal which is the thermal object has to set to the current unified model.
+ */
  set_Thermal(thermal: Thermal) {
   if (!this.current_UnifiedModel.ModelInput) {
     this.current_UnifiedModel.ModelInput = new ModelInput();
@@ -1570,6 +2217,12 @@ export class UnifiedModelService {
  //#endregion
 
  // #region Structural
+
+ /**
+ * This function is used to set the structural values to the unified model. 
+ * 
+ * @param {Structural} structural which is the structural object has to set to the current unified model.
+ */
  set_Structural(structural: Structural) {
   if (!this.current_UnifiedModel.ModelInput) {
     this.current_UnifiedModel.ModelInput = new ModelInput();
@@ -1577,6 +2230,11 @@ export class UnifiedModelService {
   this.current_UnifiedModel.ModelInput.Structural = structural;
  }
 
+ /**
+ * This function is used to set the alloy data to the unified model. 
+ * 
+ * @param {any} alloyData which is the alloy object has to set to the current unified model.
+ */
   set_Alloy(alloyData: any) {
     if (!this.current_UnifiedModel.ModelInput.FrameSystem) {
       this.current_UnifiedModel.ModelInput.FrameSystem = new FrameSystem();
@@ -1585,17 +2243,38 @@ export class UnifiedModelService {
     this.sideTableUpdated;
   }
 
+ /**
+ * This function is used to get the alloy data. 
+ *  
+ * @returns {string}  it returns alloy data from the current Unified model.
+ * 
+ */
   get_alloy(): string {
     return this.current_UnifiedModel.ModelInput.FrameSystem.Alloys;
   }
   //#endregion
 
-    //#region Outside Handle for Sliding Doors  
+    //#region Outside Handle for Sliding Doors
+    
+ /**
+ * This function is used to get the Sliding Door Object from teh Current Unified Model based on the given Sliding Door SystemId. 
+ *  
+ * @param {any} slidingdoorsystemId is the input to get the Sliding Door System Object from the current unified Model 
+ * 
+ * @returns {string}  it returns Sliding Soor System Object based on the sliding Door SystemId from the Current unified model.
+ * 
+ */
     obj_SlidingDoor(slidingdoorsystemId: any): SlidingDoorSystem {
       if (this.current_UnifiedModel.ModelInput.Geometry.SlidingDoorSystems)
         return this.current_UnifiedModel.ModelInput.Geometry.SlidingDoorSystems.filter(glass => glass.SlidingDoorSystemID === slidingdoorsystemId)[0];
     }
 
+ /**
+ * This function is used to get the Outside Handle data from the current Unified Model. 
+ *  
+ * @returns {string}  it returns Outside Handle Article Name along with the color from the current Unified model.
+ * 
+ */
     get_OutsideHandleForSlidingDoors(): string {
       if (this.slidingDoorsHandlesList) {
         if (this.current_UnifiedModel.ModelInput.Geometry.OperabilitySystems && this.current_UnifiedModel.ModelInput.Geometry.OperabilitySystems.length > 0) {
@@ -1614,6 +2293,12 @@ export class UnifiedModelService {
         }
       }
     }
+
+ /**
+ * This function is used to set the OutSide Handle Data to the current unified model. 
+ * 
+ * @param {any} inputData which is the Outside Handle for Sliding Doors has to set to the current unified model.
+ */
     set_OutsideHandleForSlidingDoors(inputData: any) {
       // the below code is to retain the selected value of Inside handle from the child component
       // if (this.pService.checkPermission(this.feature.SlidingUnit) && inputData) {
@@ -1637,6 +2322,13 @@ export class UnifiedModelService {
     //#endregion
 
     //#region Inside Handle for Sliding Doors 
+
+ /**
+ * This function is used to get the Inside Handle data for Sliding Doors from the current Unified Model. 
+ *  
+ * @returns {string}  it returns Inside Handle Article Name along with the color from the current Unified model.
+ * 
+ */
     get_InsideHandleForSlidingDoors(): string {
       if (this.slidingDoorsHandlesList) {
         if (this.current_UnifiedModel.ModelInput.Geometry.OperabilitySystems && this.current_UnifiedModel.ModelInput.Geometry.OperabilitySystems.length > 0) {
@@ -1656,6 +2348,12 @@ export class UnifiedModelService {
         }
       }
     }
+
+ /**
+ * This function is used to set the Inside Handle Data to the current unified model. 
+ * 
+ * @param {any} inputData which is the Inside Handle for Sliding Doors has to set to the current unified model.
+ */
     set_InsideHandleForSlidingDoors(inputData: any) {
       // the below code is to retain the selected value of Inside handle from the child component
       if ( inputData) {
@@ -1679,6 +2377,13 @@ export class UnifiedModelService {
     //#endregion 
 
     //#region Track Type
+
+ /**
+ * This function is used to get the Track Type data for Sliding Doors from the current Unified Model. 
+ *  
+ * @returns {string}  it returns the track type applied  from the current Unified model.
+ * 
+ */
   get_TrackType(): string {
     if (this.current_UnifiedModel.ModelInput.Geometry.OperabilitySystems && this.current_UnifiedModel.ModelInput.Geometry.OperabilitySystems.length > 0) {
       let operabilitySystem = this.obj_OperabilitySystem(0);
@@ -1690,6 +2395,13 @@ export class UnifiedModelService {
     //#endregion
 
     //#region slideoption
+
+ /**
+ * This function is used to get the Slide option data for Sliding Doors from the current Unified Model. 
+ *  
+ * @returns {string}  it returns the slide option applied  from the current Unified model.
+ * 
+ */
     get_SlideOption(): string {
       if (this.current_UnifiedModel.ModelInput.Geometry.OperabilitySystems && this.current_UnifiedModel.ModelInput.Geometry.OperabilitySystems.length > 0) {
         if (this.obj_OperabilitySystem(1)) {
@@ -1706,6 +2418,13 @@ export class UnifiedModelService {
     //endregion
 
     //#region Moving vent
+
+ /**
+ * This function is used to get the moving vent data for Sliding Doors from the current Unified Model. 
+ *  
+ * @returns {string}  it returns the moving vent option applied  from the current Unified model.
+ * 
+ */
     get_MovingVent(): string {
       let vent: string;
       if (this.current_UnifiedModel.ModelInput.Geometry.OperabilitySystems && this.current_UnifiedModel.ModelInput.Geometry.OperabilitySystems.length > 0) {
