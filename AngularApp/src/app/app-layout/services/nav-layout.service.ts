@@ -18,11 +18,19 @@ export class NavLayoutService {
   isEmptyPage: Subject<boolean> = new Subject<boolean>();
   private isNavBarShownSubject: Subject<boolean> = new Subject<boolean>();
   private isNavBarVisible: boolean = false;
+  /**
+   * Show or hide the nav bar
+   * @param isVisible 
+   */
   changeNavBarVisibility(isVisible: boolean): void {
     this.isNavBarVisible = isVisible;
     this.isNavBarShownSubject.next(this.isNavBarVisible);
   }
 
+  /**
+   * Change the display of the nav bar
+   * @returns 
+   */
   onChangeNavBarVisibility(): Observable<boolean> {
     if (this.isNavBarShownSubject !== undefined) {
       return this.isNavBarShownSubject.asObservable();
@@ -35,6 +43,10 @@ export class NavLayoutService {
 
   //#region set get Current ProjectId from route param
   private currentProjectId: string = "";
+  /**
+   * Get the current project id from the url (or take the default one if null) and save it in a variable
+   * @returns 
+   */
   getCurrentProjectId(): string {
     // we need to check for all the children of the route to get the param
     let id = this.getRouteParam("projectId");
@@ -45,6 +57,10 @@ export class NavLayoutService {
     return this.currentProjectId;
   }
 
+  /**
+   * Save the id in a variable
+   * @param id 
+   */
   setCurrentProjectId(id: string): void {
     this.currentProjectId = id;
   }
@@ -53,17 +69,29 @@ export class NavLayoutService {
   //#region set & get nav bar buttons
   private isNavBarButtonAndTitleVisible: boolean;
   isNavBarButtonAndTitleShownSubject: Subject<boolean> = new Subject<boolean>();
+  /**
+   * Change the nav bar visibility
+   * @param isVisible 
+   */
   changeNavBarButtonAndTitleVisibility(isVisible: boolean): void {
     this.isNavBarButtonAndTitleVisible = isVisible;
     this.isNavBarButtonAndTitleShownSubject.next(this.isNavBarButtonAndTitleVisible);
   }
+  /**
+   * Set the nav bar visibility
+   */
   setNavBarButtonAndTitleVisibility(): void {
     this.isNavBarButtonAndTitleShownSubject.next(this.isNavBarButtonAndTitleVisible);
   }
   //#endregion
 
  // #region to display the nav bar and nav bar title display
-
+  /**
+   * 
+   * @param isEmpty 
+   * @param navBarVisibility Show/Hide the nav bar
+   * @param navBarAndTitleVisibility Show/Hide the title of the nav bar
+   */
  changeNavBarSettings(isEmpty: boolean, navBarVisibility: boolean, navBarAndTitleVisibility: boolean) {
    this.isNavBarButtonAndTitleVisible = navBarAndTitleVisibility;
    this.isNavBarVisible = navBarVisibility;
@@ -77,6 +105,10 @@ export class NavLayoutService {
 
   //#region Dealer Information
   resetUserInfoSubject: Subject<boolean> = new Subject<boolean>();
+  /**
+   * Reset the dealer info
+   * @param doRefresh 
+   */
   resetDealerInfo(doRefresh: boolean): void {
     this.resetUserInfoSubject.next(doRefresh);
   }

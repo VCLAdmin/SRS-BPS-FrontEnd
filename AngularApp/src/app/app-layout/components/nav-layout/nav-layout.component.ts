@@ -68,7 +68,9 @@ export class NavLayoutComponent implements OnInit, OnDestroy, AfterViewInit {
     })
   }
 
-
+/**
+ * Download report button
+ */
   public showDownloadButton() {
     if (this.appConstantService.APP_DOMAIN === 'http://localhost:58119/'
       || this.appConstantService.APP_DOMAIN === 'https://apiwebtest.vcldesign.com/'
@@ -84,6 +86,10 @@ export class NavLayoutComponent implements OnInit, OnDestroy, AfterViewInit {
   MyOrderSelected = false;
   OrderPlaced = false;
   applicationType: string = '';
+  /**
+   * Set the display of the language, download button, cross button and save button
+   * if the myorder is selected, make its button blue (selected)
+   */
   ngOnInit(): void {
     this.applicationType = this.commonService.getApplicationType();
     if (this.applicationType === 'BPS') { 
@@ -126,6 +132,9 @@ export class NavLayoutComponent implements OnInit, OnDestroy, AfterViewInit {
     else this.MyOrderSelected = false;
   }
 
+  /**
+   * After the rooting is done, make one button blue (selected) depending on the url
+   */
   ngAfterViewInit(): void {
     this.routeEvent(this.router);
    
@@ -165,6 +174,10 @@ export class NavLayoutComponent implements OnInit, OnDestroy, AfterViewInit {
   
   }
 
+  /**
+   * Rooting events
+   * @param router 
+   */
   routeEvent(router: Router) {
     // this.routerSubscription = router.events.subscribe(e => {
     router.events.pipe(takeUntil(this.destroy$)).subscribe(e => {
@@ -184,6 +197,10 @@ export class NavLayoutComponent implements OnInit, OnDestroy, AfterViewInit {
   logOut(): void {
     this.auth.logOut();
   }
+  /**
+   * Save the previous route (if the user wants to come back by clicking the cross button)
+   * Set the home nav bar settings
+   */
   onNavigateToHome(): void {
     if (this.router.url.substr(1, 6) == "proble" || this.router.url.substr(1, 6) == "result" || this.router.url.substr(1, 6) == "report" || this.router.url.substr(1, 6) == "orders") {
       this.previousRoute = this.router.url;
@@ -193,6 +210,10 @@ export class NavLayoutComponent implements OnInit, OnDestroy, AfterViewInit {
     this.navLayoutService.changeNavBarButtonAndTitleVisibility(false);
   }
 
+  /**
+   * Save the unified model in the service
+   * Navigate to the configuration
+   */
   onNavigateToConfigure() {
     this.navLayoutService.changeNavBarButtonAndTitleVisibility(true);
     this.configureService.configureCall = false;
@@ -203,13 +224,23 @@ export class NavLayoutComponent implements OnInit, OnDestroy, AfterViewInit {
     this.router.navigate(['/problemconfigure/', this.problem.ProblemGuid]);
   }
 
+  /**
+   * Rooting to the result page
+   */
   onNavigateToResult() {
     this.router.navigate(['/result/', this.problem.ProblemGuid]);
   }
 
+  /**
+   * Rooting to the report page
+   */
   onNavigateToReport() {
     this.router.navigate(['/report/', this.problem.ProblemGuid]);
   }
+
+  /**
+   * Rooting to the order page
+   */
   onNavigateToOrders() {
     this.onSaveButtonClick();
     setTimeout(() => {
@@ -240,6 +271,10 @@ export class NavLayoutComponent implements OnInit, OnDestroy, AfterViewInit {
       this.destroy$.next();
       this.destroy$.complete();
   }
+
+  /**
+   * Save the unified model
+   */
   onSaveButtonClick() {
     this.configureService.areRightPanelButtonsDisabled = true;
     this.showBlueSaveButton = true;
@@ -252,12 +287,19 @@ export class NavLayoutComponent implements OnInit, OnDestroy, AfterViewInit {
     window.open(url, '_blank');
   }
 
+  /**
+   * Download report request to the back-end
+   */
   onDownloadButtonClick() {
     this.downloads
       .download(this.configureService.currentUnifiedModel.changingThisBreaksApplicationSecurity)
       .subscribe(blob => saveAs(blob, 'download.json'))
   }
 
+  /**
+   * When the user clicks on the cross button on the home page
+   * Navigate to the previous problem displayed
+   */
   onComePreviousPage() {
     if (this.previousRoute) {
       let problemGuid = this.previousRoute.split(/[/ ]+/).pop();
@@ -275,6 +317,10 @@ export class NavLayoutComponent implements OnInit, OnDestroy, AfterViewInit {
     }
   }
 
+  /**
+   * Change the language to display
+   * @param language
+   */
   onChangeLanguage(language: string) {
     this.language = language;
     this.homeService.setCurrentUserLanguage(this.language).subscribe((lan) => {

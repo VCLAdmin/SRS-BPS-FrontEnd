@@ -30,6 +30,10 @@ export class MainLayoutComponent implements OnInit, AfterViewInit, OnDestroy {
 
   landingImageURL: string; landingSrcSet: string;
   applicationNameImageURL: string; applicationNameSrcSet: string; applicationType: string = '';
+  /**
+   * Handle the display of the BPS or SRS logo in the nav bar
+   * HAndle the display of the nav bar
+   */
   ngOnInit(): void {
     if (this.appConstantsService.APP_DOMAIN == 'https://api.srs.vcldesign.com/' || this.appConstantsService.APP_DOMAIN == 'https://srsapitest.vcldesign.com/') {
       this.landingImageURL = '/assets/Images/sps/srs_img_landingpage_1.0.png';
@@ -67,6 +71,9 @@ export class MainLayoutComponent implements OnInit, AfterViewInit, OnDestroy {
     this.navLayoutService.changeNavBarVisibility(false);
   }
 
+  /**
+   * Handle the rooting and nav bar display
+   */
   ngAfterViewInit() {
     if (this.commonService.getUserGuid() !== null && this.commonService.getUserGuid() !== undefined) {
       if (location.pathname == '/' || location.pathname == '/login')
