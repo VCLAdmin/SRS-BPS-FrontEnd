@@ -91,12 +91,6 @@ div:focus {
   margin-right: 20px;
 }
 
-.user-icon-container {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
 .anticon-user {
   color: #ffffff;
   font-size: 14px;
@@ -199,9 +193,12 @@ div:focus {
 }
 
 .login-settings,
-.login-logout,
-.login-shuco {
+.login-logout {
   margin-right: 25px;
+}
+
+.login-shuco {
+  margin-right: 22px;
   position: relative;
   top: -1px;
 }
@@ -209,21 +206,23 @@ div:focus {
 .bps-menu-item-login {
   padding-left: 25px !important;
   width: 200px;
-}
-
-.login-titles {
-  position: relative;
-  top: -6px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .login-titles-shuco {
   top: 1px;
   position: relative;
-}
+  font-family: UniversForSchueco-330;
+  font-size: 12px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 0.75;
+  letter-spacing: normal;
+  text-align: left;
 
-.login-shuco {
-  margin-right: 22px;
-  top: -1px;
 }
 
 .bps-menu-item.ant-dropdown-menu-item-disabled .login-settings::after {
@@ -278,11 +277,44 @@ div:focus {
 }
 
 .languageImg {
-  height: 15px;
-  width: 25px;
+  height: 14.5px;
+  width: 20.3px;
 }
 
 .icondropdown {
   padding: 15px 10px 2px 10px;
   margin-right: 240px;
+}
+
+.dropdown-title {
+  text-transform: uppercase;
+  font-family: UniversForSchueco-530Med;
+  font-size: 12px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 0.75;
+  letter-spacing: normal;
+  text-align: left;
+  color: #999;
+  margin-left: 24px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+}
+
+li.bps-menu-item-login img {
+  margin-left: 9px!important;
+}
+
+.language-title {
+  padding-left: 24px!important;
+}
+
+li.bps-menu-item-login svg {
+  margin-left: auto;
+}
+
+.first-span {
+  padding-left: 9px;
 }

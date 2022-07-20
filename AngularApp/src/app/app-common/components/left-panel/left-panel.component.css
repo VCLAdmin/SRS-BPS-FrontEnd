@@ -7,7 +7,7 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:act
 
 #left-panel {
     float: left;
-    width: 295px;
+    width: 335px;
     border-right: 1px solid #474747;
     height: calc(100vh - 69px);
     overflow: hidden;
@@ -17,7 +17,7 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:act
     margin-top: 28px;
     margin-left: 40px;
     height: 96%;
-    width: 86%;
+    width: 294px;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -42,7 +42,7 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:act
 }
 
 #new-project-name, #new-project-location {
-    width: 215px;
+    width: 255px;
     height: 20px;
     border: 1px solid #262626;
     padding: 0px;
@@ -104,7 +104,7 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:act
     width: 105px;
     height: 30px;
     text-transform: uppercase;
-    margin-left: 45px;
+    margin-left: 65px;
     margin-top: 42px;
     border-radius: 8px;
     border: none;

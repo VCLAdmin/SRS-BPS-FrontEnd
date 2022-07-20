@@ -80,21 +80,6 @@
             <img alt="" src="/assets/Images/sps/sps_square_icon_addnotes_white.svg" bps-tooltip *ngIf="applicationType==='BPS'"
             [bpsTooltipType]="'variation_11'" bpsTooltipTitle="{{'nav-layout.feedback' | translate }}" 
             bpsTooltipPlacement="bottom" style="cursor: pointer; visibility: visible; margin-right: 19px;"  class="bps-save-button" (click)="onOpenFeedback()"/>
-            
-            <!-- Language Selection Part -->
-            <div class="icondropdownNavLayout" *ngIf="!isConfigureClicked && !isResultClicked && !isReportClicked && applicationType==='BPS'">
-                <button nz-button nz-dropdown nzTrigger="click" [nzDropdownMenu]="menuLanguage" nzPlacement="bottomCenter" 
-                    class="languageDropdown">
-                    <img alt="" class="languageImg" [attr.alt]="language === 'en-US' ? 'American Flag':'Deutsche Flag'" 
-                    [attr.src]="language === 'en-US' ? '/assets/Images/flags/UK.png':'/assets/Images/flags/DE.png'">
-                </button>
-                <nz-dropdown-menu #menuLanguage="nzDropdownMenu">
-                    <ul nz-menu class="dropdown-menu" role="menu">
-                        <li nz-menu-item id="aChangeLanguageDE" (click)="onChangeLanguage('de-DE')"><img class="languageImg" alt="Deutsche Flag" src="/assets/Images/flags/DE.png"></li>
-                        <li nz-menu-item id="aChangeLanguageEN" (click)="onChangeLanguage('en-US')"><img class="languageImg" alt="American Flag" src="/assets/Images/flags/UK.png"></li>
-                    </ul>
-                </nz-dropdown-menu>
-            </div>
 
             <div id="bps-download-button" class="bps-download-button" (click)="onDownloadButtonClick()"
                 *ngIf="showDownload && isConfigureClicked"></div>
@@ -106,15 +91,6 @@
                 {{'nav-layout.welcome-back' | translate }}<span> {{ userFullName }}</span>
                 <!-- Welcome back -->
             </div>
-            <div class="user-icon-container">
-                <i nz-icon nzType="user" nzTheme="outline"></i>
-            </div>
-            <!-- <div class="login-arrow-down-container">
-                <img alt="" class="intro-page-heading-spacing-1" src="/assets/Images/sps/sps_arrowdown_icon_expand_darkgrey.svg">
-            </div> -->
-            <!-- <a class="login-arrow-down-container" nz-dropdown nzTrigger="click" [nzDropdownMenu]="menu">
-                <img alt="" class="intro-page-heading-spacing-1" src="/assets/Images/sps/sps_arrowdown_icon_expand_darkgrey.svg">
-            </a> -->
             <button bps-button bpsType="variation-16" class="login-arrow-down-container" bps-dropdown
                 [bpsDropdownMenu]="menu2" bpsTrigger="click" [bpsPlacement]="'bottomRight'">
                 <img alt="" class="intro-page-heading-spacing-1"
@@ -122,15 +98,102 @@
             </button>
             <bps-dropdown-menu #menu2="bpsDropdownMenu">
                 <ul nz-menu>
-                    <li nz-menu-item class="bps-menu-item bps-menu-item-login" nzDisabled><span
-                            class="login-settings"></span><span class="login-titles">{{'nav-layout.settings' | translate
-                            }}</span></li>
-                    <li nz-menu-item class="bps-menu-item bps-menu-item-login" nzDisabled><span
-                            class="login-shuco"></span><span class="login-titles-shuco">Schüco</span></li>
-                    <li nz-menu-item (click)="logOut()" class="bps-menu-item bps-menu-item-logout bps-menu-item-login">
-                        <span class="login-logout"></span><span class="login-titles">{{'nav-layout.log-out' | translate
-                            }}</span>
+                    <div class="dropdown-title">Account</div>
+                    <li nz-menu-item class="bps-menu-item bps-menu-item-login" nzDisabled>
+                        <i nz-icon nzType="user" nzTheme="outline" style="padding-left: 9px; margin-right:29px; color: #999;"></i>
+                        <span>Profile Page</span>
                     </li>
+                    <li nz-menu-item class="bps-menu-item bps-menu-item-login" nzDisabled><span class="first-span login-settings"></span><span>{{'nav-layout.settings' | translate }}</span></li>
+                    <li nz-menu-item class="bps-menu-item bps-menu-item-login" nzDisabled><span class="first-span login-shuco"></span><span class="login-titles-shuco">Schüco</span></li>
+
+                    <div class="dropdown-title">Language</div>
+                    <li nz-menu-item class="bps-menu-item bps-menu-item-login" (click)="onChangeLanguage('de-DE')">
+                        <img class="languageImg" alt="Deutsche Flag" src="/assets/Images/flags/DE.png">
+                        <span class="login-titles-shuco language-title">Deutch</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16.414" height="12.121" viewBox="0 0 16.414 12.121" *ngIf="language == 'de-DE'">
+                            <g id="prefix__sps_done_icon_blue" transform="translate(-1494.293 -103.293)">
+                                <path id="prefix__Path_1273" d="M-7453-21963l5 5 10-10" data-name="Path 1273" transform="translate(8948 22072)" style="fill:none;stroke:#00a2d1;stroke-width:2px" />
+                            </g>
+                        </svg>
+                    </li>
+                    <li nz-menu-item class="bps-menu-item bps-menu-item-login" (click)="onChangeLanguage('en-US')">
+                        <img class="languageImg" alt="American Flag" src="/assets/Images/flags/UK.png">
+                        <span class="login-titles-shuco language-title">English (US)</span>    
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16.414" height="12.121" viewBox="0 0 16.414 12.121" *ngIf="language == 'en-US'">
+                            <g id="prefix__sps_done_icon_blue" transform="translate(-1494.293 -103.293)">
+                                <path id="prefix__Path_1273" d="M-7453-21963l5 5 10-10" data-name="Path 1273" transform="translate(8948 22072)" style="fill:none;stroke:#00a2d1;stroke-width:2px" />
+                            </g>
+                        </svg>
+                    </li>
+                    <li nz-menu-item class="bps-menu-item bps-menu-item-login" nzDisabled (click)="onChangeLanguage('en-UK')">
+                        <img class="languageImg" alt="American Flag" src="/assets/Images/flags/UK.png">
+                        <span class="login-titles-shuco language-title">English (UK)</span>    
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16.414" height="12.121" viewBox="0 0 16.414 12.121" *ngIf="language == 'en-UK'">
+                            <g id="prefix__sps_done_icon_blue" transform="translate(-1494.293 -103.293)">
+                                <path id="prefix__Path_1273" d="M-7453-21963l5 5 10-10" data-name="Path 1273" transform="translate(8948 22072)" style="fill:none;stroke:#00a2d1;stroke-width:2px" />
+                            </g>
+                        </svg>
+                    </li>
+                    <li nz-menu-item class="bps-menu-item bps-menu-item-login" nzDisabled (click)="onChangeLanguage('es-ES')">
+                        <img class="languageImg" alt="American Flag" src="/assets/Images/flags/UK.png">
+                        <span class="login-titles-shuco language-title">Español</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16.414" height="12.121" viewBox="0 0 16.414 12.121" *ngIf="language == 'es-ES'">
+                            <g id="prefix__sps_done_icon_blue" transform="translate(-1494.293 -103.293)">
+                                <path id="prefix__Path_1273" d="M-7453-21963l5 5 10-10" data-name="Path 1273" transform="translate(8948 22072)" style="fill:none;stroke:#00a2d1;stroke-width:2px" />
+                            </g>
+                        </svg>
+                    </li>
+                    <li nz-menu-item class="bps-menu-item bps-menu-item-login" nzDisabled (click)="onChangeLanguage('fr-FR')">
+                        <img class="languageImg" alt="American Flag" src="/assets/Images/flags/UK.png">
+                        <span class="login-titles-shuco language-title">Français</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16.414" height="12.121" viewBox="0 0 16.414 12.121" *ngIf="language == 'fr-FR'">
+                            <g id="prefix__sps_done_icon_blue" transform="translate(-1494.293 -103.293)">
+                                <path id="prefix__Path_1273" d="M-7453-21963l5 5 10-10" data-name="Path 1273" transform="translate(8948 22072)" style="fill:none;stroke:#00a2d1;stroke-width:2px" />
+                            </g>
+                        </svg>
+                    </li>
+                    <li nz-menu-item class="bps-menu-item bps-menu-item-login" nzDisabled (click)="onChangeLanguage('it-IT')">
+                        <img class="languageImg" alt="American Flag" src="/assets/Images/flags/UK.png">
+                        <span class="login-titles-shuco language-title">Italiano</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16.414" height="12.121" viewBox="0 0 16.414 12.121" *ngIf="language == 'it-IT'">
+                            <g id="prefix__sps_done_icon_blue" transform="translate(-1494.293 -103.293)">
+                                <path id="prefix__Path_1273" d="M-7453-21963l5 5 10-10" data-name="Path 1273" transform="translate(8948 22072)" style="fill:none;stroke:#00a2d1;stroke-width:2px" />
+                            </g>
+                        </svg>
+                    </li>
+                    <li nz-menu-item class="bps-menu-item bps-menu-item-login" nzDisabled (click)="onChangeLanguage('po-PO')">
+                        <img class="languageImg" alt="American Flag" src="/assets/Images/flags/UK.png">
+                        <span class="login-titles-shuco language-title">Português</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16.414" height="12.121" viewBox="0 0 16.414 12.121" *ngIf="language == 'po-PO'">
+                            <g id="prefix__sps_done_icon_blue" transform="translate(-1494.293 -103.293)">
+                                <path id="prefix__Path_1273" d="M-7453-21963l5 5 10-10" data-name="Path 1273" transform="translate(8948 22072)" style="fill:none;stroke:#00a2d1;stroke-width:2px" />
+                            </g>
+                        </svg>
+                    </li>
+                    <li nz-menu-item class="bps-menu-item bps-menu-item-login" nzDisabled (click)="onChangeLanguage('ch-CH')">
+                        <img class="languageImg" alt="American Flag" src="/assets/Images/flags/UK.png">
+                        <span class="login-titles-shuco language-title">中文</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16.414" height="12.121" viewBox="0 0 16.414 12.121" *ngIf="language == 'ch-CH'">
+                            <g id="prefix__sps_done_icon_blue" transform="translate(-1494.293 -103.293)">
+                                <path id="prefix__Path_1273" d="M-7453-21963l5 5 10-10" data-name="Path 1273" transform="translate(8948 22072)" style="fill:none;stroke:#00a2d1;stroke-width:2px" />
+                            </g>
+                        </svg>
+                    </li>
+                    <!-- PLAN -->
+                    <div class="dropdown-title">Plan</div>
+                    <li nz-menu-item class="bps-menu-item bps-menu-item-login" nzDisabled><span class="first-span login-shuco"></span><span class="login-titles-shuco">Basic</span></li>
+                    <li nz-menu-item class="bps-menu-item bps-menu-item-login" nzDisabled><span class="first-span login-shuco"></span><span class="login-titles-shuco">Intermediate</span></li>
+                    <li nz-menu-item class="bps-menu-item bps-menu-item-login">
+                        <span class="first-span login-shuco"></span>
+                        <span class="login-titles-shuco">Advance</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16.414" height="12.121" viewBox="0 0 16.414 12.121">
+                            <g id="prefix__sps_done_icon_blue" transform="translate(-1494.293 -103.293)">
+                                <path id="prefix__Path_1273" d="M-7453-21963l5 5 10-10" data-name="Path 1273" transform="translate(8948 22072)" style="fill:none;stroke:#00a2d1;stroke-width:2px" />
+                            </g>
+                        </svg>
+                    </li>
+                    <!-- LOG OUT -->
+                    <li nz-menu-item (click)="logOut()" class="bps-menu-item bps-menu-item-logout bps-menu-item-login"><span class="first-span login-logout"></span><span>{{'nav-layout.log-out' | translate }}</span></li>
                 </ul>
             </bps-dropdown-menu>
 
