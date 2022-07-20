@@ -4014,10 +4014,8 @@
                             </bps-form-control>
                         </bps-form-item>
                     </form>
-                    <form bps-form [formGroup]="validateFormForFacade"
-                        *ngIf="(unified3DModel.ProblemSetting.EnableStructural || unified3DModel.ProblemSetting.EnableThermal) &&
-                         (pickers[max(selectedPicker, 0)].fixedOpening == 'Inward' && (pickers[this.selectedPicker].operableType !== 'parallelOpening' && pickers[this.selectedPicker].operableType !== 'topHung'))">
-                        <bps-form-item style="margin-top: 15px !important;">
+                    <form bps-form [formGroup]="validateFormForFacade">
+                        <bps-form-item style="margin-top: 15px !important; margin-bottom: 15px !important;">
                             <bps-form-control>
                                 <div class="insulating-bar-container"
                                     *ngIf="unified3DModel.ProblemSetting.EnableStructural || unified3DModel.ProblemSetting.EnableThermal">
@@ -4071,7 +4069,7 @@
                                 </div>
                             </bps-form-control>
                         </bps-form-item>
-                        <bps-form-item style="margin-top: 10px !important; margin: 0 0 15px !important;">
+                        <bps-form-item style="margin-top: 10px !important; margin: 0 0 15px !important;"  *ngIf="(unified3DModel.ProblemSetting.EnableStructural || unified3DModel.ProblemSetting.EnableThermal) && (unified3DModel.ProblemSetting.ProductType === 'Window')">
                             <bps-form-control>
                                 <div class="glazing-gasket-container"
                                     *ngIf="(unified3DModel.ProblemSetting.EnableStructural || unified3DModel.ProblemSetting.EnableThermal) && (unified3DModel.ProblemSetting.ProductType === 'Window')">
