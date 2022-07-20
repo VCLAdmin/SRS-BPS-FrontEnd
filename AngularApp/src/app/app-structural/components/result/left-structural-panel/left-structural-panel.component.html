@@ -158,6 +158,20 @@
       <div class="blankData" style="line-height: 0.58; margin-top: -1px; margin-bottom: -1px;">--</div>
     </ng-template>
   </div>
+  <!-- Required -->
+  <div *ngIf="unified3DModel.ProblemSetting.ProductType !== 'Window'" class="roundBox fontUniversforSchueco-530"
+  style="margin-top:16px;">
+  <div class="roundBox-partA"
+    style="background-color: #545454; margin-top:-0.3px;margin-left:-0.05px; margin-bottom: -0.5px;">
+    <span style="margin-left:10px;">{{Required }}</span>
+  </div>
+  <div class="roundBox-partC" *ngIf="requiredDeflectionRatio else elseRequiredDeflectionRatio"
+    style="line-height: 0.58;" [ngClass]="{'colorRed':inplaneDeflectionCapacityRatio > 100}">
+    {{requiredDeflectionRatio | number : '1.0-1':language}}%</div>
+  <ng-template #elseRequiredDeflectionRatio>
+    <div class="blankData" style="line-height: 0.58; margin-top: -1px; margin-bottom: -1px;">--</div>
+  </ng-template>
+</div>
   <div *ngIf="unified3DModel.ProblemSetting.ProductType !== 'Window'" class="roundBox fontUniversforSchueco-530"
     style="margin-top:16px;">
     <div class="roundBox-partA"

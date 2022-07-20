@@ -42,6 +42,7 @@ export class LeftStructuralPanelComponent implements OnInit, OnDestroy {
   inplaneBendingCapacityRatio: number;
   outofplaneDeflectionCapacityRatio: number;
   inplaneDeflectionCapacityRatio: number;
+  requiredDeflectionRatio: number;
 
   language: string = '';
 
@@ -91,6 +92,7 @@ export class LeftStructuralPanelComponent implements OnInit, OnDestroy {
       this.inplaneBendingCapacityRatio = null;
       this.outofplaneDeflectionCapacityRatio = null;
       this.inplaneDeflectionCapacityRatio = null;
+      this.requiredDeflectionRatio = null;
       let memberList = [];
 
       if (this.unified3DModel.ProblemSetting.ProductType === "Window") {
@@ -139,6 +141,7 @@ export class LeftStructuralPanelComponent implements OnInit, OnDestroy {
     } else {
       if (this.unified3DModel && this.unified3DModel.AnalysisResult && this.unified3DModel.AnalysisResult.FacadeStructuralResult) {
         this.bpsFacadeStructuralResult = this.unified3DModel.AnalysisResult.FacadeStructuralResult;
+        console.log('bpsStructuralResult', this.bpsFacadeStructuralResult)
         this.SetStructuralResultLabels();
         if (this.resultService.selectedIntermediatesStructural) {
           this.sendSelectedIntermediate.emit(this.resultService.selectedIntermediatesStructural);
