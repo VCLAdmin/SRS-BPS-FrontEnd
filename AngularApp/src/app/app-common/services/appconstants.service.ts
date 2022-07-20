@@ -15,9 +15,9 @@ export class AppconstantsService {
   public readonly GOOGLE_API_KEY: string = 'AIzaSyCOOGBpQ9b2Y3DSed1gm4dXGTue2f2y0-E';
 
   // API Servers
-  // public readonly APP_DOMAIN: string = 'https://localhost:58119/';                           //SRS 2.0 API localhost server
+   public readonly APP_DOMAIN: string = 'https://localhost:58119/';                           //SRS 2.0 API localhost server
   // public readonly APP_DOMAIN: string = 'https://api.srs.vcldesign.com/';                    //SRS 2.0 API PROD server
-  public readonly APP_DOMAIN: string = 'https://srsapitest.vcldesign.com/';                    //SRS 2.0 Test server
+  // public readonly APP_DOMAIN: string = 'https://srsapitest.vcldesign.com/';                    //SRS 2.0 Test server
   // public readonly APP_DOMAIN: string = 'https://apiwebtest.vcldesign.com/';                 //BPS 3.6 Test server
   // public readonly APP_DOMAIN: string = 'https://apiweb.vcldesign.com/';                     //BPS 3.6 API PROD server
 
