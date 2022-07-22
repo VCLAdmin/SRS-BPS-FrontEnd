@@ -51,5 +51,6 @@ export enum PanelsModule {
   InterlockSliding,
   ReinforcementSliding,
   DoubleVentSliding,
-  StrucuralSliding
+  StrucuralSliding,
+  SystemTable
 }

@@ -6,6 +6,7 @@ export class Address {
     City: string;
     State: string;
     County: string;
+    CountryCode: string;
     PostalCode: string;
     Lat: number;
     Lng: number;

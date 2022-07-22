@@ -29,7 +29,7 @@
                         <!-- Project Name -->
                     </bps-form-control>
                 </bps-form-item>
-                <bps-form-item class="bps-form-item secondInput">
+                <bps-form-item class="bps-form-item" style="margin-bottom: 32px;">
                     <bps-form-control>
                         <bps-input-group [bpsSuffix]="suffixTemplateInfo2">
                             <input #addressText type="text" opened bps-input autocomplete="off"
@@ -49,6 +49,12 @@
                         </ng-template>
                     </bps-form-control>
                 </bps-form-item>
+                <div class="country-location">
+                    <span *ngIf="_address && _address.CountryCode && isProjectLocationValid()" class="flag-icon flag-icon-{{_address.CountryCode | lowercase }} languageImg"></span>
+                    <span *ngIf="!(_address && _address.CountryCode && isProjectLocationValid())" class="languageImg"></span>
+                    <img class="location-icon" alt="American Flag" src="/assets/Images/flags/UK.png">
+                    <span *ngIf="this._address && isProjectLocationValid()">{{this._address.City}}, {{this._address.Country}}</span>
+                </div>
                 <button bps-button bpsType="variation-3" class="new-project-submit-button"
                     style="font-family:UniversForSchueco-430Reg;" (click)="onCreate()"
                     [disabled]="!newProjectForm.valid">{{'home.create' | translate | uppercase}}</button>
@@ -75,7 +81,7 @@
                         <!-- Project Name -->
                     </bps-form-control>
                 </bps-form-item>
-                <bps-form-item class="bps-form-item secondInput">
+                <bps-form-item class="bps-form-item">
                     <bps-form-control>
                         <bps-input-group [bpsSuffix]="suffixTemplateInfo2">
                             <input #addressText type="text" opened bps-input autocomplete="off"

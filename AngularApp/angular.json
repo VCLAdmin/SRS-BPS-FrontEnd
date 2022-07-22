@@ -38,6 +38,7 @@
               "node_modules/ng-zorro-antd/ng-zorro-antd.min.css",
               "node_modules/ng-zorro-antd/resizable/style/index.min.css",
               "node_modules/animate.css/animate.min.css",
+              "node_modules/flag-icon-css/css/flag-icons.css",
               "src/styles.css"
             ],
             "scripts": []

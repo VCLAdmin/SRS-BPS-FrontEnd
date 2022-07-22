@@ -279,6 +279,8 @@ div:focus {
 .languageImg {
   height: 14.5px;
   width: 20.3px;
+  background-size: cover;
+  margin-left: 9px!important;
 }
 
 .icondropdown {
@@ -303,10 +305,6 @@ div:focus {
   align-items: center;
 }
 
-li.bps-menu-item-login img {
-  margin-left: 9px!important;
-}
-
 .language-title {
   padding-left: 24px!important;
 }
@@ -317,4 +315,9 @@ li.bps-menu-item-login svg {
 
 .first-span {
   padding-left: 9px;
+}
+
+.system-table-button {
+  margin-left: 20px;
+  width: 45px;
 }

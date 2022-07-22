@@ -179,7 +179,7 @@ export class LeftPanelComponent implements OnInit, OnDestroy, AfterViewInit {
           const val = (place.address_components![i] as any)[(addressStructure as any)[addressType]];
           if (val !== undefined) {
             if (addressType === 'sublocality_level_1') { this._address.Line2 = val; }
-            else if (addressType === 'country') { this._address.Country = val; }
+            else if (addressType === 'country') { this._address.Country = val; this._address.CountryCode = place.address_components[i].short_name;  }
             else if (addressType === 'locality') { this._address.City = val; }
             else if (addressType === 'administrative_area_level_1') { this._address.State = val; }
             else if (addressType === 'administrative_area_level_2') { this._address.County = val; }

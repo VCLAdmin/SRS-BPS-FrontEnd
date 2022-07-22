@@ -81,7 +81,7 @@ export class MainLayoutComponent implements OnInit, AfterViewInit, OnDestroy {
         this.isNavBarVisible = false;
       } else if (location.pathname == '/login') {
         this.isEmptyPage = false;
-        this.isNavBarVisible = true;
+        this.isNavBarVisible = false;
       } else if (location.pathname == '/home') {
         this.isEmptyPage = false;
         this.isNavBarVisible = true;

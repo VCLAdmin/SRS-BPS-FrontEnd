@@ -9,13 +9,17 @@
         </a> -->
         <button nz-button nz-dropdown nzTrigger="click" [nzDropdownMenu]="menu" nzPlacement="bottomCenter" 
             class="languageDropdown">
-            <img [attr.alt]="language === 'en-US' ? 'American Flag':'Deutsche Flag'" 
-            [attr.src]="language === 'en-US' ? '/assets/Images/flags/UK.png':'/assets/Images/flags/DE.png'">
+            <span *ngIf="language === 'de-DE'" class="flag-icon flag-icon-de dropdown-flag" (click)="onChangeLanguage('de-DE')"></span>
+            <span *ngIf="language === 'en-US'" class="flag-icon flag-icon-gb dropdown-flag" (click)="onChangeLanguage('en-US')"></span>
         </button>
         <nz-dropdown-menu #menu="nzDropdownMenu">
             <ul nz-menu class="dropdown-menu" role="menu">
-                <li nz-menu-item id="aChangeLanguageDE" (click)="onChangeLanguage('de-DE')"><img alt="Deutsche Flag" src="/assets/Images/flags/DE.png"></li>
-                <li nz-menu-item id="aChangeLanguageEN" (click)="onChangeLanguage('en-US')"><img alt="American Flag" src="/assets/Images/flags/UK.png"></li>
+                <li nz-menu-item id="aChangeLanguageDE" (click)="onChangeLanguage('de-DE')">
+                    <span class="flag-icon flag-icon-de dropdown-flag" (click)="onChangeLanguage('de-DE')"></span>
+                </li>
+                <li nz-menu-item id="aChangeLanguageEN" (click)="onChangeLanguage('en-US')">
+                    <span class="flag-icon flag-icon-gb dropdown-flag" (click)="onChangeLanguage('en-US')"></span>
+                </li>
             </ul>
         </nz-dropdown-menu>
     </div>

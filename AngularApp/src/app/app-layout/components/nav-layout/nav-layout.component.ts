@@ -3,7 +3,6 @@ import { NavLayoutService } from '../../services/nav-layout.service';
 import { Router, NavigationEnd } from '@angular/router';
 //import { BpsProblem } from 'src/app/app-common/models/bps-problem';
 import { ConfigureService } from 'src/app/app-structural/services/configure.service';
-import { CookieService } from 'ngx-cookie-service';
 import { BpsUnifiedProblem } from 'src/app/app-common/models/bps-unified-problem';
 import { HomeService } from 'src/app/app-common/services/home.service';
 import { Subject, Subscription } from 'rxjs';
@@ -16,12 +15,13 @@ import { LocalStorageService } from 'src/app/app-core/services/local-storage.ser
 import { AppconstantsService } from 'src/app/app-common/services/appconstants.service';
 import { saveAs } from 'file-saver';
 import { DownloadService } from '../../services/download.service';
-import { DomSanitizer } from '@angular/platform-browser';
 import { CommonService } from 'src/app/app-common/services/common.service';
 import { Feature } from 'src/app/app-core/models/feature';
 import { TranslateService } from '@ngx-translate/core';
-import { LoginService } from 'src/app/app-common/services/login.service';
 import { UnifiedModelService } from 'src/app/app-structural/services/unified-model.service';
+import { ConfigPanelsService } from 'src/app/app-structural/services/config-panels.service';
+import { PanelsModule } from 'src/app/app-structural/models/panels/panels.module';
+
 
 @Component({
   selector: 'app-nav-layout',
@@ -39,6 +39,7 @@ export class NavLayoutComponent implements OnInit, OnDestroy, AfterViewInit {
   isResultClicked: boolean = false;
   isReportClicked: boolean = false;
   isComputeClicked: boolean = false;
+  isSystemTableOpened: boolean = false;
   previousRoute: string;
   showCrossButton: boolean = false;
   computeSubjectSubscription: Subscription;
@@ -50,9 +51,9 @@ export class NavLayoutComponent implements OnInit, OnDestroy, AfterViewInit {
   language: string = '';
   feature=Feature;
   private destroy$ = new Subject<void>();
-  constructor(private downloads: DownloadService, private sanitizer: DomSanitizer, private location: Location, private appConstantService: AppconstantsService, private commonService: CommonService,
-    private configureService: ConfigureService, private localStorageService: LocalStorageService, private navLayoutService: NavLayoutService, private router: Router, private cookieService: CookieService, private homeService: HomeService, 
-    private auth: AuthService, private translate: TranslateService, private loginService: LoginService,
+  constructor(private downloads: DownloadService, private location: Location, private appConstantService: AppconstantsService, private commonService: CommonService,
+    private configureService: ConfigureService, private localStorageService: LocalStorageService, private navLayoutService: NavLayoutService, private router: Router, private homeService: HomeService, 
+    private auth: AuthService, private translate: TranslateService, private cpService: ConfigPanelsService,
     private umService: UnifiedModelService) {
     this.online$ = merge(
       of(navigator.onLine),
@@ -282,5 +283,10 @@ export class NavLayoutComponent implements OnInit, OnDestroy, AfterViewInit {
       this.translate.use(lan);
     });
     
+  }
+
+  onOpenCloseSystemTable() {
+    this.isSystemTableOpened = !this.isSystemTableOpened;
+    this.cpService.setPopout(this.isSystemTableOpened, PanelsModule.SystemTable);
   }
 }

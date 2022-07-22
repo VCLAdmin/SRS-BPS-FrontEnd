@@ -70,6 +70,7 @@ import { InterlockProfileComponent } from './components/project/side-panels/inte
 import { ReinforcementProfileComponent } from './components/project/side-panels/reinforcement-profile/reinforcement-profile.component';
 import { DoubleVentTableComponent } from './components/project/side-panels/double-vent-table/double-vent-table.component';
 import { StructuralProfileTableComponent } from './components/project/side-panels/structural-profile-table/structural-profile-table.component';
+import { SystemTableComponent } from './components/project/system-table/system-table.component';
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
 
 registerLocaleData(localeDe, 'de');
@@ -127,7 +128,8 @@ registerLocaleData(localeDe, 'de');
     InterlockProfileComponent,
     ReinforcementProfileComponent,
     DoubleVentTableComponent,
-    StructuralProfileTableComponent],
+    StructuralProfileTableComponent,
+    SystemTableComponent],
   imports: [
     CommonModule,
     NzGridModule,

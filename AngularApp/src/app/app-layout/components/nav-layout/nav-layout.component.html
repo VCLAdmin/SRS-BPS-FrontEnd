@@ -30,6 +30,11 @@
                         <!-- REPORT -->
                     </div>
                 </div>
+                <div class="nav-button system-table-button" (click)="onOpenCloseSystemTable()">
+                    <div class="nav-button-text">
+                        SYSTEM
+                    </div>
+                </div>        
             </div>
         </ng-container>
         <ng-container *appCheckPermissions="feature.MyOrder">
@@ -57,6 +62,11 @@
                         <!-- REPORT -->
                     </div>
                 </div>
+                <div class="nav-button system-table-button" (click)="onOpenCloseSystemTable()">
+                    <div class="nav-button-text">
+                        SYSTEM
+                    </div>
+                </div>        
             </div>
         </ng-template>
         <div id="nav-right-b">
@@ -108,7 +118,7 @@
 
                     <div class="dropdown-title">Language</div>
                     <li nz-menu-item class="bps-menu-item bps-menu-item-login" (click)="onChangeLanguage('de-DE')">
-                        <img class="languageImg" alt="Deutsche Flag" src="/assets/Images/flags/DE.png">
+                        <span class="flag-icon flag-icon-de languageImg"></span>
                         <span class="login-titles-shuco language-title">Deutch</span>
                         <svg xmlns="http://www.w3.org/2000/svg" width="16.414" height="12.121" viewBox="0 0 16.414 12.121" *ngIf="language == 'de-DE'">
                             <g id="prefix__sps_done_icon_blue" transform="translate(-1494.293 -103.293)">
@@ -117,7 +127,7 @@
                         </svg>
                     </li>
                     <li nz-menu-item class="bps-menu-item bps-menu-item-login" (click)="onChangeLanguage('en-US')">
-                        <img class="languageImg" alt="American Flag" src="/assets/Images/flags/UK.png">
+                        <span class="flag-icon flag-icon-us languageImg"></span>
                         <span class="login-titles-shuco language-title">English (US)</span>    
                         <svg xmlns="http://www.w3.org/2000/svg" width="16.414" height="12.121" viewBox="0 0 16.414 12.121" *ngIf="language == 'en-US'">
                             <g id="prefix__sps_done_icon_blue" transform="translate(-1494.293 -103.293)">
@@ -125,8 +135,8 @@
                             </g>
                         </svg>
                     </li>
-                    <li nz-menu-item class="bps-menu-item bps-menu-item-login" nzDisabled (click)="onChangeLanguage('en-UK')">
-                        <img class="languageImg" alt="American Flag" src="/assets/Images/flags/UK.png">
+                    <li nz-menu-item class="bps-menu-item bps-menu-item-login" nzDisabled>
+                        <span class="flag-icon flag-icon-gb languageImg"></span>
                         <span class="login-titles-shuco language-title">English (UK)</span>    
                         <svg xmlns="http://www.w3.org/2000/svg" width="16.414" height="12.121" viewBox="0 0 16.414 12.121" *ngIf="language == 'en-UK'">
                             <g id="prefix__sps_done_icon_blue" transform="translate(-1494.293 -103.293)">
@@ -134,8 +144,8 @@
                             </g>
                         </svg>
                     </li>
-                    <li nz-menu-item class="bps-menu-item bps-menu-item-login" nzDisabled (click)="onChangeLanguage('es-ES')">
-                        <img class="languageImg" alt="American Flag" src="/assets/Images/flags/UK.png">
+                    <li nz-menu-item class="bps-menu-item bps-menu-item-login" nzDisabled>
+                        <span class="flag-icon flag-icon-es languageImg"></span>
                         <span class="login-titles-shuco language-title">Español</span>
                         <svg xmlns="http://www.w3.org/2000/svg" width="16.414" height="12.121" viewBox="0 0 16.414 12.121" *ngIf="language == 'es-ES'">
                             <g id="prefix__sps_done_icon_blue" transform="translate(-1494.293 -103.293)">
@@ -143,8 +153,8 @@
                             </g>
                         </svg>
                     </li>
-                    <li nz-menu-item class="bps-menu-item bps-menu-item-login" nzDisabled (click)="onChangeLanguage('fr-FR')">
-                        <img class="languageImg" alt="American Flag" src="/assets/Images/flags/UK.png">
+                    <li nz-menu-item class="bps-menu-item bps-menu-item-login" nzDisabled>
+                        <span class="flag-icon flag-icon-fr languageImg"></span>
                         <span class="login-titles-shuco language-title">Français</span>
                         <svg xmlns="http://www.w3.org/2000/svg" width="16.414" height="12.121" viewBox="0 0 16.414 12.121" *ngIf="language == 'fr-FR'">
                             <g id="prefix__sps_done_icon_blue" transform="translate(-1494.293 -103.293)">
@@ -152,8 +162,8 @@
                             </g>
                         </svg>
                     </li>
-                    <li nz-menu-item class="bps-menu-item bps-menu-item-login" nzDisabled (click)="onChangeLanguage('it-IT')">
-                        <img class="languageImg" alt="American Flag" src="/assets/Images/flags/UK.png">
+                    <li nz-menu-item class="bps-menu-item bps-menu-item-login" nzDisabled>
+                        <span class="flag-icon flag-icon-it languageImg"></span>
                         <span class="login-titles-shuco language-title">Italiano</span>
                         <svg xmlns="http://www.w3.org/2000/svg" width="16.414" height="12.121" viewBox="0 0 16.414 12.121" *ngIf="language == 'it-IT'">
                             <g id="prefix__sps_done_icon_blue" transform="translate(-1494.293 -103.293)">
@@ -161,19 +171,19 @@
                             </g>
                         </svg>
                     </li>
-                    <li nz-menu-item class="bps-menu-item bps-menu-item-login" nzDisabled (click)="onChangeLanguage('po-PO')">
-                        <img class="languageImg" alt="American Flag" src="/assets/Images/flags/UK.png">
+                    <li nz-menu-item class="bps-menu-item bps-menu-item-login" nzDisabled>
+                        <span class="flag-icon flag-icon-pt languageImg"></span>
                         <span class="login-titles-shuco language-title">Português</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16.414" height="12.121" viewBox="0 0 16.414 12.121" *ngIf="language == 'po-PO'">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16.414" height="12.121" viewBox="0 0 16.414 12.121" *ngIf="language == 'pt-PT'">
                             <g id="prefix__sps_done_icon_blue" transform="translate(-1494.293 -103.293)">
                                 <path id="prefix__Path_1273" d="M-7453-21963l5 5 10-10" data-name="Path 1273" transform="translate(8948 22072)" style="fill:none;stroke:#00a2d1;stroke-width:2px" />
                             </g>
                         </svg>
                     </li>
-                    <li nz-menu-item class="bps-menu-item bps-menu-item-login" nzDisabled (click)="onChangeLanguage('ch-CH')">
-                        <img class="languageImg" alt="American Flag" src="/assets/Images/flags/UK.png">
+                    <li nz-menu-item class="bps-menu-item bps-menu-item-login" nzDisabled>
+                        <span class="flag-icon flag-icon-cn languageImg"></span>
                         <span class="login-titles-shuco language-title">中文</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16.414" height="12.121" viewBox="0 0 16.414 12.121" *ngIf="language == 'ch-CH'">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16.414" height="12.121" viewBox="0 0 16.414 12.121" *ngIf="language == 'cn-CN'">
                             <g id="prefix__sps_done_icon_blue" transform="translate(-1494.293 -103.293)">
                                 <path id="prefix__Path_1273" d="M-7453-21963l5 5 10-10" data-name="Path 1273" transform="translate(8948 22072)" style="fill:none;stroke:#00a2d1;stroke-width:2px" />
                             </g>

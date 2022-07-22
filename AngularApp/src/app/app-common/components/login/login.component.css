@@ -13,9 +13,10 @@
     padding: 15px 10px 2px 10px;
 }
 
-img{
-    height: 15px;
+.dropdown-flag {
+    height: 20px;
     width: 25px;
+    background-size: cover;
 }
 
 .show{

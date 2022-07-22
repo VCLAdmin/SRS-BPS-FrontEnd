@@ -77,10 +77,6 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:act
     height: 33px !important;
 }
 
-/* ::ng-deep .secondInput .ant-form-item-control {
-    height:22px !important;
-} */
-
 /* #new-project-name
 {
     margin-top: 24px;
@@ -104,7 +100,7 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:act
     width: 105px;
     height: 30px;
     text-transform: uppercase;
-    margin-left: 65px;
+    margin-left: 75px;
     margin-top: 42px;
     border-radius: 8px;
     border: none;
@@ -227,3 +223,35 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:act
     text-align: left;
     color: #c0c0c0;
 }
+
+.country-location {
+    font-family: UniversForSchueco-330;
+    font-size: 12px;
+    font-weight: 300;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    text-align: left;
+    color: #999;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    width: 255px;
+    height: 106px;
+    align-items: center;
+}
+
+.languageImg {
+    height: 25px;
+    width: 35px;
+    margin-bottom: 21px;
+    background-size: cover;
+}
+
+.location-icon {
+    height: 34px;
+    width: 20px;
+    margin-bottom: 14px;
+}
+  
