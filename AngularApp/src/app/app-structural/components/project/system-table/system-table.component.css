@@ -8,6 +8,10 @@
     background-color: #999;
     max-height: 0px;
     overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
 
 .opening-animation {

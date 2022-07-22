@@ -30,7 +30,7 @@
                         <!-- REPORT -->
                     </div>
                 </div>
-                <div class="nav-button system-table-button" (click)="onOpenCloseSystemTable()">
+                <div class="nav-button system-table-button" (click)="onOpenCloseSystemTable()" [ngClass]="{'active':isSystemTableOpened}">
                     <div class="nav-button-text">
                         SYSTEM
                     </div>
@@ -62,7 +62,7 @@
                         <!-- REPORT -->
                     </div>
                 </div>
-                <div class="nav-button system-table-button" (click)="onOpenCloseSystemTable()">
+                <div class="nav-button system-table-button" (click)="onOpenCloseSystemTable()" [ngClass]="{'active':isSystemTableOpened}">
                     <div class="nav-button-text">
                         SYSTEM
                     </div>

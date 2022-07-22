@@ -1,0 +1,112 @@
+<div class="main-container">
+    <div>
+        <div class="title">
+            Available systems
+        </div>
+        <div class="system-tables-container">
+
+
+
+
+
+            <div style="width: 365px; margin-right: 40px;">
+                <bps-table [data]="listOfDisplayData"
+                           [scroll]="{y: 'calc(100vh - 307px)', x: '330px' }"
+                           [showPagination]="false"
+                           [frontPagination]="false"
+                           (onclickRow)="log($event)"
+                           (selectionChange)="log($event)"
+                           [tableType]="'glass_profile'"
+                           class="bps-system-table"
+                           [filterPlaceholder]="'Search by system name'"
+                           (searchValueChange)="filter($event)"
+                           (sortChange)="sort($event)"
+                           [(config)]="configurationCustomGrid">
+                </bps-table>
+            </div>
+            <div style="width: 365px; margin-right: 40px;" class="hide-input-search">
+                <bps-table [data]="listOfDisplayData2"
+                           [scroll]="{y: 'calc(100vh - 307px)', x: '330px' }"
+                           [showPagination]="false"
+                           [frontPagination]="false"
+                           (onclickRow)="log($event)"
+                           (selectionChange)="log($event)"
+                           [tableType]="'glass_profile'"
+                           class="bps-system-table"
+                           [(config)]="configurationCustomGrid">
+                </bps-table>
+            </div>
+            <div style="width: 365px" class="hide-input-search">
+                <bps-table [data]="listOfDisplayData3"
+                           [scroll]="{y: 'calc(100vh - 307px)', x: '330px' }"
+                           [showPagination]="false"
+                           [frontPagination]="false"
+                           (onclickRow)="log($event)"
+                           (selectionChange)="log($event)"
+                           [tableType]="'glass_profile'"
+                           class="bps-system-table"
+                           [(config)]="configurationCustomGrid">
+                </bps-table>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+    </div>
+    <button class="confirm-button">
+        Done
+    </button>
+</div>
+
+<ng-template #rightColumnTemplate let-value="value" let-disabled="disabled" let-arrowHovered="arrowHovered" let-index="index">
+    <div>
+    <span>{{value}}</span>
+    <span (mouseenter)="onHover(index, true)"
+            *ngIf="value === '--'"
+            style="position: relative; float: right; top: -1px; margin-right: 10px"
+            (mouseleave)="onHover(index, false)"
+            (click)="preventDefault($event)">
+        <img *ngIf="!arrowHovered || disabled" src="/assets/bps-icons/sps_icon_arrowright_grey.svg" />
+        <img *ngIf="arrowHovered && !disabled" src="/assets/bps-icons/sps_icon_arrowright_blue.svg" />
+    </span>
+    </div>
+</ng-template>

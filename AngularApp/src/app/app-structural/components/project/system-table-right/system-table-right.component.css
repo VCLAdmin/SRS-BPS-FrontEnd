@@ -1,0 +1,74 @@
+.main-container {
+ background-color: #262626;
+ height: 100%;
+ padding-left: 40px;
+ padding-top: 20px;
+ display: flex;
+ flex-direction: column;
+ justify-content: space-between;
+ align-items: flex-start;
+ flex-wrap: nowrap;
+}
+
+.title {
+    text-transform: uppercase;
+    font-family: UniversForSchueco-530Med;
+    font-size: 12px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 0.75;
+    letter-spacing: normal;
+    text-align: left;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.system-tables-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+
+}
+
+.confirm-button {
+    width: 215px;
+    height: 40px;
+    margin: 30px auto 30px auto;
+    border-radius: 8px;
+    border: solid 2px #474747;
+    background-color: #363636;
+    font-family: UniversForSchueco-530Med;
+    font-size: 12px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 0.58;
+    letter-spacing: normal;
+    text-align: center;
+    color: #fff;
+    cursor: pointer;
+}
+
+::ng-deep .hide-input-search .bps-table-glass-filter {
+    display: none;
+}
+
+.hide-input-search {
+    margin-top: 19px;
+}
+
+::ng-deep
+  .bps-system-table
+  > .bps-table-glass_profile
+  > .bps-table-glass-filter {
+  margin-left: 0px !important;
+}
+
+.bps-table-example-glass {
+    width: 355px;
+  }
+  
+.subtitle-disabled {
+color: #666666;
+}
